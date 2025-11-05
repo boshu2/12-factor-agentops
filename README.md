@@ -167,54 +167,28 @@ While factors are being documented, here are the operational principles guiding 
 ### Four Pillars
 
 ```mermaid
-graph TB
-    subgraph " "
-        P1[DevOps + SRE]
-        P2[Learning Science]
-        P3[Context Engineering]
-        P4[Knowledge OS]
-    end
-
-    P1 --> P1A[Version Control]
-    P1 --> P1B[Validation Gates]
-    P1 --> P1C[Observability]
-    P1 --> P1D[Reliability Engineering]
-
-    P2 --> P2A[Research → Plan → Implement]
-    P2 --> P2B[Pattern Recognition]
-    P2 --> P2C[Failure Analysis]
-    P2 --> P2D[Progressive Complexity]
-
-    P3 --> P3A[JIT Loading]
-    P3 --> P3B[Progressive Disclosure]
-    P3 --> P3C[40% Rule]
-    P3 --> P3D[Context Preservation]
-
-    P4 --> P4A[Commits = Memory]
-    P4 --> P4B[Branches = Isolation]
-    P4 --> P4C[History = Audit Trail]
-    P4 --> P4D[Patterns Compound]
-
-    style P1 fill:#1d3557,stroke:#333,stroke-width:3px,color:#fff
-    style P2 fill:#457b9d,stroke:#333,stroke-width:3px,color:#fff
-    style P3 fill:#e63946,stroke:#333,stroke-width:3px,color:#fff
-    style P4 fill:#6a4c93,stroke:#333,stroke-width:3px,color:#fff
-    style P1A fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
-    style P1B fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
-    style P1C fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
-    style P1D fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
-    style P2A fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
-    style P2B fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
-    style P2C fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
-    style P2D fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
-    style P3A fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
-    style P3B fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
-    style P3C fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
-    style P3D fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
-    style P4A fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
-    style P4B fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
-    style P4C fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
-    style P4D fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
+mindmap
+  root((Four Pillars))
+    DevOps + SRE
+      Version Control
+      Validation Gates
+      Observability
+      Reliability Engineering
+    Learning Science
+      Research → Plan → Implement
+      Pattern Recognition
+      Failure Analysis
+      Progressive Complexity
+    Context Engineering
+      JIT Loading
+      Progressive Disclosure
+      40% Rule
+      Context Preservation
+    Knowledge OS
+      Commits = Memory
+      Branches = Isolation
+      History = Audit Trail
+      Patterns Compound
 ```
 
 **DevOps + SRE:** Apply proven infrastructure practices—version control, validation gates, observability, reliability engineering.
