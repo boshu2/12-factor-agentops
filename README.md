@@ -118,6 +118,34 @@ Not prescriptive. Exploratory. Some will work universally, some won't transfer.
 
 ---
 
+## The Framework
+
+While factors are being documented, here are the operational principles guiding this work:
+
+### Four Pillars
+
+**DevOps + SRE:** Apply proven infrastructure practices—version control, validation gates, observability, reliability engineering.
+
+**Learning Science:** Research → Plan → Implement. Pattern recognition, failure analysis, progressive complexity.
+
+**Context Engineering:** JIT loading, progressive disclosure, the 40% rule. Manage cognitive load to avoid collapse.
+
+**Knowledge OS:** Git as institutional memory. Commits = memory writes. Branches = isolation. History = audit trail.
+
+### Five Laws of AgentOps
+
+All work follows these mandatory practices:
+
+- **Law 1: ALWAYS Extract Learnings** — Patterns are valuable. One-time solutions are not.
+- **Law 2: ALWAYS Improve Self or System** — Stagnation is regression. Continuous improvement is mandatory.
+- **Law 3: ALWAYS Document Context for Future** — Future you (or future contributors) will thank you.
+- **Law 4: ALWAYS Validate Before Execute** — Prevention is cheaper than recovery.
+- **Law 5: ALWAYS Share Patterns Publicly** — Rising tide lifts all boats.
+
+> See [CLAUDE.md](CLAUDE.md) for full details on the AgentOps principles and contribution guidelines.
+
+---
+
 ## What's Being Documented
 
 Publishing factors as they stabilize and show promise of generalizing. Early patterns first, then refinements.
