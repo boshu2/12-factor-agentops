@@ -48,6 +48,20 @@ That's it. We want your honest experience.
 
 ---
 
+## The Five Laws (Governance Model)
+
+All contributions should follow the Five Laws of AgentOps:
+
+1. **ALWAYS Extract Learnings** - Document patterns discovered, capture decision rationale, analyze failures for prevention
+2. **ALWAYS Improve Self or System** - Identify at least 1 improvement opportunity, specify impact, propose implementation
+3. **ALWAYS Document Context for Future** - Why this work was needed, what was done, reusable insights, quantified impact
+4. **ALWAYS Validate Before Execute** - Preview changes, test in safe environments, validate configuration, human review at critical points
+5. **ALWAYS Share Patterns Publicly** - Extract generalizable insights, document what worked AND what didn't, help others avoid your mistakes
+
+See [CLAUDE.md](CLAUDE.md) for full details on the governance framework.
+
+---
+
 ## How to Contribute
 
 ### Option 1: Open an Issue
@@ -93,6 +107,13 @@ Did it work? How well? Metrics? Failures?
 - Does this work outside your domain?
 - What constraints matter?
 - What would break this?
+
+**Laws Compliance**
+- Law 1 (Learning): [Pattern extracted]
+- Law 2 (Improvement): [How this improves operations]
+- Law 3 (Context): [Why this matters]
+- Law 4 (Validation): [How you tested this]
+- Law 5 (Sharing): [Insights for others]
 
 **Questions for Community**
 What do you want to learn from others?
