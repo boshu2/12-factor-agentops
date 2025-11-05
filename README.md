@@ -34,6 +34,33 @@ I operate both at production scale in federal, security-hardened environments.
 
 **I'm learning patterns from both sides of the AI equation, and sharing what's working.**
 
+```mermaid
+graph TD
+    A[Infrastructure FOR AI] -->|Building| C[The Intersection]
+    B[AI FOR Infrastructure] -->|Using| C
+    C --> D[AgentOps Patterns]
+
+    A1[GPU/HPC Platforms] --> A
+    A2[20+ K8s Clusters] --> A
+    A3[Federal/DoD Scale] --> A
+
+    B1[GitOps Automation] --> B
+    B2[Policy Validation] --> B
+    B3[Intelligent Runbooks] --> B
+
+    D --> E[Production-Tested]
+    D --> F[Operationally Rigorous]
+    D --> G[Context-Validated]
+
+    style C fill:#e63946,stroke:#333,stroke-width:4px,color:#fff
+    style D fill:#1d3557,stroke:#333,stroke-width:2px,color:#fff
+    style A fill:#f1faee,stroke:#333,stroke-width:2px,color:#000
+    style B fill:#f1faee,stroke:#333,stroke-width:2px,color:#000
+    style E fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style F fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style G fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+```
+
 ---
 
 ## The Problem
@@ -83,10 +110,25 @@ The hypothesis: operational discipline transfers. DevOps patterns that work for 
 
 ## The Experiment
 
-```
-Production Operations → Extract Patterns → Document → Validate → Refine
-         ↓                     ↓              ↓          ↓          ↓
-   (What works?)        (Why works?)    (Share it)  (Test it)  (Improve it)
+```mermaid
+graph LR
+    A[Production Operations] -->|Extract| B[Patterns]
+    B -->|Document| C[Share]
+    C -->|Validate| D[Test]
+    D -->|Refine| E[Improve]
+    E -->|Apply| A
+
+    A1[What works?] -.-> A
+    B1[Why works?] -.-> B
+    C1[Share it] -.-> C
+    D1[Test it] -.-> D
+    E1[Improve it] -.-> E
+
+    style A fill:#1d3557,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#457b9d,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#e63946,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#6a4c93,stroke:#333,stroke-width:2px,color:#fff
+    style E fill:#d4a017,stroke:#333,stroke-width:2px,color:#000
 ```
 
 Here's what I'm doing:
@@ -124,6 +166,57 @@ While factors are being documented, here are the operational principles guiding 
 
 ### Four Pillars
 
+```mermaid
+graph TB
+    subgraph " "
+        P1[DevOps + SRE]
+        P2[Learning Science]
+        P3[Context Engineering]
+        P4[Knowledge OS]
+    end
+
+    P1 --> P1A[Version Control]
+    P1 --> P1B[Validation Gates]
+    P1 --> P1C[Observability]
+    P1 --> P1D[Reliability Engineering]
+
+    P2 --> P2A[Research → Plan → Implement]
+    P2 --> P2B[Pattern Recognition]
+    P2 --> P2C[Failure Analysis]
+    P2 --> P2D[Progressive Complexity]
+
+    P3 --> P3A[JIT Loading]
+    P3 --> P3B[Progressive Disclosure]
+    P3 --> P3C[40% Rule]
+    P3 --> P3D[Context Preservation]
+
+    P4 --> P4A[Commits = Memory]
+    P4 --> P4B[Branches = Isolation]
+    P4 --> P4C[History = Audit Trail]
+    P4 --> P4D[Patterns Compound]
+
+    style P1 fill:#1d3557,stroke:#333,stroke-width:3px,color:#fff
+    style P2 fill:#457b9d,stroke:#333,stroke-width:3px,color:#fff
+    style P3 fill:#e63946,stroke:#333,stroke-width:3px,color:#fff
+    style P4 fill:#6a4c93,stroke:#333,stroke-width:3px,color:#fff
+    style P1A fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style P1B fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style P1C fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style P1D fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style P2A fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style P2B fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style P2C fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style P2D fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style P3A fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
+    style P3B fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
+    style P3C fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
+    style P3D fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
+    style P4A fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
+    style P4B fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
+    style P4C fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
+    style P4D fill:#f1faee,stroke:#333,stroke-width:1px,color:#000
+```
+
 **DevOps + SRE:** Apply proven infrastructure practices—version control, validation gates, observability, reliability engineering.
 
 **Learning Science:** Research → Plan → Implement. Pattern recognition, failure analysis, progressive complexity.
@@ -135,6 +228,29 @@ While factors are being documented, here are the operational principles guiding 
 ### Five Laws of AgentOps
 
 All work follows these mandatory practices:
+
+```mermaid
+graph LR
+    A[Work/Task] --> L1[Law 1: Extract Learnings]
+    L1 --> L2[Law 2: Improve System]
+    L2 --> L3[Law 3: Document Context]
+    L3 --> L4[Law 4: Validate Before Execute]
+    L4 --> L5[Law 5: Share Patterns]
+    L5 --> A
+
+    L1A[Patterns are valuable<br/>One-time solutions are not] -.-> L1
+    L2A[Stagnation is regression<br/>Improvement is mandatory] -.-> L2
+    L3A[Future you will thank you<br/>Context for continuity] -.-> L3
+    L4A[Prevention > Recovery<br/>Test before deploy] -.-> L4
+    L5A[Rising tide lifts all boats<br/>Build collective knowledge] -.-> L5
+
+    style L1 fill:#e63946,stroke:#333,stroke-width:2px,color:#fff
+    style L2 fill:#d4a017,stroke:#333,stroke-width:2px,color:#000
+    style L3 fill:#6a4c93,stroke:#333,stroke-width:2px,color:#fff
+    style L4 fill:#2d6a4f,stroke:#333,stroke-width:2px,color:#fff
+    style L5 fill:#1d3557,stroke:#333,stroke-width:2px,color:#fff
+    style A fill:#495057,stroke:#333,stroke-width:3px,color:#fff
+```
 
 - **Law 1: ALWAYS Extract Learnings** — Patterns are valuable. One-time solutions are not.
 - **Law 2: ALWAYS Improve Self or System** — Stagnation is regression. Continuous improvement is mandatory.
@@ -160,6 +276,20 @@ Publishing factors as they stabilize and show promise of generalizing. Early pat
 | **IV: Validation Gates** | Test before deploy, fail fast | Exploring | Works for infrastructure, testing with agents |
 | **V: Observability** | Metrics, logs, traces | Exploring | Standard DevOps, adapting for agent context |
 | **VI: Session Continuity** | Pause/resume, state preservation | Exploring | Unique to agents, figuring out patterns |
+
+```mermaid
+timeline
+    title Framework Development Roadmap
+    section Foundation
+        Factor I: Git as Knowledge OS : Commits as memory : Branches as isolation : Production-tested
+        Factor II: Context Engineering : JIT loading : 40% rule : Proven in 12-Factor Agents
+    section Core Operations
+        Factor III: Small Specialized Agents : Single responsibility : Composable workflows : Testing generalization
+        Factor IV: Validation Gates : Test before deploy : Fail fast : Adapting DevOps
+    section Reliability
+        Factor V: Observability : Metrics and traces : Logs : Standard DevOps adaptation
+        Factor VI: Session Continuity : Pause and resume : State preservation : Agent-specific patterns
+```
 
 > [!TIP]
 > **Watch this repo** to see factors as they're published and help validate them
