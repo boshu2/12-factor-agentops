@@ -111,8 +111,7 @@ Git as operating system for institutional memory:
 
 ```
 12-factor-agentops/
-├── README.md              # Framework overview and positioning
-├── POSITIONING.md         # Messaging and philosophy guide
+├── README.md              # Framework overview
 ├── CLAUDE.md              # This file - AgentOps principles
 ├── LICENSE                # Apache 2.0 (code) + CC BY-SA 4.0 (docs)
 ├── content/               # (Coming) Factor documentation
