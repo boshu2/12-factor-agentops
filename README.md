@@ -52,13 +52,13 @@ graph TD
     D --> F[Operationally Rigorous]
     D --> G[Context-Validated]
 
-    style C fill:#e63946,stroke:#333,stroke-width:4px,color:#fff
-    style D fill:#1d3557,stroke:#333,stroke-width:2px,color:#fff
-    style A fill:#f1faee,stroke:#333,stroke-width:2px,color:#000
-    style B fill:#f1faee,stroke:#333,stroke-width:2px,color:#000
-    style E fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
-    style F fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
-    style G fill:#a8dadc,stroke:#333,stroke-width:1px,color:#000
+    style C fill:#ffd6e0,stroke:#000,stroke-width:4px,color:#000
+    style D fill:#c5e3f6,stroke:#000,stroke-width:2px,color:#000
+    style A fill:#fff9e3,stroke:#000,stroke-width:2px,color:#000
+    style B fill:#fff9e3,stroke:#000,stroke-width:2px,color:#000
+    style E fill:#d4f1dd,stroke:#000,stroke-width:1px,color:#000
+    style F fill:#d4f1dd,stroke:#000,stroke-width:1px,color:#000
+    style G fill:#d4f1dd,stroke:#000,stroke-width:1px,color:#000
 ```
 
 ---
@@ -124,11 +124,11 @@ graph LR
     D1[Test it] -.-> D
     E1[Improve it] -.-> E
 
-    style A fill:#1d3557,stroke:#333,stroke-width:2px,color:#fff
-    style B fill:#457b9d,stroke:#333,stroke-width:2px,color:#fff
-    style C fill:#e63946,stroke:#333,stroke-width:2px,color:#fff
-    style D fill:#6a4c93,stroke:#333,stroke-width:2px,color:#fff
-    style E fill:#d4a017,stroke:#333,stroke-width:2px,color:#000
+    style A fill:#c5e3f6,stroke:#000,stroke-width:2px,color:#000
+    style B fill:#d4f1dd,stroke:#000,stroke-width:2px,color:#000
+    style C fill:#ffd6e0,stroke:#000,stroke-width:2px,color:#000
+    style D fill:#e5d4f1,stroke:#000,stroke-width:2px,color:#000
+    style E fill:#fff4cc,stroke:#000,stroke-width:2px,color:#000
 ```
 
 Here's what I'm doing:
@@ -218,12 +218,12 @@ graph LR
     L4A[Prevention > Recovery<br/>Test before deploy] -.-> L4
     L5A[Rising tide lifts all boats<br/>Build collective knowledge] -.-> L5
 
-    style L1 fill:#e63946,stroke:#333,stroke-width:2px,color:#fff
-    style L2 fill:#d4a017,stroke:#333,stroke-width:2px,color:#000
-    style L3 fill:#6a4c93,stroke:#333,stroke-width:2px,color:#fff
-    style L4 fill:#2d6a4f,stroke:#333,stroke-width:2px,color:#fff
-    style L5 fill:#1d3557,stroke:#333,stroke-width:2px,color:#fff
-    style A fill:#495057,stroke:#333,stroke-width:3px,color:#fff
+    style L1 fill:#ffd6e0,stroke:#000,stroke-width:2px,color:#000
+    style L2 fill:#fff4cc,stroke:#000,stroke-width:2px,color:#000
+    style L3 fill:#e5d4f1,stroke:#000,stroke-width:2px,color:#000
+    style L4 fill:#d4f1dd,stroke:#000,stroke-width:2px,color:#000
+    style L5 fill:#c5e3f6,stroke:#000,stroke-width:2px,color:#000
+    style A fill:#e6e6e6,stroke:#000,stroke-width:3px,color:#000
 ```
 
 - **Law 1: ALWAYS Extract Learnings** — Patterns are valuable. One-time solutions are not.
