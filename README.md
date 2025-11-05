@@ -167,6 +167,7 @@ While factors are being documented, here are the operational principles guiding 
 ### Four Pillars
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fff9e3','primaryTextColor':'#000','primaryBorderColor':'#000','lineColor':'#000','secondaryColor':'#c5e3f6','tertiaryColor':'#ffd6e0'}}}%%
 mindmap
   root((Four Pillars))
     DevOps + SRE
