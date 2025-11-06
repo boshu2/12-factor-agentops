@@ -10,13 +10,15 @@ Category: Framework, Documentation, Research
 
 <div align="center">
 
-**Operational framework for AI agents — philosophy, patterns, and principles**
+**The philosophy behind orchestrating AI agent operating systems**
 
 <a href="https://www.apache.org/licenses/LICENSE-2.0">
     <img src="https://img.shields.io/badge/Code-Apache%202.0-blue.svg" alt="Code License: Apache 2.0"></a>
 <a href="https://creativecommons.org/licenses/by-sa/4.0/">
     <img src="https://img.shields.io/badge/Content-CC%20BY--SA%204.0-lightgrey.svg" alt="Content License: CC BY-SA 4.0"></a>
 <img src="https://img.shields.io/badge/Status-Alpha-orange.svg" alt="Status: Alpha">
+
+*Like 12-factor apps defined SaaS operations, we're defining agent orchestration*
 
 </div>
 
@@ -36,15 +38,40 @@ Category: Framework, Documentation, Research
 
 ## What Is This?
 
-**12-Factor AgentOps** is an operational framework for running AI agents with the same discipline you apply to production infrastructure.
+**12-Factor AgentOps** is the academic/philosophical foundation for **orchestrating AI agent operating systems**.
+
+Like Kubernetes orchestrates containers, agentops orchestrates agent systems. This repository documents WHY that matters and HOW it works.
+
+**The Natural Evolution:**
+
+```
+Phase 1: Build Agent Operating Systems
+  ├── agent-os (spec-first development)
+  ├── your team's OS (research-plan-implement)
+  └── community OS flavors
+
+Phase 2: Orchestrate Them Together ← WE ARE HERE
+  ├── agentops (the orchestrator)
+  ├── 12-factor-agentops (the philosophy)
+  └── Proven patterns that work across systems
+
+Phase 3: Ecosystem Flourishes
+  ├── Multiple OS choices
+  ├── Universal orchestration layer
+  └── Community contribution
+```
+
+**We're not building an OS competitor—we're building the orchestration layer.**
 
 Inspired by:
 - [12-Factor Apps](https://12factor.net) — Operational discipline for SaaS
 - [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) — Reliability for LLM applications
+- Kubernetes — Orchestration for containers
 - Production DevOps/SRE practices — Proven patterns from infrastructure operations
 
 Applied to:
-- **Operating AI agents at scale** (not just building them)
+- **Orchestrating multiple agent systems** (not building one system)
+- **DevOps lifecycle for AI agents** (CI/CD, monitoring, parallel execution)
 - **Infrastructure + AI intersection** (building FOR AI, using AI FOR infrastructure)
 - **Production-grade reliability** (mission-critical, high-stakes environments)
 
@@ -401,30 +428,53 @@ Framework for building reliable LLM applications:
 
 ---
 
+### agent-os: Agent Operating Systems
+
+**[agent-os](https://github.com/agent-os)** independently discovered that AI agents need operating systems.
+
+They built one focused on spec-first product development. Excellent work on the OS layer.
+
+**Their focus:** How ONE agent system works internally
+**Our focus:** How MULTIPLE agent systems work together (orchestration)
+
+**We're complementary, not competitive:**
+- agent-os → Operating system (spec-first workflows)
+- agentops → Orchestrator (DevOps lifecycle, parallel execution, service mesh)
+- 12-factor-agentops → Philosophy (why orchestration matters)
+
+---
+
 ### This Project's Focus
 
-**12-Factor AgentOps** extends to **operations**:
+**12-Factor AgentOps** focuses on **orchestration**:
 - Not just building agents ([12-Factor Agents](https://github.com/humanlayer/12-factor-agents) covers this)
 - Not just building apps ([12-Factor Apps](https://12factor.net) covers this)
-- **Operating AI agents and infrastructure at production scale**
+- Not just building ONE agent system ([agent-os](https://github.com/agent-os) covers this)
+- **Orchestrating MULTIPLE agent systems at production scale**
 
-We document patterns from the intersection: infrastructure FOR AI + AI FOR infrastructure.
+We document patterns from the intersection: infrastructure FOR AI + AI FOR infrastructure + orchestration OF agent systems.
 
 ---
 
 ## Related Work
 
-**If you're building AI agents:**
+**If you're building AI agent operating systems:**
+- [agent-os](https://github.com/agent-os) — Spec-first development OS for agents
 - [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) by [@dexhorthy](https://github.com/dexhorthy) — Building reliable LLM applications
 - [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) by Anthropic — Agent design patterns
 - [The Outer Loop](https://theouterloop.substack.com) by Dex Horthy — AI agent development insights
+
+**If you're orchestrating systems:**
+- [Kubernetes](https://kubernetes.io) — Container orchestration (our direct inspiration)
+- [Docker Swarm](https://docs.docker.com/engine/swarm/) — Container cluster management
+- [Nomad](https://www.nomadproject.io/) — Workload orchestrator
 
 **If you're operating infrastructure:**
 - [12-Factor Apps](https://12factor.net) — SaaS application methodology
 - [Site Reliability Engineering](https://sre.google/books/) — Google's SRE practices
 - [DevOps Handbook](https://itrevolution.com/product/the-devops-handbook-second-edition/) — DevOps principles
 
-**This framework sits at the intersection.**
+**This framework sits at the intersection: OS building + orchestration + operations.**
 
 ---
 
