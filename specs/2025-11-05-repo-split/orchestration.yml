@@ -1,0 +1,33 @@
+task_groups:
+  - name: Create agentops Repository
+    claude_code_subagent: general-purpose
+  - name: Basic Structure
+    claude_code_subagent: general-purpose
+  - name: Constitutional Framework
+    claude_code_subagent: general-purpose
+  - name: CI/CD Setup
+    claude_code_subagent: general-purpose
+  - name: Cross-References
+    claude_code_subagent: general-purpose
+  - name: Agent Migration
+    claude_code_subagent: general-purpose
+  - name: Command Migration
+    claude_code_subagent: general-purpose
+  - name: How-To Guide Creation
+    claude_code_subagent: general-purpose
+  - name: Create Foundations
+    claude_code_subagent: general-purpose
+  - name: Document Patterns
+    claude_code_subagent: general-purpose
+  - name: Refactor 12-factor-agentops
+    claude_code_subagent: general-purpose
+  - name: User Testing
+    claude_code_subagent: general-purpose
+  - name: Documentation Polish
+    claude_code_subagent: general-purpose
+  - name: Contributing Guides
+    claude_code_subagent: general-purpose
+  - name: Migration Guide
+    claude_code_subagent: general-purpose
+  - name: Announcement Preparation
+    claude_code_subagent: general-purpose

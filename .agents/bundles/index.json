@@ -1,0 +1,24 @@
+{
+  "bundles": [
+    {
+      "name": "repo-split-phase2-completion",
+      "created": "2025-11-06T10:00:00Z",
+      "size_tokens": 2000,
+      "size_lines": 410,
+      "tags": ["repo-split", "documentation", "foundations", "patterns", "refactoring", "phase2"],
+      "uuid": "bundle-repo-split-phase2-2025-11-06",
+      "source": "implementation completion",
+      "phase": "Phase 2 (Content Migration)",
+      "compression_ratio": "75:1",
+      "description": "Complete context for 12-factor-agentops Phase 2 work: foundations, patterns, refactoring, and polish",
+      "task_groups_completed": ["TG9", "TG10", "TG11", "TG13"],
+      "files_affected": 13,
+      "total_lines": 8086
+    }
+  ],
+  "metadata": {
+    "last_updated": "2025-11-06T10:00:00Z",
+    "total_bundles": 1,
+    "repository": "12-factor-agentops"
+  }
+}

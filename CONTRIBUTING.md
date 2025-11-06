@@ -4,6 +4,24 @@ Thank you for being here. This is early-stage exploration, and we need diverse p
 
 ---
 
+## Which Repository?
+
+### ✅ Contribute to 12-factor-agentops (this repo) if you want to:
+- Propose new operational patterns or refine existing ones
+- Share research or case studies
+- Contribute to theoretical foundations (Four Pillars, Five Laws)
+- Improve framework documentation
+
+### ❌ Contribute to [agentops](https://github.com/boshu2/agentops) if you want to:
+- Create new agents or commands
+- Write how-to guides or tutorials
+- Share implementation examples
+- Report or fix bugs in tools
+
+**Not sure?** When in doubt, open an issue in the repo that seems closest and we'll help route it.
+
+---
+
 ## What We're Looking For
 
 **Real production patterns.** Not theory, not slides, not what you think might work.
