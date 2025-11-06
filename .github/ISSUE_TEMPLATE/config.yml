@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Implementation Help
+    url: https://github.com/boshu2/agentops/issues
+    about: For questions about using agents or commands, visit the agentops repository
+  - name: Community Discussions
+    url: https://github.com/boshu2/12-factor-agentops/discussions
+    about: Ask questions, share ideas, or discuss the framework with the community

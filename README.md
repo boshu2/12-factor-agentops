@@ -1,3 +1,11 @@
+<!--
+SEO Metadata:
+Title: 12-Factor AgentOps - Operational Framework for AI Agents
+Description: Apply DevOps + SRE principles to AI agent operations. Philosophy, patterns, and research for reliable, observable, and improving agent systems.
+Keywords: agentops, ai agents, devops, sre, operational patterns, context engineering, knowledge os, agent orchestration, 12-factor
+Category: Framework, Documentation, Research
+-->
+
 # 12-Factor AgentOps
 
 <div align="center">

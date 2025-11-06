@@ -85,14 +85,24 @@ See [CLAUDE.md](CLAUDE.md) for full details on the governance framework.
 ### Option 1: Open an Issue
 **Quickest way to start a conversation.**
 
-```
-Title: [Pattern] Operating agents in healthcare compliance
+We provide structured issue templates to make contributions easier:
 
-Description:
+- **[Pattern Proposal](.github/ISSUE_TEMPLATE/pattern-proposal.md)** - Propose a new operational pattern with production validation
+- **[Case Study Submission](.github/ISSUE_TEMPLATE/case-study-submission.md)** - Share validated results from applying AgentOps patterns
+- **[Research Contribution](.github/ISSUE_TEMPLATE/research-contribution.md)** - Contribute academic research or theoretical grounding
+- **[Bug Report](.github/ISSUE_TEMPLATE/bug-report.md)** - Report documentation issues, broken links, or content errors
+
+**Example using Pattern Proposal template:**
+```
+Title: [PATTERN] Operating agents in healthcare compliance
+
+Follow the Pattern Proposal template to document:
 - Context: Healthcare IT, 50+ federal compliance rules
 - Pattern: How we validate agent actions pre-execution
 - Outcome: 99.7% compliance, no regulatory violations
 - Why share: Works in constrained environments, might generalize
+- Empirical evidence: Metrics from production use
+- Theoretical grounding: Which Four Pillars support this
 ```
 
 ### Option 2: Submit a Pattern (Pull Request)
