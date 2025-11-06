@@ -32,7 +32,7 @@ Category: Framework, Documentation, Research
 > **Status: Alpha** - Patterns validated in production (federal infrastructure). Testing generalization to other domains.
 
 > [!NOTE]
-> **Built with AI Agents** - This framework was developed using [Claude Code](https://claude.ai/claude-code) and documents operational patterns from AI-powered GitOps workflows. We practice what we document.
+> **Built with AI Agents** - This framework was developed using [Claude Code](https://www.anthropic.com/claude-code) and documents operational patterns from AI-powered GitOps workflows. We practice what we document.
 
 ---
 

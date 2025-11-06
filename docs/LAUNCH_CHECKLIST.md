@@ -542,7 +542,7 @@
 ### External
 - 12-Factor Apps: https://12factor.net
 - 12-Factor Agents: https://github.com/humanlayer/12-factor-agents
-- Claude Code: https://claude.ai/claude-code
+- Claude Code: https://www.anthropic.com/claude-code
 
 ---
 

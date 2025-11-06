@@ -729,7 +729,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for full guidelines.
 
 ## Built With AI Agents
 
-This framework was developed using [Claude Code](https://claude.ai/claude-code).
+This framework was developed using [Claude Code](https://www.anthropic.com/claude-code).
 
 **Meta validation:**
 - 9.5 hours to build (vs. 34 estimated)

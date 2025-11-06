@@ -245,7 +245,7 @@ Absolutely! Many contributions span both:
 
 ## Acknowledgments
 
-**This framework was built with AI agents** using [Claude Code](https://claude.ai/claude-code). We practice what we document.
+**This framework was built with AI agents** using [Claude Code](https://www.anthropic.com/claude-code). We practice what we document.
 
 **Built on the shoulders of giants:**
 - [12-Factor Apps](https://12factor.net) - Inspiration for operational discipline

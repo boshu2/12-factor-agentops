@@ -360,7 +360,7 @@ Knowledge: 200 apps + framework + best practices
 **Impact:**
 [What value was delivered? Time saved, quality improved?]
 
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
+🤖 Generated with [Claude Code](https://www.anthropic.com/claude-code)
 Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
