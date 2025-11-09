@@ -6,7 +6,15 @@ This directory contains complete, working examples showing how to apply 12-Facto
 
 ---
 
-## Available Domains
+## Available Profiles
+
+### Core Reference Profile (START HERE)
+
+| Profile | Use Case | Best For |
+|---------|----------|----------|
+| [**reference/**](./reference/) ⭐ | Universal meta-profile demonstrating ALL 12 factors | Everyone - start here, then customize for your domain |
+
+### Domain-Specific Profiles
 
 | Domain | Use Case | Best For |
 |--------|----------|----------|
@@ -14,6 +22,29 @@ This directory contains complete, working examples showing how to apply 12-Facto
 | [**devops/**](./devops/) | CI/CD pipelines, security scanning, deployments | DevOps engineers automating software delivery |
 | [**sre/**](./sre/) | Monitoring, incidents, SLOs, reliability | SRE teams ensuring service reliability |
 | [**web-development/**](./web-development/) | Frontend apps, APIs, full-stack development | Web developers building applications |
+
+---
+
+## Reference vs Domain Profiles
+
+**Reference Profile:**
+- ⭐ **Start here** - Universal foundation demonstrating ALL 12 factors
+- 🎯 Domain-agnostic - Works for code, docs, research, any work
+- 📚 Learning tool - Understand how factors integrate
+- 🔧 Customization base - Foundation you adapt to your domain
+
+**Domain Profiles:**
+- 🚀 Pre-customized - Reference profile + domain-specific tools
+- ⚡ Ready to use - Copy-paste for your domain
+- 💡 Examples - See how others adapted reference
+- 🎨 Inspiration - Patterns for your own customization
+
+**Relationship:** Domain Profiles = Reference Profile + Domain Customization
+
+**Recommended path:**
+1. Read [reference/](./reference/) - Understand the core
+2. Try reference profile - Experience complete workflow
+3. Copy domain profile (or customize reference) - Apply to your work
 
 ---
 
