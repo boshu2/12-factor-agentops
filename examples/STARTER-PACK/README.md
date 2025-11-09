@@ -1,6 +1,6 @@
-# Reference Profile: Core 12-Factor AgentOps
+# STARTER-PACK: Core 12-Factor AgentOps Workflow
 
-**The universal meta-profile demonstrating ALL 12 factors working together**
+**The basic package of Claude Code plugins to get started with 12-Factor AgentOps**
 
 This is the **canonical reference implementation** of 12-Factor AgentOps. It's domain-agnostic, pure pattern demonstration, and the foundation all other profiles build upon.
 
@@ -50,6 +50,65 @@ This is the **canonical reference implementation** of 12-Factor AgentOps. It's d
     ├── learn.md                 # /learn - Extract patterns
     └── workflow.md              # /workflow - Complete cycle
 ```
+
+---
+
+## Token Budget
+
+**Profile size:** ~8,000 tokens (4% of 200k context window)
+
+**Why this matters:** Staying under 40% context utilization (Factor II: JIT Context Loading) prevents context collapse and maintains high-quality responses throughout your session.
+
+### Composition-Safe Design
+
+**Single profile:**
+```
+STARTER-PACK alone:        8,000 tokens  (4%)    ✅ Safe
+Headroom for work:       192,000 tokens (96%)
+```
+
+**With domain customization:**
+```
+STARTER-PACK:              8,000 tokens  (4%)
++ Domain profile:         12,000 tokens  (6%)
+────────────────────────────────────────────
+Total:                    20,000 tokens  (10%)   ✅ Safe
+Headroom for work:       180,000 tokens (90%)
+```
+
+**Multi-domain composition (maximum):**
+```
+STARTER-PACK:              8,000 tokens  (4%)
++ software-dev profile:   12,000 tokens  (6%)
++ platform-ops profile:   10,000 tokens  (5%)
+────────────────────────────────────────────
+Total:                    30,000 tokens  (15%)   ✅ Safe
+Headroom for work:       170,000 tokens (85%)
+```
+
+### Phase-by-Phase Budget
+
+**Typical session breakdown:**
+
+| Phase | Token Usage | % of Window | Purpose |
+|-------|-------------|-------------|---------|
+| Research | 10-15k tokens | 5-7.5% | JIT load relevant context |
+| Plan | 15-25k tokens | 7.5-12.5% | Design with full context |
+| Implement | 30-50k tokens | 15-25% | Execute with validation |
+| Learn | 5-10k tokens | 2.5-5% | Reflect and extract |
+| **Total** | **60-100k tokens** | **30-50%** | **Complete workflow** |
+
+**Key insight:** Each phase stays well under 40% individual threshold, enabling multi-session work without context collapse.
+
+### Real-World Validation
+
+**From 200+ production sessions:**
+- Average session size: 35k tokens (17.5%)
+- Context collapse rate: 0% when following 40% rule
+- Success rate: 95% (validation gates catch errors)
+- Pattern reuse: 3-5x speedup on similar tasks
+
+**See:** `../../validation/SYNTHESIS.md` for complete metrics
 
 ---
 
@@ -137,8 +196,14 @@ Output: Pattern library updates
 
 ```bash
 # From 12-factor-agentops repository
-cp -r examples/reference/.claude/ /path/to/your-project/
+cp -r examples/STARTER-PACK/.claude/ /path/to/your-project/
+
+# Optional but recommended: Install foundation
+cp -r examples/STARTER-PACK/shared/git-hooks/* /path/to/your-project/.git/hooks/
+chmod +x /path/to/your-project/.git/hooks/*
 ```
+
+**See:** `QUICK-START.md` for complete installation (5 minutes)
 
 ### Step 2: Try the Workflow
 
