@@ -150,7 +150,7 @@ Phase-Based Workflow implements the **Kubernetes Operator pattern** for workflow
 
 **Why this works:** Explicit phase gates act as validation controllers, catching issues at phase boundaries before they compound. Like Kubernetes Operators prevent infrastructure drift, Phase-Based Workflow prevents cognitive drift.
 
-**See also:** [Operators Model](./operators-model.md) for the watch-reconcile pattern applied across AgentOps.
+**Note:** Watch-reconcile operator patterns applied across AgentOps available in production implementation documentation.
 
 ---
 

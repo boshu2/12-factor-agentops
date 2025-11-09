@@ -58,6 +58,25 @@ This framework extends the proven [12-Factor App](https://12factor.net) methodol
 
 ---
 
+## Agent Interaction Standards (REQUIRED)
+
+**ALL agents must follow consistent interaction patterns defined in:**
+`../../.claude/AGENT_INTERACTION_STANDARDS.md`
+
+**Key principles:**
+- **Use `AskUserQuestion` for:** Structured choices, configuration, multi-step setup
+- **Use freeform input for:** Creative requests, open-ended exploration, complex descriptions
+- **Be consistent:** Same situation = same approach across all agents
+- **Signal clearly:** Tell user what format you expect before gathering input
+
+**Why this matters:** Inconsistent prompting creates confusion. Users should know what to expect based on the situation, not which agent is running.
+
+**Enforcement:** Automatic through context loading - all agents inherit this standard.
+
+**Full standard:** `../../.claude/AGENT_INTERACTION_STANDARDS.md` (2 min read)
+
+---
+
 ## Repository Structure (Diátaxis Framework)
 
 This repository follows the [Diátaxis framework](https://diataxis.fr/) for documentation organization:
@@ -452,9 +471,9 @@ make validate-docs                      # Check documentation links
 
 ## Version & Status
 
-**Version:** v1.0.4 (Alpha validation - Week 4: Public Launch Prep)
+**Version:** v1.0.4 Beta (Community Validation)
 **Last Updated:** 2025-11-09
-**Status:** 90% launch-ready, entering final polish phase
+**Status:** Public launch ready - seeking community validation across diverse domains
 
 **Foundational base:**
 - Built on decades of proven DevOps, GitOps, and Zero-Trust practices

@@ -191,7 +191,7 @@ Multi-Agent Orchestration mirrors **Kubernetes pod scheduling and horizontal sca
 
 **Why this works:** Both systems leverage the same principle—parallelism with explicit coordination. Kubernetes proved this works for containers; AgentOps applies it to agents.
 
-**See also:** [Kubernetes Parallels](../foundations/kubernetes-parallels.md) for complete architectural comparison.
+**Note:** Complete architectural comparison of Kubernetes control plane patterns and AgentOps patterns available in production implementation documentation.
 
 ---
 

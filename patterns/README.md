@@ -100,7 +100,7 @@ AgentOps patterns implement the **Kubernetes Operator pattern**—a proven appro
 
 **Universal orchestration:** These operator patterns work identically across all workflow packages (product-dev, infrastructure-ops, devops, custom). Just as Kubernetes operators work for any containerized app, AgentOps operators work for any agentic workflow. The patterns are domain-agnostic.
 
-**See also:** [Operators Model](./operators-model.md) for the complete watch-reconcile pattern, [Kubernetes Parallels](../foundations/kubernetes-parallels.md) for architectural comparison, [agentops workflow packages](https://github.com/boshu2/agentops) for implementation.
+**Note:** Complete watch-reconcile operator patterns and Kubernetes architectural comparisons available in production implementation documentation.
 
 ---
 

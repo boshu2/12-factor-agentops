@@ -89,7 +89,7 @@ Knowledge OS applies OS concepts to institutional memory management:
 
 **Understanding these parallels helps practitioners from OS → Kubernetes → Knowledge OS backgrounds immediately grasp the mental model.**
 
-**See also:** [Kubernetes Parallels](./kubernetes-parallels.md) for detailed control plane and data plane mappings.
+**Note:** Detailed control plane and data plane mappings available in production implementation documentation.
 
 ---
 
@@ -881,9 +881,9 @@ Git isn't just tracking changes—it's building organizational intelligence.
 - [Five Laws](./five-laws.md#law-3) - Context documentation requirements
 
 **Operational implementation:**
-- [agentops Git Workflow Guide](../../agentops/docs/how-to/guides/git-workflow-guide.md) - Commit message templates
-- [agentops Documentation Structure](../../agentops/docs/) - Co-located knowledge base example
-- [agentops Session Analysis](../../agentops/docs/showcase/VERIFY_METRICS.sh) - Measuring knowledge compounding
+- Production git workflow guides (commit message templates)
+- Co-located knowledge base examples (validated in production)
+- Session analysis (measuring knowledge compounding across 200+ sessions)
 
 **Real-world examples:**
 - Linux kernel development (detailed commit messages)

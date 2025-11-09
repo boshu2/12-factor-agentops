@@ -44,8 +44,6 @@ AI agents, despite their intelligence, are still software systems. They deserve�
 
 **Why this matters:** Git history becomes an immutable audit trail of every decision, pattern, and evolution.
 
-**See also:** [Kubernetes Parallels: Declarative Configuration](./kubernetes-parallels.md#1-declarative-configuration)
-
 #### 2. Validation Gates
 
 **In traditional DevOps:**
@@ -62,8 +60,6 @@ AI agents, despite their intelligence, are still software systems. They deserve�
 **Kubernetes parallel:** K8s admission controllers validate resources before they're persisted (webhooks, OPA) → AgentOps uses `make quick` validation gates before workflows execute. Both prevent invalid state from entering the system.
 
 **Why this matters:** Prevention is cheaper than recovery. Catch errors in development, not production.
-
-**See also:** [Kubernetes Parallels: Controller Manager](./kubernetes-parallels.md#controller-manager--validation-gates)
 
 #### 3. Observability
 
@@ -83,8 +79,6 @@ AI agents, despite their intelligence, are still software systems. They deserve�
 
 **Why this matters:** You can't improve what you don't measure.
 
-**See also:** [Kubernetes Parallels: Observable Systems](./kubernetes-parallels.md#2-observable-systems)
-
 #### 4. Reliability Engineering
 
 **In traditional SRE:**
@@ -103,8 +97,6 @@ AI agents, despite their intelligence, are still software systems. They deserve�
 
 **Why this matters:** Failures are opportunities to learn and improve the system.
 
-**See also:** [Kubernetes Parallels: Self-Healing Systems](./kubernetes-parallels.md#3-self-healing-systems)
-
 #### 5. Orchestration
 
 **In traditional DevOps:**
@@ -122,8 +114,6 @@ AI agents, despite their intelligence, are still software systems. They deserve�
 **Kubernetes parallel:** K8s scheduler assigns Pods to Nodes based on resource availability and constraints → AgentOps intelligent router assigns workflows to agents based on task complexity and domain expertise. Both manage workload placement at scale.
 
 **Why this matters:** As agent systems grow, manual orchestration doesn't scale. Intelligent routing and workload management become essential.
-
-**See also:** [Kubernetes Parallels: Scheduler → Intelligent Router](./kubernetes-parallels.md#scheduler--intelligent-router)
 
 ### Application to AgentOps
 
@@ -151,9 +141,10 @@ The cycle is identical. The primitives are the same. The discipline transfers di
 
 ### See It In Action
 
-→ [agentops CI/CD workflows](../../agentops/.github/workflows/) - Automated validation before every merge
-→ [agentops CONSTITUTION.md](../../agentops/CONSTITUTION.md) - Operational enforcement of these principles
-→ [agentops session metrics](../../agentops/docs/showcase/VERIFY_METRICS.sh) - Observable proof of 40x improvements
+Production implementation examples demonstrate:
+- Automated validation workflows before every merge
+- Operational enforcement of these principles
+- Observable metrics showing 40x improvements across 200+ sessions
 
 ---
 
@@ -261,9 +252,10 @@ This isn't unique to AI. It's how all effective learning works—human or machin
 
 ### See It In Action
 
-→ [agentops Research-Plan-Implement workflow](../../agentops/.claude/commands/prime-complex-task.md) - Three-phase learning pattern
-→ [agentops Laws of an Agent](../../agentops/CONSTITUTION.md#laws) - Learning extraction mandated operationally
-→ [agentops Pattern library](../../agentops/docs/explanation/patterns/) - Extracted, reusable insights
+Production implementation examples demonstrate:
+- Research-Plan-Implement workflow (three-phase learning pattern)
+- Laws of an Agent (learning extraction mandated operationally)
+- Pattern library (extracted, reusable insights from 200+ sessions)
 
 ---
 
@@ -379,9 +371,10 @@ Staying under 40% capacity isn't conservative engineering; it's operating in the
 
 ### See It In Action
 
-→ [agentops Context Engineering Guide](../../agentops/docs/explanation/concepts/context-engineering-complete.md) - Full 40% rule implementation
-→ [agentops Priming Commands](../../agentops/.claude/commands/) - JIT loading patterns
-→ [agentops Session Metrics](../../agentops/docs/showcase/VERIFY_METRICS.sh) - Measured impact of 40% rule
+Production implementation examples demonstrate:
+- Full 40% rule implementation (context engineering guide)
+- JIT loading patterns (priming commands)
+- Measured impact of 40% rule (8x efficiency, 0% collapse rate)
 
 ---
 
@@ -514,9 +507,10 @@ Treat commits as memory writes, and your repository becomes smarter over time. F
 
 ### See It In Action
 
-→ [agentops Git Workflow Guide](../../agentops/docs/how-to/guides/git-workflow-guide.md) - How to write knowledge-preserving commits
-→ [agentops Session Analysis](../../agentops/docs/showcase/VERIFY_METRICS.sh) - Measuring knowledge compounding
-→ [agentops Laws of an Agent](../../agentops/CONSTITUTION.md) - Learning extraction mandated operationally
+Production implementation examples demonstrate:
+- Git workflow guide (how to write knowledge-preserving commits)
+- Session analysis (measuring knowledge compounding)
+- Laws of an Agent (learning extraction mandated operationally)
 
 ---
 
@@ -569,11 +563,11 @@ Remove any pillar, and the framework collapses.
 
 ## From Theory to Practice
 
-These Four Pillars provide the **philosophical foundation**. For operational implementation, see:
+These Four Pillars provide the **philosophical foundation**. For operational implementation:
 
-→ [agentops CONSTITUTION.md](../../agentops/CONSTITUTION.md) - How the Five Laws enforce these pillars
-→ [agentops Agent Workflows](../../agentops/.claude/agents/) - Pillars applied to 50+ production workflows
-→ [agentops Documentation](../../agentops/docs/) - Practical guides for each pillar
+- Operational enforcement via CONSTITUTION-based patterns
+- Pillars applied to 52 production workflows
+- Practical guides for each pillar (available in enterprise implementations)
 
 ---
 

@@ -4,7 +4,7 @@
 
 The Five Laws of AgentOps aren't arbitrary rules—they're **distilled principles** from thousands of hours operating AI agents in production. Each law addresses a specific failure mode observed in real-world agent operations.
 
-This document explores the **philosophical rationale** for each law. For operational enforcement and practical implementation, see [agentops CONSTITUTION.md](../../agentops/CONSTITUTION.md).
+This document explores the **philosophical rationale** for each law. For operational enforcement and practical implementation, see CONSTITUTION-based patterns in production environments.
 
 **The Five Laws:**
 1. **ALWAYS Extract Learnings** - Transform experience into reusable knowledge
@@ -123,9 +123,10 @@ The difference is whether you take 30 minutes to document the generalizable insi
 
 ### Operational Enforcement
 
-→ [agentops CONSTITUTION.md#law-1](../../agentops/CONSTITUTION.md#law-1) - How to extract learnings in practice
-→ [agentops Pattern Library](../../agentops/docs/explanation/patterns/) - Extracted patterns in action
-→ [agentops Session Templates](../../agentops/.claude/agents/) - Learning extraction built into workflows
+Production implementations demonstrate:
+- How to extract learnings in practice (CONSTITUTION Law 1)
+- Pattern library (extracted patterns from 200+ sessions)
+- Session templates (learning extraction built into workflows)
 
 ---
 
@@ -256,9 +257,10 @@ There's no neutral ground. Systems either improve or degrade.
 
 ### Operational Enforcement
 
-→ [agentops CONSTITUTION.md#law-2](../../agentops/CONSTITUTION.md#law-2) - How to identify improvements in practice
-→ [agentops Improvement Tracking](../../agentops/docs/how-to/guides/) - Documenting improvement opportunities
-→ [agentops Metrics](../../agentops/docs/showcase/VERIFY_METRICS.sh) - Measuring improvement over time
+Production implementations demonstrate:
+- How to identify improvements in practice (CONSTITUTION Law 2)
+- Improvement tracking patterns (documenting opportunities)
+- Metrics analysis (measuring improvement over time)
 
 ---
 
@@ -403,9 +405,10 @@ Every decision you don't document:
 
 ### Operational Enforcement
 
-→ [agentops CONSTITUTION.md#law-3](../../agentops/CONSTITUTION.md#law-3) - Documentation templates and requirements
-→ [agentops Decision Records](../../agentops/docs/explanation/) - Example ADRs
-→ [agentops Session Summaries](../../agentops/docs/showcase/) - Context preservation in practice
+Production implementations demonstrate:
+- Documentation templates and requirements (CONSTITUTION Law 3)
+- Example decision records (ADRs)
+- Context preservation in practice (session summaries)
 
 ---
 
@@ -572,9 +575,10 @@ git commit
 
 ### Operational Enforcement
 
-→ [agentops CONSTITUTION.md#law-4](../../agentops/CONSTITUTION.md#law-4) - Validation requirements in practice
-→ [agentops CI/CD Workflows](../../agentops/.github/workflows/) - Automated validation gates
-→ [agentops Diff-First Patterns](../../agentops/docs/how-to/guides/) - Preview before execute
+Production implementations demonstrate:
+- Validation requirements in practice (CONSTITUTION Law 4)
+- Automated validation gates (CI/CD workflows)
+- Diff-first patterns (preview before execute)
 
 ---
 
@@ -724,9 +728,10 @@ Proprietary: "Here's our exact agent code for our internal use case"
 
 ### Operational Enforcement
 
-→ [agentops CONSTITUTION.md#law-5](../../agentops/CONSTITUTION.md#law-5) - How to extract and share patterns
-→ [This repository](../../README.md) - Example of publicly shared patterns
-→ [agentops Community](../../agentops/CONTRIBUTING.md) - How to contribute back
+Production implementations demonstrate:
+- How to extract and share patterns (CONSTITUTION Law 5)
+- Example of publicly shared patterns (this repository)
+- Community contribution patterns (validated in practice)
 
 ---
 
@@ -780,9 +785,9 @@ Each law prevents a specific, observed failure mode.
 
 These Five Laws provide the **philosophical foundation** for AgentOps. For operational implementation:
 
-→ [agentops CONSTITUTION.md](../../agentops/CONSTITUTION.md) - How to enforce these laws operationally
-→ [agentops Agent Workflows](../../agentops/.claude/agents/) - Laws applied to 50+ production workflows
-→ [agentops Session Templates](../../agentops/docs/how-to/) - Practical guides for each law
+- CONSTITUTION-based enforcement patterns
+- Laws applied to 52 production workflows
+- Practical guides for each law (enterprise implementations)
 
 ---
 

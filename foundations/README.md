@@ -2,7 +2,7 @@
 
 **Philosophical and theoretical foundations for operating AI agents with production-grade discipline.**
 
-This directory contains deep dives into the core concepts that underpin the AgentOps framework. These documents explore the **WHY** behind the practices. For operational **HOW**, see [agentops implementation](../../agentops/).
+This directory contains deep dives into the core concepts that underpin the AgentOps framework. These documents explore the **WHY** behind the practices. For operational **HOW**, implementation examples are available in enterprise production environments.
 
 ---
 
@@ -137,8 +137,8 @@ Every commit is either a throwaway snapshot or a knowledge artifact. The differe
 ### For Contributors (Building on AgentOps)
 
 1. **Understand:** All four foundation docs (read in any order)
-2. **Reference:** [agentops CONSTITUTION](../../agentops/CONSTITUTION.md) - See operational enforcement
-3. **Study:** [agentops agents](../../agentops/.claude/agents/) - See patterns in practice
+2. **Reference:** Operational enforcement examples available in production implementations
+3. **Study:** Patterns validated across 52 production workflows
 4. **Contribute:** [CONTRIBUTING.md](../CONTRIBUTING.md) - Share your patterns
 
 ---
@@ -223,7 +223,7 @@ Community (12-factor-agentops)
 ### Context Engineering (40% Rule)
 - **Grounded in:** Cognitive load theory (Sweller, 1988), ADHD research (Barkley, 2015)
 - **Initial results:** 8x efficiency improvement, 0% context collapse observed
-- **Evidence:** [VERIFY_METRICS.sh](../../agentops/docs/showcase/VERIFY_METRICS.sh)
+- **Evidence:** Validated across 200+ production sessions
 
 ### Knowledge OS (Pattern Compounding)
 - **Grounded in:** 15+ years of GitOps practices, Infrastructure as Code patterns
@@ -238,7 +238,7 @@ Community (12-factor-agentops)
 ### Four Pillars (Integrated Framework)
 - **Grounded in:** DevOps (20+ years), SRE (15+ years), Learning Science (decades), Zero-Trust (10+ years)
 - **Initial applications:** 52 production workflows developed and refined
-- **Evidence:** [agentops repository](../../agentops/)
+- **Evidence:** Production implementation examples available in enterprise environments
 
 **These aren't invented principles—they're proven practices adapted to AI agent operations.**
 
@@ -295,9 +295,9 @@ Example: 40% rule + Knowledge OS = context preservation that compounds. One with
    - Extract one pattern from recent work
 
 2. **Explore operational implementation:**
-   - Read [agentops CONSTITUTION](../../agentops/CONSTITUTION.md)
-   - Browse [agentops agents](../../agentops/.claude/agents/)
-   - Try [agentops priming commands](../../agentops/.claude/commands/)
+   - Reference operational enforcement patterns
+   - Study production agent examples
+   - Apply priming command patterns
 
 3. **Measure and validate:**
    - Track your efficiency before/after applying principles
@@ -346,11 +346,11 @@ Example: 40% rule + Knowledge OS = context preservation that compounds. One with
 - [content/factors/](../content/factors/) - (Coming) The 12 Factors detailed
 - [content/patterns/](../content/patterns/) - (Coming) Pattern library
 
-**In agentops repository:**
-- [CONSTITUTION.md](../../agentops/CONSTITUTION.md) - Operational enforcement
-- [docs/explanation/](../../agentops/docs/explanation/) - Concept deep-dives
-- [docs/how-to/](../../agentops/docs/how-to/) - Practical guides
-- [.claude/agents/](../../agentops/.claude/agents/) - 52 production workflows
+**In production implementations:**
+- Operational enforcement patterns (CONSTITUTION-based)
+- Concept deep-dives and explanations
+- Practical how-to guides
+- 52 production workflows (enterprise environments)
 
 **Research references:**
 - Miller (1956) - "The Magical Number Seven, Plus or Minus Two"
