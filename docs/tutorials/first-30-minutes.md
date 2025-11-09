@@ -324,6 +324,109 @@ You now understand the **why** and **how to start**. Here's your next 60 minutes
 
 ---
 
+## Bonus: Multi-Session Work with Bundles
+
+**Factor VI (Session Continuity)** enables work that spans multiple sessions without losing context.
+
+### The Problem: Context Collapse Across Sessions
+
+You're researching a complex topic with AI. After 90 minutes:
+- Context window fills up (approaching 40% threshold)
+- You need a break
+- When you return tomorrow, context is lost
+- You have to re-explain everything
+
+### The Solution: Context Bundles
+
+**Bundle-save** compresses your work into a small artifact (2-3k tokens).
+**Bundle-load** restores that context in a fresh session.
+
+**Example: Multi-day research project**
+
+**Session 1 (Day 1):** Research phase
+```bash
+# Use AI to research Redis caching patterns
+# After 90 minutes, context at 35%
+
+/bundle-save redis-caching-research
+
+# Bundle saved: 2.1k tokens (37:1 compression!)
+# Original session: 78k tokens compressed to 2.1k
+```
+
+**Session 2 (Day 2):** Resume with fresh context
+```bash
+# New session, fresh 200k token budget
+
+/bundle-load redis-caching-research
+
+# Context restored: 2.1k tokens (1% of budget)
+# You now have full context from yesterday
+# + 98% budget remaining for today's work
+```
+
+### What Gets Preserved
+
+**A good bundle contains:**
+- Executive summary (what you discovered)
+- Key findings and recommendations
+- Critical constraints and decisions
+- Next steps
+
+**A good bundle does NOT contain:**
+- Full transcripts (too large)
+- Unnecessary details (focus on insights)
+- Raw data dumps (synthesize first)
+
+### When to Use Bundles
+
+**Use bundles for:**
+- ✅ Research that takes >1 session (Research → Plan → Implement)
+- ✅ Complex planning spanning multiple days
+- ✅ Learnings you want to reference later
+- ✅ Knowledge sharing across team members
+
+**Don't need bundles for:**
+- ❌ Simple 30-minute tasks (fits in one session)
+- ❌ One-off questions
+- ❌ Quick fixes
+
+### Real Example: Profile Taxonomy Research
+
+The `agentops-profile-taxonomy` bundle demonstrates this pattern:
+
+**Session 1:** Research 120 configurations across 7 profiles
+- Analyzed agents, commands, skills, workflows
+- Identified patterns and overlaps
+- 87,000 tokens of context
+
+**Bundle created:** 2,350 tokens (37:1 compression)
+- Contains: 7 profiles, starter packs, recommendations
+- Preserved: All key insights without raw data
+
+**Session 2:** Use research to improve onboarding
+- `/bundle-load agentops-profile-taxonomy`
+- Context: 2.3k tokens (1.2% of budget)
+- Result: 98% budget available for implementation
+
+**Impact:** Multi-day work without context collapse. Each session starts fresh.
+
+### Try It Yourself
+
+**Exercise (5 minutes):**
+
+1. Pick a topic you're currently researching with AI
+2. After your next session, create a bundle:
+   - Summarize findings (3-5 bullet points)
+   - Note key decisions made
+   - Document next steps
+3. Next session, load that bundle
+4. Notice: You have full context + fresh budget
+
+**That's Factor VI in action.**
+
+---
+
 ## Quick Reference Card
 
 **Keep this handy while working with AI:**
