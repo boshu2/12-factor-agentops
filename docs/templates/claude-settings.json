@@ -1,0 +1,51 @@
+{
+  "defaultModel": "opus",
+  "modelOverrides": {
+    "quick-tasks": "sonnet",
+    "research": "opus",
+    "complex-planning": "opus"
+  },
+  "allowed": [
+    "Bash(git:*)",
+    "Bash(make:*)",
+    "Bash(docker:*)",
+    "Bash(npm:*)",
+    "Bash(./scripts/*)",
+    "Read(*)",
+    "Write(docs/*)",
+    "Write(src/*)",
+    "Edit(*)"
+  ],
+  "denied": [
+    "Bash(rm -rf:*)",
+    "Write(.git/*)"
+  ],
+  "hooks": {
+    "beforeTool": [
+      {
+        "filter": {
+          "toolName": "Bash",
+          "toolInput": {
+            "command": "git push*"
+          }
+        },
+        "bashCommand": "echo '\n⚠️  PRE-PUSH VALIDATION ACTIVE\n\nValidation gates will run before push completes:\n  → Pre-push git hook (validation tests)\n  → CI/CD pipeline (if push succeeds)\n\nTo skip validation (emergency only):\n  SKIP_VALIDATION=1 git push\n' && sleep 2"
+      },
+      {
+        "filter": {
+          "toolName": "Write",
+          "toolInput": {
+            "file_path": "*production*"
+          }
+        },
+        "bashCommand": "echo '⚠️  Writing to production file. Double-check before committing.' && sleep 1"
+      }
+    ],
+    "afterTool": []
+  },
+  "outputStyle": {
+    "concise": true,
+    "technical": true,
+    "includeLineNumbers": true
+  }
+}

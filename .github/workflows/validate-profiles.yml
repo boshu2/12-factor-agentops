@@ -1,0 +1,51 @@
+name: Validate Profiles
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'profiles/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'profiles/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install yamllint
+        run: pip install yamllint
+      
+      - name: Validate YAML syntax
+        run: |
+          for profile in profiles/*/profile.yaml; do
+            if [ -f "$profile" ]; then
+              echo "Validating $profile"
+              yamllint "$profile" || exit 1
+            fi
+          done
+      
+      - name: Verify profile structure
+        run: |
+          for profile in profiles/*/profile.yaml; do
+            if [ -f "$profile" ]; then
+              echo "Checking $profile structure"
+              # Check required fields
+              grep -q "apiVersion" "$profile" || exit 1
+              grep -q "kind: WorkflowProfile" "$profile" || exit 1
+              grep -q "metadata:" "$profile" || exit 1
+              grep -q "spec:" "$profile" || exit 1
+            fi
+          done
+      
+      - name: Count profiles
+        run: |
+          count=$(find profiles -name "profile.yaml" | wc -l)
+          echo "Found $count profiles"
+          if [ $count -lt 3 ]; then
+            echo "Error: Expected at least 3 profiles"
+            exit 1
+          fi
