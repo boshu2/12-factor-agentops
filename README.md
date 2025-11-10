@@ -121,12 +121,26 @@ Continuous learning and adaptation
 
 Want to explore the factors visually? Here's the full 12-factor landscape:
 
-*[Visual diagram would go here - 3x4 grid of factor cards showing how they interconnect, similar to 12-factor-agents approach]*
+<div align="center">
+
+![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape.svg)
+
+*[View full-size diagram](./docs/assets/12-factor-landscape.svg)*
+
+</div>
 
 The factors build on each other:
 - **Factors I-IV** establish foundational reliability patterns
 - **Factors V-VIII** enable operational scale and human oversight
 - **Factors IX-XII** create feedback loops that compound improvements over time
+
+<div align="center">
+
+![How the Factors Work Together](./docs/assets/workflow-flow.svg)
+
+*[View workflow flow](./docs/assets/workflow-flow.svg)*
+
+</div>
 
 ---
 

@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+      text {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      }
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="600" fill="#FAF8F5"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="28" font-weight="600" fill="#1A1A1A" letter-spacing="-0.5">
+    12-Factor AgentOps in Practice
+  </text>
+  <text x="400" y="60" text-anchor="middle" font-size="15" fill="#7A6F5D">
+    How the factors enable reliable agent operations
+  </text>
+
+  <!-- Foundation Circle -->
+  <circle cx="400" cy="150" r="70" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="3.5"/>
+  <text x="400" y="145" text-anchor="middle" font-size="18" font-weight="600" fill="#1A7FCC">
+    Foundation
+  </text>
+  <text x="400" y="165" text-anchor="middle" font-size="14" fill="#1A7FCC" font-weight="500">
+    I-IV
+  </text>
+
+  <!-- Foundation details -->
+  <text x="400" y="240" text-anchor="middle" font-size="12" fill="#5A5449" font-weight="500">
+    Git Memory • JIT Context • Single Responsibility • Validation Gates
+  </text>
+
+  <!-- Arrow to Operations -->
+  <path d="M 400 230 L 400 270" stroke="#A0978B" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Operations Box -->
+  <rect x="150" y="280" width="500" height="120" rx="12" fill="#E8F7EC" stroke="#15B871" stroke-width="3.5"/>
+  <text x="400" y="312" text-anchor="middle" font-size="18" font-weight="600" fill="#15B871">
+    Operations (V-VIII)
+  </text>
+
+  <!-- Operations workflow -->
+  <g id="ops-flow">
+    <rect x="170" y="330" width="110" height="60" rx="8" fill="#FFFFFF" stroke="#15B871" stroke-width="2.5"/>
+    <text x="225" y="353" text-anchor="middle" font-size="13" font-weight="600" fill="#15B871">
+      Telemetry
+    </text>
+    <text x="225" y="370" text-anchor="middle" font-size="11" fill="#5A5449">
+      Observe
+    </text>
+    <text x="225" y="384" text-anchor="middle" font-size="11" fill="#5A5449">
+      everything
+    </text>
+
+    <path d="M 290 360 L 305 360" stroke="#15B871" stroke-width="2.5" marker-end="url(#arrowhead-green)"/>
+
+    <rect x="315" y="330" width="110" height="60" rx="8" fill="#FFFFFF" stroke="#15B871" stroke-width="2.5"/>
+    <text x="370" y="353" text-anchor="middle" font-size="13" font-weight="600" fill="#15B871">
+      Continuity
+    </text>
+    <text x="370" y="370" text-anchor="middle" font-size="11" fill="#5A5449">
+      Multi-day
+    </text>
+    <text x="370" y="384" text-anchor="middle" font-size="11" fill="#5A5449">
+      sessions
+    </text>
+
+    <path d="M 435 360 L 450 360" stroke="#15B871" stroke-width="2.5" marker-end="url(#arrowhead-green)"/>
+
+    <rect x="460" y="330" width="110" height="60" rx="8" fill="#FFFFFF" stroke="#15B871" stroke-width="2.5"/>
+    <text x="515" y="353" text-anchor="middle" font-size="13" font-weight="600" fill="#15B871">
+      Routing +
+    </text>
+    <text x="515" y="370" text-anchor="middle" font-size="11" fill="#5A5449">
+      Human
+    </text>
+    <text x="515" y="384" text-anchor="middle" font-size="11" fill="#5A5449">
+      oversight
+    </text>
+  </g>
+
+  <!-- Arrow to Improvement -->
+  <path d="M 400 410 L 400 450" stroke="#A0978B" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Improvement Circle -->
+  <circle cx="400" cy="510" r="70" fill="#FFF4ED" stroke="#D97948" stroke-width="3.5"/>
+  <text x="400" y="505" text-anchor="middle" font-size="18" font-weight="600" fill="#D97948">
+    Improvement
+  </text>
+  <text x="400" y="525" text-anchor="middle" font-size="14" fill="#D97948" font-weight="500">
+    IX-XII
+  </text>
+
+  <!-- Feedback loop -->
+  <path d="M 470 510 Q 700 510 700 150 Q 700 100 470 150" stroke="#D97948" stroke-width="3.5" fill="none" stroke-dasharray="8,6" marker-end="url(#arrowhead-orange)"/>
+
+  <text x="720" y="250" font-size="15" font-weight="600" fill="#D97948">
+    Continuous
+  </text>
+  <text x="720" y="270" font-size="15" font-weight="600" fill="#D97948">
+    Feedback
+  </text>
+  <text x="720" y="298" font-size="11" fill="#5A5449">
+    Patterns compound
+  </text>
+  <text x="720" y="314" font-size="11" fill="#5A5449">
+    System improves
+  </text>
+  <text x="720" y="330" font-size="11" fill="#5A5449">
+    Knowledge grows
+  </text>
+
+  <!-- Key insight box -->
+  <rect x="50" y="100" width="280" height="100" rx="10" fill="#FFF9F0" stroke="#F5B547" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <text x="190" y="125" text-anchor="middle" font-size="13" font-weight="600" fill="#E8882E">
+    💡 Key Insight
+  </text>
+  <text x="190" y="148" text-anchor="middle" font-size="12" fill="#2D2A24" font-weight="500">
+    AI agents aren't deterministic.
+  </text>
+  <text x="190" y="166" text-anchor="middle" font-size="12" fill="#2D2A24" font-weight="500">
+    Infrastructure operations patterns
+  </text>
+  <text x="190" y="184" text-anchor="middle" font-size="12" fill="#2D2A24" font-weight="500">
+    work for probabilistic systems.
+  </text>
+
+  <!-- Result box -->
+  <rect x="470" y="100" width="280" height="100" rx="10" fill="#F0FFF4" stroke="#15B871" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <text x="610" y="125" text-anchor="middle" font-size="13" font-weight="600" fill="#15B871">
+    ✅ Result
+  </text>
+  <text x="610" y="148" text-anchor="middle" font-size="12" fill="#2D2A24" font-weight="500">
+    80% reliable → 99%+ reliable
+  </text>
+  <text x="610" y="166" text-anchor="middle" font-size="12" fill="#2D2A24" font-weight="500">
+    Validate • Observe • Never trust
+  </text>
+  <text x="610" y="184" text-anchor="middle" font-size="12" fill="#2D2A24" font-weight="500">
+    Extract patterns • Improve continuously
+  </text>
+
+  <!-- Footer -->
+  <text x="400" y="580" text-anchor="middle" font-size="11" fill="#A0978B">
+    https://github.com/boshu2/12-factor-agentops
+  </text>
+
+  <!-- Arrow definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#A0978B"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#15B871"/>
+    </marker>
+    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#D97948"/>
+    </marker>
+  </defs>
+</svg>
