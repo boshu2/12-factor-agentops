@@ -1,4 +1,4 @@
-# Factor VII: Intelligent Task Routing
+# Factor VII: Smart Routing
 
 **Route work to best-fit workflows/agents with measured accuracy**
 

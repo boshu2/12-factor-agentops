@@ -1,4 +1,4 @@
-# Factor IV: Validation Gates Before Execution
+# Factor IV: Continuous Validation
 
 **Formal checkpoints (plan review, tests, hooks) before applying changes**
 

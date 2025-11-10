@@ -1,4 +1,4 @@
-# Factor VIII: Human Gate Reviews
+# Factor VIII: Human Validation
 
 **Embed human approvals between research → plan → implement phases**
 

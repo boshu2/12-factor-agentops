@@ -1,4 +1,4 @@
-# Factor IX: Documented Pattern Extraction
+# Factor IX: Mine Patterns
 
 **Capture learnings after every session; publish reusable patterns**
 

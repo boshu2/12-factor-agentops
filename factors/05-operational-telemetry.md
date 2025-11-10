@@ -1,4 +1,4 @@
-# Factor V: Operational Telemetry
+# Factor V: Measure Everything
 
 **Metrics, logs, and observability for every agent run**
 

@@ -1,4 +1,4 @@
-# Factor VI: Session Continuity via Bundles
+# Factor VI: Resume Work
 
 **Persist and restore context using compressed artifacts for multi-day work**
 

@@ -1,4 +1,4 @@
-# Factor III: Single-Responsibility Agents
+# Factor III: Focused Agents
 
 **Compose workflows from focused agents; avoid monolith prompts**
 

@@ -1,4 +1,4 @@
-# Factor I: Git Memory as Knowledge OS
+# Factor I: Automated Tracking
 
 **One canonical history for agent work; commits capture intent, context, and learnings**
 
