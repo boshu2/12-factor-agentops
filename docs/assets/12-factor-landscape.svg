@@ -177,16 +177,16 @@
     <!-- Factor IX -->
     <rect x="50" y="665" width="260" height="120" rx="10" fill="#FFF4ED" stroke="#D97948" stroke-width="3"/>
     <text x="180" y="692" text-anchor="middle" font-size="16" font-weight="600" fill="#D97948">
-      IX. Document Learnings
+      IX. Mine Patterns
     </text>
     <text x="180" y="720" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
-      Capture what worked
+      Search your history for patterns
     </text>
     <text x="180" y="739" text-anchor="middle" font-size="12" fill="#5A5449">
-      After every session
+      Query git, logs, and metrics
     </text>
     <text x="180" y="756" text-anchor="middle" font-size="12" fill="#5A5449">
-      document patterns
+      to find trends
     </text>
 
     <!-- Factor X -->
