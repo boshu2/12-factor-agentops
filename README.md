@@ -86,9 +86,8 @@ This repository provides a **Claude Code plugin marketplace** with validation an
 /plugin install five-laws-auditor@12-factor-agentops                # Audit against Five Laws
 /plugin install pattern-extraction-assistant@12-factor-agentops     # Extract patterns from work
 
-# Optional: Documentation organization
+# Optional: Documentation and validation
 /plugin install research-formatter@12-factor-agentops               # Format case studies
-/plugin install diataxis-organizer@12-factor-agentops               # Organize docs
 /plugin install cross-reference-validator@12-factor-agentops        # Validate links
 ```
 

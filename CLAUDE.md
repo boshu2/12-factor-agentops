@@ -52,9 +52,6 @@ This is a **Claude Code plugin marketplace** providing validation and pattern ex
     ├── research-formatter/
     │   ├── .claude-plugin/plugin.json
     │   └── skill.md
-    ├── diataxis-organizer/
-    │   ├── .claude-plugin/plugin.json
-    │   └── skill.md
     └── cross-reference-validator/
         ├── .claude-plugin/plugin.json
         └── skill.md

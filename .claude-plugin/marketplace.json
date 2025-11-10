@@ -4,7 +4,7 @@
     "name": "Brian Fuller",
     "email": "fullerbt@gmail.com"
   },
-  "description": "A methodology for using AI agents safely and reliably. Built on proven DevOps, SRE, and learning science foundations. Provides validation skills, pattern extraction, and documentation organization for framework compliance.",
+  "description": "A methodology for using AI agents safely and reliably. Built on proven DevOps, SRE, and learning science foundations. Provides validation skills and pattern extraction for framework compliance.",
   "version": "1.0.4",
   "homepage": "https://github.com/boshu2/12-factor-agentops",
   "pluginRoot": "marketplace",
@@ -47,16 +47,6 @@
       "version": "1.0.4",
       "author": "Brian Fuller",
       "keywords": ["research", "case-studies", "validation"],
-      "featured": false,
-      "dependencies": []
-    },
-    {
-      "name": "diataxis-organizer",
-      "source": "./diataxis-organizer",
-      "description": "Organize documentation using the Diátaxis framework",
-      "version": "1.0.4",
-      "author": "Brian Fuller",
-      "keywords": ["documentation", "diataxis", "organization"],
       "featured": false,
       "dependencies": []
     },
