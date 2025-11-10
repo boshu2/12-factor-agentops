@@ -1,6 +1,6 @@
-# Factor XII: Domain Portability
+# Factor XII: Package Patterns
 
-**Package domain knowledge into reusable profiles and bundles**
+**Bundle what works for reuse - capture successful workflows as reusable templates**
 
 | Aspect | Details |
 |--------|---------|

@@ -1,4 +1,4 @@
-# Factor II: JIT Context Loading
+# Factor II: Context Loading
 
 **Keep main context clean; delegate work to sub-agents with isolated context windows**
 

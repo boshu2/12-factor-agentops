@@ -1,6 +1,6 @@
-# Factor XI: Constitutional Guardrails
+# Factor XI: Fail-Safe Checks
 
-**Enforce operational laws and prevent risky behaviors**
+**Prevent repeating mistakes - add hooks and validations to stop bad patterns**
 
 | Aspect | Details |
 |--------|---------|

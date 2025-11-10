@@ -1,6 +1,6 @@
-# Factor X: Continuous Improvement Backlog
+# Factor X: Small Iterations
 
-**Each session identifies improvements; prioritize and action them**
+**Make small improvements continuously - tweak workflows and agents based on patterns**
 
 | Aspect | Details |
 |--------|---------|
