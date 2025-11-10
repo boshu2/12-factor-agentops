@@ -1,0 +1,89 @@
+{
+  "name": "12-factor-agentops",
+  "owner": {
+    "name": "Brian Fuller",
+    "email": "fullerbt@gmail.com"
+  },
+  "description": "A methodology for using AI agents safely and reliably. Built on proven DevOps, SRE, and learning science foundations. Provides validation skills, pattern extraction, and documentation organization for framework compliance.",
+  "version": "1.0.4",
+  "homepage": "https://github.com/boshu2/12-factor-agentops",
+  "pluginRoot": "marketplace",
+
+  "plugins": [
+    {
+      "name": "factor-compliance-checker",
+      "source": "./factor-compliance-checker",
+      "description": "Validate patterns and contributions against 12-Factor AgentOps methodology",
+      "version": "1.0.4",
+      "author": "Brian Fuller",
+      "keywords": ["validation", "compliance", "12-factor", "auditing"],
+      "featured": true,
+      "dependencies": []
+    },
+    {
+      "name": "five-laws-auditor",
+      "source": "./five-laws-auditor",
+      "description": "Audit work for compliance with the Five Laws of AgentOps",
+      "version": "1.0.4",
+      "author": "Brian Fuller",
+      "keywords": ["audit", "five-laws", "compliance", "agentops"],
+      "featured": true,
+      "dependencies": []
+    },
+    {
+      "name": "pattern-extraction-assistant",
+      "source": "./pattern-extraction-assistant",
+      "description": "Extract reusable patterns from production implementations",
+      "version": "1.0.4",
+      "author": "Brian Fuller",
+      "keywords": ["pattern-extraction", "learning", "documentation"],
+      "featured": true,
+      "dependencies": []
+    },
+    {
+      "name": "research-formatter",
+      "source": "./research-formatter",
+      "description": "Format research contributions and case studies for the framework",
+      "version": "1.0.4",
+      "author": "Brian Fuller",
+      "keywords": ["research", "case-studies", "validation"],
+      "featured": false,
+      "dependencies": []
+    },
+    {
+      "name": "diataxis-organizer",
+      "source": "./diataxis-organizer",
+      "description": "Organize documentation using the Diátaxis framework",
+      "version": "1.0.4",
+      "author": "Brian Fuller",
+      "keywords": ["documentation", "diataxis", "organization"],
+      "featured": false,
+      "dependencies": []
+    },
+    {
+      "name": "cross-reference-validator",
+      "source": "./cross-reference-validator",
+      "description": "Validate and maintain cross-references between framework components",
+      "version": "1.0.4",
+      "author": "Brian Fuller",
+      "keywords": ["validation", "cross-references", "links"],
+      "featured": false,
+      "dependencies": []
+    }
+  ],
+
+  "externalMarketplaces": [
+    {
+      "name": "agentops",
+      "source": "https://github.com/boshu2/agentops",
+      "description": "Production workflow plugins implementing 12-Factor AgentOps patterns - core-workflow (Research→Plan→Implement→Learn), devops-operations (Kubernetes/Helm/ArgoCD), and software-development (Python/JavaScript/Go).",
+      "recommended": true
+    },
+    {
+      "name": "aitmpl",
+      "source": "https://www.aitmpl.com/agents",
+      "description": "AI Template Marketplace - 63+ plugins, 85+ agents, curated collection",
+      "recommended": true
+    }
+  ]
+}

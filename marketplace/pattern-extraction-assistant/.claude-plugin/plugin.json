@@ -1,0 +1,20 @@
+{
+  "name": "pattern-extraction-assistant",
+  "version": "1.0.4",
+  "description": "Extract reusable patterns from production implementations and format them for the 12-Factor AgentOps framework. Use when converting operational workflows into documented patterns, extracting learnings from gitops/agentops, or formalizing discovered practices.",
+  "author": "Brian Fuller",
+  "license": "Apache-2.0",
+  "keywords": ["pattern-extraction", "learning", "documentation", "agentops"],
+  "dependencies": [],
+  "components": {
+    "agents": [],
+    "commands": [],
+    "skills": ["./"],
+    "hooks": [],
+    "mcp": []
+  },
+  "tokenBudget": {
+    "estimated": 2500,
+    "percentage": 1.25
+  }
+}

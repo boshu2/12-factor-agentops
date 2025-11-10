@@ -71,6 +71,52 @@ Continuous learning and adaptation
 
 ---
 
+## Installation
+
+### Claude Code Plugin Marketplace
+
+This repository provides a **Claude Code plugin marketplace** with validation and pattern extraction skills:
+
+```bash
+# Add the 12-factor-agentops marketplace
+/plugin marketplace add boshu2/12-factor-agentops
+
+# Install validation skills (pick what you need)
+/plugin install factor-compliance-checker@12-factor-agentops       # Validate factor compliance
+/plugin install five-laws-auditor@12-factor-agentops                # Audit against Five Laws
+/plugin install pattern-extraction-assistant@12-factor-agentops     # Extract patterns from work
+
+# Optional: Documentation organization
+/plugin install research-formatter@12-factor-agentops               # Format case studies
+/plugin install diataxis-organizer@12-factor-agentops               # Organize docs
+/plugin install cross-reference-validator@12-factor-agentops        # Validate links
+```
+
+**For production workflows**, install from the [boshu2/agentops](https://github.com/boshu2/agentops) marketplace:
+```bash
+# Add the agentops marketplace
+/plugin marketplace add boshu2/agentops
+
+# Install production workflow plugins
+/plugin install core-workflow@agentops           # Research → Plan → Implement → Learn (required base)
+/plugin install devops-operations@agentops       # Kubernetes, Helm, ArgoCD, CI/CD
+/plugin install software-development@agentops    # Python, JavaScript, Go, testing
+```
+
+### Manual Use
+
+Read the methodology without installing plugins:
+
+```bash
+git clone https://github.com/boshu2/12-factor-agentops
+cd 12-factor-agentops
+cat README.md        # Start here
+cat FACTORS.md       # Quick reference
+cat WORKFLOW.md      # Practical application
+```
+
+---
+
 ## How to Use This
 
 **Start here:** Read the factors above. Each one addresses a specific failure mode I've seen in production.
@@ -79,7 +125,7 @@ Continuous learning and adaptation
 
 **Go deeper:** Browse [examples/STARTER-PACK](./examples/STARTER-PACK/) to see all 12 factors in action.
 
-**Optional:** Explore [marketplace/](./marketplace/) for philosophy, research, and advanced patterns.
+**Optional:** Explore [docs/](./docs/) for philosophy, research, and advanced patterns (Four Pillars, Five Laws, domain guides, case studies).
 
 ---
 

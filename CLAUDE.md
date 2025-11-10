@@ -8,27 +8,72 @@ This repository is a **methodology repository** - like the original [12-Factor A
 
 ## Repository Structure
 
+This is a **Claude Code plugin marketplace** providing validation and pattern extraction skills.
+
 ```
 12-factor-agentops/
-├── README.md          # Personal intro, driving question, the 12 factors
-├── FACTORS.md         # Quick reference (links to detailed docs)
-├── WORKFLOW.md        # Practical application guide
+├── README.md                # Personal intro, driving question, the 12 factors
+├── FACTORS.md               # Quick reference (links to detailed docs)
+├── WORKFLOW.md              # Practical application guide
 │
-├── factors/           # Detailed factor documentation
+├── .claude-plugin/          # Plugin marketplace configuration
+│   └── marketplace.json     # Marketplace metadata + external links (agentops, aitmpl)
+│
+├── factors/                 # Detailed factor documentation
 │   ├── 01-git-memory-as-knowledge-os.md
 │   ├── 02-jit-context-loading.md
 │   └── ... (all 12 factors)
 │
 ├── examples/
-│   └── STARTER-PACK/  # Complete reference implementation
+│   └── STARTER-PACK/        # Complete reference implementation
 │
-└── marketplace/       # Optional deep dives
-    ├── principles/    # Four Pillars, Five Laws
-    ├── domain-guides/ # DevOps, SRE, solo dev
-    ├── research/      # Citations, validation
-    ├── advanced/      # Patterns, orchestration
-    └── case-studies/  # Production examples
+├── docs/                    # Philosophy and theory (NOT Claude-specific)
+│   ├── principles/          # Four Pillars, Five Laws, Knowledge OS
+│   ├── domain-guides/       # DevOps, SRE, solo dev, team workflows
+│   ├── research/            # Citations, validation studies, evidence
+│   ├── advanced/            # Multi-agent orchestration, patterns
+│   └── case-studies/        # Production examples and demonstrations
+│
+└── marketplace/             # Installable Claude Code plugins
+    ├── factor-compliance-checker/
+    │   ├── .claude-plugin/plugin.json
+    │   ├── skill.md
+    │   └── references/
+    ├── five-laws-auditor/
+    │   ├── .claude-plugin/plugin.json
+    │   └── skill.md
+    ├── pattern-extraction-assistant/
+    │   ├── .claude-plugin/plugin.json
+    │   └── skill.md
+    ├── research-formatter/
+    │   ├── .claude-plugin/plugin.json
+    │   └── skill.md
+    ├── diataxis-organizer/
+    │   ├── .claude-plugin/plugin.json
+    │   └── skill.md
+    └── cross-reference-validator/
+        ├── .claude-plugin/plugin.json
+        └── skill.md
 ```
+
+### Installation
+
+Users install validation skills via:
+```bash
+# Add the marketplace
+/plugin marketplace add boshu2/12-factor-agentops
+
+# Install specific skills
+/plugin install factor-compliance-checker@12-factor-agentops
+/plugin install five-laws-auditor@12-factor-agentops
+/plugin install pattern-extraction-assistant@12-factor-agentops
+```
+
+### External Marketplaces
+
+This marketplace links to:
+- **boshu2/agentops** (https://github.com/boshu2/agentops) - Production workflow plugins implementing 12-Factor AgentOps: core-workflow (Research→Plan→Implement→Learn), devops-operations (Kubernetes/Helm/ArgoCD), software-development (Python/JavaScript/Go)
+- **aitmpl** - AI Template Marketplace (63+ plugins, 85+ agents, curated collection)
 
 ---
 
@@ -36,15 +81,18 @@ This repository is a **methodology repository** - like the original [12-Factor A
 
 ### Read First
 ```bash
-cat README.md         # Start here (personal voice, driving question)
-cat factors/01-*.md   # Read a factor to understand depth
-cat marketplace/principles/five-laws.md  # Understand principles
+cat README.md                         # Start here (personal voice, driving question)
+cat factors/01-*.md                   # Read a factor to understand depth
+cat docs/principles/five-laws.md      # Understand principles
+cat marketplace/factor-compliance-checker/skill.md  # Example plugin
 ```
 
 ### Making Changes
-- Keep README simple and personal (like 12-factor-agents)
-- Factor docs go in `factors/` directory
-- Deep philosophy goes in `marketplace/`
+- **README.md**: Keep simple and personal (like 12-factor-agents)
+- **factors/**: Detailed factor documentation
+- **docs/**: Philosophy, theory, research (NOT Claude-specific)
+- **marketplace/**: Claude Code plugins (skills with .claude-plugin/plugin.json)
+- **.claude-plugin/marketplace.json**: Marketplace configuration + external links
 - Maintain consistent voice throughout
 
 ### Voice & Style
@@ -57,10 +105,12 @@ cat marketplace/principles/five-laws.md  # Understand principles
 
 ## Key Files
 
-**README.md** - Entry point. Personal voice, one question, 12 factors.
+**README.md** - Entry point. Personal voice, one question, 12 factors, plugin installation.
 **factors/*.md** - Detailed factor documentation with examples.
 **WORKFLOW.md** - Practical application (Research → Plan → Implement).
-**marketplace/** - Optional depth for those who want more.
+**.claude-plugin/marketplace.json** - Plugin marketplace configuration and external links (agentops, aitmpl).
+**marketplace/** - Installable Claude Code plugins (6 validation and pattern extraction skills).
+**docs/** - Philosophy, theory, research, domain guides, case studies (NOT Claude-specific).
 
 ---
 
