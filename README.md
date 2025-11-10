@@ -13,7 +13,7 @@
 > [!TIP]
 > **New to AI agents?** Start with [Factor 4: Validation Gates](./factors/04-validation-gates-before-execution.md) - it's the most critical.
 >
-> **Want proof this works?** See the [real metrics](#production-metrics) from 589 commits across 60 days.
+> **Want to see what I built?** Check [What I've Built](#what-ive-built) for my production experience.
 >
 > **Looking for examples?** Jump to [STARTER-PACK](./examples/STARTER-PACK/) to see all 12 factors in action.
 
@@ -21,15 +21,19 @@
 
 I've been using AI agents in production since Claude 2.0. I've built workflows spanning GitOps automation to infrastructure operations, running them in production environments from solo projects to DoD systems.
 
-**I've watched AI agents fail spectacularly** - breaking production, generating plausible-but-wrong code, and creating more work than they save.
+**I've watched teams abandon AI agents after a few weeks** - the pattern is always the same: initial excitement, production incidents, manual review bottlenecks, then abandonment.
 
-**I've also watched them succeed beyond expectations** - 589 commits in 60 days (85% AI-authored), 52 production agents deployed, 53 apps running live with 95% success rates.
+**I've also watched my own attempts fail** - "just be careful" broke production, "review everything" became a bottleneck, "only simple tasks" provided minimal value.
+
+**I've been surprised to find** that successful AI agent usage looks a lot like infrastructure operations - validation gates, observability, zero-trust principles, and continuous improvement.
 
 So I set out to answer:
 
 > ### **How do you use AI agents reliably enough to trust them with production work?**
 
 Welcome to 12-Factor AgentOps.
+
+*This is an early-stage framework based on production experience. Community validation and feedback are welcome.*
 
 ---
 
@@ -124,17 +128,16 @@ AI agents need the same operational discipline we apply to infrastructure:
 
 This became the 12 factors.
 
-### Production Metrics
+### What I've Built
 
-Real data from 60 days of production GitOps operations:
+From my own production GitOps environment (60 days of operations):
 
-- **589 commits** - 85% AI-authored (verifiable via git history)
-- **52 production agents** - Running live in DoD infrastructure
-- **53 apps deployed** - 261 YAML manifests, 100+ Kubernetes resources
-- **95% success rate** - Measured across last 100 commits
-- **Zero production incidents** - From AI-generated changes
+- **589 commits** - 85% AI-authored
+- **52 agents** - Deployed in production infrastructure
+- **53 apps** - 261 YAML manifests, 100+ Kubernetes resources
+- **Validation approach** - Every change validated before commit
 
-All metrics verifiable from git history in the production repository.
+This represents one practitioner's experience. Your mileage may vary. I'm sharing what worked for me, not claiming universal validation.
 
 ---
 
@@ -189,14 +192,18 @@ This framework focuses on *using* AI agents safely. Dex's framework focuses on *
 
 **Version:** v1.0.4 Beta
 
-**Status:** Community validation in progress. Production results are promising across GitOps, infrastructure operations, and software development. Help validate across more domains.
+**Status:** Early-stage framework based on production experience. Seeking community validation across domains.
+
+This represents patterns I've found useful. It's not a proven methodology - that requires community validation. If you try these approaches, please share what works (and what doesn't) via GitHub Discussions.
 
 **Contributing:** See [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 **Community:**
-- GitHub Discussions: Ask questions, share results
-- Issues: Report problems, suggest improvements
-- Pull Requests: Contribute patterns, case studies, domain guides
+- **Discussions:** Share your experience, ask questions
+- **Issues:** Report problems, suggest improvements
+- **Pull Requests:** Contribute patterns, case studies, domain guides
+
+Help validate whether these patterns work beyond my specific context.
 
 ---
 
