@@ -169,7 +169,7 @@ These aren't AI-specific techniques. They're operational fundamentals. Applied t
 
 **Then explore:**
 
-- **[WORKFLOW.md](./WORKFLOW.md)** - See how to apply the factors in practice with a complete Redis Operator example
+- **[Workflow Guide](./docs/tutorials/workflow-guide.md)** - See how to apply the factors in practice with a complete Redis Operator example
 - **[factors/](./factors/)** - Deep dive into any specific factor
 - **[docs/principles/](./docs/principles/)** - Understand the philosophy behind the framework (Five Laws, Four Pillars)
 
@@ -341,7 +341,7 @@ Pick one factor that matches your biggest pain point:
 - **Context problems?** Start with [Factor II: JIT Context Loading](./factors/02-jit-context-loading.md)
 - **Reliability issues?** Start with [Factor IV: Validation Gates](./factors/04-validation-gates-before-execution.md)
 - **Observability blind?** Start with [Factor V: Operational Telemetry](./factors/05-operational-telemetry.md)
-- **Want to understand deeply?** Start with [WORKFLOW.md](./WORKFLOW.md)
+- **Want to understand deeply?** Start with [Workflow Guide](./docs/tutorials/workflow-guide.md)
 
 ### For the Framework
 We're actively seeking:

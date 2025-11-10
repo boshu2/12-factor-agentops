@@ -13,8 +13,9 @@ This is a **Claude Code plugin marketplace** providing validation and pattern ex
 ```
 12-factor-agentops/
 ├── README.md                # Personal intro, driving question, the 12 factors
-├── FACTORS.md               # Quick reference (links to detailed docs)
-├── WORKFLOW.md              # Practical application guide
+├── docs/
+│   └── tutorials/
+│       └── workflow-guide.md  # Practical application guide
 │
 ├── .claude-plugin/          # Plugin marketplace configuration
 │   └── marketplace.json     # Marketplace metadata + external links (agentops, aitmpl)
@@ -106,9 +107,9 @@ cat marketplace/factor-compliance-checker/skill.md  # Example plugin
 
 ## Key Files
 
-**README.md** - Entry point. Personal voice, one question, 12 factors, plugin installation.
+**README.md** - Entry point. Personal voice, one question, 12 factors, getting started.
 **factors/*.md** - Detailed factor documentation with examples.
-**WORKFLOW.md** - Practical application (Research → Plan → Implement).
+**docs/tutorials/workflow-guide.md** - Practical application (Research → Plan → Implement).
 **.claude-plugin/marketplace.json** - Plugin marketplace configuration and external links (agentops, aitmpl).
 **marketplace/** - Installable Claude Code plugins (6 validation and pattern extraction skills).
 **docs/** - Philosophy, theory, research, domain guides, case studies (NOT Claude-specific).
