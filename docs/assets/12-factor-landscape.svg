@@ -30,16 +30,16 @@
     <!-- Factor I -->
     <rect x="50" y="165" width="260" height="120" rx="10" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="3"/>
     <text x="180" y="192" text-anchor="middle" font-size="16" font-weight="600" fill="#1A7FCC">
-      I. Git Memory as Knowledge OS
+      I. Automated Tracking
     </text>
     <text x="180" y="220" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
-      Every change saves context
+      Track everything automatically
     </text>
     <text x="180" y="239" text-anchor="middle" font-size="12" fill="#5A5449">
-      Git commits become
+      Builds institutional knowledge
     </text>
     <text x="180" y="256" text-anchor="middle" font-size="12" fill="#5A5449">
-      institutional memory
+      through version control
     </text>
 
     <!-- Factor II -->
