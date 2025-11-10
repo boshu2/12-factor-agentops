@@ -1,5 +1,7 @@
 # 12-Factor AgentOps
 
+**A methodology for using AI agents safely and reliably.**
+
 <div align="center">
 
 [![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
@@ -8,36 +10,49 @@
 
 </div>
 
-*In the spirit of [12 Factor Apps](https://12factor.net/)*.
-
-> [!TIP]
-> **New to AI agents?** Start with [Factor 4: Validation Gates](./factors/04-validation-gates-before-execution.md) - it's the most critical.
->
-> **Want to see what I built?** Check [What I've Built](#what-ive-built) for my production experience.
->
-> **Looking for examples?** Jump to [STARTER-PACK](./examples/STARTER-PACK/) to see all 12 factors in action.
-
 ---
 
-I've been using AI agents in production since Claude 2.0. I've built workflows spanning GitOps automation to infrastructure operations, running them in production environments from solo projects to DoD systems.
+## What Is This?
 
-**I've watched teams abandon AI agents after a few weeks** - the pattern is always the same: initial excitement, production incidents, manual review bottlenecks, then abandonment.
+12-Factor AgentOps is a framework for using AI agents and LLMs reliably in any context—from solo development to enterprise production.
 
-**I've also watched my own attempts fail** - "just be careful" broke production, "review everything" became a bottleneck, "only simple tasks" provided minimal value.
+Unlike frameworks that teach you how to *build* AI applications, this framework teaches you how to *operate* them safely. It's inspired by [12-Factor App](https://12factor.net) (cloud applications) and adapted for the unique challenges of AI agents.
 
-**I've been surprised to find** that successful AI agent usage looks a lot like infrastructure operations - validation gates, observability, zero-trust principles, and continuous improvement.
+## The Problem
 
-So I set out to answer:
+Everyone's using AI agents now. Few are using them reliably.
 
-> ### **How do you use AI agents reliably enough to trust them with production work?**
+The typical pattern:
+- **Week 1:** Ship exciting AI output
+- **Week 2:** It broke production
+- **Week 3:** Manual review becomes a bottleneck
+- **Week 4:** "This is slower than doing it myself" → Abandon AI
 
-Welcome to 12-Factor AgentOps.
+This happens because AI is fundamentally different from traditional software:
+- **Traditional software:** Same input → same output (deterministic)
+- **AI agents:** Same input → different output (probabilistic)
 
-*This is an early-stage framework based on production experience. Community validation and feedback are welcome.*
+Traditional reliability practices (code review, unit tests) don't work on probabilistic systems.
 
----
+## The Solution
 
-## The Twelve Factors
+After years of using AI in production, I discovered that **successful AI agent usage looks a lot like infrastructure operations:**
+- **Validation gates** - Check outputs before deploying
+- **Observability** - Metrics and logging for everything
+- **Zero-trust** - Never trust, always verify
+- **Pattern learning** - Extract learnings from each run
+- **Continuous improvement** - Make the system better over time
+
+These 20+ year-old DevOps and SRE practices work for AI too. This framework codifies them as 12 operational factors.
+
+## Who This Is For
+
+- **Solo developers** using AI coding assistants
+- **Teams** collaborating with AI tools
+- **Enterprises** deploying AI agents in production
+- **Anyone** who wants AI usage to get better, not worse, over time
+
+## The 12 Factors
 
 ### Foundation (I-IV)
 Build reliability from the ground up
@@ -116,107 +131,17 @@ cat WORKFLOW.md      # Practical application
 
 ---
 
-## How to Use This
+## Getting Started
 
-**Start here:** Read the factors above. Each one addresses a specific failure mode I've seen in production.
+**Read the factors above.** Each one addresses a specific failure mode you'll encounter when using AI in production.
 
-**Then:** Check out the [workflow guide](./WORKFLOW.md) for practical application (Research → Plan → Implement).
+**Then explore:**
+- [FACTORS.md](./FACTORS.md) - Quick reference of all 12 factors
+- [WORKFLOW.md](./WORKFLOW.md) - How to apply the factors to your work
+- [docs/](./docs/) - Deep dives on philosophy, research, and domain-specific guides
 
-**Go deeper:** Browse [examples/STARTER-PACK](./examples/STARTER-PACK/) to see all 12 factors in action.
-
-**Optional:** Explore [docs/](./docs/) for philosophy, research, and advanced patterns (Four Pillars, Five Laws, domain guides, case studies).
-
----
-
-## How We Got Here
-
-### The Problem
-
-Everyone's using AI agents now. Few are using them reliably. The pattern is always the same:
-
-```
-Week 1: ✨ "This AI code looks great!" → Ship it
-Week 2: 🔥 "Why did this break production?" → Manual rollback
-Week 3: 🐌 "I need to review everything" → Bottleneck
-Week 4: 🚫 "This is slower than doing it myself" → Abandon AI
-```
-
-I watched this cycle repeat across teams, companies, and domains.
-
-### What I Tried
-
-**First attempt:** "Just be careful"
-- Result: Still broke production
-- Learning: Vigilance doesn't scale
-
-**Second attempt:** "Review everything"
-- Result: Bottleneck, agents became slower than manual work
-- Learning: Defeats the purpose of automation
-
-**Third attempt:** "Only use for simple tasks"
-- Result: Minimal value, couldn't leverage full potential
-- Learning: Fear-based constraints limit innovation
-
-**Fourth attempt:** "Copy infrastructure patterns"
-- Result: THIS WORKED
-- Learning: Treat AI like untrusted infrastructure
-
-### The Breakthrough
-
-AI agents need the same operational discipline we apply to infrastructure:
-
-- **Zero-Trust:** Validate all output (AI or human)
-- **Shift-Left:** Test locally before commit
-- **Observability:** Metrics and telemetry for every run
-- **Pattern Learning:** Extract and reuse successful approaches
-- **Blast Radius:** Single-responsibility minimizes damage
-
-This became the 12 factors.
-
-### What I've Built
-
-From my own production GitOps environment (60 days of operations):
-
-- **589 commits** - 85% AI-authored
-- **52 agents** - Deployed in production infrastructure
-- **53 apps** - 261 YAML manifests, 100+ Kubernetes resources
-- **Validation approach** - Every change validated before commit
-
-This represents one practitioner's experience. Your mileage may vary. I'm sharing what worked for me, not claiming universal validation.
-
----
-
-## Why This Approach?
-
-Unlike agent *frameworks* (which help you build AI applications), this is about agent *operations* - making AI usage reliable regardless of tool or framework.
-
-**The gap:** Everyone knows how to build reliable systems. Few know how to build reliable systems *with AI agents*.
-
-**The solution:** Apply 20+ years of proven operational practices:
-- **DevOps** (2000s) - Continuous integration, deployment automation
-- **GitOps** (2010s) - Git as source of truth, declarative infrastructure
-- **Zero-Trust** (2010s) - Never trust, always verify
-- **SRE** (Google, 2003) - Error budgets, observability, reliability engineering
-
-**The innovation:** Adapting these proven practices to the unique challenges of AI agents (probabilistic outputs, autonomous decisions, context management).
-
-### What Makes AI Different
-
-Traditional software is deterministic:
-- Same input → Same output
-- Code review catches all bugs
-- Tests validate all paths
-
-AI agents are probabilistic:
-- Same input → Different output
-- Review can't catch creativity/judgment
-- Tests can't cover infinite possibilities
-
-**This requires new operational patterns:**
-- Validation gates (catch bad outputs before they ship)
-- Pattern extraction (learn from good outputs)
-- Constitutional guardrails (prevent entire classes of bad behavior)
-- Session continuity (manage context across long workflows)
+**Want to see it in action?**
+- [examples/STARTER-PACK](./examples/STARTER-PACK/) - Complete example using all 12 factors
 
 ---
 
