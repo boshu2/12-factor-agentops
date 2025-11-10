@@ -96,30 +96,30 @@ Build reliability from the ground up
 
 | Factor | What It Does |
 |--------|--------------|
-| **[I. Automated Tracking](./factors/01-git-memory-as-knowledge-os.md)** | Track everything automatically - builds institutional knowledge through version control |
-| **[II. Context Loading](./factors/02-jit-context-loading.md)** | Load only what you need - delegate to sub-agents as much as possible |
-| **[III. Focused Agents](./factors/03-single-responsibility-agents.md)** | Each agent does one job well - compose workflows from specialists |
-| **[IV. Continuous Validation](./factors/04-validation-gates-before-execution.md)** | Check at every step - catch errors before they propagate |
+| **[I. Automated Tracking](./factors/01-automated-tracking.md)** | Track everything automatically - builds institutional knowledge through version control |
+| **[II. Context Loading](./factors/02-context-loading.md)** | Load only what you need - delegate to sub-agents as much as possible |
+| **[III. Focused Agents](./factors/03-focused-agents.md)** | Each agent does one job well - compose workflows from specialists |
+| **[IV. Continuous Validation](./factors/04-continuous-validation.md)** | Check at every step - catch errors before they propagate |
 
 ### Operations (V-VIII)
 Scale and maintain reliability in production
 
 | Factor | What It Does |
 |--------|--------------|
-| **[V. Measure Everything](./factors/05-operational-telemetry.md)** | Track metrics and logs - observable performance and agent decisions |
-| **[VI. Resume Work](./factors/06-session-continuity-via-bundles.md)** | Continue multi-day sessions - save context to pick up where you left off |
-| **[VII. Smart Routing](./factors/07-intelligent-task-routing.md)** | Send tasks to specialists - route work to the agent best suited for it |
-| **[VIII. Human Validation](./factors/08-human-gate-reviews.md)** | Humans approve critical steps - ultimate validator for risky operations |
+| **[V. Measure Everything](./factors/05-measure-everything.md)** | Track metrics and logs - observable performance and agent decisions |
+| **[VI. Resume Work](./factors/06-resume-work.md)** | Continue multi-day sessions - save context to pick up where you left off |
+| **[VII. Smart Routing](./factors/07-smart-routing.md)** | Send tasks to specialists - route work to the agent best suited for it |
+| **[VIII. Human Validation](./factors/08-human-validation.md)** | Humans approve critical steps - ultimate validator for risky operations |
 
 ### Improvement (IX-XII)
 Continuous learning and adaptation
 
 | Factor | What It Does |
 |--------|--------------|
-| **[IX. Mine Patterns](./factors/09-documented-pattern-extraction.md)** | Search history for patterns - query git, logs, and metrics to find trends |
-| **[X. Small Iterations](./factors/10-continuous-improvement-backlog.md)** | Make small improvements continuously - tweak workflows and agents based on patterns |
-| **[XI. Fail-Safe Checks](./factors/11-constitutional-guardrails.md)** | Prevent repeating mistakes - add hooks and validations to stop bad patterns |
-| **[XII. Package Patterns](./factors/12-domain-portability.md)** | Bundle what works for reuse - capture successful workflows as reusable templates |
+| **[IX. Mine Patterns](./factors/09-mine-patterns.md)** | Search history for patterns - query git, logs, and metrics to find trends |
+| **[X. Small Iterations](./factors/10-small-iterations.md)** | Make small improvements continuously - tweak workflows and agents based on patterns |
+| **[XI. Fail-Safe Checks](./factors/11-fail-safe-checks.md)** | Prevent repeating mistakes - add hooks and validations to stop bad patterns |
+| **[XII. Package Patterns](./factors/12-package-patterns.md)** | Bundle what works for reuse - capture successful workflows as reusable templates |
 
 ### How the Factors Work Together
 
@@ -192,18 +192,18 @@ These aren't AI-specific techniques. They're operational fundamentals. Applied t
 
 Read them in order, or jump to what interests you:
 
-- [Factor I: Automated Tracking](./factors/01-git-memory-as-knowledge-os.md)
-- [Factor II: Context Loading](./factors/02-jit-context-loading.md)
-- [Factor III: Focused Agents](./factors/03-single-responsibility-agents.md)
-- [Factor IV: Continuous Validation](./factors/04-validation-gates-before-execution.md)
-- [Factor V: Measure Everything](./factors/05-operational-telemetry.md)
-- [Factor VI: Resume Work](./factors/06-session-continuity-via-bundles.md)
-- [Factor VII: Smart Routing](./factors/07-intelligent-task-routing.md)
-- [Factor VIII: Human Validation](./factors/08-human-gate-reviews.md)
-- [Factor IX: Mine Patterns](./factors/09-documented-pattern-extraction.md)
-- [Factor X: Small Iterations](./factors/10-continuous-improvement-backlog.md)
-- [Factor XI: Fail-Safe Checks](./factors/11-constitutional-guardrails.md)
-- [Factor XII: Package Patterns](./factors/12-domain-portability.md)
+- [Factor I: Automated Tracking](./factors/01-automated-tracking.md)
+- [Factor II: Context Loading](./factors/02-context-loading.md)
+- [Factor III: Focused Agents](./factors/03-focused-agents.md)
+- [Factor IV: Continuous Validation](./factors/04-continuous-validation.md)
+- [Factor V: Measure Everything](./factors/05-measure-everything.md)
+- [Factor VI: Resume Work](./factors/06-resume-work.md)
+- [Factor VII: Smart Routing](./factors/07-smart-routing.md)
+- [Factor VIII: Human Validation](./factors/08-human-validation.md)
+- [Factor IX: Mine Patterns](./factors/09-mine-patterns.md)
+- [Factor X: Small Iterations](./factors/10-small-iterations.md)
+- [Factor XI: Fail-Safe Checks](./factors/11-fail-safe-checks.md)
+- [Factor XII: Package Patterns](./factors/12-package-patterns.md)
 
 ---
 
@@ -349,9 +349,9 @@ Academic citation: See [CITATION.bib](./CITATION.bib)
 
 ### For You
 Pick one factor that matches your biggest pain point:
-- **Context problems?** Start with [Factor II: Context Loading](./factors/02-jit-context-loading.md)
-- **Reliability issues?** Start with [Factor IV: Continuous Validation](./factors/04-validation-gates-before-execution.md)
-- **Observability blind?** Start with [Factor V: Measure Everything](./factors/05-operational-telemetry.md)
+- **Context problems?** Start with [Factor II: Context Loading](./factors/02-context-loading.md)
+- **Reliability issues?** Start with [Factor IV: Continuous Validation](./factors/04-continuous-validation.md)
+- **Observability blind?** Start with [Factor V: Measure Everything](./factors/05-measure-everything.md)
 - **Want to understand deeply?** Start with [Workflow Guide](./docs/tutorials/workflow-guide.md)
 
 ### For the Framework
