@@ -476,10 +476,10 @@ You are an expert in:
 
 ## Relationship to Other Factors
 
-- **Factor II (JIT Context Loading)**: Smaller agents delegate to sub-agents, keeping main context clean
-- **Factor IV (Validation Gates)**: Validation agents check output of implementation agents
-- **Factor VII (Intelligent Routing)**: Router selects best-fit single-responsibility agent
-- **Factor XII (Domain Portability)**: Agents packaged into reusable profiles
+- **Factor II: Context Loading**: Smaller agents delegate to sub-agents, keeping main context clean
+- **Factor IV: Continuous Validation**: Validation agents check output of implementation agents
+- **Factor VIII: Smart Routing**: Router selects best-fit single-responsibility agent
+- **Factor XII: Package Patterns**: Agents packaged into reusable profiles
 
 ---
 

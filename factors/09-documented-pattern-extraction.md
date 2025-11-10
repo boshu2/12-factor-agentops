@@ -428,11 +428,11 @@ Meta patterns: 10 (pattern extraction itself)
 
 ## Relationship to Other Factors
 
-- **Factor I (Git Memory)**: Patterns extracted from git history analysis
-- **Factor III (Single-Responsibility)**: Agent composition patterns
-- **Factor V (Telemetry)**: Telemetry reveals which patterns work
-- **Factor VI (Session Continuity)**: Bundles are a pattern for continuity
-- **Factor VII (Intelligent Routing)**: Routing learns from pattern success rates
+- **Factor I: Automated Tracking**: Patterns extracted from git history analysis
+- **Factor III: Focused Agents**: Agent composition patterns
+- **Factor VI: Measure Everything**: Telemetry reveals which patterns work
+- **Factor VII: Resume Work**: Bundles are a pattern for continuity
+- **Factor VIII: Smart Routing**: Routing learns from pattern success rates
 
 ---
 

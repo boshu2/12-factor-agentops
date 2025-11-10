@@ -414,11 +414,11 @@ Time saved: 8 hours - 2 hours = 6 hours net savings
 
 ## Relationship to Other Factors
 
-- **Factor II (JIT Context Loading)**: Gates enable context delegation (research done, plan approved, sub-agent handles implementation)
-- **Factor III (Single-Responsibility)**: Each gate reviews one phase's output
-- **Factor IV (Validation Gates)**: Human gates supplement automated validation
-- **Factor VI (Session Continuity)**: Gates natural boundaries for session bundles
-- **Factor VII (Intelligent Routing)**: Route high-risk tasks to human-gated workflows
+- **Factor II: Context Loading**: Gates enable context delegation (research done, plan approved, sub-agent handles implementation)
+- **Factor III: Focused Agents**: Each gate reviews one phase's output
+- **Factor IV: Continuous Validation**: Human gates supplement automated validation
+- **Factor VII: Resume Work**: Gates natural boundaries for session bundles
+- **Factor VIII: Smart Routing**: Route high-risk tasks to human-gated workflows
 
 ---
 

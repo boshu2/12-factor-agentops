@@ -459,11 +459,11 @@ Net result: Positive ROI, system measurably better
 
 ## Relationship to Other Factors
 
-- **Factor V (Telemetry)**: Telemetry reveals what needs improvement
-- **Factor IX (Pattern Extraction)**: Patterns guide improvements
-- **Factor IV (Validation Gates)**: Improvements often add new gates
-- **Factor II (JIT Context Loading)**: Context improvements optimize sub-agent delegation
-- **Factor XI (Constitutional Guardrails)**: Improvements must follow laws
+- **Factor VI: Measure Everything**: Telemetry reveals what needs improvement
+- **Factor IX: Mine Patterns**: Patterns guide improvements
+- **Factor IV: Continuous Validation**: Improvements often add new gates
+- **Factor II: Context Loading**: Context improvements optimize sub-agent delegation
+- **Factor XI: Fail-Safe Checks**: Improvements must follow laws
 
 ---
 
@@ -575,7 +575,7 @@ Net result: Positive ROI, system measurably better
 - **DevOps + SRE Pillar**: [../foundations/four-pillars.md#pillar-1-devops--sre](../foundations/four-pillars.md#pillar-1-devops--sre)
 - **Law 2 (Improve System)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-2)
 - **Law 3 (Document Context)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-3)
-- **Factor IX (Pattern Extraction)**: [./09-documented-pattern-extraction.md](./09-documented-pattern-extraction.md)
+- **Factor IX: Mine Patterns**: [./09-documented-pattern-extraction.md](./09-documented-pattern-extraction.md)
 - **Kaizen**: [Wikipedia: Kaizen](https://en.wikipedia.org/wiki/Kaizen)
 
 ---

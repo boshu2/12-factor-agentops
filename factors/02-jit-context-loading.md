@@ -568,11 +568,11 @@ def explore_subagent():
 
 ## Relationship to Other Factors
 
-- **Factor I (Git Memory)**: Git provides canonical source for sub-agents to load context JIT
-- **Factor III (Single-Responsibility)**: Each sub-agent has single responsibility = minimal context
-- **Factor IV (Validation Gates)**: Sub-agents validate in isolation without polluting main context
-- **Factor VI (Session Continuity)**: Sub-agent summaries can be bundled for long-running sessions
-- **Factor VII (Intelligent Routing)**: Main agent routes tasks to appropriate sub-agents
+- **Factor I: Automated Tracking**: Git provides canonical source for sub-agents to load context JIT
+- **Factor III: Focused Agents**: Each sub-agent has single responsibility = minimal context
+- **Factor IV: Continuous Validation**: Sub-agents validate in isolation without polluting main context
+- **Factor VII: Resume Work**: Sub-agent summaries can be bundled for long-running sessions
+- **Factor VIII: Smart Routing**: Main agent routes tasks to appropriate sub-agents
 
 ---
 
@@ -862,7 +862,7 @@ From industry leaders:
 ## Further Reading
 
 - **Context Engineering Foundation**: [../foundations/context-engineering.md](../foundations/context-engineering.md)
-- **Factor VI (Context Bundles)**: [./06-session-continuity-via-bundles.md](./06-session-continuity-via-bundles.md)
+- **Factor VII: Resume Work**: [./06-session-continuity-via-bundles.md](./06-session-continuity-via-bundles.md)
 - **Pattern: Phase-Based Workflow**: [../patterns/phase-based-workflow.md](../patterns/phase-based-workflow.md)
 - **12-Factor Agents - Original Content**: [Factor 3: Own Your Context Window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
 

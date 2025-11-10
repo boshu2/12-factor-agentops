@@ -402,11 +402,11 @@ Time: 15 seconds
 
 ## Relationship to Other Factors
 
-- **Factor I (Git Memory)**: Git hooks enforce validation before commits
-- **Factor II (JIT Context Loading)**: Validation in isolated sub-agent context prevents pollution
-- **Factor III (Single-Responsibility)**: Smaller agents → simpler validation
-- **Factor V (Telemetry)**: Monitors validation gate success rates
-- **Factor XI (Constitutional Guardrails)**: Validation enforces governance
+- **Factor I: Automated Tracking**: Git hooks enforce validation before commits
+- **Factor II: Context Loading**: Validation in isolated sub-agent context prevents pollution
+- **Factor III: Focused Agents**: Smaller agents → simpler validation
+- **Factor V: Measure Everything**: Monitors validation gate success rates
+- **Factor XI: Fail-Safe Checks**: Validation enforces governance
 
 ---
 

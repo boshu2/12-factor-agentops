@@ -486,11 +486,11 @@ Result:
 
 ## Relationship to Other Factors
 
-- **Factor I (Git Memory)**: Profiles versioned in git
-- **Factor III (Single-Responsibility)**: Profiles contain single-responsibility agents
-- **Factor IX (Pattern Extraction)**: Profiles package extracted patterns
-- **Factor X (Continuous Improvement)**: Profile updates driven by improvement backlog
-- **Factor XI (Constitutional Guardrails)**: Profiles include domain-specific guardrails
+- **Factor I: Automated Tracking**: Profiles versioned in git
+- **Factor III: Focused Agents**: Profiles contain single-responsibility agents
+- **Factor IX: Mine Patterns**: Profiles package extracted patterns
+- **Factor X: Small Iterations**: Profile updates driven by improvement backlog
+- **Factor XI: Fail-Safe Checks**: Profiles include domain-specific guardrails
 
 ---
 
@@ -623,7 +623,7 @@ Result: Portable, reusable domain knowledge
 - **Knowledge OS Pillar**: [../foundations/knowledge-os.md](../foundations/knowledge-os.md)
 - **Law 1 (Extract Learnings)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-1)
 - **Law 5 (Share Patterns)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-5)
-- **Factor IX (Pattern Extraction)**: [./09-documented-pattern-extraction.md](./09-documented-pattern-extraction.md)
+- **Factor IX: Mine Patterns**: [./09-documented-pattern-extraction.md](./09-documented-pattern-extraction.md)
 - **Helm Charts**: [https://helm.sh](https://helm.sh)
 - **Domain-Driven Design**: [Wikipedia: Domain-driven design](https://en.wikipedia.org/wiki/Domain-driven_design)
 

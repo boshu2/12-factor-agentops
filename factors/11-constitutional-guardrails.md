@@ -493,11 +493,11 @@ Prevention: 100% of commits include learnings (was 65%)
 
 ## Relationship to Other Factors
 
-- **Factor I (Git Memory)**: Git hooks enforce Laws 1 & 3
-- **Factor IV (Validation Gates)**: Enforces Law 4
-- **Factor VI (Session Continuity)**: Enforces 40% rule (Law 2)
-- **Factor IX (Pattern Extraction)**: Enforces Law 5 (Share Patterns)
-- **Factor X (Continuous Improvement)**: Enforces Law 2 (Improve System)
+- **Factor I: Automated Tracking**: Git hooks enforce Laws 1 & 3
+- **Factor IV: Continuous Validation**: Enforces Law 4
+- **Factor VII: Resume Work**: Enforces 40% rule (Law 2)
+- **Factor IX: Mine Patterns**: Enforces Law 5 (Share Patterns)
+- **Factor X: Small Iterations**: Enforces Law 2 (Improve System)
 
 ---
 
@@ -633,7 +633,7 @@ class GuardrailExemption:
 
 - **DevOps + SRE Pillar**: [../foundations/four-pillars.md#pillar-1-devops--sre](../foundations/four-pillars.md#pillar-1-devops--sre)
 - **Five Laws**: [../foundations/five-laws.md](../foundations/five-laws.md)
-- **Factor IV (Validation Gates)**: [./04-validation-gates-before-execution.md](./04-validation-gates-before-execution.md)
+- **Factor IV: Continuous Validation**: [./04-validation-gates-before-execution.md](./04-validation-gates-before-execution.md)
 - **Policy as Code**: [Open Policy Agent](https://www.openpolicyagent.org/)
 - **Poka-Yoke**: [Wikipedia: Poka-yoke](https://en.wikipedia.org/wiki/Poka-yoke)
 

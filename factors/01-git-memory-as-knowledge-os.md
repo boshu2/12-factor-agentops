@@ -146,7 +146,7 @@ Git Memory enforces Law 1 by making learning extraction the **primary purpose of
 - **Learning:** The generalizable insight (the pattern extracted)
 - **Impact:** Quantified value (proof the learning matters)
 
-**Enforcement mechanism:** Pre-commit hooks validate that commits include a "Learning:" section. Commits without learnings are rejected. This isn't optional—it's constitutional (Factor XI: Constitutional Guardrails).
+**Enforcement mechanism:** Pre-commit hooks validate that commits include a "Learning:" section. Commits without learnings are rejected. This isn't optional—it's constitutional (Factor XI: Fail-Safe Checks).
 
 **Example:**
 ```bash
@@ -313,10 +313,10 @@ Impact: 5 minutes to fix instead of 2 hours of debugging
 
 ## Relationship to Other Factors
 
-- **Factor II (JIT Context Loading)**: Git provides canonical source for sub-agents to load JIT
-- **Factor IV (Validation Gates)**: Git hooks enforce quality
-- **Factor IX (Pattern Extraction)**: Patterns come from Git history analysis
-- **Factor XI (Constitutional Guardrails)**: Git hooks enforce governance
+- **Factor II: Context Loading**: Git provides canonical source for sub-agents to load JIT
+- **Factor IV: Continuous Validation**: Git hooks enforce quality
+- **Factor IX: Mine Patterns**: Patterns come from Git history analysis
+- **Factor XI: Fail-Safe Checks**: Git hooks enforce governance
 
 ---
 

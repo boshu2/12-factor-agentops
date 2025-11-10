@@ -180,7 +180,7 @@ With telemetry:
 Baseline: 5 executions/hour, 35% context utilization
 10x traffic: 50 executions/hour → 350% context utilization → FAILURE
 
-Action: Implement Factor II (JIT Context Loading) before scaling
+Action: Implement Factor II: Context Loading before scaling
 ```
 
 ---
@@ -425,11 +425,11 @@ Result: 30 seconds to identify root cause, 5 minutes to fix
 
 ## Relationship to Other Factors
 
-- **Factor I (Git Memory)**: Git commits log decisions, telemetry logs execution
-- **Factor IV (Validation Gates)**: Telemetry measures validation effectiveness
-- **Factor VI (Session Continuity)**: Telemetry tracks multi-session workflows
-- **Factor IX (Pattern Extraction)**: Telemetry data reveals patterns
-- **Factor X (Continuous Improvement)**: Telemetry drives improvement backlog
+- **Factor I: Automated Tracking**: Git commits log decisions, telemetry logs execution
+- **Factor IV: Continuous Validation**: Telemetry measures validation effectiveness
+- **Factor VII: Resume Work**: Telemetry tracks multi-session workflows
+- **Factor IX: Mine Patterns**: Telemetry data reveals patterns
+- **Factor X: Small Iterations**: Telemetry drives improvement backlog
 
 ---
 

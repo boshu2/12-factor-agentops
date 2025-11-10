@@ -416,11 +416,11 @@ Result: Completed successfully, never exceeded 40%
 
 ## Relationship to Other Factors
 
-- **Factor I (Git Memory)**: Full artifacts stored in Git, bundles for loading
-- **Factor II (40% Rule)**: Bundles enable staying under 40% across sessions
-- **Factor III (Single-Responsibility)**: Each bundle corresponds to one agent's output
-- **Factor V (Telemetry)**: Track bundle compression ratios and usage
-- **Factor IX (Pattern Extraction)**: Bundles preserve patterns discovered
+- **Factor I: Automated Tracking**: Full artifacts stored in Git, bundles for loading
+- **Factor II: Context Loading**: Bundles enable staying under 40% across sessions
+- **Factor III: Focused Agents**: Each bundle corresponds to one agent's output
+- **Factor VI: Measure Everything**: Track bundle compression ratios and usage
+- **Factor IX: Mine Patterns**: Bundles preserve patterns discovered
 
 ---
 

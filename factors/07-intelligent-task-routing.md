@@ -464,11 +464,11 @@ Month 3: 91% accuracy (stable)
 
 ## Relationship to Other Factors
 
-- **Factor III (Single-Responsibility)**: Router selects which single-responsibility agent
-- **Factor IV (Validation Gates)**: Routing accuracy is a validation metric
-- **Factor V (Telemetry)**: Measure routing decisions and outcomes
-- **Factor IX (Pattern Extraction)**: Routing patterns extracted from successful routes
-- **Factor X (Continuous Improvement)**: Routing accuracy drives improvement backlog
+- **Factor III: Focused Agents**: Router selects which single-responsibility agent
+- **Factor IV: Continuous Validation**: Routing accuracy is a validation metric
+- **Factor VI: Measure Everything**: Measure routing decisions and outcomes
+- **Factor IX: Mine Patterns**: Routing patterns extracted from successful routes
+- **Factor X: Small Iterations**: Routing accuracy drives improvement backlog
 
 ---
 
