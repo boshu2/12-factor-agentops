@@ -8,7 +8,7 @@ I've been using AI agents in production since Claude 2.0. I've built workflows s
 
 **I've watched AI agents fail spectacularly** - breaking production, generating plausible-but-wrong code, and creating more work than they save.
 
-**I've also watched them succeed beyond expectations** - 40x speedups on complex workflows, 95% success rates, and zero context collapse when done right.
+**I've also watched them succeed beyond expectations** - 589 commits in 60 days (85% AI-authored), 52 production agents deployed, 53 apps running live with 95% success rates.
 
 So I set out to answer:
 
