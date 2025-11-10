@@ -1,218 +1,263 @@
 # 12-Factor AgentOps
 
-**Stop trusting AI agents. Start validating them.**
+<div align="center">
 
-A methodology for using AI agents safely and reliably—from solo developers to enterprise teams.
-
-[![Version](https://img.shields.io/badge/Version-v1.0.4-blue.svg)]()
-[![Status](https://img.shields.io/badge/Status-Beta--Community_Validation-blue.svg)](./marketplace/research/validation/DISCLAIMER.md)
 [![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![Version](https://img.shields.io/badge/Version-v1.0.4_Beta-blue.svg)]()
+[![GitHub Stars](https://img.shields.io/github/stars/boshu2/12-factor-agentops?style=social)](https://github.com/boshu2/12-factor-agentops)
+
+</div>
+
+*In the spirit of [12 Factor Apps](https://12factor.net/)*.
+
+> [!TIP]
+> **New to AI agents?** Start with [Factor 4: Validation Gates](./factors/04-validation-gates-before-execution.md) - it's the most critical.
+>
+> **Want to see what I built?** Check [What I've Built](#what-ive-built) for my production experience.
+>
+> **Looking for examples?** Jump to [STARTER-PACK](./examples/STARTER-PACK/) to see all 12 factors in action.
 
 ---
 
-## Why This Matters
+I've been using AI agents in production since Claude 2.0. I've built workflows spanning GitOps automation to infrastructure operations, running them in production environments from solo projects to DoD systems.
 
-**You're using AI agents. They're powerful. But can you trust them?**
+**I've watched teams abandon AI agents after a few weeks** - the pattern is always the same: initial excitement, production incidents, manual review bottlenecks, then abandonment.
 
-Here's what happens without validation:
+**I've also watched my own attempts fail** - "just be careful" broke production, "review everything" became a bottleneck, "only simple tasks" provided minimal value.
 
-```
-Week 1: "Wow, this AI code looks great!" → Ship it
-Week 2: "Why did this break production?" → Manual rollback
-Week 3: "I need to review everything" → Bottleneck
-Week 4: "This is slower than doing it myself" → Abandon AI
-```
+**I've been surprised to find** that successful AI agent usage looks a lot like infrastructure operations - validation gates, observability, zero-trust principles, and continuous improvement.
 
-**The gap:** We know how to build reliable systems. We don't yet know how to build reliable systems *with* AI agents.
+So I set out to answer:
 
-**The solution:** Treat AI output like untrusted network traffic. Validate everything before it ships.
+> ### **How do you use AI agents reliably enough to trust them with production work?**
 
----
+Welcome to 12-Factor AgentOps.
 
-## The 12 Factors
-
-**Operational principles for safe AI agent usage.**
-
-| # | Factor | What It Does |
-|---|--------|--------------|
-| **I** | **[Git Memory as Knowledge OS](./FACTORS.md#factor-i-git-memory-as-knowledge-os)** | One canonical history for agent work; commits capture intent, context, and learnings |
-| **II** | **[JIT Context Loading](./FACTORS.md#factor-ii-jit-context-loading)** | Keep main context clean; delegate work to sub-agents with isolated context windows |
-| **III** | **[Single-Responsibility Agents](./FACTORS.md#factor-iii-single-responsibility-agents)** | Compose workflows from focused agents; avoid monolith prompts |
-| **IV** | **[Validation Gates Before Execution](./FACTORS.md#factor-iv-validation-gates-before-execution)** | Formal checkpoints (plan review, tests, hooks) before applying changes |
-| **V** | **[Operational Telemetry](./FACTORS.md#factor-v-operational-telemetry)** | Metrics, logs, and observability for every agent run |
-| **VI** | **[Session Continuity via Bundles](./FACTORS.md#factor-vi-session-continuity-via-bundles)** | Persist and restore context using compressed artifacts for multi-day work |
-| **VII** | **[Intelligent Task Routing](./FACTORS.md#factor-vii-intelligent-task-routing)** | Route work to best-fit workflows/agents with measured accuracy |
-| **VIII** | **[Human Gate Reviews](./FACTORS.md#factor-viii-human-gate-reviews)** | Embed human approvals between research → plan → implement phases |
-| **IX** | **[Documented Pattern Extraction](./FACTORS.md#factor-ix-documented-pattern-extraction)** | Capture learnings after every session; publish reusable patterns |
-| **X** | **[Continuous Improvement Backlog](./FACTORS.md#factor-x-continuous-improvement-backlog)** | Each session identifies improvements; prioritize and action them |
-| **XI** | **[Constitutional Guardrails](./FACTORS.md#factor-xi-constitutional-guardrails)** | Enforce operational laws and prevent risky behaviors |
-| **XII** | **[Domain Portability](./FACTORS.md#factor-xii-domain-portability)** | Package domain knowledge into reusable profiles and bundles |
-
-**[See detailed explanations →](./FACTORS.md)**
+*This is an early-stage framework based on production experience. Community validation and feedback are welcome.*
 
 ---
 
-## Quick Start
+## The Twelve Factors
 
-### 1. Understand the Workflow
+### Foundation (I-IV)
+Build reliability from the ground up
 
-AI agent work follows three phases:
+| Factor | What It Does |
+|--------|--------------|
+| **[I. Git Memory as Knowledge OS](./factors/01-git-memory-as-knowledge-os.md)** | One canonical history - commits capture intent, context, learnings |
+| **[II. JIT Context Loading](./factors/02-jit-context-loading.md)** | Keep main context clean - delegate to sub-agents with isolated windows |
+| **[III. Single-Responsibility Agents](./factors/03-single-responsibility-agents.md)** | One agent, one job - compose workflows from focused agents |
+| **[IV. Validation Gates Before Execution](./factors/04-validation-gates-before-execution.md)** | Never trust, always verify - formal checkpoints before applying changes |
 
-```
-Research → Plan → Implement
-   ↓        ↓         ↓
-Explore  Specify  Execute
-```
+### Operations (V-VIII)
+Scale and maintain reliability in production
 
-Each phase has validation gates. No phase skips to the next without passing validation.
+| Factor | What It Does |
+|--------|--------------|
+| **[V. Operational Telemetry](./factors/05-operational-telemetry.md)** | Metrics and observability - know what your agents are doing |
+| **[VI. Session Continuity via Bundles](./factors/06-session-continuity-via-bundles.md)** | Persist context across sessions - multi-day work without collapse |
+| **[VII. Intelligent Task Routing](./factors/07-intelligent-task-routing.md)** | Right agent, right task - route work to best-fit workflows |
+| **[VIII. Human Gate Reviews](./factors/08-human-gate-reviews.md)** | Strategic human checkpoints - approval gates between phases |
 
-**[Full workflow guide →](./WORKFLOW.md)**
+### Improvement (IX-XII)
+Continuous learning and adaptation
 
-### 2. Apply the Factors
+| Factor | What It Does |
+|--------|--------------|
+| **[IX. Documented Pattern Extraction](./factors/09-documented-pattern-extraction.md)** | Capture learnings after every session - patterns compound |
+| **[X. Continuous Improvement Backlog](./factors/10-continuous-improvement-backlog.md)** | Each session identifies improvements - prioritize and action |
+| **[XI. Constitutional Guardrails](./factors/11-constitutional-guardrails.md)** | Enforce operational laws - prevent risky behaviors |
+| **[XII. Domain Portability](./factors/12-domain-portability.md)** | Package domain knowledge - reusable profiles and bundles |
 
-Start with the foundation factors (I-IV):
+---
 
-- **Factor I:** Use git for all agent work (semantic commits, meaningful history)
-- **Factor II:** Break complex tasks into focused sub-agents
-- **Factor III:** One agent, one job (no monolith prompts)
-- **Factor IV:** Validate before applying (tests, reviews, gates)
+## Installation
 
-Then add operational factors (V-XII) as you scale.
+### Claude Code Plugin Marketplace
 
-### 3. Use the Starter Pack
-
-We provide a complete reference implementation:
+This repository provides a **Claude Code plugin marketplace** with validation and pattern extraction skills:
 
 ```bash
-# Clone the repository
-git clone https://github.com/boshu2/12-factor-agentops
+# Add the 12-factor-agentops marketplace
+/plugin marketplace add boshu2/12-factor-agentops
 
-# Explore the starter pack
-cd examples/STARTER-PACK
-cat README.md
+# Install validation skills (pick what you need)
+/plugin install factor-compliance-checker@12-factor-agentops       # Validate factor compliance
+/plugin install five-laws-auditor@12-factor-agentops                # Audit against Five Laws
+/plugin install pattern-extraction-assistant@12-factor-agentops     # Extract patterns from work
+
+# Optional: Documentation organization
+/plugin install research-formatter@12-factor-agentops               # Format case studies
+/plugin install diataxis-organizer@12-factor-agentops               # Organize docs
+/plugin install cross-reference-validator@12-factor-agentops        # Validate links
 ```
 
-The starter pack shows all 12 factors in action.
+**For production workflows**, install from the [boshu2/agentops](https://github.com/boshu2/agentops) marketplace:
+```bash
+# Add the agentops marketplace
+/plugin marketplace add boshu2/agentops
+
+# Install production workflow plugins
+/plugin install core-workflow@agentops           # Research → Plan → Implement → Learn (required base)
+/plugin install devops-operations@agentops       # Kubernetes, Helm, ArgoCD, CI/CD
+/plugin install software-development@agentops    # Python, JavaScript, Go, testing
+```
+
+### Manual Use
+
+Read the methodology without installing plugins:
+
+```bash
+git clone https://github.com/boshu2/12-factor-agentops
+cd 12-factor-agentops
+cat README.md        # Start here
+cat FACTORS.md       # Quick reference
+cat WORKFLOW.md      # Practical application
+```
 
 ---
 
-## Operating Principles
+## How to Use This
 
-Five mandatory principles for all agent work:
+**Start here:** Read the factors above. Each one addresses a specific failure mode I've seen in production.
 
-1. **Extract Learnings** - Patterns are valuable. One-time solutions are not.
-2. **Improve Continuously** - Each session identifies at least one improvement.
-3. **Document Context** - Future agents (and humans) will thank you.
-4. **Validate First** - Prevention is cheaper than recovery.
-5. **Share Patterns** - Help others avoid your mistakes.
+**Then:** Check out the [workflow guide](./WORKFLOW.md) for practical application (Research → Plan → Implement).
 
-**[Deep dive on principles →](./marketplace/principles/five-laws.md)**
+**Go deeper:** Browse [examples/STARTER-PACK](./examples/STARTER-PACK/) to see all 12 factors in action.
+
+**Optional:** Explore [docs/](./docs/) for philosophy, research, and advanced patterns (Four Pillars, Five Laws, domain guides, case studies).
 
 ---
 
-## Is This For You?
+## How We Got Here
 
-**✅ Use this if you:**
-- Use AI agents/LLMs for anything (coding, writing, research, automation)
-- Want AI to make you faster, not create new problems
-- Need to trust AI output before it goes to production
-- Are tired of manually reviewing everything
-- Want your AI usage to improve over time
+### The Problem
 
-**❌ Skip this if you:**
-- Don't use AI agents
-- Trust AI output without validation
-- Prefer learning from production incidents
+Everyone's using AI agents now. Few are using them reliably. The pattern is always the same:
+
+```
+Week 1: ✨ "This AI code looks great!" → Ship it
+Week 2: 🔥 "Why did this break production?" → Manual rollback
+Week 3: 🐌 "I need to review everything" → Bottleneck
+Week 4: 🚫 "This is slower than doing it myself" → Abandon AI
+```
+
+I watched this cycle repeat across teams, companies, and domains.
+
+### What I Tried
+
+**First attempt:** "Just be careful"
+- Result: Still broke production
+- Learning: Vigilance doesn't scale
+
+**Second attempt:** "Review everything"
+- Result: Bottleneck, agents became slower than manual work
+- Learning: Defeats the purpose of automation
+
+**Third attempt:** "Only use for simple tasks"
+- Result: Minimal value, couldn't leverage full potential
+- Learning: Fear-based constraints limit innovation
+
+**Fourth attempt:** "Copy infrastructure patterns"
+- Result: THIS WORKED
+- Learning: Treat AI like untrusted infrastructure
+
+### The Breakthrough
+
+AI agents need the same operational discipline we apply to infrastructure:
+
+- **Zero-Trust:** Validate all output (AI or human)
+- **Shift-Left:** Test locally before commit
+- **Observability:** Metrics and telemetry for every run
+- **Pattern Learning:** Extract and reuse successful approaches
+- **Blast Radius:** Single-responsibility minimizes damage
+
+This became the 12 factors.
+
+### What I've Built
+
+From my own production GitOps environment (60 days of operations):
+
+- **589 commits** - 85% AI-authored
+- **52 agents** - Deployed in production infrastructure
+- **53 apps** - 261 YAML manifests, 100+ Kubernetes resources
+- **Validation approach** - Every change validated before commit
+
+This represents one practitioner's experience. Your mileage may vary. I'm sharing what worked for me, not claiming universal validation.
 
 ---
 
-## Built on Proven Foundations
+## Why This Approach?
 
-This framework adapts methodologies with **decades of validation** to AI agent operations:
+Unlike agent *frameworks* (which help you build AI applications), this is about agent *operations* - making AI usage reliable regardless of tool or framework.
 
-- **DevOps** (20+ years) - Continuous integration, deployment automation, shift-left testing
-- **GitOps** (10+ years) - Git as source of truth, declarative infrastructure
-- **Zero-Trust** (10+ years) - Never trust, always verify—applied to AI outputs
-- **SRE** (15+ years from Google) - Error budgets, observability, incident response
+**The gap:** Everyone knows how to build reliable systems. Few know how to build reliable systems *with AI agents*.
 
-**Early results are promising:**
-- 40x speedups on complex workflows
-- 95% success rates with full compliance
-- 0% context collapse with proper context management
-- 8x efficiency gains from cognitive load management
+**The solution:** Apply 20+ years of proven operational practices:
+- **DevOps** (2000s) - Continuous integration, deployment automation
+- **GitOps** (2010s) - Git as source of truth, declarative infrastructure
+- **Zero-Trust** (2010s) - Never trust, always verify
+- **SRE** (Google, 2003) - Error budgets, observability, reliability engineering
 
-**Now seeking community validation** across diverse domains.
+**The innovation:** Adapting these proven practices to the unique challenges of AI agents (probabilistic outputs, autonomous decisions, context management).
 
-**[Research foundations →](./marketplace/research/)**
+### What Makes AI Different
 
----
+Traditional software is deterministic:
+- Same input → Same output
+- Code review catches all bugs
+- Tests validate all paths
 
-## Where to Go Next
+AI agents are probabilistic:
+- Same input → Different output
+- Review can't catch creativity/judgment
+- Tests can't cover infinite possibilities
 
-**Core methodology (required reading - ~1 hour):**
-1. [README.md](./README.md) - This page (10 min)
-2. [FACTORS.md](./FACTORS.md) - Detailed factor explanations (30 min)
-3. [WORKFLOW.md](./WORKFLOW.md) - How to apply this (20 min)
-
-**Practical implementation:**
-4. [Starter Pack](./examples/STARTER-PACK/) - Complete reference implementation
-5. [Domain Guides](./marketplace/domain-guides/) - DevOps, SRE, solo dev, etc.
-
-**Deep dives (optional):**
-6. [Marketplace](./marketplace/) - Philosophy, research, advanced patterns, case studies
-
-**Community:**
-7. [CONTRIBUTING.md](./CONTRIBUTING.md) - Share your patterns and validation
-8. [GitHub Discussions](https://github.com/boshu2/12-factor-agentops/discussions) - Ask questions, share results
+**This requires new operational patterns:**
+- Validation gates (catch bad outputs before they ship)
+- Pattern extraction (learn from good outputs)
+- Constitutional guardrails (prevent entire classes of bad behavior)
+- Session continuity (manage context across long workflows)
 
 ---
 
 ## Related Work
 
-This framework complements other 12-factor methodologies:
+- **[12-Factor App](https://12factor.net)** (Adam Wiggins, Heroku) - Building cloud-native apps
+- **[12-Factor Agents](https://github.com/humanlayer/12-factor-agents)** (Dex Horthy, HumanLayer) - Building reliable AI applications
 
-```
-12-Factor App (2011)     → How to build cloud-native apps (Heroku)
-12-Factor Agents (2025)  → How to build AI apps (Dex Horthy @ HumanLayer)
-12-Factor AgentOps (2025) → How to use AI safely (This Framework)
-```
+This framework focuses on *using* AI agents safely. Dex's framework focuses on *building* AI applications. Both are complementary.
 
-**Dex's [12-Factor Agents](https://github.com/humanlayer/12-factor-agents)** helps you build reliable AI applications.
-
-**Our 12-Factor AgentOps** helps you use AI agents safely in any context.
-
-Both are complementary, not competitive.
+**Key difference:**
+- 12-Factor Agents: Engineering patterns for developers building AI apps
+- 12-Factor AgentOps: Operational patterns for anyone using AI agents
 
 ---
 
-## Contributing
+## Status & Contributing
 
-We welcome:
-- Production-validated patterns
-- Empirical research and case studies
-- Domain-specific implementation guides
-- Failure analyses (what didn't work)
+**Version:** v1.0.4 Beta
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for process.
+**Status:** Early-stage framework based on production experience. Seeking community validation across domains.
 
----
+This represents patterns I've found useful. It's not a proven methodology - that requires community validation. If you try these approaches, please share what works (and what doesn't) via GitHub Discussions.
 
-## License & Citation
+**Contributing:** See [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-**License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+**Community:**
+- **Discussions:** Share your experience, ask questions
+- **Issues:** Report problems, suggest improvements
+- **Pull Requests:** Contribute patterns, case studies, domain guides
 
-**Citation:** See [CITATION.bib](./CITATION.bib)
-
----
-
-## Support
-
-- **Documentation:** [marketplace/](./marketplace/)
-- **Issues:** [GitHub Issues](https://github.com/boshu2/12-factor-agentops/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/boshu2/12-factor-agentops/discussions)
+Help validate whether these patterns work beyond my specific context.
 
 ---
 
-**Start with the factors. Everything else is context.**
+## License
 
-**[Read the 12 factors →](./FACTORS.md)**
+[![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+
+Code samples: Apache 2.0
+Content: CC BY-SA 4.0
+
+See [CITATION.bib](./CITATION.bib) for academic citation.

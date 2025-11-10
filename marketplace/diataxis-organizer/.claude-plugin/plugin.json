@@ -1,0 +1,20 @@
+{
+  "name": "diataxis-organizer",
+  "version": "1.0.4",
+  "description": "Organize documentation using the Diátaxis framework (Tutorials, How-to Guides, Reference, Explanation). Use when creating or reorganizing documentation to ensure proper structure and discoverability.",
+  "author": "Brian Fuller",
+  "license": "Apache-2.0",
+  "keywords": ["documentation", "diataxis", "organization", "structure"],
+  "dependencies": [],
+  "components": {
+    "agents": [],
+    "commands": [],
+    "skills": ["./"],
+    "hooks": [],
+    "mcp": []
+  },
+  "tokenBudget": {
+    "estimated": 1500,
+    "percentage": 0.75
+  }
+}
