@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap');
       text {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-family: 'Space Mono', 'Courier New', Courier, monospace;
       }
     </style>
   </defs>
@@ -29,7 +29,7 @@
 
   <!-- Foundation details -->
   <text x="400" y="240" text-anchor="middle" font-size="12" fill="#5A5449" font-weight="500">
-    Track • Own context • Focus agents • Check constantly
+    Track • Load context • Focus agents • Validate constantly
   </text>
 
   <!-- Arrow to Operations -->
@@ -103,10 +103,10 @@
     Feedback
   </text>
   <text x="720" y="298" font-size="11" fill="#5A5449">
-    Mine patterns • Track fixes
+    Mine patterns • Iterate
   </text>
   <text x="720" y="314" font-size="11" fill="#5A5449">
-    Enforce safety • Share
+    Fail-safe checks • Package
   </text>
 
   <!-- Key insight box -->
