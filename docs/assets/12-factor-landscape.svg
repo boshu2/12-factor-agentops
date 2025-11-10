@@ -29,41 +29,62 @@
 
     <!-- Factor I -->
     <rect x="50" y="165" width="260" height="120" rx="10" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="3"/>
-    <text x="180" y="195" text-anchor="middle" font-size="16" font-weight="600" fill="#1A7FCC">
+    <text x="180" y="192" text-anchor="middle" font-size="16" font-weight="600" fill="#1A7FCC">
       I. Git Memory as Knowledge OS
     </text>
-    <text x="180" y="230" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Track everything automatically
+    <text x="180" y="220" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Every change saves context
+    </text>
+    <text x="180" y="239" text-anchor="middle" font-size="12" fill="#5A5449">
+      Git commits become
+    </text>
+    <text x="180" y="256" text-anchor="middle" font-size="12" fill="#5A5449">
+      institutional memory
     </text>
 
     <!-- Factor II -->
     <rect x="330" y="165" width="260" height="120" rx="10" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="3"/>
-    <text x="460" y="195" text-anchor="middle" font-size="16" font-weight="600" fill="#1A7FCC">
+    <text x="460" y="192" text-anchor="middle" font-size="16" font-weight="600" fill="#1A7FCC">
       II. JIT Context Loading
     </text>
-    <text x="460" y="230" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Load only what you need,
+    <text x="460" y="220" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Delegate to sub-agents
     </text>
-    <text x="460" y="250" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      when you need it
+    <text x="460" y="239" text-anchor="middle" font-size="12" fill="#5A5449">
+      Keep main context under
+    </text>
+    <text x="460" y="256" text-anchor="middle" font-size="12" fill="#5A5449">
+      40% capacity
     </text>
 
     <!-- Factor III -->
     <rect x="610" y="165" width="260" height="120" rx="10" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="3"/>
-    <text x="740" y="195" text-anchor="middle" font-size="16" font-weight="600" fill="#1A7FCC">
+    <text x="740" y="192" text-anchor="middle" font-size="16" font-weight="600" fill="#1A7FCC">
       III. Single-Responsibility
     </text>
-    <text x="740" y="230" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
+    <text x="740" y="220" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
       One agent, one job
+    </text>
+    <text x="740" y="239" text-anchor="middle" font-size="12" fill="#5A5449">
+      Compose workflows from
+    </text>
+    <text x="740" y="256" text-anchor="middle" font-size="12" fill="#5A5449">
+      focused specialists
     </text>
 
     <!-- Factor IV -->
     <rect x="890" y="165" width="260" height="120" rx="10" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="3"/>
-    <text x="1020" y="195" text-anchor="middle" font-size="16" font-weight="600" fill="#1A7FCC">
+    <text x="1020" y="192" text-anchor="middle" font-size="16" font-weight="600" fill="#1A7FCC">
       IV. Validation Gates
     </text>
-    <text x="1020" y="230" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Check before you act
+    <text x="1020" y="220" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Review before executing
+    </text>
+    <text x="1020" y="239" text-anchor="middle" font-size="12" fill="#5A5449">
+      Catch errors before
+    </text>
+    <text x="1020" y="256" text-anchor="middle" font-size="12" fill="#5A5449">
+      they reach production
     </text>
   </g>
 
@@ -81,38 +102,62 @@
 
     <!-- Factor V -->
     <rect x="50" y="415" width="260" height="120" rx="10" fill="#E8F7EC" stroke="#15B871" stroke-width="3"/>
-    <text x="180" y="445" text-anchor="middle" font-size="16" font-weight="600" fill="#15B871">
+    <text x="180" y="442" text-anchor="middle" font-size="16" font-weight="600" fill="#15B871">
       V. Operational Telemetry
     </text>
-    <text x="180" y="480" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Know what's happening
+    <text x="180" y="470" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Measure everything
+    </text>
+    <text x="180" y="489" text-anchor="middle" font-size="12" fill="#5A5449">
+      Track metrics, logs,
+    </text>
+    <text x="180" y="506" text-anchor="middle" font-size="12" fill="#5A5449">
+      and agent decisions
     </text>
 
     <!-- Factor VI -->
     <rect x="330" y="415" width="260" height="120" rx="10" fill="#E8F7EC" stroke="#15B871" stroke-width="3"/>
-    <text x="460" y="445" text-anchor="middle" font-size="16" font-weight="600" fill="#15B871">
+    <text x="460" y="442" text-anchor="middle" font-size="16" font-weight="600" fill="#15B871">
       VI. Session Continuity
     </text>
-    <text x="460" y="480" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Remember across sessions
+    <text x="460" y="470" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Resume multi-day work
+    </text>
+    <text x="460" y="489" text-anchor="middle" font-size="12" fill="#5A5449">
+      Save context bundles to
+    </text>
+    <text x="460" y="506" text-anchor="middle" font-size="12" fill="#5A5449">
+      continue tomorrow
     </text>
 
     <!-- Factor VII -->
     <rect x="610" y="415" width="260" height="120" rx="10" fill="#E8F7EC" stroke="#15B871" stroke-width="3"/>
-    <text x="740" y="445" text-anchor="middle" font-size="16" font-weight="600" fill="#15B871">
+    <text x="740" y="442" text-anchor="middle" font-size="16" font-weight="600" fill="#15B871">
       VII. Intelligent Routing
     </text>
-    <text x="740" y="480" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Right tool for the job
+    <text x="740" y="470" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Send tasks to specialists
+    </text>
+    <text x="740" y="489" text-anchor="middle" font-size="12" fill="#5A5449">
+      Route work to the agent
+    </text>
+    <text x="740" y="506" text-anchor="middle" font-size="12" fill="#5A5449">
+      best suited for it
     </text>
 
     <!-- Factor VIII -->
     <rect x="890" y="415" width="260" height="120" rx="10" fill="#E8F7EC" stroke="#15B871" stroke-width="3"/>
-    <text x="1020" y="445" text-anchor="middle" font-size="16" font-weight="600" fill="#15B871">
+    <text x="1020" y="442" text-anchor="middle" font-size="16" font-weight="600" fill="#15B871">
       VIII. Human Gate Reviews
     </text>
-    <text x="1020" y="480" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Humans approve critical steps
+    <text x="1020" y="470" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Humans approve risks
+    </text>
+    <text x="1020" y="489" text-anchor="middle" font-size="12" fill="#5A5449">
+      Require approval for
+    </text>
+    <text x="1020" y="506" text-anchor="middle" font-size="12" fill="#5A5449">
+      critical operations
     </text>
 
   </g>
@@ -131,38 +176,62 @@
 
     <!-- Factor IX -->
     <rect x="50" y="665" width="260" height="120" rx="10" fill="#FFF4ED" stroke="#D97948" stroke-width="3"/>
-    <text x="180" y="695" text-anchor="middle" font-size="16" font-weight="600" fill="#D97948">
+    <text x="180" y="692" text-anchor="middle" font-size="16" font-weight="600" fill="#D97948">
       IX. Pattern Extraction
     </text>
-    <text x="180" y="730" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Learn from every session
+    <text x="180" y="720" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Document learnings
+    </text>
+    <text x="180" y="739" text-anchor="middle" font-size="12" fill="#5A5449">
+      After every session, capture
+    </text>
+    <text x="180" y="756" text-anchor="middle" font-size="12" fill="#5A5449">
+      what worked and why
     </text>
 
     <!-- Factor X -->
     <rect x="330" y="665" width="260" height="120" rx="10" fill="#FFF4ED" stroke="#D97948" stroke-width="3"/>
-    <text x="460" y="695" text-anchor="middle" font-size="16" font-weight="600" fill="#D97948">
+    <text x="460" y="692" text-anchor="middle" font-size="16" font-weight="600" fill="#D97948">
       X. Improvement Backlog
     </text>
-    <text x="460" y="730" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Fix what breaks, add what helps
+    <text x="460" y="720" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Track opportunities
+    </text>
+    <text x="460" y="739" text-anchor="middle" font-size="12" fill="#5A5449">
+      Every session identifies
+    </text>
+    <text x="460" y="756" text-anchor="middle" font-size="12" fill="#5A5449">
+      what to improve next
     </text>
 
     <!-- Factor XI -->
     <rect x="610" y="665" width="260" height="120" rx="10" fill="#FFF4ED" stroke="#D97948" stroke-width="3"/>
-    <text x="740" y="695" text-anchor="middle" font-size="16" font-weight="600" fill="#D97948">
+    <text x="740" y="692" text-anchor="middle" font-size="16" font-weight="600" fill="#D97948">
       XI. Constitutional Guardrails
     </text>
-    <text x="740" y="730" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Prevent bad decisions
+    <text x="740" y="720" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Enforce safety rules
+    </text>
+    <text x="740" y="739" text-anchor="middle" font-size="12" fill="#5A5449">
+      Prevent risky operations
+    </text>
+    <text x="740" y="756" text-anchor="middle" font-size="12" fill="#5A5449">
+      automatically
     </text>
 
     <!-- Factor XII -->
     <rect x="890" y="665" width="260" height="120" rx="10" fill="#FFF4ED" stroke="#D97948" stroke-width="3"/>
-    <text x="1020" y="695" text-anchor="middle" font-size="16" font-weight="600" fill="#D97948">
+    <text x="1020" y="692" text-anchor="middle" font-size="16" font-weight="600" fill="#D97948">
       XII. Domain Portability
     </text>
-    <text x="1020" y="730" text-anchor="middle" font-size="14" fill="#2D2A24" font-weight="500">
-      Package knowledge for reuse
+    <text x="1020" y="720" text-anchor="middle" font-size="13" fill="#2D2A24" font-weight="500">
+      Share knowledge
+    </text>
+    <text x="1020" y="739" text-anchor="middle" font-size="12" fill="#5A5449">
+      Package context bundles
+    </text>
+    <text x="1020" y="756" text-anchor="middle" font-size="12" fill="#5A5449">
+      others can reuse
     </text>
   </g>
 
