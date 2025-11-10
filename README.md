@@ -1,13 +1,12 @@
+<div align="center">
+
 # 12-Factor AgentOps
 
 **Operational principles for using AI agents reliably at scale.**
 
-<div align="center">
-
 [![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Version](https://img.shields.io/badge/Version-v1.0.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases/tag/v1.0.0)
 [![GitHub Stars](https://img.shields.io/github/stars/boshu2/12-factor-agentops?style=social)](https://github.com/boshu2/12-factor-agentops)
-[![Discord](https://img.shields.io/badge/community-discord-5865F2)]()
 
 </div>
 
