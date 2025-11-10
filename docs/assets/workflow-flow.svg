@@ -29,7 +29,7 @@
 
   <!-- Foundation details -->
   <text x="400" y="240" text-anchor="middle" font-size="12" fill="#5A5449" font-weight="500">
-    Track automatically • Delegate work • One job per agent • Review first
+    Track • Own context • Focus agents • Check constantly
   </text>
 
   <!-- Arrow to Operations -->
@@ -45,39 +45,39 @@
   <g id="ops-flow">
     <rect x="170" y="330" width="110" height="60" rx="8" fill="#FFFFFF" stroke="#15B871" stroke-width="2.5"/>
     <text x="225" y="348" text-anchor="middle" font-size="13" font-weight="600" fill="#15B871">
-      Measure
+      Human
     </text>
     <text x="225" y="365" text-anchor="middle" font-size="11" fill="#5A5449">
-      Track metrics
+      Approve
     </text>
     <text x="225" y="380" text-anchor="middle" font-size="11" fill="#5A5449">
-      and logs
+      critical steps
     </text>
 
     <path d="M 290 360 L 305 360" stroke="#15B871" stroke-width="2.5" marker-end="url(#arrowhead-green)"/>
 
     <rect x="315" y="330" width="110" height="60" rx="8" fill="#FFFFFF" stroke="#15B871" stroke-width="2.5"/>
     <text x="370" y="348" text-anchor="middle" font-size="13" font-weight="600" fill="#15B871">
-      Resume
+      Measure
     </text>
     <text x="370" y="365" text-anchor="middle" font-size="11" fill="#5A5449">
-      Multi-day
+      Track
     </text>
     <text x="370" y="380" text-anchor="middle" font-size="11" fill="#5A5449">
-      work
+      everything
     </text>
 
     <path d="M 435 360 L 450 360" stroke="#15B871" stroke-width="2.5" marker-end="url(#arrowhead-green)"/>
 
     <rect x="460" y="330" width="110" height="60" rx="8" fill="#FFFFFF" stroke="#15B871" stroke-width="2.5"/>
     <text x="515" y="348" text-anchor="middle" font-size="13" font-weight="600" fill="#15B871">
-      Route +
+      Resume +
     </text>
     <text x="515" y="365" text-anchor="middle" font-size="11" fill="#5A5449">
-      Approve
+      Route
     </text>
     <text x="515" y="380" text-anchor="middle" font-size="11" fill="#5A5449">
-      risks
+      smartly
     </text>
   </g>
 
@@ -106,7 +106,7 @@
     Document • Track
   </text>
   <text x="720" y="314" font-size="11" fill="#5A5449">
-    Prevent • Share
+    Enforce • Share
   </text>
 
   <!-- Key insight box -->
@@ -133,10 +133,10 @@
     80% reliable → 99%+ reliable
   </text>
   <text x="610" y="166" text-anchor="middle" font-size="12" fill="#2D2A24" font-weight="500">
-    Review before executing
+    Check every step
   </text>
   <text x="610" y="184" text-anchor="middle" font-size="12" fill="#2D2A24" font-weight="500">
-    Learn from every session
+    Humans validate critical work
   </text>
 
   <!-- Footer -->
