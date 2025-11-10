@@ -11,13 +11,21 @@ We're building this framework together. Just like Kubernetes is a community proj
 
 ## How to Contribute
 
-### 1. Use the Framework
+### 1. Use the Framework & Share Validation Data
 The best contribution is using AgentOps in your domain and sharing what you learn.
 
-- Try a profile that matches your workflow
-- Document what works and what doesn't
-- Share patterns you discover
-- Help others adopt
+**Quick validation:** Use our [Community Validation Template](./validation/templates/community-validation.md) (30-60 min)
+- Track which factors you used
+- Document what worked and what didn't
+- Share quantitative results if available
+- Submit via PR to `validation/community/` or open an issue
+
+**Rigorous validation:** Use our [Quantitative Study Template](./validation/templates/quantitative-study.md) (4-8 hours)
+- For researchers or teams tracking detailed metrics
+- Statistical analysis and hypothesis testing
+- Publishable evidence for academic or professional use
+
+**Why this matters:** Community validation helps us discover which patterns work universally vs. need domain-specific adaptation.
 
 ### 2. Report Issues
 Found a problem? Help us understand it.

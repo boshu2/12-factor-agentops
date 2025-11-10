@@ -123,8 +123,8 @@ All three repositories should maintain version alignment for major releases.
 - [Contributing](CONTRIBUTING.md)
 - [Security](SECURITY.md)
 - Trinity Siblings:
-  - [agentops](../agentops) - Engine Layer
-  - [agentops-showcase](../agentops-showcase) - Presentation Layer
+  - agentops - Engine Layer (production implementation)
+  - agentops-showcase - Presentation Layer (public examples and tutorials)
 
 ---
 
