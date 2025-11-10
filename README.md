@@ -8,6 +8,10 @@
 [![Version](https://img.shields.io/badge/Version-v1.0.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases/tag/v1.0.0)
 [![GitHub Stars](https://img.shields.io/github/stars/boshu2/12-factor-agentops?style=social)](https://github.com/boshu2/12-factor-agentops)
 
+![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape.svg)
+
+*[View full-size diagram](./docs/assets/12-factor-landscape.svg)*
+
 </div>
 
 ---
@@ -117,30 +121,23 @@ Continuous learning and adaptation
 | **[XI. Constitutional Guardrails](./factors/11-constitutional-guardrails.md)** | Enforce operational laws - prevent risky behaviors |
 | **[XII. Domain Portability](./factors/12-domain-portability.md)** | Package domain knowledge - reusable profiles and bundles |
 
-### Visual Navigation
+### How the Factors Work Together
 
-Want to explore the factors visually? Here's the full 12-factor landscape:
+The factors build on each other in three operational layers:
 
-<div align="center">
-
-![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape.svg)
-
-*[View full-size diagram](./docs/assets/12-factor-landscape.svg)*
-
-</div>
-
-The factors build on each other:
-- **Factors I-IV** establish foundational reliability patterns
-- **Factors V-VIII** enable operational scale and human oversight
-- **Factors IX-XII** create feedback loops that compound improvements over time
+- **Factors I-IV (Foundation)** establish foundational reliability patterns
+- **Factors V-VIII (Operations)** enable operational scale and human oversight
+- **Factors IX-XII (Improvement)** create feedback loops that compound improvements over time
 
 <div align="center">
 
 ![How the Factors Work Together](./docs/assets/workflow-flow.svg)
 
-*[View workflow flow](./docs/assets/workflow-flow.svg)*
+*[View workflow flow diagram](./docs/assets/workflow-flow.svg)*
 
 </div>
+
+Each layer enables the next, creating a continuous improvement cycle where learnings from production feed back into your foundation, making the entire system more reliable over time.
 
 ---
 
