@@ -96,30 +96,30 @@ Build reliability from the ground up
 
 | Factor | What It Does |
 |--------|--------------|
-| **[I. Git Memory as Knowledge OS](./factors/01-git-memory-as-knowledge-os.md)** | One canonical history - commits capture intent, context, learnings |
-| **[II. JIT Context Loading](./factors/02-jit-context-loading.md)** | Keep main context clean - delegate to sub-agents with isolated windows |
-| **[III. Single-Responsibility Agents](./factors/03-single-responsibility-agents.md)** | One agent, one job - compose workflows from focused agents |
-| **[IV. Validation Gates Before Execution](./factors/04-validation-gates-before-execution.md)** | Never trust, always verify - formal checkpoints before applying changes |
+| **[I. Automated Tracking](./factors/01-git-memory-as-knowledge-os.md)** | Track everything automatically - builds institutional knowledge through version control |
+| **[II. Context Loading](./factors/02-jit-context-loading.md)** | Load only what you need - delegate to sub-agents as much as possible |
+| **[III. Focused Agents](./factors/03-single-responsibility-agents.md)** | Each agent does one job well - compose workflows from specialists |
+| **[IV. Continuous Validation](./factors/04-validation-gates-before-execution.md)** | Check at every step - catch errors before they propagate |
 
 ### Operations (V-VIII)
 Scale and maintain reliability in production
 
 | Factor | What It Does |
 |--------|--------------|
-| **[V. Operational Telemetry](./factors/05-operational-telemetry.md)** | Metrics and observability - know what your agents are doing |
-| **[VI. Session Continuity via Bundles](./factors/06-session-continuity-via-bundles.md)** | Persist context across sessions - multi-day work without collapse |
-| **[VII. Intelligent Task Routing](./factors/07-intelligent-task-routing.md)** | Right agent, right task - route work to best-fit workflows |
-| **[VIII. Human Gate Reviews](./factors/08-human-gate-reviews.md)** | Strategic human checkpoints - approval gates between phases |
+| **[V. Human Validation](./factors/05-operational-telemetry.md)** | Humans approve critical steps - ultimate validator for risky operations |
+| **[VI. Measure Everything](./factors/06-session-continuity-via-bundles.md)** | Track metrics and logs - observable performance and agent decisions |
+| **[VII. Resume Work](./factors/07-intelligent-task-routing.md)** | Continue multi-day sessions - save context to pick up where you left off |
+| **[VIII. Smart Routing](./factors/08-human-gate-reviews.md)** | Send tasks to specialists - route work to the agent best suited for it |
 
 ### Improvement (IX-XII)
 Continuous learning and adaptation
 
 | Factor | What It Does |
 |--------|--------------|
-| **[IX. Documented Pattern Extraction](./factors/09-documented-pattern-extraction.md)** | Capture learnings after every session - patterns compound |
-| **[X. Continuous Improvement Backlog](./factors/10-continuous-improvement-backlog.md)** | Each session identifies improvements - prioritize and action |
-| **[XI. Constitutional Guardrails](./factors/11-constitutional-guardrails.md)** | Enforce operational laws - prevent risky behaviors |
-| **[XII. Domain Portability](./factors/12-domain-portability.md)** | Package domain knowledge - reusable profiles and bundles |
+| **[IX. Mine Patterns](./factors/09-documented-pattern-extraction.md)** | Search history for patterns - query git, logs, and metrics to find trends |
+| **[X. Small Iterations](./factors/10-continuous-improvement-backlog.md)** | Make small improvements continuously - tweak workflows and agents based on patterns |
+| **[XI. Fail-Safe Checks](./factors/11-constitutional-guardrails.md)** | Prevent repeating mistakes - add hooks and validations to stop bad patterns |
+| **[XII. Package Patterns](./factors/12-domain-portability.md)** | Bundle what works for reuse - capture successful workflows as reusable templates |
 
 ### How the Factors Work Together
 
@@ -192,18 +192,18 @@ These aren't AI-specific techniques. They're operational fundamentals. Applied t
 
 Read them in order, or jump to what interests you:
 
-- [Factor I: Git Memory as Knowledge OS](./factors/01-git-memory-as-knowledge-os.md)
-- [Factor II: JIT Context Loading](./factors/02-jit-context-loading.md)
-- [Factor III: Single-Responsibility Agents](./factors/03-single-responsibility-agents.md)
-- [Factor IV: Validation Gates Before Execution](./factors/04-validation-gates-before-execution.md)
-- [Factor V: Operational Telemetry](./factors/05-operational-telemetry.md)
-- [Factor VI: Session Continuity via Bundles](./factors/06-session-continuity-via-bundles.md)
-- [Factor VII: Intelligent Task Routing](./factors/07-intelligent-task-routing.md)
-- [Factor VIII: Human Gate Reviews](./factors/08-human-gate-reviews.md)
-- [Factor IX: Documented Pattern Extraction](./factors/09-documented-pattern-extraction.md)
-- [Factor X: Continuous Improvement Backlog](./factors/10-continuous-improvement-backlog.md)
-- [Factor XI: Constitutional Guardrails](./factors/11-constitutional-guardrails.md)
-- [Factor XII: Domain Portability](./factors/12-domain-portability.md)
+- [Factor I: Automated Tracking](./factors/01-git-memory-as-knowledge-os.md)
+- [Factor II: Context Loading](./factors/02-jit-context-loading.md)
+- [Factor III: Focused Agents](./factors/03-single-responsibility-agents.md)
+- [Factor IV: Continuous Validation](./factors/04-validation-gates-before-execution.md)
+- [Factor V: Human Validation](./factors/05-operational-telemetry.md)
+- [Factor VI: Measure Everything](./factors/06-session-continuity-via-bundles.md)
+- [Factor VII: Resume Work](./factors/07-intelligent-task-routing.md)
+- [Factor VIII: Smart Routing](./factors/08-human-gate-reviews.md)
+- [Factor IX: Mine Patterns](./factors/09-documented-pattern-extraction.md)
+- [Factor X: Small Iterations](./factors/10-continuous-improvement-backlog.md)
+- [Factor XI: Fail-Safe Checks](./factors/11-constitutional-guardrails.md)
+- [Factor XII: Package Patterns](./factors/12-domain-portability.md)
 
 ---
 
