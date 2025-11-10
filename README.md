@@ -164,68 +164,36 @@ These aren't AI-specific techniques. They're operational fundamentals. Applied t
 
 ---
 
-## Quick Start (3 Ways)
+## Quick Start
 
-### 1. Use the Methodology Directly (Recommended for Understanding)
+**Read the factors above** to understand the methodology. Each factor addresses a specific reliability challenge you'll encounter with AI agents.
 
-```bash
-git clone https://github.com/boshu2/12-factor-agentops
-cd 12-factor-agentops
+**Then explore:**
 
-# Read in order
-cat README.md        # You are here
-cat FACTORS.md       # 30s overview of all 12
-cat WORKFLOW.md      # How to apply them to your work
+- **[WORKFLOW.md](./WORKFLOW.md)** - See how to apply the factors in practice with a complete Redis Operator example
+- **[factors/](./factors/)** - Deep dive into any specific factor
+- **[docs/principles/](./docs/principles/)** - Understand the philosophy behind the framework (Five Laws, Four Pillars)
 
-# Deep dives (read as needed)
-cat factors/01-git-memory-as-knowledge-os.md  # Pick a factor
-cat docs/principles/five-laws.md              # Understand core philosophy
-```
-
-This is the best starting point if you want to understand the framework deeply before implementing.
-
-### 2. Use as Claude Code Plugins (Best for Integration with Your Workflow)
-
-If you're using Claude Code (Claude via terminal/IDE), install the validation skills:
-
-```bash
-# Add the 12-factor-agentops marketplace
-/plugin marketplace add boshu2/12-factor-agentops
-
-# Install validation and pattern extraction skills
-/plugin install factor-compliance-checker@12-factor-agentops       # Check factor compliance
-/plugin install five-laws-auditor@12-factor-agentops                # Audit against Laws
-/plugin install pattern-extraction-assistant@12-factor-agentops     # Extract learnings
-/plugin install research-formatter@12-factor-agentops               # Format case studies
-```
-
-### 3. Use Production Workflows (For Teams at Scale)
-
-For team-scale production deployments, use the companion [boshu2/agentops](https://github.com/boshu2/agentops) marketplace with pre-built workflows:
-
-```bash
-/plugin marketplace add boshu2/agentops
-/plugin install core-workflow@agentops           # Research → Plan → Implement → Learn
-/plugin install devops-operations@agentops       # Kubernetes/Helm/ArgoCD workflows
-/plugin install software-development@agentops    # Python/JavaScript/Go workflows
-```
+**Want to contribute?** See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to share your implementations and learnings.
 
 ---
 
-## After You Start
+## The Short Version: The 12 Factors
 
-Once you've read the factors, here's where to go:
+Read them in order, or jump to what interests you:
 
-### For Understanding Deeply
-- **[docs/principles/](./docs/principles/)** - The Five Laws of AgentOps, Four Pillars, Knowledge OS
-- **[factors/](./factors/)** - Deep dive into each of the 12 factors
-
-### For Practical Implementation
-- **[WORKFLOW.md](./WORKFLOW.md)** - Step-by-step: how to apply the framework to your work (with complete Redis Operator example)
-
-### For Contributing
-- **[CONTRIBUTING.md](./CONTRIBUTING.md)** - How to share your implementations and learnings
-- **Goal:** Gather real-world validation to inform v2.0
+- [Factor I: Git Memory as Knowledge OS](./factors/01-git-memory-as-knowledge-os.md)
+- [Factor II: JIT Context Loading](./factors/02-jit-context-loading.md)
+- [Factor III: Single-Responsibility Agents](./factors/03-single-responsibility-agents.md)
+- [Factor IV: Validation Gates Before Execution](./factors/04-validation-gates-before-execution.md)
+- [Factor V: Operational Telemetry](./factors/05-operational-telemetry.md)
+- [Factor VI: Session Continuity via Bundles](./factors/06-session-continuity-via-bundles.md)
+- [Factor VII: Intelligent Task Routing](./factors/07-intelligent-task-routing.md)
+- [Factor VIII: Human Gate Reviews](./factors/08-human-gate-reviews.md)
+- [Factor IX: Documented Pattern Extraction](./factors/09-documented-pattern-extraction.md)
+- [Factor X: Continuous Improvement Backlog](./factors/10-continuous-improvement-backlog.md)
+- [Factor XI: Constitutional Guardrails](./factors/11-constitutional-guardrails.md)
+- [Factor XII: Domain Portability](./factors/12-domain-portability.md)
 
 ---
 
