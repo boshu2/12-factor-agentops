@@ -36,14 +36,14 @@ Traditional reliability practices (code review, unit tests) don't work on probab
 
 ## The Solution
 
-After years of using AI in production, I discovered that **successful AI agent usage looks a lot like infrastructure operations:**
+The key insight: **successful AI agent usage should follow infrastructure operations principles:**
 - **Validation gates** - Check outputs before deploying
 - **Observability** - Metrics and logging for everything
 - **Zero-trust** - Never trust, always verify
 - **Pattern learning** - Extract learnings from each run
 - **Continuous improvement** - Make the system better over time
 
-These 20+ year-old DevOps and SRE practices work for AI too. This framework codifies them as 12 operational factors.
+These 20+ year-old DevOps and SRE practices apply to AI too. This framework adapts them as 12 operational factors for reliable AI usage.
 
 ## Who This Is For
 
@@ -133,7 +133,7 @@ cat WORKFLOW.md      # Practical application
 
 ## Getting Started
 
-**Read the factors above.** Each one addresses a specific failure mode you'll encounter when using AI in production.
+**Read the factors above.** Each one addresses a reliability challenge you may encounter when using AI agents.
 
 **Then explore:**
 - [FACTORS.md](./FACTORS.md) - Quick reference of all 12 factors
@@ -162,9 +162,9 @@ This framework focuses on *using* AI agents safely. Dex's framework focuses on *
 
 **Version:** v1.0.4 Beta
 
-**Status:** Early-stage framework based on production experience. Seeking community validation across domains.
+**Status:** Early-stage framework applying proven DevOps/SRE principles to AI operations. Seeking community validation and implementation case studies.
 
-This represents patterns I've found useful. It's not a proven methodology - that requires community validation. If you try these approaches, please share what works (and what doesn't) via GitHub Discussions.
+This is a proposed methodology built on established operational practices. Real-world validation across diverse domains and use cases is needed. If you implement these approaches, please share your experience and results via GitHub Discussions.
 
 **Contributing:** See [CONTRIBUTING.md](./CONTRIBUTING.md)
 
@@ -173,7 +173,7 @@ This represents patterns I've found useful. It's not a proven methodology - that
 - **Issues:** Report problems, suggest improvements
 - **Pull Requests:** Contribute patterns, case studies, domain guides
 
-Help validate whether these patterns work beyond my specific context.
+Help validate whether these patterns work across different domains and use cases.
 
 ---
 
