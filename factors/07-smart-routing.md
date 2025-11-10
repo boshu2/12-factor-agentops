@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 2 (Improve System) |
 | **Derived From** | Pattern recognition + Load balancing + Service mesh routing |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-vii-intelligent-task-routing)**
 
 ---
 
@@ -573,10 +572,10 @@ Example: 10 tasks routed to cheap workflows instead of expensive = $50 saved
 
 ## Further Reading
 
-- **Learning Science Pillar**: [../foundations/four-pillars.md#pillar-2-learning-science](../foundations/four-pillars.md#pillar-2-learning-science)
-- **Law 1 (Extract Learnings)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-1)
-- **Law 2 (Improve System)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-2)
-- **Pattern: Intelligent Routing**: [../patterns/intelligent-routing.md](../patterns/intelligent-routing.md)
+- **Learning Science Pillar**: [../principles/four-pillars.md#pillar-2-learning-science](../docs/principles/four-pillars.md#pillar-2-learning-science)
+- **Law 1 (Extract Learnings)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-1)
+- **Law 2 (Improve System)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-2)
+- **Pattern: Intelligent Routing**: [../advanced/intelligent-routing.md](../advanced/intelligent-routing.md)
 
 ---
 

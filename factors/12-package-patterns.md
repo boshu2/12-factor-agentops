@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 5 (Share Patterns) |
 | **Derived From** | Code reuse + Helm charts + Profile systems + Domain-driven design |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-xii-domain-portability)**
 
 ---
 
@@ -620,10 +619,10 @@ Result: Portable, reusable domain knowledge
 
 ## Further Reading
 
-- **Knowledge OS Pillar**: [../foundations/knowledge-os.md](../foundations/knowledge-os.md)
-- **Law 1 (Extract Learnings)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-1)
-- **Law 5 (Share Patterns)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-5)
-- **Factor IX: Mine Patterns**: [./09-documented-pattern-extraction.md](./09-documented-pattern-extraction.md)
+- **Knowledge OS Pillar**: [../principles/knowledge-os.md](../docs/principles/knowledge-os.md)
+- **Law 1 (Extract Learnings)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-1)
+- **Law 5 (Share Patterns)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-5)
+- **Factor IX: Mine Patterns**: [./09-mine-patterns.md](./09-mine-patterns.md)
 - **Helm Charts**: [https://helm.sh](https://helm.sh)
 - **Domain-Driven Design**: [Wikipedia: Domain-driven design](https://en.wikipedia.org/wiki/Domain-driven_design)
 

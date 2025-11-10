@@ -16,7 +16,7 @@ Together, these create a comprehensive philosophy for operating AI agents with t
 
 ## Foundation Documents
 
-### [Evolution of 12-Factor](../docs/foundations/evolution-of-12-factor.md)
+### [Evolution of 12-Factor](evolution-of-12-factor.md)
 
 **Read time:** 12 minutes
 **When to read:** Understanding how this framework relates to the original 12-Factor App
@@ -34,7 +34,7 @@ This framework didn't emerge in a vacuum—it's the evolution of proven cloud-na
 **Key insight:**
 The original 12-Factor App, 12-Factor Agents (Dex Horthy), and 12-Factor AgentOps are complementary frameworks operating at different layers of the stack. You need all three to succeed with AI in production.
 
-**See also:** [Comparison Table](../docs/foundations/comparison-table.md) for detailed factor-by-factor mapping
+**See also:** [Comparison Table](comparison-table.md) for detailed factor-by-factor mapping
 
 ---
 
@@ -139,7 +139,7 @@ Every commit is either a throwaway snapshot or a knowledge artifact. The differe
 1. **Understand:** All four foundation docs (read in any order)
 2. **Reference:** Operational enforcement examples available in production implementations
 3. **Study:** Patterns validated across 52 production workflows
-4. **Contribute:** [CONTRIBUTING.md](../CONTRIBUTING.md) - Share your patterns
+4. **Contribute:** [CONTRIBUTING.md](../../CONTRIBUTING.md) - Share your patterns
 
 ---
 
@@ -319,7 +319,7 @@ Example: 40% rule + Knowledge OS = context preservation that compounds. One with
 - Clarifying examples from your experience
 - Research references that strengthen theoretical grounding
 
-**See:** [CONTRIBUTING.md](../CONTRIBUTING.md) for how to contribute patterns and insights.
+**See:** [CONTRIBUTING.md](../../CONTRIBUTING.md) for how to contribute patterns and insights.
 
 ---
 
@@ -341,10 +341,10 @@ Example: 40% rule + Knowledge OS = context preservation that compounds. One with
 ## Further Reading
 
 **In this repository:**
-- [README.md](../README.md) - Framework overview
-- [CONTRIBUTING.md](../CONTRIBUTING.md) - How to contribute
-- [content/factors/](../content/factors/) - (Coming) The 12 Factors detailed
-- [content/patterns/](../content/patterns/) - (Coming) Pattern library
+- [README.md](../../README.md) - Framework overview
+- [CONTRIBUTING.md](../../CONTRIBUTING.md) - How to contribute
+- [factors/](../../factors/README.md) - The 12 Factors detailed
+- [Advanced Patterns](../advanced/README.md) - Pattern library
 
 **In production implementations:**
 - Operational enforcement patterns (CONSTITUTION-based)

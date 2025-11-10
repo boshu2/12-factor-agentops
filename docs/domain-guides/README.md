@@ -169,7 +169,7 @@ These guides show you how to apply the framework to your specific work.
 ### Step 2: Map to Relevant Factors
 
 **Use the decision tree:**
-- [Decision Tree](../../tutorials/decision-tree.md) - Which factor for which problem?
+- Decision Tree *(coming in v2.0)* - Which factor for which problem?
 
 **Example (Software Development):**
 - Pain: AI code breaks tests → Factor IV (Validation Gates)
@@ -426,7 +426,7 @@ Impact: What improved?
 - Anti-patterns (what didn't work)
 
 **Submit via:**
-1. [Community Validation Template](../../validation/templates/community-validation.md)
+1. GitHub issue describing your experience (validation templates coming in v2.0)
 2. Pull request to appropriate domain guide
 3. Issue with "domain-specific pattern" label
 
@@ -452,8 +452,8 @@ Impact: What improved?
 
 **Choose your domain guide above and start reading!**
 
-**Not sure which domain?** Read [Role-Specific Paths](../../tutorials/role-specific-paths.md) first
+**Not sure which domain?** Read the domain guide descriptions below
 
-**Want quick reference?** See [Quick Reference Card](../../tutorials/quick-reference-card.md)
+**Want quick reference?** Quick Reference Card *(coming in v2.0)*
 
-**Have a specific problem?** Use [Decision Tree](../../tutorials/decision-tree.md)
+**Have a specific problem?** Use Decision Tree *(coming in v2.0)*

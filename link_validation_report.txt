@@ -1,0 +1,1225 @@
+================================================================================
+MARKDOWN LINK VALIDATION REPORT
+================================================================================
+
+SUMMARY
+--------------------------------------------------------------------------------
+Total links checked: 330
+  - Internal file links: 212
+  - Internal anchor links: 39
+  - External URLs: 79
+
+Total broken links: 142
+  - Broken internal file links: 105
+  - Broken internal anchor links: 37
+  - Malformed external URLs: 0
+
+================================================================================
+
+BROKEN LINKS DETAIL
+--------------------------------------------------------------------------------
+
+1. AUDIT_REPORT.md (line 57)
+   Link text: [I. Automated Tracking]
+   Target: ./factors/01-git-memory-as-knowledge-os.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/01-git-memory-as-knowledge-os.md
+
+2. AUDIT_REPORT.md (line 58)
+   Link text: [II. Context Loading]
+   Target: ./factors/02-jit-context-loading.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/02-jit-context-loading.md
+
+3. AUDIT_REPORT.md (line 59)
+   Link text: [III. Focused Agents]
+   Target: ./factors/03-single-responsibility-agents.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/03-single-responsibility-agents.md
+
+4. AUDIT_REPORT.md (line 60)
+   Link text: [IV. Continuous Validation]
+   Target: ./factors/04-validation-gates-before-execution.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/04-validation-gates-before-execution.md
+
+5. AUDIT_REPORT.md (line 61)
+   Link text: [V. Human Validation]
+   Target: ./factors/05-operational-telemetry.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/05-operational-telemetry.md
+
+6. AUDIT_REPORT.md (line 62)
+   Link text: [VI. Measure Everything]
+   Target: ./factors/06-session-continuity-via-bundles.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/06-session-continuity-via-bundles.md
+
+7. AUDIT_REPORT.md (line 63)
+   Link text: [VII. Resume Work]
+   Target: ./factors/07-intelligent-task-routing.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/07-intelligent-task-routing.md
+
+8. AUDIT_REPORT.md (line 64)
+   Link text: [VIII. Smart Routing]
+   Target: ./factors/08-human-gate-reviews.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/08-human-gate-reviews.md
+
+9. AUDIT_REPORT.md (line 65)
+   Link text: [IX. Mine Patterns]
+   Target: ./factors/09-documented-pattern-extraction.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/09-documented-pattern-extraction.md
+
+10. AUDIT_REPORT.md (line 66)
+   Link text: [X. Small Iterations]
+   Target: ./factors/10-continuous-improvement-backlog.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/10-continuous-improvement-backlog.md
+
+11. AUDIT_REPORT.md (line 67)
+   Link text: [XI. Fail-Safe Checks]
+   Target: ./factors/11-constitutional-guardrails.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/11-constitutional-guardrails.md
+
+12. AUDIT_REPORT.md (line 68)
+   Link text: [XII. Package Patterns]
+   Target: ./factors/12-domain-portability.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/12-domain-portability.md
+
+13. CONTRIBUTING.md (line 17)
+   Link text: [Community Validation Template]
+   Target: ./validation/templates/community-validation.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/validation/templates/community-validation.md
+
+14. CONTRIBUTING.md (line 23)
+   Link text: [Quantitative Study Template]
+   Target: ./validation/templates/quantitative-study.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/validation/templates/quantitative-study.md
+
+15. README.md (line 184)
+   Link text: [factors/]
+   Target: ./factors/
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors
+
+16. README.md (line 185)
+   Link text: [docs/principles/]
+   Target: ./docs/principles/
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/principles
+
+17. docs/README.md (line 3)
+   Link text: [factors/]
+   Target: ../factors/
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors
+
+18. docs/README.md (line 62)
+   Link text: [factors/]
+   Target: ../factors/
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors
+
+19. docs/advanced/intelligent-routing.md (line 684)
+   Link text: [Learning Science Pillar]
+   Target: ../foundations/four-pillars.md#pillar-2-learning-science
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+
+20. docs/advanced/intelligent-routing.md (line 685)
+   Link text: [Context Engineering]
+   Target: ../foundations/context-engineering.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+
+21. docs/advanced/context-bundles.md (line 739)
+   Link text: [Context Engineering]
+   Target: ../foundations/context-engineering.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+
+22. docs/advanced/context-bundles.md (line 740)
+   Link text: [Knowledge OS]
+   Target: ../foundations/knowledge-os.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/knowledge-os.md
+
+23. docs/advanced/README.md (line 123)
+   Link text: [CONTRIBUTING.md]
+   Target: ../CONTRIBUTING.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/CONTRIBUTING.md
+
+24. docs/advanced/README.md (line 152)
+   Link text: [Four Pillars]
+   Target: ../foundations/four-pillars.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+
+25. docs/advanced/README.md (line 161)
+   Link text: [Five Laws]
+   Target: ../foundations/five-laws.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/five-laws.md
+
+26. docs/advanced/README.md (line 341)
+   Link text: [CONTRIBUTING.md]
+   Target: ../CONTRIBUTING.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/CONTRIBUTING.md
+
+27. docs/advanced/README.md (line 485)
+   Link text: [Four Pillars]
+   Target: ../foundations/four-pillars.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+
+28. docs/advanced/README.md (line 486)
+   Link text: [Five Laws]
+   Target: ../foundations/five-laws.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/five-laws.md
+
+29. docs/advanced/README.md (line 487)
+   Link text: [Context Engineering]
+   Target: ../foundations/context-engineering.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+
+30. docs/advanced/README.md (line 488)
+   Link text: [Knowledge OS]
+   Target: ../foundations/knowledge-os.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/knowledge-os.md
+
+31. docs/advanced/phase-based-workflow.md (line 17)
+   Link text: [40% rule]
+   Target: ../foundations/context-engineering.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+
+32. docs/advanced/phase-based-workflow.md (line 698)
+   Link text: [Context Engineering]
+   Target: ../foundations/context-engineering.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+
+33. docs/advanced/phase-based-workflow.md (line 699)
+   Link text: [Learning Science]
+   Target: ../foundations/four-pillars.md#pillar-2-learning-science
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+
+34. docs/advanced/phase-based-workflow.md (line 700)
+   Link text: [Knowledge OS]
+   Target: ../foundations/knowledge-os.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/knowledge-os.md
+
+35. docs/advanced/multi-agent-orchestration.md (line 671)
+   Link text: [DevOps + SRE Pillar]
+   Target: ../foundations/four-pillars.md#pillar-1-devops--sre
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+
+36. docs/advanced/multi-agent-orchestration.md (line 672)
+   Link text: [Context Engineering]
+   Target: ../foundations/context-engineering.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+
+37. docs/advanced/multi-agent-orchestration.md (line 673)
+   Link text: [Knowledge OS (Branches)]
+   Target: ../foundations/knowledge-os.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/knowledge-os.md
+
+38. docs/case-studies/production/README.md (line 1446)
+   Link text: [Four Pillars]
+   Target: ../../foundations/four-pillars.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+
+39. docs/case-studies/production/README.md (line 1447)
+   Link text: [Five Laws]
+   Target: ../../foundations/five-laws.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/five-laws.md
+
+40. docs/case-studies/production/README.md (line 1551)
+   Link text: [templates/]
+   Target: ../templates/
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/case-studies/templates
+
+41. docs/domain-guides/README.md (line 172)
+   Link text: [Decision Tree]
+   Target: ../../tutorials/decision-tree.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/decision-tree.md
+
+42. docs/domain-guides/README.md (line 429)
+   Link text: [Community Validation Template]
+   Target: ../../validation/templates/community-validation.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/validation/templates/community-validation.md
+
+43. docs/domain-guides/README.md (line 455)
+   Link text: [Role-Specific Paths]
+   Target: ../../tutorials/role-specific-paths.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/role-specific-paths.md
+
+44. docs/domain-guides/README.md (line 457)
+   Link text: [Quick Reference Card]
+   Target: ../../tutorials/quick-reference-card.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/quick-reference-card.md
+
+45. docs/domain-guides/README.md (line 459)
+   Link text: [Decision Tree]
+   Target: ../../tutorials/decision-tree.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/decision-tree.md
+
+46. docs/domain-guides/software-development.md (line 714)
+   Link text: [12-Factor AgentOps README]
+   Target: ../../../README.md
+   Type: file
+   Error: File does not exist: /home/user/README.md
+
+47. docs/domain-guides/software-development.md (line 715)
+   Link text: [Quick Reference Card]
+   Target: ../../tutorials/quick-reference-card.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/quick-reference-card.md
+
+48. docs/domain-guides/software-development.md (line 716)
+   Link text: [Decision Tree]
+   Target: ../../tutorials/decision-tree.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/decision-tree.md
+
+49. docs/domain-guides/software-development.md (line 727)
+   Link text: [CONTRIBUTING.md]
+   Target: ../../../CONTRIBUTING.md
+   Type: file
+   Error: File does not exist: /home/user/CONTRIBUTING.md
+
+50. docs/domain-guides/data-science-analytics.md (line 368)
+   Link text: [Quick Reference Card]
+   Target: ../../tutorials/quick-reference-card.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/quick-reference-card.md
+
+51. docs/domain-guides/devops-infrastructure.md (line 292)
+   Link text: [Quick Reference Card]
+   Target: ../../tutorials/quick-reference-card.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/quick-reference-card.md
+
+52. docs/principles/README.md (line 19)
+   Link text: [Evolution of 12-Factor]
+   Target: ../docs/foundations/evolution-of-12-factor.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/docs/foundations/evolution-of-12-factor.md
+
+53. docs/principles/README.md (line 37)
+   Link text: [Comparison Table]
+   Target: ../docs/foundations/comparison-table.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/docs/foundations/comparison-table.md
+
+54. docs/principles/README.md (line 142)
+   Link text: [CONTRIBUTING.md]
+   Target: ../CONTRIBUTING.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/CONTRIBUTING.md
+
+55. docs/principles/README.md (line 322)
+   Link text: [CONTRIBUTING.md]
+   Target: ../CONTRIBUTING.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/CONTRIBUTING.md
+
+56. docs/principles/README.md (line 345)
+   Link text: [CONTRIBUTING.md]
+   Target: ../CONTRIBUTING.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/CONTRIBUTING.md
+
+57. docs/principles/README.md (line 346)
+   Link text: [content/factors/]
+   Target: ../content/factors/
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/content/factors
+
+58. docs/principles/README.md (line 347)
+   Link text: [content/patterns/]
+   Target: ../content/patterns/
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/content/patterns
+
+59. docs/domain-guides/solo-developer.md (line 575)
+   Link text: [Quick Reference Card]
+   Target: ../../tutorials/quick-reference-card.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/quick-reference-card.md
+
+60. docs/domain-guides/solo-developer.md (line 576)
+   Link text: [Decision Tree]
+   Target: ../../tutorials/decision-tree.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/decision-tree.md
+
+61. docs/domain-guides/solo-developer.md (line 577)
+   Link text: [First 30 Minutes]
+   Target: ../../tutorials/first-30-minutes.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/tutorials/first-30-minutes.md
+
+62. docs/principles/knowledge-os.md (line 881)
+   Link text: [Five Laws]
+   Target: ./five-laws.md#law-3
+   Type: anchor
+   Error: Anchor 'law-3' not found in five-laws.md
+
+63. docs/research/validation/SYNTHESIS.md (line 54)
+   Link text: [Meta-Patterns]
+   Target: ../docs/reference/claude-code/meta-patterns.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/research/docs/reference/claude-code/meta-patterns.md
+
+64. docs/research/validation/SYNTHESIS.md (line 171)
+   Link text: [Context Engineering]
+   Target: ../foundations/context-engineering.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/research/foundations/context-engineering.md
+
+65. docs/research/validation/SYNTHESIS.md (line 383)
+   Link text: [Validation Status]
+   Target: DISCLAIMER.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/research/validation/DISCLAIMER.md
+
+66. docs/research/validation/SYNTHESIS.md (line 384)
+   Link text: [Data Schema]
+   Target: DATA_SCHEMA.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/research/validation/DATA_SCHEMA.md
+
+67. docs/research/validation/SYNTHESIS.md (line 385)
+   Link text: [Templates]
+   Target: templates/
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/research/validation/templates
+
+68. docs/research/validation/SYNTHESIS.md (line 388)
+   Link text: [Meta-Patterns]
+   Target: ../docs/reference/claude-code/meta-patterns.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/research/docs/reference/claude-code/meta-patterns.md
+
+69. docs/research/validation/SYNTHESIS.md (line 391)
+   Link text: [Four Pillars]
+   Target: ../foundations/four-pillars.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/research/foundations/four-pillars.md
+
+70. docs/research/validation/SYNTHESIS.md (line 392)
+   Link text: [Five Laws]
+   Target: ../foundations/five-laws.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/research/foundations/five-laws.md
+
+71. docs/research/validation/SYNTHESIS.md (line 393)
+   Link text: [Context Engineering]
+   Target: ../foundations/context-engineering.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/research/foundations/context-engineering.md
+
+72. docs/research/validation/SYNTHESIS.md (line 396)
+   Link text: [All Factors]
+   Target: ../factors/README.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/research/factors/README.md
+
+73. factors/03-focused-agents.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-iii-single-responsibility-agents
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+74. factors/03-focused-agents.md (line 551)
+   Link text: [../patterns/multi-agent-orchestration.md]
+   Target: ../patterns/multi-agent-orchestration.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/patterns/multi-agent-orchestration.md
+
+75. factors/03-focused-agents.md (line 552)
+   Link text: [../patterns/intelligent-routing.md]
+   Target: ../patterns/intelligent-routing.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/patterns/intelligent-routing.md
+
+76. factors/03-focused-agents.md (line 553)
+   Link text: [../foundations/four-pillars.md#pillar-2-learning-science]
+   Target: ../foundations/four-pillars.md#pillar-2-learning-science
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+
+77. factors/02-context-loading.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-ii-jit-context-loading
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+78. factors/02-context-loading.md (line 864)
+   Link text: [../foundations/context-engineering.md]
+   Target: ../foundations/context-engineering.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/foundations/context-engineering.md
+
+79. factors/02-context-loading.md (line 865)
+   Link text: [./06-session-continuity-via-bundles.md]
+   Target: ./06-session-continuity-via-bundles.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/06-session-continuity-via-bundles.md
+
+80. factors/02-context-loading.md (line 866)
+   Link text: [../patterns/phase-based-workflow.md]
+   Target: ../patterns/phase-based-workflow.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/patterns/phase-based-workflow.md
+
+81. factors/01-automated-tracking.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-i-git-memory-as-knowledge-os
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+82. factors/01-automated-tracking.md (line 335)
+   Link text: [../foundations/knowledge-os.md]
+   Target: ../foundations/knowledge-os.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/foundations/knowledge-os.md
+
+83. factors/01-automated-tracking.md (line 336)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-3
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+84. factors/01-automated-tracking.md (line 337)
+   Link text: [../patterns/git-workflow.md]
+   Target: ../patterns/git-workflow.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/patterns/git-workflow.md
+
+85. factors/05-measure-everything.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-v-operational-telemetry
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+86. factors/05-measure-everything.md (line 506)
+   Link text: [../foundations/four-pillars.md#pillar-1-devops--sre]
+   Target: ../foundations/four-pillars.md#pillar-1-devops--sre
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+
+87. factors/05-measure-everything.md (line 507)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-1
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+88. factors/05-measure-everything.md (line 508)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-2
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+89. factors/05-measure-everything.md (line 509)
+   Link text: [../patterns/observability-stack.md]
+   Target: ../patterns/observability-stack.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/patterns/observability-stack.md
+
+90. factors/04-continuous-validation.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-iv-validation-gates-before-execution
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+91. factors/04-continuous-validation.md (line 518)
+   Link text: [../foundations/four-pillars.md#pillar-1-devops--sre]
+   Target: ../foundations/four-pillars.md#pillar-1-devops--sre
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+
+92. factors/04-continuous-validation.md (line 519)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-4
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+93. factors/04-continuous-validation.md (line 520)
+   Link text: [../patterns/ci-cd-pipeline.md]
+   Target: ../patterns/ci-cd-pipeline.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/patterns/ci-cd-pipeline.md
+
+94. factors/07-smart-routing.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-vii-intelligent-task-routing
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+95. factors/07-smart-routing.md (line 576)
+   Link text: [../foundations/four-pillars.md#pillar-2-learning-science]
+   Target: ../foundations/four-pillars.md#pillar-2-learning-science
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+
+96. factors/07-smart-routing.md (line 577)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-1
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+97. factors/07-smart-routing.md (line 578)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-2
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+98. factors/07-smart-routing.md (line 579)
+   Link text: [../patterns/intelligent-routing.md]
+   Target: ../patterns/intelligent-routing.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/patterns/intelligent-routing.md
+
+99. factors/08-human-validation.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-viii-human-gate-reviews
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+100. factors/08-human-validation.md (line 556)
+   Link text: [../foundations/four-pillars.md#pillar-2-learning-science]
+   Target: ../foundations/four-pillars.md#pillar-2-learning-science
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+
+101. factors/08-human-validation.md (line 557)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-3
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+102. factors/08-human-validation.md (line 558)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-4
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+103. factors/08-human-validation.md (line 559)
+   Link text: [../patterns/human-in-the-loop.md]
+   Target: ../patterns/human-in-the-loop.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/patterns/human-in-the-loop.md
+
+104. factors/06-resume-work.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-vi-session-continuity-via-bundles
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+105. factors/06-resume-work.md (line 489)
+   Link text: [../foundations/context-engineering.md]
+   Target: ../foundations/context-engineering.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/foundations/context-engineering.md
+
+106. factors/06-resume-work.md (line 490)
+   Link text: [./02-fresh-context-windows.md]
+   Target: ./02-fresh-context-windows.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/02-fresh-context-windows.md
+
+107. factors/06-resume-work.md (line 491)
+   Link text: [../patterns/context-bundles.md]
+   Target: ../patterns/context-bundles.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/patterns/context-bundles.md
+
+108. factors/11-fail-safe-checks.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-xi-constitutional-guardrails
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+109. factors/11-fail-safe-checks.md (line 634)
+   Link text: [../foundations/four-pillars.md#pillar-1-devops--sre]
+   Target: ../foundations/four-pillars.md#pillar-1-devops--sre
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+
+110. factors/11-fail-safe-checks.md (line 635)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+111. factors/11-fail-safe-checks.md (line 636)
+   Link text: [./04-validation-gates-before-execution.md]
+   Target: ./04-validation-gates-before-execution.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/04-validation-gates-before-execution.md
+
+112. factors/10-small-iterations.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-x-continuous-improvement-backlog
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+113. factors/10-small-iterations.md (line 575)
+   Link text: [../foundations/four-pillars.md#pillar-1-devops--sre]
+   Target: ../foundations/four-pillars.md#pillar-1-devops--sre
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+
+114. factors/10-small-iterations.md (line 576)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-2
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+115. factors/10-small-iterations.md (line 577)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-3
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+116. factors/10-small-iterations.md (line 578)
+   Link text: [./09-documented-pattern-extraction.md]
+   Target: ./09-documented-pattern-extraction.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/09-documented-pattern-extraction.md
+
+117. factors/09-mine-patterns.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-ix-documented-pattern-extraction
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+118. factors/09-mine-patterns.md (line 582)
+   Link text: [../foundations/knowledge-os.md]
+   Target: ../foundations/knowledge-os.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/foundations/knowledge-os.md
+
+119. factors/09-mine-patterns.md (line 583)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-1
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+120. factors/09-mine-patterns.md (line 584)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-5
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+121. factors/09-mine-patterns.md (line 585)
+   Link text: [../patterns/README.md]
+   Target: ../patterns/README.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/patterns/README.md
+
+122. factors/README.md (line 31)
+   Link text: [docs/foundations/evolution-of-12-factor.md]
+   Target: ../docs/foundations/evolution-of-12-factor.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/evolution-of-12-factor.md
+
+123. factors/README.md (line 41)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+124. factors/README.md (line 45)
+   Link text: [I]
+   Target: ./01-git-memory-as-knowledge-os.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/01-git-memory-as-knowledge-os.md
+
+125. factors/README.md (line 46)
+   Link text: [II]
+   Target: ./02-jit-context-loading.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/02-jit-context-loading.md
+
+126. factors/README.md (line 47)
+   Link text: [III]
+   Target: ./03-single-responsibility-agents.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/03-single-responsibility-agents.md
+
+127. factors/README.md (line 48)
+   Link text: [IV]
+   Target: ./04-validation-gates-before-execution.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/04-validation-gates-before-execution.md
+
+128. factors/README.md (line 49)
+   Link text: [V]
+   Target: ./05-operational-telemetry.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/05-operational-telemetry.md
+
+129. factors/README.md (line 50)
+   Link text: [VI]
+   Target: ./06-session-continuity-via-bundles.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/06-session-continuity-via-bundles.md
+
+130. factors/README.md (line 51)
+   Link text: [VII]
+   Target: ./07-intelligent-task-routing.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/07-intelligent-task-routing.md
+
+131. factors/README.md (line 52)
+   Link text: [VIII]
+   Target: ./08-human-gate-reviews.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/08-human-gate-reviews.md
+
+132. factors/README.md (line 53)
+   Link text: [IX]
+   Target: ./09-documented-pattern-extraction.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/09-documented-pattern-extraction.md
+
+133. factors/README.md (line 54)
+   Link text: [X]
+   Target: ./10-continuous-improvement-backlog.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/10-continuous-improvement-backlog.md
+
+134. factors/README.md (line 55)
+   Link text: [XI]
+   Target: ./11-constitutional-guardrails.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/11-constitutional-guardrails.md
+
+135. factors/README.md (line 56)
+   Link text: [XII]
+   Target: ./12-domain-portability.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/12-domain-portability.md
+
+136. factors/README.md (line 102)
+   Link text: [Deep dive →]
+   Target: ../foundations/four-pillars.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+
+137. factors/README.md (line 111)
+   Link text: [Deep dive →]
+   Target: ../foundations/five-laws.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+138. factors/12-package-patterns.md (line 12)
+   Link text: [See complete derivation →]
+   Target: ../ARCHITECTURE.md#factor-xii-domain-portability
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+
+139. factors/12-package-patterns.md (line 623)
+   Link text: [../foundations/knowledge-os.md]
+   Target: ../foundations/knowledge-os.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/foundations/knowledge-os.md
+
+140. factors/12-package-patterns.md (line 624)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-1
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+141. factors/12-package-patterns.md (line 625)
+   Link text: [../foundations/five-laws.md]
+   Target: ../foundations/five-laws.md#law-5
+   Type: anchor
+   Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+142. factors/12-package-patterns.md (line 626)
+   Link text: [./09-documented-pattern-extraction.md]
+   Target: ./09-documented-pattern-extraction.md
+   Type: file
+   Error: File does not exist: /home/user/12-factor-agentops/factors/09-documented-pattern-extraction.md
+
+================================================================================
+
+BROKEN LINKS BY FILE
+--------------------------------------------------------------------------------
+
+AUDIT_REPORT.md: 12 broken link(s)
+  - Line 57: [I. Automated Tracking](./factors/01-git-memory-as-knowledge-os.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/01-git-memory-as-knowledge-os.md
+  - Line 58: [II. Context Loading](./factors/02-jit-context-loading.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/02-jit-context-loading.md
+  - Line 59: [III. Focused Agents](./factors/03-single-responsibility-agents.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/03-single-responsibility-agents.md
+  - Line 60: [IV. Continuous Validation](./factors/04-validation-gates-before-execution.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/04-validation-gates-before-execution.md
+  - Line 61: [V. Human Validation](./factors/05-operational-telemetry.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/05-operational-telemetry.md
+  - Line 62: [VI. Measure Everything](./factors/06-session-continuity-via-bundles.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/06-session-continuity-via-bundles.md
+  - Line 63: [VII. Resume Work](./factors/07-intelligent-task-routing.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/07-intelligent-task-routing.md
+  - Line 64: [VIII. Smart Routing](./factors/08-human-gate-reviews.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/08-human-gate-reviews.md
+  - Line 65: [IX. Mine Patterns](./factors/09-documented-pattern-extraction.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/09-documented-pattern-extraction.md
+  - Line 66: [X. Small Iterations](./factors/10-continuous-improvement-backlog.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/10-continuous-improvement-backlog.md
+  - Line 67: [XI. Fail-Safe Checks](./factors/11-constitutional-guardrails.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/11-constitutional-guardrails.md
+  - Line 68: [XII. Package Patterns](./factors/12-domain-portability.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/12-domain-portability.md
+
+CONTRIBUTING.md: 2 broken link(s)
+  - Line 17: [Community Validation Template](./validation/templates/community-validation.md)
+    Error: File does not exist: /home/user/12-factor-agentops/validation/templates/community-validation.md
+  - Line 23: [Quantitative Study Template](./validation/templates/quantitative-study.md)
+    Error: File does not exist: /home/user/12-factor-agentops/validation/templates/quantitative-study.md
+
+README.md: 2 broken link(s)
+  - Line 184: [factors/](./factors/)
+    Error: File does not exist: /home/user/12-factor-agentops/factors
+  - Line 185: [docs/principles/](./docs/principles/)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/principles
+
+docs/README.md: 2 broken link(s)
+  - Line 3: [factors/](../factors/)
+    Error: File does not exist: /home/user/12-factor-agentops/factors
+  - Line 62: [factors/](../factors/)
+    Error: File does not exist: /home/user/12-factor-agentops/factors
+
+docs/advanced/README.md: 8 broken link(s)
+  - Line 123: [CONTRIBUTING.md](../CONTRIBUTING.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/CONTRIBUTING.md
+  - Line 152: [Four Pillars](../foundations/four-pillars.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+  - Line 161: [Five Laws](../foundations/five-laws.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/five-laws.md
+  - Line 341: [CONTRIBUTING.md](../CONTRIBUTING.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/CONTRIBUTING.md
+  - Line 485: [Four Pillars](../foundations/four-pillars.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+  - Line 486: [Five Laws](../foundations/five-laws.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/five-laws.md
+  - Line 487: [Context Engineering](../foundations/context-engineering.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+  - Line 488: [Knowledge OS](../foundations/knowledge-os.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/knowledge-os.md
+
+docs/advanced/context-bundles.md: 2 broken link(s)
+  - Line 739: [Context Engineering](../foundations/context-engineering.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+  - Line 740: [Knowledge OS](../foundations/knowledge-os.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/knowledge-os.md
+
+docs/advanced/intelligent-routing.md: 2 broken link(s)
+  - Line 684: [Learning Science Pillar](../foundations/four-pillars.md#pillar-2-learning-science)
+    Error: Target file does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+  - Line 685: [Context Engineering](../foundations/context-engineering.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+
+docs/advanced/multi-agent-orchestration.md: 3 broken link(s)
+  - Line 671: [DevOps + SRE Pillar](../foundations/four-pillars.md#pillar-1-devops--sre)
+    Error: Target file does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+  - Line 672: [Context Engineering](../foundations/context-engineering.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+  - Line 673: [Knowledge OS (Branches)](../foundations/knowledge-os.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/knowledge-os.md
+
+docs/advanced/phase-based-workflow.md: 4 broken link(s)
+  - Line 17: [40% rule](../foundations/context-engineering.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+  - Line 698: [Context Engineering](../foundations/context-engineering.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/context-engineering.md
+  - Line 699: [Learning Science](../foundations/four-pillars.md#pillar-2-learning-science)
+    Error: Target file does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+  - Line 700: [Knowledge OS](../foundations/knowledge-os.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/knowledge-os.md
+
+docs/case-studies/production/README.md: 3 broken link(s)
+  - Line 1446: [Four Pillars](../../foundations/four-pillars.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/four-pillars.md
+  - Line 1447: [Five Laws](../../foundations/five-laws.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/five-laws.md
+  - Line 1551: [templates/](../templates/)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/case-studies/templates
+
+docs/domain-guides/README.md: 5 broken link(s)
+  - Line 172: [Decision Tree](../../tutorials/decision-tree.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/decision-tree.md
+  - Line 429: [Community Validation Template](../../validation/templates/community-validation.md)
+    Error: File does not exist: /home/user/12-factor-agentops/validation/templates/community-validation.md
+  - Line 455: [Role-Specific Paths](../../tutorials/role-specific-paths.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/role-specific-paths.md
+  - Line 457: [Quick Reference Card](../../tutorials/quick-reference-card.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/quick-reference-card.md
+  - Line 459: [Decision Tree](../../tutorials/decision-tree.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/decision-tree.md
+
+docs/domain-guides/data-science-analytics.md: 1 broken link(s)
+  - Line 368: [Quick Reference Card](../../tutorials/quick-reference-card.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/quick-reference-card.md
+
+docs/domain-guides/devops-infrastructure.md: 1 broken link(s)
+  - Line 292: [Quick Reference Card](../../tutorials/quick-reference-card.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/quick-reference-card.md
+
+docs/domain-guides/software-development.md: 4 broken link(s)
+  - Line 714: [12-Factor AgentOps README](../../../README.md)
+    Error: File does not exist: /home/user/README.md
+  - Line 715: [Quick Reference Card](../../tutorials/quick-reference-card.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/quick-reference-card.md
+  - Line 716: [Decision Tree](../../tutorials/decision-tree.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/decision-tree.md
+  - Line 727: [CONTRIBUTING.md](../../../CONTRIBUTING.md)
+    Error: File does not exist: /home/user/CONTRIBUTING.md
+
+docs/domain-guides/solo-developer.md: 3 broken link(s)
+  - Line 575: [Quick Reference Card](../../tutorials/quick-reference-card.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/quick-reference-card.md
+  - Line 576: [Decision Tree](../../tutorials/decision-tree.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/decision-tree.md
+  - Line 577: [First 30 Minutes](../../tutorials/first-30-minutes.md)
+    Error: File does not exist: /home/user/12-factor-agentops/tutorials/first-30-minutes.md
+
+docs/principles/README.md: 7 broken link(s)
+  - Line 19: [Evolution of 12-Factor](../docs/foundations/evolution-of-12-factor.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/docs/foundations/evolution-of-12-factor.md
+  - Line 37: [Comparison Table](../docs/foundations/comparison-table.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/docs/foundations/comparison-table.md
+  - Line 142: [CONTRIBUTING.md](../CONTRIBUTING.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/CONTRIBUTING.md
+  - Line 322: [CONTRIBUTING.md](../CONTRIBUTING.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/CONTRIBUTING.md
+  - Line 345: [CONTRIBUTING.md](../CONTRIBUTING.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/CONTRIBUTING.md
+  - Line 346: [content/factors/](../content/factors/)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/content/factors
+  - Line 347: [content/patterns/](../content/patterns/)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/content/patterns
+
+docs/principles/knowledge-os.md: 1 broken link(s)
+  - Line 881: [Five Laws](./five-laws.md#law-3)
+    Error: Anchor 'law-3' not found in five-laws.md
+
+docs/research/validation/SYNTHESIS.md: 10 broken link(s)
+  - Line 54: [Meta-Patterns](../docs/reference/claude-code/meta-patterns.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/research/docs/reference/claude-code/meta-patterns.md
+  - Line 171: [Context Engineering](../foundations/context-engineering.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/research/foundations/context-engineering.md
+  - Line 383: [Validation Status](DISCLAIMER.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/research/validation/DISCLAIMER.md
+  - Line 384: [Data Schema](DATA_SCHEMA.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/research/validation/DATA_SCHEMA.md
+  - Line 385: [Templates](templates/)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/research/validation/templates
+  - Line 388: [Meta-Patterns](../docs/reference/claude-code/meta-patterns.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/research/docs/reference/claude-code/meta-patterns.md
+  - Line 391: [Four Pillars](../foundations/four-pillars.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/research/foundations/four-pillars.md
+  - Line 392: [Five Laws](../foundations/five-laws.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/research/foundations/five-laws.md
+  - Line 393: [Context Engineering](../foundations/context-engineering.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/research/foundations/context-engineering.md
+  - Line 396: [All Factors](../factors/README.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/research/factors/README.md
+
+factors/01-automated-tracking.md: 4 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-i-git-memory-as-knowledge-os)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 335: [../foundations/knowledge-os.md](../foundations/knowledge-os.md)
+    Error: File does not exist: /home/user/12-factor-agentops/foundations/knowledge-os.md
+  - Line 336: [../foundations/five-laws.md](../foundations/five-laws.md#law-3)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 337: [../patterns/git-workflow.md](../patterns/git-workflow.md)
+    Error: File does not exist: /home/user/12-factor-agentops/patterns/git-workflow.md
+
+factors/02-context-loading.md: 4 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-ii-jit-context-loading)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 864: [../foundations/context-engineering.md](../foundations/context-engineering.md)
+    Error: File does not exist: /home/user/12-factor-agentops/foundations/context-engineering.md
+  - Line 865: [./06-session-continuity-via-bundles.md](./06-session-continuity-via-bundles.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/06-session-continuity-via-bundles.md
+  - Line 866: [../patterns/phase-based-workflow.md](../patterns/phase-based-workflow.md)
+    Error: File does not exist: /home/user/12-factor-agentops/patterns/phase-based-workflow.md
+
+factors/03-focused-agents.md: 4 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-iii-single-responsibility-agents)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 551: [../patterns/multi-agent-orchestration.md](../patterns/multi-agent-orchestration.md)
+    Error: File does not exist: /home/user/12-factor-agentops/patterns/multi-agent-orchestration.md
+  - Line 552: [../patterns/intelligent-routing.md](../patterns/intelligent-routing.md)
+    Error: File does not exist: /home/user/12-factor-agentops/patterns/intelligent-routing.md
+  - Line 553: [../foundations/four-pillars.md#pillar-2-learning-science](../foundations/four-pillars.md#pillar-2-learning-science)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+
+factors/04-continuous-validation.md: 4 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-iv-validation-gates-before-execution)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 518: [../foundations/four-pillars.md#pillar-1-devops--sre](../foundations/four-pillars.md#pillar-1-devops--sre)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+  - Line 519: [../foundations/five-laws.md](../foundations/five-laws.md#law-4)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 520: [../patterns/ci-cd-pipeline.md](../patterns/ci-cd-pipeline.md)
+    Error: File does not exist: /home/user/12-factor-agentops/patterns/ci-cd-pipeline.md
+
+factors/05-measure-everything.md: 5 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-v-operational-telemetry)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 506: [../foundations/four-pillars.md#pillar-1-devops--sre](../foundations/four-pillars.md#pillar-1-devops--sre)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+  - Line 507: [../foundations/five-laws.md](../foundations/five-laws.md#law-1)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 508: [../foundations/five-laws.md](../foundations/five-laws.md#law-2)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 509: [../patterns/observability-stack.md](../patterns/observability-stack.md)
+    Error: File does not exist: /home/user/12-factor-agentops/patterns/observability-stack.md
+
+factors/06-resume-work.md: 4 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-vi-session-continuity-via-bundles)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 489: [../foundations/context-engineering.md](../foundations/context-engineering.md)
+    Error: File does not exist: /home/user/12-factor-agentops/foundations/context-engineering.md
+  - Line 490: [./02-fresh-context-windows.md](./02-fresh-context-windows.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/02-fresh-context-windows.md
+  - Line 491: [../patterns/context-bundles.md](../patterns/context-bundles.md)
+    Error: File does not exist: /home/user/12-factor-agentops/patterns/context-bundles.md
+
+factors/07-smart-routing.md: 5 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-vii-intelligent-task-routing)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 576: [../foundations/four-pillars.md#pillar-2-learning-science](../foundations/four-pillars.md#pillar-2-learning-science)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+  - Line 577: [../foundations/five-laws.md](../foundations/five-laws.md#law-1)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 578: [../foundations/five-laws.md](../foundations/five-laws.md#law-2)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 579: [../patterns/intelligent-routing.md](../patterns/intelligent-routing.md)
+    Error: File does not exist: /home/user/12-factor-agentops/patterns/intelligent-routing.md
+
+factors/08-human-validation.md: 5 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-viii-human-gate-reviews)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 556: [../foundations/four-pillars.md#pillar-2-learning-science](../foundations/four-pillars.md#pillar-2-learning-science)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+  - Line 557: [../foundations/five-laws.md](../foundations/five-laws.md#law-3)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 558: [../foundations/five-laws.md](../foundations/five-laws.md#law-4)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 559: [../patterns/human-in-the-loop.md](../patterns/human-in-the-loop.md)
+    Error: File does not exist: /home/user/12-factor-agentops/patterns/human-in-the-loop.md
+
+factors/09-mine-patterns.md: 5 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-ix-documented-pattern-extraction)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 582: [../foundations/knowledge-os.md](../foundations/knowledge-os.md)
+    Error: File does not exist: /home/user/12-factor-agentops/foundations/knowledge-os.md
+  - Line 583: [../foundations/five-laws.md](../foundations/five-laws.md#law-1)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 584: [../foundations/five-laws.md](../foundations/five-laws.md#law-5)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 585: [../patterns/README.md](../patterns/README.md)
+    Error: File does not exist: /home/user/12-factor-agentops/patterns/README.md
+
+factors/10-small-iterations.md: 5 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-x-continuous-improvement-backlog)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 575: [../foundations/four-pillars.md#pillar-1-devops--sre](../foundations/four-pillars.md#pillar-1-devops--sre)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+  - Line 576: [../foundations/five-laws.md](../foundations/five-laws.md#law-2)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 577: [../foundations/five-laws.md](../foundations/five-laws.md#law-3)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 578: [./09-documented-pattern-extraction.md](./09-documented-pattern-extraction.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/09-documented-pattern-extraction.md
+
+factors/11-fail-safe-checks.md: 4 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-xi-constitutional-guardrails)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 634: [../foundations/four-pillars.md#pillar-1-devops--sre](../foundations/four-pillars.md#pillar-1-devops--sre)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+  - Line 635: [../foundations/five-laws.md](../foundations/five-laws.md)
+    Error: File does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 636: [./04-validation-gates-before-execution.md](./04-validation-gates-before-execution.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/04-validation-gates-before-execution.md
+
+factors/12-package-patterns.md: 5 broken link(s)
+  - Line 12: [See complete derivation →](../ARCHITECTURE.md#factor-xii-domain-portability)
+    Error: Target file does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 623: [../foundations/knowledge-os.md](../foundations/knowledge-os.md)
+    Error: File does not exist: /home/user/12-factor-agentops/foundations/knowledge-os.md
+  - Line 624: [../foundations/five-laws.md](../foundations/five-laws.md#law-1)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 625: [../foundations/five-laws.md](../foundations/five-laws.md#law-5)
+    Error: Target file does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+  - Line 626: [./09-documented-pattern-extraction.md](./09-documented-pattern-extraction.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/09-documented-pattern-extraction.md
+
+factors/README.md: 16 broken link(s)
+  - Line 31: [docs/foundations/evolution-of-12-factor.md](../docs/foundations/evolution-of-12-factor.md)
+    Error: File does not exist: /home/user/12-factor-agentops/docs/foundations/evolution-of-12-factor.md
+  - Line 41: [See complete derivation →](../ARCHITECTURE.md)
+    Error: File does not exist: /home/user/12-factor-agentops/ARCHITECTURE.md
+  - Line 45: [I](./01-git-memory-as-knowledge-os.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/01-git-memory-as-knowledge-os.md
+  - Line 46: [II](./02-jit-context-loading.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/02-jit-context-loading.md
+  - Line 47: [III](./03-single-responsibility-agents.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/03-single-responsibility-agents.md
+  - Line 48: [IV](./04-validation-gates-before-execution.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/04-validation-gates-before-execution.md
+  - Line 49: [V](./05-operational-telemetry.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/05-operational-telemetry.md
+  - Line 50: [VI](./06-session-continuity-via-bundles.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/06-session-continuity-via-bundles.md
+  - Line 51: [VII](./07-intelligent-task-routing.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/07-intelligent-task-routing.md
+  - Line 52: [VIII](./08-human-gate-reviews.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/08-human-gate-reviews.md
+  - Line 53: [IX](./09-documented-pattern-extraction.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/09-documented-pattern-extraction.md
+  - Line 54: [X](./10-continuous-improvement-backlog.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/10-continuous-improvement-backlog.md
+  - Line 55: [XI](./11-constitutional-guardrails.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/11-constitutional-guardrails.md
+  - Line 56: [XII](./12-domain-portability.md)
+    Error: File does not exist: /home/user/12-factor-agentops/factors/12-domain-portability.md
+  - Line 102: [Deep dive →](../foundations/four-pillars.md)
+    Error: File does not exist: /home/user/12-factor-agentops/foundations/four-pillars.md
+  - Line 111: [Deep dive →](../foundations/five-laws.md)
+    Error: File does not exist: /home/user/12-factor-agentops/foundations/five-laws.md
+
+================================================================================

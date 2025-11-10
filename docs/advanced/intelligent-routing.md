@@ -681,8 +681,8 @@ Proceed? [yes]
 - [How to customize routing](https://github.com/boshu2/agentops/blob/main/docs/how-to/customize-routing.md)
 
 **Theoretical Foundation:**
-- [Learning Science Pillar](../foundations/four-pillars.md#pillar-2-learning-science)
-- [Context Engineering](../foundations/context-engineering.md)
+- [Learning Science Pillar](../principles/four-pillars.md#pillar-2-learning-science)
+- [Context Engineering](../principles/context-engineering.md)
 
 ---
 

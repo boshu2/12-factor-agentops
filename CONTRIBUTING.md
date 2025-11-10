@@ -14,13 +14,13 @@ We're building this framework together. Just like Kubernetes is a community proj
 ### 1. Use the Framework & Share Validation Data
 The best contribution is using AgentOps in your domain and sharing what you learn.
 
-**Quick validation:** Use our [Community Validation Template](./validation/templates/community-validation.md) (30-60 min)
+**Quick validation:** *(Coming soon - validation templates planned for v2.0)*
 - Track which factors you used
 - Document what worked and what didn't
 - Share quantitative results if available
-- Submit via PR to `validation/community/` or open an issue
+- Submit via GitHub issue describing your experience
 
-**Rigorous validation:** Use our [Quantitative Study Template](./validation/templates/quantitative-study.md) (4-8 hours)
+**Rigorous validation:** *(Coming soon - quantitative study templates planned for v2.0)*
 - For researchers or teams tracking detailed metrics
 - Statistical analysis and hypothesis testing
 - Publishable evidence for academic or professional use

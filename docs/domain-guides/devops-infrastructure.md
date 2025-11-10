@@ -289,7 +289,7 @@ AI often forgets resource limits. Always review and add.
 
 - [Kubernetes Best Practices](https://kubernetes.io/docs/concepts/configuration/overview/)
 - [Terraform Best Practices](https://www.terraform.io/docs/cloud/guides/recommended-practices/)
-- [Quick Reference Card](../../tutorials/quick-reference-card.md)
+- Quick Reference Card *(coming in v2.0)*
 
 **Related Guides:**
 - [Software Development Guide](software-development.md) - If you also write code

@@ -365,7 +365,7 @@ Factor IX: Pattern extraction
 
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
 - [Statistical Validity Checks](https://www.statsmodels.org/)
-- [Quick Reference Card](../../tutorials/quick-reference-card.md)
+- Quick Reference Card *(coming in v2.0)*
 
 **Related Guides:**
 - [Software Development Guide](software-development.md) - For analysis code

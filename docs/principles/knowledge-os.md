@@ -56,7 +56,7 @@ Knowledge OS applies OS concepts to institutional memory management:
 | OS Concept | Knowledge OS Abstraction | Purpose |
 |------------|--------------------------|---------|
 | **Process Scheduling** | Workflow routing | Allocate agent attention to tasks based on complexity/domain |
-| **File System** | Git repository structure | Organize knowledge hierarchically (docs/, foundations/, patterns/) |
+| **File System** | Git repository structure | Organize knowledge hierarchically (docs/, principles/, patterns/) |
 | **Memory Management** | Context window management | Allocate tokens to sessions, prevent context collapse |
 | **Process Isolation** | Branch isolation | Separate parallel investigations, merge when ready |
 | **System Calls** | Agent definitions (`.claude/agents/*.md`) | Standard interface for invoking workflows |
@@ -80,7 +80,7 @@ Knowledge OS applies OS concepts to institutional memory management:
 **File system:**
 - **OS:** `/usr/bin`, `/home`, `/var/log` organize system files
 - **K8s:** etcd stores cluster state, PersistentVolumes store app data
-- **Knowledge OS:** `docs/`, `foundations/`, `patterns/` organize knowledge
+- **Knowledge OS:** `docs/`, `principles/`, `patterns/` organize knowledge
 
 **Process isolation:**
 - **OS:** Processes can't corrupt each other's memory

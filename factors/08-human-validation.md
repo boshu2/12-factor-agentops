@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 3 (Document Context), Law 4 (Validate Before Execute) |
 | **Derived From** | Progressive complexity + Human-in-the-loop + Approval workflows |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-viii-human-gate-reviews)**
 
 ---
 
@@ -553,10 +552,10 @@ class DiffGate:
 
 ## Further Reading
 
-- **Learning Science Pillar**: [../foundations/four-pillars.md#pillar-2-learning-science](../foundations/four-pillars.md#pillar-2-learning-science)
-- **Law 3 (Document Context)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-3)
-- **Law 4 (Validate Before Execute)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-4)
-- **Pattern: Human-in-the-Loop**: [../patterns/human-in-the-loop.md](../patterns/human-in-the-loop.md) (TBD)
+- **Learning Science Pillar**: [../principles/four-pillars.md#pillar-2-learning-science](../docs/principles/four-pillars.md#pillar-2-learning-science)
+- **Law 3 (Document Context)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-3)
+- **Law 4 (Validate Before Execute)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-4)
+- **Pattern: Human-in-the-Loop**: [../advanced/human-in-the-loop.md](../advanced/human-in-the-loop.md) (TBD)
 - **HumanLayer Framework**: [https://humanlayer.dev](https://humanlayer.dev)
 
 ---

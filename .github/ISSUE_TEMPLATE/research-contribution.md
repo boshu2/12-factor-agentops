@@ -148,7 +148,7 @@ assignees: ''
 ## Integration with Framework
 
 **Proposed Location:** [Where in the framework should this go?]
-- [ ] `foundations/` - Theoretical grounding
+- [ ] `principles/` - Theoretical grounding
 - [ ] `patterns/` - Pattern validation
 - [ ] `research/` - Deep academic content (if directory created)
 - [ ] `docs/` - Supporting documentation

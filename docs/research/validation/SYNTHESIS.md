@@ -51,7 +51,7 @@ This document synthesizes validation findings from:
 
 **Implication:** When a framework can successfully analyze and improve itself, that's strong evidence the framework works.
 
-**Documentation:** [Meta-Patterns](../docs/reference/claude-code/meta-patterns.md)
+**Documentation:** [Meta-Patterns](../../reference/claude-code/meta-patterns.md)
 
 ---
 
@@ -168,7 +168,7 @@ This document synthesizes validation findings from:
 - Theoretical foundation (cognitive science)
 - Reproducible (consistent across sessions)
 
-**Documentation:** [Context Engineering](../foundations/context-engineering.md)
+**Documentation:** [Context Engineering](../../principles/context-engineering.md)
 
 ---
 
@@ -380,20 +380,20 @@ This document synthesizes validation findings from:
 ## Related Documentation
 
 **Validation:**
-- [Validation Status](DISCLAIMER.md) - What's validated vs in-progress
-- [Data Schema](DATA_SCHEMA.md) - Standardized collection format
-- [Templates](templates/) - Community validation templates
+- Validation Status *(coming in v2.0)* - What's validated vs in-progress
+- Data Schema *(coming in v2.0)* - Standardized collection format
+- Templates *(coming in v2.0)* - Community validation templates
 
 **Meta-Patterns:**
-- [Meta-Patterns](../docs/reference/claude-code/meta-patterns.md) - Self-reference and validation
+- Meta-Patterns *(coming in v2.0)* - Self-reference and validation
 
 **Foundations:**
-- [Four Pillars](../foundations/four-pillars.md) - Theoretical grounding
-- [Five Laws](../foundations/five-laws.md) - Operational principles
-- [Context Engineering](../foundations/context-engineering.md) - 40% rule
+- [Four Pillars](../../principles/four-pillars.md) - Theoretical grounding
+- [Five Laws](../../principles/five-laws.md) - Operational principles
+- [Context Engineering](../../principles/context-engineering.md) - 40% rule
 
 **Factors:**
-- [All Factors](../factors/README.md) - Complete list with validation status per factor
+- [All Factors](../../../factors/README.md) - Complete list with validation status per factor
 
 ---
 

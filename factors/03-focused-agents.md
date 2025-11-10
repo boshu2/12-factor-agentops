@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 2 (Improve System), Law 5 (Share Patterns) |
 | **Derived From** | Progressive disclosure + Single Responsibility Principle + Unix philosophy |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-iii-single-responsibility-agents)**
 
 ---
 
@@ -548,9 +547,9 @@ profile: kubernetes-ops
 
 ## Further Reading
 
-- **Pattern: Multi-Agent Orchestration**: [../patterns/multi-agent-orchestration.md](../patterns/multi-agent-orchestration.md)
-- **Pattern: Intelligent Routing**: [../patterns/intelligent-routing.md](../patterns/intelligent-routing.md)
-- **Learning Science Pillar**: [../foundations/four-pillars.md#pillar-2-learning-science](../foundations/four-pillars.md#pillar-2-learning-science)
+- **Pattern: Multi-Agent Orchestration**: [../advanced/multi-agent-orchestration.md](../advanced/multi-agent-orchestration.md)
+- **Pattern: Intelligent Routing**: [../advanced/intelligent-routing.md](../advanced/intelligent-routing.md)
+- **Learning Science Pillar**: [../principles/four-pillars.md#pillar-2-learning-science](../docs/principles/four-pillars.md#pillar-2-learning-science)
 
 ---
 

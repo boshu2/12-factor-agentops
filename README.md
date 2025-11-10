@@ -181,8 +181,8 @@ These aren't AI-specific techniques. They're operational fundamentals. Applied t
 **Then explore:**
 
 - **[Workflow Guide](./docs/tutorials/workflow-guide.md)** - See how to apply the factors in practice with a complete Redis Operator example
-- **[factors/](./factors/)** - Deep dive into any specific factor
-- **[docs/principles/](./docs/principles/)** - Understand the philosophy behind the framework (Five Laws, Four Pillars)
+- **[factors/](./factors/README.md)** - Deep dive into any specific factor
+- **[docs/principles/](./docs/principles/README.md)** - Understand the philosophy behind the framework (Five Laws, Four Pillars)
 
 **Want to contribute?** See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to share your implementations and learnings.
 

@@ -28,7 +28,7 @@ The 12-Factor AgentOps factors extend the proven [12-Factor App](https://12facto
 - Operations must work across **constrained environments** (air-gapped, edge, cloud)
 - Autonomous decisions need **governance boundaries**
 
-**For the complete evolution story** showing how each original factor evolved for AI applications and operations, see [docs/foundations/evolution-of-12-factor.md](../docs/foundations/evolution-of-12-factor.md).
+**For the complete evolution story** showing how each original factor evolved for AI applications and operations, see [docs/principles/evolution-of-12-factor.md](../docs/principles/evolution-of-12-factor.md).
 
 ---
 
@@ -38,22 +38,22 @@ The 12-Factor AgentOps methodology defines twelve operational principles for bui
 
 ## The Complete List
 
-Each factor derives from the Four Pillars and enforces the Five Laws. **[See complete derivation →](../ARCHITECTURE.md)**
+Each factor derives from the Four Pillars and enforces the Five Laws.
 
 | # | Factor | Pillar | Laws | Status |
 |---|--------|--------|------|--------|
-| **[I](./01-git-memory-as-knowledge-os.md)** | **Git Memory as Knowledge OS** | Knowledge OS | 1, 3 | ✅ Complete |
-| **[II](./02-jit-context-loading.md)** | **JIT Context Loading** | Context Engineering | 2, 4 | ✅ Complete |
-| **[III](./03-single-responsibility-agents.md)** | **Single-Responsibility Agents** | Learning Science | 2, 5 | ✅ Complete |
-| **[IV](./04-validation-gates-before-execution.md)** | **Validation Gates Before Execution** | DevOps + SRE | 3, 4 | ✅ Complete |
-| **[V](./05-operational-telemetry.md)** | **Operational Telemetry** | DevOps + SRE | 1, 2 | ✅ Complete |
-| **[VI](./06-session-continuity-via-bundles.md)** | **Session Continuity via Bundles** | Context Engineering | 2, 3 | ✅ Complete |
-| **[VII](./07-intelligent-task-routing.md)** | **Intelligent Task Routing** | Learning Science | 1, 2 | ✅ Complete |
-| **[VIII](./08-human-gate-reviews.md)** | **Human Gate Reviews** | Learning Science | 3, 4 | ✅ Complete |
-| **[IX](./09-documented-pattern-extraction.md)** | **Documented Pattern Extraction** | Knowledge OS | 1, 5 | ✅ Complete |
-| **[X](./10-continuous-improvement-backlog.md)** | **Continuous Improvement Backlog** | DevOps + SRE | 2, 3 | ✅ Complete |
-| **[XI](./11-constitutional-guardrails.md)** | **Constitutional Guardrails** | DevOps + SRE | ALL | ✅ Complete |
-| **[XII](./12-domain-portability.md)** | **Domain Portability** | Knowledge OS | 1, 5 | ✅ Complete |
+| **[I](./01-automated-tracking.md)** | **Automated Tracking** | Knowledge OS | 1, 3 | ✅ Complete |
+| **[II](./02-context-loading.md)** | **Context Loading** | Context Engineering | 2, 4 | ✅ Complete |
+| **[III](./03-focused-agents.md)** | **Focused Agents** | Learning Science | 2, 5 | ✅ Complete |
+| **[IV](./04-continuous-validation.md)** | **Continuous Validation** | DevOps + SRE | 3, 4 | ✅ Complete |
+| **[V](./05-measure-everything.md)** | **Measure Everything** | DevOps + SRE | 1, 2 | ✅ Complete |
+| **[VI](./06-resume-work.md)** | **Resume Work** | Context Engineering | 2, 3 | ✅ Complete |
+| **[VII](./07-smart-routing.md)** | **Smart Routing** | Learning Science | 1, 2 | ✅ Complete |
+| **[VIII](./08-human-validation.md)** | **Human Validation** | Learning Science | 3, 4 | ✅ Complete |
+| **[IX](./09-mine-patterns.md)** | **Mine Patterns** | Knowledge OS | 1, 5 | ✅ Complete |
+| **[X](./10-small-iterations.md)** | **Small Iterations** | DevOps + SRE | 2, 3 | ✅ Complete |
+| **[XI](./11-fail-safe-checks.md)** | **Fail-Safe Checks** | DevOps + SRE | ALL | ✅ Complete |
+| **[XII](./12-package-patterns.md)** | **Package Patterns** | Knowledge OS | 1, 5 | ✅ Complete |
 
 **Legend:**
 - **Pillar**: Primary philosophical foundation
@@ -99,7 +99,7 @@ The Twelve Factors rest on a philosophical foundation:
 3. **Context Engineering**: Manage cognitive load to prevent collapse
 4. **Knowledge OS**: Git as institutional memory
 
-**[Deep dive →](../foundations/four-pillars.md)**
+**[Deep dive →](../docs/principles/four-pillars.md)**
 
 ### Five Laws
 1. **ALWAYS Extract Learnings**: Patterns are valuable
@@ -108,7 +108,7 @@ The Twelve Factors rest on a philosophical foundation:
 4. **ALWAYS Validate Before Execute**: Prevention beats recovery
 5. **ALWAYS Share Patterns Publicly**: Build collective knowledge
 
-**[Deep dive →](../foundations/five-laws.md)**
+**[Deep dive →](../docs/principles/five-laws.md)**
 
 ---
 

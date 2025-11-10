@@ -120,7 +120,7 @@ AgentOps patterns implement the **Kubernetes Operator pattern**—a proven appro
 
 **Contributing Patterns:**
 1. Read all patterns (understand existing catalog)
-2. Study [CONTRIBUTING.md](../CONTRIBUTING.md) (contribution process)
+2. Study [CONTRIBUTING.md](../../CONTRIBUTING.md) (contribution process)
 3. Review [agentops implementations](https://github.com/boshu2/agentops) (see patterns in practice)
 4. Extract and document your patterns (share with community)
 
@@ -149,7 +149,7 @@ AgentOps patterns implement the **Kubernetes Operator pattern**—a proven appro
 
 ### To Foundations
 
-Every pattern is grounded in one or more [Four Pillars](../foundations/four-pillars.md):
+Every pattern is grounded in one or more [Four Pillars](../principles/four-pillars.md):
 
 | Pattern | Primary Pillar | Secondary Pillar |
 |---------|---------------|------------------|
@@ -158,7 +158,7 @@ Every pattern is grounded in one or more [Four Pillars](../foundations/four-pill
 | **Intelligent Routing** | Learning Science | Context Engineering |
 | **Context Bundles** | Context Engineering | Knowledge OS |
 
-**All patterns enforce the [Five Laws](../foundations/five-laws.md):**
+**All patterns enforce the [Five Laws](../principles/five-laws.md):**
 - Extract learnings from each pattern application
 - Improve pattern through iteration
 - Document pattern context and rationale
@@ -338,7 +338,7 @@ Every pattern document follows consistent structure:
 4. **Measure:** Quantify impact where possible
 5. **Submit:** Open PR with pattern documentation
 
-**See:** [CONTRIBUTING.md](../CONTRIBUTING.md) for detailed contribution guidelines.
+**See:** [CONTRIBUTING.md](../../CONTRIBUTING.md) for detailed contribution guidelines.
 
 ---
 
@@ -462,7 +462,7 @@ Your Work
     ↓ Extract pattern
 This Catalog (patterns/)
     ↓ Ground in philosophy
-Foundations (foundations/)
+Foundations (principles/)
     ↓ Implement operationally
 agentops Implementation
     ↓ Validate empirically
@@ -482,10 +482,10 @@ Community Evolution
 
 ### In This Repository
 
-- [Four Pillars](../foundations/four-pillars.md) - Philosophical grounding
-- [Five Laws](../foundations/five-laws.md) - Operational principles
-- [Context Engineering](../foundations/context-engineering.md) - 40% rule
-- [Knowledge OS](../foundations/knowledge-os.md) - Git as memory
+- [Four Pillars](../principles/four-pillars.md) - Philosophical grounding
+- [Five Laws](../principles/five-laws.md) - Operational principles
+- [Context Engineering](../principles/context-engineering.md) - 40% rule
+- [Knowledge OS](../principles/knowledge-os.md) - Git as memory
 
 ### In agentops Repository
 

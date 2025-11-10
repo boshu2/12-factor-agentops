@@ -1,6 +1,6 @@
 # Deep Dives & Extensions
 
-**Core methodology:** [README.md](../README.md) → [Workflow Guide](tutorials/workflow-guide.md) → [factors/](../factors/)
+**Core methodology:** [README.md](../README.md) → [Workflow Guide](tutorials/workflow-guide.md) → [factors/](../factors/README.md)
 
 **This directory contains** optional deep dives for those who want to understand the philosophy and research behind the framework.
 
@@ -59,7 +59,7 @@ Real production examples and metrics.
 **Start simple (1.0.0 core):**
 1. Read [README.md](../README.md) - Understand what this is (10 min)
 2. Read [Workflow Guide](tutorials/workflow-guide.md) - Learn the workflow (20 min)
-3. Read [factors/](../factors/) - Deep dive on any factor (15 min each)
+3. Read [factors/](../factors/README.md) - Deep dive on any factor (15 min each)
 
 **Go deeper (optional):**
 4. Browse `principles/` - Understand the philosophy (1+ hours)

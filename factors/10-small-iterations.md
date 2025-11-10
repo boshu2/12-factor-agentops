@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 2 (Improve System), Law 3 (Document Context) |
 | **Derived From** | Kaizen (continuous improvement) + SRE error budgets + Agile retrospectives |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-x-continuous-improvement-backlog)**
 
 ---
 
@@ -572,10 +571,10 @@ Net result: Positive ROI, system measurably better
 
 ## Further Reading
 
-- **DevOps + SRE Pillar**: [../foundations/four-pillars.md#pillar-1-devops--sre](../foundations/four-pillars.md#pillar-1-devops--sre)
-- **Law 2 (Improve System)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-2)
-- **Law 3 (Document Context)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-3)
-- **Factor IX: Mine Patterns**: [./09-documented-pattern-extraction.md](./09-documented-pattern-extraction.md)
+- **DevOps + SRE Pillar**: [../principles/four-pillars.md#pillar-1-devops--sre](../docs/principles/four-pillars.md#pillar-1-devops--sre)
+- **Law 2 (Improve System)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-2)
+- **Law 3 (Document Context)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-3)
+- **Factor IX: Mine Patterns**: [./09-mine-patterns.md](./09-mine-patterns.md)
 - **Kaizen**: [Wikipedia: Kaizen](https://en.wikipedia.org/wiki/Kaizen)
 
 ---

@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 2 (Improve System), Law 3 (Document Context) |
 | **Derived From** | Compression techniques + Spaced repetition + Progressive summarization |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-vi-session-continuity-via-bundles)**
 
 ---
 
@@ -486,9 +485,9 @@ class BundleLoader:
 
 ## Further Reading
 
-- **Context Engineering Foundation**: [../foundations/context-engineering.md](../foundations/context-engineering.md)
+- **Context Engineering Foundation**: [../principles/context-engineering.md](../docs/principles/context-engineering.md)
 - **Factor II (40% Rule)**: [./02-fresh-context-windows.md](./02-fresh-context-windows.md)
-- **Pattern: Context Bundles**: [../patterns/context-bundles.md](../patterns/context-bundles.md)
+- **Pattern: Context Bundles**: [../advanced/context-bundles.md](../advanced/context-bundles.md)
 
 ---
 

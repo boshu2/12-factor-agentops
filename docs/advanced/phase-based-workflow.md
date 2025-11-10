@@ -14,7 +14,7 @@ The Phase-Based Workflow pattern structures work into three distinct cognitive p
 
 Each phase has different cognitive demands, uses different mental models, and benefits from different context loading strategies.
 
-**Core insight:** Mixing phases leads to context thrashing and cognitive overload. Separating them enables the [40% rule](../foundations/context-engineering.md) to work effectively.
+**Core insight:** Mixing phases leads to context thrashing and cognitive overload. Separating them enables the [40% rule](../principles/context-engineering.md) to work effectively.
 
 ---
 
@@ -695,9 +695,9 @@ curl -sSL https://raw.githubusercontent.com/boshu2/agentops/main/scripts/base-in
 - [Multi-phase project tutorial](https://github.com/boshu2/agentops/blob/main/docs/tutorials/02-multi-phase.md)
 
 **Theoretical Foundation:**
-- [Context Engineering](../foundations/context-engineering.md) - 40% rule derivation
-- [Learning Science](../foundations/four-pillars.md#pillar-2-learning-science) - Cognitive load management
-- [Knowledge OS](../foundations/knowledge-os.md) - Phase-based commits
+- [Context Engineering](../principles/context-engineering.md) - 40% rule derivation
+- [Learning Science](../principles/four-pillars.md#pillar-2-learning-science) - Cognitive load management
+- [Knowledge OS](../principles/knowledge-os.md) - Phase-based commits
 
 ---
 

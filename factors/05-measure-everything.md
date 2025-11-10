@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 2 (Improve System) |
 | **Derived From** | SRE observability + Metrics-driven improvement + Data-informed decisions |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-v-operational-telemetry)**
 
 ---
 
@@ -503,10 +502,10 @@ groups:
 
 ## Further Reading
 
-- **DevOps + SRE Pillar**: [../foundations/four-pillars.md#pillar-1-devops--sre](../foundations/four-pillars.md#pillar-1-devops--sre)
-- **Law 1 (Extract Learnings)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-1)
-- **Law 2 (Improve System)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-2)
-- **Pattern: Observability Stack**: [../patterns/observability-stack.md](../patterns/observability-stack.md) (TBD)
+- **DevOps + SRE Pillar**: [../principles/four-pillars.md#pillar-1-devops--sre](../docs/principles/four-pillars.md#pillar-1-devops--sre)
+- **Law 1 (Extract Learnings)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-1)
+- **Law 2 (Improve System)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-2)
+- **Pattern: Observability Stack**: [../advanced/observability-stack.md](../advanced/observability-stack.md) (TBD)
 
 ---
 

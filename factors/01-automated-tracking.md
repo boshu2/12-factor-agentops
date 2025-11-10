@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 3 (Document Context) |
 | **Derived From** | Git as institutional memory + Version control as source of truth |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-i-git-memory-as-knowledge-os)**
 
 ---
 
@@ -332,9 +331,9 @@ Impact: 5 minutes to fix instead of 2 hours of debugging
 
 ## Further Reading
 
-- **Knowledge OS Foundation**: [../foundations/knowledge-os.md](../foundations/knowledge-os.md)
-- **Law 3 (Document Context)**: [../foundations/five-laws.md](../foundations/five-laws.md#law-3)
-- **Pattern: Git Workflow**: [../patterns/git-workflow.md](../patterns/git-workflow.md) (TBD)
+- **Knowledge OS Foundation**: [../principles/knowledge-os.md](../docs/principles/knowledge-os.md)
+- **Law 3 (Document Context)**: [../principles/five-laws.md](../docs/principles/five-laws.md#law-3)
+- **Pattern: Git Workflow**: [../advanced/git-workflow.md](../advanced/git-workflow.md) (TBD)
 
 ---
 

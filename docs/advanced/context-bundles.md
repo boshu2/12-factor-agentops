@@ -736,8 +736,8 @@ next_actions:
 - [How to transfer context](https://github.com/boshu2/agentops/blob/main/docs/how-to/transfer-context.md)
 
 **Theoretical Foundation:**
-- [Context Engineering](../foundations/context-engineering.md) - 40% rule application
-- [Knowledge OS](../foundations/knowledge-os.md) - Git as context storage
+- [Context Engineering](../principles/context-engineering.md) - 40% rule application
+- [Knowledge OS](../principles/knowledge-os.md) - Git as context storage
 
 ---
 

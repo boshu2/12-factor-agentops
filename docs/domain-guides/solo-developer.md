@@ -572,9 +572,9 @@ AI: <which tool>"
 
 ## Resources
 
-- [Quick Reference Card](../../tutorials/quick-reference-card.md) - Print and post
-- [Decision Tree](../../tutorials/decision-tree.md) - Which factor for which problem
-- [First 30 Minutes](../../tutorials/first-30-minutes.md) - Complete intro
+- Quick Reference Card *(coming in v2.0)* - Print and post
+- Decision Tree *(coming in v2.0)* - Which factor for which problem
+- First 30 Minutes *(coming in v2.0)* - Complete intro
 
 **Related Guides:**
 - [Software Development](software-development.md) - More detailed coding guidance

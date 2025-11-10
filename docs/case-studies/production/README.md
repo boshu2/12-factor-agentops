@@ -1443,8 +1443,8 @@ Agent: "Fetching current Kubernetes documentation..."
 
 1. **Read framework (2 hours):**
    - [README.md](../../README.md) - Overview
-   - [Four Pillars](../../foundations/four-pillars.md) - Philosophy
-   - [Five Laws](../../foundations/five-laws.md) - Principles
+   - [Four Pillars](../../principles/four-pillars.md) - Philosophy
+   - [Five Laws](../../principles/five-laws.md) - Principles
 
 2. **Set up .claude/ (30 minutes):**
    - Use Template 1 (basic repository setup)
@@ -1548,7 +1548,7 @@ Tools change. Principles endure.
 - DevOps / CI-CD (covered in this README - see validation gates)
 
 **Study templates:**
-- [templates/](../templates/) - Reusable starting points
+- Templates *(coming in v2.0)* - Reusable starting points
 
 **Join community:**
 - Test patterns in your domain

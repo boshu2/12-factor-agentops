@@ -668,9 +668,9 @@ EOF
 - [How to handle orchestration failures](https://github.com/boshu2/agentops/blob/main/docs/how-to/debug-orchestration.md)
 
 **Theoretical Foundation:**
-- [DevOps + SRE Pillar](../foundations/four-pillars.md#pillar-1-devops--sre)
-- [Context Engineering](../foundations/context-engineering.md)
-- [Knowledge OS (Branches)](../foundations/knowledge-os.md)
+- [DevOps + SRE Pillar](../principles/four-pillars.md#pillar-1-devops--sre)
+- [Context Engineering](../principles/context-engineering.md)
+- [Knowledge OS (Branches)](../principles/knowledge-os.md)
 
 ---
 

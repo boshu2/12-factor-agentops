@@ -711,9 +711,9 @@ Architecture → Claude (long context)
 - [Cursor](https://cursor.sh/) - AI-first IDE
 
 **Documentation:**
-- [12-Factor AgentOps README](../../../README.md)
-- [Quick Reference Card](../../tutorials/quick-reference-card.md)
-- [Decision Tree](../../tutorials/decision-tree.md)
+- [12-Factor AgentOps README](../../README.md)
+- Quick Reference Card *(coming in v2.0)*
+- Decision Tree *(coming in v2.0)*
 
 **Related Guides:**
 - [DevOps Guide](devops-infrastructure.md) - If you also do infrastructure
@@ -724,4 +724,4 @@ Architecture → Claude (long context)
 
 **Next:** Start with the pragmatic three (Factors I, II, IV) and measure improvement after 1 week
 
-**Questions?** See [CONTRIBUTING.md](../../../CONTRIBUTING.md) or open an issue
+**Questions?** See [CONTRIBUTING.md](../../CONTRIBUTING.md) or open an issue
