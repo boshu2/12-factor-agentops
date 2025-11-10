@@ -123,6 +123,6 @@ This repository follows the model of:
 
 ---
 
-**Version:** v1.0.4 Beta
-**Last Updated:** 2025-11-09
-**Status:** Community validation in progress
+**Version:** v1.0.0
+**Released:** November 2025
+**Status:** Stable - core methodology with practical workflow guide and examples

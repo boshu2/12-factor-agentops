@@ -1,26 +1,27 @@
-# Marketplace: Deep Dives & Extensions
+# Deep Dives & Extensions
 
-**Core methodology:** [README.md](../README.md) → [FACTORS.md](../FACTORS.md) → [WORKFLOW.md](../WORKFLOW.md)
+**Core methodology:** [README.md](../README.md) → [WORKFLOW.md](../WORKFLOW.md) → [factors/](../factors/)
 
-**This is the marketplace** - optional deep dives for those who want to go further.
+**This directory contains** optional deep dives for those who want to understand the philosophy and research behind the framework.
 
 ---
 
 ## What's Here
 
 ### Principles (The Philosophy)
-**Location:** `marketplace/principles/`
+**Location:** `principles/`
 
 The "why" behind the factors:
-- **Four Pillars** - DevOps+SRE, Learning Science, Context Engineering, Knowledge OS
-- **Five Laws** - Mandatory operational principles
-- **Context Engineering** - The 40% rule and cognitive load management
-- **Knowledge OS** - Git as institutional memory
+- **[Five Laws](principles/five-laws.md)** - Mandatory operational principles
+- **[Four Pillars](principles/four-pillars.md)** - DevOps+SRE, Learning Science, Context Engineering, Knowledge OS
+- **[Context Engineering](principles/context-engineering.md)** - The 40% rule and cognitive load management
+- **[Knowledge OS](principles/knowledge-os.md)** - Git as institutional memory
+- **[Evolution of 12-Factor](principles/evolution-of-12-factor.md)** - From cloud apps to AI agents
 
 **Read if:** You want to understand the philosophical foundation
 
-### Domain Guides (Practical Applications)
-**Location:** `marketplace/domain-guides/`
+### Domain Guides (v2.0 - Coming Soon)
+**Location:** `domain-guides/`
 
 How to apply 12-Factor AgentOps in specific contexts:
 - DevOps & Infrastructure
@@ -28,76 +29,67 @@ How to apply 12-Factor AgentOps in specific contexts:
 - Data Science & Analytics
 - Solo Development
 
-**Read if:** You want domain-specific implementation guidance
+*Note: Domain guides are planned for v2.0 based on community implementations*
 
-### Research (Academic Backing)
-**Location:** `marketplace/research/`
+### Research (v2.0 - Coming Soon)
+**Location:** `research/`
 
-The research foundations and empirical validation:
-- Citations and academic references
-- Empirical validation methodology
-- Case studies and production metrics
-- Community validation templates
+The research foundations and empirical validation.
 
-**Read if:** You want to understand the research backing or contribute validation
+*Note: Research validation and case studies are planned for v2.0*
 
-### Advanced Patterns
-**Location:** `marketplace/advanced/`
+### Advanced Patterns (v2.0 - Coming Soon)
+**Location:** `advanced/`
 
-Deep dives on complex patterns:
-- Multi-agent orchestration
-- Context bundles for session continuity
-- Intelligent task routing
-- Phase-based workflows
-- Claude Code integration patterns
+Deep dives on complex patterns like multi-agent orchestration.
 
-**Read if:** You want to master advanced techniques
+*Note: Advanced patterns are planned for v2.0 based on production usage*
 
-### Case Studies
-**Location:** `marketplace/case-studies/`
+### Case Studies (v2.0 - Coming Soon)
+**Location:** `case-studies/`
 
-Real production examples and metrics:
-- Production workflows and outcomes
-- GitOps velocity improvements
-- Measurable impact demonstrations
-- Before/after comparisons
+Real production examples and metrics.
 
-**Read if:** You want to see real-world proof
+*Note: Case studies will be collected from community implementations for v2.0*
 
 ---
 
 ## How to Navigate
 
-**Start simple:**
+**Start simple (1.0.0 core):**
 1. Read [README.md](../README.md) - Understand what this is (10 min)
-2. Read [FACTORS.md](../FACTORS.md) - Learn the 12 factors (30 min)
-3. Read [WORKFLOW.md](../WORKFLOW.md) - Apply the methodology (20 min)
+2. Read [WORKFLOW.md](../WORKFLOW.md) - Learn the workflow (20 min)
+3. Read [factors/](../factors/) - Deep dive on any factor (15 min each)
 
-**Go deeper:**
-4. Browse `marketplace/` - Pick what interests you (hours available)
-5. Contribute - Share your patterns and validation
+**Go deeper (optional):**
+4. Browse `principles/` - Understand the philosophy (1+ hours)
+5. Contribute - Share your implementation and learnings
 
 **For different goals:**
-- **"I want the theory"** → `principles/`
-- **"I want practical guidance"** → `domain-guides/`
-- **"I want proof"** → `research/` and `case-studies/`
-- **"I want to master this"** → `advanced/`
+- **"I want the methodology"** → Start with README + WORKFLOW
+- **"I want the philosophy"** → Read `principles/`
+- **"I want to contribute"** → Implement, measure, share results
 
 ---
 
-## Contributing to the Marketplace
+## Contributing
 
-**We welcome:**
-- Domain-specific implementation guides
-- Production validation data
-- Case studies with measurable results
-- Advanced pattern documentation
-- Research backing and citations
+**For 1.0.0, we're seeking:**
+- Real implementations using the workflow
+- Before/after metrics (reliability, velocity)
+- Patterns discovered through usage
+- Improvements to the core methodology
+
+**For v2.0, we'll add:**
+- Domain-specific guides
+- Advanced patterns
+- Case studies
+- Research validation
 
 **See:** [CONTRIBUTING.md](../CONTRIBUTING.md) for process
 
 ---
 
-**Remember:** The core methodology is simple. The marketplace is for depth.
+**Remember:** The core methodology is simple—12 factors and a workflow. This directory provides optional depth on the philosophy behind them.
 
-Start with the factors. Come here when you're ready for more.
+Start with README + WORKFLOW. Come here when you want to understand why it works.
