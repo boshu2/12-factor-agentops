@@ -2,7 +2,7 @@
   "name": "12-factor-agentops",
   "owner": {
     "name": "Brian Fuller",
-    "email": "fullerbt@gmail.com"
+    "email": "boden.fuller@gmail.com"
   },
   "description": "A methodology for using AI agents safely and reliably. Built on proven DevOps, SRE, and learning science foundations. Provides validation skills and pattern extraction for framework compliance.",
   "version": "1.0.4",
