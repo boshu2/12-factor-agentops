@@ -35,10 +35,10 @@ Each phase has **validation gates** before proceeding to the next phase. No proc
 **Purpose:** Set up context, scope the problem, prepare for research.
 
 **What happens:**
-- Clear your context window (Factor II: JIT Context Loading)
+- Clear your context window (Factor II: Context Loading)
 - Define the problem statement
 - Identify constraints and success criteria
-- Prepare domain knowledge (Factor XII: Domain Portability)
+- Prepare domain knowledge (Factor XII: Package Patterns)
 
 **Output:** Problem statement + success criteria + context bundle
 
@@ -51,7 +51,7 @@ Each phase has **validation gates** before proceeding to the next phase. No proc
 **Purpose:** Understand the problem domain deeply before designing a solution.
 
 **What happens:**
-- Research existing patterns (Factor I: Git Memory as Knowledge OS)
+- Research existing patterns (Factor I: Automated Tracking)
 - Explore domain-specific approaches
 - Identify decision points and trade-offs
 - Document findings and options
@@ -69,9 +69,9 @@ Each phase has **validation gates** before proceeding to the next phase. No proc
 **What happens:**
 - Map solution to applicable factors (especially I-IV for foundation)
 - Define implementation steps
-- Identify validation points (Factor IV: Validation Gates)
-- Plan observability (Factor V: Operational Telemetry)
-- Design human checkpoints if needed (Factor VIII: Human Gate Reviews)
+- Identify validation points (Factor IV: Continuous Validation)
+- Plan observability (Factor V: Measure Everything)
+- Design human checkpoints if needed (Factor VIII: Human Validation)
 
 **Output:** Implementation plan + validation strategy + observability design
 
@@ -86,8 +86,8 @@ Each phase has **validation gates** before proceeding to the next phase. No proc
 **This phase includes:**
 - Implementation sub-phases with validation between each
 - Continuous factor compliance checks (especially IV, V, VIII, IX)
-- Pattern extraction as you go (Factor IX: Documented Pattern Extraction)
-- Continuous improvement opportunities noted (Factor X: Continuous Improvement Backlog)
+- Pattern extraction as you go (Factor IX: Mine Patterns)
+- Continuous improvement opportunities noted (Factor X: Small Iterations)
 
 **Output:** Working solution + implementation artifacts + observed patterns
 
@@ -116,7 +116,7 @@ Each phase has **validation gates** before proceeding to the next phase. No proc
 
 The workflow loops. Each iteration:
 - Benefits from previous /learn phase insights
-- Applies discovered patterns (Factor I: Git Memory)
+- Applies discovered patterns (Factor I: Automated Tracking)
 - Improves efficiency through accumulated knowledge (Factor X: Continuous Improvement)
 - Compounds reliability improvements (Factors IX-XII: Improvement cycle)
 
@@ -206,19 +206,19 @@ kustomization/
 5. **Test configuration** (Validate: Redis instance healthy, accessible)
 6. **Commit to git** (Validate: clean git history, intent visible in commits)
 
-**Validation Strategy (Factor IV: Validation Gates):**
+**Validation Strategy (Factor IV: Continuous Validation):**
 - YAML syntax validation after each step
 - kubectl apply --dry-run validation
 - Actual cluster apply with health checks
 - Observability: metrics endpoint accessible (Factor V)
 
-**Observability Design (Factor V: Operational Telemetry):**
+**Observability Design (Factor V: Measure Everything):**
 - Monitor Redis Operator pod logs
 - Track CRD creation/status
 - Monitor Redis instance metrics (if exposed)
 - Git audit trail shows all changes + intent
 
-**Human Checkpoints (Factor VIII: Human Gate Reviews):**
+**Human Checkpoints (Factor VIII: Human Validation):**
 - Review final Kustomization structure before apply
 - Verify production config doesn't expose secrets
 
@@ -443,7 +443,7 @@ redis-cli ping
 
 ---
 
-#### Step 8: Commit to Git (Factor I: Git Memory)
+#### Step 8: Commit to Git (Factor I: Automated Tracking)
 
 ```bash
 git add kustomization/
@@ -526,15 +526,15 @@ Each phase demonstrates the 12 factors in action:
 
 | Factor | Applied How |
 |--------|------------|
-| **I. Git Memory** | Commit messages explain intent; full history auditable |
-| **II. JIT Context** | Each phase scopes context; no unnecessary complexity |
-| **III. Single-Responsibility** | Operator handles Redis; Kustomization handles config |
-| **IV. Validation Gates** | --dry-run before each step; no surprises at deploy |
-| **V. Observability** | Logs, events, metrics all accessible; issues visible |
-| **VIII. Human Gate Reviews** | Human approval before applying prod config |
-| **IX. Pattern Extraction** | Workflow documented; patterns captured for reuse |
-| **X. Improvement Backlog** | Identified 4 improvements for next iteration |
-| **XII. Domain Portability** | Pattern reusable for any operator deployment |
+| **I. Automated Tracking** | Commit messages explain intent; full history auditable |
+| **II. Context Loading** | Each phase scopes context; no unnecessary complexity |
+| **III. Focused Agents** | Operator handles Redis; Kustomization handles config |
+| **IV. Continuous Validation** | --dry-run before each step; no surprises at deploy |
+| **V. Measure Everything** | Logs, events, metrics all accessible; issues visible |
+| **VIII. Human Validation** | Human approval before applying prod config |
+| **IX. Mine Patterns** | Workflow documented; patterns captured for reuse |
+| **X. Small Iterations** | Identified 4 improvements for next iteration |
+| **XII. Package Patterns** | Pattern reusable for any operator deployment |
 
 ---
 
@@ -584,9 +584,9 @@ Traditional "move fast and break things" fails with AI agents because:
 This workflow systematically addresses all five:
 - ✅ Validation gates (Phase 4: /implement with checks)
 - ✅ Pattern extraction (Phase 5: /learn)
-- ✅ Reusable knowledge (Factor XII: Domain Portability)
-- ✅ Documented intent (Factor I: Git Memory)
-- ✅ Continuous improvement (Factor X: Backlog)
+- ✅ Reusable knowledge (Factor XII: Package Patterns)
+- ✅ Documented intent (Factor I: Automated Tracking)
+- ✅ Continuous improvement (Factor X: Small Iterations)
 
 **Result:** Each iteration compounds on previous ones. Your system gets better, faster, more reliable over time.
 

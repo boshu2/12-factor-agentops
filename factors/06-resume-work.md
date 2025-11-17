@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 2 (Improve System), Law 3 (Document Context) |
 | **Derived From** | Compression techniques + Spaced repetition + Progressive summarization |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-vi-session-continuity-via-bundles)**
 
 ---
 

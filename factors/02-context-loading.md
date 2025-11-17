@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 2 (Improve System), Law 4 (Validate Before Execute) |
 | **Derived From** | Manage cognitive load + Progressive complexity + Just-in-time loading |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-ii-jit-context-loading)**
 
 ---
 
@@ -29,7 +28,7 @@ AI context windows are finite and degrade under cognitive load—just like human
 
 **Supporting from Learning Science:**
 
-Progressive complexity is fundamental to learning: start simple, add layers gradually. JIT Context Loading applies this principle operationally. The main agent maintains high-level orchestration (simple), while sub-agents handle deep complexity (complex work in isolation). Each sub-agent loads only what's needed for its specific task, returns a compressed summary, and discards its context. This separation prevents the mixing of abstraction levels that causes cognitive overload in both humans and AI systems.
+Progressive complexity is fundamental to learning: start simple, add layers gradually. Context Loading applies this principle operationally. The main agent maintains high-level orchestration (simple), while sub-agents handle deep complexity (complex work in isolation). Each sub-agent loads only what's needed for its specific task, returns a compressed summary, and discards its context. This separation prevents the mixing of abstraction levels that causes cognitive overload in both humans and AI systems.
 
 ---
 
@@ -205,7 +204,7 @@ This factor is the operational expression of:
 
 **Law 2: Improve System**
 
-JIT Context Loading enforces Law 2 by making the **40% rule** a system-level improvement that prevents context collapse. Staying under 40% context utilization isn't a suggestion—it's an architectural constraint that improves reliability. The enforcement mechanisms are:
+Context Loading enforces Law 2 by making the **40% rule** a system-level improvement that prevents context collapse. Staying under 40% context utilization isn't a suggestion—it's an architectural constraint that improves reliability. The enforcement mechanisms are:
 
 **Enforcement mechanisms:**
 1. **Sub-agent delegation mandatory for deep work:** Main agents that exceed 20% context must delegate to sub-agents (architectural enforcement)
@@ -232,7 +231,7 @@ class MainAgent:
 
 **Law 4: Validate Before Execute**
 
-JIT Context Loading enforces Law 4 by requiring **validation that context stays lean** before proceeding. Before executing any task, the system validates that adding this work won't exceed the 40% threshold. If it would, execution is blocked until context is reset or compressed.
+Context Loading enforces Law 4 by requiring **validation that context stays lean** before proceeding. Before executing any task, the system validates that adding this work won't exceed the 40% threshold. If it would, execution is blocked until context is reset or compressed.
 
 **Enforcement mechanisms:**
 1. **Pre-execution context checks:** Before any sub-task, validate projected context utilization < 40%

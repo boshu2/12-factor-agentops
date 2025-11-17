@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 2 (Improve System), Law 3 (Document Context) |
 | **Derived From** | Kaizen (continuous improvement) + SRE error budgets + Agile retrospectives |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-x-continuous-improvement-backlog)**
 
 ---
 

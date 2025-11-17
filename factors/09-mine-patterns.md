@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 5 (Share Patterns) |
 | **Derived From** | Retrospectives + Pattern languages + Knowledge management |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-ix-documented-pattern-extraction)**
 
 ---
 
@@ -461,9 +460,9 @@ Meta patterns: 10 (pattern extraction itself)
 ### Category 3: Process Patterns
 
 **Examples:**
-- Human Gate Reviews (approval workflows)
+- Human Validation (approval workflows)
 - Retrospectives (end-of-session learning)
-- Validation Gates (prevent errors)
+- Continuous Validation (prevent errors)
 - Incremental Deployment (canary, blue-green)
 
 **Structure:** How to manage workflows

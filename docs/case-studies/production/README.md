@@ -40,7 +40,7 @@ This isn't theory—it's **how we actually work** using the 12-Factor AgentOps m
    - Purpose: Remember project context, decisions, patterns
    - Why critical: Prevents re-explaining the same context every session
    - Integration: Automatic - Claude remembers previous conversations
-   - Factor: VI (Session Continuity via Bundles)
+   - Factor: VI (Resume Work)
    - Impact: 10x faster onboarding, zero context re-establishment
 
 2. **Context7 MCP** - Up-to-Date Library Documentation
@@ -51,7 +51,7 @@ This isn't theory—it's **how we actually work** using the 12-Factor AgentOps m
    - Impact: Correct API usage first time, zero deprecated patterns
 
 **Version Control:** Git + GitHub
-- Why: Factor I (Git Memory as Knowledge OS)
+- Why: Factor I (Automated Tracking)
 - Pattern: Semantic commits, pre-commit validation, institutional memory
 - Hooks: Pre-commit (validation), post-commit (learning extraction)
 
@@ -141,7 +141,7 @@ cat .agents/bundles/latest-research.md
 /12factor-audit              # Compliance checking
 ```
 
-**Git Hooks (Factor IV - Validation Gates):**
+**Git Hooks (Factor IV - Continuous Validation):**
 
 **Pre-commit:**
 ```bash
@@ -247,7 +247,7 @@ git push
 /architecture-review         # Design patterns check
 ```
 
-**Git Hooks (Factor IV - Validation Gates):**
+**Git Hooks (Factor IV - Continuous Validation):**
 
 **Pre-commit:**
 ```bash
@@ -275,7 +275,7 @@ if [ -z "$SKIP_CONTAINER_TEST" ]; then
 fi
 ```
 
-**Claude Code Hooks (Factor IV - Validation Gates):**
+**Claude Code Hooks (Factor IV - Continuous Validation):**
 
 **settings.json:**
 ```json
@@ -492,7 +492,7 @@ detect-secrets scan
 # 4. Fast feedback (<5 seconds)
 ```
 
-**Why it works:** Factor IV (Validation Gates) + Shift-left testing
+**Why it works:** Factor IV (Continuous Validation) + Shift-left testing
 
 ---
 
@@ -515,7 +515,7 @@ detect-secrets scan
 # No re-research needed (5:1 compression)
 ```
 
-**Why it works:** Factor VI (Session Continuity) + 40% rule (stay under context limit)
+**Why it works:** Factor VI (Resume Work) + 40% rule (stay under context limit)
 
 ---
 
@@ -1168,7 +1168,7 @@ fi
 
 ---
 
-### 2. Validation Gates Save Time
+### 2. Continuous Validation Save Time
 
 **Don't:** Push, wait for CI feedback, fix, repeat
 **Do:** Validate locally (pre-commit, pre-push), catch early
@@ -1499,8 +1499,8 @@ Agent: "Fetching current Kubernetes documentation..."
 
 **No.** Start with Foundation tier (I-III):
 - Factor I: Git Memory
-- Factor II: JIT Context Loading
-- Factor III: Single-Responsibility Agents
+- Factor II: Context Loading
+- Factor III: Focused Agents
 
 Add others as needed. 95% benefit from first 3 factors.
 

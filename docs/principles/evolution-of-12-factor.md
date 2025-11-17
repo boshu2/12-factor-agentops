@@ -57,40 +57,40 @@ This table shows how each of the original 12 factors evolved for AI applications
 
 | # | Original Factor (2011) | Problem Solved | 12-Factor Agents (2025) | 12-Factor AgentOps (2025) |
 |---|------------------------|----------------|-------------------------|---------------------------|
-| **I** | **Codebase** | Version control for apps | Own your prompts | **Git Memory as Knowledge OS** |
+| **I** | **Codebase** | Version control for apps | Own your prompts | **Automated Tracking** |
 | | One codebase tracked in version control | Prompts are code, version them | Git as institutional memory for operations |
 | | | | |
-| **II** | **Dependencies** | Explicit dependency management | Own your context window | **JIT Context Loading** |
+| **II** | **Dependencies** | Explicit dependency management | Own your context window | **Context Loading** |
 | | Explicitly declare and isolate dependencies | Control what LLM sees | Load context just-in-time with 40% rule |
 | | | | |
-| **III** | **Config** | Separate config from code | Tools as structured outputs | **Constitutional Guardrails** |
+| **III** | **Config** | Separate config from code | Tools as structured outputs | **Fail-Safe Checks** |
 | | Store config in environment | Function calling as JSON contracts | Non-negotiable operational rules |
 | | | | |
-| **IV** | **Backing Services** | Treat services as attached resources | Small, focused agents | **Single-Responsibility Agents** |
+| **IV** | **Backing Services** | Treat services as attached resources | Small, focused agents | **Focused Agents** |
 | | Swap services without code changes | One agent, one responsibility | Composable, specialized agents |
 | | | | |
-| **V** | **Build/Release/Run** | Strict separation of stages | Launch/Pause/Resume APIs | **Validation Gates Before Execution** |
+| **V** | **Build/Release/Run** | Strict separation of stages | Launch/Pause/Resume APIs | **Continuous Validation** |
 | | Build once, deploy many | Stateless agent lifecycle | Test before deploy, zero-trust |
 | | | | |
-| **VI** | **Processes** | Execute app as stateless processes | Stateless reducer pattern | **Session Continuity via Bundles** |
+| **VI** | **Processes** | Execute app as stateless processes | Stateless reducer pattern | **Resume Work** |
 | | Scale by adding processes | Agents are pure functions | External state, disposable agents |
 | | | | |
-| **VII** | **Port Binding** | Export services via port binding | Trigger from anywhere | **Intelligent Task Routing** |
+| **VII** | **Port Binding** | Export services via port binding | Trigger from anywhere | **Smart Routing** |
 | | Self-contained services | Multi-channel agent activation | Route tasks to specialized agents |
 | | | | |
-| **VIII** | **Concurrency** | Scale out via process model | Small, focused agents | **Single-Responsibility Agents** |
+| **VIII** | **Concurrency** | Scale out via process model | Small, focused agents | **Focused Agents** |
 | | Horizontal scaling | Compose many small agents | Maps to Factor III/IV |
 | | | | |
-| **IX** | **Disposability** | Fast startup, graceful shutdown | Launch/Pause/Resume | **JIT Context Loading** |
+| **IX** | **Disposability** | Fast startup, graceful shutdown | Launch/Pause/Resume | **Context Loading** |
 | | Maximize robustness | Instant agent spin-up | Maps to Factor II |
 | | | | |
-| **X** | **Dev/Prod Parity** | Keep environments similar | Implicit in design | **Domain Portability** |
+| **X** | **Dev/Prod Parity** | Keep environments similar | Implicit in design | **Package Patterns** |
 | | Minimize gaps between stages | Same patterns everywhere | Air-gapped or cloud, same ops |
 | | | | |
-| **XI** | **Logs** | Treat logs as event streams | Compact errors into context | **Operational Telemetry** |
+| **XI** | **Logs** | Treat logs as event streams | Compact errors into context | **Measure Everything** |
 | | Never route or store locally | Errors become context | Metrics, logs, traces for agents |
 | | | | |
-| **XII** | **Admin Processes** | Run admin tasks as one-off processes | Contact humans with tools | **Human Gate Reviews** |
+| **XII** | **Admin Processes** | Run admin tasks as one-off processes | Contact humans with tools | **Human Validation** |
 | | Management tasks in same environment | Humans in the loop | Critical decision checkpoints |
 
 ---
@@ -126,22 +126,22 @@ Dex Horthy's 12-Factor Agents added concepts for building reliable AI applicatio
 
 Our 12-Factor AgentOps added concepts for operating AI infrastructure:
 
-**IX. Documented Pattern Extraction**
+**IX. Mine Patterns**
 - *Why needed*: AI systems should learn from operations
 - *Original didn't need*: Static applications don't extract patterns
 - *AgentOps requires*: Continuous learning from production sessions
 
-**X. Continuous Improvement Backlog**
+**X. Small Iterations**
 - *Why needed*: AI operations must evolve based on learnings
 - *Original didn't need*: Apps don't self-improve
 - *AgentOps requires*: Systematic evolution of operational patterns
 
-**XI. Constitutional Guardrails**
+**XI. Fail-Safe Checks**
 - *Why needed*: Autonomous decisions need governance
 - *Original didn't need*: Deterministic apps follow coded rules
 - *AgentOps requires*: Non-negotiable operational boundaries
 
-**XII. Domain Portability**
+**XII. Package Patterns**
 - *Why needed*: Operations span diverse constrained environments
 - *Original didn't need*: Cloud environments are relatively uniform
 - *AgentOps requires*: Work in air-gapped, edge, and cloud environments
@@ -195,7 +195,7 @@ GitOps Reconciliation (Declarative State Management)
     ↓
 Runtime Validation (Admission Controllers, Policy Enforcement)
     ↓
-Operational Telemetry (Drift Detection, Self-Healing)
+Measure Everything (Drift Detection, Self-Healing)
 ```
 
 **Every layer assumes the previous layer could be compromised.**

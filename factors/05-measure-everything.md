@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 2 (Improve System) |
 | **Derived From** | SRE observability + Metrics-driven improvement + Data-informed decisions |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-v-operational-telemetry)**
 
 ---
 

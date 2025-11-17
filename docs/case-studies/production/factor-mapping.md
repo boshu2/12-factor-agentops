@@ -16,7 +16,7 @@ This document maps each factor to specific practices in the production workflow,
 
 ## Factor-by-Factor Mapping
 
-### Factor I: Git Memory as Knowledge OS
+### Factor I: Automated Tracking
 
 **Theory:** One canonical history for agent work; commits capture intent, context, and learnings
 
@@ -30,8 +30,6 @@ Created from proven pattern (examples/redis-app)
 Validated with make test-app
 Pre-commit hooks passed: YAML syntax, kustomize rendering
 
-🤖 Generated with Claude Code
-Co-Authored-By: Claude <noreply@anthropic.com>"
 ```
 **Location:** Production Workflows README - Platform Engineering example
 **Evidence:** Every commit captures WHY (problem), WHAT (solution), HOW (validation)
@@ -66,7 +64,7 @@ git commit -m "docs(patterns): extract learning from argocd-multi-cluster"
 
 ---
 
-### Factor II: JIT Context Loading
+### Factor II: Context Loading
 
 **Theory:** Keep main context clean; delegate work to sub-agents with isolated context windows
 
@@ -128,7 +126,7 @@ git commit -m "docs(patterns): extract learning from argocd-multi-cluster"
 
 ---
 
-### Factor III: Single-Responsibility Agents
+### Factor III: Focused Agents
 
 **Theory:** Compose workflows from focused agents; avoid monolith prompts
 
@@ -181,7 +179,7 @@ git commit -m "docs(patterns): extract learning from argocd-multi-cluster"
 
 ---
 
-### Factor IV: Validation Gates Before Execution
+### Factor IV: Continuous Validation
 
 **Theory:** Formal checkpoints (plan review, tests, hooks) before applying changes
 
@@ -230,7 +228,7 @@ git commit -m "docs(patterns): extract learning from argocd-multi-cluster"
 **Location:** Templates - claude-settings.json
 **Evidence:** User awareness before critical operations
 
-**4. Human Gate Reviews (Gate 4 - Between Phases):**
+**4. Human Validation (Gate 4 - Between Phases):**
 ```bash
 # Research → Plan
 /research-multi "Topic"
@@ -255,7 +253,7 @@ git commit -m "docs(patterns): extract learning from argocd-multi-cluster"
 
 ---
 
-### Factor V: Operational Telemetry
+### Factor V: Measure Everything
 
 **Theory:** Metrics, logs, and observability for every agent run
 
@@ -330,7 +328,7 @@ time_saved: 200min
 
 ---
 
-### Factor VI: Session Continuity via Bundles
+### Factor VI: Resume Work
 
 **Theory:** Persist and restore context using compressed artifacts for multi-day work
 
@@ -385,7 +383,7 @@ time_saved: 200min
 
 ---
 
-### Factor VII: Intelligent Task Routing
+### Factor VII: Smart Routing
 
 **Theory:** Route work to best-fit workflows/agents with measured accuracy
 
@@ -446,7 +444,7 @@ time_saved: 200min
 
 ---
 
-### Factor VIII: Human Gate Reviews
+### Factor VIII: Human Validation
 
 **Theory:** Embed human approvals between research → plan → implement phases
 
@@ -521,7 +519,7 @@ deploy:production:
 
 ---
 
-### Factor IX: Documented Pattern Extraction
+### Factor IX: Mine Patterns
 
 **Theory:** Capture learnings after every session; publish reusable patterns
 
@@ -573,8 +571,6 @@ Pre-commit hooks passed: YAML syntax, kustomize rendering
 Learning: Proven pattern works for 15th time
 Next: Extract to template for public repo
 
-🤖 Generated with Claude Code
-Co-Authored-By: Claude <noreply@anthropic.com>"
 ```
 **Location:** Production Workflows README - Platform Engineering
 **Evidence:** Every commit documents learning, builds institutional memory
@@ -587,7 +583,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 
 ---
 
-### Factor X: Continuous Improvement Backlog
+### Factor X: Small Iterations
 
 **Theory:** Each session identifies improvements; prioritize and action them
 
@@ -652,7 +648,7 @@ cat docs/patterns/*.md | grep "## Improvements"
 
 ---
 
-### Factor XI: Constitutional Guardrails
+### Factor XI: Fail-Safe Checks
 
 **Theory:** Enforce operational laws and prevent risky behaviors
 
@@ -730,7 +726,7 @@ cat docs/patterns/*.md | grep "## Improvements"
 
 ---
 
-### Factor XII: Domain Portability
+### Factor XII: Package Patterns
 
 **Theory:** Package domain knowledge into reusable profiles and bundles
 
@@ -804,17 +800,17 @@ cat docs/patterns/*.md | grep "## Improvements"
 | Factor | Workflow Expression | Evidence Location | Status |
 |--------|---------------------|-------------------|--------|
 | **I. Git Memory** | Semantic commits, pre-commit hooks, /learn | Platform Eng example, Templates | ✅ Validated |
-| **II. JIT Context Loading** | Multi-agent research, bundles (5:1-38:1), Memory MCP | Daily Pattern, Bundle System | ✅ Validated |
+| **II. Context Loading** | Multi-agent research, bundles (5:1-38:1), Memory MCP | Daily Pattern, Bundle System | ✅ Validated |
 | **III. Single-Responsibility** | Slash commands, git hooks, skills | Domain Workflows, Templates | ✅ Validated |
-| **IV. Validation Gates** | Pre-commit, pre-push, Claude hooks, human gates | Templates, Daily Pattern | ✅ Validated |
-| **V. Operational Telemetry** | Git metrics, bundle metadata, test logs | Validated Metrics section | ✅ Validated |
-| **VI. Session Continuity** | Bundle system (50+ bundles), Memory MCP | Bundle System (entire section) | ✅ Validated |
+| **IV. Continuous Validation** | Pre-commit, pre-push, Claude hooks, human gates | Templates, Daily Pattern | ✅ Validated |
+| **V. Measure Everything** | Git metrics, bundle metadata, test logs | Validated Metrics section | ✅ Validated |
+| **VI. Resume Work** | Bundle system (50+ bundles), Memory MCP | Bundle System (entire section) | ✅ Validated |
 | **VII. Intelligent Routing** | Slash commands, domain routing, Context7 | Domain Workflows | ✅ Validated |
 | **VIII. Human Gates** | Research→Plan, Plan→Implement, manual deploys | Daily Pattern | ✅ Validated |
 | **IX. Pattern Extraction** | /learn command, bundles, semantic commits | Daily Pattern (Evening) | ✅ Validated |
 | **X. Continuous Improvement** | /learn improvements, bundle metrics, weekly review | Best Practices | ✅ Validated |
-| **XI. Constitutional Guardrails** | Pre-commit/push, denied commands, Five Laws | Templates, CLAUDE.md | ✅ Validated |
-| **XII. Domain Portability** | Cross-domain bundles, universal templates, 3 domains | Bundle Metrics, Templates | ✅ Validated |
+| **XI. Fail-Safe Checks** | Pre-commit/push, denied commands, Five Laws | Templates, CLAUDE.md | ✅ Validated |
+| **XII. Package Patterns** | Cross-domain bundles, universal templates, 3 domains | Bundle Metrics, Templates | ✅ Validated |
 
 **Result:** All 12 factors demonstrably present in production workflow
 

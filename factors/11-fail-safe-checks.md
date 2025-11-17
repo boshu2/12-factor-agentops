@@ -9,7 +9,6 @@
 | **Enforces Laws** | ALL (1, 2, 3, 4, 5) |
 | **Derived From** | Policy as code + Runtime verification + Fail-safe design |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-xi-constitutional-guardrails)**
 
 ---
 

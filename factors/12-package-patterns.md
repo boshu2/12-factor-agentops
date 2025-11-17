@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 5 (Share Patterns) |
 | **Derived From** | Code reuse + Helm charts + Profile systems + Domain-driven design |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-xii-domain-portability)**
 
 ---
 

@@ -9,8 +9,6 @@
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 3 (Document Context) |
 | **Derived From** | Git as institutional memory + Version control as source of truth |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-i-git-memory-as-knowledge-os)**
-
 ---
 
 ## Summary

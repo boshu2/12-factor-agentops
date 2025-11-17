@@ -21,8 +21,8 @@ This is a **Claude Code plugin marketplace** providing validation and pattern ex
 │   └── marketplace.json     # Marketplace metadata + external links (agentops, aitmpl)
 │
 ├── factors/                 # Detailed factor documentation
-│   ├── 01-git-memory-as-knowledge-os.md
-│   ├── 02-jit-context-loading.md
+│   ├── 01-automated-tracking.md
+│   ├── 02-context-loading.md
 │   └── ... (all 12 factors)
 │
 ├── examples/

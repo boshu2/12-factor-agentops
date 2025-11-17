@@ -12,15 +12,15 @@ The 12-Factor AgentOps factors extend the proven [12-Factor App](https://12facto
 
 | Original (2011) | 12-Factor Agents (2025) | 12-Factor AgentOps (2025) |
 |-----------------|-------------------------|---------------------------|
-| Codebase | Own your prompts | **Git Memory as Knowledge OS** |
-| Dependencies | Own your context window | **JIT Context Loading** |
-| Config | Tools as structured outputs | **Constitutional Guardrails** |
-| Backing Services | Small, focused agents | **Single-Responsibility Agents** |
-| Build/Release/Run | Launch/Pause/Resume | **Validation Gates** |
-| Processes | Stateless reducer | **Session Continuity** |
-| Port Binding | Trigger from anywhere | **Intelligent Task Routing** |
-| Logs | Compact errors | **Operational Telemetry** |
-| Admin Processes | Contact humans | **Human Gate Reviews** |
+| Codebase | Own your prompts | **Automated Tracking** |
+| Dependencies | Own your context window | **Context Loading** |
+| Config | Tools as structured outputs | **Fail-Safe Checks** |
+| Backing Services | Small, focused agents | **Focused Agents** |
+| Build/Release/Run | Launch/Pause/Resume | **Continuous Validation** |
+| Processes | Stateless reducer | **Resume Work** |
+| Port Binding | Trigger from anywhere | **Smart Routing** |
+| Logs | Compact errors | **Measure Everything** |
+| Admin Processes | Contact humans | **Human Validation** |
 
 **Why the differences?** The original 12-Factor App assumed deterministic code. AI operations require additional principles because:
 - Intelligence produces **probabilistic outputs** (not deterministic)
@@ -38,22 +38,22 @@ The 12-Factor AgentOps methodology defines twelve operational principles for bui
 
 ## The Complete List
 
-Each factor derives from the Four Pillars and enforces the Five Laws. **[See complete derivation →](../ARCHITECTURE.md)**
+Each factor derives from the Four Pillars and enforces the Five Laws.
 
 | # | Factor | Pillar | Laws | Status |
 |---|--------|--------|------|--------|
-| **[I](./01-git-memory-as-knowledge-os.md)** | **Git Memory as Knowledge OS** | Knowledge OS | 1, 3 | ✅ Complete |
-| **[II](./02-jit-context-loading.md)** | **JIT Context Loading** | Context Engineering | 2, 4 | ✅ Complete |
-| **[III](./03-single-responsibility-agents.md)** | **Single-Responsibility Agents** | Learning Science | 2, 5 | ✅ Complete |
-| **[IV](./04-validation-gates-before-execution.md)** | **Validation Gates Before Execution** | DevOps + SRE | 3, 4 | ✅ Complete |
-| **[V](./05-operational-telemetry.md)** | **Operational Telemetry** | DevOps + SRE | 1, 2 | ✅ Complete |
-| **[VI](./06-session-continuity-via-bundles.md)** | **Session Continuity via Bundles** | Context Engineering | 2, 3 | ✅ Complete |
-| **[VII](./07-intelligent-task-routing.md)** | **Intelligent Task Routing** | Learning Science | 1, 2 | ✅ Complete |
-| **[VIII](./08-human-gate-reviews.md)** | **Human Gate Reviews** | Learning Science | 3, 4 | ✅ Complete |
-| **[IX](./09-documented-pattern-extraction.md)** | **Documented Pattern Extraction** | Knowledge OS | 1, 5 | ✅ Complete |
-| **[X](./10-continuous-improvement-backlog.md)** | **Continuous Improvement Backlog** | DevOps + SRE | 2, 3 | ✅ Complete |
-| **[XI](./11-constitutional-guardrails.md)** | **Constitutional Guardrails** | DevOps + SRE | ALL | ✅ Complete |
-| **[XII](./12-domain-portability.md)** | **Domain Portability** | Knowledge OS | 1, 5 | ✅ Complete |
+| **[I](./01-automated-tracking.md)** | **Automated Tracking** | Knowledge OS | 1, 3 | ✅ Complete |
+| **[II](./02-context-loading.md)** | **Context Loading** | Context Engineering | 2, 4 | ✅ Complete |
+| **[III](./03-focused-agents.md)** | **Focused Agents** | Learning Science | 2, 5 | ✅ Complete |
+| **[IV](./04-continuous-validation.md)** | **Continuous Validation** | DevOps + SRE | 3, 4 | ✅ Complete |
+| **[V](./05-measure-everything.md)** | **Measure Everything** | DevOps + SRE | 1, 2 | ✅ Complete |
+| **[VI](./06-resume-work.md)** | **Resume Work** | Context Engineering | 2, 3 | ✅ Complete |
+| **[VII](./07-smart-routing.md)** | **Smart Routing** | Learning Science | 1, 2 | ✅ Complete |
+| **[VIII](./08-human-validation.md)** | **Human Validation** | Learning Science | 3, 4 | ✅ Complete |
+| **[IX](./09-mine-patterns.md)** | **Mine Patterns** | Knowledge OS | 1, 5 | ✅ Complete |
+| **[X](./10-small-iterations.md)** | **Small Iterations** | DevOps + SRE | 2, 3 | ✅ Complete |
+| **[XI](./11-fail-safe-checks.md)** | **Fail-Safe Checks** | DevOps + SRE | ALL | ✅ Complete |
+| **[XII](./12-package-patterns.md)** | **Package Patterns** | Knowledge OS | 1, 5 | ✅ Complete |
 
 **Legend:**
 - **Pillar**: Primary philosophical foundation
@@ -67,10 +67,10 @@ Each factor derives from the Four Pillars and enforces the Five Laws. **[See com
 ### For Practitioners
 Start with Factors I-III to understand the foundation, then explore others based on your needs:
 - **Starting fresh?** → Read I, II, III in order
-- **Context issues?** → Read II (JIT Context Loading via sub-agents)
-- **Complex workflows?** → Read III (Single-Responsibility) and VII (Routing)
-- **Multi-day work?** → Read VI (Bundles)
-- **Quality problems?** → Read IV (Validation) and VIII (Human Gates)
+- **Context issues?** → Read II (Context Loading via sub-agents)
+- **Complex workflows?** → Read III (Focused Agents) and VII (Smart Routing)
+- **Multi-day work?** → Read VI (Resume Work)
+- **Quality problems?** → Read IV (Continuous Validation) and VIII (Human Validation)
 
 ### For Researchers
 Each factor document includes:

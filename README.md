@@ -337,7 +337,7 @@ Academic citation: See [CITATION.bib](./CITATION.bib)
 ```bibtex
 @framework{12-factor-agentops-2025,
   title={12-Factor AgentOps: Operational Principles for Reliable AI Agents at Scale},
-  author={Fuller, Brian T.},
+  author={Fuller, Boden},
   year={2025},
   url={https://github.com/boshu2/12-factor-agentops}
 }

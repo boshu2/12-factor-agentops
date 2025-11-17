@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 2 (Improve System), Law 5 (Share Patterns) |
 | **Derived From** | Progressive disclosure + Single Responsibility Principle + Unix philosophy |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-iii-single-responsibility-agents)**
 
 ---
 
@@ -23,13 +22,13 @@ Each agent should do one thing well. Complex workflows are composed from multipl
 
 This factor derives from the **Learning Science** pillar:
 
-Progressive disclosure is fundamental to effective learning: present information in layers, starting simple and building complexity. Single-Responsibility Agents operationalize this principle by ensuring each agent handles one clear responsibility—one level of abstraction, one type of work. When agents try to do everything (research + planning + implementation + testing), they violate progressive complexity and create cognitive overload. The learner (whether human or AI) cannot distinguish what's fundamental from what's detail.
+Progressive disclosure is fundamental to effective learning: present information in layers, starting simple and building complexity. Focused Agents operationalize this principle by ensuring each agent handles one clear responsibility—one level of abstraction, one type of work. When agents try to do everything (research + planning + implementation + testing), they violate progressive complexity and create cognitive overload. The learner (whether human or AI) cannot distinguish what's fundamental from what's detail.
 
 **From cognitive load research:** Experts chunk information into meaningful units; novices get overwhelmed by undifferentiated complexity. Single-responsibility agents create these chunks: each agent is a discrete unit of capability. Compose them into workflows, and you build complexity progressively—exactly how effective learning works.
 
 **Supporting from DevOps + SRE:**
 
-The Unix philosophy (1978) and Single Responsibility Principle (SRP) aren't new—they're battle-tested wisdom from decades of software engineering. DevOps practices reinforce this: microservices over monoliths, single-purpose containers, independently deployable services. Each service does one thing, does it well, and composes with others. Single-Responsibility Agents apply the same proven architecture to AI operations. The result: maintainable, testable, reusable capabilities instead of monolithic, brittle, one-off solutions.
+The Unix philosophy (1978) and Single Responsibility Principle (SRP) aren't new—they're battle-tested wisdom from decades of software engineering. DevOps practices reinforce this: microservices over monoliths, single-purpose containers, independently deployable services. Each service does one thing, does it well, and composes with others. Focused Agents apply the same proven architecture to AI operations. The result: maintainable, testable, reusable capabilities instead of monolithic, brittle, one-off solutions.
 
 ---
 
@@ -39,7 +38,7 @@ Monolithic prompts that try to do everything:
 - Become unmaintainable quickly
 - Fail unpredictably
 - Can't be reused across contexts
-- Violate context budgets (Factor II: JIT Context Loading)
+- Violate context budgets (Factor II: Context Loading)
 - Have unclear failure modes
 
 **Familiar pattern:**
@@ -161,7 +160,7 @@ validate-yaml:
   Reuse count: 47 workflows
 ```
 
-### 3. Context Efficiency (Factor II: JIT Context Loading)
+### 3. Context Efficiency (Factor II: Context Loading)
 
 **Monolithic agent:**
 - Loads all knowledge for all tasks
@@ -367,7 +366,7 @@ This factor is the operational expression of:
 
 **Law 2: Improve System**
 
-Single-Responsibility Agents enforce Law 2 by making **modularity the improvement mechanism**. When each agent does one thing well, improvements are isolated and safe. You can improve the validation agent without risking the implementation agent. This architectural separation is the system improvement—it enables continuous refinement without cascading failures.
+Focused Agents enforce Law 2 by making **modularity the improvement mechanism**. When each agent does one thing well, improvements are isolated and safe. You can improve the validation agent without risking the implementation agent. This architectural separation is the system improvement—it enables continuous refinement without cascading failures.
 
 **Enforcement mechanisms:**
 1. **One responsibility per agent:** Agent definitions must answer "What is the ONE thing this agent does?" If the answer contains "and," split it (design-time enforcement)
@@ -382,7 +381,7 @@ research-plan-implement-test-deploy-monitor-agent.md
 - Reuse: Impossible (too specific)
 - Improvement: Risky (change breaks everything)
 
-# ✅ RIGHT: Single-Responsibility Agents (enforces Law 2)
+# ✅ RIGHT: Focused Agents (enforces Law 2)
 research-agent.md        → Reused in 47 workflows
 plan-agent.md            → Reused in 45 workflows
 implement-agent.md       → Reused in 43 workflows
@@ -393,7 +392,7 @@ Result: Each improved independently, composes into any workflow
 
 **Law 5: Share Patterns**
 
-Single-Responsibility Agents enforce Law 5 by making **agents themselves the shareable patterns**. A monolithic "do everything" agent can't be shared—it's too specific to its context. But a focused "validate YAML syntax" agent? That's universally useful. Single responsibility enables pattern sharing because focused agents solve focused problems that recur across domains.
+Focused Agents enforce Law 5 by making **agents themselves the shareable patterns**. A monolithic "do everything" agent can't be shared—it's too specific to its context. But a focused "validate YAML syntax" agent? That's universally useful. Single responsibility enables pattern sharing because focused agents solve focused problems that recur across domains.
 
 **Enforcement mechanisms:**
 1. **Public agent library required:** All single-responsibility agents published to shared library (organizational enforcement)
@@ -487,7 +486,7 @@ You are an expert in:
 
 If you've built microservices, you already understand this:
 
-| Microservices | Single-Responsibility Agents |
+| Microservices | Focused Agents |
 |---------------|------------------------------|
 | Service per business capability | Agent per workflow responsibility |
 | API contracts | Input/output contracts |

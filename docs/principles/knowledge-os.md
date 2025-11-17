@@ -161,8 +161,6 @@ business rules, not just data types.
 Prevents entire class of configuration errors. Estimated 4 incidents
 per quarter avoided.
 
-🤖 Generated with Claude Code
-Co-Authored-By: Claude <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -436,8 +434,6 @@ Knowledge: 200 apps + framework + best practices
 **Impact:**
 [What value was delivered? Time saved, quality improved?]
 
-🤖 Generated with [Claude Code](https://www.anthropic.com/claude-code)
-Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
 **Example:**
@@ -467,8 +463,6 @@ Complex tasks: 8x efficiency improvement (measured)
 Context collapse rate: 100% → 0% (200 sessions)
 Pattern now applied to all multi-step agent workflows.
 
-🤖 Generated with Claude Code
-Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
 **This commit captures:**

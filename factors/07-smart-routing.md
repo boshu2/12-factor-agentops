@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 2 (Improve System) |
 | **Derived From** | Pattern recognition + Load balancing + Service mesh routing |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-vii-intelligent-task-routing)**
 
 ---
 

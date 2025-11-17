@@ -6,18 +6,18 @@ This document provides a detailed comparison showing how each of the original 12
 
 | # | Original (2011) | Agents (2025) | AgentOps (2025) |
 |---|-----------------|---------------|-----------------|
-| I | Codebase | Own your prompts | Git Memory as Knowledge OS |
-| II | Dependencies | Own your context window | JIT Context Loading |
-| III | Config | Tools as structured outputs | Constitutional Guardrails |
-| IV | Backing Services | Small, focused agents | Single-Responsibility Agents |
-| V | Build/Release/Run | Launch/Pause/Resume APIs | Validation Gates Before Execution |
-| VI | Processes | Stateless reducer | Session Continuity via Bundles |
-| VII | Port Binding | Trigger from anywhere | Intelligent Task Routing |
-| VIII | Concurrency | Small, focused agents | Single-Responsibility Agents |
-| IX | Disposability | Launch/Pause/Resume | JIT Context Loading |
-| X | Dev/Prod Parity | Implicit | Domain Portability |
-| XI | Logs | Compact errors | Operational Telemetry |
-| XII | Admin Processes | Contact humans | Human Gate Reviews |
+| I | Codebase | Own your prompts | Automated Tracking |
+| II | Dependencies | Own your context window | Context Loading |
+| III | Config | Tools as structured outputs | Fail-Safe Checks |
+| IV | Backing Services | Small, focused agents | Focused Agents |
+| V | Build/Release/Run | Launch/Pause/Resume APIs | Continuous Validation |
+| VI | Processes | Stateless reducer | Resume Work |
+| VII | Port Binding | Trigger from anywhere | Smart Routing |
+| VIII | Concurrency | Small, focused agents | Focused Agents |
+| IX | Disposability | Launch/Pause/Resume | Context Loading |
+| X | Dev/Prod Parity | Implicit | Package Patterns |
+| XI | Logs | Compact errors | Measure Everything |
+| XII | Admin Processes | Contact humans | Human Validation |
 
 ## Detailed Comparison
 
@@ -33,7 +33,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: LLM behavior is determined by prompts, not traditional code
 - *Key Practice*: Don't let frameworks hide your prompts in abstractions
 
-**12-Factor AgentOps (I: Git Memory as Knowledge OS)**
+**12-Factor AgentOps (I: Automated Tracking)**
 - *Evolution*: Git becomes institutional memory for operations
 - *Why Different*: Operations require more than prompts—entire knowledge bases
 - *Key Practice*: All operational knowledge lives in version-controlled repos
@@ -53,7 +53,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: Context window is the LLM's "working memory"
 - *Key Practice*: Don't let frameworks auto-populate context
 
-**12-Factor AgentOps (II: JIT Context Loading)**
+**12-Factor AgentOps (II: Context Loading)**
 - *Evolution*: Load context just-in-time to prevent cognitive collapse
 - *Why Different*: Operating at scale requires preventing context overload
 - *Key Practice*: 40% rule—never exceed 40% context utilization
@@ -73,7 +73,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: LLMs don't "call" tools, they generate structured output
 - *Key Practice*: Understand tool calling as output parsing
 
-**12-Factor AgentOps (XI: Constitutional Guardrails)**
+**12-Factor AgentOps (XI: Fail-Safe Checks)**
 - *Evolution*: Non-negotiable operational rules enforced at infrastructure level
 - *Why Different*: Operations need governance boundaries for autonomous decisions
 - *Key Practice*: Five Laws always enforced, regardless of agent or human
@@ -93,7 +93,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: Large agents get stuck at 70-80% quality
 - *Key Practice*: One agent, one well-defined responsibility
 
-**12-Factor AgentOps (III: Single-Responsibility Agents)**
+**12-Factor AgentOps (III: Focused Agents)**
 - *Evolution*: Composable, specialized agents for operations
 - *Why Different*: Operations require orchestration of specialized skills
 - *Key Practice*: 3-10 steps max per agent, compose into workflows
@@ -101,7 +101,7 @@ This document provides a detailed comparison showing how each of the original 12
 
 ---
 
-### Factor V: Build/Release/Run / Launch-Pause-Resume / Validation Gates
+### Factor V: Build/Release/Run / Launch-Pause-Resume / Continuous Validation
 
 **Original 12-Factor App (V: Build, Release, Run)**
 - *Principle*: Strictly separate build and run stages
@@ -113,7 +113,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: AI workflows need to pause/resume across sessions
 - *Key Practice*: Simple APIs for agent lifecycle management
 
-**12-Factor AgentOps (IV: Validation Gates Before Execution)**
+**12-Factor AgentOps (IV: Continuous Validation)**
 - *Evolution*: Test before deploy, zero-trust validation
 - *Why Different*: Operations can't risk unvalidated AI changes in production
 - *Key Practice*: Every change passes through validation pipeline
@@ -121,7 +121,7 @@ This document provides a detailed comparison showing how each of the original 12
 
 ---
 
-### Factor VI: Processes / Stateless Reducer / Session Continuity
+### Factor VI: Processes / Stateless Reducer / Resume Work
 
 **Original 12-Factor App (VI: Processes)**
 - *Principle*: Execute app as stateless processes
@@ -133,7 +133,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: Makes agents reproducible and testable
 - *Key Practice*: Agent takes state, produces new state, no hidden memory
 
-**12-Factor AgentOps (VI: Session Continuity via Bundles)**
+**12-Factor AgentOps (VI: Resume Work)**
 - *Evolution*: External state enables long-running operations
 - *Why Different*: Operations span days/weeks, need session resumption
 - *Key Practice*: Context bundles compress session state 5:1 to 10:1
@@ -153,7 +153,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: Users interact through multiple interfaces
 - *Key Practice*: Meet users where they are
 
-**12-Factor AgentOps (VII: Intelligent Task Routing)**
+**12-Factor AgentOps (VII: Smart Routing)**
 - *Evolution*: Route tasks to specialized agents automatically
 - *Why Different*: Operations require matching tasks to expertise
 - *Key Practice*: 90.9% accuracy NLP classification for agent selection
@@ -174,7 +174,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Key Practice*: Parallelize via multiple agents
 
 **12-Factor AgentOps (Maps to Factor III/IV)**
-- *Evolution*: Single-Responsibility Agents enable parallel operations
+- *Evolution*: Focused Agents enable parallel operations
 - *Why Different*: Operations scale through agent specialization
 - *Note*: This factor reinforces Factors III and IV
 
@@ -193,13 +193,13 @@ This document provides a detailed comparison showing how each of the original 12
 - *Key Practice*: Same as Factor V—agent lifecycle APIs
 
 **12-Factor AgentOps (Maps to Factor II)**
-- *Evolution*: JIT Context Loading enables instant agent spin-up
+- *Evolution*: Context Loading enables instant agent spin-up
 - *Why Different*: Operations require minimal startup time
 - *Note*: This factor reinforces Factor II
 
 ---
 
-### Factor X: Dev/Prod Parity / Implicit / Domain Portability
+### Factor X: Dev/Prod Parity / Implicit / Package Patterns
 
 **Original 12-Factor App (X: Dev/Prod Parity)**
 - *Principle*: Keep development, staging, and production as similar as possible
@@ -211,7 +211,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: Good agent practices work everywhere
 - *Note*: Incorporated into other factors
 
-**12-Factor AgentOps (XII: Domain Portability)**
+**12-Factor AgentOps (XII: Package Patterns)**
 - *Evolution*: Patterns work across constrained environments
 - *Why Different*: Operations must work air-gapped, edge, and cloud
 - *Key Practice*: Same methodology in all environments
@@ -219,7 +219,7 @@ This document provides a detailed comparison showing how each of the original 12
 
 ---
 
-### Factor XI: Logs / Compact Errors / Operational Telemetry
+### Factor XI: Logs / Compact Errors / Measure Everything
 
 **Original 12-Factor App (XI: Logs)**
 - *Principle*: Treat logs as event streams
@@ -231,7 +231,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: LLMs learn from failures in context window
 - *Key Practice*: Error summaries become future context
 
-**12-Factor AgentOps (V: Operational Telemetry)**
+**12-Factor AgentOps (V: Measure Everything)**
 - *Evolution*: Metrics, logs, traces for agent operations
 - *Why Different*: Operations need full observability stack
 - *Key Practice*: All agent reasoning is instrumented and queryable
@@ -239,7 +239,7 @@ This document provides a detailed comparison showing how each of the original 12
 
 ---
 
-### Factor XII: Admin Processes / Contact Humans / Human Gate Reviews
+### Factor XII: Admin Processes / Contact Humans / Human Validation
 
 **Original 12-Factor App (XII: Admin processes)**
 - *Principle*: Run admin/management tasks as one-off processes
@@ -251,7 +251,7 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: AI needs human judgment for critical decisions
 - *Key Practice*: Human contact is a first-class operation, not exception
 
-**12-Factor AgentOps (VIII: Human Gate Reviews)**
+**12-Factor AgentOps (VIII: Human Validation)**
 - *Evolution*: Critical decision checkpoints require human approval
 - *Why Different*: Operations require explicit approval gates
 - *Key Practice*: Validation before critical actions
@@ -274,21 +274,21 @@ These factors didn't exist in the original because deterministic apps don't need
 
 These factors didn't exist in either original or Agents because operations have unique needs:
 
-**IX. Documented Pattern Extraction**
+**IX. Mine Patterns**
 - Systems that learn from operations
 - Continuous knowledge accumulation
 - Pattern libraries that improve over time
 
-**X. Continuous Improvement Backlog**
+**X. Small Iterations**
 - Systems that evolve based on usage
 - Systematic refinement process
 - Operational improvements compound
 
-**XI. Constitutional Guardrails** (mentioned above)
+**XI. Fail-Safe Checks** (mentioned above)
 - Non-negotiable governance for autonomous decisions
 - Always-enforced operational boundaries
 
-**XII. Domain Portability** (mentioned above)
+**XII. Package Patterns** (mentioned above)
 - Cross-environment operational consistency
 - Air-gapped, edge, and cloud support
 

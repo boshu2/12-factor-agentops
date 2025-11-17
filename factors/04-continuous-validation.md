@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 3 (Document Context), Law 4 (Validate Before Execute) |
 | **Derived From** | CI/CD pipelines + Pre-flight checks + Shift-left testing |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-iv-validation-gates-before-execution)**
 
 ---
 

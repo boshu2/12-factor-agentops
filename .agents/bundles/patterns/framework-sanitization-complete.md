@@ -736,8 +736,6 @@ Impact: Open source community now has complete conceptual framework
 across domains while protecting 2-year competitive moat (framework
 is copyable, operational wisdom is not).
 
-🤖 Generated with Claude Code
-Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
 ---

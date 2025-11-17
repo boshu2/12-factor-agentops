@@ -9,7 +9,6 @@
 | **Enforces Laws** | Law 3 (Document Context), Law 4 (Validate Before Execute) |
 | **Derived From** | Progressive complexity + Human-in-the-loop + Approval workflows |
 
-📘 **[See complete derivation →](../ARCHITECTURE.md#factor-viii-human-gate-reviews)**
 
 ---
 
