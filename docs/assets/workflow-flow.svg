@@ -200,23 +200,23 @@
   </g>
 
   <!-- Feedback loop with enhanced styling -->
-  <path d="M 705 765 Q 1050 765 1050 225 Q 1050 150 705 225" stroke="#D97948" stroke-width="6" fill="none" stroke-dasharray="12,9" marker-end="url(#arrowhead-orange)" filter="url(#subtle-shadow)" opacity="0.9"/>
+  <path d="M 705 765 Q 1150 765 1150 225 Q 1150 150 705 225" stroke="#D97948" stroke-width="6" fill="none" stroke-dasharray="12,9" marker-end="url(#arrowhead-orange)" filter="url(#subtle-shadow)" opacity="0.9"/>
 
   <!-- Feedback label box -->
   <g filter="url(#card-shadow)">
-    <rect x="1035" y="330" width="145" height="160" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4"/>
-    <circle cx="1108" cy="360" r="3" fill="#D97948" opacity="0.4"/>
-    <text x="1108" y="383" text-anchor="middle" font-size="23" font-weight="700" fill="#D97948">
+    <rect x="1070" y="420" width="115" height="145" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4"/>
+    <circle cx="1128" cy="445" r="3" fill="#D97948" opacity="0.4"/>
+    <text x="1128" y="470" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
       Continuous
     </text>
-    <text x="1108" y="413" text-anchor="middle" font-size="23" font-weight="700" fill="#D97948">
+    <text x="1128" y="497" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
       Feedback
     </text>
-    <line x1="1055" y1="430" x2="1160" y2="430" stroke="#D97948" stroke-width="2" opacity="0.3"/>
-    <text x="1108" y="457" text-anchor="middle" font-size="17" fill="#5A5449" font-weight="500">
+    <line x1="1085" y1="513" x2="1170" y2="513" stroke="#D97948" stroke-width="2" opacity="0.3"/>
+    <text x="1128" y="537" text-anchor="middle" font-size="16" fill="#5A5449" font-weight="500">
       Mine patterns
     </text>
-    <text x="1108" y="478" text-anchor="middle" font-size="17" fill="#5A5449" font-weight="500">
+    <text x="1128" y="556" text-anchor="middle" font-size="16" fill="#5A5449" font-weight="500">
       Iterate small
     </text>
   </g>

@@ -332,17 +332,17 @@
   </g>
 
   <!-- Feedback loop arrow with enhanced styling -->
-  <path d="M 2235 1088 Q 2280 1088 2280 713 Q 2280 473 2235 338" stroke="#D97948" stroke-width="5.5" fill="none" stroke-dasharray="12,9" marker-end="url(#arrowhead-dashed)" filter="url(#subtle-shadow)"/>
+  <path d="M 2310 1088 Q 2395 1088 2395 713 Q 2395 473 2310 338" stroke="#D97948" stroke-width="5.5" fill="none" stroke-dasharray="12,9" marker-end="url(#arrowhead-dashed)" filter="url(#subtle-shadow)"/>
 
   <!-- Feedback label box -->
-  <rect x="2260" y="655" width="130" height="105" rx="12" fill="#FFF4ED" stroke="#D97948" stroke-width="3" filter="url(#subtle-shadow)"/>
-  <text x="2325" y="688" font-size="18" font-weight="700" fill="#D97948" text-anchor="middle">
+  <rect x="2275" y="655" width="115" height="105" rx="12" fill="#FFF4ED" stroke="#D97948" stroke-width="3" filter="url(#subtle-shadow)"/>
+  <text x="2333" y="688" font-size="18" font-weight="700" fill="#D97948" text-anchor="middle">
     Continuous
   </text>
-  <text x="2325" y="715" font-size="18" font-weight="700" fill="#D97948" text-anchor="middle">
+  <text x="2333" y="715" font-size="18" font-weight="700" fill="#D97948" text-anchor="middle">
     Feedback
   </text>
-  <text x="2325" y="745" font-size="14" fill="#7A6F5D" text-anchor="middle">
+  <text x="2333" y="745" font-size="14" fill="#7A6F5D" text-anchor="middle">
     Learning loop
   </text>
 
