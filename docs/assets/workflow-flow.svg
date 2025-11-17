@@ -6,146 +6,87 @@
         font-family: 'Space Mono', 'Courier New', Courier, monospace;
       }
     </style>
-  </defs>
-  <!-- Background -->
-  <rect width="1200" height="900" fill="#FAF8F5"/>
 
-  <!-- Title -->
-  <text x="600" y="53" text-anchor="middle" font-size="42" font-weight="600" fill="#1A1A1A" letter-spacing="-0.5">
-    12-Factor AgentOps in Practice
-  </text>
-  <text x="600" y="90" text-anchor="middle" font-size="23" fill="#7A6F5D">
-    How the factors enable reliable agent operations
-  </text>
+    <!-- Gradients for depth -->
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF8F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5F2ED;stop-opacity:1" />
+    </linearGradient>
 
-  <!-- Foundation Circle -->
-  <circle cx="600" cy="225" r="105" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="5"/>
-  <text x="600" y="218" text-anchor="middle" font-size="27" font-weight="600" fill="#1A7FCC">
-    Foundation
-  </text>
-  <text x="600" y="248" text-anchor="middle" font-size="21" fill="#1A7FCC" font-weight="500">
-    I-IV
-  </text>
+    <linearGradient id="foundation-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F4FD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4EBFA;stop-opacity:1" />
+    </linearGradient>
 
-  <!-- Foundation details -->
-  <text x="600" y="360" text-anchor="middle" font-size="18" fill="#5A5449" font-weight="500">
-    Track • Load context • Focus agents • Validate constantly
-  </text>
+    <linearGradient id="operations-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F7EC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4F0DB;stop-opacity:1" />
+    </linearGradient>
 
-  <!-- Arrow to Operations -->
-  <path d="M 600 345 L 600 405" stroke="#A0978B" stroke-width="4.5" fill="none" marker-end="url(#arrowhead)"/>
+    <linearGradient id="improvement-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF4ED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFEADB;stop-opacity:1" />
+    </linearGradient>
 
-  <!-- Operations Box -->
-  <rect x="225" y="420" width="750" height="180" rx="18" fill="#E8F7EC" stroke="#15B871" stroke-width="5"/>
-  <text x="600" y="468" text-anchor="middle" font-size="27" font-weight="600" fill="#15B871">
-    Operations (V-VIII)
-  </text>
+    <linearGradient id="insight-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF9F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFF3E3;stop-opacity:1" />
+    </linearGradient>
 
-  <!-- Operations workflow -->
-  <g id="ops-flow">
-    <rect x="255" y="495" width="165" height="90" rx="12" fill="#FFFFFF" stroke="#15B871" stroke-width="4"/>
-    <text x="338" y="522" text-anchor="middle" font-size="20" font-weight="600" fill="#15B871">
-      Measure
-    </text>
-    <text x="338" y="548" text-anchor="middle" font-size="17" fill="#5A5449">
-      Track
-    </text>
-    <text x="338" y="570" text-anchor="middle" font-size="17" fill="#5A5449">
-      everything
-    </text>
+    <linearGradient id="result-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0FFF4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E3F9E9;stop-opacity:1" />
+    </linearGradient>
 
-    <path d="M 435 540 L 458 540" stroke="#15B871" stroke-width="4" marker-end="url(#arrowhead-green)"/>
+    <!-- Radial gradients for circles -->
+    <radialGradient id="foundation-radial" cx="50%" cy="40%">
+      <stop offset="0%" style="stop-color:#F0F8FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4EBFA;stop-opacity:1" />
+    </radialGradient>
 
-    <rect x="473" y="495" width="165" height="90" rx="12" fill="#FFFFFF" stroke="#15B871" stroke-width="4"/>
-    <text x="555" y="522" text-anchor="middle" font-size="20" font-weight="600" fill="#15B871">
-      Resume +
-    </text>
-    <text x="555" y="548" text-anchor="middle" font-size="17" fill="#5A5449">
-      Route
-    </text>
-    <text x="555" y="570" text-anchor="middle" font-size="17" fill="#5A5449">
-      smartly
-    </text>
+    <radialGradient id="improvement-radial" cx="50%" cy="40%">
+      <stop offset="0%" style="stop-color:#FFF9F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFEADB;stop-opacity:1" />
+    </radialGradient>
 
-    <path d="M 653 540 L 675 540" stroke="#15B871" stroke-width="4" marker-end="url(#arrowhead-green)"/>
+    <!-- Shadow filters -->
+    <filter id="card-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
 
-    <rect x="690" y="495" width="165" height="90" rx="12" fill="#FFFFFF" stroke="#15B871" stroke-width="4"/>
-    <text x="773" y="522" text-anchor="middle" font-size="20" font-weight="600" fill="#15B871">
-      Human
-    </text>
-    <text x="773" y="548" text-anchor="middle" font-size="17" fill="#5A5449">
-      Approve
-    </text>
-    <text x="773" y="570" text-anchor="middle" font-size="17" fill="#5A5449">
-      critical steps
-    </text>
-  </g>
+    <filter id="circle-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.25"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
 
-  <!-- Arrow to Improvement -->
-  <path d="M 600 615 L 600 675" stroke="#A0978B" stroke-width="4.5" fill="none" marker-end="url(#arrowhead)"/>
+    <filter id="subtle-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.1"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
 
-  <!-- Improvement Circle -->
-  <circle cx="600" cy="765" r="105" fill="#FFF4ED" stroke="#D97948" stroke-width="5"/>
-  <text x="600" y="758" text-anchor="middle" font-size="27" font-weight="600" fill="#D97948">
-    Improvement
-  </text>
-  <text x="600" y="788" text-anchor="middle" font-size="21" fill="#D97948" font-weight="500">
-    IX-XII
-  </text>
-
-  <!-- Feedback loop -->
-  <path d="M 705 765 Q 1050 765 1050 225 Q 1050 150 705 225" stroke="#D97948" stroke-width="5" fill="none" stroke-dasharray="12,9" marker-end="url(#arrowhead-orange)"/>
-
-  <text x="1080" y="375" font-size="23" font-weight="600" fill="#D97948">
-    Continuous
-  </text>
-  <text x="1080" y="405" font-size="23" font-weight="600" fill="#D97948">
-    Feedback
-  </text>
-  <text x="1080" y="447" font-size="17" fill="#5A5449">
-    Mine patterns • Iterate
-  </text>
-  <text x="1080" y="471" font-size="17" fill="#5A5449">
-    Fail-safe checks • Package
-  </text>
-
-  <!-- Key insight box -->
-  <rect x="75" y="150" width="420" height="150" rx="15" fill="#FFF9F0" stroke="#F5B547" stroke-width="4" stroke-dasharray="9,6"/>
-  <text x="285" y="188" text-anchor="middle" font-size="20" font-weight="600" fill="#E8882E">
-    💡 Key Insight
-  </text>
-  <text x="285" y="222" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="500">
-    AI agents aren't deterministic.
-  </text>
-  <text x="285" y="249" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="500">
-    Infrastructure operations patterns
-  </text>
-  <text x="285" y="276" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="500">
-    work for probabilistic systems.
-  </text>
-
-  <!-- Result box -->
-  <rect x="705" y="150" width="420" height="150" rx="15" fill="#F0FFF4" stroke="#15B871" stroke-width="4" stroke-dasharray="9,6"/>
-  <text x="915" y="188" text-anchor="middle" font-size="20" font-weight="600" fill="#15B871">
-    ✅ Result
-  </text>
-  <text x="915" y="222" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="500">
-    80% reliable → 99%+ reliable
-  </text>
-  <text x="915" y="249" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="500">
-    Check every step
-  </text>
-  <text x="915" y="276" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="500">
-    Humans validate critical work
-  </text>
-
-  <!-- Footer -->
-  <text x="600" y="870" text-anchor="middle" font-size="17" fill="#A0978B">
-    https://github.com/boshu2/12-factor-agentops
-  </text>
-
-  <!-- Arrow definitions -->
-  <defs>
+    <!-- Arrow definitions -->
     <marker id="arrowhead" markerWidth="15" markerHeight="15" refX="13.5" refY="4.5" orient="auto">
       <polygon points="0 0, 15 4.5, 0 9" fill="#A0978B"/>
     </marker>
@@ -156,4 +97,168 @@
       <polygon points="0 0, 15 4.5, 0 9" fill="#D97948"/>
     </marker>
   </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg-gradient)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="50" fill="#1A7FCC" opacity="0.03"/>
+  <circle cx="1100" cy="100" r="60" fill="#15B871" opacity="0.03"/>
+  <circle cx="100" cy="800" r="55" fill="#D97948" opacity="0.03"/>
+  <circle cx="1100" cy="800" r="70" fill="#1A7FCC" opacity="0.03"/>
+
+  <!-- Title -->
+  <text x="600" y="53" text-anchor="middle" font-size="42" font-weight="700" fill="#1A1A1A" letter-spacing="-0.5">
+    12-Factor AgentOps in Practice
+  </text>
+  <text x="600" y="90" text-anchor="middle" font-size="23" fill="#7A6F5D" font-weight="500">
+    How the factors enable reliable agent operations
+  </text>
+
+  <!-- Foundation Circle -->
+  <g filter="url(#circle-shadow)">
+    <circle cx="600" cy="225" r="105" fill="url(#foundation-radial)" stroke="#1A7FCC" stroke-width="5"/>
+    <circle cx="600" cy="215" r="3" fill="#1A7FCC" opacity="0.4"/>
+    <text x="600" y="218" text-anchor="middle" font-size="27" font-weight="700" fill="#1A7FCC">
+      Foundation
+    </text>
+    <text x="600" y="248" text-anchor="middle" font-size="21" fill="#1A7FCC" font-weight="600">
+      I-IV
+    </text>
+  </g>
+
+  <!-- Foundation details -->
+  <text x="600" y="360" text-anchor="middle" font-size="18" fill="#5A5449" font-weight="600">
+    Track • Load context • Focus agents • Validate constantly
+  </text>
+
+  <!-- Arrow to Operations -->
+  <path d="M 600 345 L 600 405" stroke="#A0978B" stroke-width="5" fill="none" marker-end="url(#arrowhead)" opacity="0.8" filter="url(#subtle-shadow)"/>
+
+  <!-- Operations Box -->
+  <g filter="url(#card-shadow)">
+    <rect x="225" y="420" width="750" height="180" rx="18" fill="url(#operations-gradient)" stroke="#15B871" stroke-width="5"/>
+    <circle cx="600" cy="445" r="3" fill="#15B871" opacity="0.4"/>
+    <text x="600" y="468" text-anchor="middle" font-size="27" font-weight="700" fill="#15B871">
+      Operations (V-VIII)
+    </text>
+
+    <!-- Operations workflow -->
+    <g id="ops-flow">
+      <rect x="255" y="495" width="165" height="90" rx="12" fill="#FFFFFF" stroke="#15B871" stroke-width="4" filter="url(#subtle-shadow)"/>
+      <text x="338" y="522" text-anchor="middle" font-size="20" font-weight="700" fill="#15B871">
+        Measure
+      </text>
+      <text x="338" y="548" text-anchor="middle" font-size="17" fill="#5A5449" font-weight="500">
+        Track
+      </text>
+      <text x="338" y="570" text-anchor="middle" font-size="17" fill="#5A5449" font-weight="500">
+        everything
+      </text>
+
+      <path d="M 435 540 L 458 540" stroke="#15B871" stroke-width="4" marker-end="url(#arrowhead-green)"/>
+
+      <rect x="473" y="495" width="165" height="90" rx="12" fill="#FFFFFF" stroke="#15B871" stroke-width="4" filter="url(#subtle-shadow)"/>
+      <text x="555" y="522" text-anchor="middle" font-size="20" font-weight="700" fill="#15B871">
+        Resume +
+      </text>
+      <text x="555" y="548" text-anchor="middle" font-size="17" fill="#5A5449" font-weight="500">
+        Route
+      </text>
+      <text x="555" y="570" text-anchor="middle" font-size="17" fill="#5A5449" font-weight="500">
+        smartly
+      </text>
+
+      <path d="M 653 540 L 675 540" stroke="#15B871" stroke-width="4" marker-end="url(#arrowhead-green)"/>
+
+      <rect x="690" y="495" width="165" height="90" rx="12" fill="#FFFFFF" stroke="#15B871" stroke-width="4" filter="url(#subtle-shadow)"/>
+      <text x="773" y="522" text-anchor="middle" font-size="20" font-weight="700" fill="#15B871">
+        Human
+      </text>
+      <text x="773" y="548" text-anchor="middle" font-size="17" fill="#5A5449" font-weight="500">
+        Approve
+      </text>
+      <text x="773" y="570" text-anchor="middle" font-size="17" fill="#5A5449" font-weight="500">
+        critical steps
+      </text>
+    </g>
+  </g>
+
+  <!-- Arrow to Improvement -->
+  <path d="M 600 615 L 600 675" stroke="#A0978B" stroke-width="5" fill="none" marker-end="url(#arrowhead)" opacity="0.8" filter="url(#subtle-shadow)"/>
+
+  <!-- Improvement Circle -->
+  <g filter="url(#circle-shadow)">
+    <circle cx="600" cy="765" r="105" fill="url(#improvement-radial)" stroke="#D97948" stroke-width="5"/>
+    <circle cx="600" cy="755" r="3" fill="#D97948" opacity="0.4"/>
+    <text x="600" y="758" text-anchor="middle" font-size="27" font-weight="700" fill="#D97948">
+      Improvement
+    </text>
+    <text x="600" y="788" text-anchor="middle" font-size="21" fill="#D97948" font-weight="600">
+      IX-XII
+    </text>
+  </g>
+
+  <!-- Feedback loop with enhanced styling -->
+  <path d="M 705 765 Q 1050 765 1050 225 Q 1050 150 705 225" stroke="#D97948" stroke-width="6" fill="none" stroke-dasharray="12,9" marker-end="url(#arrowhead-orange)" filter="url(#subtle-shadow)" opacity="0.9"/>
+
+  <!-- Feedback label box -->
+  <g filter="url(#card-shadow)">
+    <rect x="1035" y="330" width="145" height="160" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4"/>
+    <circle cx="1108" cy="360" r="3" fill="#D97948" opacity="0.4"/>
+    <text x="1108" y="383" text-anchor="middle" font-size="23" font-weight="700" fill="#D97948">
+      Continuous
+    </text>
+    <text x="1108" y="413" text-anchor="middle" font-size="23" font-weight="700" fill="#D97948">
+      Feedback
+    </text>
+    <line x1="1055" y1="430" x2="1160" y2="430" stroke="#D97948" stroke-width="2" opacity="0.3"/>
+    <text x="1108" y="457" text-anchor="middle" font-size="17" fill="#5A5449" font-weight="500">
+      Mine patterns
+    </text>
+    <text x="1108" y="478" text-anchor="middle" font-size="17" fill="#5A5449" font-weight="500">
+      Iterate small
+    </text>
+  </g>
+
+  <!-- Key insight box -->
+  <g filter="url(#card-shadow)">
+    <rect x="75" y="150" width="420" height="150" rx="15" fill="url(#insight-gradient)" stroke="#F5B547" stroke-width="4" stroke-dasharray="9,6"/>
+    <text x="285" y="188" text-anchor="middle" font-size="20" font-weight="700" fill="#E8882E">
+      💡 Key Insight
+    </text>
+    <line x1="120" y1="200" x2="450" y2="200" stroke="#F5B547" stroke-width="1.5" opacity="0.3"/>
+    <text x="285" y="228" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="600">
+      AI agents aren't deterministic.
+    </text>
+    <text x="285" y="255" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="500">
+      Infrastructure operations patterns
+    </text>
+    <text x="285" y="282" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="500">
+      work for probabilistic systems.
+    </text>
+  </g>
+
+  <!-- Result box -->
+  <g filter="url(#card-shadow)">
+    <rect x="705" y="150" width="420" height="150" rx="15" fill="url(#result-gradient)" stroke="#15B871" stroke-width="4" stroke-dasharray="9,6"/>
+    <text x="915" y="188" text-anchor="middle" font-size="20" font-weight="700" fill="#15B871">
+      ✅ Result
+    </text>
+    <line x1="750" y1="200" x2="1080" y2="200" stroke="#15B871" stroke-width="1.5" opacity="0.3"/>
+    <text x="915" y="228" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="600">
+      80% reliable → 99%+ reliable
+    </text>
+    <text x="915" y="255" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="500">
+      Check every step
+    </text>
+    <text x="915" y="282" text-anchor="middle" font-size="18" fill="#2D2A24" font-weight="500">
+      Humans validate critical work
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="600" y="870" text-anchor="middle" font-size="17" fill="#A0978B" font-weight="500">
+    https://github.com/boshu2/12-factor-agentops
+  </text>
 </svg>

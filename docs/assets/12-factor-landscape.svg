@@ -6,254 +6,54 @@
         font-family: 'Space Mono', 'Courier New', Courier, monospace;
       }
     </style>
-  </defs>
-  <!-- Background -->
-  <rect width="2400" height="1350" fill="#FAF8F5"/>
 
-  <!-- Title -->
-  <text x="1200" y="68" text-anchor="middle" font-size="54" font-weight="600" fill="#1A1A1A" letter-spacing="-0.5">
-    12-Factor AgentOps
-  </text>
-  <text x="1200" y="113" text-anchor="middle" font-size="26" fill="#7A6F5D">
-    Operational principles for reliable AI agents at scale
-  </text>
+    <!-- Gradients for depth -->
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF8F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5F2ED;stop-opacity:1" />
+    </linearGradient>
 
-  <!-- Foundation Layer -->
-  <g id="foundation">
-    <text x="1200" y="188" text-anchor="middle" font-size="33" font-weight="600" fill="#1A7FCC">
-      Foundation (I-IV)
-    </text>
-    <text x="1200" y="225" text-anchor="middle" font-size="23" fill="#7A6F5D">
-      Build reliability from the ground up
-    </text>
+    <linearGradient id="foundation-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F4FD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4EBFA;stop-opacity:1" />
+    </linearGradient>
 
-    <!-- Factor I -->
-    <rect x="75" y="248" width="540" height="180" rx="15" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="4.5"/>
-    <text x="345" y="288" text-anchor="middle" font-size="21" font-weight="600" fill="#1A7FCC">
-      I. Automated Tracking
-    </text>
-    <text x="345" y="326" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Track everything automatically
-    </text>
-    <text x="345" y="354" text-anchor="middle" font-size="15" fill="#5A5449">
-      Builds institutional knowledge
-    </text>
-    <text x="345" y="380" text-anchor="middle" font-size="15" fill="#5A5449">
-      through version control
-    </text>
+    <linearGradient id="operations-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F7EC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4F0DB;stop-opacity:1" />
+    </linearGradient>
 
-    <!-- Factor II -->
-    <rect x="660" y="248" width="540" height="180" rx="15" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="4.5"/>
-    <text x="930" y="288" text-anchor="middle" font-size="21" font-weight="600" fill="#1A7FCC">
-      II. Context Loading
-    </text>
-    <text x="930" y="326" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Load only what you need
-    </text>
-    <text x="930" y="354" text-anchor="middle" font-size="15" fill="#5A5449">
-      Delegate to sub-agents
-    </text>
-    <text x="930" y="380" text-anchor="middle" font-size="15" fill="#5A5449">
-      as much as possible
-    </text>
+    <linearGradient id="improvement-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF4ED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFEADB;stop-opacity:1" />
+    </linearGradient>
 
-    <!-- Factor III -->
-    <rect x="1245" y="248" width="540" height="180" rx="15" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="4.5"/>
-    <text x="1515" y="288" text-anchor="middle" font-size="21" font-weight="600" fill="#1A7FCC">
-      III. Focused Agents
-    </text>
-    <text x="1515" y="326" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Each agent does one job well
-    </text>
-    <text x="1515" y="354" text-anchor="middle" font-size="15" fill="#5A5449">
-      Compose workflows from
-    </text>
-    <text x="1515" y="380" text-anchor="middle" font-size="15" fill="#5A5449">
-      specialists
-    </text>
+    <!-- Shadow filters -->
+    <filter id="card-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
 
-    <!-- Factor IV -->
-    <rect x="1830" y="248" width="540" height="180" rx="15" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="4.5"/>
-    <text x="2100" y="288" text-anchor="middle" font-size="21" font-weight="600" fill="#1A7FCC">
-      IV. Continuous Validation
-    </text>
-    <text x="2100" y="326" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Check at every step
-    </text>
-    <text x="2100" y="354" text-anchor="middle" font-size="15" fill="#5A5449">
-      Catch errors before
-    </text>
-    <text x="2100" y="380" text-anchor="middle" font-size="15" fill="#5A5449">
-      they propagate
-    </text>
-  </g>
+    <filter id="subtle-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.1"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
 
-  <!-- Arrow down -->
-  <path d="M 1200 443 L 1200 510" stroke="#A0978B" stroke-width="5" fill="none" marker-end="url(#arrowhead)"/>
-
-  <!-- Operations Layer -->
-  <g id="operations">
-    <text x="1200" y="563" text-anchor="middle" font-size="33" font-weight="600" fill="#15B871">
-      Operations (V-VIII)
-    </text>
-    <text x="1200" y="600" text-anchor="middle" font-size="23" fill="#7A6F5D">
-      Scale and maintain reliability in production
-    </text>
-
-    <!-- Factor V -->
-    <rect x="75" y="623" width="540" height="180" rx="15" fill="#E8F7EC" stroke="#15B871" stroke-width="4.5"/>
-    <text x="345" y="663" text-anchor="middle" font-size="21" font-weight="600" fill="#15B871">
-      V. Measure Everything
-    </text>
-    <text x="345" y="701" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Track metrics and logs
-    </text>
-    <text x="345" y="729" text-anchor="middle" font-size="15" fill="#5A5449">
-      Observable performance
-    </text>
-    <text x="345" y="755" text-anchor="middle" font-size="15" fill="#5A5449">
-      and agent decisions
-    </text>
-
-    <!-- Factor VI -->
-    <rect x="660" y="623" width="540" height="180" rx="15" fill="#E8F7EC" stroke="#15B871" stroke-width="4.5"/>
-    <text x="930" y="663" text-anchor="middle" font-size="21" font-weight="600" fill="#15B871">
-      VI. Resume Work
-    </text>
-    <text x="930" y="701" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Continue multi-day sessions
-    </text>
-    <text x="930" y="729" text-anchor="middle" font-size="15" fill="#5A5449">
-      Save context to pick up
-    </text>
-    <text x="930" y="755" text-anchor="middle" font-size="15" fill="#5A5449">
-      where you left off
-    </text>
-
-    <!-- Factor VII -->
-    <rect x="1245" y="623" width="540" height="180" rx="15" fill="#E8F7EC" stroke="#15B871" stroke-width="4.5"/>
-    <text x="1515" y="663" text-anchor="middle" font-size="21" font-weight="600" fill="#15B871">
-      VII. Smart Routing
-    </text>
-    <text x="1515" y="701" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Send tasks to specialists
-    </text>
-    <text x="1515" y="729" text-anchor="middle" font-size="15" fill="#5A5449">
-      Route work to the agent
-    </text>
-    <text x="1515" y="755" text-anchor="middle" font-size="15" fill="#5A5449">
-      best suited for it
-    </text>
-
-    <!-- Factor VIII -->
-    <rect x="1830" y="623" width="540" height="180" rx="15" fill="#E8F7EC" stroke="#15B871" stroke-width="4.5"/>
-    <text x="2100" y="663" text-anchor="middle" font-size="21" font-weight="600" fill="#15B871">
-      VIII. Human Validation
-    </text>
-    <text x="2100" y="701" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Humans approve critical steps
-    </text>
-    <text x="2100" y="729" text-anchor="middle" font-size="15" fill="#5A5449">
-      Ultimate validator for
-    </text>
-    <text x="2100" y="755" text-anchor="middle" font-size="15" fill="#5A5449">
-      risky operations
-    </text>
-
-  </g>
-
-  <!-- Arrow down -->
-  <path d="M 1200 818 L 1200 885" stroke="#A0978B" stroke-width="5" fill="none" marker-end="url(#arrowhead)"/>
-
-  <!-- Improvement Layer -->
-  <g id="improvement">
-    <text x="1200" y="938" text-anchor="middle" font-size="33" font-weight="600" fill="#D97948">
-      Improvement (IX-XII)
-    </text>
-    <text x="1200" y="975" text-anchor="middle" font-size="23" fill="#7A6F5D">
-      Continuous learning and adaptation
-    </text>
-
-    <!-- Factor IX -->
-    <rect x="75" y="998" width="540" height="180" rx="15" fill="#FFF4ED" stroke="#D97948" stroke-width="4.5"/>
-    <text x="345" y="1038" text-anchor="middle" font-size="21" font-weight="600" fill="#D97948">
-      IX. Mine Patterns
-    </text>
-    <text x="345" y="1076" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Search history for patterns
-    </text>
-    <text x="345" y="1104" text-anchor="middle" font-size="15" fill="#5A5449">
-      Query git, logs, and metrics
-    </text>
-    <text x="345" y="1130" text-anchor="middle" font-size="15" fill="#5A5449">
-      to find trends
-    </text>
-
-    <!-- Factor X -->
-    <rect x="660" y="998" width="540" height="180" rx="15" fill="#FFF4ED" stroke="#D97948" stroke-width="4.5"/>
-    <text x="930" y="1038" text-anchor="middle" font-size="21" font-weight="600" fill="#D97948">
-      X. Small Iterations
-    </text>
-    <text x="930" y="1076" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Make small improvements
-    </text>
-    <text x="930" y="1104" text-anchor="middle" font-size="15" fill="#5A5449">
-      Tweak workflows and agents
-    </text>
-    <text x="930" y="1130" text-anchor="middle" font-size="15" fill="#5A5449">
-      based on patterns
-    </text>
-
-    <!-- Factor XI -->
-    <rect x="1245" y="998" width="540" height="180" rx="15" fill="#FFF4ED" stroke="#D97948" stroke-width="4.5"/>
-    <text x="1515" y="1038" text-anchor="middle" font-size="21" font-weight="600" fill="#D97948">
-      XI. Fail-Safe Checks
-    </text>
-    <text x="1515" y="1076" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Prevent repeating mistakes
-    </text>
-    <text x="1515" y="1104" text-anchor="middle" font-size="15" fill="#5A5449">
-      Add hooks and validations
-    </text>
-    <text x="1515" y="1130" text-anchor="middle" font-size="15" fill="#5A5449">
-      to stop bad patterns
-    </text>
-
-    <!-- Factor XII -->
-    <rect x="1830" y="998" width="540" height="180" rx="15" fill="#FFF4ED" stroke="#D97948" stroke-width="4.5"/>
-    <text x="2100" y="1038" text-anchor="middle" font-size="21" font-weight="600" fill="#D97948">
-      XII. Package Patterns
-    </text>
-    <text x="2100" y="1076" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="500">
-      Bundle what works for reuse
-    </text>
-    <text x="2100" y="1104" text-anchor="middle" font-size="15" fill="#5A5449">
-      Capture successful workflows
-    </text>
-    <text x="2100" y="1130" text-anchor="middle" font-size="15" fill="#5A5449">
-      as reusable templates
-    </text>
-  </g>
-
-  <!-- Feedback loop arrow -->
-  <path d="M 2235 1088 Q 2280 1088 2280 713 Q 2280 473 2235 338" stroke="#D97948" stroke-width="4.5" fill="none" stroke-dasharray="12,9" marker-end="url(#arrowhead-dashed)"/>
-  <text x="2295" y="705" font-size="18" font-weight="600" fill="#D97948" text-anchor="start">
-    Continuous
-  </text>
-  <text x="2295" y="735" font-size="18" font-weight="600" fill="#D97948" text-anchor="start">
-    Feedback
-  </text>
-
-  <!-- Footer -->
-  <text x="1200" y="1268" text-anchor="middle" font-size="20" fill="#5A5449" font-weight="500">
-    The factors build on each other: Foundation → Operations → Improvement
-  </text>
-  <text x="1200" y="1313" text-anchor="middle" font-size="15" fill="#A0978B">
-    Version v1.0.4 | License: CC BY-SA 4.0 | https://github.com/boshu2/12-factor-agentops
-  </text>
-
-  <!-- Arrow definitions -->
-  <defs>
+    <!-- Arrow definitions -->
     <marker id="arrowhead" markerWidth="15" markerHeight="15" refX="13.5" refY="4.5" orient="auto">
       <polygon points="0 0, 15 4.5, 0 9" fill="#A0978B"/>
     </marker>
@@ -261,4 +61,296 @@
       <polygon points="0 0, 15 4.5, 0 9" fill="#D97948"/>
     </marker>
   </defs>
+
+  <!-- Background -->
+  <rect width="2400" height="1350" fill="url(#bg-gradient)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="120" cy="120" r="60" fill="#1A7FCC" opacity="0.03"/>
+  <circle cx="2280" cy="120" r="80" fill="#15B871" opacity="0.03"/>
+  <circle cx="120" cy="1230" r="70" fill="#D97948" opacity="0.03"/>
+  <circle cx="2280" cy="1230" r="90" fill="#1A7FCC" opacity="0.03"/>
+
+  <!-- Title -->
+  <text x="1200" y="68" text-anchor="middle" font-size="54" font-weight="700" fill="#1A1A1A" letter-spacing="-0.5">
+    12-Factor AgentOps
+  </text>
+  <text x="1200" y="113" text-anchor="middle" font-size="26" fill="#7A6F5D" font-weight="500">
+    Operational principles for reliable AI agents at scale
+  </text>
+
+  <!-- Foundation Layer -->
+  <g id="foundation">
+    <text x="1200" y="188" text-anchor="middle" font-size="33" font-weight="700" fill="#1A7FCC">
+      Foundation (I-IV)
+    </text>
+    <text x="1200" y="225" text-anchor="middle" font-size="23" fill="#7A6F5D" font-weight="500">
+      Build reliability from the ground up
+    </text>
+
+    <!-- Factor I -->
+    <g filter="url(#card-shadow)">
+      <rect x="75" y="248" width="540" height="180" rx="15" fill="url(#foundation-gradient)" stroke="#1A7FCC" stroke-width="4.5"/>
+      <circle cx="345" y="285" r="8" fill="#1A7FCC"/>
+      <text x="345" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#1A7FCC">
+        I. Automated Tracking
+      </text>
+      <text x="345" y="356" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Track everything automatically
+      </text>
+      <text x="345" y="384" text-anchor="middle" font-size="15" fill="#5A5449">
+        Builds institutional knowledge
+      </text>
+      <text x="345" y="410" text-anchor="middle" font-size="15" fill="#5A5449">
+        through version control
+      </text>
+    </g>
+
+    <!-- Factor II -->
+    <g filter="url(#card-shadow)">
+      <rect x="660" y="248" width="540" height="180" rx="15" fill="url(#foundation-gradient)" stroke="#1A7FCC" stroke-width="4.5"/>
+      <circle cx="930" y="285" r="8" fill="#1A7FCC"/>
+      <text x="930" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#1A7FCC">
+        II. Context Loading
+      </text>
+      <text x="930" y="356" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Load only what you need
+      </text>
+      <text x="930" y="384" text-anchor="middle" font-size="15" fill="#5A5449">
+        Delegate to sub-agents
+      </text>
+      <text x="930" y="410" text-anchor="middle" font-size="15" fill="#5A5449">
+        as much as possible
+      </text>
+    </g>
+
+    <!-- Factor III -->
+    <g filter="url(#card-shadow)">
+      <rect x="1245" y="248" width="540" height="180" rx="15" fill="url(#foundation-gradient)" stroke="#1A7FCC" stroke-width="4.5"/>
+      <circle cx="1515" y="285" r="8" fill="#1A7FCC"/>
+      <text x="1515" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#1A7FCC">
+        III. Focused Agents
+      </text>
+      <text x="1515" y="356" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Each agent does one job well
+      </text>
+      <text x="1515" y="384" text-anchor="middle" font-size="15" fill="#5A5449">
+        Compose workflows from
+      </text>
+      <text x="1515" y="410" text-anchor="middle" font-size="15" fill="#5A5449">
+        specialists
+      </text>
+    </g>
+
+    <!-- Factor IV -->
+    <g filter="url(#card-shadow)">
+      <rect x="1830" y="248" width="540" height="180" rx="15" fill="url(#foundation-gradient)" stroke="#1A7FCC" stroke-width="4.5"/>
+      <circle cx="2100" y="285" r="8" fill="#1A7FCC"/>
+      <text x="2100" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#1A7FCC">
+        IV. Continuous Validation
+      </text>
+      <text x="2100" y="356" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Check at every step
+      </text>
+      <text x="2100" y="384" text-anchor="middle" font-size="15" fill="#5A5449">
+        Catch errors before
+      </text>
+      <text x="2100" y="410" text-anchor="middle" font-size="15" fill="#5A5449">
+        they propagate
+      </text>
+    </g>
+  </g>
+
+  <!-- Arrow down with glow -->
+  <path d="M 1200 443 L 1200 510" stroke="#A0978B" stroke-width="6" fill="none" marker-end="url(#arrowhead)" opacity="0.8" filter="url(#subtle-shadow)"/>
+
+  <!-- Operations Layer -->
+  <g id="operations">
+    <text x="1200" y="563" text-anchor="middle" font-size="33" font-weight="700" fill="#15B871">
+      Operations (V-VIII)
+    </text>
+    <text x="1200" y="600" text-anchor="middle" font-size="23" fill="#7A6F5D" font-weight="500">
+      Scale and maintain reliability in production
+    </text>
+
+    <!-- Factor V -->
+    <g filter="url(#card-shadow)">
+      <rect x="75" y="623" width="540" height="180" rx="15" fill="url(#operations-gradient)" stroke="#15B871" stroke-width="4.5"/>
+      <circle cx="345" y="660" r="8" fill="#15B871"/>
+      <text x="345" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#15B871">
+        V. Measure Everything
+      </text>
+      <text x="345" y="731" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Track metrics and logs
+      </text>
+      <text x="345" y="759" text-anchor="middle" font-size="15" fill="#5A5449">
+        Observable performance
+      </text>
+      <text x="345" y="785" text-anchor="middle" font-size="15" fill="#5A5449">
+        and agent decisions
+      </text>
+    </g>
+
+    <!-- Factor VI -->
+    <g filter="url(#card-shadow)">
+      <rect x="660" y="623" width="540" height="180" rx="15" fill="url(#operations-gradient)" stroke="#15B871" stroke-width="4.5"/>
+      <circle cx="930" y="660" r="8" fill="#15B871"/>
+      <text x="930" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#15B871">
+        VI. Resume Work
+      </text>
+      <text x="930" y="731" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Continue multi-day sessions
+      </text>
+      <text x="930" y="759" text-anchor="middle" font-size="15" fill="#5A5449">
+        Save context to pick up
+      </text>
+      <text x="930" y="785" text-anchor="middle" font-size="15" fill="#5A5449">
+        where you left off
+      </text>
+    </g>
+
+    <!-- Factor VII -->
+    <g filter="url(#card-shadow)">
+      <rect x="1245" y="623" width="540" height="180" rx="15" fill="url(#operations-gradient)" stroke="#15B871" stroke-width="4.5"/>
+      <circle cx="1515" y="660" r="8" fill="#15B871"/>
+      <text x="1515" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#15B871">
+        VII. Smart Routing
+      </text>
+      <text x="1515" y="731" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Send tasks to specialists
+      </text>
+      <text x="1515" y="759" text-anchor="middle" font-size="15" fill="#5A5449">
+        Route work to the agent
+      </text>
+      <text x="1515" y="785" text-anchor="middle" font-size="15" fill="#5A5449">
+        best suited for it
+      </text>
+    </g>
+
+    <!-- Factor VIII -->
+    <g filter="url(#card-shadow)">
+      <rect x="1830" y="623" width="540" height="180" rx="15" fill="url(#operations-gradient)" stroke="#15B871" stroke-width="4.5"/>
+      <circle cx="2100" y="660" r="8" fill="#15B871"/>
+      <text x="2100" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#15B871">
+        VIII. Human Validation
+      </text>
+      <text x="2100" y="731" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Humans approve critical steps
+      </text>
+      <text x="2100" y="759" text-anchor="middle" font-size="15" fill="#5A5449">
+        Ultimate validator for
+      </text>
+      <text x="2100" y="785" text-anchor="middle" font-size="15" fill="#5A5449">
+        risky operations
+      </text>
+    </g>
+  </g>
+
+  <!-- Arrow down with glow -->
+  <path d="M 1200 818 L 1200 885" stroke="#A0978B" stroke-width="6" fill="none" marker-end="url(#arrowhead)" opacity="0.8" filter="url(#subtle-shadow)"/>
+
+  <!-- Improvement Layer -->
+  <g id="improvement">
+    <text x="1200" y="938" text-anchor="middle" font-size="33" font-weight="700" fill="#D97948">
+      Improvement (IX-XII)
+    </text>
+    <text x="1200" y="975" text-anchor="middle" font-size="23" fill="#7A6F5D" font-weight="500">
+      Continuous learning and adaptation
+    </text>
+
+    <!-- Factor IX -->
+    <g filter="url(#card-shadow)">
+      <rect x="75" y="998" width="540" height="180" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4.5"/>
+      <circle cx="345" y="1035" r="8" fill="#D97948"/>
+      <text x="345" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
+        IX. Mine Patterns
+      </text>
+      <text x="345" y="1106" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Search history for patterns
+      </text>
+      <text x="345" y="1134" text-anchor="middle" font-size="15" fill="#5A5449">
+        Query git, logs, and metrics
+      </text>
+      <text x="345" y="1160" text-anchor="middle" font-size="15" fill="#5A5449">
+        to find trends
+      </text>
+    </g>
+
+    <!-- Factor X -->
+    <g filter="url(#card-shadow)">
+      <rect x="660" y="998" width="540" height="180" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4.5"/>
+      <circle cx="930" y="1035" r="8" fill="#D97948"/>
+      <text x="930" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
+        X. Small Iterations
+      </text>
+      <text x="930" y="1106" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Make small improvements
+      </text>
+      <text x="930" y="1134" text-anchor="middle" font-size="15" fill="#5A5449">
+        Tweak workflows and agents
+      </text>
+      <text x="930" y="1160" text-anchor="middle" font-size="15" fill="#5A5449">
+        based on patterns
+      </text>
+    </g>
+
+    <!-- Factor XI -->
+    <g filter="url(#card-shadow)">
+      <rect x="1245" y="998" width="540" height="180" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4.5"/>
+      <circle cx="1515" y="1035" r="8" fill="#D97948"/>
+      <text x="1515" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
+        XI. Fail-Safe Checks
+      </text>
+      <text x="1515" y="1106" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Prevent repeating mistakes
+      </text>
+      <text x="1515" y="1134" text-anchor="middle" font-size="15" fill="#5A5449">
+        Add hooks and validations
+      </text>
+      <text x="1515" y="1160" text-anchor="middle" font-size="15" fill="#5A5449">
+        to stop bad patterns
+      </text>
+    </g>
+
+    <!-- Factor XII -->
+    <g filter="url(#card-shadow)">
+      <rect x="1830" y="998" width="540" height="180" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4.5"/>
+      <circle cx="2100" y="1035" r="8" fill="#D97948"/>
+      <text x="2100" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
+        XII. Package Patterns
+      </text>
+      <text x="2100" y="1106" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Bundle what works for reuse
+      </text>
+      <text x="2100" y="1134" text-anchor="middle" font-size="15" fill="#5A5449">
+        Capture successful workflows
+      </text>
+      <text x="2100" y="1160" text-anchor="middle" font-size="15" fill="#5A5449">
+        as reusable templates
+      </text>
+    </g>
+  </g>
+
+  <!-- Feedback loop arrow with enhanced styling -->
+  <path d="M 2235 1088 Q 2280 1088 2280 713 Q 2280 473 2235 338" stroke="#D97948" stroke-width="5.5" fill="none" stroke-dasharray="12,9" marker-end="url(#arrowhead-dashed)" filter="url(#subtle-shadow)"/>
+
+  <!-- Feedback label box -->
+  <rect x="2260" y="655" width="130" height="105" rx="12" fill="#FFF4ED" stroke="#D97948" stroke-width="3" filter="url(#subtle-shadow)"/>
+  <text x="2325" y="688" font-size="18" font-weight="700" fill="#D97948" text-anchor="middle">
+    Continuous
+  </text>
+  <text x="2325" y="715" font-size="18" font-weight="700" fill="#D97948" text-anchor="middle">
+    Feedback
+  </text>
+  <text x="2325" y="745" font-size="14" fill="#7A6F5D" text-anchor="middle">
+    Learning loop
+  </text>
+
+  <!-- Footer -->
+  <text x="1200" y="1268" text-anchor="middle" font-size="20" fill="#5A5449" font-weight="600">
+    The factors build on each other: Foundation → Operations → Improvement
+  </text>
+  <text x="1200" y="1313" text-anchor="middle" font-size="15" fill="#A0978B" font-weight="500">
+    Version v1.0.4 | License: CC BY-SA 4.0 | https://github.com/boshu2/12-factor-agentops
+  </text>
 </svg>
