@@ -4,6 +4,29 @@
 
 ---
 
+## Constraint Mapping
+
+Each factor solves a specific constraint optimization problem:
+
+| Factor | Constraint Addressed |
+|--------|---------------------|
+| **I. Automated Tracking** | Human memory limitations |
+| **II. Context Loading** | 200k token context window |
+| **III. Focused Agents** | Cognitive load per agent |
+| **IV. Continuous Validation** | Probabilistic AI outputs |
+| **V. Measure Everything** | System observability |
+| **VI. Resume Work** | Multi-day work sessions |
+| **VII. Smart Routing** | Specialized capabilities |
+| **VIII. Human Validation** | Critical decision risk |
+| **IX. Mine Patterns** | Institutional learning |
+| **X. Small Iterations** | Optimization cycle time |
+| **XI. Fail-Safe Checks** | Repeated mistakes |
+| **XII. Package Patterns** | Cross-domain portability |
+
+**[Learn more about constraint-based engineering →](../docs/principles/constraint-based-engineering.md)**
+
+---
+
 ## How This Evolved From 12-Factor App
 
 The 12-Factor AgentOps factors extend the proven [12-Factor App](https://12factor.net) methodology (Heroku, 2011) for the AI age, building on parallel work by [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) (Dex Horthy, HumanLayer).

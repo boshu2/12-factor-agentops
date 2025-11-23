@@ -174,6 +174,30 @@ These aren't AI-specific techniques. They're operational fundamentals. Applied t
 
 ---
 
+## The Philosophy: Constraint-Based Engineering
+
+12-Factor AgentOps is built on **constraint-based engineering**—designing optimal systems within hard limits, not despite them.
+
+AI systems face real constraints:
+- **Context windows:** 200k tokens maximum, performance degrades >40%
+- **Probabilistic outputs:** Non-deterministic, require validation
+- **Cost per token:** Scales linearly, frontier models expensive
+- **Latency requirements:** User expectations, real-time vs batch
+
+Federal infrastructure adds more:
+- **Air-gapped networks:** Zero internet connectivity
+- **Classification boundaries:** Multi-level security isolation
+- **Zero vendor support:** Self-sufficient operations required
+- **Limited compute:** GPU scarcity, power budgets
+
+The 12 factors are proven constraint-optimization patterns, validated from solo development to DoD/Intelligence Community production environments.
+
+**You can't eliminate constraints. You can only architect optimally within them.**
+
+**[Read more about constraint-based engineering →](./docs/principles/constraint-based-engineering.md)**
+
+---
+
 ## Quick Start
 
 **Read the factors above** to understand the methodology. Each factor addresses a specific reliability challenge you'll encounter with AI agents.

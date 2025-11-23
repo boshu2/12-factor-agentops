@@ -16,6 +16,27 @@ Together, these create a comprehensive philosophy for operating AI agents with t
 
 ## Foundation Documents
 
+### [Constraint-Based Engineering](./constraint-based-engineering.md) ⭐ NEW
+
+**Read time:** 25 minutes
+**When to read:** Understanding the meta-philosophy that generates everything else
+
+**What it covers:**
+- The core principle: constraint-first vs capability-first design
+- The 5-step methodology for constraint optimization
+- How constraints produce the Four Pillars
+- How pillars produce the Twelve Factors
+- Production examples from DoD/IC environments
+- The constraint taxonomy and interaction effects
+
+**Why it matters:**
+This is the meta-philosophy that generates the entire framework. Every factor exists because it solves a specific constraint optimization problem. Understanding constraint-based engineering shows you WHY the framework is structured the way it is.
+
+**Key insight:**
+You can't eliminate constraints. You can only architect optimally within them. This shift from capability-first to constraint-first thinking is what makes 12-Factor AgentOps universal.
+
+---
+
 ### [Evolution of 12-Factor](../docs/foundations/evolution-of-12-factor.md)
 
 **Read time:** 12 minutes
