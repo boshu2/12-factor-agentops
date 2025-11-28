@@ -483,11 +483,33 @@ class BundleLoader:
 
 ---
 
+## Anthropic's Validation (November 2025)
+
+Anthropic's engineering team independently validated this approach in their [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) article.
+
+**Key alignment with Factor VI:**
+
+| Factor VI Concept | Anthropic Implementation |
+|-------------------|-------------------------|
+| Progress files | `claude-progress.json` |
+| Feature tracking | `feature-list.json` with pass/fail |
+| Git as memory | Git history as checkpoint system |
+| Session protocol | Initializer agent + Coding agent |
+
+**Critical quote from Anthropic:**
+> "The article does **not recommend knowledge graphs or traditional databases**. Instead, it uses a simpler JSON-based feature list."
+
+This validates our git-based memory approach over external databases.
+
+**See:** [Anthropic's Long-Running Agent Pattern](../docs/reference/anthropic-long-running-agents.md) for full implementation details.
+
+---
+
 ## Further Reading
 
+- **Anthropic's Pattern**: [../docs/reference/anthropic-long-running-agents.md](../docs/reference/anthropic-long-running-agents.md)
 - **Context Engineering Foundation**: [../docs/principles/context-engineering.md](../docs/principles/context-engineering.md)
-- **Factor II (40% Rule)**: [./02-fresh-context-windows.md](./02-fresh-context-windows.md)
-- **Pattern: Context Bundles**: [../patterns/context-bundles.md](../patterns/context-bundles.md)
+- **Factor II (40% Rule)**: [./02-context-loading.md](./02-context-loading.md)
 
 ---
 

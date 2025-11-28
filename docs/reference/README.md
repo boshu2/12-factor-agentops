@@ -232,6 +232,16 @@ project/
 
 ---
 
+## Reference Documents
+
+| Document | Description |
+|----------|-------------|
+| [Anthropic's Long-Running Agents](./anthropic-long-running-agents.md) | Anthropic's official pattern for multi-session agent memory |
+| [Scientific Foundation](./scientific-foundation.md) | Cognitive science research behind the 40% rule |
+| [Failure Patterns](./failure-patterns.md) | Common failure modes and prevention strategies |
+
+---
+
 ## Related Resources
 
 - **Main README:** [../../README.md](../../README.md)
