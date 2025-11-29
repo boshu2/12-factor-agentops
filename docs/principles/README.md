@@ -38,7 +38,7 @@ Together, these create a comprehensive philosophy for operating knowledge work w
 **What it covers:**
 - The core principle: constraint-first vs capability-first design
 - The 5-step methodology for constraint optimization
-- How constraints produce the Four Pillars
+- How constraints produce the Five Pillars
 - How pillars produce the Twelve Factors
 - Production examples from DoD/IC environments
 - The constraint taxonomy and interaction effects
@@ -217,7 +217,7 @@ Community (12-factor-agentops)
 
 ## Key Concepts Quick Reference
 
-### The Four Pillars
+### The Five Pillars
 
 | Pillar | Core Question | Key Insight |
 |--------|---------------|-------------|
@@ -271,7 +271,7 @@ Community (12-factor-agentops)
 - **Initial results:** 95% success rate observed in production environments
 - **Evidence:** Commit message analysis, session metrics
 
-### Four Pillars (Integrated Framework)
+### Five Pillars (Integrated Framework)
 - **Grounded in:** DevOps (20+ years), SRE (15+ years), Learning Science (decades), Zero-Trust (10+ years)
 - **Initial applications:** 52 production workflows developed and refined
 - **Evidence:** Production implementation examples available in enterprise environments

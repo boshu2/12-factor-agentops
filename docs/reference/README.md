@@ -54,7 +54,7 @@
 
 ---
 
-## Four Pillars
+## Five Pillars
 
 **DevOps/SRE** - Production rigor and reliability engineering
 - Validation gates, CI/CD, monitoring, postmortems

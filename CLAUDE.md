@@ -29,7 +29,7 @@ This is a **Claude Code plugin marketplace** providing validation and pattern ex
 │   └── STARTER-PACK/        # Complete reference implementation
 │
 ├── docs/                    # Philosophy and theory (NOT Claude-specific)
-│   ├── principles/          # Four Pillars, Five Laws, Knowledge OS, Context Engineering, Evolution
+│   ├── principles/          # Five Pillars, Five Laws, Knowledge OS, Context Engineering, Evolution
 │   ├── domain-guides/       # DevOps, SRE, solo dev, team workflows
 │   ├── advanced/            # Multi-agent orchestration, advanced patterns
 │   ├── case-studies/        # Production examples and demonstrations

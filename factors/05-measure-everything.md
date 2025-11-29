@@ -40,7 +40,7 @@ Agent: ¯\_(ツ)_/¯
 
 ## Why This Factor Exists
 
-### Grounding in the Four Pillars
+### Grounding in the Five Pillars
 
 **Primary: DevOps + SRE**
 

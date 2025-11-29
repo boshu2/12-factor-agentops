@@ -95,7 +95,7 @@ Share generalizable insights (Law 5)
 
 ---
 
-## The Four Pillars
+## The Five Pillars
 
 | Pillar | Source | What It Provides |
 |--------|--------|------------------|
@@ -297,7 +297,7 @@ Prevention = systematic discipline via the 12 Factors.
 │                    FAAFO (North Star)                       │
 │         Fast, Ambitious, Autonomous, Fun, Optionality       │
 ├─────────────────────────────────────────────────────────────┤
-│                   Four Pillars (Foundation)                 │
+│                   Five Pillars (Foundation)                 │
 │     DevOps/SRE + Learning Science + Context Eng + Knowledge │
 ├─────────────────────────────────────────────────────────────┤
 │                 Five Laws (Mandatory Behaviors)             │

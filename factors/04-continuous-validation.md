@@ -40,7 +40,7 @@ Agent generates config → Commits directly → Deploys
 
 ## Why This Factor Exists
 
-### Grounding in the Four Pillars
+### Grounding in the Five Pillars
 
 **Primary: DevOps + SRE**
 

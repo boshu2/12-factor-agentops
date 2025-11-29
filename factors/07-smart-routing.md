@@ -41,7 +41,7 @@ Result: 30 minutes wasted on wrong approach
 
 ## Why This Factor Exists
 
-### Grounding in the Four Pillars
+### Grounding in the Five Pillars
 
 **Primary: Learning Science**
 

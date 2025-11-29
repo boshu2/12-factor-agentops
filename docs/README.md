@@ -73,7 +73,7 @@ BUILD → WORK → RUN
 - [Reference Index](./reference/) - Quick lookup
   - [12 Factors Table](./reference/README.md#the-12-factors) - All factors at a glance
   - [FAAFO Dimensions](./reference/README.md#faafo-dimensions) - Fast, Ambitious, Autonomous, Fun, Optionality
-  - [Four Pillars](./reference/README.md#four-pillars) - DevOps, Learning Science, Context Engineering, Knowledge OS
+  - [Five Pillars](./reference/README.md#five-pillars) - Constraint-Based Engineering, DevOps/SRE, Learning Science, Context Engineering, Knowledge OS
   - [Five Laws](./reference/README.md#five-laws) - Mandatory principles
   - [Key Metrics](./reference/README.md#key-metrics) - Success rate, speedup, FAAFO score
   - [Common Commands](./reference/README.md#common-commands) - Make targets, git workflow

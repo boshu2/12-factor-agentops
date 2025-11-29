@@ -1,6 +1,6 @@
 # Constraint-Based Engineering: The Philosophy Behind 12-Factor AgentOps
 
-**The meta-principle that generates the Four Pillars and produces the Twelve Factors.**
+**The meta-principle that generates the Five Pillars and produces the Twelve Factors.**
 
 ---
 
@@ -136,7 +136,7 @@ AI systems operate under hard constraints that cannot be "fixed," only optimized
 
 ---
 
-## How This Produces the Four Pillars
+## How This Produces the Five Pillars
 
 Each pillar represents a **class of constraints** and proven architectural responses:
 

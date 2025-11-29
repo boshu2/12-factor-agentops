@@ -61,7 +61,7 @@ The 12-Factor AgentOps methodology defines twelve operational principles for bui
 
 ## The Complete List
 
-Each factor derives from the Four Pillars and enforces the Five Laws.
+Each factor derives from the Five Pillars and enforces the Five Laws.
 
 | # | Factor | Pillar | Laws | Status |
 |---|--------|--------|------|--------|
@@ -112,15 +112,16 @@ The factors define **what** reliable agent operations look like. **How** you imp
 
 ---
 
-## The Foundation: 4 Pillars + 5 Laws
+## The Foundation: 5 Pillars + 5 Laws
 
 The Twelve Factors rest on a philosophical foundation:
 
-### Four Pillars
-1. **DevOps + SRE**: Apply proven infrastructure operations to AI agents
-2. **Learning Science**: How humans and systems learn effectively
-3. **Context Engineering**: Manage cognitive load to prevent collapse
-4. **Knowledge OS**: Git as institutional memory
+### Five Pillars
+1. **Constraint-Based Engineering**: Start with limits, optimize within them
+2. **DevOps + SRE**: Apply proven infrastructure operations to AI agents
+3. **Learning Science**: How humans and systems learn effectively
+4. **Context Engineering**: Manage cognitive load to prevent collapse
+5. **Knowledge OS**: Git as institutional memory
 
 **[Deep dive →](../docs/principles/five-pillars.md)**
 

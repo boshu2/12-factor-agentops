@@ -73,7 +73,7 @@ FAAFO describes the **ideal state of developer experience** when AI augments wor
    Fast, Ambitious, Autonomous, Fun, Optionality
         "What I wanted developers to experience"
                     ↓
-        Four Pillars (The HOW - Technical Foundations)
+        Five Pillars (The HOW - Technical Foundations)
    DevOps/SRE, Learning Science, Context Engineering, Knowledge OS
         "Proven patterns to achieve FAAFO"
                     ↓
@@ -302,9 +302,9 @@ Track these metrics to know if you're achieving FAAFO:
 ## Next Steps
 
 **Learn more:**
-- [Standing on Giants](standing-on-giants.md) - Where the Four Pillars come from
+- [Standing on Giants](standing-on-giants.md) - Where the Five Pillars come from
 - [AI Summit Validation](ai-summit-validation-2025.md) - Industry validation of patterns
-- [Four Pillars](../principles/five-pillars.md) - Technical foundations implementing FAAFO
+- [Five Pillars](../principles/five-pillars.md) - Technical foundations implementing FAAFO
 
 **Apply it:**
 - [Workflow Guide](../tutorials/workflow-guide.md) - Step-by-step implementation
@@ -320,4 +320,4 @@ Every decision, every tool, every pattern should move you closer to Fast, Ambiti
 ---
 
 **Last Updated:** 2025-11-25
-**Related:** [AI Summit Validation](ai-summit-validation-2025.md) | [Standing on Giants](standing-on-giants.md) | [Four Pillars](../principles/five-pillars.md)
+**Related:** [AI Summit Validation](ai-summit-validation-2025.md) | [Standing on Giants](standing-on-giants.md) | [Five Pillars](../principles/five-pillars.md)

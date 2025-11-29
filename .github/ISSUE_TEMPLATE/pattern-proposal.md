@@ -34,7 +34,8 @@ assignees: ''
 
 **How It Works:** [Step-by-step overview of the pattern]
 
-**Why This Works:** [Theoretical grounding - which of the Four Pillars supports this?]
+**Why This Works:** [Theoretical grounding - which of the Five Pillars supports this?]
+- [ ] Constraint-Based Engineering
 - [ ] DevOps + SRE
 - [ ] Learning Science
 - [ ] Context Engineering

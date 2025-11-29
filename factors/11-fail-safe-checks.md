@@ -42,7 +42,7 @@ Answer: Agent bypassed validation
 
 ## Why This Factor Exists
 
-### Grounding in the Four Pillars
+### Grounding in the Five Pillars
 
 **Primary: DevOps + SRE**
 
@@ -50,9 +50,9 @@ Constitutional guardrails apply the DevOps "policy as code" principle: encode po
 
 SRE provides the fail-safe design pattern: make it impossible to do the wrong thing. Poka-yoke (error-proofing from manufacturing) teaches that prevention beats detection. For agents, this means pre-commit hooks that block invalid commits, CI/CD gates that prevent untested deployments, runtime checks that terminate context overruns. Defense in depth (security principle) provides multiple layers: pre-execution, runtime, post-execution validation.
 
-**Supporting: ALL Four Pillars**
+**Supporting: ALL Five Pillars**
 
-Constitutional guardrails uniquely touch all four pillars:
+Constitutional guardrails uniquely touch all five pillars:
 - **DevOps+SRE:** Policy as code, fail-safe design, defense in depth
 - **Learning Science:** Progressive validation checkpoints, feedback loops
 - **Context Engineering:** 40% rule enforcement prevents collapse

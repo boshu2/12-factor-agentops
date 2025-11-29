@@ -42,7 +42,7 @@ Result: 60% context utilization → Context collapse
 
 ## Why This Factor Exists
 
-### Grounding in the Four Pillars
+### Grounding in the Five Pillars
 
 **Primary: Context Engineering**
 

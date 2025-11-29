@@ -42,7 +42,7 @@ Result: Same learning, zero knowledge transfer
 
 ## Why This Factor Exists
 
-### Grounding in the Four Pillars
+### Grounding in the Five Pillars
 
 **Primary: Knowledge OS**
 

@@ -43,7 +43,7 @@ Result: 4 hours wasted
 
 ## Why This Factor Exists
 
-### Grounding in the Four Pillars
+### Grounding in the Five Pillars
 
 **Primary: Learning Science**
 

@@ -87,7 +87,8 @@ assignees: ''
 
 **Framework Improvements:** [How should the framework evolve?]
 
-**Grounding in Four Pillars:** [Which pillars does this strengthen?]
+**Grounding in Five Pillars:** [Which pillars does this strengthen?]
+- [ ] Constraint-Based Engineering
 - [ ] DevOps + SRE
 - [ ] Learning Science
 - [ ] Context Engineering

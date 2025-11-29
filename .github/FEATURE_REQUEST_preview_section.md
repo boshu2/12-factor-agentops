@@ -10,7 +10,7 @@
 
 ## Context
 
-README currently jumps from problem statement to factor table (status: documenting/exploring). Readers don't see the Four Pillars or Five Laws until they click through to CLAUDE.md.
+README currently jumps from problem statement to factor table (status: documenting/exploring). Readers don't see the Five Pillars or Five Laws until they click through to CLAUDE.md.
 
 **Gap:** No immediate framework value while factors are being documented.
 
@@ -25,8 +25,9 @@ Add a "The Framework" section to README.md between "The Problem" and "What's Bei
 ```markdown
 ## The Framework
 
-### Four Pillars
+### Five Pillars
 [Brief 2-3 line summary of each pillar]
+- Constraint-Based Engineering
 - DevOps + SRE
 - Learning Science
 - Context Engineering
@@ -68,7 +69,7 @@ Add a "The Framework" section to README.md between "The Problem" and "What's Bei
 
 ## Success Criteria
 
-- [x] Four Pillars summarized (2-3 lines each)
+- [x] Five Pillars summarized (2-3 lines each)
 - [x] Five Laws listed with "Why" statements
 - [x] Section placed before factor table
 - [x] Links to CLAUDE.md for full details
@@ -108,7 +109,7 @@ When ready to implement:
 
 **What was added:**
 - "The Framework" section in README.md (lines 121-147)
-- Four Pillars with one-line summaries
+- Five Pillars with one-line summaries
 - Five Laws with "Why" statements
 - Link to CLAUDE.md for full details
 - Placed between "Help Test This" and "What's Being Documented"
