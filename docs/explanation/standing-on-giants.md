@@ -219,7 +219,7 @@ Together: Complete Playbook
 
 ---
 
-### 4. Context Engineering (Modern Research)
+### 5. Context Engineering (Modern Research)
 
 **Original focus:** Managing information flow in complex systems
 
@@ -428,7 +428,7 @@ Together: Complete Playbook
 
 **Learn more:**
 - [FAAFO North Star](faafo-north-star.md) - Why we built this (the driving belief)
-- [Four Pillars](../principles/five-pillars.md) - Deep dive into each pillar
+- [Five Pillars](../principles/five-pillars.md) - Deep dive into each pillar
 - [AI Summit Validation](ai-summit-validation-2025.md) - Industry validation of patterns
 
 **Apply it:**
@@ -467,4 +467,4 @@ Together: Complete Playbook
 ---
 
 **Last Updated:** 2025-11-25
-**Related:** [FAAFO North Star](faafo-north-star.md) | [AI Summit Validation](ai-summit-validation-2025.md) | [Four Pillars](../principles/five-pillars.md)
+**Related:** [FAAFO North Star](faafo-north-star.md) | [AI Summit Validation](ai-summit-validation-2025.md) | [Five Pillars](../principles/five-pillars.md)

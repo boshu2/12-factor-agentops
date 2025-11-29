@@ -5,7 +5,7 @@
 **Operational principles for reliable AI agents.**
 
 [![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
-[![Version](https://img.shields.io/badge/Version-v2.0.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
+[![Version](https://img.shields.io/badge/Version-v1.1.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
 [![GitHub Stars](https://img.shields.io/github/stars/boshu2/12-factor-agentops?style=social)](https://github.com/boshu2/12-factor-agentops)
 
 ![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape.svg)

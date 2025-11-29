@@ -1,4 +1,4 @@
-# 12-Factor AgentOps Workflow (v2.0)
+# 12-Factor AgentOps Workflow (v1.1)
 
 **How to apply the 12 factors in practice using the slash command workflow.**
 
@@ -6,7 +6,7 @@ This guide shows the operational workflow for reliable AI agent work: **Read pri
 
 ---
 
-## Version 2.0 Changes
+## v1.1 Workflow Updates
 
 **What changed:**
 - ✅ Removed `/prime` command - kernel files (CLAUDE.md, AGENTS.md) now act as primers

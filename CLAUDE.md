@@ -124,6 +124,6 @@ This repository follows the model of:
 
 ---
 
-**Version:** v1.0.0
+**Version:** v1.1.0
 **Released:** November 2025
-**Status:** Stable - core methodology with practical workflow guide and examples
+**Status:** Stable - Vibe Coding integration as complementary framework

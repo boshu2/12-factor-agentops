@@ -566,7 +566,7 @@ Production implementation examples demonstrate:
 
 ---
 
-## How the Four Pillars Interact
+## How the Five Pillars Interact
 
 ### Pillar Interdependencies
 
@@ -615,7 +615,7 @@ Remove any pillar, and the framework collapses.
 
 ## From Theory to Practice
 
-These Four Pillars provide the **philosophical foundation**. For operational implementation:
+These Five Pillars provide the **philosophical foundation**. For operational implementation:
 
 - Operational enforcement via CONSTITUTION-based patterns
 - Pillars applied to 52 production workflows
@@ -625,7 +625,7 @@ These Four Pillars provide the **philosophical foundation**. For operational imp
 
 ## Conclusion
 
-The Four Pillars of AgentOps aren't academic theory—they're battle-tested principles extracted from operating AI agents at production scale.
+The Five Pillars of AgentOps aren't academic theory—they're battle-tested principles extracted from operating AI agents at production scale.
 
 **DevOps + SRE** gives us operational discipline.
 **Learning Science** teaches us how to improve continuously.

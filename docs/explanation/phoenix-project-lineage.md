@@ -188,7 +188,7 @@
 **What stayed the same:**
 - All 12 Factors unchanged (same principles)
 - Production validation (2 years, 95% success, 1,175+ commits)
-- Four Pillars foundation (now Five with Vibe Coding explicit)
+- Five Pillars foundation
 - Independent discovery narrative (not derivative)
 
 **The synthesis:**
@@ -266,14 +266,14 @@
 
 ## The Story for Engineers
 
-> **"Phoenix Project shaped my 10-year DevOps career. When AI tools hit 35% success rates, I applied DevOps principles to fix it. 95% success rate, 2 years later. Then Gene Kim's Vibe Coding research validated my patterns—turns out I'm doing what elite orgs do. This is v2.0: DevOps + Vibe Coding, production-proven, industry-confirmed."**
+> **"Phoenix Project shaped my 10-year DevOps career. When AI tools hit 35% success rates, I applied DevOps principles to fix it. 95% success rate, 2 years later. Then Gene Kim's Vibe Coding research validated my patterns—turns out I'm doing what elite orgs do. This is v1.1: DevOps + Vibe Coding as complementary framework, production-proven, industry-confirmed."**
 
 **Short version:**
 - Phoenix Project (2013) → DevOps foundation
 - AI frustration (2023) → Applied DevOps to AI
 - Independent discovery (2023-2024) → 95% success rate
 - Industry convergence (2025) → Gene Kim validates patterns
-- v2.0 (2025) → Explicit integration
+- v1.1 (2025) → Vibe Coding integration
 
 **The through-line:** Gene Kim's work guided me, my work validates his research, we complete each other
 
@@ -348,7 +348,7 @@
 
 ## Gene Kim Attribution
 
-**Throughout v2.0 documentation:**
+**Throughout v1.1 documentation:**
 
 **Vibe Coding concept:**
 - Credit: Gene Kim & Steve Yegge
@@ -379,7 +379,7 @@
 
 ## The Next Chapter
 
-### Gene Kim Outreach (After v2.0 Publication)
+### Gene Kim Outreach (After v1.1 Publication)
 
 **Planned email:**
 
@@ -439,7 +439,7 @@
 **2023-2024:** Independent discovery → 95% success rate, 1,175+ commits
 **Oct 2024:** Codification → 12-Factor AgentOps v1.0
 **Nov 2025:** Industry convergence → Gene Kim's Vibe Coding validates patterns
-**2025:** v2.0 → Explicit integration, complete playbook
+**2025:** v1.1 → Vibe Coding as complementary framework
 
 **The circle:**
 - Gene Kim's work → Guided my foundation
@@ -453,4 +453,4 @@
 
 ---
 
-**This is v2.0. The operational discipline for Vibe Coding at scale.**
+**This is v1.1. The operational discipline for Vibe Coding at scale.**
