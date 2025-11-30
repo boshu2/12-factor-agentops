@@ -8,7 +8,7 @@
 [![Version](https://img.shields.io/badge/Version-v1.1.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
 [![GitHub Stars](https://img.shields.io/github/stars/boshu2/12-factor-agentops?style=social)](https://github.com/boshu2/12-factor-agentops)
 
-![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape.svg)
+![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape-animated.svg)
 
 </div>
 
@@ -76,7 +76,7 @@ The summary compresses the full corpus into ~10k tokens with zero essential loss
 
 <div align="center">
 
-![How the Factors Work Together](./docs/assets/workflow-flow.svg)
+![How the Factors Work Together](./docs/assets/workflow-flow-animated.svg)
 
 </div>
 

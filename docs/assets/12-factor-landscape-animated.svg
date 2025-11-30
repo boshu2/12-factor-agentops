@@ -1,0 +1,611 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap');
+
+      text {
+        font-family: 'Space Mono', 'Courier New', Courier, monospace;
+      }
+
+      /* ============================================
+         ANIMATION KEYFRAMES
+         ============================================ */
+
+      /* Fade in with slide up */
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(25px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Scale in from center */
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.85);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Arrow line drawing */
+      @keyframes drawArrow {
+        from {
+          stroke-dashoffset: 100;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /* Feedback loop drawing (longer path) */
+      @keyframes drawFeedback {
+        from {
+          stroke-dashoffset: 1200;
+          opacity: 0;
+        }
+        5% {
+          opacity: 1;
+        }
+        to {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+      }
+
+      /* Flowing dashes (continuous) */
+      @keyframes dashFlow {
+        to {
+          stroke-dashoffset: -21;
+        }
+      }
+
+      /* Pulsing glow effect */
+      @keyframes pulseGlow {
+        0%, 100% {
+          filter: drop-shadow(0 0 4px rgba(217, 121, 72, 0.5));
+        }
+        50% {
+          filter: drop-shadow(0 0 14px rgba(217, 121, 72, 0.9));
+        }
+      }
+
+      /* Subtle float */
+      @keyframes subtleFloat {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-3px);
+        }
+      }
+
+      /* ============================================
+         BASE STATES (hidden before animation)
+         ============================================ */
+
+      .animated {
+        opacity: 0;
+      }
+
+      .arrow-path {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+      }
+
+      .feedback-path {
+        stroke-dasharray: 12, 9;
+        stroke-dashoffset: 1200;
+        opacity: 0;
+      }
+
+      /* ============================================
+         CHOREOGRAPHY - Title & Subtitle
+         ============================================ */
+
+      .title {
+        opacity: 0;
+        animation: fadeSlideUp 0.8s ease-out forwards 0s;
+      }
+
+      .subtitle {
+        opacity: 0;
+        animation: fadeSlideUp 0.6s ease-out forwards 0.2s;
+      }
+
+      /* ============================================
+         CHOREOGRAPHY - Foundation Layer
+         ============================================ */
+
+      .foundation-header {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 0.5s;
+      }
+
+      .factor-1 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 0.7s;
+      }
+
+      .factor-2 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 0.9s;
+      }
+
+      .factor-3 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 1.1s;
+      }
+
+      .factor-4 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 1.3s;
+      }
+
+      .arrow-1 {
+        animation: drawArrow 0.5s ease-out forwards 1.6s;
+      }
+
+      /* ============================================
+         CHOREOGRAPHY - Operations Layer
+         ============================================ */
+
+      .operations-header {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 2.0s;
+      }
+
+      .factor-5 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 2.2s;
+      }
+
+      .factor-6 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 2.4s;
+      }
+
+      .factor-7 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 2.6s;
+      }
+
+      .factor-8 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 2.8s;
+      }
+
+      .arrow-2 {
+        animation: drawArrow 0.5s ease-out forwards 3.2s;
+      }
+
+      /* ============================================
+         CHOREOGRAPHY - Improvement Layer
+         ============================================ */
+
+      .improvement-header {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 3.6s;
+      }
+
+      .factor-9 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 3.8s;
+      }
+
+      .factor-10 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 4.0s;
+      }
+
+      .factor-11 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 4.2s;
+      }
+
+      .factor-12 {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 4.4s;
+      }
+
+      /* ============================================
+         CHOREOGRAPHY - HERO: Feedback Loop
+         ============================================ */
+
+      .feedback-path {
+        animation:
+          drawFeedback 2s ease-out forwards 5.0s,
+          dashFlow 0.6s linear infinite 7.5s;
+      }
+
+      .feedback-label {
+        opacity: 0;
+        animation:
+          fadeSlideUp 0.5s ease-out forwards 7.0s,
+          pulseGlow 2.5s ease-in-out infinite 7.5s;
+      }
+
+      /* ============================================
+         CHOREOGRAPHY - Footer
+         ============================================ */
+
+      .footer {
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease-out forwards 7.5s;
+      }
+
+      /* ============================================
+         CONTINUOUS ANIMATIONS (after initial)
+         ============================================ */
+
+      .title-float {
+        animation: subtleFloat 6s ease-in-out infinite 8s;
+      }
+    </style>
+
+    <!-- Gradients for depth -->
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF8F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5F2ED;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="foundation-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F4FD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4EBFA;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="operations-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F7EC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4F0DB;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="improvement-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF4ED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFEADB;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Shadow filters -->
+    <filter id="card-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subtle-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.1"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrow definitions -->
+    <marker id="arrowhead" markerWidth="15" markerHeight="15" refX="13.5" refY="4.5" orient="auto">
+      <polygon points="0 0, 15 4.5, 0 9" fill="#A0978B"/>
+    </marker>
+    <marker id="arrowhead-dashed" markerWidth="15" markerHeight="15" refX="13.5" refY="4.5" orient="auto">
+      <polygon points="0 0, 15 4.5, 0 9" fill="#D97948"/>
+    </marker>
+  </defs>
+
+  <!-- Background (always visible) -->
+  <rect width="2400" height="1350" fill="url(#bg-gradient)"/>
+
+  <!-- Decorative elements (always visible) -->
+  <circle cx="120" cy="120" r="60" fill="#1A7FCC" opacity="0.03"/>
+  <circle cx="2280" cy="120" r="80" fill="#15B871" opacity="0.03"/>
+  <circle cx="120" cy="1230" r="70" fill="#D97948" opacity="0.03"/>
+  <circle cx="2280" cy="1230" r="90" fill="#1A7FCC" opacity="0.03"/>
+
+  <!-- Title (animated) -->
+  <g class="title title-float">
+    <text x="1200" y="68" text-anchor="middle" font-size="54" font-weight="700" fill="#1A1A1A" letter-spacing="-0.5">
+      12-Factor AgentOps
+    </text>
+  </g>
+  <text class="subtitle" x="1200" y="113" text-anchor="middle" font-size="26" fill="#7A6F5D" font-weight="500">
+    Operational principles for reliable AI agents at scale
+  </text>
+
+  <!-- Foundation Layer -->
+  <g id="foundation">
+    <g class="foundation-header">
+      <text x="1200" y="188" text-anchor="middle" font-size="33" font-weight="700" fill="#1A7FCC">
+        Foundation (I-IV)
+      </text>
+      <text x="1200" y="225" text-anchor="middle" font-size="23" fill="#7A6F5D" font-weight="500">
+        Build reliability from the ground up
+      </text>
+    </g>
+
+    <!-- Factor I -->
+    <g class="factor-1" filter="url(#card-shadow)">
+      <rect x="75" y="248" width="540" height="180" rx="15" fill="url(#foundation-gradient)" stroke="#1A7FCC" stroke-width="4.5"/>
+      <circle cx="345" cy="285" r="8" fill="#1A7FCC"/>
+      <text x="345" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#1A7FCC">
+        I. Automated Tracking
+      </text>
+      <text x="345" y="356" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Track everything automatically
+      </text>
+      <text x="345" y="384" text-anchor="middle" font-size="15" fill="#5A5449">
+        Builds institutional knowledge
+      </text>
+      <text x="345" y="410" text-anchor="middle" font-size="15" fill="#5A5449">
+        through version control
+      </text>
+    </g>
+
+    <!-- Factor II -->
+    <g class="factor-2" filter="url(#card-shadow)">
+      <rect x="660" y="248" width="540" height="180" rx="15" fill="url(#foundation-gradient)" stroke="#1A7FCC" stroke-width="4.5"/>
+      <circle cx="930" cy="285" r="8" fill="#1A7FCC"/>
+      <text x="930" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#1A7FCC">
+        II. Context Loading
+      </text>
+      <text x="930" y="356" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Load only what you need
+      </text>
+      <text x="930" y="384" text-anchor="middle" font-size="15" fill="#5A5449">
+        Delegate to sub-agents
+      </text>
+      <text x="930" y="410" text-anchor="middle" font-size="15" fill="#5A5449">
+        as much as possible
+      </text>
+    </g>
+
+    <!-- Factor III -->
+    <g class="factor-3" filter="url(#card-shadow)">
+      <rect x="1245" y="248" width="540" height="180" rx="15" fill="url(#foundation-gradient)" stroke="#1A7FCC" stroke-width="4.5"/>
+      <circle cx="1515" cy="285" r="8" fill="#1A7FCC"/>
+      <text x="1515" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#1A7FCC">
+        III. Focused Agents
+      </text>
+      <text x="1515" y="356" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Each agent does one job well
+      </text>
+      <text x="1515" y="384" text-anchor="middle" font-size="15" fill="#5A5449">
+        Compose workflows from
+      </text>
+      <text x="1515" y="410" text-anchor="middle" font-size="15" fill="#5A5449">
+        specialists
+      </text>
+    </g>
+
+    <!-- Factor IV -->
+    <g class="factor-4" filter="url(#card-shadow)">
+      <rect x="1830" y="248" width="540" height="180" rx="15" fill="url(#foundation-gradient)" stroke="#1A7FCC" stroke-width="4.5"/>
+      <circle cx="2100" cy="285" r="8" fill="#1A7FCC"/>
+      <text x="2100" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#1A7FCC">
+        IV. Continuous Validation
+      </text>
+      <text x="2100" y="356" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Check at every step
+      </text>
+      <text x="2100" y="384" text-anchor="middle" font-size="15" fill="#5A5449">
+        Catch errors before
+      </text>
+      <text x="2100" y="410" text-anchor="middle" font-size="15" fill="#5A5449">
+        they propagate
+      </text>
+    </g>
+  </g>
+
+  <!-- Arrow down (animated draw) -->
+  <path class="arrow-path arrow-1" d="M 1200 443 L 1200 510" stroke="#A0978B" stroke-width="6" fill="none" marker-end="url(#arrowhead)" filter="url(#subtle-shadow)"/>
+
+  <!-- Operations Layer -->
+  <g id="operations">
+    <g class="operations-header">
+      <text x="1200" y="563" text-anchor="middle" font-size="33" font-weight="700" fill="#15B871">
+        Operations (V-VIII)
+      </text>
+      <text x="1200" y="600" text-anchor="middle" font-size="23" fill="#7A6F5D" font-weight="500">
+        Scale and maintain reliability in production
+      </text>
+    </g>
+
+    <!-- Factor V -->
+    <g class="factor-5" filter="url(#card-shadow)">
+      <rect x="75" y="623" width="540" height="180" rx="15" fill="url(#operations-gradient)" stroke="#15B871" stroke-width="4.5"/>
+      <circle cx="345" cy="660" r="8" fill="#15B871"/>
+      <text x="345" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#15B871">
+        V. Measure Everything
+      </text>
+      <text x="345" y="731" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Track metrics and logs
+      </text>
+      <text x="345" y="759" text-anchor="middle" font-size="15" fill="#5A5449">
+        Observable performance
+      </text>
+      <text x="345" y="785" text-anchor="middle" font-size="15" fill="#5A5449">
+        and agent decisions
+      </text>
+    </g>
+
+    <!-- Factor VI -->
+    <g class="factor-6" filter="url(#card-shadow)">
+      <rect x="660" y="623" width="540" height="180" rx="15" fill="url(#operations-gradient)" stroke="#15B871" stroke-width="4.5"/>
+      <circle cx="930" cy="660" r="8" fill="#15B871"/>
+      <text x="930" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#15B871">
+        VI. Resume Work
+      </text>
+      <text x="930" y="731" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Continue multi-day sessions
+      </text>
+      <text x="930" y="759" text-anchor="middle" font-size="15" fill="#5A5449">
+        Save context to pick up
+      </text>
+      <text x="930" y="785" text-anchor="middle" font-size="15" fill="#5A5449">
+        where you left off
+      </text>
+    </g>
+
+    <!-- Factor VII -->
+    <g class="factor-7" filter="url(#card-shadow)">
+      <rect x="1245" y="623" width="540" height="180" rx="15" fill="url(#operations-gradient)" stroke="#15B871" stroke-width="4.5"/>
+      <circle cx="1515" cy="660" r="8" fill="#15B871"/>
+      <text x="1515" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#15B871">
+        VII. Smart Routing
+      </text>
+      <text x="1515" y="731" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Send tasks to specialists
+      </text>
+      <text x="1515" y="759" text-anchor="middle" font-size="15" fill="#5A5449">
+        Route work to the agent
+      </text>
+      <text x="1515" y="785" text-anchor="middle" font-size="15" fill="#5A5449">
+        best suited for it
+      </text>
+    </g>
+
+    <!-- Factor VIII -->
+    <g class="factor-8" filter="url(#card-shadow)">
+      <rect x="1830" y="623" width="540" height="180" rx="15" fill="url(#operations-gradient)" stroke="#15B871" stroke-width="4.5"/>
+      <circle cx="2100" cy="660" r="8" fill="#15B871"/>
+      <text x="2100" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#15B871">
+        VIII. Human Validation
+      </text>
+      <text x="2100" y="731" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Humans approve critical steps
+      </text>
+      <text x="2100" y="759" text-anchor="middle" font-size="15" fill="#5A5449">
+        Ultimate validator for
+      </text>
+      <text x="2100" y="785" text-anchor="middle" font-size="15" fill="#5A5449">
+        risky operations
+      </text>
+    </g>
+  </g>
+
+  <!-- Arrow down (animated draw) -->
+  <path class="arrow-path arrow-2" d="M 1200 818 L 1200 885" stroke="#A0978B" stroke-width="6" fill="none" marker-end="url(#arrowhead)" filter="url(#subtle-shadow)"/>
+
+  <!-- Improvement Layer -->
+  <g id="improvement">
+    <g class="improvement-header">
+      <text x="1200" y="938" text-anchor="middle" font-size="33" font-weight="700" fill="#D97948">
+        Improvement (IX-XII)
+      </text>
+      <text x="1200" y="975" text-anchor="middle" font-size="23" fill="#7A6F5D" font-weight="500">
+        Continuous learning and adaptation
+      </text>
+    </g>
+
+    <!-- Factor IX -->
+    <g class="factor-9" filter="url(#card-shadow)">
+      <rect x="75" y="998" width="540" height="180" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4.5"/>
+      <circle cx="345" cy="1035" r="8" fill="#D97948"/>
+      <text x="345" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
+        IX. Mine Patterns
+      </text>
+      <text x="345" y="1106" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Search history for patterns
+      </text>
+      <text x="345" y="1134" text-anchor="middle" font-size="15" fill="#5A5449">
+        Query git, logs, and metrics
+      </text>
+      <text x="345" y="1160" text-anchor="middle" font-size="15" fill="#5A5449">
+        to find trends
+      </text>
+    </g>
+
+    <!-- Factor X -->
+    <g class="factor-10" filter="url(#card-shadow)">
+      <rect x="660" y="998" width="540" height="180" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4.5"/>
+      <circle cx="930" cy="1035" r="8" fill="#D97948"/>
+      <text x="930" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
+        X. Small Iterations
+      </text>
+      <text x="930" y="1106" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Make small improvements
+      </text>
+      <text x="930" y="1134" text-anchor="middle" font-size="15" fill="#5A5449">
+        Tweak workflows and agents
+      </text>
+      <text x="930" y="1160" text-anchor="middle" font-size="15" fill="#5A5449">
+        based on patterns
+      </text>
+    </g>
+
+    <!-- Factor XI -->
+    <g class="factor-11" filter="url(#card-shadow)">
+      <rect x="1245" y="998" width="540" height="180" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4.5"/>
+      <circle cx="1515" cy="1035" r="8" fill="#D97948"/>
+      <text x="1515" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
+        XI. Fail-Safe Checks
+      </text>
+      <text x="1515" y="1106" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Prevent repeating mistakes
+      </text>
+      <text x="1515" y="1134" text-anchor="middle" font-size="15" fill="#5A5449">
+        Add hooks and validations
+      </text>
+      <text x="1515" y="1160" text-anchor="middle" font-size="15" fill="#5A5449">
+        to stop bad patterns
+      </text>
+    </g>
+
+    <!-- Factor XII -->
+    <g class="factor-12" filter="url(#card-shadow)">
+      <rect x="1830" y="998" width="540" height="180" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4.5"/>
+      <circle cx="2100" cy="1035" r="8" fill="#D97948"/>
+      <text x="2100" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
+        XII. Package Patterns
+      </text>
+      <text x="2100" y="1106" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
+        Bundle what works for reuse
+      </text>
+      <text x="2100" y="1134" text-anchor="middle" font-size="15" fill="#5A5449">
+        Capture successful workflows
+      </text>
+      <text x="2100" y="1160" text-anchor="middle" font-size="15" fill="#5A5449">
+        as reusable templates
+      </text>
+    </g>
+  </g>
+
+  <!-- HERO: Feedback loop arrow (animated draw + flowing dashes) -->
+  <path class="feedback-path" d="M 2310 1088 Q 2395 1088 2395 713 Q 2395 473 2310 338" stroke="#D97948" stroke-width="5.5" fill="none" marker-end="url(#arrowhead-dashed)" filter="url(#subtle-shadow)"/>
+
+  <!-- Feedback label box (animated + pulsing) -->
+  <g class="feedback-label">
+    <rect x="2275" y="655" width="115" height="105" rx="12" fill="#FFF4ED" stroke="#D97948" stroke-width="3" filter="url(#subtle-shadow)"/>
+    <text x="2333" y="688" font-size="18" font-weight="700" fill="#D97948" text-anchor="middle">
+      Continuous
+    </text>
+    <text x="2333" y="715" font-size="18" font-weight="700" fill="#D97948" text-anchor="middle">
+      Feedback
+    </text>
+    <text x="2333" y="745" font-size="14" fill="#7A6F5D" text-anchor="middle">
+      Learning loop
+    </text>
+  </g>
+
+  <!-- Footer (animated) -->
+  <g class="footer">
+    <text x="1200" y="1268" text-anchor="middle" font-size="20" fill="#5A5449" font-weight="600">
+      The factors build on each other: Foundation - Operations - Improvement
+    </text>
+    <text x="1200" y="1313" text-anchor="middle" font-size="15" fill="#A0978B" font-weight="500">
+      Version v1.1.0 | License: CC BY-SA 4.0 | https://github.com/boshu2/12-factor-agentops
+    </text>
+  </g>
+</svg>
