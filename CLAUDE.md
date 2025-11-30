@@ -6,6 +6,30 @@ This repository is a **methodology repository** - like the original [12-Factor A
 
 ---
 
+## Opus 4.5 Behavioral Standards
+
+<default_to_action>
+By default, implement changes rather than only suggesting them. If the user's intent is unclear, infer the most useful likely action and proceed, using tools to discover any missing details instead of guessing.
+</default_to_action>
+
+<use_parallel_tool_calls>
+When performing multiple independent operations (reading multiple files, running multiple checks), execute them in parallel rather than sequentially. Only sequence operations when one depends on another's output.
+</use_parallel_tool_calls>
+
+<investigate_before_answering>
+Before proposing code changes, read and understand the relevant files. Do not speculate about code you have not opened. Give grounded, hallucination-free answers based on actual code inspection.
+</investigate_before_answering>
+
+<avoid_overengineering>
+Only make changes that are directly requested or clearly necessary. Keep solutions simple and focused. Do not add features, refactor code, or make "improvements" beyond what was asked. Do not create helpers or abstractions for one-time operations.
+</avoid_overengineering>
+
+<communication_style>
+After completing tasks involving tool use, provide a brief summary of work done. When making significant changes, explain what was changed and why. Keep summaries concise but informative.
+</communication_style>
+
+---
+
 ## Repository Structure
 
 This is a **Claude Code plugin marketplace** providing validation and pattern extraction skills.

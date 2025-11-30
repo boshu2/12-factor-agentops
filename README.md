@@ -8,7 +8,7 @@
 [![Version](https://img.shields.io/badge/Version-v1.1.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
 [![GitHub Stars](https://img.shields.io/github/stars/boshu2/12-factor-agentops?style=social)](https://github.com/boshu2/12-factor-agentops)
 
-![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape-animated.svg)
+![12-Factor AgentOps Landscape](./docs/assets/12-factor-animated.svg)
 
 </div>
 
