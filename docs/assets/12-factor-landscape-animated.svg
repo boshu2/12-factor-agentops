@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap');
+      /* Google Fonts loaded via fallback - Space Mono */
 
       text {
         font-family: 'Space Mono', 'Courier New', Courier, monospace;
