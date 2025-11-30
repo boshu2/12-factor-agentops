@@ -1,51 +1,93 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350">
   <defs>
-    <style>
-      text { font-family: 'Space Mono', 'Courier New', Courier, monospace; }
-    </style>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#FAF8F5"/>
-      <stop offset="100%" style="stop-color:#F5F2ED"/>
+    <!-- Premium dark gradient background -->
+    <linearGradient id="darkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F0F23"/>
+      <stop offset="50%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
     </linearGradient>
+
+    <!-- Aurora accent gradient -->
+    <linearGradient id="aurora" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A78BFA"/>
+      <stop offset="50%" style="stop-color:#818CF8"/>
+      <stop offset="100%" style="stop-color:#60A5FA"/>
+    </linearGradient>
+
+    <!-- Orange accent -->
+    <linearGradient id="orangeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FB923C"/>
+      <stop offset="100%" style="stop-color:#F97316"/>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Soft shadow -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="24" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+
+    <!-- Glass effect -->
+    <filter id="glass">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+    </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <rect width="1080" height="1350" fill="url(#darkBg)"/>
 
-  <!-- Decorative circles -->
-  <circle cx="900" cy="200" r="180" fill="#D97948" opacity="0.08"/>
-  <circle cx="180" cy="1150" r="120" fill="#1A7FCC" opacity="0.06"/>
+  <!-- Ambient glow orbs -->
+  <ellipse cx="200" cy="300" rx="300" ry="200" fill="#A78BFA" opacity="0.08" filter="url(#glow)"/>
+  <ellipse cx="900" cy="1000" rx="250" ry="300" fill="#60A5FA" opacity="0.06" filter="url(#glow)"/>
+  <ellipse cx="600" cy="600" rx="200" ry="200" fill="#FB923C" opacity="0.04" filter="url(#glow)"/>
 
-  <!-- Main content -->
-  <g transform="translate(540, 500)">
-    <!-- Question mark icon -->
-    <circle cx="0" cy="-120" r="80" fill="none" stroke="#D97948" stroke-width="8"/>
-    <text x="0" y="-95" text-anchor="middle" font-size="80" font-weight="700" fill="#D97948">?</text>
+  <!-- Glassmorphic card -->
+  <g filter="url(#softShadow)">
+    <rect x="90" y="400" width="900" height="550" rx="32"
+          fill="rgba(255,255,255,0.03)"
+          stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  </g>
 
-    <!-- Headline -->
-    <text x="0" y="40" text-anchor="middle" font-size="56" font-weight="700" fill="#1A1A1A">
-      Why Your
-    </text>
-    <text x="0" y="110" text-anchor="middle" font-size="56" font-weight="700" fill="#1A1A1A">
-      AI Agents
-    </text>
-    <text x="0" y="180" text-anchor="middle" font-size="56" font-weight="700" fill="#D97948">
-      Keep Breaking
-    </text>
+  <!-- Icon - glowing question mark -->
+  <g transform="translate(540, 520)">
+    <circle cx="0" cy="0" r="70" fill="none" stroke="url(#orangeGlow)" stroke-width="4" opacity="0.6"/>
+    <circle cx="0" cy="0" r="55" fill="rgba(251,146,60,0.1)"/>
+    <text x="0" y="20" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+          font-size="72" font-weight="700" fill="url(#orangeGlow)">?</text>
+  </g>
 
-    <!-- Subtext -->
-    <text x="0" y="300" text-anchor="middle" font-size="28" fill="#7A6F5D">
-      It's not the framework.
-    </text>
-    <text x="0" y="345" text-anchor="middle" font-size="28" fill="#7A6F5D">
-      It's the operations.
+  <!-- Main headline -->
+  <text x="540" y="680" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+        font-size="52" font-weight="800" fill="#FAFAFA" letter-spacing="-0.02em">
+    Why Your AI Agents
+  </text>
+  <text x="540" y="755" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+        font-size="52" font-weight="800" fill="url(#orangeGlow)" letter-spacing="-0.02em">
+    Keep Breaking
+  </text>
+
+  <!-- Subtext with glass pill -->
+  <g transform="translate(540, 870)">
+    <rect x="-280" y="-30" width="560" height="60" rx="30"
+          fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="0" y="8" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+          font-size="22" font-weight="500" fill="#94A3B8">
+      It's not the framework. It's the operations.
     </text>
   </g>
 
   <!-- Swipe indicator -->
-  <g transform="translate(540, 1250)">
-    <text x="0" y="0" text-anchor="middle" font-size="18" fill="#A0978B">
-      Swipe for the answer →
+  <g transform="translate(540, 1280)">
+    <text x="0" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+          font-size="16" font-weight="500" fill="#64748B" letter-spacing="0.05em">
+      SWIPE FOR THE ANSWER →
     </text>
   </g>
 </svg>

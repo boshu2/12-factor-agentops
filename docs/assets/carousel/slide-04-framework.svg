@@ -1,90 +1,137 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350">
   <defs>
-    <style>
-      text { font-family: 'Space Mono', 'Courier New', Courier, monospace; }
-    </style>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#FAF8F5"/>
-      <stop offset="100%" style="stop-color:#F5F2ED"/>
+    <linearGradient id="darkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F0F23"/>
+      <stop offset="50%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
     </linearGradient>
+
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6"/>
+      <stop offset="100%" style="stop-color:#60A5FA"/>
+    </linearGradient>
+
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22C55E"/>
+      <stop offset="100%" style="stop-color:#4ADE80"/>
+    </linearGradient>
+
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FB923C"/>
+      <stop offset="100%" style="stop-color:#F97316"/>
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <rect width="1080" height="1350" fill="url(#darkBg)"/>
 
-  <!-- Decorative elements -->
-  <circle cx="150" cy="200" r="80" fill="#1A7FCC" opacity="0.08"/>
-  <circle cx="930" cy="200" r="60" fill="#15B871" opacity="0.08"/>
-  <circle cx="540" cy="1200" r="100" fill="#D97948" opacity="0.06"/>
+  <!-- Ambient glows -->
+  <ellipse cx="200" cy="400" rx="200" ry="200" fill="#3B82F6" opacity="0.05" filter="url(#glow)"/>
+  <ellipse cx="540" cy="700" rx="150" ry="150" fill="#22C55E" opacity="0.04" filter="url(#glow)"/>
+  <ellipse cx="880" cy="1000" rx="180" ry="180" fill="#FB923C" opacity="0.05" filter="url(#glow)"/>
 
-  <!-- Main content -->
-  <g transform="translate(540, 250)">
-    <!-- Headline -->
-    <text x="0" y="0" text-anchor="middle" font-size="52" font-weight="700" fill="#1A1A1A">
-      12-Factor
-    </text>
-    <text x="0" y="70" text-anchor="middle" font-size="52" font-weight="700" fill="#D97948">
-      AgentOps
-    </text>
+  <!-- Header -->
+  <text x="540" y="160" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+        font-size="18" font-weight="600" fill="#64748B" letter-spacing="0.15em">
+    THE SOLUTION
+  </text>
+  <text x="540" y="250" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+        font-size="56" font-weight="800" fill="#FAFAFA" letter-spacing="-0.02em">
+    12-Factor
+  </text>
+  <text x="540" y="320" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+        font-size="56" font-weight="800" fill="url(#orangeGrad)" letter-spacing="-0.02em">
+    AgentOps
+  </text>
 
-    <text x="0" y="140" text-anchor="middle" font-size="26" fill="#7A6F5D">
-      SRE principles for AI systems
-    </text>
-  </g>
+  <text x="540" y="390" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+        font-size="22" font-weight="500" fill="#94A3B8">
+    SRE principles for AI systems
+  </text>
 
-  <!-- Three pillars preview -->
-  <g transform="translate(540, 550)">
+  <!-- Three pillars -->
+  <g transform="translate(540, 700)">
     <!-- Foundation -->
-    <g transform="translate(-320, 0)">
-      <rect x="-120" y="0" width="240" height="280" rx="16" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="4"/>
-      <text x="0" y="50" text-anchor="middle" font-size="26" font-weight="700" fill="#1A7FCC">Foundation</text>
-      <text x="0" y="90" text-anchor="middle" font-size="20" fill="#1A7FCC">I - IV</text>
-      <line x1="-80" y1="115" x2="80" y2="115" stroke="#1A7FCC" stroke-width="2" opacity="0.3"/>
-      <text x="0" y="155" text-anchor="middle" font-size="16" fill="#5A5449">Track</text>
-      <text x="0" y="185" text-anchor="middle" font-size="16" fill="#5A5449">Load Context</text>
-      <text x="0" y="215" text-anchor="middle" font-size="16" fill="#5A5449">Focus Agents</text>
-      <text x="0" y="245" text-anchor="middle" font-size="16" fill="#5A5449">Validate</text>
+    <g transform="translate(-300, 0)">
+      <rect x="-120" y="-150" width="240" height="300" rx="20"
+            fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.3)" stroke-width="2"/>
+      <rect x="-100" y="-130" width="200" height="50" rx="25" fill="url(#blueGrad)"/>
+      <text x="0" y="-97" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="18" font-weight="700" fill="#FFFFFF">Foundation</text>
+      <text x="0" y="-50" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="600" fill="#3B82F6">I - IV</text>
+      <text x="0" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Track</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Load Context</text>
+      <text x="0" y="60" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Focus Agents</text>
+      <text x="0" y="90" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Validate</text>
     </g>
 
     <!-- Operations -->
     <g transform="translate(0, 0)">
-      <rect x="-120" y="0" width="240" height="280" rx="16" fill="#E8F7EC" stroke="#15B871" stroke-width="4"/>
-      <text x="0" y="50" text-anchor="middle" font-size="26" font-weight="700" fill="#15B871">Operations</text>
-      <text x="0" y="90" text-anchor="middle" font-size="20" fill="#15B871">V - VIII</text>
-      <line x1="-80" y1="115" x2="80" y2="115" stroke="#15B871" stroke-width="2" opacity="0.3"/>
-      <text x="0" y="155" text-anchor="middle" font-size="16" fill="#5A5449">Measure</text>
-      <text x="0" y="185" text-anchor="middle" font-size="16" fill="#5A5449">Resume Work</text>
-      <text x="0" y="215" text-anchor="middle" font-size="16" fill="#5A5449">Smart Routing</text>
-      <text x="0" y="245" text-anchor="middle" font-size="16" fill="#5A5449">Human Loop</text>
+      <rect x="-120" y="-150" width="240" height="300" rx="20"
+            fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="2"/>
+      <rect x="-100" y="-130" width="200" height="50" rx="25" fill="url(#greenGrad)"/>
+      <text x="0" y="-97" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="18" font-weight="700" fill="#FFFFFF">Operations</text>
+      <text x="0" y="-50" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="600" fill="#22C55E">V - VIII</text>
+      <text x="0" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Measure</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Resume Work</text>
+      <text x="0" y="60" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Smart Routing</text>
+      <text x="0" y="90" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Human Loop</text>
     </g>
 
     <!-- Improvement -->
-    <g transform="translate(320, 0)">
-      <rect x="-120" y="0" width="240" height="280" rx="16" fill="#FFF4ED" stroke="#D97948" stroke-width="4"/>
-      <text x="0" y="50" text-anchor="middle" font-size="26" font-weight="700" fill="#D97948">Improvement</text>
-      <text x="0" y="90" text-anchor="middle" font-size="20" fill="#D97948">IX - XII</text>
-      <line x1="-80" y1="115" x2="80" y2="115" stroke="#D97948" stroke-width="2" opacity="0.3"/>
-      <text x="0" y="155" text-anchor="middle" font-size="16" fill="#5A5449">Mine Patterns</text>
-      <text x="0" y="185" text-anchor="middle" font-size="16" fill="#5A5449">Small Steps</text>
-      <text x="0" y="215" text-anchor="middle" font-size="16" fill="#5A5449">Fail-Safe</text>
-      <text x="0" y="245" text-anchor="middle" font-size="16" fill="#5A5449">Package</text>
+    <g transform="translate(300, 0)">
+      <rect x="-120" y="-150" width="240" height="300" rx="20"
+            fill="rgba(251,146,60,0.08)" stroke="rgba(251,146,60,0.3)" stroke-width="2"/>
+      <rect x="-100" y="-130" width="200" height="50" rx="25" fill="url(#orangeGrad)"/>
+      <text x="0" y="-97" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="18" font-weight="700" fill="#FFFFFF">Improvement</text>
+      <text x="0" y="-50" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="600" fill="#FB923C">IX - XII</text>
+      <text x="0" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Mine Patterns</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Small Steps</text>
+      <text x="0" y="60" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Fail-Safe</text>
+      <text x="0" y="90" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Package</text>
     </g>
 
     <!-- Connecting arrows -->
-    <path d="M -200 320 Q -100 380 0 320" stroke="#A0978B" stroke-width="3" fill="none" stroke-dasharray="8,4"/>
-    <path d="M 0 320 Q 100 380 200 320" stroke="#A0978B" stroke-width="3" fill="none" stroke-dasharray="8,4"/>
+    <path d="M -160 180 Q 0 230 160 180" stroke="#475569" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.5"/>
   </g>
 
-  <!-- Tagline -->
-  <g transform="translate(540, 1050)">
-    <text x="0" y="0" text-anchor="middle" font-size="28" fill="#2D2A24">
+  <!-- Bottom tagline -->
+  <g transform="translate(540, 1100)">
+    <text x="0" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+          font-size="20" fill="#94A3B8">
       20 years of DevOps/SRE wisdom
     </text>
-    <text x="0" y="45" text-anchor="middle" font-size="28" font-weight="600" fill="#1A7FCC">
+    <text x="0" y="35" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+          font-size="20" font-weight="600" fill="#60A5FA">
       applied to probabilistic systems
     </text>
   </g>
 
   <!-- Slide number -->
-  <text x="540" y="1300" text-anchor="middle" font-size="18" fill="#A0978B">4 / 12</text>
+  <text x="540" y="1300" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+        font-size="14" font-weight="500" fill="#475569">4 / 12</text>
 </svg>
