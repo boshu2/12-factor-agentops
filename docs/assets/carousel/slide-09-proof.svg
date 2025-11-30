@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350">
+  <defs>
+    <style>
+      text { font-family: 'Space Mono', 'Courier New', Courier, monospace; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF8F5"/>
+      <stop offset="100%" style="stop-color:#F5F2ED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+
+  <!-- Header -->
+  <g transform="translate(540, 150)">
+    <text x="0" y="0" text-anchor="middle" font-size="44" font-weight="700" fill="#15B871">
+      Production Validated
+    </text>
+    <text x="0" y="55" text-anchor="middle" font-size="24" fill="#7A6F5D">
+      200+ sessions | 1,175+ commits | 8+ months
+    </text>
+  </g>
+
+  <!-- Metrics table -->
+  <g transform="translate(90, 300)">
+    <!-- Header row -->
+    <rect x="0" y="0" width="900" height="80" rx="12" fill="#15B871"/>
+    <text x="200" y="50" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">Metric</text>
+    <text x="500" y="50" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">Before</text>
+    <text x="750" y="50" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">After</text>
+
+    <!-- Row 1: Success rate -->
+    <rect x="0" y="90" width="900" height="110" fill="#FFFFFF" stroke="#E5E2DD" stroke-width="2"/>
+    <text x="200" y="155" text-anchor="middle" font-size="22" font-weight="600" fill="#2D2A24">Success Rate</text>
+    <text x="500" y="145" text-anchor="middle" font-size="36" font-weight="700" fill="#D97948">35%</text>
+    <text x="600" y="155" text-anchor="middle" font-size="28" fill="#15B871">→</text>
+    <text x="750" y="145" text-anchor="middle" font-size="36" font-weight="700" fill="#15B871">95%</text>
+    <text x="850" y="160" text-anchor="middle" font-size="16" fill="#15B871">2.7x</text>
+
+    <!-- Row 2: Context collapse -->
+    <rect x="0" y="200" width="900" height="110" fill="#F9F8F6" stroke="#E5E2DD" stroke-width="2"/>
+    <text x="200" y="265" text-anchor="middle" font-size="22" font-weight="600" fill="#2D2A24">Context Collapse</text>
+    <text x="500" y="255" text-anchor="middle" font-size="36" font-weight="700" fill="#D97948">65%</text>
+    <text x="600" y="265" text-anchor="middle" font-size="28" fill="#15B871">→</text>
+    <text x="750" y="255" text-anchor="middle" font-size="36" font-weight="700" fill="#15B871">0%</text>
+    <text x="850" y="270" text-anchor="middle" font-size="16" fill="#15B871">Gone</text>
+
+    <!-- Row 3: Task completion -->
+    <rect x="0" y="310" width="900" height="110" fill="#FFFFFF" stroke="#E5E2DD" stroke-width="2"/>
+    <text x="200" y="375" text-anchor="middle" font-size="22" font-weight="600" fill="#2D2A24">Task Time</text>
+    <text x="500" y="365" text-anchor="middle" font-size="36" font-weight="700" fill="#D97948">45m</text>
+    <text x="600" y="375" text-anchor="middle" font-size="28" fill="#15B871">→</text>
+    <text x="750" y="365" text-anchor="middle" font-size="36" font-weight="700" fill="#15B871">12m</text>
+    <text x="850" y="380" text-anchor="middle" font-size="16" fill="#15B871">3.75x</text>
+
+    <!-- Row 4: Doc rework -->
+    <rect x="0" y="420" width="900" height="110" rx="0 0 12 12" fill="#F9F8F6" stroke="#E5E2DD" stroke-width="2"/>
+    <text x="200" y="485" text-anchor="middle" font-size="22" font-weight="600" fill="#2D2A24">Doc Rework</text>
+    <text x="500" y="475" text-anchor="middle" font-size="36" font-weight="700" fill="#D97948">40%</text>
+    <text x="600" y="485" text-anchor="middle" font-size="28" fill="#15B871">→</text>
+    <text x="750" y="475" text-anchor="middle" font-size="36" font-weight="700" fill="#15B871">2%</text>
+    <text x="850" y="490" text-anchor="middle" font-size="16" fill="#15B871">20x</text>
+  </g>
+
+  <!-- Highlight box -->
+  <g transform="translate(540, 920)">
+    <rect x="-400" y="-70" width="800" height="180" rx="20" fill="#E8F7EC" stroke="#15B871" stroke-width="4"/>
+    <text x="0" y="-15" text-anchor="middle" font-size="28" font-weight="700" fill="#15B871">
+      The Result:
+    </text>
+    <text x="0" y="35" text-anchor="middle" font-size="36" font-weight="700" fill="#2D2A24">
+      80% reliable → 99%+ reliable
+    </text>
+    <text x="0" y="80" text-anchor="middle" font-size="20" fill="#5A5449">
+      Not theory. Measured in production.
+    </text>
+  </g>
+
+  <!-- Slide number -->
+  <text x="540" y="1300" text-anchor="middle" font-size="18" fill="#A0978B">9 / 12</text>
+</svg>

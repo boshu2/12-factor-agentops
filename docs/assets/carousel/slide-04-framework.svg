@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350">
+  <defs>
+    <style>
+      text { font-family: 'Space Mono', 'Courier New', Courier, monospace; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF8F5"/>
+      <stop offset="100%" style="stop-color:#F5F2ED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="150" cy="200" r="80" fill="#1A7FCC" opacity="0.08"/>
+  <circle cx="930" cy="200" r="60" fill="#15B871" opacity="0.08"/>
+  <circle cx="540" cy="1200" r="100" fill="#D97948" opacity="0.06"/>
+
+  <!-- Main content -->
+  <g transform="translate(540, 250)">
+    <!-- Headline -->
+    <text x="0" y="0" text-anchor="middle" font-size="52" font-weight="700" fill="#1A1A1A">
+      12-Factor
+    </text>
+    <text x="0" y="70" text-anchor="middle" font-size="52" font-weight="700" fill="#D97948">
+      AgentOps
+    </text>
+
+    <text x="0" y="140" text-anchor="middle" font-size="26" fill="#7A6F5D">
+      SRE principles for AI systems
+    </text>
+  </g>
+
+  <!-- Three pillars preview -->
+  <g transform="translate(540, 550)">
+    <!-- Foundation -->
+    <g transform="translate(-320, 0)">
+      <rect x="-120" y="0" width="240" height="280" rx="16" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="4"/>
+      <text x="0" y="50" text-anchor="middle" font-size="26" font-weight="700" fill="#1A7FCC">Foundation</text>
+      <text x="0" y="90" text-anchor="middle" font-size="20" fill="#1A7FCC">I - IV</text>
+      <line x1="-80" y1="115" x2="80" y2="115" stroke="#1A7FCC" stroke-width="2" opacity="0.3"/>
+      <text x="0" y="155" text-anchor="middle" font-size="16" fill="#5A5449">Track</text>
+      <text x="0" y="185" text-anchor="middle" font-size="16" fill="#5A5449">Load Context</text>
+      <text x="0" y="215" text-anchor="middle" font-size="16" fill="#5A5449">Focus Agents</text>
+      <text x="0" y="245" text-anchor="middle" font-size="16" fill="#5A5449">Validate</text>
+    </g>
+
+    <!-- Operations -->
+    <g transform="translate(0, 0)">
+      <rect x="-120" y="0" width="240" height="280" rx="16" fill="#E8F7EC" stroke="#15B871" stroke-width="4"/>
+      <text x="0" y="50" text-anchor="middle" font-size="26" font-weight="700" fill="#15B871">Operations</text>
+      <text x="0" y="90" text-anchor="middle" font-size="20" fill="#15B871">V - VIII</text>
+      <line x1="-80" y1="115" x2="80" y2="115" stroke="#15B871" stroke-width="2" opacity="0.3"/>
+      <text x="0" y="155" text-anchor="middle" font-size="16" fill="#5A5449">Measure</text>
+      <text x="0" y="185" text-anchor="middle" font-size="16" fill="#5A5449">Resume Work</text>
+      <text x="0" y="215" text-anchor="middle" font-size="16" fill="#5A5449">Smart Routing</text>
+      <text x="0" y="245" text-anchor="middle" font-size="16" fill="#5A5449">Human Loop</text>
+    </g>
+
+    <!-- Improvement -->
+    <g transform="translate(320, 0)">
+      <rect x="-120" y="0" width="240" height="280" rx="16" fill="#FFF4ED" stroke="#D97948" stroke-width="4"/>
+      <text x="0" y="50" text-anchor="middle" font-size="26" font-weight="700" fill="#D97948">Improvement</text>
+      <text x="0" y="90" text-anchor="middle" font-size="20" fill="#D97948">IX - XII</text>
+      <line x1="-80" y1="115" x2="80" y2="115" stroke="#D97948" stroke-width="2" opacity="0.3"/>
+      <text x="0" y="155" text-anchor="middle" font-size="16" fill="#5A5449">Mine Patterns</text>
+      <text x="0" y="185" text-anchor="middle" font-size="16" fill="#5A5449">Small Steps</text>
+      <text x="0" y="215" text-anchor="middle" font-size="16" fill="#5A5449">Fail-Safe</text>
+      <text x="0" y="245" text-anchor="middle" font-size="16" fill="#5A5449">Package</text>
+    </g>
+
+    <!-- Connecting arrows -->
+    <path d="M -200 320 Q -100 380 0 320" stroke="#A0978B" stroke-width="3" fill="none" stroke-dasharray="8,4"/>
+    <path d="M 0 320 Q 100 380 200 320" stroke="#A0978B" stroke-width="3" fill="none" stroke-dasharray="8,4"/>
+  </g>
+
+  <!-- Tagline -->
+  <g transform="translate(540, 1050)">
+    <text x="0" y="0" text-anchor="middle" font-size="28" fill="#2D2A24">
+      20 years of DevOps/SRE wisdom
+    </text>
+    <text x="0" y="45" text-anchor="middle" font-size="28" font-weight="600" fill="#1A7FCC">
+      applied to probabilistic systems
+    </text>
+  </g>
+
+  <!-- Slide number -->
+  <text x="540" y="1300" text-anchor="middle" font-size="18" fill="#A0978B">4 / 12</text>
+</svg>

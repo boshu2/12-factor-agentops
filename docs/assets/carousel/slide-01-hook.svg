@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350">
+  <defs>
+    <style>
+      text { font-family: 'Space Mono', 'Courier New', Courier, monospace; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF8F5"/>
+      <stop offset="100%" style="stop-color:#F5F2ED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="900" cy="200" r="180" fill="#D97948" opacity="0.08"/>
+  <circle cx="180" cy="1150" r="120" fill="#1A7FCC" opacity="0.06"/>
+
+  <!-- Main content -->
+  <g transform="translate(540, 500)">
+    <!-- Question mark icon -->
+    <circle cx="0" cy="-120" r="80" fill="none" stroke="#D97948" stroke-width="8"/>
+    <text x="0" y="-95" text-anchor="middle" font-size="80" font-weight="700" fill="#D97948">?</text>
+
+    <!-- Headline -->
+    <text x="0" y="40" text-anchor="middle" font-size="56" font-weight="700" fill="#1A1A1A">
+      Why Your
+    </text>
+    <text x="0" y="110" text-anchor="middle" font-size="56" font-weight="700" fill="#1A1A1A">
+      AI Agents
+    </text>
+    <text x="0" y="180" text-anchor="middle" font-size="56" font-weight="700" fill="#D97948">
+      Keep Breaking
+    </text>
+
+    <!-- Subtext -->
+    <text x="0" y="300" text-anchor="middle" font-size="28" fill="#7A6F5D">
+      It's not the framework.
+    </text>
+    <text x="0" y="345" text-anchor="middle" font-size="28" fill="#7A6F5D">
+      It's the operations.
+    </text>
+  </g>
+
+  <!-- Swipe indicator -->
+  <g transform="translate(540, 1250)">
+    <text x="0" y="0" text-anchor="middle" font-size="18" fill="#A0978B">
+      Swipe for the answer →
+    </text>
+  </g>
+</svg>

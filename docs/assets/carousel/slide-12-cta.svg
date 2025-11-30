@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350">
+  <defs>
+    <style>
+      text { font-family: 'Space Mono', 'Courier New', Courier, monospace; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF8F5"/>
+      <stop offset="100%" style="stop-color:#F5F2ED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="200" cy="200" r="100" fill="#1A7FCC" opacity="0.06"/>
+  <circle cx="880" cy="200" r="80" fill="#15B871" opacity="0.06"/>
+  <circle cx="540" cy="1200" r="120" fill="#D97948" opacity="0.06"/>
+
+  <!-- Header -->
+  <g transform="translate(540, 250)">
+    <text x="0" y="0" text-anchor="middle" font-size="48" font-weight="700" fill="#1A1A1A">
+      Get the Full
+    </text>
+    <text x="0" y="65" text-anchor="middle" font-size="48" font-weight="700" fill="#D97948">
+      Framework
+    </text>
+  </g>
+
+  <!-- GitHub icon placeholder (simple representation) -->
+  <g transform="translate(540, 500)">
+    <circle cx="0" cy="0" r="80" fill="#1A1A1A"/>
+    <!-- GitHub-like icon -->
+    <circle cx="0" cy="-10" r="35" fill="none" stroke="#FFFFFF" stroke-width="6"/>
+    <path d="M -25 25 Q 0 60 25 25" stroke="#FFFFFF" stroke-width="6" fill="none"/>
+  </g>
+
+  <!-- URL -->
+  <g transform="translate(540, 650)">
+    <rect x="-350" y="-40" width="700" height="80" rx="40" fill="#1A1A1A"/>
+    <text x="0" y="10" text-anchor="middle" font-size="26" font-weight="600" fill="#FFFFFF">
+      github.com/boshu2/12-factor-agentops
+    </text>
+  </g>
+
+  <!-- Features -->
+  <g transform="translate(540, 820)">
+    <g transform="translate(-200, 0)">
+      <circle cx="0" cy="0" r="12" fill="#15B871"/>
+      <text x="25" y="8" font-size="22" fill="#2D2A24">Free forever</text>
+    </g>
+    <g transform="translate(-200, 60)">
+      <circle cx="0" cy="0" r="12" fill="#15B871"/>
+      <text x="25" y="8" font-size="22" fill="#2D2A24">Open source</text>
+    </g>
+    <g transform="translate(-200, 120)">
+      <circle cx="0" cy="0" r="12" fill="#15B871"/>
+      <text x="25" y="8" font-size="22" fill="#2D2A24">Production-tested</text>
+    </g>
+
+    <g transform="translate(200, 0)">
+      <circle cx="0" cy="0" r="12" fill="#15B871"/>
+      <text x="25" y="8" font-size="22" fill="#2D2A24">12 detailed guides</text>
+    </g>
+    <g transform="translate(200, 60)">
+      <circle cx="0" cy="0" r="12" fill="#15B871"/>
+      <text x="25" y="8" font-size="22" fill="#2D2A24">Real examples</text>
+    </g>
+    <g transform="translate(200, 120)">
+      <circle cx="0" cy="0" r="12" fill="#15B871"/>
+      <text x="25" y="8" font-size="22" fill="#2D2A24">Workflow templates</text>
+    </g>
+  </g>
+
+  <!-- CTA buttons -->
+  <g transform="translate(540, 1080)">
+    <!-- Star button -->
+    <rect x="-200" y="-35" width="180" height="70" rx="35" fill="#D97948"/>
+    <text x="-110" y="10" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">Star it</text>
+
+    <!-- Follow button -->
+    <rect x="20" y="-35" width="180" height="70" rx="35" fill="#1A7FCC"/>
+    <text x="110" y="10" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">Follow me</text>
+  </g>
+
+  <!-- Tagline -->
+  <g transform="translate(540, 1200)">
+    <text x="0" y="0" text-anchor="middle" font-size="20" fill="#7A6F5D">
+      Stop debugging. Start building.
+    </text>
+  </g>
+
+  <!-- Slide number -->
+  <text x="540" y="1300" text-anchor="middle" font-size="18" fill="#A0978B">12 / 12</text>
+</svg>

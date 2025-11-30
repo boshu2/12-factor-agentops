@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350">
+  <defs>
+    <style>
+      text { font-family: 'Space Mono', 'Courier New', Courier, monospace; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF8F5"/>
+      <stop offset="100%" style="stop-color:#F5F2ED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+
+  <!-- Header -->
+  <g transform="translate(540, 200)">
+    <text x="0" y="0" text-anchor="middle" font-size="48" font-weight="700" fill="#D97948">
+      Start With
+    </text>
+    <text x="0" y="65" text-anchor="middle" font-size="48" font-weight="700" fill="#D97948">
+      One Factor
+    </text>
+    <text x="0" y="130" text-anchor="middle" font-size="24" fill="#7A6F5D">
+      Match your pain point:
+    </text>
+  </g>
+
+  <!-- Pain point -> Factor mapping -->
+  <g transform="translate(540, 500)">
+    <!-- Row 1: Context problems -->
+    <g transform="translate(0, 0)">
+      <rect x="-400" y="-50" width="800" height="130" rx="16" fill="#E8F4FD" stroke="#1A7FCC" stroke-width="3"/>
+      <text x="-330" y="5" font-size="26" font-weight="600" fill="#2D2A24">Context problems?</text>
+      <text x="180" y="-5" text-anchor="middle" font-size="36" fill="#1A7FCC">→</text>
+      <text x="260" y="5" font-size="22" font-weight="700" fill="#1A7FCC">Factor II</text>
+      <text x="-330" y="45" font-size="18" fill="#5A5449">AI forgets instructions, context overload</text>
+      <text x="260" y="45" font-size="18" fill="#1A7FCC">Context Loading</text>
+    </g>
+
+    <!-- Row 2: Reliability issues -->
+    <g transform="translate(0, 170)">
+      <rect x="-400" y="-50" width="800" height="130" rx="16" fill="#E8F7EC" stroke="#15B871" stroke-width="3"/>
+      <text x="-330" y="5" font-size="26" font-weight="600" fill="#2D2A24">Reliability issues?</text>
+      <text x="180" y="-5" text-anchor="middle" font-size="36" fill="#15B871">→</text>
+      <text x="260" y="5" font-size="22" font-weight="700" fill="#15B871">Factor IV</text>
+      <text x="-330" y="45" font-size="18" fill="#5A5449">Broken outputs, tests lie</text>
+      <text x="260" y="45" font-size="18" fill="#15B871">Validation</text>
+    </g>
+
+    <!-- Row 3: No visibility -->
+    <g transform="translate(0, 340)">
+      <rect x="-400" y="-50" width="800" height="130" rx="16" fill="#FFF4ED" stroke="#D97948" stroke-width="3"/>
+      <text x="-330" y="5" font-size="26" font-weight="600" fill="#2D2A24">No visibility?</text>
+      <text x="180" y="-5" text-anchor="middle" font-size="36" fill="#D97948">→</text>
+      <text x="260" y="5" font-size="22" font-weight="700" fill="#D97948">Factor V</text>
+      <text x="-330" y="45" font-size="18" fill="#5A5449">Can't debug, don't know what failed</text>
+      <text x="260" y="45" font-size="18" fill="#D97948">Measure Everything</text>
+    </g>
+  </g>
+
+  <!-- Key insight -->
+  <g transform="translate(540, 1050)">
+    <rect x="-350" y="-50" width="700" height="120" rx="16" fill="#FFFFFF" stroke="#A0978B" stroke-width="2"/>
+    <text x="0" y="-5" text-anchor="middle" font-size="22" fill="#5A5449">
+      You don't need all 12 factors on day one.
+    </text>
+    <text x="0" y="35" text-anchor="middle" font-size="22" font-weight="600" fill="#D97948">
+      Start with the one that hurts most.
+    </text>
+  </g>
+
+  <!-- Slide number -->
+  <text x="540" y="1300" text-anchor="middle" font-size="18" fill="#A0978B">11 / 12</text>
+</svg>
