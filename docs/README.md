@@ -74,7 +74,7 @@ BUILD → WORK → RUN
   - [12 Factors Table](./reference/README.md#the-12-factors) - All factors at a glance
   - [FAAFO Dimensions](./reference/README.md#faafo-dimensions) - Fast, Ambitious, Autonomous, Fun, Optionality
   - [Five Pillars](./reference/README.md#five-pillars) - Constraint-Based Engineering, DevOps/SRE, Learning Science, Context Engineering, Knowledge OS
-  - [Five Laws](./reference/README.md#five-laws) - Mandatory principles
+  - [Nine Laws](./reference/README.md#five-laws) - Mandatory principles
   - [Key Metrics](./reference/README.md#key-metrics) - Success rate, speedup, FAAFO score
   - [Common Commands](./reference/README.md#common-commands) - Make targets, git workflow
   - [Glossary](./reference/README.md#glossary) - Terms and definitions
@@ -88,7 +88,7 @@ BUILD → WORK → RUN
 - [Standing on Giants](./explanation/standing-on-giants.md) - How we adapted 12-Factor App, DevOps, Learning Science
 - [AI Summit Validation 2025](./explanation/ai-summit-validation-2025.md) - Industry validation from 22 technical leaders
 - [Five Pillars](./principles/five-pillars.md) - Technical foundations (detailed)
-- [Five Laws](./principles/five-laws.md) - Mandatory operational principles
+- [Nine Laws](./principles/nine-laws.md) - Mandatory operational principles
 - [Context Engineering](./principles/context-engineering.md) - The 40% rule explained
 - [Knowledge OS](./principles/knowledge-os.md) - Git as institutional memory
 - [Constraint-Based Engineering](./principles/constraint-based-engineering.md) - Designing within limits

@@ -14,7 +14,7 @@
 
 ## Summary
 
-The Five Laws are not suggestions—they are constitutional requirements. Constitutional guardrails are automated systems that enforce these laws and prevent dangerous behaviors. Just as a constitution constrains government power, guardrails constrain agent autonomy to ensure safety, quality, and continuous improvement.
+The Nine Laws are not suggestions—they are constitutional requirements. Constitutional guardrails are automated systems that enforce these laws and prevent dangerous behaviors. Just as a constitution constrains government power, guardrails constrain agent autonomy to ensure safety, quality, and continuous improvement.
 
 ## The Problem
 
@@ -64,7 +64,7 @@ This is the only factor that integrates all pillars because it enforces the enti
 
 ## What This Factor Enforces
 
-### ALL Five Laws
+### ALL Nine Laws
 
 Constitutional guardrails are the meta-factor that enforces all other laws through automation:
 
@@ -80,13 +80,13 @@ Constitutional guardrails are the meta-factor that enforces all other laws throu
 
 **Concrete example of comprehensive enforcement:** Agent attempts commit without validation → Pre-commit hook blocks (Law 4). Agent adds tests, attempts commit without learning → Hook blocks (Law 1). Agent adds learning but no context → Hook blocks (Law 3). Agent completes all requirements → Commit succeeds. Every law enforced automatically, no manual oversight needed.
 
-The transformation is from 58% average compliance (voluntary) to 99% average compliance (automated). Guardrails turn the Five Laws from aspirations into operational requirements.
+The transformation is from 58% average compliance (voluntary) to 99% average compliance (automated). Guardrails turn the Nine Laws from aspirations into operational requirements.
 
 ---
 
 ## The Principle
 
-### The Constitution: Five Laws
+### The Constitution: Nine Laws
 
 **Law 1: ALWAYS Extract Learnings**
 - Guardrail: Reject commits without Learning section
@@ -396,7 +396,7 @@ class ComplianceDashboard:
 ## Validation
 
 ### ✅ You're doing this right if:
-- 100% compliance with Five Laws (automated enforcement)
+- 100% compliance with Nine Laws (automated enforcement)
 - Violations blocked automatically (not just warned)
 - Compliance dashboard shows green across all laws
 - No manual enforcement needed (guardrails automatic)
@@ -620,7 +620,7 @@ class GuardrailExemption:
 
 ## Next Steps
 
-1. **Create CONSTITUTION.md** documenting Five Laws
+1. **Create CONSTITUTION.md** documenting Nine Laws
 2. **Implement pre-commit hooks** for Laws 1, 3, 4
 3. **Add CI/CD gates** for Law 4 (validation)
 4. **Create compliance dashboard** tracking all 5 laws
@@ -631,11 +631,11 @@ class GuardrailExemption:
 ## Further Reading
 
 - **DevOps + SRE Pillar**: [../docs/principles/four-pillars.md#pillar-1-devops--sre](../docs/principles/four-pillars.md#pillar-1-devops--sre)
-- **Five Laws**: [../docs/principles/five-laws.md](../docs/principles/five-laws.md)
+- **Nine Laws**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md)
 - **Factor IV: Continuous Validation**: [./04-validation-gates-before-execution.md](./04-validation-gates-before-execution.md)
 - **Policy as Code**: [Open Policy Agent](https://www.openpolicyagent.org/)
 - **Poka-Yoke**: [Wikipedia: Poka-yoke](https://en.wikipedia.org/wiki/Poka-yoke)
 
 ---
 
-**Remember:** The Five Laws are constitutional, not optional. Guardrails enforce the constitution automatically. Make violations impossible, not just discouraged. Prevention beats punishment. Trust through verification, not hope.
+**Remember:** The Nine Laws are constitutional, not optional. Guardrails enforce the constitution automatically. Make violations impossible, not just discouraged. Prevention beats punishment. Trust through verification, not hope.

@@ -76,7 +76,7 @@ This document provides a detailed comparison showing how each of the original 12
 **12-Factor AgentOps (XI: Fail-Safe Checks)**
 - *Evolution*: Non-negotiable operational rules enforced at infrastructure level
 - *Why Different*: Operations need governance boundaries for autonomous decisions
-- *Key Practice*: Five Laws always enforced, regardless of agent or human
+- *Key Practice*: Nine Laws always enforced, regardless of agent or human
 - *Unique Aspect*: Constitutional rules that can't be overridden
 
 ---

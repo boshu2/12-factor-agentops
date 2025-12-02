@@ -515,7 +515,7 @@ def validate_solution(solution):
 ## Further Reading
 
 - **DevOps + SRE Pillar**: [../docs/principles/four-pillars.md#pillar-1-devops--sre](../docs/principles/four-pillars.md#pillar-1-devops--sre)
-- **Law 4 (Validate Before Execute)**: [../docs/principles/five-laws.md](../docs/principles/five-laws.md#law-4)
+- **Law 4 (Validate Before Execute)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-4)
 - **Pattern: CI/CD Pipeline**: [../patterns/ci-cd-pipeline.md](../patterns/ci-cd-pipeline.md) (TBD)
 
 ---

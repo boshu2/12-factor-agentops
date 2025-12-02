@@ -503,8 +503,8 @@ groups:
 ## Further Reading
 
 - **DevOps + SRE Pillar**: [../docs/principles/four-pillars.md#pillar-1-devops--sre](../docs/principles/four-pillars.md#pillar-1-devops--sre)
-- **Law 1 (Extract Learnings)**: [../docs/principles/five-laws.md](../docs/principles/five-laws.md#law-1)
-- **Law 2 (Improve System)**: [../docs/principles/five-laws.md](../docs/principles/five-laws.md#law-2)
+- **Law 1 (Extract Learnings)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-1)
+- **Law 2 (Improve System)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-2)
 - **Pattern: Observability Stack**: [../patterns/observability-stack.md](../patterns/observability-stack.md) (TBD)
 
 ---

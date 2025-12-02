@@ -553,8 +553,8 @@ class DiffGate:
 ## Further Reading
 
 - **Learning Science Pillar**: [../docs/principles/four-pillars.md#pillar-2-learning-science](../docs/principles/four-pillars.md#pillar-2-learning-science)
-- **Law 3 (Document Context)**: [../docs/principles/five-laws.md](../docs/principles/five-laws.md#law-3)
-- **Law 4 (Validate Before Execute)**: [../docs/principles/five-laws.md](../docs/principles/five-laws.md#law-4)
+- **Law 3 (Document Context)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-3)
+- **Law 4 (Validate Before Execute)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-4)
 - **Pattern: Human-in-the-Loop**: [../patterns/human-in-the-loop.md](../patterns/human-in-the-loop.md) (TBD)
 - **HumanLayer Framework**: [https://humanlayer.dev](https://humanlayer.dev)
 

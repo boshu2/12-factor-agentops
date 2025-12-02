@@ -217,6 +217,14 @@ Start with [Getting Started](./getting-started/) and work through Foundation fac
 
 ---
 
+## Implementation
+
+**[agentops](https://github.com/boshu2/agentops)** — Claude Code plugin marketplace implementing these factors.
+
+Provides 6 plugins: constitution, core-workflow, session-management, vibe-coding, devops-operations, and software-development.
+
+---
+
 ## Credit
 
 - [12-Factor App](https://12factor.net) (Adam Wiggins, 2011) - The original methodology

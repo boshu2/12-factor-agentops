@@ -872,7 +872,7 @@ Git isn't just tracking changes—it's building organizational intelligence.
 
 **Theory and philosophy:**
 - [Five Pillars](./five-pillars.md#pillar-5-knowledge-os) - Knowledge OS pillar overview
-- [Five Laws](./five-laws.md#law-3) - Context documentation requirements
+- [Nine Laws](./nine-laws.md#law-3) - Context documentation requirements
 
 **Operational implementation:**
 - Production git workflow guides (commit message templates)

@@ -120,7 +120,7 @@
 
 **The framework:**
 - 12 Factors (lifecycle-ordered: Foundation → Operations → Improvement)
-- Five Laws (universal principles)
+- Nine Laws (universal principles)
 - FAAFO as north star (independently discovered the concept, didn't have Gene's term yet)
 
 **Launch:**

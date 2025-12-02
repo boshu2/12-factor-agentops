@@ -8,7 +8,7 @@ This directory contains deep dives into the core concepts that underpin the Know
 
 ## Overview
 
-Knowledge OS rests on **Five Pillars** (foundational disciplines) and enforces **Five Laws** (mandatory principles).
+Knowledge OS rests on **Five Pillars** (foundational disciplines) and enforces **Nine Laws** (mandatory principles).
 
 ### The Five Pillars (Foundation)
 
@@ -20,9 +20,9 @@ Knowledge OS rests on **Five Pillars** (foundational disciplines) and enforces *
 
 → [five-pillars.md](five-pillars.md)
 
-### The Five Laws (Mandatory)
+### The Nine Laws (Mandatory)
 
-→ [five-laws.md](five-laws.md)
+→ [nine-laws.md](nine-laws.md)
 
 Together, these create a comprehensive philosophy for operating knowledge work with the same rigor you'd apply to production infrastructure.
 
@@ -93,7 +93,7 @@ Knowledge work isn't magic. It's a system that deserves the same operational dis
 
 ---
 
-### [The Five Laws](./five-laws.md)
+### [The Nine Laws](./nine-laws.md)
 
 **Read time:** 20 minutes
 **When to read:** Understanding why the operational laws exist
@@ -157,7 +157,7 @@ Every commit is either a throwaway snapshot or a knowledge artifact. The differe
 ### For Newcomers to AgentOps
 
 1. **Start:** [Five Pillars](./five-pillars.md) - Get the big picture (15 min)
-2. **Then:** [Five Laws](./five-laws.md) - Understand the operational principles (20 min)
+2. **Then:** [Nine Laws](./nine-laws.md) - Understand the operational principles (20 min)
 3. **Deep dive:** [Context Engineering](./context-engineering.md) - Learn the 40% rule (15 min)
 4. **Finally:** [Knowledge OS](./knowledge-os.md) - See how it all compounds (15 min)
 
@@ -167,7 +167,7 @@ Every commit is either a throwaway snapshot or a knowledge artifact. The differe
 
 1. **Deepen:** [Context Engineering](./context-engineering.md) - Optimize your workflow efficiency
 2. **Expand:** [Knowledge OS](./knowledge-os.md) - Maximize knowledge compounding
-3. **Refresh:** [Five Laws](./five-laws.md) - Ensure you're following all laws
+3. **Refresh:** [Nine Laws](./nine-laws.md) - Ensure you're following all laws
 4. **Integrate:** [Five Pillars](./five-pillars.md) - See how everything connects
 
 ### For Contributors (Building on AgentOps)
@@ -226,7 +226,7 @@ Community (12-factor-agentops)
 | **Context Engineering** | How do we prevent cognitive overload? | Stay under 40% capacity utilization |
 | **Knowledge OS** | How do we build institutional memory? | Git commits are knowledge artifacts |
 
-### The Five Laws
+### The Nine Laws
 
 | Law | Principle | Impact |
 |-----|-----------|--------|
@@ -266,7 +266,7 @@ Community (12-factor-agentops)
 - **Initial results:** 1x → 16x efficiency improvement observed with production use since Claude 2.0
 - **Evidence:** Git history analysis, measured velocity
 
-### Five Laws (Operational Compliance)
+### Nine Laws (Operational Compliance)
 - **Grounded in:** SRE practices, DevOps principles, Continuous Improvement methodologies
 - **Initial results:** 95% success rate observed in production environments
 - **Evidence:** Commit message analysis, session metrics

@@ -28,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Unchanged
 
 - **Five Pillars** - Constraint-Based Engineering, DevOps/SRE, Learning Science, Context Engineering, Knowledge OS
-- **Five Laws** - No changes
+- **Nine Laws** - No changes
 - **12 Factors** - No changes
 
 ### Production Validation
@@ -58,7 +58,7 @@ Existing 12-Factor AgentOps implementations continue to work unchanged. Vibe Cod
 **Core Framework:**
 - 12 Factors for reliable AI operations
 - Five Pillars (Constraint-Based Engineering, DevOps/SRE, Learning Science, Context Engineering, Knowledge OS)
-- Five Laws of an Agent
+- Nine Laws of an Agent
 - FAAFO philosophy as north star
 
 **Documentation:**

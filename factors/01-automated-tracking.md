@@ -331,7 +331,7 @@ Impact: 5 minutes to fix instead of 2 hours of debugging
 ## Further Reading
 
 - **Knowledge OS Foundation**: [../docs/principles/knowledge-os.md](../docs/principles/knowledge-os.md)
-- **Law 3 (Document Context)**: [../docs/principles/five-laws.md](../docs/principles/five-laws.md#law-3)
+- **Law 3 (Document Context)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-3)
 - **Pattern: Git Workflow**: [../patterns/git-workflow.md](../patterns/git-workflow.md) (TBD)
 
 ---

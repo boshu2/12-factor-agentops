@@ -241,7 +241,7 @@ assignees: ''
 
 ---
 
-## Compliance with Five Laws
+## Compliance with Nine Laws
 
 - **Law 1 (Extract Learnings):** [What learnings does this research provide?]
 - **Law 2 (Improve):** [How does this improve the framework?]

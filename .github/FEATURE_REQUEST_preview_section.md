@@ -10,7 +10,7 @@
 
 ## Context
 
-README currently jumps from problem statement to factor table (status: documenting/exploring). Readers don't see the Five Pillars or Five Laws until they click through to CLAUDE.md.
+README currently jumps from problem statement to factor table (status: documenting/exploring). Readers don't see the Five Pillars or Nine Laws until they click through to CLAUDE.md.
 
 **Gap:** No immediate framework value while factors are being documented.
 
@@ -33,7 +33,7 @@ Add a "The Framework" section to README.md between "The Problem" and "What's Bei
 - Context Engineering
 - Knowledge OS
 
-### Five Laws of AgentOps
+### Nine Laws of AgentOps
 [One-liner per law with "Why"]
 - Law 1: ALWAYS Extract Learnings
 - Law 2: ALWAYS Improve Self or System
@@ -51,7 +51,7 @@ Add a "The Framework" section to README.md between "The Problem" and "What's Bei
 
 **Immediate Value:**
 - Readers get actionable principles today (don't have to wait for factors)
-- Shows governance model upfront (Five Laws = quality signal)
+- Shows governance model upfront (Nine Laws = quality signal)
 - Demonstrates operational rigor before clicking CLAUDE.md
 
 **Better Engagement:**
@@ -70,7 +70,7 @@ Add a "The Framework" section to README.md between "The Problem" and "What's Bei
 ## Success Criteria
 
 - [x] Five Pillars summarized (2-3 lines each)
-- [x] Five Laws listed with "Why" statements
+- [x] Nine Laws listed with "Why" statements
 - [x] Section placed before factor table
 - [x] Links to CLAUDE.md for full details
 - [x] Maintains current README tone/style
@@ -110,7 +110,7 @@ When ready to implement:
 **What was added:**
 - "The Framework" section in README.md (lines 121-147)
 - Five Pillars with one-line summaries
-- Five Laws with "Why" statements
+- Nine Laws with "Why" statements
 - Link to CLAUDE.md for full details
 - Placed between "Help Test This" and "What's Being Documented"
 

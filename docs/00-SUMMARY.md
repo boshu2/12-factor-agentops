@@ -69,7 +69,7 @@ BUILD → WORK → RUN
 
 ---
 
-## The Five Laws
+## The Nine Laws
 
 | Law | Principle | Why It Matters |
 |-----|-----------|----------------|
@@ -300,7 +300,7 @@ Prevention = systematic discipline via the 12 Factors.
 │                   Five Pillars (Foundation)                 │
 │     DevOps/SRE + Learning Science + Context Eng + Knowledge │
 ├─────────────────────────────────────────────────────────────┤
-│                 Five Laws (Mandatory Behaviors)             │
+│                 Nine Laws (Mandatory Behaviors)             │
 │   Extract + Improve + Document + Validate + Share           │
 ├─────────────────────────────────────────────────────────────┤
 │                12 Factors (Operational Patterns)            │
@@ -313,6 +313,12 @@ Prevention = systematic discipline via the 12 Factors.
 │              Each factor prevents specific failures         │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Implementation
+
+**[agentops](https://github.com/boshu2/agentops)** — Claude Code plugin marketplace implementing these factors (6 plugins).
 
 ---
 

@@ -181,7 +181,7 @@ assignees: ''
 
 ---
 
-## Compliance with Five Laws
+## Compliance with Nine Laws
 
 - **Law 1 (Extract Learnings):** [What learnings did you extract?]
 - **Law 2 (Improve):** [What improved in your system?]

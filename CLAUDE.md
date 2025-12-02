@@ -53,7 +53,7 @@ This is a **Claude Code plugin marketplace** providing validation and pattern ex
 │   └── STARTER-PACK/        # Complete reference implementation
 │
 ├── docs/                    # Philosophy and theory (NOT Claude-specific)
-│   ├── principles/          # Five Pillars, Five Laws, Knowledge OS, Context Engineering, Evolution
+│   ├── principles/          # Five Pillars, Nine Laws, Knowledge OS, Context Engineering, Evolution
 │   ├── domain-guides/       # DevOps, SRE, solo dev, team workflows
 │   ├── advanced/            # Multi-agent orchestration, advanced patterns
 │   ├── case-studies/        # Production examples and demonstrations
@@ -68,7 +68,7 @@ This is a **Claude Code plugin marketplace** providing validation and pattern ex
     │   ├── .claude-plugin/plugin.json
     │   ├── skill.md
     │   └── references/
-    ├── five-laws-auditor/
+    ├── nine-laws-auditor/
     │   ├── .claude-plugin/plugin.json
     │   └── skill.md
     ├── pattern-extraction-assistant/
@@ -91,7 +91,7 @@ Users install validation skills via:
 
 # Install specific skills
 /plugin install factor-compliance-checker@12-factor-agentops
-/plugin install five-laws-auditor@12-factor-agentops
+/plugin install nine-laws-auditor@12-factor-agentops
 /plugin install pattern-extraction-assistant@12-factor-agentops
 ```
 
@@ -109,7 +109,7 @@ This marketplace links to:
 ```bash
 cat README.md                         # Start here (personal voice, driving question)
 cat factors/01-*.md                   # Read a factor to understand depth
-cat docs/principles/five-laws.md      # Understand principles
+cat docs/principles/nine-laws.md      # Understand principles
 cat marketplace/factor-compliance-checker/skill.md  # Example plugin
 ```
 

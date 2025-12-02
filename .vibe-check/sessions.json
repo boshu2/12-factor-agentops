@@ -1,0 +1,15 @@
+{
+  "sessions": [
+    {
+      "id": "2025-11-30T15:01",
+      "startedAt": "2025-11-30T15:01:29.000Z",
+      "endedAt": "2025-11-30T17:49:19.000Z",
+      "commits": 40,
+      "trustPassRate": 95,
+      "reworkRatio": 13,
+      "spirals": 0
+    }
+  ],
+  "baseline": null,
+  "lastUpdated": "2025-11-30T21:41:10.778Z"
+}

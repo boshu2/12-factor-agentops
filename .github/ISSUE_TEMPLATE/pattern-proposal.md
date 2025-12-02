@@ -99,9 +99,9 @@ If you have a draft of the pattern following our 13-section structure, link it h
 
 ---
 
-## Compliance with Five Laws
+## Compliance with Nine Laws
 
-How does this pattern embody the Five Laws?
+How does this pattern embody the Nine Laws?
 
 - **Law 1 (Extract Learnings):** [How does this pattern help extract learnings?]
 - **Law 2 (Improve):** [What does this pattern improve?]

@@ -690,7 +690,7 @@ cat docs/patterns/*.md | grep "## Improvements"
 **Location:** Templates - claude-settings.json
 **Evidence:** Dangerous operations blocked, production changes warned
 
-**3. Five Laws (Operational Constitution):**
+**3. Nine Laws (Operational Constitution):**
 ```bash
 # Every workflow session must:
 # Law 1: ALWAYS Extract Learnings (/learn command)
@@ -699,7 +699,7 @@ cat docs/patterns/*.md | grep "## Improvements"
 # Law 4: ALWAYS Validate Before Execute (pre-commit, pre-push)
 # Law 5: ALWAYS Share Patterns Publicly (this repo)
 ```
-**Location:** README.md - Five Laws, CLAUDE.md
+**Location:** README.md - Nine Laws, CLAUDE.md
 **Evidence:** All laws enforced in workflow (see other factors)
 
 **4. Git Pre-Push (Prevent Broken Deployments):**
@@ -721,7 +721,7 @@ cat docs/patterns/*.md | grep "## Improvements"
 **Validation:** ✅ Factor XI expressed in:
 - Pre-commit hooks (quality guardrails)
 - Claude Code denied commands (safety)
-- Five Laws enforcement (operational constitution)
+- Nine Laws enforcement (operational constitution)
 - Pre-push hooks (deployment safety)
 
 ---
@@ -809,7 +809,7 @@ cat docs/patterns/*.md | grep "## Improvements"
 | **VIII. Human Gates** | Research→Plan, Plan→Implement, manual deploys | Daily Pattern | ✅ Validated |
 | **IX. Pattern Extraction** | /learn command, bundles, semantic commits | Daily Pattern (Evening) | ✅ Validated |
 | **X. Continuous Improvement** | /learn improvements, bundle metrics, weekly review | Best Practices | ✅ Validated |
-| **XI. Fail-Safe Checks** | Pre-commit/push, denied commands, Five Laws | Templates, CLAUDE.md | ✅ Validated |
+| **XI. Fail-Safe Checks** | Pre-commit/push, denied commands, Nine Laws | Templates, CLAUDE.md | ✅ Validated |
 | **XII. Package Patterns** | Cross-domain bundles, universal templates, 3 domains | Bundle Metrics, Templates | ✅ Validated |
 
 **Result:** All 12 factors demonstrably present in production workflow

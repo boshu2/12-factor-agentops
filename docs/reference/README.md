@@ -76,7 +76,7 @@
 
 ---
 
-## Five Laws
+## Nine Laws
 
 Mandatory principles for all AI workflows:
 
@@ -86,7 +86,7 @@ Mandatory principles for all AI workflows:
 4. **ALWAYS Validate Before Execute** - Prevention is cheaper than recovery
 5. **ALWAYS Share Patterns Publicly** - Build collective knowledge
 
-**[Deep dive →](../principles/five-laws.md)**
+**[Deep dive →](../principles/nine-laws.md)**
 
 ---
 

@@ -572,8 +572,8 @@ Net result: Positive ROI, system measurably better
 ## Further Reading
 
 - **DevOps + SRE Pillar**: [../docs/principles/four-pillars.md#pillar-1-devops--sre](../docs/principles/four-pillars.md#pillar-1-devops--sre)
-- **Law 2 (Improve System)**: [../docs/principles/five-laws.md](../docs/principles/five-laws.md#law-2)
-- **Law 3 (Document Context)**: [../docs/principles/five-laws.md](../docs/principles/five-laws.md#law-3)
+- **Law 2 (Improve System)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-2)
+- **Law 3 (Document Context)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-3)
 - **Factor IX: Mine Patterns**: [./09-documented-pattern-extraction.md](./09-documented-pattern-extraction.md)
 - **Kaizen**: [Wikipedia: Kaizen](https://en.wikipedia.org/wiki/Kaizen)
 

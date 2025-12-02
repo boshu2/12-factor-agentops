@@ -61,7 +61,7 @@ The 12-Factor AgentOps methodology defines twelve operational principles for bui
 
 ## The Complete List
 
-Each factor derives from the Five Pillars and enforces the Five Laws.
+Each factor derives from the Five Pillars and enforces the Nine Laws.
 
 | # | Factor | Pillar | Laws | Status |
 |---|--------|--------|------|--------|
@@ -80,7 +80,7 @@ Each factor derives from the Five Pillars and enforces the Five Laws.
 
 **Legend:**
 - **Pillar**: Primary philosophical foundation
-- **Laws**: Which of the Five Laws this factor enforces
+- **Laws**: Which of the Nine Laws this factor enforces
 - **Status**: Documentation completion status
 
 ---
@@ -125,14 +125,14 @@ The Twelve Factors rest on a philosophical foundation:
 
 **[Deep dive →](../docs/principles/five-pillars.md)**
 
-### Five Laws
+### Nine Laws
 1. **ALWAYS Extract Learnings**: Patterns are valuable
 2. **ALWAYS Improve Self or System**: Continuous improvement is mandatory
 3. **ALWAYS Document Context for Future**: Future you will thank you
 4. **ALWAYS Validate Before Execute**: Prevention beats recovery
 5. **ALWAYS Share Patterns Publicly**: Build collective knowledge
 
-**[Deep dive →](../docs/principles/five-laws.md)**
+**[Deep dive →](../docs/principles/nine-laws.md)**
 
 ---
 

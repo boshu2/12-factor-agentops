@@ -8,7 +8,7 @@
 [![Version](https://img.shields.io/badge/Version-v1.1.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
 [![GitHub Stars](https://img.shields.io/github/stars/boshu2/12-factor-agentops?style=social)](https://github.com/boshu2/12-factor-agentops)
 
-![12-Factor AgentOps Landscape](./docs/assets/12-factor-animated.svg)
+![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape.svg)
 
 </div>
 
@@ -93,6 +93,21 @@ Pick a factor that matches your pain point:
 - **Enterprise validation?** See [Case Studies](./docs/case-studies/enterprise-validation.md)
 
 Or see the [Workflow Guide](./docs/tutorials/workflow-guide.md) for the full picture.
+
+---
+
+## Plugins
+
+**[agentops](https://github.com/boshu2/agentops)** — Claude Code plugin marketplace implementing these factors.
+
+| Plugin | What It Does |
+|--------|--------------|
+| **constitution** | Six Laws of an Agent, 40% Rule, Git discipline |
+| **core-workflow** | Research → Plan → Implement → Learn cycle |
+| **session-management** | Context bundling, progress tracking, session protocol |
+| **vibe-coding** | 5 core metrics, 6 difficulty levels, tracer tests |
+| **devops-operations** | Kubernetes, Helm, ArgoCD patterns |
+| **software-development** | Python, JavaScript, Go with TDD |
 
 ---
 

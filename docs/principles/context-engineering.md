@@ -678,7 +678,7 @@ Context engineering is the discipline of managing cognitive load to prevent coll
 
 **Theory and research:**
 - [Five Pillars](./five-pillars.md#pillar-4-context-engineering) - Context Engineering pillar overview
-- [Five Laws](./five-laws.md) - How laws support context management
+- [Nine Laws](./nine-laws.md) - How laws support context management
 
 **Operational implementation:**
 - Production implementation examples available in enterprise environments
