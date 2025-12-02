@@ -10,7 +10,7 @@
 
 <br/>
 
-![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape.svg)
+![The Improvement Cycle](./docs/assets/workflow-flow-animated.svg)
 
 <br/>
 
@@ -135,7 +135,7 @@ Bundle what works. Reuse it.
 
 <br/>
 
-![How the Factors Work Together](./docs/assets/workflow-flow-animated.svg)
+![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape.svg)
 
 <br/>
 
