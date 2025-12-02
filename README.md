@@ -2,81 +2,142 @@
 
 # 12-Factor AgentOps
 
-**Operational principles for reliable AI agents.**
+### Operational principles for reliable AI agents
 
 [![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Version](https://img.shields.io/badge/Version-v1.1.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
 [![GitHub Stars](https://img.shields.io/github/stars/boshu2/12-factor-agentops?style=social)](https://github.com/boshu2/12-factor-agentops)
 
+<br/>
+
 ![12-Factor AgentOps Landscape](./docs/assets/12-factor-landscape.svg)
+
+<br/>
+
+---
+
+### How do we take AI agents from 80% reliable to production-grade?
 
 </div>
 
+<br/>
+
+I've watched too many teams follow the same pattern: build exciting AI features, ship to production, watch it break, add manual review, bottleneck, abandon.
+
+**The framework isn't the problem—the operational model is.**
+
+<table>
+<tr>
+<td width="50%">
+
+**Deterministic Code**
+- Same input → same output
+- Predictable, reproducible errors
+- Unit tests, edge cases
+- Code review, testing
+
+</td>
+<td width="50%">
+
+**AI Agents**
+- Same input → different output
+- Novel, context-dependent errors
+- Probabilistic sampling
+- Observability, validation, fallbacks
+
+</td>
+</tr>
+</table>
+
+The answer is 20 years of **DevOps/SRE wisdom**—validation gates, observability, zero-trust, pattern extraction—finally applied to the right problem.
+
+> **This is the SRE to DevOps.** [Gene Kim and Steve Yegge](https://itrevolution.com/product/vibe-coding-book/) call this moment "vibe coding." [Dex Horthy's 12-Factor Agents](https://github.com/humanlayer/12-factor-agents) shows how to *build* these systems right. This shows how to **operate** them.
+
 ---
 
-> ### How do we take AI agents from 80% reliable to production-grade?
+<details>
+<summary><strong>Quick Load for AI Sessions</strong> — Compressed context (~10k tokens)</summary>
 
-I've watched too many teams follow the same pattern: build exciting AI features, ship to production, watch it break, add manual review, bottleneck, abandon. The framework isn't the problem—the operational model is.
+<br/>
 
-[Gene Kim and Steve Yegge](https://itrevolution.com/product/vibe-coding-book/) call this moment "vibe coding"—they're documenting the DevOps movement for AI, complete with FAAFO metrics (the DORA of this era). [Dex Horthy's 12-Factor Agents](https://github.com/humanlayer/12-factor-agents) shows how to *build* these systems right.
-
-**This is the SRE to their DevOps.** It's not about building—it's about operating.
-
-Traditional software practices don't work on probabilistic systems:
-
-| | Deterministic Code | AI Agents |
-|-|-------------------|-----------|
-| **Consistency** | Same input → same output | Same input → different output |
-| **Errors** | Predictable, reproducible | Novel, context-dependent |
-| **Testing** | Unit tests, edge cases | Probabilistic sampling |
-| **Reliability** | Code review, testing | Observability, validation, fallbacks |
-
-But infrastructure operations patterns do. The answer is 20 years of DevOps/SRE wisdom—validation gates, observability, zero-trust, pattern extraction—finally applied to the right problem.
-
----
-
-## Quick Load (AI Sessions)
-
-| Document | Tokens | Coverage | Use For |
-|----------|--------|----------|---------|
-| **[docs/00-SUMMARY.md](./docs/00-SUMMARY.md)** | ~10k | 99% | Fast context loading, AI sessions, quick reference |
+| Document | Tokens | Coverage |
+|----------|--------|----------|
+| **[docs/00-SUMMARY.md](./docs/00-SUMMARY.md)** | ~10k | 99% |
 
 The summary compresses the full corpus into ~10k tokens with zero essential loss. **Start here for AI-assisted work.**
+
+</details>
 
 ---
 
 ## The 12 Factors
 
-### Foundation (I-IV)
+<table>
+<tr>
+<td valign="top" width="33%">
 
-| Factor | What It Does |
-|--------|--------------|
-| **[I. Automated Tracking](./factors/01-automated-tracking.md)** | Track everything in git. No tribal knowledge. |
-| **[II. Context Loading](./factors/02-context-loading.md)** | Load only what you need. Stay under 40%. |
-| **[III. Focused Agents](./factors/03-focused-agents.md)** | One agent, one job. Compose specialists. |
-| **[IV. Continuous Validation](./factors/04-continuous-validation.md)** | Check at every step. Catch errors early. |
+### Foundation (I-IV)
+*Build reliability from the ground up*
+
+**[I. Automated Tracking](./factors/01-automated-tracking.md)**<br/>
+Track everything in git. No tribal knowledge.
+
+**[II. Context Loading](./factors/02-context-loading.md)**<br/>
+Load only what you need. Stay under 40%.
+
+**[III. Focused Agents](./factors/03-focused-agents.md)**<br/>
+One agent, one job. Compose specialists.
+
+**[IV. Continuous Validation](./factors/04-continuous-validation.md)**<br/>
+Check at every step. Catch errors early.
+
+</td>
+<td valign="top" width="33%">
 
 ### Operations (V-VIII)
+*Scale and maintain in production*
 
-| Factor | What It Does |
-|--------|--------------|
-| **[V. Measure Everything](./factors/05-measure-everything.md)** | If you can't measure it, you can't improve it. |
-| **[VI. Resume Work](./factors/06-resume-work.md)** | Save state. Pick up where you left off. |
-| **[VII. Smart Routing](./factors/07-smart-routing.md)** | Send tasks to the right specialist. |
-| **[VIII. Human Validation](./factors/08-human-validation.md)** | Humans approve critical steps. |
+**[V. Measure Everything](./factors/05-measure-everything.md)**<br/>
+If you can't measure it, you can't improve it.
+
+**[VI. Resume Work](./factors/06-resume-work.md)**<br/>
+Save state. Pick up where you left off.
+
+**[VII. Smart Routing](./factors/07-smart-routing.md)**<br/>
+Send tasks to the right specialist.
+
+**[VIII. Human Validation](./factors/08-human-validation.md)**<br/>
+Humans approve critical steps.
+
+</td>
+<td valign="top" width="33%">
 
 ### Improvement (IX-XII)
+*Continuous learning and adaptation*
 
-| Factor | What It Does |
-|--------|--------------|
-| **[IX. Mine Patterns](./factors/09-mine-patterns.md)** | Search history. Find what works. |
-| **[X. Small Iterations](./factors/10-small-iterations.md)** | Improve continuously. Small tweaks compound. |
-| **[XI. Fail-Safe Checks](./factors/11-fail-safe-checks.md)** | Prevent repeating mistakes. Add guardrails. |
-| **[XII. Package Patterns](./factors/12-package-patterns.md)** | Bundle what works. Reuse it. |
+**[IX. Mine Patterns](./factors/09-mine-patterns.md)**<br/>
+Search history. Find what works.
+
+**[X. Small Iterations](./factors/10-small-iterations.md)**<br/>
+Improve continuously. Small tweaks compound.
+
+**[XI. Fail-Safe Checks](./factors/11-fail-safe-checks.md)**<br/>
+Prevent repeating mistakes. Add guardrails.
+
+**[XII. Package Patterns](./factors/12-package-patterns.md)**<br/>
+Bundle what works. Reuse it.
+
+</td>
+</tr>
+</table>
 
 <div align="center">
 
+<br/>
+
 ![How the Factors Work Together](./docs/assets/workflow-flow-animated.svg)
+
+<br/>
 
 </div>
 
@@ -84,42 +145,60 @@ The summary compresses the full corpus into ~10k tokens with zero essential loss
 
 ## Getting Started
 
-Pick a factor that matches your pain point:
+<table>
+<tr>
+<td width="50%">
 
-- **Context problems?** Start with [Factor II: Context Loading](./factors/02-context-loading.md)
-- **Reliability issues?** Start with [Factor IV: Continuous Validation](./factors/04-continuous-validation.md)
-- **No visibility?** Start with [Factor V: Measure Everything](./factors/05-measure-everything.md)
-- **What can go wrong?** See [The 12 Failure Patterns](./docs/reference/failure-patterns.md)
-- **Enterprise validation?** See [Case Studies](./docs/case-studies/enterprise-validation.md)
+**Start with your pain point:**
 
-Or see the [Workflow Guide](./docs/tutorials/workflow-guide.md) for the full picture.
+| Problem | Solution |
+|---------|----------|
+| Context problems? | [Factor II: Context Loading](./factors/02-context-loading.md) |
+| Reliability issues? | [Factor IV: Continuous Validation](./factors/04-continuous-validation.md) |
+| No visibility? | [Factor V: Measure Everything](./factors/05-measure-everything.md) |
+
+</td>
+<td width="50%">
+
+**Go deeper:**
+
+- [The 12 Failure Patterns](./docs/reference/failure-patterns.md) — What can go wrong
+- [Case Studies](./docs/case-studies/enterprise-validation.md) — Enterprise validation
+- [Workflow Guide](./docs/tutorials/workflow-guide.md) — The full picture
+
+</td>
+</tr>
+</table>
 
 ---
 
-## Plugins
+<details>
+<summary><strong>Plugins</strong> — Claude Code marketplace implementing these factors</summary>
 
-**[agentops](https://github.com/boshu2/agentops)** — Claude Code plugin marketplace implementing these factors.
+<br/>
+
+**[agentops](https://github.com/boshu2/agentops)** — Production-ready plugins:
 
 | Plugin | What It Does |
 |--------|--------------|
 | **constitution** | Nine Laws, 40% Rule, Git discipline |
 | **core-workflow** | Research → Plan → Implement → Learn cycle |
-| **session-management** | Context bundling, progress tracking, session protocol |
-| **vibe-coding** | 5 core metrics, 6 difficulty levels, tracer tests |
+| **session-management** | Context bundling, progress tracking |
+| **vibe-coding** | 5 core metrics, 6 difficulty levels |
 | **devops-operations** | Kubernetes, Helm, ArgoCD patterns |
 | **software-development** | Python, JavaScript, Go with TDD |
+
+</details>
 
 ---
 
 ## Credit
 
-- [12-Factor App](https://12factor.net) (Adam Wiggins) - the original methodology
-- [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) (Dex Horthy) - engineering patterns for building AI apps
-- [Vibe Coding](https://itrevolution.com/product/vibe-coding-book/) (Gene Kim & Steve Yegge) - the DevOps movement for AI
-
----
-
 <div align="center">
+
+[12-Factor App](https://12factor.net) (Adam Wiggins) • [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) (Dex Horthy) • [Vibe Coding](https://itrevolution.com/product/vibe-coding-book/) (Gene Kim & Steve Yegge)
+
+<br/>
 
 **License:** CC BY-SA 4.0 (content) / Apache 2.0 (code)
 

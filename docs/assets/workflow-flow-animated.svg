@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
   <defs>
     <style>
-      /* Google Fonts loaded via fallback - Space Mono */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
       text {
-        font-family: 'Space Mono', 'Courier New', Courier, monospace;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       }
 
       /* ============================================
@@ -36,8 +36,8 @@
       }
 
       @keyframes glowPulse {
-        0%, 100% { filter: drop-shadow(0 0 8px rgba(217, 121, 72, 0.4)); }
-        50% { filter: drop-shadow(0 0 20px rgba(217, 121, 72, 0.8)); }
+        0%, 100% { filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.4)); }
+        50% { filter: drop-shadow(0 0 20px rgba(251, 146, 60, 0.8)); }
       }
 
       /* ============================================
@@ -95,60 +95,72 @@
       }
     </style>
 
-    <!-- Gradients -->
-    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#FAF8F5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#F5F2ED;stop-opacity:1" />
+    <!-- Premium dark gradient background -->
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F0F23"/>
+      <stop offset="50%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
     </linearGradient>
 
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
     <radialGradient id="foundation-gradient" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#F0F8FF;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#D4EBFA;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:rgba(96,165,250,0.2)"/>
+      <stop offset="100%" style="stop-color:rgba(59,130,246,0.1)"/>
     </radialGradient>
 
     <radialGradient id="operations-gradient" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#F0FFF4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#D4F0DB;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:rgba(52,211,153,0.2)"/>
+      <stop offset="100%" style="stop-color:rgba(16,185,129,0.1)"/>
     </radialGradient>
 
     <radialGradient id="improvement-gradient" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#FFF9F0;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FFEADB;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:rgba(251,146,60,0.2)"/>
+      <stop offset="100%" style="stop-color:rgba(249,115,22,0.1)"/>
     </radialGradient>
 
     <radialGradient id="center-gradient" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FFF4ED;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:rgba(251,146,60,0.15)"/>
+      <stop offset="100%" style="stop-color:rgba(251,146,60,0.05)"/>
     </radialGradient>
 
     <!-- Shadow filter -->
     <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-      <feOffset dx="0" dy="2" result="offsetblur"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
-      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
     </filter>
 
     <!-- Arrow markers -->
     <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#1A7FCC"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#60A5FA"/>
     </marker>
     <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#15B871"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#34D399"/>
     </marker>
     <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#D97948"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#FB923C"/>
     </marker>
   </defs>
 
   <!-- Background -->
   <rect width="800" height="800" fill="url(#bg-gradient)"/>
 
+  <!-- Ambient glow orbs -->
+  <ellipse cx="150" cy="200" rx="150" ry="100" fill="#60A5FA" opacity="0.06" filter="url(#glow)"/>
+  <ellipse cx="650" cy="500" rx="120" ry="150" fill="#34D399" opacity="0.05" filter="url(#glow)"/>
+  <ellipse cx="400" cy="700" rx="180" ry="100" fill="#FB923C" opacity="0.04" filter="url(#glow)"/>
+
   <!-- Title -->
-  <text class="title" x="400" y="45" text-anchor="middle" font-size="28" font-weight="700" fill="#1A1A1A">
+  <text class="title" x="400" y="45" text-anchor="middle" font-size="28" font-weight="800" fill="#FAFAFA">
     12-Factor AgentOps
   </text>
-  <text class="subtitle" x="400" y="75" text-anchor="middle" font-size="16" fill="#7A6F5D">
+  <text class="subtitle" x="400" y="75" text-anchor="middle" font-size="16" fill="#94A3B8">
     The Continuous Improvement Cycle
   </text>
 
@@ -159,77 +171,77 @@
     <!-- Foundation to Operations (clockwise, right side) -->
     <path class="arrow-path arrow-f-to-o flow-active"
           d="M 85 -145 Q 200 -80 85 20"
-          stroke="#1A7FCC" stroke-width="4" fill="none"
+          stroke="#60A5FA" stroke-width="3" fill="none"
           stroke-dasharray="10, 5"
           marker-end="url(#arrow-blue)"/>
 
     <!-- Operations to Improvement (clockwise, bottom) -->
     <path class="arrow-path arrow-o-to-i flow-active"
           d="M 50 95 Q 0 200 -50 95"
-          stroke="#15B871" stroke-width="4" fill="none"
+          stroke="#34D399" stroke-width="3" fill="none"
           stroke-dasharray="10, 5"
           marker-end="url(#arrow-green)"/>
 
     <!-- Improvement to Foundation (clockwise, left side - the feedback loop) -->
     <path class="arrow-path arrow-i-to-f flow-active"
           d="M -85 20 Q -200 -80 -85 -145"
-          stroke="#D97948" stroke-width="4" fill="none"
+          stroke="#FB923C" stroke-width="3" fill="none"
           stroke-dasharray="10, 5"
           marker-end="url(#arrow-orange)"/>
 
     <!-- Foundation Node (top) -->
     <g class="foundation-node pulse-active" filter="url(#shadow)">
-      <circle cx="0" cy="-170" r="75" fill="url(#foundation-gradient)" stroke="#1A7FCC" stroke-width="4"/>
-      <text x="0" y="-185" text-anchor="middle" font-size="18" font-weight="700" fill="#1A7FCC">Foundation</text>
-      <text x="0" y="-160" text-anchor="middle" font-size="14" fill="#1A7FCC">I - IV</text>
-      <text x="0" y="-135" text-anchor="middle" font-size="11" fill="#5A5449">Track</text>
-      <text x="0" y="-120" text-anchor="middle" font-size="11" fill="#5A5449">Validate</text>
+      <circle cx="0" cy="-170" r="75" fill="url(#foundation-gradient)" stroke="rgba(96,165,250,0.5)" stroke-width="2"/>
+      <text x="0" y="-185" text-anchor="middle" font-size="18" font-weight="700" fill="#60A5FA">Foundation</text>
+      <text x="0" y="-160" text-anchor="middle" font-size="14" fill="#60A5FA">I - IV</text>
+      <text x="0" y="-135" text-anchor="middle" font-size="11" fill="#94A3B8">Track</text>
+      <text x="0" y="-120" text-anchor="middle" font-size="11" fill="#94A3B8">Validate</text>
     </g>
 
     <!-- Operations Node (bottom right) -->
     <g class="operations-node pulse-active" filter="url(#shadow)">
-      <circle cx="100" cy="60" r="75" fill="url(#operations-gradient)" stroke="#15B871" stroke-width="4"/>
-      <text x="100" y="45" text-anchor="middle" font-size="18" font-weight="700" fill="#15B871">Operations</text>
-      <text x="100" y="70" text-anchor="middle" font-size="14" fill="#15B871">V - VIII</text>
-      <text x="100" y="95" text-anchor="middle" font-size="11" fill="#5A5449">Measure</text>
-      <text x="100" y="110" text-anchor="middle" font-size="11" fill="#5A5449">Route</text>
+      <circle cx="100" cy="60" r="75" fill="url(#operations-gradient)" stroke="rgba(52,211,153,0.5)" stroke-width="2"/>
+      <text x="100" y="45" text-anchor="middle" font-size="18" font-weight="700" fill="#34D399">Operations</text>
+      <text x="100" y="70" text-anchor="middle" font-size="14" fill="#34D399">V - VIII</text>
+      <text x="100" y="95" text-anchor="middle" font-size="11" fill="#94A3B8">Measure</text>
+      <text x="100" y="110" text-anchor="middle" font-size="11" fill="#94A3B8">Route</text>
     </g>
 
     <!-- Improvement Node (bottom left) -->
     <g class="improvement-node pulse-active" filter="url(#shadow)">
-      <circle cx="-100" cy="60" r="75" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4"/>
-      <text x="-100" y="45" text-anchor="middle" font-size="18" font-weight="700" fill="#D97948">Improvement</text>
-      <text x="-100" y="70" text-anchor="middle" font-size="14" fill="#D97948">IX - XII</text>
-      <text x="-100" y="95" text-anchor="middle" font-size="11" fill="#5A5449">Mine</text>
-      <text x="-100" y="110" text-anchor="middle" font-size="11" fill="#5A5449">Package</text>
+      <circle cx="-100" cy="60" r="75" fill="url(#improvement-gradient)" stroke="rgba(251,146,60,0.5)" stroke-width="2"/>
+      <text x="-100" y="45" text-anchor="middle" font-size="18" font-weight="700" fill="#FB923C">Improvement</text>
+      <text x="-100" y="70" text-anchor="middle" font-size="14" fill="#FB923C">IX - XII</text>
+      <text x="-100" y="95" text-anchor="middle" font-size="11" fill="#94A3B8">Mine</text>
+      <text x="-100" y="110" text-anchor="middle" font-size="11" fill="#94A3B8">Package</text>
     </g>
 
     <!-- Center label -->
     <g class="center-label">
-      <circle cx="0" cy="-20" r="50" fill="url(#center-gradient)" stroke="#D97948" stroke-width="3" stroke-dasharray="5,3"/>
-      <text x="0" y="-30" text-anchor="middle" font-size="12" font-weight="700" fill="#D97948">Continuous</text>
-      <text x="0" y="-12" text-anchor="middle" font-size="12" font-weight="700" fill="#D97948">Feedback</text>
-      <text x="0" y="8" text-anchor="middle" font-size="10" fill="#7A6F5D">Loop</text>
+      <circle cx="0" cy="-20" r="50" fill="url(#center-gradient)" stroke="rgba(251,146,60,0.5)" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="0" y="-30" text-anchor="middle" font-size="12" font-weight="700" fill="#FB923C">Continuous</text>
+      <text x="0" y="-12" text-anchor="middle" font-size="12" font-weight="700" fill="#FB923C">Feedback</text>
+      <text x="0" y="8" text-anchor="middle" font-size="10" fill="#94A3B8">Loop</text>
     </g>
   </g>
 
   <!-- Key insight callouts -->
   <g class="subtitle" opacity="0" style="animation: fadeIn 0.5s ease-out forwards 3.8s;">
-    <rect x="50" y="680" width="200" height="70" rx="10" fill="#FFF9F0" stroke="#F5B547" stroke-width="2" stroke-dasharray="5,3"/>
-    <text x="150" y="705" text-anchor="middle" font-size="12" font-weight="600" fill="#E8882E">Key Insight</text>
-    <text x="150" y="725" text-anchor="middle" font-size="10" fill="#5A5449">AI agents need</text>
-    <text x="150" y="740" text-anchor="middle" font-size="10" fill="#5A5449">operational patterns</text>
+    <rect x="50" y="680" width="200" height="70" rx="12" fill="rgba(251,146,60,0.1)" stroke="rgba(251,146,60,0.4)" stroke-width="1"/>
+    <text x="150" y="705" text-anchor="middle" font-size="12" font-weight="600" fill="#FB923C">Key Insight</text>
+    <text x="150" y="725" text-anchor="middle" font-size="10" fill="#94A3B8">AI agents need</text>
+    <text x="150" y="740" text-anchor="middle" font-size="10" fill="#94A3B8">operational patterns</text>
   </g>
 
   <g class="subtitle" opacity="0" style="animation: fadeIn 0.5s ease-out forwards 4s;">
-    <rect x="550" y="680" width="200" height="70" rx="10" fill="#F0FFF4" stroke="#15B871" stroke-width="2" stroke-dasharray="5,3"/>
-    <text x="650" y="705" text-anchor="middle" font-size="12" font-weight="600" fill="#15B871">Result</text>
-    <text x="650" y="725" text-anchor="middle" font-size="10" fill="#5A5449">80% reliable to</text>
-    <text x="650" y="740" text-anchor="middle" font-size="10" fill="#5A5449">99%+ reliable</text>
+    <rect x="550" y="680" width="200" height="70" rx="12" fill="rgba(52,211,153,0.1)" stroke="rgba(52,211,153,0.4)" stroke-width="1"/>
+    <text x="650" y="705" text-anchor="middle" font-size="12" font-weight="600" fill="#34D399">Result</text>
+    <text x="650" y="725" text-anchor="middle" font-size="10" fill="#94A3B8">80% reliable to</text>
+    <text x="650" y="740" text-anchor="middle" font-size="10" fill="#94A3B8">99%+ reliable</text>
   </g>
 
   <!-- Footer -->
-  <text class="subtitle" x="400" y="780" text-anchor="middle" font-size="12" fill="#A0978B" opacity="0" style="animation: fadeIn 0.5s ease-out forwards 4.2s;">
+  <text class="subtitle" x="400" y="780" text-anchor="middle" font-size="12" fill="#64748B" opacity="0" style="animation: fadeIn 0.5s ease-out forwards 4.2s;">
     github.com/boshu2/12-factor-agentops
   </text>
 </svg>
