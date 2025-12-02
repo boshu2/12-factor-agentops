@@ -579,4 +579,4 @@ Net result: Positive ROI, system measurably better
 
 ---
 
-**Remember:** Stagnation is regression. Systems that don't improve get worse over time. The improvement backlog is how you enforce Law 2 (ALWAYS Improve). Allocate 20% of your time to making the system better. Small improvements compound into transformative change.
+**Remember:** Stagnation is regression. Systems that don't improve tend to get worse over time. The improvement backlog supports Law 2 (Learn & Improve). Consider allocating ~20% of your time to making the system better. Small improvements compound into transformative change.

@@ -102,7 +102,7 @@ Or see the [Workflow Guide](./docs/tutorials/workflow-guide.md) for the full pic
 
 | Plugin | What It Does |
 |--------|--------------|
-| **constitution** | Six Laws of an Agent, 40% Rule, Git discipline |
+| **constitution** | Nine Laws, 40% Rule, Git discipline |
 | **core-workflow** | Research → Plan → Implement → Learn cycle |
 | **session-management** | Context bundling, progress tracking, session protocol |
 | **vibe-coding** | 5 core metrics, 6 difficulty levels, tracer tests |
