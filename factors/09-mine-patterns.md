@@ -34,7 +34,7 @@ Session 100: Problem X again, rediscovered again
 Result: Same learning, zero knowledge transfer
 ```
 
-**Traditional approach:** Solutions stay in individual commits/sessions
+**Traditional approach:** Solutions stay in individual sessions
 
 **12-Factor AgentOps approach:** Extract patterns, document publicly, enable reuse
 
@@ -48,11 +48,11 @@ Result: Same learning, zero knowledge transfer
 
 Pattern extraction is the core of Knowledge OS: converting raw experience into reusable knowledge. Christopher Alexander's pattern language teaches that "each pattern describes a problem which occurs over and over again, and describes the core of the solution so you can use it a million times over." One-time solutions are expendable; patterns are valuable.
 
-Knowledge OS uses Git for lossless storage of every decision (Factor I), but storage alone doesn't create knowledge—patterns do. A pattern abstracts from specific context (PostgreSQL StatefulSet with 3 replicas) to general principle (stateful services need replicated storage). This abstraction enables reuse across domains: the same pattern applies to MySQL, Redis, MongoDB. Patterns create knowledge networks where learnings compound instead of duplicating.
+Knowledge OS uses persistent memory for lossless storage of every decision (Factor I), but storage alone doesn't create knowledge—patterns do. A pattern abstracts from specific context (handled refund for premium customer with billing error) to general principle (empathetic resolution with compensation builds loyalty). This abstraction enables reuse across domains: the same pattern applies to customer service, sales, and support. Patterns create knowledge networks where learnings compound instead of duplicating.
 
 **Supporting: Learning Science**
 
-Learning Science provides the retrospective and feedback loop patterns. Agile teaches: "At regular intervals, the team reflects on how to become more effective." For agents, this means mandatory end-of-session retrospectives extracting learnings. Pattern detection through clustering shows emergence: when a pattern appears 3+ times in git history, it's ready for extraction and documentation.
+Learning Science provides the retrospective and feedback loop patterns. Agile teaches: "At regular intervals, the team reflects on how to become more effective." For agents, this means mandatory end-of-session retrospectives extracting learnings. Pattern detection through clustering shows emergence: when a pattern appears 3+ times in session history, it's ready for extraction and documentation.
 
 ---
 
@@ -60,9 +60,9 @@ Learning Science provides the retrospective and feedback loop patterns. Agile te
 
 ### Law 1: Extract Learnings
 
-This factor IS Law 1 operationalized. Every session must extract at least one learning—pattern extraction is the mechanism. The retrospective template forces structured reflection: what worked, what didn't, what did we learn, can this be a pattern? Automated pattern detection scans git history for recurring themes, suggesting patterns when clusters form.
+This factor IS Law 1 operationalized. Every session must extract at least one learning—pattern extraction is the mechanism. The retrospective template forces structured reflection: what worked, what didn't, what did we learn, can this be a pattern? Automated pattern detection scans session history for recurring themes, suggesting patterns when clusters form.
 
-**Concrete example:** Session completes → Retrospective required → "Learning: For stateful K8s apps, always use StatefulSets with persistent volumes" → Check if pattern exists → New pattern created → Pattern documents problem/solution/evidence → Future sessions reference this pattern instead of rediscovering it. Law 1 enforcement through mandatory extraction process.
+**Concrete example:** Session completes → Retrospective required → "Learning: For frustrated customers, acknowledge emotion before solving problem" → Check if pattern exists → New pattern created → Pattern documents problem/solution/evidence → Future sessions reference this pattern instead of rediscovering it. Law 1 enforcement through mandatory extraction process.
 
 ### Law 5: Share Patterns Publicly
 
@@ -119,7 +119,7 @@ What competing concerns must be balanced?
 How do you solve this problem?
 
 ## Implementation
-Code/config examples
+Examples and guidance
 
 ## Consequences
 What results from applying this?
@@ -149,14 +149,14 @@ Metrics, validation, proof
 
 **Solution:** Patterns link to each other
 ```
-Pattern: Phase-Based Workflow
-├─ Uses: Context Bundles (Factor VI)
+Pattern: Empathetic Resolution
+├─ Uses: Active Listening (Factor VIII)
 ├─ Uses: Validation Gates (Factor IV)
-└─ Alternative to: Monolithic Workflow
+└─ Alternative to: Script-Based Response
 
-Pattern: Context Bundles
-├─ Enables: Multi-Day Workflows
-└─ Enforces: 40% Rule (Factor II)
+Pattern: Escalation Routing
+├─ Enables: Complex Issue Handling
+└─ Enforces: Authorization Limits (Factor VIII)
 ```
 
 **Result:** Knowledge graph, not isolated solutions
@@ -164,12 +164,12 @@ Pattern: Context Bundles
 ### 2. Abstraction Enables Reuse
 
 **Specific solution** (not reusable):
-> "We used PostgreSQL StatefulSet with 3 replicas and fast-ssd storage class for the production database"
+> "We gave customer #1234 a 20% discount because they were frustrated about shipping delay"
 
 **Extracted pattern** (reusable):
-> "For stateful services requiring persistence and high availability, use StatefulSets with replicated storage"
+> "For service failures causing customer frustration, offer proportional compensation proactively"
 
-**Result:** Applies to PostgreSQL, MySQL, Redis, MongoDB, etc.
+**Result:** Applies to shipping delays, billing errors, product issues, etc.
 
 ### 3. Retrospectives Force Learning
 
@@ -217,8 +217,8 @@ Impact: 1000× value
 class PatternExtractor:
     def extract_from_session(self, session):
         # 1. Review session artifacts
-        commits = self.get_commits(session)
-        decisions = self.extract_decisions(commits)
+        actions = self.get_actions(session)
+        decisions = self.extract_decisions(actions)
         failures = self.extract_failures(session)
         successes = self.extract_successes(session)
 
@@ -261,33 +261,33 @@ patterns/
 │   ├── phase-based-workflow.md
 │   ├── multi-agent-orchestration.md
 │   └── research-first.md
-├── context-patterns/
-│   ├── context-bundles.md
-│   ├── jit-loading.md
-│   └── progressive-disclosure.md
+├── interaction-patterns/
+│   ├── empathetic-resolution.md
+│   ├── proactive-communication.md
+│   └── escalation-routing.md
 ├── validation-patterns/
-│   ├── pre-commit-hooks.md
-│   ├── ci-cd-gates.md
-│   └── human-approval.md
-└── deployment-patterns/
-    ├── canary-deployment.md
-    ├── blue-green.md
-    └── rollback-strategy.md
+│   ├── pre-action-checks.md
+│   ├── human-approval-gates.md
+│   └── risk-assessment.md
+└── learning-patterns/
+    ├── retrospective-template.md
+    ├── knowledge-extraction.md
+    └── pattern-evolution.md
 ```
 
 ### Automated Pattern Detection
 
 ```python
 class PatternDetector:
-    def detect_patterns(self, git_history):
-        # Analyze commit messages for recurring patterns
-        commits = self.load_commits(git_history)
+    def detect_patterns(self, session_history):
+        # Analyze session records for recurring patterns
+        sessions = self.load_sessions(session_history)
 
-        # Extract "Learning:" sections from commits
+        # Extract "Learning:" sections from sessions
         learnings = []
-        for commit in commits:
-            if "Learning:" in commit.message:
-                learnings.append(self.parse_learning(commit))
+        for session in sessions:
+            if session.has_learnings():
+                learnings.append(self.parse_learning(session))
 
         # Cluster similar learnings
         clusters = self.cluster_similar_learnings(learnings)
@@ -299,7 +299,7 @@ class PatternDetector:
                 patterns.append({
                     'name': cluster.theme,
                     'occurrences': len(cluster),
-                    'evidence': cluster.commits,
+                    'evidence': cluster.sessions,
                     'suggested_pattern': self.synthesize_pattern(cluster)
                 })
 
@@ -376,31 +376,30 @@ Bottom 20 patterns: Used in 10% of sessions
 **Pattern categories:**
 ```
 Workflow patterns: 12 (orchestration, routing)
-Context patterns: 8 (bundles, 40% rule)
-Validation patterns: 10 (gates, tests, hooks)
-Deployment patterns: 7 (CI/CD, rollback)
-Documentation patterns: 5 (commit format, bundles)
-Meta patterns: 10 (pattern extraction itself)
+Interaction patterns: 10 (communication, escalation)
+Validation patterns: 10 (gates, checks, approval)
+Learning patterns: 8 (retrospectives, extraction)
+Domain patterns: 12 (industry-specific)
 ```
 
 ### Specific Pattern Impact
 
-**Pattern: Phase-Based Workflow**
+**Pattern: Empathetic Resolution**
 - **Created:** Month 2
-- **Used in:** 187 sessions (91% of all sessions)
-- **Time savings:** ~2 hours per session (374 hours total)
-- **Success rate:** 95% (vs. 60% for monolithic approach)
+- **Used in:** 187 sessions (91% of customer interactions)
+- **Time savings:** ~2 minutes per interaction (374 hours total)
+- **Success rate:** 95% customer satisfaction (vs. 70% for scripted approach)
 
-**Pattern: Context Bundles**
+**Pattern: Proactive Compensation**
 - **Created:** Month 4
-- **Used in:** 45 multi-day sessions (100% of multi-day work)
-- **Enabled:** 7+ day projects (previously impossible)
-- **Compression ratio:** 5:1 to 10:1
+- **Used in:** 45 escalation situations
+- **Outcome:** 85% customer retention (vs. 60% reactive approach)
+- **Value:** $50K in retained customer value
 
-**Pattern: Validation Gates**
+**Pattern: Pre-Action Validation**
 - **Created:** Month 3
 - **Used in:** 205 sessions (100% of sessions post-Month 3)
-- **Prevented failures:** 90% of potential breaks caught at gates
+- **Prevented failures:** 90% of potential errors caught before action
 - **ROI:** 6 hours saved per prevented failure
 
 ---
@@ -413,7 +412,7 @@ Meta patterns: 10 (pattern extraction itself)
 
 ### ❌ The "Vague Pattern" Trap
 **Wrong:** "Use best practices"
-**Right:** "For stateful services, use StatefulSets with persistent volumes"
+**Right:** "For frustrated customers, acknowledge emotion before problem-solving"
 
 ### ❌ The "Private Knowledge" Trap
 **Wrong:** Keep patterns internal only
@@ -427,11 +426,11 @@ Meta patterns: 10 (pattern extraction itself)
 
 ## Relationship to Other Factors
 
-- **Factor I: Automated Tracking**: Patterns extracted from git history analysis
+- **Factor I: Automated Tracking**: Patterns extracted from session history analysis
 - **Factor III: Focused Agents**: Agent composition patterns
-- **Factor VI: Measure Everything**: Telemetry reveals which patterns work
-- **Factor VII: Resume Work**: Bundles are a pattern for continuity
-- **Factor VIII: Smart Routing**: Routing learns from pattern success rates
+- **Factor V: Measure Everything**: Telemetry reveals which patterns work
+- **Factor VI: Resume Work**: Bundles are a pattern for continuity
+- **Factor VIII: Human Validation**: Routing learns from pattern success rates
 
 ---
 
@@ -440,32 +439,32 @@ Meta patterns: 10 (pattern extraction itself)
 ### Category 1: Workflow Patterns
 
 **Examples:**
-- Phase-Based Workflow (Research → Plan → Implement)
+- Phase-Based Workflow (Research → Plan → Execute)
 - Multi-Agent Orchestration (parallel execution)
 - Research-First (investigation before action)
-- Quick-Edit Workflow (simple changes)
+- Quick-Response Workflow (simple requests)
 
 **Structure:** How to organize work
 
-### Category 2: Technical Patterns
+### Category 2: Interaction Patterns
 
 **Examples:**
-- Context Bundles (compression techniques)
-- JIT Loading (load when needed, not upfront)
-- Git Hooks (automated validation)
-- CI/CD Gates (pipeline stages)
+- Empathetic Resolution (acknowledge emotion first)
+- Proactive Communication (update before asked)
+- Escalation Routing (when to involve humans)
+- Confirmation Loop (verify understanding)
 
-**Structure:** How to implement solutions
+**Structure:** How to communicate effectively
 
-### Category 3: Process Patterns
+### Category 3: Validation Patterns
 
 **Examples:**
-- Human Validation (approval workflows)
-- Retrospectives (end-of-session learning)
-- Continuous Validation (prevent errors)
-- Incremental Deployment (canary, blue-green)
+- Pre-Action Checks (validate before execute)
+- Human Approval Gates (critical decisions)
+- Risk Assessment (evaluate impact)
+- Rollback Planning (prepare for failure)
 
-**Structure:** How to manage workflows
+**Structure:** How to ensure quality
 
 ### Category 4: Meta Patterns
 
@@ -536,8 +535,8 @@ Evidence: Replaced by superior pattern
 - [Success 2]
 
 ## What didn't work?
-- [Failure 1]
-- [Failure 2]
+- [Challenge 1]
+- [Challenge 2]
 
 ## What did we learn?
 - [Learning 1]: [Can this be a pattern?]
@@ -553,11 +552,10 @@ Evidence: Replaced by superior pattern
 1. [Improvement 1]
 2. [Improvement 2]
 
-## Time metrics
-- Research: X minutes
-- Planning: Y minutes
-- Implementation: Z minutes
-- Total: N minutes
+## Metrics
+- Tasks completed: X
+- Success rate: Y%
+- Time to resolution: Z minutes
 
 ## Success criteria met?
 - [ ] Criteria 1
@@ -571,8 +569,8 @@ Evidence: Replaced by superior pattern
 1. **Implement post-session retrospectives** (mandatory)
 2. **Create pattern library** structure
 3. **Extract 3-5 initial patterns** from recent sessions
-4. **Automate pattern detection** from git history
-5. **Publish patterns publicly** (GitHub, blog, documentation)
+4. **Automate pattern detection** from session history
+5. **Publish patterns publicly** (documentation, sharing)
 
 ---
 

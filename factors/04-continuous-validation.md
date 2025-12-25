@@ -1,20 +1,20 @@
 # Factor IV: Continuous Validation
 
-**Formal checkpoints (plan review, tests, hooks) before applying changes**
+**Formal checkpoints before agents apply changes; validate at every step**
 
 | Aspect | Details |
 |--------|---------|
 | **Primary Pillar** | DevOps + SRE |
 | **Supporting Pillar** | Learning Science |
 | **Enforces Laws** | Law 3 (Document Context), Law 4 (Validate Before Execute) |
-| **Derived From** | CI/CD pipelines + Pre-flight checks + Shift-left testing |
+| **Derived From** | Validation gates + Pre-flight checks + Shift-left verification |
 
 
 ---
 
 ## Summary
 
-Before any agent applies changes to code, config, or infrastructure, validation gates must confirm correctness. These gates include automated tests, pre-commit hooks, diff reviews, and human approvals. Prevention is cheaper than recovery.
+Before any agent applies changes—to data, systems, or decisions—validation gates must confirm correctness. These gates include automated checks, review steps, and human approvals. Prevention is cheaper than recovery.
 
 ## The Problem
 
@@ -27,9 +27,9 @@ Agents that execute without validation:
 
 **Familiar pattern:**
 ```
-Agent generates config → Commits directly → Deploys
-                                         ↓
-                            Production breaks → Hours of recovery
+Agent generates action → Executes directly → Applies changes
+                                            ↓
+                            System breaks → Hours of recovery
 ```
 
 **Traditional approach:** "Let's fix it if it breaks"
@@ -44,9 +44,9 @@ Agent generates config → Commits directly → Deploys
 
 **Primary: DevOps + SRE**
 
-The validation gates pattern comes directly from DevOps shift-left testing and SRE pre-flight checks. DevOps teaches us that "the earlier you catch a bug, the cheaper it is to fix"—finding syntax errors before commit costs seconds, finding them in production costs hours. SRE practices require pre-flight checklists before any change, just as pilots complete checklists even after 10,000 hours of flight time. The cost ratio is brutal: 1 (syntax check) : 60 (logic check) : 3600 (production failure).
+The validation gates pattern comes directly from DevOps shift-left testing and SRE pre-flight checks. DevOps teaches us that "the earlier you catch a problem, the cheaper it is to fix"—finding errors before execution costs seconds, finding them in production costs hours. SRE practices require pre-flight checklists before any change, just as pilots complete checklists even after 10,000 hours of flight time. The cost ratio is brutal: 1 (validation check) : 60 (post-execution fix) : 3600 (production failure).
 
-Validation gates prevent catastrophic failures by enforcing quality at boundaries. Just as CI/CD pipelines have automated gates between stages, agent workflows need gates between generation and execution. The Knight Capital $440M loss in 2012 could have been prevented by simple pre-deployment validation gates. Prevention is always cheaper than recovery.
+Validation gates prevent catastrophic failures by enforcing quality at boundaries. Just as automated pipelines have gates between stages, agent workflows need gates between decision and execution. Prevention is always cheaper than recovery.
 
 **Supporting: Learning Science**
 
@@ -58,20 +58,18 @@ Learning Science provides the progressive complexity model: students need checkp
 
 ### Law 3: Document Context for Future Agents
 
-Validation gates enforce documentation by requiring structured commit messages. Pre-commit hooks reject commits without "Context:" and "Learning:" sections, ensuring every change is documented for future agents. This automated enforcement turns Law 3 from a guideline into a requirement—validation fails if context is missing.
+Validation gates enforce documentation by requiring structured entries. Pre-action hooks reject actions without "Context:" and "Learning:" sections, ensuring every change is documented for future agents. This automated enforcement turns Law 3 from a guideline into a requirement—validation fails if context is missing.
 
-**Concrete example:** Pre-commit hook checks for required sections, blocking `git commit` until documentation is complete. Result: 100% compliance with Law 3 (from 70% voluntary compliance).
+**Concrete example:** Pre-action hook checks for required sections, blocking execution until documentation is complete. Result: 100% compliance with Law 3 (from 70% voluntary compliance).
 
 ### Law 4: Validate Before Execute
 
 This factor IS Law 4 in action. Validation gates operationalize the principle that agents must never execute changes without validation. Multiple layers enforce this:
 
-- **Pre-commit hooks:** Block commits with invalid syntax
-- **CI/CD pipelines:** Run automated tests before merge
-- **Human gates:** Require approval before production deployment
+- **Pre-action checks:** Block actions with invalid parameters
+- **Business rule validation:** Verify logic before execution
+- **Human gates:** Require approval before high-risk changes
 - **Runtime checks:** Verify preconditions before executing changes
-
-**Concrete example:** Agent generates Kubernetes manifest → yamllint validates syntax → tests verify logic → human reviews diff → only then commits. Each gate enforces Law 4 at a different level, creating defense-in-depth.
 
 ---
 
@@ -89,52 +87,52 @@ This factor IS Law 4 in action. Validation gates operationalize the principle th
 **Right approach:**
 ```markdown
 1. Generate solution
-2. ✅ Validate syntax (automated)
-3. ✅ Validate logic (automated tests)
-4. ✅ Review diff (human or AI)
+2. ✅ Validate inputs (automated)
+3. ✅ Validate logic (automated rules)
+4. ✅ Review decision (human or AI)
 5. ✅ Check side effects (dependency analysis)
 6. Apply solution (only if all gates pass)
 ```
 
 ### Types of Validation Gates
 
-**Level 1: Syntax Validation** (100% automated)
-- YAML/JSON schema validation
-- Code linting
-- Type checking
-- Configuration parsing
+**Level 1: Input Validation** (100% automated)
+- Parameter format validation
+- Required field checks
+- Data type verification
+- Constraint enforcement
 
 **Level 2: Logic Validation** (100% automated)
-- Unit tests
-- Integration tests
-- Rendering tests (for templates)
-- Dry-run execution
+- Business rule checks
+- Policy compliance
+- Threshold verification
+- Constraint validation
 
 **Level 3: Semantic Validation** (automated + human)
-- Diff review (changes make sense?)
-- Dependency impact analysis
-- Security scanning
-- Performance regression checks
+- Decision review (does this make sense?)
+- Impact analysis
+- Risk assessment
+- Quality checks
 
 **Level 4: Human Gates** (selective)
-- Plan approval before implementation
-- Production deployment approval
-- Architecture decision review
-- Security-sensitive changes
+- High-value decision approval
+- Sensitive action authorization
+- Policy exception review
+- Final confirmation for critical changes
 
 ---
 
 ## Why This Works
 
-### 1. Shift-Left Testing from DevOps
+### 1. Shift-Left Verification
 
 **Traditional DevOps wisdom:**
-> "The earlier you catch a bug, the cheaper it is to fix"
+> "The earlier you catch a problem, the cheaper it is to fix"
 
 **For AI agents:**
-- Catching syntax errors before commit: 5 seconds
-- Catching logic errors before deploy: 5 minutes
-- Catching production errors after deploy: 5 hours
+- Catching input errors before action: 5 seconds
+- Catching logic errors before completion: 5 minutes
+- Catching production errors after deployment: 5 hours
 
 **Cost ratio:** 1:60:3600
 
@@ -156,103 +154,100 @@ This factor IS Law 4 in action. Validation gates operationalize the principle th
 
 **For AI agents:**
 ```
-Bad: Generate → Commit → Push → Deploy → Production breaks
-Good: Generate → Validate (FAIL) → Fix → Validate (PASS) → Commit
+Bad: Generate → Execute → Complete → System breaks
+Good: Generate → Validate (FAIL) → Fix → Validate (PASS) → Execute
 ```
 
-**Result:** Failures caught in development, not production
+**Result:** Failures caught before execution, not after
 
 ### 4. Trust Through Verification
 
-**Problem:** "How do I trust AI-generated changes?"
+**Problem:** "How do I trust AI-generated decisions?"
 
 **Solution:** Validation gates provide objective proof
-- Tests pass → Changes are safe
-- Tests fail → Changes need work
+- Checks pass → Action is safe
+- Checks fail → Action needs work
 - Trust based on verification, not hope
 
 ---
 
 ## Implementation
 
-### Git Hooks for Automated Gates
+### Pre-Action Validation
 
-**Pre-commit hook** (runs before every commit):
-```bash
-#!/bin/bash
-# .git/hooks/pre-commit
+**Validation before every action:**
+```python
+def validate_action(action):
+    # Gate 1: Input validation
+    if not validate_inputs(action.inputs):
+        return ValidationError("Invalid inputs")
 
-echo "🔍 Running validation gates..."
+    # Gate 2: Business rules
+    if not check_business_rules(action):
+        return ValidationError("Business rule violation")
 
-# Gate 1: YAML syntax
-echo "  ✓ Checking YAML syntax..."
-yamllint -c .yamllint.yml .
-if [ $? -ne 0 ]; then
-  echo "❌ YAML validation failed"
-  exit 1
-fi
+    # Gate 3: Risk assessment
+    if action.risk_level > THRESHOLD:
+        if not get_human_approval(action):
+            return ValidationError("High-risk action requires approval")
 
-# Gate 2: Python tests
-echo "  ✓ Running tests..."
-pytest tests/ --quiet
-if [ $? -ne 0 ]; then
-  echo "❌ Tests failed"
-  exit 1
-fi
-
-# Gate 3: Commit message format
-echo "  ✓ Checking commit format..."
-if ! grep -q "Context:" "$1"; then
-  echo "❌ Commit must include Context section"
-  exit 1
-fi
-
-echo "✅ All validation gates passed"
-exit 0
+    return ValidationSuccess()
 ```
 
-### CI/CD Pipeline Gates
+### Domain-Specific Validation Examples
 
-**GitLab CI validation** (.gitlab-ci.yml):
-```yaml
-stages:
-  - validate
-  - test
-  - deploy
+**Customer Service Agent:**
+```python
+def validate_refund(refund_action):
+    # Check refund amount within policy
+    if refund_action.amount > customer.max_refund_limit:
+        return Error("Refund exceeds customer limit")
 
-syntax-check:
-  stage: validate
-  script:
-    - yamllint -c .yamllint.yml .
-    - python -m py_compile scripts/*.py
-  only:
-    - merge_requests
-    - main
+    # Check for duplicate refunds
+    if has_recent_refund(customer, days=30):
+        return Warning("Recent refund detected - verify")
 
-unit-tests:
-  stage: test
-  script:
-    - pytest tests/unit/ --cov
-  coverage: '/TOTAL.*\s+(\d+%)$/'
-  only:
-    - merge_requests
-    - main
+    # Check authorization level
+    if refund_action.amount > agent.authorization_limit:
+        return RequireEscalation("Amount exceeds agent limit")
 
-integration-tests:
-  stage: test
-  script:
-    - pytest tests/integration/
-  only:
-    - merge_requests
-    - main
+    return Success()
+```
 
-deploy:
-  stage: deploy
-  script:
-    - ./deploy.sh
-  only:
-    - main
-  when: manual  # Human gate for production
+**Research Agent:**
+```python
+def validate_publication(research_action):
+    # Check source credibility
+    if not verify_sources(research_action.sources):
+        return Error("Unverified sources detected")
+
+    # Check for bias indicators
+    if detect_bias(research_action.content):
+        return Warning("Potential bias - review required")
+
+    # Check stakeholder approval
+    if research_action.is_external:
+        return RequireApproval("External publication requires approval")
+
+    return Success()
+```
+
+**Sales Agent:**
+```python
+def validate_discount(discount_action):
+    # Check discount within policy
+    if discount_action.percentage > MAX_DISCOUNT:
+        return Error("Discount exceeds maximum allowed")
+
+    # Check customer eligibility
+    if not customer_eligible(discount_action.customer):
+        return Error("Customer not eligible for this discount")
+
+    # Check margin impact
+    if calculate_margin(discount_action) < MIN_MARGIN:
+        return RequireApproval("Low margin - manager approval needed")
+
+    return Success()
 ```
 
 ### Agent-Level Validation Pattern
@@ -265,19 +260,19 @@ class AgentWorkflow:
         solution = self.generate_solution(task)
 
         # 2. Validation gates
-        if not self.validate_syntax(solution):
-            raise ValidationError("Syntax invalid")
+        if not self.validate_inputs(solution):
+            raise ValidationError("Inputs invalid")
 
-        if not self.run_tests(solution):
-            raise ValidationError("Tests failed")
+        if not self.check_business_rules(solution):
+            raise ValidationError("Business rule violation")
 
-        if not self.check_security(solution):
-            raise ValidationError("Security issues detected")
+        if not self.verify_constraints(solution):
+            raise ValidationError("Constraint violation")
 
         # 3. Human gate (if needed)
         if task.requires_approval:
             if not self.request_approval(solution):
-                raise ApprovalDenied("Human rejected changes")
+                raise ApprovalDenied("Human rejected action")
 
         # 4. All gates passed - safe to apply
         self.apply_solution(solution)
@@ -290,11 +285,11 @@ class AgentWorkflow:
 **Fast → Slow → Expensive**
 
 ```
-1. Syntax validation      (1 second,  100% automated)
-2. Unit tests             (10 seconds, 100% automated)
-3. Integration tests      (1 minute,  100% automated)
-4. Security scan          (2 minutes, 100% automated)
-5. Performance regression (5 minutes, 100% automated)
+1. Input validation       (1 second,  100% automated)
+2. Business rule check    (10 seconds, 100% automated)
+3. Policy compliance      (1 minute,  100% automated)
+4. Risk assessment        (2 minutes, 100% automated)
+5. Impact analysis        (5 minutes, 100% automated)
 6. Human review          (variable,  selective)
 ```
 
@@ -305,73 +300,59 @@ class AgentWorkflow:
 ## Validation
 
 ### ✅ You're doing this right if:
-- Every change passes automated validation
-- Pre-commit hooks prevent bad commits
-- CI pipeline catches integration issues
+- Every action passes automated validation
+- Pre-action checks prevent bad executions
+- Validation catches issues before they propagate
 - Humans review only high-risk changes
 - Validation failures are rare (good solutions)
 
 ### ❌ You're doing this wrong if:
-- Committing without running tests
-- Disabling hooks to "move faster"
-- Skipping validation in production
+- Executing without running checks
+- Disabling validation to "move faster"
+- Skipping validation for urgent requests
 - Manual validation only (no automation)
-- Validation happens after deployment
+- Validation happens after execution
 
 ---
 
 ## Real-World Evidence
 
-### The $50 Million Typo (Knight Capital, 2012)
-
-**What happened:**
-- Deployed code without validation
-- Bug caused $440M in trades in 45 minutes
-- Company lost $440M, nearly bankrupt
-
-**What would have prevented it:**
-- Pre-deployment validation gates
-- Canary deployment with monitoring
-- Automated rollback on errors
-
-**Lesson:** Validation gates aren't optional
-
 ### Production Validation (200+ Sessions)
 
 **Before validation gates:**
 ```
-Average broken commits: 15% (3 out of 20)
-Time to fix: 30 minutes per break
+Average failed actions: 15% (3 out of 20)
+Time to fix: 30 minutes per failure
 Total cost: 450 minutes wasted
 Success rate: 85%
 ```
 
 **After validation gates:**
 ```
-Average broken commits: 0.5% (1 out of 200)
-Time to fix: 5 minutes per break
+Average failed actions: 0.5% (1 out of 200)
+Time to fix: 5 minutes per failure
 Total cost: 5 minutes wasted
 Success rate: 99.5%
 ```
 
-**Improvement:** 90x reduction in broken commits, 6x reduction in time wasted
+**Improvement:** 90x reduction in failed actions, 6x reduction in time wasted
 
-### Specific Example: YAML Manifest Generation
+### Specific Example: Customer Refund Processing
 
 **Before validation:**
 ```
-Generate 50 manifests
-Manual review catches 8 syntax errors
-Manual review catches 3 logic errors
+Process 50 refund requests
+Manual review catches 8 invalid amounts
+Manual review catches 3 policy violations
 Time: 2 hours review + 1 hour fixes = 3 hours
 ```
 
 **After validation:**
 ```
-Generate 50 manifests
-Pre-commit hook catches 8 syntax errors (5 seconds)
-Tests catch 3 logic errors (10 seconds)
-All manifests valid on first commit
+Process 50 refund requests
+Pre-action check catches 8 invalid amounts (5 seconds)
+Policy check catches 3 violations (10 seconds)
+All refunds valid on first attempt
 Time: 15 seconds
 ```
 
@@ -382,27 +363,27 @@ Time: 15 seconds
 ## Anti-Patterns
 
 ### ❌ The "Trust Me" Trap
-**Wrong:** "I tested it manually, it's fine"
+**Wrong:** "I checked it manually, it's fine"
 **Right:** Automated validation every time, no exceptions
 
 ### ❌ The "Move Fast, Break Things" Trap
-**Wrong:** Skip validation to ship faster
+**Wrong:** Skip validation to execute faster
 **Right:** Validation makes you faster (less fixing broken things)
 
-### ❌ The "Tests Are Slow" Trap
-**Wrong:** Disable tests because they take time
-**Right:** Optimize tests, but never skip them
+### ❌ The "Checks Are Slow" Trap
+**Wrong:** Disable checks because they take time
+**Right:** Optimize checks, but never skip them
 
 ### ❌ The "Production Testing" Trap
 **Wrong:** "We'll catch it in production"
-**Right:** Catch it in development (validation gates)
+**Right:** Catch it before execution (validation gates)
 
 ---
 
 ## Relationship to Other Factors
 
-- **Factor I: Automated Tracking**: Git hooks enforce validation before commits
-- **Factor II: Context Loading**: Validation in isolated sub-agent context prevents pollution
+- **Factor I: Automated Tracking**: Hooks enforce validation before actions
+- **Factor II: Context Loading**: Validation in isolated agent context prevents pollution
 - **Factor III: Focused Agents**: Smaller agents → simpler validation
 - **Factor V: Measure Everything**: Monitors validation gate success rates
 - **Factor XI: Fail-Safe Checks**: Validation enforces governance
@@ -417,16 +398,16 @@ Time: 15 seconds
 
 ```python
 def validate_solution(solution):
-    # 1 second - syntax
-    if not check_syntax(solution):
+    # 1 second - input validation
+    if not check_inputs(solution):
         return False  # Fail immediately
 
-    # 10 seconds - unit tests
-    if not run_unit_tests(solution):
+    # 10 seconds - business rules
+    if not check_business_rules(solution):
         return False  # Fail immediately
 
-    # 1 minute - integration tests
-    if not run_integration_tests(solution):
+    # 1 minute - policy compliance
+    if not check_policy(solution):
         return False  # Fail immediately
 
     # Only run expensive validations if cheap ones pass
@@ -444,9 +425,9 @@ def validate_solution(solution):
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Run validations in parallel
         futures = {
-            executor.submit(check_syntax, solution): "syntax",
-            executor.submit(check_security, solution): "security",
-            executor.submit(check_performance, solution): "performance"
+            executor.submit(check_inputs, solution): "inputs",
+            executor.submit(check_policy, solution): "policy",
+            executor.submit(check_risk, solution): "risk"
         }
 
         # Collect results
@@ -473,11 +454,11 @@ def develop_solution(task):
     validate_plan(plan)  # Gate 2
 
     # Implementation phase
-    code = implement_agent.execute(plan)
-    validate_implementation(code)  # Gate 3
+    action = implement_agent.execute(plan)
+    validate_action(action)  # Gate 3
 
-    # All phases validated before deployment
-    deploy(code)
+    # All phases validated before execution
+    execute(action)
 ```
 
 ### Pattern 4: Idempotent Validation
@@ -490,22 +471,22 @@ def validate_solution(solution):
     # No side effects, no state changes
 
     # ✅ Good: Pure function
-    def check_syntax(solution):
-        return parse(solution).is_valid()
+    def check_inputs(solution):
+        return validate(solution).is_valid()
 
     # ❌ Bad: Side effects
-    def check_syntax_bad(solution):
+    def check_inputs_bad(solution):
         with open("validation.log", "a") as f:  # Side effect!
             f.write("Validating...")
-        return parse(solution).is_valid()
+        return validate(solution).is_valid()
 ```
 
 ---
 
 ## Next Steps
 
-1. **Install pre-commit hooks** in your repositories
-2. **Create CI/CD pipelines** with validation stages
+1. **Define validation rules** for your agent's domain
+2. **Implement pre-action checks** in your workflows
 3. **Measure validation effectiveness** (catch rate, false positives)
 4. **Optimize slow validations** (parallel execution, caching)
 5. **Document validation requirements** for each workflow
@@ -516,7 +497,6 @@ def validate_solution(solution):
 
 - **DevOps + SRE Pillar**: [../docs/principles/four-pillars.md#pillar-1-devops--sre](../docs/principles/four-pillars.md#pillar-1-devops--sre)
 - **Law 4 (Validate Before Execute)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-4)
-- **Pattern: CI/CD Pipeline**: [../patterns/ci-cd-pipeline.md](../patterns/ci-cd-pipeline.md) (TBD)
 
 ---
 
