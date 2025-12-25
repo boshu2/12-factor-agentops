@@ -80,7 +80,7 @@ The summary compresses the full corpus into ~10k tokens with zero essential loss
 *Build reliability from the ground up*
 
 **[I. Automated Tracking](./factors/01-automated-tracking.md)**<br/>
-Track everything in git. No tribal knowledge.
+Persistent memory. No tribal knowledge.
 
 **[II. Context Loading](./factors/02-context-loading.md)**<br/>
 Load only what you need. Stay under 40%.

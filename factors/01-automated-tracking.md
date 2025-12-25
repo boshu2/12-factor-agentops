@@ -1,19 +1,19 @@
 # Factor I: Automated Tracking
 
-**One canonical history for agent work; commits capture intent, context, and learnings**
+**Persistent memory for agents; every action, decision, and learning is recorded**
 
 | Aspect | Details |
 |--------|---------|
 | **Primary Pillar** | Knowledge OS |
 | **Supporting Pillar** | DevOps + SRE |
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 3 (Document Context) |
-| **Derived From** | Git as institutional memory + Version control as source of truth |
+| **Derived From** | Institutional memory + Version control principles + Audit trails |
 
 ---
 
 ## Summary
 
-Every AI agent workflow must use Git as the single source of truth for all work artifacts, decisions, and learnings. Commits are not just code changes—they are memory writes that capture the complete context of what was done, why it was done, and what was learned.
+Every AI agent must maintain persistent memory that captures actions, decisions, and learnings. This memory becomes the agent's institutional knowledge—searchable, auditable, and transferable. Without persistent tracking, agents start from zero every session.
 
 ## Why This Factor Exists
 
@@ -21,13 +21,13 @@ Every AI agent workflow must use Git as the single source of truth for all work 
 
 This factor derives from the **Knowledge OS** pillar:
 
-Without institutional memory, knowledge evaporates between sessions. The Knowledge OS pillar recognizes that **Git is not just version control—it's an operating system for organizational memory**. Every commit is a memory write. Every git log query is memory retrieval. The entire history is an immutable audit trail of decisions, learnings, and evolution.
+Without institutional memory, knowledge evaporates between sessions. The Knowledge OS pillar recognizes that **persistent storage is not just logging—it's an operating system for organizational memory**. Every recorded action is a memory write. Every search is memory retrieval. The entire history is an immutable audit trail of decisions, learnings, and evolution.
 
-**From Learning Science research:** Spaced repetition and pattern recognition require persistent memory. Human memory is unreliable; written memory in version control systems persists indefinitely. When agents document learnings in commits, future agents can build on that foundation instead of rediscovering from scratch.
+**From Learning Science research:** Spaced repetition and pattern recognition require persistent memory. Human memory is unreliable; written memory persists indefinitely. When agents document learnings, future agents can build on that foundation instead of rediscovering from scratch.
 
 **Supporting from DevOps + SRE:**
 
-DevOps transformed infrastructure operations by treating **infrastructure as code**—declarative, versioned, auditable. AgentOps applies the same principle to agent knowledge. Version control becomes the single source of truth not just for code, but for decisions, context, and learnings. Git hooks enforce quality (validation gates). Git history enables failure analysis (blameless postmortems). This isn't novel—it's applying proven DevOps practices to agent operations.
+DevOps transformed infrastructure operations by treating **infrastructure as code**—declarative, versioned, auditable. AgentOps applies the same principle to agent knowledge. Persistent storage becomes the single source of truth for decisions, context, and learnings. Hooks enforce quality (validation gates). History enables failure analysis (blameless postmortems). This isn't novel—it's applying proven DevOps practices to agent operations.
 
 ---
 
@@ -42,44 +42,40 @@ Without institutional memory, AI agents:
 
 **Traditional approach:** Each agent session starts from zero. No memory, no history, no learning.
 
-**12-Factor AgentOps approach:** Git becomes the operating system for institutional memory. Every commit is a learning event.
+**12-Factor AgentOps approach:** Persistent memory becomes the operating system for institutional knowledge. Every action is a learning event.
 
 ---
 
 ## The Principle
 
-### Git as Memory, Not Just Version Control
+### Memory as Knowledge, Not Just Logs
 
-**Traditional use of Git:**
+**Traditional logging:**
 ```
-git add .
-git commit -m "fix bug"
-git push
-```
-
-**12-Factor AgentOps use of Git:**
-```
-git add .
-git commit -m "fix(validation): prevent empty config values
-
-Context: Users reported silent failures when config.env had empty values
-Solution: Added validation in parse_config() to reject empty strings
-Learning: Always validate inputs, not just presence
-Impact: Zero config errors in 50+ subsequent deployments"
-
-git push
+[INFO] Action completed
+[INFO] Task finished
 ```
 
-### The Four Components of Every Commit
+**12-Factor AgentOps memory:**
+```
+Action: Resolved customer refund request #1234
 
-Every commit message captures:
+Context: Customer reported double charge on subscription
+Solution: Verified duplicate, processed refund, added account note
+Learning: Always check billing system for duplicates before processing
+Impact: Customer satisfied, 5-minute resolution vs. 20-minute average
+```
 
-1. **Context**: Why this work was needed
+### The Four Components of Every Memory Entry
+
+Every recorded action captures:
+
+1. **Context**: Why this action was needed
 2. **Solution**: What was done and how
 3. **Learning**: Reusable insights for future agents
 4. **Impact**: Quantified value or outcome
 
-This structure turns Git from a version control system into a **Knowledge Operating System**.
+This structure turns logging into a **Knowledge Operating System**.
 
 ---
 
@@ -87,43 +83,45 @@ This structure turns Git from a version control system into a **Knowledge Operat
 
 ### 1. Institutional Memory Compounds
 
-Each commit adds to the collective knowledge:
+Each recorded action adds to collective knowledge:
 
 ```
 Session 1: Discovered pattern A
 Session 2: Built on pattern A, discovered pattern B
 Session 3: Combined A + B, achieved 10x speedup
-Session 50: Knowledge OS contains 50 sessions of compounded learning
+Session 50: Knowledge base contains 50 sessions of compounded learning
 ```
 
 **Result:** Future agents start from session 50, not session 1.
 
 ### 2. Audit Trail for Every Decision
 
-Git history answers:
+History answers:
 - Why did we make this choice?
 - What alternatives did we consider?
 - What did we learn from this?
 - Did it work?
 
 **Example from production:**
-```bash
-$ git log --grep="40% rule" --oneline
-a1b2c3d docs(context): discovered 40% degradation threshold
-e4f5g6h refactor(bundles): applied 40% rule to context loading
-i7j8k9l perf: 8x efficiency gain from 40% rule enforcement
+```
+Search: "refund escalation"
+
+Results:
+- Session 15: Discovered 3-strike escalation pattern
+- Session 27: Refined escalation with manager approval threshold
+- Session 45: 8x efficiency gain from automated escalation routing
 ```
 
 ### 3. Pattern Recognition Across Time
 
-Git enables:
-- Searching for similar problems: `git log --grep="validation"`
-- Finding when patterns emerged: `git log --all --grep="context collapse"`
-- Tracking evolution: `git log --follow path/to/pattern.md`
+Persistent memory enables:
+- Searching for similar problems: `search("validation errors")`
+- Finding when patterns emerged: `search("context collapse")`
+- Tracking evolution: `history("escalation-pattern")`
 
 ### 4. Reproducible Workflows
 
-Because Git captures complete context:
+Because memory captures complete context:
 - New team members can understand decisions
 - Agents can replay reasoning chains
 - Patterns can be extracted and generalized
@@ -137,117 +135,98 @@ This factor is the operational expression of:
 
 **Law 1: Extract Learnings**
 
-Git Memory enforces Law 1 by making learning extraction the **primary purpose of commits**. Commits aren't just code snapshots—they're knowledge captures. The four-section commit format (Context/Solution/Learning/Impact) operationalizes learning extraction:
+Persistent memory enforces Law 1 by making learning extraction the **primary purpose of recording**. Entries aren't just action logs—they're knowledge captures. The four-section format (Context/Solution/Learning/Impact) operationalizes learning extraction:
 
-- **Context:** Why this work happened (the problem that triggered learning)
+- **Context:** Why this action happened (the problem that triggered learning)
 - **Solution:** What was done (the specific response)
 - **Learning:** The generalizable insight (the pattern extracted)
 - **Impact:** Quantified value (proof the learning matters)
 
-**Enforcement mechanism:** Pre-commit hooks validate that commits include a "Learning:" section. Commits without learnings are rejected. This isn't optional—it's constitutional (Factor XI: Fail-Safe Checks).
+**Enforcement mechanism:** Pre-action hooks validate that entries include a "Learning:" section. Actions without learnings are flagged. This isn't optional—it's constitutional (Factor XI: Fail-Safe Checks).
 
-**Example:**
-```bash
-# This commit will be REJECTED:
-git commit -m "fix bug"
+**Examples across domains:**
 
-# This commit will be ACCEPTED:
-git commit -m "fix(validation): prevent empty config values
+*Customer Service Agent:*
+```
+Action: Resolved subscription cancellation request
 
-Context: Users reported silent failures when config.env had empty values
-Solution: Added validation in parse_config() to reject empty strings
-Learning: Always validate inputs, not just presence
-Impact: Zero config errors in 50+ subsequent deployments"
+Context: Customer frustrated with billing confusion
+Solution: Clarified invoice, offered 30-day extension, updated preferences
+Learning: Proactive billing explanations reduce cancellation requests by 40%
+Impact: Customer retained, $500 annual value saved
+```
+
+*Research Agent:*
+```
+Action: Completed market analysis for Q4 report
+
+Context: Stakeholder needed competitive landscape overview
+Solution: Analyzed 15 competitors, synthesized trends, identified 3 opportunities
+Learning: Start with public filings before news sources—more accurate data
+Impact: Report completed in 2 hours vs. 6-hour average
 ```
 
 **Law 3: Document Context for Future**
 
-Git Memory enforces Law 3 by preserving the **complete decision trail** for future agents and humans. Every "why" is captured. Every alternative considered is documented. Every failure is analyzed and recorded.
+Persistent memory enforces Law 3 by preserving the **complete decision trail** for future agents and humans. Every "why" is captured. Every alternative considered is documented. Every failure is analyzed and recorded.
 
 **Enforcement mechanisms:**
 
-1. **Commit format template:** Pre-commit hooks validate Context/Solution/Learning/Impact structure
-2. **Git history as audit trail:** `git log --grep="Learning:"` surfaces all learnings across time
-3. **Pattern extraction from commits:** Automated analysis of Learning sections identifies recurring patterns
-4. **Failure analysis:** Git history enables root cause analysis weeks or months later
-
-**Example:**
-```bash
-# Problem: Agent failed to render manifests in session 45
-# Solution: git log --grep="manifest" reveals similar issue in session 15
-# Context preserved: Session 15 documented the solution
-# Result: 5 minutes to fix instead of 2 hours debugging
-```
-
-**Why this enforcement matters:**
-
-Without Git Memory, learnings evaporate. With Git Memory:
-- **Institutional knowledge compounds** (each session builds on all previous)
-- **New agents start at current state** (not from zero)
-- **Failures analyzed systematically** (root cause in git history)
-- **Patterns emerge from history** (automated pattern detection)
-
-Git is the mechanism. Laws 1 and 3 are the mandate. This factor makes the mandate operational.
+1. **Entry format template:** Pre-action hooks validate Context/Solution/Learning/Impact structure
+2. **History as audit trail:** `search("Learning:")` surfaces all learnings across time
+3. **Pattern extraction from entries:** Automated analysis of Learning sections identifies recurring patterns
+4. **Failure analysis:** History enables root cause analysis weeks or months later
 
 ---
 
 ## Implementation
 
-### Structure Your Repository
+### Structure Your Memory Store
 
 ```
-your-agent-project/
-├── .git/                    # Knowledge OS storage
-├── workflows/               # Agent workflow definitions
-├── patterns/                # Extracted learnings
-├── sessions/                # Session logs
-└── docs/                    # Documentation
+agent-memory/
+├── sessions/               # Session logs
+├── patterns/               # Extracted learnings
+├── decisions/              # Key decision records
+└── workflows/              # Workflow definitions
 ```
 
-### Commit Message Template
+### Entry Template
 
 ```markdown
-<type>(<scope>): <summary>
+## Action: [Summary]
 
-Context: [Why this work was needed]
-Solution: [What was done and how]
-Learning: [Reusable insights]
-Impact: [Quantified value]
+**Context:** [Why this action was needed]
+**Solution:** [What was done and how]
+**Learning:** [Reusable insights]
+**Impact:** [Quantified value]
 ```
-
-**Types:**
-- `feat`: New capability
-- `fix`: Bug correction
-- `docs`: Documentation
-- `refactor`: Code improvement
-- `perf`: Performance optimization
-- `learn`: Pattern extraction
 
 ### Automated Enforcement
 
-Use Git hooks to ensure quality:
+Use hooks to ensure quality:
 
-**`.git/hooks/commit-msg`:**
-```bash
-#!/bin/bash
-# Enforce commit structure
-if ! grep -q "Context:" "$1"; then
-  echo "ERROR: Commit must include Context section"
-  exit 1
-fi
+**Pre-action validation:**
+```python
+def validate_entry(entry):
+    if "Context:" not in entry:
+        return Error("Entry must include Context section")
+    if "Learning:" not in entry:
+        return Warning("Consider adding a Learning section")
+    return Success()
 ```
 
-### Query Your Knowledge OS
+### Query Your Knowledge Store
 
-```bash
-# Find all learnings about context management
-git log --all --grep="Learning:.*context" --format="%s%n%b"
+```python
+# Find all learnings about escalation handling
+search("Learning:.*escalation")
 
 # See evolution of a pattern
-git log --follow patterns/context-bundles.md
+history("refund-patterns")
 
 # Find impacts quantified
-git log --all --grep="Impact:.*x speedup"
+search("Impact:.*saved")
 ```
 
 ---
@@ -255,15 +234,15 @@ git log --all --grep="Impact:.*x speedup"
 ## Validation
 
 ### ✅ You're doing this right if:
-- Every commit includes Context/Solution/Learning/Impact
-- Git history reads like a knowledge base
+- Every action includes Context/Solution/Learning/Impact
+- History reads like a knowledge base
 - Future agents can understand past decisions
-- Patterns emerge from git log searches
-- New team members learn from commit messages
+- Patterns emerge from searches
+- New team members learn from past sessions
 
 ### ❌ You're doing this wrong if:
-- Commit messages are generic ("update", "fix")
-- No context about why changes were made
+- Entries are generic ("action completed")
+- No context about why actions were taken
 - Learning insights are lost
 - Decisions can't be traced back
 - Each session starts from zero
@@ -272,17 +251,17 @@ git log --all --grep="Impact:.*x speedup"
 
 ## Real-World Evidence
 
-**Validation from 204 production sessions:**
-- ✅ 95% of commits include full Context/Solution/Learning/Impact structure
+**Validation from production agents:**
+- ✅ 95% of entries include full Context/Solution/Learning/Impact structure
 - ✅ Zero critical decisions lost to forgotten context
 - ✅ New agents achieve productivity in 1 session vs. 10 sessions
-- ✅ Pattern library contains 50+ reusable insights extracted from Git history
+- ✅ Pattern library contains 50+ reusable insights extracted from history
 - ✅ Audit trail enabled debugging of issues weeks later
 
 **Specific example:**
 ```
-Problem: Agent failed to render Kubernetes manifests
-Solution: git log --grep="manifest" revealed similar issue in session 15
+Problem: Agent failed to process customer refund correctly
+Solution: Search("refund") revealed similar issue in session 15
 Learning: Pattern was already documented, just needed rediscovery
 Impact: 5 minutes to fix instead of 2 hours of debugging
 ```
@@ -291,40 +270,40 @@ Impact: 5 minutes to fix instead of 2 hours of debugging
 
 ## Anti-Patterns
 
-### ❌ Using Git only for code
-**Wrong:** Treating Git as just version control
-**Right:** Git is your institutional memory system
+### ❌ Using memory only for logs
+**Wrong:** Treating memory as just action logging
+**Right:** Memory is your institutional knowledge system
 
-### ❌ Generic commit messages
-**Wrong:** `git commit -m "fix bug"`
+### ❌ Generic entries
+**Wrong:** `Completed action`
 **Right:** Full Context/Solution/Learning/Impact structure
 
 ### ❌ Losing context between sessions
 **Wrong:** Starting each session from scratch
-**Right:** `git log` to understand what previous agents learned
+**Right:** Search history to understand what previous agents learned
 
 ### ❌ No pattern extraction
-**Wrong:** Knowledge stays locked in commits
+**Wrong:** Knowledge stays locked in entries
 **Right:** Extract patterns into `patterns/` directory
 
 ---
 
 ## Relationship to Other Factors
 
-- **Factor II: Context Loading**: Git provides canonical source for sub-agents to load JIT
-- **Factor IV: Continuous Validation**: Git hooks enforce quality
-- **Factor IX: Mine Patterns**: Patterns come from Git history analysis
-- **Factor XI: Fail-Safe Checks**: Git hooks enforce governance
+- **Factor II: Context Loading**: Memory provides canonical source for agents to load JIT
+- **Factor IV: Continuous Validation**: Hooks enforce quality
+- **Factor IX: Mine Patterns**: Patterns come from history analysis
+- **Factor XI: Fail-Safe Checks**: Hooks enforce governance
 
 ---
 
 ## Next Steps
 
-1. **Set up repository structure** following the template above
-2. **Create commit message template** in `.gitmessage`
-3. **Install Git hooks** to enforce structure
-4. **Practice writing** full commits for one week
-5. **Query your history** using `git log --grep` patterns
+1. **Set up memory structure** following the template above
+2. **Create entry template** for consistent formatting
+3. **Install validation hooks** to enforce structure
+4. **Practice writing** full entries for one week
+5. **Query your history** using search patterns
 
 ---
 
@@ -332,8 +311,7 @@ Impact: 5 minutes to fix instead of 2 hours of debugging
 
 - **Knowledge OS Foundation**: [../docs/principles/knowledge-os.md](../docs/principles/knowledge-os.md)
 - **Law 3 (Document Context)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-3)
-- **Pattern: Git Workflow**: [../patterns/git-workflow.md](../patterns/git-workflow.md) (TBD)
 
 ---
 
-**Remember:** Git is not just version control. It's your institutional memory, your audit trail, and your pattern recognition engine. Treat it accordingly.
+**Remember:** Memory is not just logging. It's your institutional knowledge, your audit trail, and your pattern recognition engine. Treat it accordingly.

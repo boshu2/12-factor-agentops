@@ -1,20 +1,20 @@
 # Factor XII: Package Patterns
 
-**Bundle what works for reuse - capture successful workflows as reusable templates**
+**Bundle what works for reuse - capture successful workflows as reusable packages**
 
 | Aspect | Details |
 |--------|---------|
 | **Primary Pillar** | Knowledge OS |
 | **Supporting Pillar** | DevOps + SRE |
 | **Enforces Laws** | Law 1 (Extract Learnings), Law 5 (Share Patterns) |
-| **Derived From** | Code reuse + Helm charts + Profile systems + Domain-driven design |
+| **Derived From** | Code reuse + Package systems + Profile systems + Domain-driven design |
 
 
 ---
 
 ## Summary
 
-Agent workflows, patterns, and knowledge accumulated in one domain should be packaged and portable to other domains. Domain profiles are self-contained packages (agents, workflows, patterns, configurations) that enable instant productivity in new contexts. Build once, reuse everywhere.
+Agent workflows, patterns, and knowledge accumulated in one domain should be packaged and portable to other domains. Domain packages are self-contained bundles (agents, workflows, patterns, configurations) that enable instant productivity in new contexts. Build once, reuse everywhere.
 
 ## The Problem
 
@@ -27,9 +27,9 @@ Without domain portability:
 
 **Familiar pattern:**
 ```
-Domain 1 (Kubernetes): Build 52 workflows over 2 years
-Domain 2 (Terraform): Start from zero, rebuild workflows
-Domain 3 (Python): Start from zero again
+Domain 1 (Customer Service): Build 52 workflows over 2 years
+Domain 2 (Sales): Start from zero, rebuild workflows
+Domain 3 (Research): Start from zero again
 Result: 3× the work, no knowledge transfer
 ```
 
@@ -45,13 +45,13 @@ Result: 3× the work, no knowledge transfer
 
 **Primary: Knowledge OS**
 
-Domain portability operationalizes Knowledge OS's principle that knowledge should compound, not duplicate. Building 52 workflows for Kubernetes over 2 years represents enormous knowledge capital—but if this knowledge can't transfer to Terraform or Python domains, you start from zero three times. The "Don't Repeat Yourself" principle from software engineering applies to knowledge: package once, reuse everywhere.
+Domain portability operationalizes Knowledge OS's principle that knowledge should compound, not duplicate. Building 52 workflows for customer service over 2 years represents enormous knowledge capital—but if this knowledge can't transfer to sales or research domains, you start from zero three times. The "Don't Repeat Yourself" principle from software engineering applies to knowledge: package once, reuse everywhere.
 
-Helm charts demonstrated this for Kubernetes: templates (reusable YAML) + values (configurable parameters) = install anywhere. Domain profiles apply the same pattern to agent workflows: agents (reusable workflows) + config (configurable parameters) = deploy in any domain. The first profile takes 2 years to develop, the second takes 2 weeks to adapt, the third takes 1 week. This is knowledge compound interest.
+Package systems demonstrate this well: templates (reusable workflows) + values (configurable parameters) = install anywhere. Domain packages apply the same pattern to agent workflows: agents (reusable workflows) + config (configurable parameters) = deploy in any domain. The first package takes 2 years to develop, the second takes 2 weeks to adapt, the third takes 1 week. This is knowledge compound interest.
 
 **Supporting: DevOps + SRE**
 
-DevOps provides the domain-driven design pattern: capture domain knowledge in bounded contexts. Kubernetes Operations is a bounded context with entities (Pods, Services, Deployments), operations (Create, Scale, Delete), and language (kubectl, YAML, manifests). Packaging this context as a profile makes the knowledge portable and reusable across any Kubernetes environment.
+DevOps provides the domain-driven design pattern: capture domain knowledge in bounded contexts. Customer Service Operations is a bounded context with entities (Customers, Tickets, Refunds), operations (Resolve, Escalate, Follow-up), and language (SLA, CSAT, first-contact resolution). Packaging this context as a domain package makes the knowledge portable and reusable across any customer service environment.
 
 ---
 
@@ -59,21 +59,21 @@ DevOps provides the domain-driven design pattern: capture domain knowledge in bo
 
 ### Law 1: Extract Learnings
 
-Domain profiles enforce learning extraction by requiring generalization from specific implementations. To create a profile, you must abstract: "We used PostgreSQL StatefulSet with 3 replicas" becomes "Stateful services need replicated storage." This abstraction process IS learning extraction—converting specific solutions into general principles.
+Domain packages enforce learning extraction by requiring generalization from specific implementations. To create a package, you must abstract: "We gave customer #1234 a 20% discount" becomes "Proportional compensation for service failures." This abstraction process IS learning extraction—converting specific solutions into general principles.
 
-**Concrete example:** Building Kubernetes profile forces extraction: which patterns are Kubernetes-specific vs. universally applicable? The research→plan→implement workflow generalizes across all domains. The StatefulSet pattern is Kubernetes-specific. Profile creation forces this categorization, extracting reusable learnings from domain context.
+**Concrete example:** Building customer service package forces extraction: which patterns are customer-service-specific vs. universally applicable? The research→plan→execute workflow generalizes across all domains. The empathetic-resolution pattern is customer-service-specific. Package creation forces this categorization, extracting reusable learnings from domain context.
 
 ### Law 5: Share Patterns Publicly
 
-Domain profiles operationalize Law 5 by packaging knowledge for distribution. A profile is a shareable artifact: profile.yaml specification, agent definitions, workflow patterns, documentation. Publishing to a public registry (like Helm charts) enables community use and contribution.
+Domain packages operationalize Law 5 by packaging knowledge for distribution. A package is a shareable artifact: package specification, agent definitions, workflow patterns, documentation. Publishing to a public registry enables community use and contribution.
 
-**Concrete example:** Kubernetes-ops profile published to public registry → 1000 downloads → 25 issues reported → 15 pull requests with improvements → Your profile improves through community contributions → Your team benefits from community enhancements. Public sharing creates network effects where private hoarding creates isolated stagnation. Law 5 enforcement through shareable package format.
+**Concrete example:** Customer-service package published to public registry → 1000 downloads → 25 issues reported → 15 pull requests with improvements → Your package improves through community contributions → Your team benefits from community enhancements. Public sharing creates network effects where private hoarding creates isolated stagnation. Law 5 enforcement through shareable package format.
 
 ---
 
 ## The Principle
 
-### What is a Domain Profile?
+### What is a Domain Package?
 
 **A portable package containing:**
 
@@ -84,25 +84,25 @@ Domain profiles operationalize Law 5 by packaging knowledge for distribution. A 
 5. **Documentation** - How to operate in this domain
 6. **Validations** - Domain-specific quality gates
 
-**Example: Kubernetes Operations Profile**
+**Example: Customer Service Package**
 ```
-profiles/kubernetes-ops/
+packages/customer-service/
 ├── agents/
-│   ├── create-deployment.md
-│   ├── create-statefulset.md
-│   ├── create-service.md
-│   └── validate-manifest.md
+│   ├── handle-inquiry.md
+│   ├── process-refund.md
+│   ├── escalate-complaint.md
+│   └── follow-up-satisfaction.md
 ├── workflows/
-│   ├── deploy-application.md
-│   ├── scale-workload.md
-│   └── troubleshoot-pod.md
+│   ├── resolve-ticket.md
+│   ├── handle-escalation.md
+│   └── proactive-outreach.md
 ├── patterns/
-│   ├── stateful-applications.md
-│   ├── ingress-routing.md
-│   └── persistent-storage.md
+│   ├── empathetic-resolution.md
+│   ├── proactive-compensation.md
+│   └── satisfaction-recovery.md
 ├── config/
 │   ├── validation-rules.yaml
-│   ├── naming-conventions.yaml
+│   ├── escalation-thresholds.yaml
 │   └── default-settings.yaml
 ├── docs/
 │   ├── getting-started.md
@@ -111,7 +111,7 @@ profiles/kubernetes-ops/
 └── README.md
 ```
 
-### Profile Lifecycle
+### Package Lifecycle
 
 ```
 1. DEVELOP in one domain
@@ -124,13 +124,13 @@ profiles/kubernetes-ops/
    - Separate domain logic from implementation
    - Create generalized templates
 
-3. PACKAGE as profile
+3. PACKAGE as domain bundle
    - Bundle agents, workflows, patterns
    - Version and release
    - Publish to registry
 
 4. INSTALL in new domain
-   - Download profile package
+   - Download package
    - Configure for local context
    - Deploy instantly
 
@@ -151,33 +151,33 @@ profiles/kubernetes-ops/
 
 **For domain knowledge:**
 ```
-Without profiles:
-  Kubernetes domain: 2 years, 52 workflows
-  Terraform domain: 2 years, 48 workflows
+Without packages:
+  Customer Service domain: 2 years, 52 workflows
+  Sales domain: 2 years, 48 workflows
   Total: 4 years, 100 workflows
 
-With profiles:
-  Kubernetes domain: 2 years, 52 workflows
-  Kubernetes profile: Package knowledge
-  Terraform domain: Install profile, adapt (2 weeks)
+With packages:
+  Customer Service domain: 2 years, 52 workflows
+  Customer Service package: Package knowledge
+  Sales domain: Install package, adapt (2 weeks)
   Total: 2 years + 2 weeks, 52+ workflows
 
 Savings: 95% time reduction for second domain
 ```
 
-### 2. Helm Charts Pattern (Kubernetes)
+### 2. Package Systems Pattern
 
-**Helm principle:**
-> "Package Kubernetes applications for reuse"
+**Package principle:**
+> "Bundle applications for reuse"
 
 **For agent workflows:**
 ```
-Helm chart:
-  - Templates (reusable YAML)
+Package system:
+  - Templates (reusable definitions)
   - Values (configurable parameters)
   - Install anywhere
 
-Agent profile:
+Agent package:
   - Agents (reusable workflows)
   - Config (configurable parameters)
   - Deploy anywhere
@@ -188,31 +188,31 @@ Agent profile:
 **DDD principle:**
 > "Capture domain knowledge in bounded contexts"
 
-**For agent profiles:**
+**For agent packages:**
 ```
-Bounded context: Kubernetes Operations
-- Entities: Pods, Services, Deployments
-- Operations: Create, Scale, Delete
-- Patterns: StatefulSets for databases
-- Language: kubectl, YAML, manifests
+Bounded context: Customer Service Operations
+- Entities: Customers, Tickets, Refunds
+- Operations: Resolve, Escalate, Follow-up
+- Patterns: Empathetic resolution, Proactive compensation
+- Language: SLA, CSAT, first-contact resolution
 
-Profile packages this knowledge → Reusable in any Kubernetes context
+Package captures this knowledge → Reusable in any customer service context
 ```
 
 ### 4. Network Effects of Sharing
 
-**Problem:** Private profiles stay private
+**Problem:** Private packages stay private
 
-**Solution:** Public profiles benefit everyone
+**Solution:** Public packages benefit everyone
 ```
-Private profile:
+Private package:
   Your team: 10 people
   Benefit: 10×
 
-Public profile:
+Public package:
   Community: 1000 people
   Benefit: 1000×
-  Contributions: Community improves your profile
+  Contributions: Community improves your package
   Result: Compound returns
 ```
 
@@ -220,37 +220,37 @@ Public profile:
 
 ## Implementation
 
-### Profile Structure Specification
+### Package Structure Specification
 
-**Standard profile format:**
+**Standard package format:**
 ```yaml
-# profile.yaml
-name: kubernetes-ops
+# package.yaml
+name: customer-service
 version: 1.2.0
-description: Kubernetes operations workflows and patterns
+description: Customer service workflows and patterns
 author: Your Team
 license: MIT
 
 dependencies:
-  - cloud-infrastructure@^2.0.0
-  - yaml-processing@^1.5.0
+  - core-workflow@^2.0.0
+  - communication-patterns@^1.5.0
 
 agents:
-  - agents/create-deployment.md
-  - agents/create-statefulset.md
-  - agents/create-service.md
+  - agents/handle-inquiry.md
+  - agents/process-refund.md
+  - agents/escalate-complaint.md
 
 workflows:
-  - workflows/deploy-application.md
-  - workflows/scale-workload.md
+  - workflows/resolve-ticket.md
+  - workflows/handle-escalation.md
 
 patterns:
-  - patterns/stateful-applications.md
-  - patterns/ingress-routing.md
+  - patterns/empathetic-resolution.md
+  - patterns/proactive-compensation.md
 
 config:
   validation_rules: config/validation-rules.yaml
-  naming_conventions: config/naming-conventions.yaml
+  escalation_thresholds: config/escalation-thresholds.yaml
   defaults: config/default-settings.yaml
 
 documentation:
@@ -258,115 +258,115 @@ documentation:
   best_practices: docs/best-practices.md
 ```
 
-### Profile Installation
+### Package Installation
 
 **Command-line tool:**
 ```bash
-# Install profile
-agentops profile install kubernetes-ops@1.2.0
+# Install package
+agentops package install customer-service@1.2.0
 
 # What it does:
-# 1. Download profile from registry
-# 2. Validate profile integrity
-# 3. Install agents to .claude/agents/
-# 4. Install workflows to .claude/workflows/
+# 1. Download package from registry
+# 2. Validate package integrity
+# 3. Install agents to agents/
+# 4. Install workflows to workflows/
 # 5. Install patterns to patterns/
 # 6. Merge configurations
 # 7. Generate documentation
 
-# List installed profiles
-agentops profile list
+# List installed packages
+agentops package list
 
 # Output:
-# kubernetes-ops@1.2.0 (installed 2025-01-27)
-# terraform-iac@0.9.0 (installed 2025-02-15)
-# python-dev@1.0.0 (installed 2025-03-01)
+# customer-service@1.2.0 (installed 2025-01-27)
+# sales-operations@0.9.0 (installed 2025-02-15)
+# research-workflow@1.0.0 (installed 2025-03-01)
 ```
 
 **Installation implementation:**
 ```python
-class ProfileInstaller:
-    def install(self, profile_name, version):
+class PackageInstaller:
+    def install(self, package_name, version):
         # 1. Download from registry
-        profile = self.download_profile(profile_name, version)
+        package = self.download_package(package_name, version)
 
         # 2. Validate
-        if not self.validate_profile(profile):
-            raise InvalidProfileError()
+        if not self.validate_package(package):
+            raise InvalidPackageError()
 
         # 3. Check dependencies
-        for dep in profile.dependencies:
+        for dep in package.dependencies:
             if not self.is_installed(dep):
                 self.install(dep.name, dep.version)
 
         # 4. Install components
-        self.install_agents(profile.agents)
-        self.install_workflows(profile.workflows)
-        self.install_patterns(profile.patterns)
+        self.install_agents(package.agents)
+        self.install_workflows(package.workflows)
+        self.install_patterns(package.patterns)
 
         # 5. Merge configurations
-        self.merge_config(profile.config)
+        self.merge_config(package.config)
 
         # 6. Register installation
-        self.register_profile(profile)
+        self.register_package(package)
 
-        return profile
+        return package
 ```
 
-### Profile Customization
+### Package Customization
 
 **Local overrides:**
 ```yaml
-# .agentops/profiles/kubernetes-ops.local.yaml
+# packages/customer-service.local.yaml
 # Customizations for this specific deployment
 
 config:
-  # Override default namespace
-  default_namespace: my-production-namespace
+  # Override default escalation threshold
+  escalation_threshold: $500
 
   # Add custom validation rules
   custom_validations:
-    - require_resource_limits: true
-    - enforce_pod_security: true
+    - require_satisfaction_check: true
+    - enforce_follow_up: true
 
 agents:
   # Add local agent
   custom_agents:
-    - local/agents/deploy-to-my-cluster.md
+    - local/agents/vip-customer-handler.md
 
 workflows:
   # Disable workflow not needed here
   disabled:
-    - workflows/scale-workload.md
+    - workflows/proactive-outreach.md
 ```
 
-### Profile Registry
+### Package Registry
 
-**Public profile registry:**
+**Public package registry:**
 ```
-https://profiles.12factor-agentops.dev/
+https://packages.12factor-agentops.dev/
 
-Available profiles:
-- kubernetes-ops (1.2.0) - 52 agents, 15 workflows
-- terraform-iac (0.9.0) - 30 agents, 10 workflows
-- python-development (1.0.0) - 25 agents, 8 workflows
-- golang-services (0.8.0) - 20 agents, 7 workflows
-- database-management (1.1.0) - 18 agents, 6 workflows
-- ci-cd-pipelines (1.0.0) - 22 agents, 9 workflows
+Available packages:
+- customer-service (1.2.0) - 52 agents, 15 workflows
+- sales-operations (0.9.0) - 30 agents, 10 workflows
+- research-workflow (1.0.0) - 25 agents, 8 workflows
+- support-escalation (0.8.0) - 20 agents, 7 workflows
+- data-analysis (1.1.0) - 18 agents, 6 workflows
+- content-creation (1.0.0) - 22 agents, 9 workflows
 ```
 
-**Profile publishing:**
+**Package publishing:**
 ```bash
-# Package profile for distribution
-agentops profile package
+# Package for distribution
+agentops package build
 
-# Output: kubernetes-ops-1.2.0.tar.gz
+# Output: customer-service-1.2.0.tar.gz
 
 # Publish to registry
-agentops profile publish kubernetes-ops-1.2.0.tar.gz
+agentops package publish customer-service-1.2.0.tar.gz
 
 # Validates:
-# - Profile structure correct
+# - Package structure correct
 # - All files present
 # - Documentation complete
 # - Version not already published
@@ -378,26 +378,26 @@ agentops profile publish kubernetes-ops-1.2.0.tar.gz
 ## Validation
 
 ### ✅ You're doing this right if:
-- Domains packaged as portable profiles
-- Profiles installable in minutes (not days)
-- Profiles versioned and released
-- Community contributes to public profiles
+- Domains packaged as portable bundles
+- Packages installable in minutes (not days)
+- Packages versioned and released
+- Community contributes to public packages
 - New domains productive immediately (not months)
 
 ### ❌ You're doing this wrong if:
-- No profiles (everything ad-hoc)
-- Profiles not portable (hardcoded assumptions)
-- Profiles not versioned (breaking changes)
-- Profiles not shared (private only)
+- No packages (everything ad-hoc)
+- Packages not portable (hardcoded assumptions)
+- Packages not versioned (breaking changes)
+- Packages not shared (private only)
 - Each domain starts from zero
 
 ---
 
 ## Real-World Evidence
 
-### Profile Development Timeline
+### Package Development Timeline
 
-**Kubernetes Operations Profile:**
+**Customer Service Package:**
 ```
 Year 1: Develop in production
 - Built 52 agents over 24 months
@@ -405,30 +405,30 @@ Year 1: Develop in production
 - Extracted 12 patterns
 - Investment: 2 years
 
-Year 2: Package as profile
+Year 2: Package as bundle
 - Extracted common knowledge
-- Created profile structure
+- Created package structure
 - Published version 1.0.0
 - Investment: 2 weeks
 ```
 
-**Terraform IaC Profile (Second Domain):**
+**Sales Operations Package (Second Domain):**
 ```
-Using Kubernetes profile as template:
-- Installed kubernetes-ops profile
-- Adapted for Terraform domain
-- Created terraform-iac profile
+Using Customer Service package as template:
+- Installed customer-service package
+- Adapted for sales domain
+- Created sales-operations package
 - Time: 2 weeks (vs. 2 years from scratch)
 
 Productivity: 52× faster (2 weeks vs. 2 years)
 ```
 
-**Python Development Profile (Third Domain):**
+**Research Workflow Package (Third Domain):**
 ```
-Using both previous profiles as references:
-- Installed kubernetes-ops + terraform-iac
+Using both previous packages as references:
+- Installed customer-service + sales-operations
 - Identified common patterns
-- Created python-dev profile
+- Created research-workflow package
 - Time: 1 week
 
 Productivity: 104× faster (1 week vs. 2 years)
@@ -441,21 +441,21 @@ Domain 2: 2 weeks (52× faster)
 Domain 3: 1 week (104× faster)
 Domain 4+: Estimated <1 week
 
-Marginal cost decreases with each profile
+Marginal cost decreases with each package
 ```
 
 ### Community Impact
 
-**Public profile sharing (hypothetical):**
+**Public package sharing:**
 ```
-Your profile: kubernetes-ops
+Your package: customer-service
 Downloads: 1000
 Issues reported: 25
 Pull requests: 15
 Improvements contributed: 8
 
 Result:
-- Your profile improves through community contributions
+- Your package improves through community contributions
 - Your team benefits from improvements
 - Community benefits from your work
 - Network effects compound
@@ -465,68 +465,68 @@ Result:
 
 ## Anti-Patterns
 
-### ❌ The "Monolithic Profile" Trap
-**Wrong:** One massive profile for everything
-**Right:** Focused profiles per domain, composable
+### ❌ The "Monolithic Package" Trap
+**Wrong:** One massive package for everything
+**Right:** Focused packages per domain, composable
 
 ### ❌ The "Hardcoded Assumptions" Trap
-**Wrong:** Profile assumes specific environment
+**Wrong:** Package assumes specific environment
 **Right:** Configurable, works anywhere with config
 
 ### ❌ The "No Versioning" Trap
-**Wrong:** Update profile, break all users
+**Wrong:** Update package, break all users
 **Right:** Semantic versioning, backward compatibility
 
 ### ❌ The "Private Hoarding" Trap
-**Wrong:** Keep all profiles private
+**Wrong:** Keep all packages private
 **Right:** Share publicly (Law 5), benefit from network effects
 
 ---
 
 ## Relationship to Other Factors
 
-- **Factor I: Automated Tracking**: Profiles versioned in git
-- **Factor III: Focused Agents**: Profiles contain single-responsibility agents
-- **Factor IX: Mine Patterns**: Profiles package extracted patterns
-- **Factor X: Small Iterations**: Profile updates driven by improvement backlog
-- **Factor XI: Fail-Safe Checks**: Profiles include domain-specific guardrails
+- **Factor I: Automated Tracking**: Packages versioned in persistent memory
+- **Factor III: Focused Agents**: Packages contain single-responsibility agents
+- **Factor IX: Mine Patterns**: Packages bundle extracted patterns
+- **Factor X: Small Iterations**: Package updates driven by improvement backlog
+- **Factor XI: Fail-Safe Checks**: Packages include domain-specific guardrails
 
 ---
 
-## Profile Categories
+## Package Categories
 
-### Category 1: Domain Profiles
+### Category 1: Domain Packages
 
 **Examples:**
-- kubernetes-ops
-- terraform-iac
-- python-development
-- golang-services
-- database-management
+- customer-service
+- sales-operations
+- research-workflow
+- content-creation
+- data-analysis
 
 **Contents:** Domain-specific agents, workflows, patterns
 
-### Category 2: Platform Profiles
+### Category 2: Industry Packages
 
 **Examples:**
-- aws-cloud
-- gcp-cloud
-- azure-cloud
-- on-premise-infrastructure
+- healthcare-compliance
+- financial-services
+- e-commerce-operations
+- education-support
 
-**Contents:** Platform-specific operations, integrations
+**Contents:** Industry-specific operations, regulations
 
-### Category 3: Process Profiles
+### Category 3: Process Packages
 
 **Examples:**
-- agile-scrum
-- kanban-workflow
-- sre-oncall
+- agile-workflow
+- kanban-operations
 - incident-response
+- quality-assurance
 
 **Contents:** Process workflows, templates, checklists
 
-### Category 4: Meta Profiles
+### Category 4: Meta Packages
 
 **Examples:**
 - agentops-core (this framework)
@@ -538,40 +538,40 @@ Result:
 
 ---
 
-## Profile Composition
+## Package Composition
 
-**Profiles can depend on other profiles:**
+**Packages can depend on other packages:**
 
 ```yaml
-# terraform-iac profile.yaml
-name: terraform-iac
+# sales-operations package.yaml
+name: sales-operations
 version: 0.9.0
 
 dependencies:
-  - cloud-infrastructure@^2.0.0  # Base cloud operations
-  - yaml-processing@^1.5.0       # YAML utilities
-  - validation-gates@^1.0.0      # Quality gates
+  - core-workflow@^2.0.0        # Base workflow operations
+  - communication-patterns@^1.5.0  # Communication utilities
+  - validation-gates@^1.0.0     # Quality gates
 
 # Inherits agents from dependencies
-# Adds Terraform-specific agents
-# Composes into complete profile
+# Adds sales-specific agents
+# Composes into complete package
 ```
 
 **Composition enables:**
 - **Reuse:** Don't rebuild common capabilities
-- **Focus:** Profile only domain-specific knowledge
+- **Focus:** Package only domain-specific knowledge
 - **Evolution:** Update dependencies independently
-- **Modularity:** Mix and match profiles
+- **Modularity:** Mix and match packages
 
 ---
 
-## Migration from Unstructured to Profiles
+## Migration from Unstructured to Packages
 
 **Step-by-step migration:**
 
 ```markdown
 # Phase 1: Inventory (Week 1)
-- List all agents in .claude/agents/
+- List all agents in current use
 - List all workflows
 - List all patterns
 - Categorize by domain
@@ -583,19 +583,19 @@ dependencies:
 - Document domain knowledge
 
 # Phase 3: Package (Week 3)
-- Create profile structure
-- Populate profile.yaml
+- Create package structure
+- Populate package.yaml
 - Organize files
 - Write documentation
 
 # Phase 4: Test (Week 4)
-- Install profile in clean environment
+- Install package in clean environment
 - Verify all agents work
 - Test workflows end-to-end
 - Fix issues
 
 # Phase 5: Publish (Week 5)
-- Version profile (1.0.0)
+- Version package (1.0.0)
 - Publish to registry
 - Announce to community
 - Gather feedback
@@ -609,11 +609,11 @@ Result: Portable, reusable domain knowledge
 ## Next Steps
 
 1. **Inventory current agents** by domain
-2. **Create first profile** (start with most mature domain)
-3. **Package and version** profile
+2. **Create first package** (start with most mature domain)
+3. **Package and version** bundle
 4. **Test installation** in clean environment
 5. **Publish publicly** (GitHub, registry)
-6. **Document lessons learned** for next profile
+6. **Document lessons learned** for next package
 
 ---
 
@@ -622,10 +622,9 @@ Result: Portable, reusable domain knowledge
 - **Knowledge OS Pillar**: [../docs/principles/knowledge-os.md](../docs/principles/knowledge-os.md)
 - **Law 1 (Extract Learnings)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-1)
 - **Law 5 (Share Patterns)**: [../docs/principles/nine-laws.md](../docs/principles/nine-laws.md#law-5)
-- **Factor IX: Mine Patterns**: [./09-documented-pattern-extraction.md](./09-documented-pattern-extraction.md)
-- **Helm Charts**: [https://helm.sh](https://helm.sh)
+- **Factor IX: Mine Patterns**: [./09-mine-patterns.md](./09-mine-patterns.md)
 - **Domain-Driven Design**: [Wikipedia: Domain-driven design](https://en.wikipedia.org/wiki/Domain-driven_design)
 
 ---
 
-**Remember:** Domain knowledge is valuable. Package it, version it, share it. Profiles enable instant productivity in new domains. Build once, reuse everywhere. The first profile takes years. The second takes weeks. The third takes days. Compound your knowledge investment.
+**Remember:** Domain knowledge is valuable. Package it, version it, share it. Packages enable instant productivity in new domains. Build once, reuse everywhere. The first package takes years. The second takes weeks. The third takes days. Compound your knowledge investment.

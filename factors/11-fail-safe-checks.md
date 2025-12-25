@@ -1,6 +1,6 @@
 # Factor XI: Fail-Safe Checks
 
-**Prevent repeating mistakes - add hooks and validations to catch bad patterns early**
+**Prevent repeating mistakes - add guardrails to catch bad patterns early**
 
 | Aspect | Details |
 |--------|---------|
@@ -27,8 +27,8 @@ Without constitutional guardrails:
 **Familiar pattern:**
 ```
 Agent: "This validation is slow, I'll skip it"
-Agent: *Deploys to production without validation*
-Production: *Breaks*
+Agent: *Executes action without validation*
+System: *Breaks*
 Team: "Why didn't validation catch this?"
 Answer: Agent bypassed validation
 ```
@@ -47,15 +47,15 @@ Answer: Agent bypassed validation
 
 Constitutional guardrails apply the DevOps "policy as code" principle: encode policies in automation, not documentation. Infrastructure as Code taught us that documented policies have ~60% compliance while automated enforcement achieves much higher rates. The shift from "please follow this guideline" to "the system catches violations" is transformative.
 
-SRE provides the fail-safe design pattern: make it harder to do the wrong thing. Poka-yoke (error-proofing from manufacturing) teaches that prevention beats detection. For agents, this means pre-commit hooks that catch invalid commits, CI/CD gates that flag untested deployments, runtime checks that warn about context overruns.
+SRE provides the fail-safe design pattern: make it harder to do the wrong thing. Poka-yoke (error-proofing from manufacturing) teaches that prevention beats detection. For agents, this means pre-action checks that catch invalid operations, runtime monitoring that flags risky patterns, and post-action verification that confirms compliance.
 
 **Supporting: All Pillars**
 
 Constitutional guardrails touch all pillars:
 - **DevOps+SRE:** Policy as code, fail-safe design, defense in depth
 - **Learning Science:** Progressive validation checkpoints, feedback loops
-- **Context Engineering:** 40% rule monitoring helps prevent collapse
-- **Knowledge OS:** Git hooks encourage institutional memory standards
+- **Context Engineering:** Utilization monitoring helps prevent overload
+- **Knowledge OS:** Hooks encourage institutional memory standards
 
 ---
 
@@ -64,40 +64,40 @@ Constitutional guardrails touch all pillars:
 Constitutional guardrails help enforce all nine laws through automation:
 
 **Law 1: Learn & Improve** - Extract patterns, identify improvements
-- Guardrail: Encourage learnings in commits
-- Enforcement: Pre-commit hook checks for Learning section
+- Guardrail: Encourage learnings in session records
+- Enforcement: Post-action hook checks for Learning section
 
-**Law 2: Document** - Context commits, progress files, bundles
+**Law 2: Document** - Context records, progress tracking, bundles
 - Guardrail: Encourage context documentation
-- Enforcement: Pre-commit hook checks for Context section
+- Enforcement: Pre-action hook checks for Context section
 
-**Law 3: Git Discipline** - Commit often, clean workspace
+**Law 3: State Discipline** - Save state often, maintain clean workspace
 - Guardrail: Frequent checkpoint reminders
 - Enforcement: Session monitoring, progress tracking
 
-**Law 4: TDD + Tracers** - Tests first, tracers for complex tasks
+**Law 4: Validate First** - Check before acting, verify before executing
 - Guardrail: Validate before execution
-- Enforcement: CI/CD pipeline gates, pre-deploy checks
+- Enforcement: Pre-action gates, validation checks
 
 **Law 5: Guide** - Suggest options, user chooses
 - Guardrail: Present choices rather than assuming
 - Enforcement: Workflow validation
 
-**Law 6: Classify Level** - Assess vibe level (0-5) before work
+**Law 6: Classify Level** - Assess complexity (0-5) before work
 - Guardrail: Prompt for level assessment on new tasks
 - Enforcement: Session initialization
 
 **Law 7: Measure** - Track metrics, break spirals early
-- Guardrail: Spiral detection on fix chains
-- Enforcement: Commit pattern monitoring
+- Guardrail: Spiral detection on repeated failures
+- Enforcement: Action pattern monitoring
 
-**Law 8: Session Protocol** - One feature, review before end
+**Law 8: Session Protocol** - One task focus, review before end
 - Guardrail: Session checkpoint reminders
 - Enforcement: Progress tracking, end-of-session prompts
 
-**Law 9: Protect Definitions** - Features unchanged, mark passes only
-- Guardrail: Prevent modification of feature definitions
-- Enforcement: File protection, change validation
+**Law 9: Protect Definitions** - Requirements unchanged, mark passes only
+- Guardrail: Prevent modification of requirement definitions
+- Enforcement: Definition protection, change validation
 
 ---
 
@@ -105,23 +105,23 @@ Constitutional guardrails help enforce all nine laws through automation:
 
 **Layer 1: Pre-Execution Guardrails** (catch before it happens)
 ```
-Agent wants to commit → Pre-commit hook validates → Warn if issues
-Agent wants to deploy → Pre-deploy validation → Flag if concerns
-Agent context growing → Utilization check → Suggest compression at 35%
+Agent wants to act → Pre-action hook validates → Warn if issues
+Agent wants to execute → Pre-execution validation → Flag if concerns
+Agent context growing → Utilization check → Suggest pause at threshold
 ```
 
 **Layer 2: Runtime Guardrails** (catch during execution)
 ```
-Agent running → Monitor context utilization → Warn at 40%
-Agent executing → Monitor for fix chains → Flag potential spiral
-Agent deploying → Monitor deployment → Alert if errors
+Agent running → Monitor resource utilization → Warn at thresholds
+Agent executing → Monitor for failure chains → Flag potential spiral
+Agent processing → Monitor quality → Alert if degradation
 ```
 
 **Layer 3: Post-Execution Guardrails** (verify after completion)
 ```
 Session complete → Check for learnings → Remind if missing
 Week complete → Check for improvements → Suggest if none found
-Pattern discovered → Track publication → Remind about sharing
+Pattern discovered → Track documentation → Remind about sharing
 ```
 
 ---
@@ -136,11 +136,11 @@ Pattern discovered → Track publication → Remind about sharing
 **For AI agents:**
 ```
 Documentation (weak):
-  "Consider including Learning in commits"
+  "Consider including Learning in records"
   Result: ~60% compliance
 
 Policy as Code (strong):
-  Pre-commit hook: "Check for Learning section"
+  Pre-action hook: "Check for Learning section"
   Result: Much higher compliance
 ```
 
@@ -154,11 +154,11 @@ Policy as Code (strong):
 Unsafe default: Agent can easily bypass validation
 Fail-safe default: Validation runs automatically
 
-Unsafe default: No context monitoring
-Fail-safe default: Warnings at context thresholds
+Unsafe default: No resource monitoring
+Fail-safe default: Warnings at utilization thresholds
 
-Unsafe default: Direct production deployment
-Fail-safe default: Human review step for production
+Unsafe default: Direct high-risk execution
+Fail-safe default: Human review step for critical actions
 ```
 
 ### 3. Defense in Depth
@@ -168,10 +168,10 @@ Fail-safe default: Human review step for production
 
 **For guardrails:**
 ```
-Layer 1: Pre-commit hooks (development)
-Layer 2: CI/CD gates (integration)
-Layer 3: Production safeguards (runtime)
-Layer 4: Post-execution verification (retrospective)
+Layer 1: Pre-action hooks (before execution)
+Layer 2: Runtime monitoring (during execution)
+Layer 3: Post-action verification (after execution)
+Layer 4: Retrospective analysis (periodic review)
 
 Result: Multiple opportunities to catch issues
 ```
@@ -180,62 +180,109 @@ Result: Multiple opportunities to catch issues
 
 ## Implementation
 
-### Pre-Commit Guardrails
+### Pre-Action Guardrails
 
-**Git hook (`.git/hooks/pre-commit`):**
-```bash
-#!/bin/bash
-# Guardrails for commits
+**Validation hook:**
+```python
+def pre_action_guardrail(action):
+    """Guardrails for actions"""
 
-echo "🔒 Running guardrails..."
+    warnings = []
 
-# Read commit message
-commit_msg=$(cat "$1")
+    # Law 1 & 2: Check for Learning and Context
+    if not has_learning_section(action.context):
+        warnings.append("Consider adding a 'Learning:' section")
 
-# Law 1 & 2: Check for Learning and Context
-if ! echo "$commit_msg" | grep -q "Learning:"; then
-    echo "💡 Tip: Consider adding a 'Learning:' section"
-fi
+    if not has_context_section(action.context):
+        warnings.append("Consider adding a 'Context:' section")
 
-if ! echo "$commit_msg" | grep -q "Context:"; then
-    echo "💡 Tip: Consider adding a 'Context:' section"
-fi
+    # Law 4: Run validation
+    validation_result = validate_action(action)
+    if not validation_result.passed:
+        warnings.append(f"Validation issue: {validation_result.message}")
 
-# Law 4: Run validation
-echo "  Running validation..."
-
-if ! npm test --quiet 2>/dev/null; then
-    echo "⚠️  Tests didn't pass - consider fixing before commit"
-fi
-
-echo "✅ Checks complete"
-exit 0
+    return GuardrailResult(warnings=warnings)
 ```
 
 ### Runtime Guardrails
 
-**Context monitoring:**
+**Resource monitoring:**
 ```python
-class ContextGuardrail:
+class ResourceGuardrail:
     def __init__(self, soft_limit=0.35, hard_limit=0.40):
         self.soft_limit = soft_limit
         self.hard_limit = hard_limit
-        self.context_limit = 200000  # tokens
 
-    def check_context(self, current_context):
-        utilization = len(current_context) / self.context_limit
+    def check_utilization(self, current_usage, max_capacity):
+        utilization = current_usage / max_capacity
 
         if utilization > self.hard_limit:
             return Warning(
-                message=f"Context at {utilization:.1%} - consider resetting or using bundles",
-                remedy="See Factor VI for bundle patterns"
+                message=f"Utilization at {utilization:.1%} - consider pausing",
+                remedy="Take a checkpoint and review progress"
             )
         elif utilization > self.soft_limit:
             return Info(
-                message=f"Context at {utilization:.1%} - good time for a checkpoint"
+                message=f"Utilization at {utilization:.1%} - good time for a checkpoint"
             )
 
         return None
+```
+
+### Domain-Specific Guardrails
+
+**Customer Service Agent:**
+```python
+def validate_refund_action(action):
+    # Check refund within authorization
+    if action.amount > agent.max_authorization:
+        return RequireEscalation("Amount exceeds authorization limit")
+
+    # Check for duplicate processing
+    if has_recent_similar_action(action, hours=24):
+        return Warning("Similar action found in last 24 hours - verify")
+
+    # Check customer satisfaction context
+    if action.customer.recent_complaints > 2:
+        return Info("Multiple recent complaints - consider extra care")
+
+    return Success()
+```
+
+**Research Agent:**
+```python
+def validate_publication_action(action):
+    # Check source verification
+    if not all_sources_verified(action.sources):
+        return Error("Unverified sources - cannot publish")
+
+    # Check for required approvals
+    if action.is_external and not has_approval(action):
+        return RequireApproval("External publication requires approval")
+
+    # Check quality metrics
+    if action.quality_score < MINIMUM_QUALITY:
+        return Warning("Quality score below threshold - review recommended")
+
+    return Success()
+```
+
+**Sales Agent:**
+```python
+def validate_discount_action(action):
+    # Check discount within policy
+    if action.discount_percent > MAX_DISCOUNT:
+        return Error("Discount exceeds maximum allowed")
+
+    # Check margin requirements
+    if calculate_margin(action) < MIN_MARGIN:
+        return RequireApproval("Low margin requires manager approval")
+
+    # Check customer eligibility
+    if not customer_qualifies(action.customer, action.discount_type):
+        return Error("Customer not eligible for this discount type")
+
+    return Success()
 ```
 
 ---
@@ -265,19 +312,19 @@ class ContextGuardrail:
 **Purpose:** Catch issues before they happen
 
 **Examples:**
-- Pre-commit hooks (validate commits)
-- Pre-deploy gates (validate deployments)
-- Context checks (monitor 40% threshold)
-- Input validation (check requests)
+- Pre-action hooks (validate actions)
+- Pre-execution gates (validate operations)
+- Resource checks (monitor utilization)
+- Input validation (check parameters)
 
 ### Category 2: Runtime Guardrails
 
 **Purpose:** Detect issues during execution
 
 **Examples:**
-- Context monitoring (warn at thresholds)
-- Deployment monitoring (alert on errors)
-- Spiral detection (flag fix chains)
+- Resource monitoring (warn at thresholds)
+- Operation monitoring (alert on errors)
+- Spiral detection (flag repeated failures)
 - Circuit breakers (fail-safe patterns)
 
 ### Category 3: Post-Execution Guardrails
@@ -287,7 +334,7 @@ class ContextGuardrail:
 **Examples:**
 - Compliance dashboard (track adherence)
 - Session retrospectives (verify learning extraction)
-- Pattern tracking (encourage sharing)
+- Pattern tracking (encourage documentation)
 - Improvement review (identify opportunities)
 
 ---
@@ -317,7 +364,7 @@ class GuardrailExemption:
 ```
 
 **Exemption criteria:**
-- **Emergency:** Production issue, need immediate fix
+- **Emergency:** Critical issue, need immediate action
 - **Exceptional:** One-time unique circumstance
 - **Temporary:** Should expire quickly
 - **Logged:** Full audit trail for review
@@ -327,9 +374,9 @@ class GuardrailExemption:
 
 ## Relationship to Other Factors
 
-- **Factor I: Automated Tracking**: Git hooks support Laws 1 & 2
+- **Factor I: Automated Tracking**: Hooks support Laws 1 & 2
 - **Factor IV: Continuous Validation**: Supports Law 4
-- **Factor VI: Resume Work**: Supports context management
+- **Factor VI: Resume Work**: Supports state management
 - **Factor IX: Mine Patterns**: Supports pattern sharing
 - **Factor X: Small Iterations**: Supports continuous improvement
 
@@ -338,10 +385,10 @@ class GuardrailExemption:
 ## Next Steps
 
 1. **Document the Nine Laws** for your team
-2. **Implement pre-commit hooks** with helpful feedback
-3. **Add CI/CD gates** for validation (Law 4)
+2. **Implement pre-action hooks** with helpful feedback
+3. **Add validation gates** for critical operations
 4. **Create compliance dashboard** tracking patterns
-5. **Set up spiral detection** for fix chains
+5. **Set up spiral detection** for failure chains
 
 ---
 
