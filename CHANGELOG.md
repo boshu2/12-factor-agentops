@@ -5,6 +5,43 @@ All notable changes to 12-Factor AgentOps will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2025-12-27
+
+### Added - Production Implementation Patterns
+
+**From Theory to Production:**
+- Every factor now includes "Implementation Patterns" sections derived from production systems
+- Patterns extracted from Houston (local-first control plane, 2024), Fractal (Kubernetes-native, 2024-2025), and ai-platform (IC deployment)
+- +4,200 lines of production-tested implementation guidance
+
+**New Factor Patterns:**
+
+| Factor | Patterns Added |
+|--------|----------------|
+| **III** | Composable/Blackboard Architecture |
+| **VI** | Mission Lifecycle State Machines, Neo4j State Persistence |
+| **VII** | SharedInformer Caching, Classification-Aware Routing, Multi-Tier Model Routing |
+| **VIII** | BudgetQuota CRD, Three-Phase Pipeline, ToolCall Audit Trail, SSE Human Gates |
+| **XI** | Reconciliation Loops, Fail-Closed Defaults, Circuit Breaker, Spiral Detection |
+| **XII** | Three-Tier IC Deployment, Air-Gap Playbook, Classification Boundaries, Multi-Tenancy, Helm 86-template |
+
+**New Documentation:**
+- `docs/explanation/from-theory-to-production.md` - Bridge document linking theory to practice
+- `docs/explanation/pattern-heritage.md` - Houston/Fractal pattern lineage and factor mapping
+
+**Production Validation:**
+- All patterns production-tested in DoD environments (IL4/IL5/IL6)
+- Edge-to-datacenter deployments validated
+- Air-gap deployment playbook verified
+
+### Migration Guide
+
+**No migration required.** This is an additive release.
+
+Existing implementations continue to work. The new Implementation Patterns sections provide optional deep-dive guidance for advanced deployments.
+
+---
+
 ## [1.1.0] - 2025-11-29
 
 ### Added - Vibe Coding Integration
@@ -79,6 +116,7 @@ Existing 12-Factor AgentOps implementations continue to work unchanged. Vibe Cod
 
 | Version | Date | Major Changes |
 |---------|------|---------------|
+| 2.0.0 | 2025-12-27 | Production Implementation Patterns from Houston/Fractal/ai-platform |
 | 1.1.0 | 2025-11-29 | Vibe Coding integration as complementary framework |
 | 1.0.0 | 2024-10-XX | Initial public release |
 
@@ -86,10 +124,10 @@ Existing 12-Factor AgentOps implementations continue to work unchanged. Vibe Cod
 
 ## Upcoming (Roadmap)
 
-**Potential v1.2 features:**
-- Community-contributed domain-specific workflows
-- Additional failure patterns from production
-- Expanded case studies
-- Tool integrations and implementations
+**Potential v2.1 features:**
+- Community-contributed Implementation Patterns
+- Additional domain-specific deployment profiles
+- Expanded air-gap playbooks for other environments
+- Tool integrations (Terraform, Pulumi)
 
 **Note:** All versions maintain backward compatibility. We don't break existing implementations.
