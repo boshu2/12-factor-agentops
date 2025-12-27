@@ -505,6 +505,387 @@ This validates our git-based memory approach over external databases.
 
 ---
 
+## Implementation Patterns
+
+From production deployments (Houston, Fractal, ai-platform), we've identified concrete patterns for implementing session continuity in multi-agent systems.
+
+### Pattern 1: Explicit Memory Architecture (RAG/Graph/Historical)
+
+**Principle:** Separate what an agent knows from what it remembers. Don't conflate different memory types.
+
+**The Three-Layer Memory Model:**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    AGENT MEMORY ARCHITECTURE                 │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────┐ │
+│  │   RAG Layer     │  │  Graph Layer    │  │  Historical │ │
+│  │   (Semantic)    │  │ (Relationships) │  │   Layer     │ │
+│  ├─────────────────┤  ├─────────────────┤  ├─────────────┤ │
+│  │ pgvector/Qdrant │  │     Neo4j       │  │ PostgreSQL  │ │
+│  │                 │  │                 │  │             │ │
+│  │ "Find similar   │  │ "What calls     │  │ "Has this   │ │
+│  │  code to this"  │  │  this function?"│  │  failed     │ │
+│  │                 │  │                 │  │  before?"   │ │
+│  │ Semantic search │  │ Graph traversal │  │ Time-series │ │
+│  │ over content    │  │ over structure  │  │ patterns    │ │
+│  └─────────────────┘  └─────────────────┘  └─────────────┘ │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**When to use each layer:**
+
+| Query Type | Memory Layer | Example |
+|------------|--------------|---------|
+| "Find similar code" | RAG (pgvector) | Semantic similarity search |
+| "Who owns this service?" | Graph (Neo4j) | Relationship traversal |
+| "Has this deployment failed before?" | Historical (PostgreSQL) | Time-series patterns |
+| "What changed recently?" | Graph + Historical | Structural + temporal |
+| "Find docs about authentication" | RAG | Content similarity |
+
+**Anti-pattern:** Conflating these into one system:
+```
+❌ WRONG: Store everything in pgvector
+- Relationships lost (no "who calls what")
+- Time patterns lost (no "has this failed before")
+- Query efficiency suffers
+
+✅ RIGHT: Use the appropriate layer
+- RAG: Content search (embeddings)
+- Graph: Structure search (relationships)
+- Historical: Pattern search (time-series)
+```
+
+**Production implementation (ai-platform):**
+```yaml
+# Hybrid retrieval pipeline
+retrieval:
+  # Step 1: Semantic search
+  rag:
+    store: pgvector
+    query: "SELECT * FROM embeddings ORDER BY embedding <-> $query_embedding LIMIT 10"
+
+  # Step 2: Expand via relationships
+  graph:
+    store: neo4j
+    query: |
+      MATCH (chunk:Chunk)-[:MENTIONS]->(entity)
+      WHERE chunk.id IN $rag_results
+      MATCH (entity)<-[:MENTIONS]-(related:Chunk)
+      RETURN related
+
+  # Step 3: Check historical patterns
+  historical:
+    store: postgresql
+    query: "SELECT failure_rate, last_failure FROM deployment_history WHERE service_id = $entity_id"
+
+  # Step 4: Merge and rank
+  merge: hybrid
+```
+
+---
+
+### Pattern 2: Stateless Execution + External Memory
+
+**Principle:** Agents don't maintain session state internally. Memory systems do.
+
+**Stateless Agent Model:**
+
+```
+Agent Invocation (stateless):
+  Input:  Event + Context (loaded from external memory)
+  Output: Response + Actions (persisted to external memory)
+
+  Agent itself: Pure function, no internal state
+```
+
+**Why stateless:**
+- **Restartable:** Agent can crash and restart without losing state
+- **Scalable:** Multiple agent instances can process events
+- **Debuggable:** State is external, inspectable, queryable
+- **Portable:** Same agent runs on edge, datacenter, cloud
+
+**External Memory Contract:**
+
+```python
+# Agent execution model
+class StatelessAgent:
+    def execute(self, event: Event, memory: MemorySystem) -> AgentResult:
+        # Load context from external memory
+        context = memory.load(
+            session_id=event.session_id,
+            layers=['rag', 'graph', 'historical']
+        )
+
+        # Agent does its work (pure function)
+        result = self.process(event, context)
+
+        # Persist results to external memory
+        memory.store(
+            session_id=event.session_id,
+            layer='historical',
+            data=result.observations
+        )
+
+        return result
+```
+
+**Memory System Interface:**
+
+```python
+class MemorySystem:
+    """External memory backing for stateless agents"""
+
+    def __init__(self, postgresql: PostgreSQL, neo4j: Neo4j, pgvector: PgVector):
+        self.historical = postgresql  # Time-series patterns
+        self.graph = neo4j            # Relationships
+        self.rag = pgvector           # Semantic search
+
+    def load(self, session_id: str, layers: List[str]) -> Context:
+        """Load context from specified memory layers"""
+        context = {}
+        if 'historical' in layers:
+            context['history'] = self.historical.query_session(session_id)
+        if 'graph' in layers:
+            context['relationships'] = self.graph.query_session(session_id)
+        if 'rag' in layers:
+            context['similar'] = self.rag.query_session(session_id)
+        return Context(**context)
+
+    def store(self, session_id: str, layer: str, data: Any):
+        """Persist data to specified memory layer"""
+        if layer == 'historical':
+            self.historical.insert(session_id, data)
+        elif layer == 'graph':
+            self.graph.upsert(session_id, data)
+        elif layer == 'rag':
+            self.rag.upsert(session_id, data)
+```
+
+**Production validation:** ai-platform agents are stateless. All state lives in PostgreSQL (historical), Neo4j (graph), or pgvector (RAG). Pods can restart without losing session context.
+
+---
+
+### Pattern 3: Mission Lifecycle State Machines (Houston Pattern)
+
+**Principle:** Make agent lifecycle explicit with defined states and transitions.
+
+**The Houston Lifecycle:**
+
+```
+prep → queued → held → launching → active → complete|failed|aborted
+```
+
+| State | Description | Transitions To | Timeout |
+|-------|-------------|----------------|---------|
+| `prep` | Mission created, not yet queued | `queued`, `aborted` | None |
+| `queued` | Waiting for scheduling | `held`, `launching`, `aborted` | None |
+| `held` | Blocked by policy/quota | `queued`, `aborted` | 30min |
+| `launching` | Agent confirming readiness | `active`, `failed`, `aborted` | 30s |
+| `active` | Running | `complete`, `failed`, `aborted` | Configurable |
+| `complete` | Finished successfully | (terminal) | N/A |
+| `failed` | Finished with error | (terminal) | N/A |
+| `aborted` | Cancelled by user/policy | (terminal) | N/A |
+
+**Why explicit state machines:**
+
+1. **Debuggability:** Every state change has a reason code
+2. **Durability:** Transitions logged, recoverable after crash
+3. **Policy integration:** `held` state enables governance gates
+4. **Timeout handling:** Prevents stuck states
+
+**Reason Codes:**
+
+```python
+class TransitionReason(Enum):
+    USER_REQUEST = "user_request"      # User initiated
+    SCHEDULER = "scheduler"            # Scheduler decision
+    AGENT_READY = "agent_ready"        # Agent confirmed launch
+    COMPLETION = "completion"          # Work finished successfully
+    FAILURE = "failure"                # Error occurred
+    TIMEOUT = "timeout"                # Deadline exceeded
+    QUOTA_EXCEEDED = "quota_exceeded"  # Budget/limit hit
+    RATE_LIMIT = "rate_limit"          # Too many requests
+```
+
+**State Machine Implementation:**
+
+```python
+from enum import Enum
+from dataclasses import dataclass
+from datetime import datetime
+
+class MissionPhase(Enum):
+    PREP = "prep"
+    QUEUED = "queued"
+    HELD = "held"
+    LAUNCHING = "launching"
+    ACTIVE = "active"
+    COMPLETE = "complete"
+    FAILED = "failed"
+    ABORTED = "aborted"
+
+@dataclass
+class StateTransition:
+    from_state: MissionPhase
+    to_state: MissionPhase
+    reason: TransitionReason
+    timestamp: datetime
+    details: dict
+
+class MissionStateMachine:
+    VALID_TRANSITIONS = {
+        MissionPhase.PREP: [MissionPhase.QUEUED, MissionPhase.ABORTED],
+        MissionPhase.QUEUED: [MissionPhase.HELD, MissionPhase.LAUNCHING, MissionPhase.ABORTED],
+        MissionPhase.HELD: [MissionPhase.QUEUED, MissionPhase.ABORTED],
+        MissionPhase.LAUNCHING: [MissionPhase.ACTIVE, MissionPhase.FAILED, MissionPhase.ABORTED],
+        MissionPhase.ACTIVE: [MissionPhase.COMPLETE, MissionPhase.FAILED, MissionPhase.ABORTED],
+    }
+
+    def transition(self, mission_id: str, to_state: MissionPhase, reason: TransitionReason):
+        current = self.get_state(mission_id)
+
+        # Validate transition
+        if to_state not in self.VALID_TRANSITIONS.get(current, []):
+            raise InvalidTransition(f"Cannot transition from {current} to {to_state}")
+
+        # Log transition with reason
+        transition = StateTransition(
+            from_state=current,
+            to_state=to_state,
+            reason=reason,
+            timestamp=datetime.utcnow(),
+            details={"mission_id": mission_id}
+        )
+        self.log_transition(transition)
+
+        # Update state
+        self.set_state(mission_id, to_state)
+
+        return transition
+```
+
+**Integration with context bundles:** Each state transition can trigger bundle creation:
+- `active → complete`: Create completion bundle
+- `active → failed`: Create failure bundle (for debugging)
+- `queued → held`: Create hold reason bundle (for approval)
+
+---
+
+### Pattern 4: Neo4j State Persistence (Graph Memory)
+
+**Principle:** Use a knowledge graph for relationship-aware state persistence.
+
+**Why Neo4j for State:**
+- **Relationships are first-class:** "Agent A depends on Agent B's output"
+- **Temporal queries:** "What changed since yesterday?"
+- **Cross-session links:** "This session continues session X"
+
+**Schema for Session State:**
+
+```cypher
+// Core session nodes
+(:Session {id, started_at, phase, bundle_path})
+(:Agent {name, version, type})
+(:Event {id, type, timestamp, payload})
+(:Decision {id, description, rationale, timestamp})
+(:Artifact {id, path, type, created_at})
+
+// Relationships
+(Session)-[:EXECUTED_BY]->(Agent)
+(Session)-[:TRIGGERED_BY]->(Event)
+(Session)-[:MADE_DECISION]->(Decision)
+(Session)-[:PRODUCED]->(Artifact)
+(Session)-[:CONTINUES]->(Session)  // Session chaining
+(Decision)-[:LED_TO]->(Decision)   // Decision dependencies
+(Artifact)-[:USED_IN]->(Session)   // Artifact reuse
+```
+
+**Example Queries:**
+
+```cypher
+// Find all artifacts from sessions that led to this one
+MATCH (current:Session {id: $session_id})
+MATCH (current)-[:CONTINUES*]->(previous:Session)
+MATCH (previous)-[:PRODUCED]->(artifact:Artifact)
+RETURN artifact
+
+// Find decisions that affected this session
+MATCH (s:Session {id: $session_id})
+MATCH (s)-[:CONTINUES*]->(prev:Session)-[:MADE_DECISION]->(d:Decision)
+RETURN d ORDER BY d.timestamp DESC
+
+// Find sessions that used similar artifacts (for pattern mining)
+MATCH (current:Session {id: $session_id})-[:PRODUCED]->(a:Artifact)
+MATCH (other:Session)-[:USED_IN]->(a)
+WHERE other.id <> current.id
+RETURN other, count(a) as shared_artifacts
+ORDER BY shared_artifacts DESC
+```
+
+**State Persistence Flow:**
+
+```python
+class Neo4jSessionStore:
+    def create_session(self, session_id: str, agent: str, event: dict) -> None:
+        """Create new session node linked to triggering event"""
+        self.graph.run("""
+            MERGE (s:Session {id: $session_id})
+            SET s.started_at = datetime(), s.phase = 'prep'
+
+            MERGE (a:Agent {name: $agent})
+            MERGE (e:Event {id: $event_id})
+            SET e.type = $event_type, e.payload = $payload
+
+            MERGE (s)-[:EXECUTED_BY]->(a)
+            MERGE (s)-[:TRIGGERED_BY]->(e)
+        """, session_id=session_id, agent=agent, **event)
+
+    def continue_session(self, new_session_id: str, previous_session_id: str) -> None:
+        """Link new session to previous (for multi-day work)"""
+        self.graph.run("""
+            MATCH (prev:Session {id: $previous_id})
+            MERGE (new:Session {id: $new_id})
+            MERGE (new)-[:CONTINUES]->(prev)
+        """, previous_id=previous_session_id, new_id=new_session_id)
+
+    def record_decision(self, session_id: str, decision: dict) -> None:
+        """Record a decision made during the session"""
+        self.graph.run("""
+            MATCH (s:Session {id: $session_id})
+            CREATE (d:Decision {
+                id: $decision_id,
+                description: $description,
+                rationale: $rationale,
+                timestamp: datetime()
+            })
+            MERGE (s)-[:MADE_DECISION]->(d)
+        """, session_id=session_id, **decision)
+
+    def load_context(self, session_id: str) -> dict:
+        """Load accumulated context from session chain"""
+        result = self.graph.run("""
+            MATCH (current:Session {id: $session_id})
+            OPTIONAL MATCH (current)-[:CONTINUES*]->(prev:Session)
+            OPTIONAL MATCH (prev)-[:MADE_DECISION]->(d:Decision)
+            OPTIONAL MATCH (prev)-[:PRODUCED]->(a:Artifact)
+            RETURN prev, collect(DISTINCT d) as decisions, collect(DISTINCT a) as artifacts
+        """, session_id=session_id)
+
+        return {
+            "previous_sessions": [r["prev"] for r in result],
+            "decisions": flatten([r["decisions"] for r in result]),
+            "artifacts": flatten([r["artifacts"] for r in result])
+        }
+```
+
+**Integration with bundles:** Neo4j stores the **relationships** between sessions and artifacts. The bundle **content** still lives in Git (lossless storage). Neo4j enables queries like "find all sessions that influenced this one" or "what decisions led to this state."
+
+---
+
 ## Further Reading
 
 - **Anthropic's Pattern**: [../docs/reference/anthropic-long-running-agents.md](../docs/reference/anthropic-long-running-agents.md)
