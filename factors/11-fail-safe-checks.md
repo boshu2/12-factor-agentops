@@ -401,4 +401,716 @@ class GuardrailExemption:
 
 ---
 
+## Implementation Patterns
+
+These patterns emerge from production deployments in Houston (local-first), Fractal (Kubernetes-native), and ai-platform (IC-hardened). They extend the conceptual guardrail principles with battle-tested infrastructure patterns.
+
+### Pattern 1: Reconciliation Loops (Kubernetes Level-Triggered)
+
+**The Problem:** Edge-triggered systems (react to events) miss events during failures. If you miss the "agent started" event, you never know to monitor it.
+
+**The Solution:** Level-triggered reconciliation loops that continuously converge to desired state.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    RECONCILIATION LOOP PATTERN                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  EDGE-TRIGGERED (Fragile)              LEVEL-TRIGGERED (Robust)             │
+│                                                                             │
+│  Event occurs ──► Handler runs         Current State ◄───┐                  │
+│       │                                      │           │                  │
+│       │ (if missed, lost forever)            ▼           │                  │
+│       ▼                                ┌──────────┐      │                  │
+│  State changes                         │ COMPARE  │      │                  │
+│                                        │ desired  │      │                  │
+│  Problem: Miss an event?               │ vs actual│      │                  │
+│  System never recovers.                └────┬─────┘      │                  │
+│                                             │            │                  │
+│                                        ┌────▼─────┐      │                  │
+│                                        │  DIFF?   │──No──┘                  │
+│                                        └────┬─────┘                         │
+│                                             │ Yes                           │
+│                                             ▼                               │
+│                                        ┌──────────┐                         │
+│                                        │  TAKE    │                         │
+│                                        │  ACTION  │──────►  Desired State   │
+│                                        └──────────┘                         │
+│                                             │                               │
+│                                        (Loop every N seconds)               │
+│                                                                             │
+│  BENEFIT: If you miss something, next loop catches it                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Reconciliation Controller (Fractal):**
+
+```go
+// AgentGuardrailController reconciles agent behavior
+type AgentGuardrailController struct {
+    client    kubernetes.Interface
+    informer  cache.SharedInformer
+    recorder  record.EventRecorder
+}
+
+func (c *AgentGuardrailController) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+    // 1. Get current state
+    agent := &v1alpha1.KAgent{}
+    if err := c.client.Get(ctx, req.NamespacedName, agent); err != nil {
+        return ctrl.Result{}, client.IgnoreNotFound(err)
+    }
+
+    // 2. Get desired state (from guardrail policies)
+    policy := c.getGuardrailPolicy(agent.Namespace)
+
+    // 3. Compare and reconcile
+    violations := c.checkViolations(agent, policy)
+
+    if len(violations) > 0 {
+        // 4. Take corrective action
+        for _, v := range violations {
+            switch v.Severity {
+            case Critical:
+                // Terminate immediately
+                c.terminateAgent(ctx, agent)
+                c.recorder.Event(agent, "Warning", "GuardrailViolation",
+                    fmt.Sprintf("Critical violation: %s - agent terminated", v.Message))
+
+            case Warning:
+                // Add warning annotation, continue monitoring
+                c.addWarningAnnotation(agent, v.Message)
+                c.recorder.Event(agent, "Warning", "GuardrailWarning", v.Message)
+
+            case Info:
+                // Log for audit, no action
+                c.recorder.Event(agent, "Normal", "GuardrailInfo", v.Message)
+            }
+        }
+    }
+
+    // 5. Update status
+    agent.Status.LastGuardrailCheck = metav1.Now()
+    agent.Status.ViolationCount = len(violations)
+
+    // 6. Requeue for next check (every 30 seconds)
+    return ctrl.Result{RequeueAfter: 30 * time.Second}, nil
+}
+
+func (c *AgentGuardrailController) checkViolations(agent *v1alpha1.KAgent, policy *GuardrailPolicy) []Violation {
+    var violations []Violation
+
+    // Check token budget
+    if agent.Status.TokensUsed > policy.MaxTokens {
+        violations = append(violations, Violation{
+            Severity: Critical,
+            Message:  fmt.Sprintf("Token limit exceeded: %d > %d", agent.Status.TokensUsed, policy.MaxTokens),
+        })
+    }
+
+    // Check cost budget
+    if agent.Status.CostIncurred > policy.MaxCost {
+        violations = append(violations, Violation{
+            Severity: Critical,
+            Message:  fmt.Sprintf("Cost limit exceeded: $%.2f > $%.2f", agent.Status.CostIncurred, policy.MaxCost),
+        })
+    }
+
+    // Check runtime duration
+    if agent.Status.RunningDuration > policy.MaxDuration {
+        violations = append(violations, Violation{
+            Severity: Warning,
+            Message:  fmt.Sprintf("Duration exceeded: %v > %v", agent.Status.RunningDuration, policy.MaxDuration),
+        })
+    }
+
+    // Check tool call patterns
+    if c.detectSpiral(agent) {
+        violations = append(violations, Violation{
+            Severity: Warning,
+            Message:  "Potential failure spiral detected - same tool failing repeatedly",
+        })
+    }
+
+    return violations
+}
+```
+
+**Why Level-Triggered Wins:**
+
+| Aspect | Edge-Triggered | Level-Triggered |
+|--------|----------------|-----------------|
+| **Missed events** | Lost forever | Caught next loop |
+| **Restart recovery** | Must replay events | Just compare states |
+| **Debugging** | "What event did we miss?" | "What's the current state?" |
+| **Complexity** | Event ordering matters | Order doesn't matter |
+| **Idempotency** | Must track what's processed | Natural idempotency |
+
+---
+
+### Pattern 2: Fail-Closed Defaults
+
+**The Problem:** When something goes wrong, systems often fail open (continue operating without safety checks). This leads to cascading failures.
+
+**The Solution:** Fail-closed defaults—when uncertain, deny/stop/wait rather than proceed.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         FAIL-CLOSED DEFAULTS                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  FAIL-OPEN (Dangerous)                 FAIL-CLOSED (Safe)                   │
+│                                                                             │
+│  ┌─────────────┐                      ┌─────────────┐                      │
+│  │   Request   │                      │   Request   │                      │
+│  └──────┬──────┘                      └──────┬──────┘                      │
+│         │                                    │                              │
+│         ▼                                    ▼                              │
+│  ┌─────────────┐                      ┌─────────────┐                      │
+│  │  Validation │                      │  Validation │                      │
+│  │   Service   │                      │   Service   │                      │
+│  └──────┬──────┘                      └──────┬──────┘                      │
+│         │                                    │                              │
+│         ▼                                    ▼                              │
+│  ┌─────────────┐                      ┌─────────────┐                      │
+│  │  Service    │──── timeout ────►    │  Service    │──── timeout ────►    │
+│  │  unavailable│                      │  unavailable│                      │
+│  └──────┬──────┘                      └──────┬──────┘                      │
+│         │                                    │                              │
+│         ▼                                    ▼                              │
+│  ┌─────────────┐                      ┌─────────────┐                      │
+│  │  DEFAULT:   │                      │  DEFAULT:   │                      │
+│  │   ALLOW     │ ← Dangerous!         │    DENY     │ ← Safe!              │
+│  └─────────────┘                      └─────────────┘                      │
+│         │                                    │                              │
+│         ▼                                    ▼                              │
+│  Unvalidated request                  Request blocked,                      │
+│  proceeds, potential                  human notified,                       │
+│  security breach                      retry when service                    │
+│                                       is available                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Fail-Closed Implementation:**
+
+```python
+class FailClosedGuardrail:
+    """Guardrail that fails closed (denies) on any uncertainty."""
+
+    def __init__(self, validation_service: ValidationService):
+        self.validation = validation_service
+        self.timeout = timedelta(seconds=30)
+
+    def check(self, action: Action) -> GuardrailResult:
+        try:
+            # Try to validate
+            result = self.validation.validate(action, timeout=self.timeout)
+            return result
+
+        except TimeoutError:
+            # Validation timed out - FAIL CLOSED (deny)
+            return GuardrailResult(
+                allowed=False,
+                reason="Validation service timeout - fail closed",
+                retry_after=timedelta(minutes=5)
+            )
+
+        except ConnectionError:
+            # Service unavailable - FAIL CLOSED (deny)
+            return GuardrailResult(
+                allowed=False,
+                reason="Validation service unavailable - fail closed",
+                retry_after=timedelta(minutes=1)
+            )
+
+        except Exception as e:
+            # Unknown error - FAIL CLOSED (deny)
+            logger.error(f"Unexpected validation error: {e}")
+            return GuardrailResult(
+                allowed=False,
+                reason=f"Unexpected error - fail closed: {e}",
+                needs_human_review=True
+            )
+
+
+class BudgetGuardrail:
+    """Budget enforcement with fail-closed defaults."""
+
+    def check_budget(self, agent: Agent, action: Action) -> GuardrailResult:
+        # If we can't determine current usage, fail closed
+        try:
+            current_usage = self.get_usage(agent)
+        except Exception:
+            return GuardrailResult(
+                allowed=False,
+                reason="Cannot determine current usage - fail closed"
+            )
+
+        # If we can't determine action cost, fail closed
+        try:
+            estimated_cost = self.estimate_cost(action)
+        except Exception:
+            return GuardrailResult(
+                allowed=False,
+                reason="Cannot estimate action cost - fail closed"
+            )
+
+        # Check if within budget
+        if current_usage + estimated_cost > agent.budget_limit:
+            return GuardrailResult(
+                allowed=False,
+                reason=f"Would exceed budget: {current_usage + estimated_cost} > {agent.budget_limit}"
+            )
+
+        return GuardrailResult(allowed=True)
+```
+
+**Fail-Closed Kubernetes Resources:**
+
+```yaml
+# Admission webhook with fail-closed policy
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: agent-guardrails
+webhooks:
+  - name: guardrails.fractal.ai
+    rules:
+      - apiGroups: ["fractal.ai"]
+        resources: ["kagents", "shardruns", "toolcalls"]
+        operations: ["CREATE", "UPDATE"]
+    clientConfig:
+      service:
+        name: guardrail-webhook
+        namespace: ai-platform
+        path: "/validate"
+    # CRITICAL: Fail closed - if webhook unreachable, deny
+    failurePolicy: Fail  # NOT "Ignore"
+    timeoutSeconds: 10
+    sideEffects: None
+
+---
+# Network policy with fail-closed default
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: ai-agents
+spec:
+  podSelector: {}  # Apply to all pods
+  policyTypes:
+    - Ingress
+    - Egress
+  # No rules = deny all (fail closed)
+  # Must explicitly allow what's needed
+```
+
+---
+
+### Pattern 3: Circuit Breaker Pattern
+
+**The Problem:** When an external service fails, agents may keep retrying, wasting resources and potentially causing cascading failures.
+
+**The Solution:** Circuit breaker that opens after repeated failures, preventing retry storms.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         CIRCUIT BREAKER STATES                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                    ┌──────────────────────────┐                            │
+│                    │         CLOSED           │                            │
+│                    │    (Normal operation)    │                            │
+│                    │                          │                            │
+│                    │  Requests flow through   │                            │
+│                    │  Failures counted        │                            │
+│                    └────────────┬─────────────┘                            │
+│                                 │                                           │
+│                    failures > threshold                                     │
+│                                 │                                           │
+│                                 ▼                                           │
+│                    ┌──────────────────────────┐                            │
+│                    │          OPEN            │                            │
+│                    │   (Fail fast mode)       │                            │
+│                    │                          │                            │
+│                    │  Requests fail           │                            │
+│                    │  immediately             │                            │
+│                    │  No calls to service     │                            │
+│                    └────────────┬─────────────┘                            │
+│                                 │                                           │
+│                    timeout expires                                          │
+│                                 │                                           │
+│                                 ▼                                           │
+│                    ┌──────────────────────────┐                            │
+│                    │       HALF-OPEN          │                            │
+│                    │   (Testing recovery)     │                            │
+│                    │                          │                            │
+│                    │  Allow one test request  │                            │
+│                    │  Success → CLOSED        │                            │
+│                    │  Failure → OPEN          │                            │
+│                    └──────────────────────────┘                            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Circuit Breaker Implementation:**
+
+```python
+from enum import Enum
+from dataclasses import dataclass
+from datetime import datetime, timedelta
+from threading import Lock
+
+class CircuitState(Enum):
+    CLOSED = "closed"      # Normal operation
+    OPEN = "open"          # Failing fast
+    HALF_OPEN = "half_open"  # Testing recovery
+
+@dataclass
+class CircuitBreaker:
+    """Circuit breaker for external service calls."""
+
+    name: str
+    failure_threshold: int = 5      # Failures before opening
+    reset_timeout: timedelta = timedelta(minutes=1)
+    half_open_max_calls: int = 1
+
+    def __post_init__(self):
+        self.state = CircuitState.CLOSED
+        self.failure_count = 0
+        self.last_failure_time: Optional[datetime] = None
+        self.half_open_calls = 0
+        self._lock = Lock()
+
+    def can_execute(self) -> bool:
+        """Check if request should proceed."""
+        with self._lock:
+            if self.state == CircuitState.CLOSED:
+                return True
+
+            if self.state == CircuitState.OPEN:
+                # Check if timeout expired
+                if datetime.now() - self.last_failure_time > self.reset_timeout:
+                    self.state = CircuitState.HALF_OPEN
+                    self.half_open_calls = 0
+                    return True
+                return False
+
+            if self.state == CircuitState.HALF_OPEN:
+                # Allow limited test requests
+                if self.half_open_calls < self.half_open_max_calls:
+                    self.half_open_calls += 1
+                    return True
+                return False
+
+        return False
+
+    def record_success(self):
+        """Record successful call."""
+        with self._lock:
+            if self.state == CircuitState.HALF_OPEN:
+                # Recovery successful, close circuit
+                self.state = CircuitState.CLOSED
+                self.failure_count = 0
+
+    def record_failure(self):
+        """Record failed call."""
+        with self._lock:
+            self.failure_count += 1
+            self.last_failure_time = datetime.now()
+
+            if self.state == CircuitState.HALF_OPEN:
+                # Test failed, reopen circuit
+                self.state = CircuitState.OPEN
+            elif self.failure_count >= self.failure_threshold:
+                # Threshold exceeded, open circuit
+                self.state = CircuitState.OPEN
+
+
+class CircuitBreakerGuardrail:
+    """Guardrail that uses circuit breaker for external calls."""
+
+    def __init__(self):
+        self.breakers: Dict[str, CircuitBreaker] = {}
+
+    def get_breaker(self, service_name: str) -> CircuitBreaker:
+        if service_name not in self.breakers:
+            self.breakers[service_name] = CircuitBreaker(name=service_name)
+        return self.breakers[service_name]
+
+    async def call_with_breaker(self, service_name: str, func, *args, **kwargs):
+        """Execute function with circuit breaker protection."""
+        breaker = self.get_breaker(service_name)
+
+        if not breaker.can_execute():
+            raise CircuitOpenError(
+                f"Circuit breaker open for {service_name}. "
+                f"Will retry after {breaker.reset_timeout}"
+            )
+
+        try:
+            result = await func(*args, **kwargs)
+            breaker.record_success()
+            return result
+        except Exception as e:
+            breaker.record_failure()
+            raise
+```
+
+---
+
+### Pattern 4: Spiral Detection and Break
+
+**The Problem:** Agents can get stuck in failure loops—retrying the same failing action repeatedly.
+
+**The Solution:** Spiral detection that identifies repeated failures and forces escalation.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         SPIRAL DETECTION                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  FAILURE SPIRAL                        SPIRAL BREAK                         │
+│                                                                             │
+│  Action fails                          Action fails                         │
+│       │                                     │                               │
+│       ▼                                     ▼                               │
+│  Retry action ────────────────────►   ┌──────────────┐                     │
+│       │                               │ Increment    │                     │
+│       ▼                               │ failure count│                     │
+│  Action fails                         └──────┬───────┘                     │
+│       │                                      │                              │
+│       ▼                                      ▼                              │
+│  Retry action ────────────────────►   ┌──────────────┐                     │
+│       │                               │ Count > 3?   │                     │
+│       ▼                               └──────┬───────┘                     │
+│  Action fails                                │ Yes                          │
+│       │                                      ▼                              │
+│       ▼                               ┌──────────────┐                     │
+│  Retry action...                      │ SPIRAL       │                     │
+│       │                               │ DETECTED!    │                     │
+│       ▼                               │              │                     │
+│  (Continues forever,                  │ • Stop agent │                     │
+│   wasting tokens,                     │ • Notify     │                     │
+│   never succeeds)                     │ • Escalate   │                     │
+│                                       │ • Log for    │                     │
+│                                       │   analysis   │                     │
+│                                       └──────────────┘                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Spiral Detection Implementation:**
+
+```python
+from collections import defaultdict
+from dataclasses import dataclass
+from typing import List, Optional
+
+@dataclass
+class ToolCallRecord:
+    tool: str
+    args_hash: str
+    timestamp: datetime
+    success: bool
+    error: Optional[str] = None
+
+class SpiralDetector:
+    """Detects and breaks failure spirals."""
+
+    def __init__(
+        self,
+        max_consecutive_failures: int = 3,
+        max_similar_failures: int = 5,
+        time_window: timedelta = timedelta(minutes=10)
+    ):
+        self.max_consecutive = max_consecutive_failures
+        self.max_similar = max_similar_failures
+        self.time_window = time_window
+        self.history: Dict[str, List[ToolCallRecord]] = defaultdict(list)
+
+    def record_call(self, agent_id: str, tool: str, args: dict, success: bool, error: str = None):
+        """Record a tool call for spiral analysis."""
+        record = ToolCallRecord(
+            tool=tool,
+            args_hash=self._hash_args(args),
+            timestamp=datetime.now(),
+            success=success,
+            error=error
+        )
+        self.history[agent_id].append(record)
+
+        # Prune old records
+        self._prune_old_records(agent_id)
+
+    def check_spiral(self, agent_id: str) -> Optional[SpiralAlert]:
+        """Check if agent is in a failure spiral."""
+        records = self.history.get(agent_id, [])
+        if not records:
+            return None
+
+        # Check consecutive failures
+        recent_records = records[-self.max_consecutive:]
+        if all(not r.success for r in recent_records):
+            return SpiralAlert(
+                type="consecutive_failures",
+                count=len(recent_records),
+                message=f"Last {len(recent_records)} tool calls failed consecutively",
+                recommendation="Stop agent and escalate to human review"
+            )
+
+        # Check similar failures (same tool, same args)
+        failures_by_signature = defaultdict(list)
+        for r in records:
+            if not r.success:
+                signature = f"{r.tool}:{r.args_hash}"
+                failures_by_signature[signature].append(r)
+
+        for signature, failures in failures_by_signature.items():
+            if len(failures) >= self.max_similar:
+                return SpiralAlert(
+                    type="similar_failures",
+                    count=len(failures),
+                    signature=signature,
+                    message=f"Same action failed {len(failures)} times",
+                    recommendation="Agent stuck on impossible task - needs different approach"
+                )
+
+        return None
+
+    def _hash_args(self, args: dict) -> str:
+        """Create hash of arguments for similarity detection."""
+        import hashlib
+        import json
+        return hashlib.md5(json.dumps(args, sort_keys=True).encode()).hexdigest()[:8]
+
+
+class SpiralBreaker:
+    """Guardrail that breaks failure spirals."""
+
+    def __init__(self, detector: SpiralDetector):
+        self.detector = detector
+
+    def post_tool_call_hook(self, agent_id: str, tool: str, args: dict, result: ToolResult):
+        """Called after every tool call to check for spirals."""
+        # Record the call
+        self.detector.record_call(
+            agent_id=agent_id,
+            tool=tool,
+            args=args,
+            success=result.success,
+            error=result.error if not result.success else None
+        )
+
+        # Check for spiral
+        alert = self.detector.check_spiral(agent_id)
+        if alert:
+            # Break the spiral
+            self._break_spiral(agent_id, alert)
+
+    def _break_spiral(self, agent_id: str, alert: SpiralAlert):
+        """Take action to break the spiral."""
+        logger.warning(f"Spiral detected for agent {agent_id}: {alert.message}")
+
+        # 1. Pause the agent
+        self.pause_agent(agent_id)
+
+        # 2. Notify humans
+        self.notify_spiral(agent_id, alert)
+
+        # 3. Create incident
+        self.create_incident(agent_id, alert)
+
+        # 4. Clear spiral history (prevent re-triggering)
+        self.detector.history[agent_id] = []
+```
+
+---
+
+### Anti-Patterns for Fail-Safe Checks
+
+**❌ Anti-Pattern 1: Fail Open**
+```
+Wrong: If validation fails, proceed anyway
+       try:
+           validate(action)
+       except:
+           pass  # Continue without validation
+
+Right: Fail closed on any uncertainty
+       try:
+           validate(action)
+       except:
+           raise GuardrailViolation("Validation failed - cannot proceed")
+```
+
+**❌ Anti-Pattern 2: Edge-Triggered Only**
+```
+Wrong: Only react to events
+       @on_event("agent_started")
+       def check_guardrails():
+           # What if we miss this event?
+
+Right: Level-triggered reconciliation
+       def reconcile_loop():
+           while True:
+               current = get_current_state()
+               desired = get_desired_state()
+               if current != desired:
+                   take_action()
+               sleep(30)
+```
+
+**❌ Anti-Pattern 3: No Spiral Detection**
+```
+Wrong: Let agent retry forever
+       while not success:
+           result = try_action()
+           if not result.success:
+               continue  # Infinite loop possible
+
+Right: Detect and break spirals
+       failures = 0
+       while not success and failures < MAX_FAILURES:
+           result = try_action()
+           if not result.success:
+               failures += 1
+       if failures >= MAX_FAILURES:
+           escalate_to_human()
+```
+
+---
+
+### Production Checklist for Fail-Safe Checks
+
+```markdown
+## Fail-Safe Infrastructure Checklist
+
+### Reconciliation Loops
+- [ ] Controller uses level-triggered (not edge-triggered)
+- [ ] Reconciliation interval configured (e.g., 30 seconds)
+- [ ] Controller handles its own restart gracefully
+- [ ] Status updated after each reconciliation
+
+### Fail-Closed Defaults
+- [ ] Admission webhook has failurePolicy: Fail
+- [ ] Network policies default deny-all
+- [ ] Budget checks fail closed on uncertainty
+- [ ] Validation failures block execution
+
+### Circuit Breakers
+- [ ] External service calls wrapped in circuit breaker
+- [ ] Failure thresholds configured per service
+- [ ] Half-open testing prevents retry storms
+- [ ] Circuit state visible in metrics/logs
+
+### Spiral Detection
+- [ ] Tool call history tracked per agent
+- [ ] Consecutive failure threshold configured
+- [ ] Similar failure detection enabled
+- [ ] Automatic escalation on spiral detected
+```
+
+---
+
 **Remember:** The Nine Laws are guidelines that help agents succeed. Guardrails support the laws through automation. Make it easy to do the right thing. Prevention beats correction. Build trust through consistent patterns.
