@@ -498,6 +498,287 @@ If you've built microservices, you already understand this:
 
 ---
 
+## Implementation Patterns
+
+From production deployments (Houston, Fractal, ai-platform), we've identified concrete patterns for implementing focused agents in multi-agent systems.
+
+### Pattern 1: Event-Driven Activation
+
+**Principle:** Agents respond to events, not schedules.
+
+Events create context; timers create noise. An event (GitLab push, Jira ticket created, Slack message) carries the **why** an agent should activate. A cron schedule just says "run now" without context.
+
+**Trigger Taxonomy:**
+
+| Trigger Type | When to Use | Example |
+|--------------|-------------|---------|
+| **Webhook** | External system events | GitLab push → commitReviewer<br/>Jira ticket → issueTriager<br/>Slack mention → helpAssistant |
+| **API Call** | CI/CD jobs, automation scripts | Pipeline complete → verificationAnalyst<br/>Deployment success → notificationAgent |
+| **Chat** | User-initiated requests | "Explain this code" → codeExplainer<br/>"Search docs" → knowledgeAssistant |
+| **Cron** | Periodic aggregation only (last resort) | Daily summary → statusReporter<br/>Weekly metrics → metricsAggregator |
+
+**Why webhooks > cron:**
+```
+Cron-based (wrong):
+- Every 5 minutes: "Check if there's work"
+- 99% wasted invocations
+- No context about what changed
+- Race conditions with concurrent jobs
+
+Event-based (right):
+- GitLab push → immediate review
+- 100% useful invocations
+- Event payload contains full context
+- Naturally serialized per event
+```
+
+**Production validation:** ai-platform runs 8 specialized agents, all event-driven except 2 reporting agents (cron for daily/weekly summaries).
+
+---
+
+### Pattern 2: Webhook-First, Orchestrator-Last
+
+**Principle:** Let events flow directly to agents. Orchestrators are for chat only.
+
+**Wrong mental model:**
+```
+Every event → Orchestrator → Dispatch to agent → Return to orchestrator → Response
+
+Problem: Orchestrator becomes a bottleneck and single point of failure
+```
+
+**Right mental model:**
+```
+GitLab Push ────────► commitReviewer (direct webhook)
+GitLab MR Created ──► mrReviewer (direct webhook)
+Pipeline Complete ──► verificationAnalyst (direct webhook)
+Jira Ticket ────────► issueTriager (direct webhook)
+
+User Chat (multi-agent query) → Orchestrator → Agents → Synthesize
+```
+
+**Orchestrators exist for ONE purpose:** When a user asks something in chat that requires multiple specialized agents to answer.
+
+**Example:**
+```yaml
+# Direct webhook (preferred)
+apiVersion: kagent.dev/v1alpha2
+kind: Agent
+metadata:
+  name: commit-reviewer
+spec:
+  description: "Reviews code quality on every commit"
+  integrations:
+    gitlab:
+      enabled: true
+      events: ["push"]
+      webhook: true  # Direct delivery
+
+# Orchestrator-dispatched (only for multi-agent chat)
+apiVersion: kagent.dev/v1alpha2
+kind: Agent
+metadata:
+  name: code-qa-orchestrator
+spec:
+  description: "Coordinates code quality analysis"
+  integrations:
+    slack:
+      enabled: true
+      events: ["mention"]
+  delegates:
+    - commit-reviewer
+    - test-coverage-analyzer
+    - security-scanner
+```
+
+**Why this matters:**
+- **Latency:** Webhook → Agent (100ms) vs Webhook → Orchestrator → Agent (500ms+)
+- **Reliability:** Direct path = fewer failure points
+- **Clarity:** Event source visible in agent config
+
+**Production validation:** ai-platform has 6 webhook-triggered agents (direct), 1 orchestrator (chat-only), 1 cron agent (reporting).
+
+---
+
+### Pattern 3: Agent Decision Tree
+
+**Use this decision tree when designing a new agent:**
+
+```
+START: What triggers this agent?
+│
+├─► External event (webhook)?
+│   └─► Create specialized agent with webhook trigger
+│       Example: commitReviewer (gitlab-push)
+│       Pattern: Single responsibility, event payload as context
+│
+├─► CI/CD job completion?
+│   └─► Create specialized agent with API trigger
+│       Example: verificationAnalyst (pipeline-complete)
+│       Pattern: Reads job artifacts, writes summary
+│
+├─► User chat request?
+│   │
+│   ├─► Single focused task?
+│   │   └─► Create specialized agent with chat trigger
+│   │       Example: knowledgeAssistant (search docs)
+│   │       Pattern: Query → Search → Response
+│   │
+│   └─► Requires multiple agents?
+│       └─► Use orchestrator to dispatch
+│           Example: "Review MR thoroughly" → Orchestrator dispatches:
+│                    - mrReviewer (code quality)
+│                    - verificationAnalyst (build/test status)
+│                    - securityScanner (vulnerability check)
+│           Pattern: Orchestrator aggregates results
+│
+└─► Periodic aggregation?
+    └─► Create agent with cron trigger (use sparingly)
+        Example: statusReporter (weekly summaries)
+        Pattern: Queries historical data, generates report
+```
+
+**Key insight:** Most agents are webhook-triggered. Orchestrators are rare (only for multi-agent chat queries).
+
+---
+
+### Pattern 4: KAgent CRD Definition (Kubernetes-Native)
+
+For production Kubernetes deployments, agents are defined as Custom Resource Definitions (CRDs).
+
+**Example: Webhook-triggered agent**
+```yaml
+apiVersion: kagent.dev/v1alpha2
+kind: Agent
+metadata:
+  name: merge-request-reviewer
+  namespace: team-platform
+spec:
+  description: "Reviews merge request code changes for quality and standards"
+
+  # Single responsibility
+  declarative:
+    modelConfig: devstral  # Shared model routing
+    systemPrompt: |
+      You are a code reviewer for the platform team.
+      Focus on:
+      - Code quality and standards adherence
+      - Potential bugs or edge cases
+      - Documentation completeness
+
+      Do NOT review:
+      - Security (handled by security-scanner agent)
+      - Test coverage (handled by test-analyzer agent)
+      - Build correctness (handled by verification-analyst agent)
+
+    tools:
+      - type: McpServer
+        mcpServer: gitlab-mcp  # Shared MCP tools
+        toolNames:
+          - gitlab_get_mr_diff
+          - gitlab_post_mr_comment
+      - type: McpServer
+        mcpServer: code-graph-mcp
+        toolNames:
+          - query_code_graph
+
+  # Event-driven activation
+  integrations:
+    gitlab:
+      enabled: true
+      events: ["merge_request.opened", "merge_request.updated"]
+      webhook: true
+      filters:
+        targetBranches: ["main", "develop"]
+```
+
+**Key elements:**
+- **Single responsibility:** Clearly stated in description and systemPrompt
+- **Event-driven:** GitLab webhook triggers, not cron
+- **Scoped tools:** Only the MCP tools needed for code review
+- **Shared infrastructure:** modelConfig and mcpServer are cluster-wide
+
+**Anti-pattern (avoid):**
+```yaml
+# ❌ WRONG: God agent
+metadata:
+  name: do-everything-gitlab
+spec:
+  description: "Handles all GitLab events and does everything"
+  systemPrompt: "You are an expert at everything..."
+  integrations:
+    gitlab:
+      events: ["*"]  # All events - too broad
+```
+
+---
+
+### Pattern 5: The Anti-Patterns (Production Failures)
+
+From real deployments, these patterns cause failures:
+
+#### ❌ The God Agent
+```
+BAD: One agent that does everything
+- Reviews code
+- Analyzes builds
+- Writes docs
+- Answers questions
+- Generates reports
+- Monitors deployments
+
+Result: 12,000-token prompt, 75% context usage, unpredictable failures
+```
+
+**Fix:** Split into specialized agents:
+```
+GOOD: Specialized agents that compose
+- mrReviewer: Code quality only
+- verificationAnalyst: Build/test analysis only
+- docWriter: Documentation generation only
+- knowledgeAssistant: Q&A only
+- statusReporter: Reporting only
+
+Result: 300-800 token prompts, 20-30% context usage each, 95% success rate
+```
+
+#### ❌ The Orchestrator-First Design
+```
+BAD: Everything goes through an orchestrator
+GitLab Push → Orchestrator → commitReviewer → Orchestrator → Response
+Jira Ticket → Orchestrator → issueTriager → Orchestrator → Response
+
+Result: Orchestrator bottleneck, 500ms+ latency, single point of failure
+```
+
+**Fix:** Direct webhook delivery
+```
+GOOD: Events flow directly to agents
+GitLab Push ────────► commitReviewer (direct, 100ms)
+Jira Ticket ────────► issueTriager (direct, 100ms)
+
+Orchestrator only for: User chat queries requiring multiple agents
+```
+
+#### ❌ The Stateful Agent
+```
+BAD: Agent maintains conversation state internally
+"Remember what we discussed earlier..."
+
+Result: State loss on pod restart, memory leaks, race conditions
+```
+
+**Fix:** Stateless execution with external memory
+```
+GOOD: Agent is stateless, memory is external
+Agent invocation: Input (Event + Context) → Output (Response + Actions)
+Memory: PostgreSQL (time-series), Neo4j (graph), pgvector (semantic)
+
+Result: Restartable, scalable, debuggable
+```
+
+---
+
 ## Levels of Composition
 
 ### Level 1: Skills
