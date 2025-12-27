@@ -84,9 +84,11 @@ BUILD → WORK → RUN
 ### 💡 Explanation (Understanding-Oriented)
 **Conceptual deep dives and background**
 
+- [From Theory to Production](./explanation/from-theory-to-production.md) 🚀 - Evolution from principles to production infrastructure
 - [FAAFO North Star](./explanation/faafo-north-star.md) ⭐ - Why this exists (the driving belief)
 - [Standing on Giants](./explanation/standing-on-giants.md) - How we adapted 12-Factor App, DevOps, Learning Science
 - [AI Summit Validation 2025](./explanation/ai-summit-validation-2025.md) - Industry validation from 22 technical leaders
+- [Vibe Coding Integration](./explanation/vibe-coding-integration.md) - Vision meets operational discipline
 - [Five Pillars](./principles/five-pillars.md) - Technical foundations (detailed)
 - [Nine Laws](./principles/nine-laws.md) - Mandatory operational principles
 - [Context Engineering](./principles/context-engineering.md) - The 40% rule explained
