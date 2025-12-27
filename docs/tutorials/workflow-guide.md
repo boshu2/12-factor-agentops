@@ -1,630 +1,898 @@
-# 12-Factor AgentOps Workflow (v1.1)
+# The Workflow
 
-**How to apply the 12 factors in practice using the slash command workflow.**
+<div align="center">
 
-This guide shows the operational workflow for reliable AI agent work: **Read primer** → `/research` → `/plan` → `/implement` → `validate` → `/learn` → repeat.
+**A complete Claude Code session from start to finish**
+
+*Day 5 agents inherit everything Day 1 agents discovered.*
+
+</div>
 
 ---
 
-## v1.1 Workflow Updates
+<div align="center">
 
-**What changed:**
-- ✅ Removed `/prime` command - kernel files (CLAUDE.md, AGENTS.md) now act as primers
-- ✅ Validation is now continuous during `/implement` (not separate phase after)
-- ✅ Clearer separation: primer files provide context, commands execute work
+## The Complete Flow
 
-**Why we dropped `/prime`:**
+</div>
 
-The `/prime` command was originally designed to route tasks and load initial context. However, we discovered that:
+<table>
+<tr>
+<td align="center" width="16%">
 
-1. **Documentation already provides routing** - CLAUDE.md and AGENTS.md files contain all routing logic (what to load, which agents to use, JIT loading patterns)
-2. **Redundant context loading** - `/prime` loaded 800-2k tokens, but kernel files already provide same context in 800 tokens
-3. **Extra command overhead** - Added complexity without adding value (just read the file instead)
-4. **Confusion about when to use** - Users unsure whether to run `/prime` or just start with `/research`
+**🚀**
+**Start**
 
-**The solution:** Treat kernel files as **primers** - read them first, they tell you what to do next. No separate command needed.
+</td>
+<td align="center" width="4%">→</td>
+<td align="center" width="16%">
+
+**📚**
+**Research**
+
+</td>
+<td align="center" width="4%">→</td>
+<td align="center" width="16%">
+
+**📋**
+**Plan**
+
+</td>
+<td align="center" width="4%">→</td>
+<td align="center" width="16%">
+
+**⚡**
+**Implement**
+
+</td>
+<td align="center" width="4%">→</td>
+<td align="center" width="16%">
+
+**🏁**
+**End**
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+↓ *context high?* ↓
+
+**🔄 Resume** → continue → **🔍 Retro** → **🧠 Learn**
+
+</div>
+
+---
+
+<div align="center">
+
+## Before & After
+
+</div>
+
+<table>
+<tr>
+<th width="40%">Without Session Management</th>
+<th width="20%"></th>
+<th width="40%">With the Workflow</th>
+</tr>
+<tr>
+<td align="center"><strong>Every day</strong></td>
+<td align="center">→</td>
+<td align="center"><strong>Day 1 only</strong></td>
+</tr>
+<tr>
+<td align="center">Start from zero</td>
+<td align="center">→</td>
+<td align="center">Resume where you left off</td>
+</tr>
+<tr>
+<td align="center"><strong>100%</strong></td>
+<td align="center">→</td>
+<td align="center"><strong>0%</strong></td>
+</tr>
+<tr>
+<td align="center">Re-research same problems</td>
+<td align="center">→</td>
+<td align="center">Load compressed bundles</td>
+</tr>
+<tr>
+<td align="center"><strong>Lost</strong></td>
+<td align="center">→</td>
+<td align="center"><strong>Persisted</strong></td>
+</tr>
+<tr>
+<td align="center">Context between sessions</td>
+<td align="center">→</td>
+<td align="center">State files track everything</td>
+</tr>
+<tr>
+<td align="center"><strong>Linear</strong></td>
+<td align="center">→</td>
+<td align="center"><strong>Compound</strong></td>
+</tr>
+<tr>
+<td align="center">Same speed forever</td>
+<td align="center">→</td>
+<td align="center">Day 10 is 10x faster</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+## vibe-check: The 5 Metrics
+
+</div>
+
+<table>
+<tr>
+<td align="center" width="20%">
+
+**Trust Pass**
+% steps that validate
+on first try
+
+</td>
+<td align="center" width="20%">
+
+**Rework Ratio**
+% time fixing
+vs building
+
+</td>
+<td align="center" width="20%">
+
+**Velocity**
+Validated steps
+per hour
+
+</td>
+<td align="center" width="20%">
+
+**Debug Spirals**
+Fix chains
+>3 commits
+
+</td>
+<td align="center" width="20%">
+
+**Flow Efficiency**
+% time in
+productive work
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+*Captured at session-start (baseline) and session-end (delta)*
+
+</div>
+
+---
+
+<div align="center">
+
+## Example: Adding Auth to a Web App
+
+*Follow along as we implement a feature across two sessions*
+
+</div>
+
+---
+
+<table>
+<tr>
+<td width="100%" bgcolor="#1a1a2e">
+
+### 🚀 Session Start
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="70%">
+
+```
+> /session-start
+
+📂 Context: my-webapp
+📋 Incomplete: AUTH-001, AUTH-002
+📝 Last session: Set up project structure
+🎯 Next: AUTH-001 (User login flow)
+
+🎯 What Vibe Level? (0-5)
+```
+
+```
+> Level 2 - new feature with complexity
+
+📊 Capturing baseline (vibe-check)...
+   Trust Pass Rate: 87% (last 7 days)
+   Rework Ratio: 12%
+   Avg Velocity: 4.2/hr
+
+Ready to proceed.
+```
+
+</td>
+<td width="30%" valign="top">
+
+<br/>
+
+**What's happening:**
+
+✓ Load progress files
+✓ Show incomplete work
+✓ Set verification level
+✓ Capture vibe-check baseline
+✓ Ready to work
+
+</td>
+</tr>
+</table>
+
+---
+
+<table>
+<tr>
+<td width="100%" bgcolor="#1e3a5f">
+
+### 📚 Research
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="70%">
+
+```
+> /research
+
+🔍 Topic: User authentication
+   Loading context JIT...
+
+Stack: Next.js 14 + Prisma + PostgreSQL
+
+┌─────────────┬──────────────────┬─────────────────┐
+│ Option      │ Pros             │ Cons            │
+├─────────────┼──────────────────┼─────────────────┤
+│ NextAuth.js │ Built for Next   │ Abstraction     │
+│ Lucia Auth  │ Full control     │ More setup      │
+│ Custom JWT  │ Complete control │ Security risk   │
+└─────────────┴──────────────────┴─────────────────┘
+
+Recommendation: NextAuth.js
+
+💾 Bundle saved: research-auth-001.md
+   12K tokens → 3K compressed
+```
+
+```
+> Google + GitHub OAuth. Database sessions.
+
+Updated. Ready for /plan
+```
+
+</td>
+<td width="30%" valign="top">
+
+<br/>
+
+**What's happening:**
+
+✓ Explore approaches
+✓ Document trade-offs
+✓ Get user input
+✓ Compress to bundle
+
+<br/>
+
+**Output:**
+Research bundle (5:1 compression)
+
+</td>
+</tr>
+</table>
+
+---
+
+<table>
+<tr>
+<td width="100%" bgcolor="#1e5f3a">
+
+### 📋 Plan
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="70%">
+
+```
+> /plan
+
+📋 Loading research bundle...
+
+Steps:
+1. Install deps      → validate: no conflicts
+2. Prisma schema     → validate: db push works
+3. Auth config       → validate: endpoints respond
+4. Session provider  → validate: hook works
+5. Login UI          → validate: can sign in/out
+6. Route protection  → validate: redirects work
+
+⚠️ Human checkpoint: Review auth config (step 3)
+
+💾 Bundle saved: plan-auth-001.md
+```
+
+```
+> Approved. Let's implement.
+```
+
+</td>
+<td width="30%" valign="top">
+
+<br/>
+
+**What's happening:**
+
+✓ Load research
+✓ Define steps
+✓ Add validation gates
+✓ Mark human checkpoints
+✓ Compress to bundle
+
+<br/>
+
+**Output:**
+Plan with 6 validated steps
+
+</td>
+</tr>
+</table>
+
+---
+
+<table>
+<tr>
+<td width="100%" bgcolor="#5f3a1e">
+
+### ⚡ Implement
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="70%">
+
+```
+> /implement
+
+Loading plan...
+
+Step 1: npm install next-auth @auth/prisma-adapter
+        ✅ Committed
+
+Step 2: Update prisma/schema.prisma
+        ✅ Committed
+
+Step 3: ⚠️ Human checkpoint
+        Review auth config?
+```
+
+```
+> Approved
+```
+
+```
+        ✅ Committed
+
+Step 4: Add SessionProvider
+        ✅ Committed
+
+Step 5: Create login components
+        ✅ Committed
+
+⚠️ Context: 52% (above 40% threshold)
+   Recommend: /session-end now
+```
+
+</td>
+<td width="30%" valign="top">
+
+<br/>
+
+**What's happening:**
+
+✓ Execute each step
+✓ Validate after each
+✓ Commit with context
+✓ Human approval
+✓ Monitor context %
+
+<br/>
+
+**Context warning!**
+Above 40% threshold.
+Time to save and resume.
+
+</td>
+</tr>
+</table>
+
+---
+
+<table>
+<tr>
+<td width="100%" bgcolor="#3a1e5f">
+
+### 🏁 Session End (Mid-Feature)
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="70%">
+
+```
+> /session-end
+
+🏁 Ending Session
+
+Completed: Steps 1-5
+Remaining: Step 6 (route protection)
+Context: 52%
+Commits: 5
+
+📊 Session vibe-check:
+   Trust Pass: 100% (5/5 steps validated)
+   Rework: 0%
+   Velocity: 6.7/hr
+   Spirals: 0
+
+Updating claude-progress.json...
+  working_on: "AUTH-001: Step 6 remaining"
+
+💾 State saved
+
+Run /retro? > Not yet, finishing first
+```
+
+</td>
+<td width="30%" valign="top">
+
+<br/>
+
+**What's happening:**
+
+✓ Check git status
+✓ Run vibe-check delta
+✓ Update progress files
+✓ Save current state
+✓ Ready for resume
+
+<br/>
+
+**Why stop at 52%?**
+Context > 40% degrades quality.
+Fresh session = better results.
+
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+### ☀️ Next Day
+
+</div>
+
+---
+
+<table>
+<tr>
+<td width="100%" bgcolor="#1a1a2e">
+
+### 🔄 Session Resume
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="70%">
+
+```
+> /session-resume
+
+🔄 Resuming: AUTH-001
+   Progress: Steps 1-5 ✓
+   Remaining: Step 6
+
+Loading bundles...
+   ✓ plan-auth-001.md
+
+Context: 8% (fresh!)
+
+Last commit: "feat(auth): add login components"
+
+Pick up at Step 6?
+```
+
+```
+> Yes
+```
+
+</td>
+<td width="30%" valign="top">
+
+<br/>
+
+**What's happening:**
+
+✓ Load progress state
+✓ Load compressed bundles
+✓ Show where we left off
+✓ Fresh 8% context!
+
+<br/>
+
+**The magic:**
+Yesterday's 52% → Today's 8%
+All context preserved in bundles
+
+</td>
+</tr>
+</table>
+
+---
+
+<table>
+<tr>
+<td width="100%" bgcolor="#5f3a1e">
+
+### ⚡ Implement (Continued)
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="70%">
+
+```
+Step 6: Create middleware.ts
+        Route protection for /dashboard/*
+
+Testing...
+  /dashboard (no auth) → /login ✅
+  /dashboard (auth)    → renders ✅
+
+✅ Committed
+
+🎉 AUTH-001 Complete!
+```
+
+```
+> /session-end
+```
+
+</td>
+<td width="30%" valign="top">
+
+<br/>
+
+**What's happening:**
+
+✓ Finish remaining step
+✓ Validate behavior
+✓ Commit with context
+
+<br/>
 
 **Result:**
-- Simpler workflow (fewer commands to remember)
-- Clearer intent (documentation is the primer)
-- Same context budget (800 tokens either way)
-- Faster startup (no command execution overhead)
+Feature complete in 2 sessions
+Full context preserved
+
+</td>
+</tr>
+</table>
 
 ---
 
-## The Workflow Loop
+<table>
+<tr>
+<td width="100%" bgcolor="#3a1e5f">
+
+### 🏁 Session End (Feature Complete)
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="70%">
 
 ```
-┌──────────────────────────────────────────────────────────────────┐
-│                                                                  │
-│  CLAUDE.md       /research        /plan         /implement       │
-│  AGENTS.md          ↓               ↓               ↓            │
-│     ↓           Research        Design         Execute          │
-│  Primer         Problem         Solution       + Validate        │
-│  (Read)                                          (continuous)    │
-│                                                      ↓            │
-│                                                  /learn          │
-│                                                 Extract          │
-│                                                 Patterns         │
-│                                                     ↓            │
-│  └────────────────────────────────────────────────┘             │
-│           (Repeat with learnings)                               │
-│                                                                  │
-└──────────────────────────────────────────────────────────────────┘
+> /session-end
+
+🏁 Session Complete
+
+AUTH-001: passes: true ✅
+Commits: 6 total (5 + 1)
+Sessions: 2
+
+📊 Feature vibe-check (both sessions):
+   Trust Pass: 100% ↑ from 87% baseline
+   Rework: 5% ↓ from 12% baseline
+   Velocity: 5.8/hr ↑ from 4.2/hr
+   Spirals: 0
+
+💾 State saved
+
+Run /retro? > Yes
 ```
 
-Each phase has **validation gates** before proceeding to the next phase. No proceeding without validation.
+</td>
+<td width="30%" valign="top">
+
+<br/>
+
+**What's happening:**
+
+✓ Mark feature complete
+✓ Update feature-list.json
+✓ Compare to baseline
+✓ Ready for retrospective
+
+</td>
+</tr>
+</table>
 
 ---
 
-## Phase 0: Read CLAUDE.md / AGENTS.md - Prime Context
+<table>
+<tr>
+<td width="100%" bgcolor="#1e5f5f">
 
-**Purpose:** Load initial context, understand repository structure, select right approach.
+### 🔍 Retro
 
-**What happens:**
-- Read kernel files (CLAUDE.md, AGENTS.md) - repository primers
-- Understand JIT loading strategy (what to load when)
-- Identify relevant specs, tools, patterns
-- Clear your context window (Factor II: Context Loading)
-- Define the problem statement (based on primer guidance)
+</td>
+</tr>
+</table>
 
-**Key files to read:**
-- `CLAUDE.md` - Repository kernel (structure, quick actions, JIT pointers)
-- `AGENTS.md` - Agent catalog (if working with agents)
-- `.claude/CONSTITUTION.md` - Laws of an agent (if needed)
-- `.claude/AGENT_INTERACTION_STANDARDS.md` - Agent standards (if needed)
-
-**Output:** Clear understanding of repository context + what to load next + problem statement
-
-**Validation gate:** Do you know which docs to load for your specific task? Can you articulate the problem in 1-2 sentences?
-
----
-
-## Phase 1: `/research` - Deep Dive
-
-**Purpose:** Understand the problem domain deeply before designing a solution.
-
-**What happens:**
-- Research existing patterns (Factor I: Automated Tracking)
-- Explore domain-specific approaches
-- Identify decision points and trade-offs
-- Document findings and options
-
-**Output:** Research findings + 2-3 viable approaches with pros/cons
-
-**Validation gate:** Do you understand the problem deeply enough to explain it to someone unfamiliar?
-
----
-
-## Phase 2: `/plan` - Design Solution
-
-**Purpose:** Design a detailed solution that follows the 12 factors.
-
-**What happens:**
-- Map solution to applicable factors (especially I-IV for foundation)
-- Define implementation steps
-- Identify validation points (Factor IV: Continuous Validation)
-- Plan observability (Factor V: Measure Everything)
-- Design human checkpoints if needed (Factor VIII: Human Validation)
-
-**Output:** Implementation plan + validation strategy + observability design
-
-**Validation gate:** Does your plan include validation gates? Are human checkpoints clear?
-
----
-
-## Phase 3: `/implement` - Execute with Validation
-
-**Purpose:** Build the solution while validating each step.
-
-**This phase includes:**
-- Implementation sub-phases with validation between each
-- Continuous factor compliance checks (especially IV, V, VIII, IX)
-- Pattern extraction as you go (Factor IX: Mine Patterns)
-- Continuous improvement opportunities noted (Factor X: Small Iterations)
-
-**Output:** Working solution + implementation artifacts + observed patterns
-
-**Validation gate:** Does the solution work? Are all validation gates passing? Is observability in place?
-
----
-
-## Phase 4: `/learn` - Extract Patterns
-
-**Purpose:** Convert implementation experience into reusable knowledge.
-
-**What happens:**
-- Review what worked and what didn't
-- Document patterns discovered (Factor IX)
-- Identify improvements for next time (Factor X)
-- Update domain knowledge (Factor XII)
-- Contribute to institutional memory (Factor I)
-
-**Output:** Pattern documentation + improvement backlog + updated domain knowledge
-
-**Validation gate:** Can you articulate 1-2 patterns you'll reuse next time?
-
----
-
-## Repeat with Learnings
-
-The workflow loops. Each iteration:
-- Benefits from previous /learn phase insights
-- Applies discovered patterns (Factor I: Automated Tracking)
-- Improves efficiency through accumulated knowledge (Factor X: Continuous Improvement)
-- Compounds reliability improvements (Factors IX-XII: Improvement cycle)
-
----
-
-## Complete Example: Redis Operator + CRD + Kustomization
-
-This example shows the full workflow applied to a real task: deploying and configuring a Redis Operator with custom CRD settings via Kustomization.
-
-### Phase 0: Read CLAUDE.md - Primer
-
-**Problem Statement:**
-Deploy the Redis Operator to a Kubernetes cluster and configure a Redis instance using custom CRD, with cluster-specific overrides via Kustomization.
-
-**Success Criteria:**
-- ✅ Redis Operator pods running
-- ✅ Custom Redis CRD instantiated
-- ✅ Kustomization overlay applies environment-specific configuration
-- ✅ All configuration in version control
-- ✅ Observable and auditable (git history shows intent)
-
-**Context:**
-- Target: Production Kubernetes cluster
-- Operator: Redis Operator by OT.IO
-- Configuration: Custom Redis instance with 3-replica setup
-- Override: Kustomization patch for environment-specific settings
-
-**Validation:** ✅ Problem clear, success criteria defined
-
----
-
-### Phase 1: `/research` - Understand
-
-**Research findings:**
-
-**Option A: Helm-only approach**
-- Pros: Simple, one command
-- Cons: Hard to override specific CRD values, less auditable
-
-**Option B: Raw YAML**
-- Pros: Complete control, transparent
-- Cons: Verbose, hard to maintain, easy to duplicate
-
-**Option C: Kustomization (chosen)**
-- Pros: Clear base + overlay structure, auditable, overrides visible
-- Cons: Requires understanding Kustomization patterns
-
-**Patterns discovered:**
-- Redis Operator publishes manifests in Git
-- Kustomization enables environment-specific overrides
-- CRD values are best documented in base manifest
-- ConfigMap + Secret pattern for runtime config
-
-**Validation:** ✅ Clear understanding of approaches, pattern selected
-
----
-
-### Phase 2: `/plan` - Design
-
-**Architecture:**
+<table>
+<tr>
+<td width="70%">
 
 ```
-kustomization/
-├── base/                          # Base Redis Operator setup
-│   ├── kustomization.yaml
-│   ├── namespace.yaml
-│   └── redis-operator/            # Operator manifests (from upstream)
-│       ├── operator.yaml
-│       ├── crd.yaml
-│       └── rbac.yaml
-│
-└── overlays/
-    └── production/                # Production-specific overrides
-        ├── kustomization.yaml
-        ├── redis-instance-patch.yaml    # CRD field overrides
-        └── config/
-            ├── redis-config.yaml        # Custom settings
-            └── secrets.yaml             # Prod secrets
+> /retro
+
+🔍 AUTH-001 Retrospective
+
+What worked:
+✓ Research caught JWT vs DB sessions early
+✓ Human checkpoint on auth config
+✓ Session split at 40% context
+
+What didn't:
+✗ Missed adapter version requirement
+✗ Could have used tracer test
+
+Patterns found:
+• OAuth config with database adapter
+• Middleware route protection
+• Session split at 40%
+
+📊 vibe-check summary:
+┌────────────────┬──────────┬─────────┬────────┐
+│ Metric         │ Baseline │ Actual  │ Delta  │
+├────────────────┼──────────┼─────────┼────────┤
+│ Trust Pass     │ 87%      │ 100%    │ +13%   │
+│ Rework Ratio   │ 12%      │ 5%      │ -7%    │
+│ Velocity       │ 4.2/hr   │ 5.8/hr  │ +38%   │
+│ Debug Spirals  │ 0.3/day  │ 0       │ ✓      │
+│ Flow Efficiency│ 71%      │ 89%     │ +18%   │
+└────────────────┴──────────┴─────────┴────────┘
+
+Save learnings? > Yes
 ```
 
-**Implementation Steps (with validation gates):**
+</td>
+<td width="30%" valign="top">
 
-1. **Create base structure** (Validate: directory structure correct)
-2. **Download operator manifests** (Validate: manifests are valid YAML)
-3. **Create Redis CRD instance in base** (Validate: CRD applies without error)
-4. **Create production overlay** (Validate: overlay applies, no conflicts)
-5. **Test configuration** (Validate: Redis instance healthy, accessible)
-6. **Commit to git** (Validate: clean git history, intent visible in commits)
+<br/>
 
-**Validation Strategy (Factor IV: Continuous Validation):**
-- YAML syntax validation after each step
-- kubectl apply --dry-run validation
-- Actual cluster apply with health checks
-- Observability: metrics endpoint accessible (Factor V)
+**What's happening:**
 
-**Observability Design (Factor V: Measure Everything):**
-- Monitor Redis Operator pod logs
-- Track CRD creation/status
-- Monitor Redis instance metrics (if exposed)
-- Git audit trail shows all changes + intent
+✓ Review what worked
+✓ Note what didn't
+✓ Identify patterns
+✓ Compare vibe metrics
 
-**Human Checkpoints (Factor VIII: Human Validation):**
-- Review final Kustomization structure before apply
-- Verify production config doesn't expose secrets
+<br/>
 
-**Validation:** ✅ Plan includes validation gates, observability, human checkpoints
+**Why retro?**
+Patterns extracted here
+become shortcuts later.
+
+vibe-check proves it worked.
+
+</td>
+</tr>
+</table>
 
 ---
 
-### Phase 3: `/implement` - Execute with Validation
+<table>
+<tr>
+<td width="100%" bgcolor="#5f5f1e">
 
-#### Step 1: Create Base Structure
+### 🧠 Learn
 
-```bash
-mkdir -p kustomization/base/redis-operator
-mkdir -p kustomization/overlays/production/config
+</td>
+</tr>
+</table>
 
-cat > kustomization/base/kustomization.yaml << 'EOF'
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
+<table>
+<tr>
+<td width="70%">
 
-namespace: redis
+```
+> /learn
 
-resources:
-  - namespace.yaml
-  - redis-operator/
+🧠 Extracting Patterns
 
-images:
-  - name: redis-operator
-    newName: ot-container-kit/redis-operator
-    newTag: v0.15.1
-EOF
+Pattern 1: NextAuth Database Sessions
+  Problem: Secure auth for Next.js
+  Solution: PrismaAdapter + database strategy
+  Evidence: AUTH-001, 100% success
+
+Pattern 2: Middleware Route Protection
+  Problem: Protect routes without per-page checks
+  Solution: matcher config in middleware.ts
+  Evidence: Cleaner than alternatives
+
+Anti-pattern: Version Assumption
+  Problem: Assumed adapter worked with v4
+  Prevention: Check compatibility in research
+
+💾 Saved to patterns/
 ```
 
-**Validation gate:**
-```bash
-✅ Directory structure created
-✅ kustomization.yaml is valid YAML
-```
+</td>
+<td width="30%" valign="top">
+
+<br/>
+
+**What's happening:**
+
+✓ Extract reusable patterns
+✓ Document solutions
+✓ Note anti-patterns
+✓ Save to library
+
+<br/>
+
+**The payoff:**
+Next auth feature loads
+these patterns automatically
+
+</td>
+</tr>
+</table>
 
 ---
 
-#### Step 2: Download Operator Manifests
+<div align="center">
 
-```bash
-# Get manifests from upstream
-curl -s https://raw.githubusercontent.com/OT-CONTAINER-KIT/redis-operator/v0.15.1/config/manager/manager.yaml \
-  > kustomization/base/redis-operator/operator.yaml
+## The Compounding Effect
 
-curl -s https://raw.githubusercontent.com/OT-CONTAINER-KIT/redis-operator/v0.15.1/config/crd/bases/*.yaml \
-  > kustomization/base/redis-operator/crd.yaml
+</div>
 
-# Check they're valid
-kubectl apply --dry-run=client -f kustomization/base/redis-operator/
-```
+<table>
+<tr>
+<th>Feature</th>
+<th>Research</th>
+<th>Plan</th>
+<th>Implement</th>
+<th>Total</th>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>Full</td>
+<td>Full</td>
+<td>Full</td>
+<td>~2 hours</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Load patterns</td>
+<td>Adapt</td>
+<td>Full</td>
+<td>~1 hour</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Skip</td>
+<td>Quick</td>
+<td>Full</td>
+<td>~30 min</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td>Skip</td>
+<td>Skip</td>
+<td>Pattern</td>
+<td>~10 min</td>
+</tr>
+</table>
 
-**Validation gate:**
-```bash
-✅ kubectl apply --dry-run passes
-✅ No syntax errors in manifests
-```
+<div align="center">
 
----
+*Each feature makes the next one faster.*
 
-#### Step 3: Create Redis Instance in Base
-
-Create `kustomization/base/redis-instance.yaml`:
-
-```yaml
-apiVersion: redis.opstreelabs.in/v1beta1
-kind: Redis
-metadata:
-  name: redis-cluster
-spec:
-  kubernetesConfig:
-    image: redis:7-alpine
-    imagePullPolicy: IfNotPresent
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 500m
-        memory: 512Mi
-
-  redisConfig:
-    maxmemory: "256mb"
-    maxmemory-policy: "allkeys-lru"
-
-  storage:
-    emptyDir: {}
-
-  replicas: 3
-```
-
-Add to base `kustomization.yaml`:
-```yaml
-resources:
-  - ...
-  - redis-instance.yaml
-```
-
-**Validation gate:**
-```bash
-✅ kubectl apply --dry-run=client -f kustomization/base/ passes
-✅ No CRD conflicts or syntax errors
-```
+</div>
 
 ---
 
-#### Step 4: Create Production Overlay
+<div align="center">
 
-Create `kustomization/overlays/production/kustomization.yaml`:
+## Quick Reference
 
-```yaml
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
+</div>
 
-namespace: redis-prod
-
-bases:
-  - ../../base
-
-# Patch to increase replica count for production
-patchesStrategicMerge:
-  - redis-instance-patch.yaml
-
-configMapGenerator:
-  - name: redis-config
-    files:
-      - config/redis-settings.conf
-
-# Production namespace override
-namespaceOverride: redis-prod
-```
-
-Create `kustomization/overlays/production/redis-instance-patch.yaml`:
-
-```yaml
-apiVersion: redis.opstreelabs.in/v1beta1
-kind: Redis
-metadata:
-  name: redis-cluster
-spec:
-  replicas: 5                    # Increased for prod
-  storage:
-    size: "10Gi"                 # Persistent storage
-  redisConfig:
-    maxmemory: "2gb"             # Higher limit for prod
-```
-
-**Validation gate:**
-```bash
-✅ kubectl apply --dry-run=client -k kustomization/overlays/production/ passes
-✅ Patch applies correctly, replicas = 5 in output
-✅ No conflicts between base and overlay
-```
+<table>
+<tr>
+<th>Command</th>
+<th>When</th>
+<th>What</th>
+</tr>
+<tr><td><code>/session-start</code></td><td>Beginning</td><td>Load state, capture baseline</td></tr>
+<tr><td><code>/research</code></td><td>New problem</td><td>Explore → bundle</td></tr>
+<tr><td><code>/plan</code></td><td>After research</td><td>Design → bundle</td></tr>
+<tr><td><code>/implement</code></td><td>After approval</td><td>Execute + validate</td></tr>
+<tr><td><code>/session-end</code></td><td>Context high / done</td><td>Save state, capture delta</td></tr>
+<tr><td><code>/session-resume</code></td><td>Continuing</td><td>Load bundles</td></tr>
+<tr><td><code>/retro</code></td><td>Feature done</td><td>Review + vibe-check</td></tr>
+<tr><td><code>/learn</code></td><td>After retro</td><td>Extract patterns</td></tr>
+</table>
 
 ---
 
-#### Step 5: Test in Dry-Run
+<div align="center">
 
-```bash
-# Full dry-run to see final manifests
-kubectl apply -k kustomization/overlays/production/ --dry-run=client -o yaml | head -50
+[Factor I: Git Memory](../factors/01-automated-tracking.md) · [Factor VI: Resume Work](../factors/06-resume-work.md) · [Factor IX: Mine Patterns](../factors/09-mine-patterns.md)
 
-# Verify Redis instance spec
-kubectl apply -k kustomization/overlays/production/ --dry-run=client -o yaml | grep -A 10 "kind: Redis"
-```
-
-**Validation gate:**
-```bash
-✅ Final manifests are valid YAML
-✅ Redis instance has 5 replicas
-✅ Namespace is redis-prod
-✅ Storage size is set
-```
+</div>
 
 ---
 
-#### Step 6: Apply to Cluster
+<div align="center">
 
-```bash
-# Apply with kubectl
-kubectl apply -k kustomization/overlays/production/
+**Start → Research → Plan → Implement → End → Resume → Retro → Learn**
 
-# Verify operator pod running
-kubectl get pods -n redis-prod | grep redis-operator
+*Every cycle compounds.*
 
-# Check CRD instance status
-kubectl get redis -n redis-prod
-kubectl describe redis redis-cluster -n redis-prod
-```
-
-**Validation gate:**
-```bash
-✅ Operator pods: 1/1 Running
-✅ Redis instance: status shows "Healthy"
-✅ All 5 replicas initialized
-```
-
----
-
-#### Step 7: Observability Check (Factor V)
-
-```bash
-# Check logs for errors
-kubectl logs -n redis-prod deployment/redis-operator
-
-# Monitor instance creation
-kubectl get events -n redis-prod --sort-by='.lastTimestamp'
-
-# Verify Redis is accessible
-kubectl port-forward -n redis-prod svc/redis-cluster 6379:6379 &
-redis-cli ping
-```
-
-**Validation gate:**
-```bash
-✅ Operator logs show no errors
-✅ Events show normal progression
-✅ Redis responds to ping
-```
-
----
-
-#### Step 8: Commit to Git (Factor I: Automated Tracking)
-
-```bash
-git add kustomization/
-git commit -m "feat(redis-operator): deploy with 5-replica production config
-
-## What
-Deploy Redis Operator with custom CRD instance for production.
-- Base: Redis Operator manifests + CRD definition
-- Overlay: Production-specific overrides (5 replicas, 10Gi storage, 2gb max memory)
-- Applied via Kustomization for clarity and auditability
-
-## Why
-Centralized Redis instance for production workloads.
-Kustomization enables environment-specific config without duplicating manifests.
-
-## How
-- Standard Redis Operator from upstream (v0.15.1)
-- Custom Redis instance spec in base
-- Production patch for replicas, storage, memory limits
-- All config in git; deployment auditable
-
-## Validation
-- ✅ kubectl apply --dry-run passes
-- ✅ Operator deployed, 1/1 running
-- ✅ Redis instance healthy, 5/5 replicas
-- ✅ Redis responds to connections
-
-## Factors Applied
-- Factor I: Git memory - full history in commits
-- Factor IV: Validation gates - --dry-run before apply
-- Factor V: Observability - logs, events, metrics accessible
-- Factor XII: Domain portability - Kustomization base/overlay pattern reusable
-"
-```
-
-**Validation gate:**
-```bash
-✅ Clean git history
-✅ Commit message explains intent
-✅ All config tracked and auditable
-```
-
----
-
-### Phase 4: `/learn` - Extract Patterns
-
-**What worked:**
-1. Kustomization base/overlay pattern is clean and maintainable
-2. Strategic merge patch for replicas is simpler than full manifest override
-3. Dry-run validation caught issues before cluster apply
-4. Operator manifests from upstream required minimal customization
-
-**What to improve:**
-1. ConfigMap generation for redis-settings.conf (would enable dynamic reload)
-2. Add health check hooks to catch issues earlier
-3. Document Redis backup strategy for next deployment
-
-**Patterns to reuse:**
-- **Base + overlay pattern:** Works for any operator deployment
-- **Dry-run validation gates:** Always use before cluster apply
-- **Commit-before-deploy:** Forces thinking about intent
-
-**Improvement backlog** (Factor X):
-- [ ] Add ConfigMap for redis.conf with dynamic reload
-- [ ] Add readiness probe to Redis instance spec
-- [ ] Create backup policy CRD for automated backups
-- [ ] Add monitoring/alerting rules for Redis operator
-
-**Domain knowledge update** (Factor XII):
-- Redis Operator deploys successfully with standard manifests
-- Kustomization patch for replicas works as expected
-- 5 replicas gives good redundancy for production
-- Performance limit: max-memory policy needs monitoring
-
----
-
-## Key Principles Applied
-
-Each phase demonstrates the 12 factors in action:
-
-| Factor | Applied How |
-|--------|------------|
-| **I. Automated Tracking** | Commit messages explain intent; full history auditable |
-| **II. Context Loading** | Each phase scopes context; no unnecessary complexity |
-| **III. Focused Agents** | Operator handles Redis; Kustomization handles config |
-| **IV. Continuous Validation** | --dry-run before each step; no surprises at deploy |
-| **V. Measure Everything** | Logs, events, metrics all accessible; issues visible |
-| **VIII. Human Validation** | Human approval before applying prod config |
-| **IX. Mine Patterns** | Workflow documented; patterns captured for reuse |
-| **X. Small Iterations** | Identified 4 improvements for next iteration |
-| **XII. Package Patterns** | Pattern reusable for any operator deployment |
-
----
-
-## How to Run This Workflow
-
-### For Your Own Task
-
-1. **Read CLAUDE.md / AGENTS.md:** Load primer context, understand structure, define problem
-2. **/research:** Understand domain, find approaches, pick best
-3. **/plan:** Design solution, map to factors, plan validation
-4. **/implement:** Build with validation gates after each step
-   - After each major step, validate before continuing
-   - Commit with clear intent messages
-   - Validation is continuous throughout this phase
-5. **/learn:** Review, document patterns, update domain knowledge
-6. **Repeat:** Next task benefits from previous learnings
-
-### Validation Gates Checklist
-
-Before moving to next phase:
-- [ ] Can I clearly state the outcome of this phase?
-- [ ] Have I validated assumptions?
-- [ ] Is my intent documented (commit messages, comments)?
-- [ ] Are observability and validation in place?
-- [ ] Could someone else understand why I chose this path?
-
-### Apply Across Any Domain
-
-This workflow works for:
-- Infrastructure deployment (like the example)
-- Application development
-- System design
-- Debugging and incident response
-- Process improvement
-
-The pattern is consistent: **Read primer** → `/research` → `/plan` → `/implement` (with continuous validation) → `/learn` → repeat.
-
----
-
-## Why This Matters
-
-Traditional "move fast and break things" fails with AI agents because:
-- Errors compound across steps (lack of validation gates)
-- Learning gets lost (no extraction phase)
-- Patterns aren't reused (no domain knowledge capture)
-- Intent disappears (poor commit messages, no documentation)
-
-This workflow systematically addresses all five:
-- ✅ Validation gates (Phase 3: /implement with continuous validation)
-- ✅ Pattern extraction (Phase 4: /learn)
-- ✅ Reusable knowledge (Factor XII: Package Patterns)
-- ✅ Documented intent (Factor I: Automated Tracking)
-- ✅ Continuous improvement (Factor X: Small Iterations)
-
-**Result:** Each iteration compounds on previous ones. Your system gets better, faster, more reliable over time.
-
----
-
-**Next:** Pick a task, run the workflow, and extract patterns. Repeat. Watch your speed and reliability compound.
+</div>

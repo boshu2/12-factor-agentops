@@ -253,27 +253,28 @@ Prevention = systematic discipline via the 12 Factors.
 
 ## Implementation Roadmap
 
-### Phase 1: Foundation (Factors I-III) - 1-2 weeks
-- Git as institutional memory
-- Context management (40% rule)
-- Agent composition (focused specialists)
+### Phase 1: Foundation (Factors I-IV)
+Build reliability from the ground up:
+- **I. Automated Tracking** — Git as institutional memory
+- **II. Context Loading** — Stay under 40%, load JIT
+- **III. Focused Agents** — One agent, one job
+- **IV. Continuous Validation** — Check at every step
 
-### Phase 2: Operational Excellence (Factors IV-VI) - 2-4 weeks
-- Validation before execution
-- Observability and telemetry
-- Multi-session workflows
+### Phase 2: Operations (Factors V-VIII)
+Scale and maintain in production:
+- **V. Measure Everything** — Metrics, logs, observability
+- **VI. Resume Work** — Save state, pick up where you left off
+- **VII. Smart Routing** — Send tasks to the right specialist
+- **VIII. Human Validation** — Humans approve critical steps
 
-### Phase 3: Advanced Patterns (Factors VII-IX) - 4-6 weeks
-- Smart routing
-- Human-in-the-loop
-- Pattern extraction
+### Phase 3: Improvement (Factors IX-XII)
+Continuous learning and adaptation:
+- **IX. Mine Patterns** — Search history, find what works
+- **X. Small Iterations** — Small tweaks compound
+- **XI. Fail-Safe Checks** — Prevent repeating mistakes
+- **XII. Package Patterns** — Bundle what works, reuse it
 
-### Phase 4: Enterprise Scale (Factors X-XII) - 6-8 weeks
-- Improvement backlog
-- Governance and guardrails
-- Domain packaging
-
-**Total:** ~16 weeks to full compliance
+**The cycle repeats:** Improvement feeds back into Foundation.
 
 ---
 
