@@ -451,3 +451,31 @@ Every failure pattern Gene Kim identifies maps to violated AgentOps factors:
 Vibe Coding shows what's possible. 12-Factor AgentOps shows how to achieve it reliably.
 
 Together: The complete playbook for 10x productivity without chaos.
+
+---
+
+## Beads: The Implementation Layer
+
+Steve Yegge, co-author of Vibe Coding, also created [Beads](https://github.com/steveyegge/beads) - a git-backed issue tracker designed specifically for AI agent workflows.
+
+**How Beads Complements Vibe Coding:**
+
+| Vibe Coding Principle | Beads Implementation |
+|-----------------------|---------------------|
+| Three Developer Loops | Issues track work across all loops |
+| Context preservation | `bd comment` survives compaction |
+| Dependency awareness | `bd dep add` creates execution order |
+| Continuous validation | `bd ready` ensures prerequisites complete |
+
+**The workflow:**
+```
+/research "topic" → .agents/research/YYYY-MM-DD-topic.md
+        ↓
+/plan .agents/research/... → .agents/plans/... + beads issues
+        ↓
+bd ready → shows unblocked work
+        ↓
+/implement → executes one issue at a time
+```
+
+See [Beads Workflow Integration](beads-workflow-integration.md) for full documentation.

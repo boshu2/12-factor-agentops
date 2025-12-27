@@ -51,7 +51,7 @@ I've watched too many teams follow the same pattern: build exciting AI features,
 
 The answer is 20 years of **DevOps/SRE wisdom**—validation gates, observability, zero-trust, pattern extraction—finally applied to the right problem.
 
-> **This is the SRE to DevOps.** [Gene Kim and Steve Yegge](https://itrevolution.com/product/vibe-coding-book/) call this moment "vibe coding." [Dex Horthy's 12-Factor Agents](https://github.com/humanlayer/12-factor-agents) shows how to *build* these systems right. This shows how to **operate** them.
+> **The operational layer of the Vibe Ecosystem.** [Gene Kim and Steve Yegge's Vibe Coding](https://itrevolution.com/product/vibe-coding-book/) is the methodology for working with AI. [Dex Horthy's 12-Factor Agents](https://github.com/humanlayer/12-factor-agents) shows how to build autonomous systems. This shows how to **operate** them reliably.
 
 ---
 
@@ -196,7 +196,7 @@ Bundle what works. Reuse it.
 
 <div align="center">
 
-[12-Factor App](https://12factor.net) (Adam Wiggins) • [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) (Dex Horthy) • [Vibe Coding](https://itrevolution.com/product/vibe-coding-book/) (Gene Kim & Steve Yegge)
+[12-Factor App](https://12factor.net) (Adam Wiggins) • [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) (Dex Horthy) • [Vibe Coding](https://itrevolution.com/product/vibe-coding-book/) (Gene Kim & Steve Yegge) • [Beads](https://github.com/steveyegge/beads) (Steve Yegge)
 
 <br/>
 

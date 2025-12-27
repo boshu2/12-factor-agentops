@@ -448,6 +448,11 @@ Together: Complete Playbook
 
 **Primary sources:**
 - **12-Factor App:** Adam Wiggins, Heroku (2011) - https://12factor.net
+- **12-Factor Agents:** Dex Horthy, HumanLayer (2024) - https://github.com/humanlayer/12-factor-agents
+- **Vibe Coding:** Gene Kim & Steve Yegge, IT Revolution (2025) - https://itrevolution.com/product/vibe-coding-book/
+- **Beads:** Steve Yegge (2025) - https://github.com/steveyegge/beads
+  - Git-backed issue tracker designed for AI agent workflows
+  - Dependency-aware task management with compaction-surviving notes
 - **DevOps/SRE:** Google, Netflix, HashiCorp (2000s-present)
 - **Learning Science:** Miller (1956), Sweller (1988), Ebbinghaus (1885), Ericsson (1993)
 - **Context Engineering:** Cross-disciplinary (UX, IA, cognitive psychology)
@@ -459,6 +464,7 @@ Together: Complete Playbook
 - Empirical discovery of how to apply these patterns to AI workflows (2023-2024)
 - Production validation (1,175+ commits, 35% → 95% success rate)
 - 12-Factor AgentOps framework codification (2024)
+- Unified beads + atomic + vibe-coding workflow integration (2025)
 
 ---
 
