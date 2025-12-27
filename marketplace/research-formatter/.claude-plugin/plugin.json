@@ -1,0 +1,9 @@
+{
+  "name": "research-formatter",
+  "version": "1.0.0",
+  "description": "Format research findings into structured, reusable documentation",
+  "author": "boshu2",
+  "repository": "https://github.com/boshu2/12-factor-agentops",
+  "keywords": ["research", "documentation", "formatting", "workflow"],
+  "skills": ["skill.md"]
+}

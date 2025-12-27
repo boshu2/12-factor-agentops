@@ -1,0 +1,9 @@
+{
+  "name": "nine-laws-auditor",
+  "version": "1.0.0",
+  "description": "Audit sessions against the Nine Laws of AgentOps",
+  "author": "boshu2",
+  "repository": "https://github.com/boshu2/12-factor-agentops",
+  "keywords": ["nine-laws", "agentops", "audit", "governance"],
+  "skills": ["skill.md"]
+}

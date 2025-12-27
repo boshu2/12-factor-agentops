@@ -1,0 +1,10 @@
+{
+  "name": "factor-compliance-checker",
+  "version": "1.0.0",
+  "description": "Validate workflows against the 12-Factor AgentOps methodology",
+  "author": "boshu2",
+  "repository": "https://github.com/boshu2/12-factor-agentops",
+  "keywords": ["12-factor", "agentops", "validation", "compliance"],
+  "skills": ["skill.md"],
+  "references": ["references/"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "pattern-extraction-assistant",
+  "version": "1.0.0",
+  "description": "Extract reusable patterns from completed work sessions",
+  "author": "boshu2",
+  "repository": "https://github.com/boshu2/12-factor-agentops",
+  "keywords": ["patterns", "learning", "extraction", "knowledge"],
+  "skills": ["skill.md"]
+}

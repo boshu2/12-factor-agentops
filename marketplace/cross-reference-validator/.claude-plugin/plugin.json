@@ -1,0 +1,9 @@
+{
+  "name": "cross-reference-validator",
+  "version": "1.0.0",
+  "description": "Validate cross-references and links across documentation",
+  "author": "boshu2",
+  "repository": "https://github.com/boshu2/12-factor-agentops",
+  "keywords": ["validation", "links", "cross-reference", "documentation"],
+  "skills": ["skill.md"]
+}
