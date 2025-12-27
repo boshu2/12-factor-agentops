@@ -560,4 +560,795 @@ class DiffGate:
 
 ---
 
+## Implementation Patterns
+
+These patterns emerge from production deployments in Houston (local-first), Fractal (Kubernetes-native), and ai-platform (IC-hardened). They extend the conceptual human validation principles with battle-tested infrastructure patterns.
+
+### Pattern 1: BudgetQuota CRD (Hard Limits from Fractal)
+
+**The Problem:** Agents without hard limits can run away—spending unlimited tokens, making unlimited API calls, or running indefinitely.
+
+**The Solution:** BudgetQuota CRD that enforces hard limits at infrastructure level, not agent level.
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         BUDGETQUOTA ENFORCEMENT                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│                    ┌─────────────────────────────┐                     │
+│                    │       BUDGETQUOTA CRD       │                     │
+│                    │                             │                     │
+│                    │  maxTokens: 100000          │                     │
+│                    │  maxCost: $10.00            │                     │
+│                    │  maxConcurrency: 5          │                     │
+│                    │  maxDuration: 1h            │                     │
+│                    └─────────────────────────────┘                     │
+│                              │                                          │
+│                    ┌─────────┴─────────┐                               │
+│                    │ QUOTA CONTROLLER  │                               │
+│                    │ (Watches usage)   │                               │
+│                    └─────────┬─────────┘                               │
+│                              │                                          │
+│           ┌──────────────────┼──────────────────┐                      │
+│           │                  │                  │                      │
+│           ▼                  ▼                  ▼                      │
+│   ┌─────────────┐    ┌─────────────┐    ┌─────────────┐              │
+│   │  ShardRun   │    │  ShardRun   │    │  ShardRun   │              │
+│   │   #1        │    │   #2        │    │   #3        │              │
+│   │             │    │             │    │             │              │
+│   │ tokens: 30k │    │ tokens: 25k │    │ tokens: 40k │              │
+│   │ cost: $3.00 │    │ cost: $2.50 │    │ cost: $4.00 │              │
+│   └─────────────┘    └─────────────┘    └─────────────┘              │
+│           │                  │                  │                      │
+│           └──────────────────┼──────────────────┘                      │
+│                              │                                          │
+│                              ▼                                          │
+│                    ┌─────────────────┐                                 │
+│                    │ TOTAL: 95k/$9.50│                                 │
+│                    │                 │                                 │
+│                    │ ⚠️  APPROACHING  │                                 │
+│                    │    LIMIT!       │                                 │
+│                    └─────────────────┘                                 │
+│                                                                         │
+│  ENFORCEMENT: Controller KILLS ShardRuns that exceed quota             │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+**BudgetQuota CRD Definition:**
+
+```yaml
+apiVersion: fractal.ai/v1alpha1
+kind: BudgetQuota
+metadata:
+  name: research-task-budget
+  namespace: ai-agents
+spec:
+  # Hard limits - infrastructure enforced
+  limits:
+    maxTokensPerRun: 100000      # Max tokens per ShardRun
+    maxTotalTokens: 500000       # Max tokens across all runs
+    maxCostPerRun: "$10.00"      # Max cost per run
+    maxTotalCost: "$50.00"       # Max total cost
+    maxConcurrentRuns: 5         # Max parallel ShardRuns
+    maxDuration: "1h"            # Max runtime per ShardRun
+    maxRetries: 3                # Max retry attempts
+
+  # Soft limits - warnings before hard stop
+  warnings:
+    tokenThreshold: 0.80         # Warn at 80% of token limit
+    costThreshold: 0.80          # Warn at 80% of cost limit
+    durationThreshold: 0.75      # Warn at 75% of duration
+
+  # Actions when limits exceeded
+  enforcement:
+    onTokenLimit: "terminate"    # terminate | pause | alert
+    onCostLimit: "terminate"
+    onDurationLimit: "pause"
+    onConcurrencyLimit: "queue"  # Queue new runs, don't reject
+
+  # Escalation
+  escalation:
+    notifyOnWarning:
+      - slack: "#ai-ops"
+    notifyOnLimit:
+      - slack: "#ai-ops"
+      - pagerduty: "ai-platform-oncall"
+```
+
+**Quota Controller Implementation:**
+
+```go
+// QuotaController enforces BudgetQuota limits
+type QuotaController struct {
+    client    kubernetes.Interface
+    informer  cache.SharedInformer
+    recorder  record.EventRecorder
+}
+
+func (c *QuotaController) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+    // Get the BudgetQuota
+    quota := &v1alpha1.BudgetQuota{}
+    if err := c.client.Get(ctx, req.NamespacedName, quota); err != nil {
+        return ctrl.Result{}, err
+    }
+
+    // List all ShardRuns in this namespace
+    runs := &v1alpha1.ShardRunList{}
+    if err := c.client.List(ctx, runs, client.InNamespace(req.Namespace)); err != nil {
+        return ctrl.Result{}, err
+    }
+
+    // Calculate current usage
+    usage := c.calculateUsage(runs)
+
+    // Check limits
+    if usage.TotalTokens > quota.Spec.Limits.MaxTotalTokens {
+        // HARD STOP - Kill the highest-consuming run
+        c.terminateHighestConsumer(ctx, runs)
+        c.recorder.Event(quota, "Warning", "TokenLimitExceeded",
+            fmt.Sprintf("Total tokens %d exceeded limit %d",
+                usage.TotalTokens, quota.Spec.Limits.MaxTotalTokens))
+    }
+
+    if usage.TotalCost > quota.Spec.Limits.MaxTotalCost {
+        // HARD STOP - Kill all runs
+        c.terminateAllRuns(ctx, runs)
+        c.recorder.Event(quota, "Warning", "CostLimitExceeded",
+            fmt.Sprintf("Total cost $%.2f exceeded limit %s",
+                usage.TotalCost, quota.Spec.Limits.MaxTotalCost))
+    }
+
+    // Update status
+    quota.Status.CurrentUsage = usage
+    return ctrl.Result{RequeueAfter: 10 * time.Second}, nil
+}
+```
+
+**Why Infrastructure Enforcement:**
+
+| Aspect | Agent Self-Enforcement | Infrastructure Enforcement |
+|--------|------------------------|---------------------------|
+| **Trust** | Agent "promises" to stop | Cannot exceed (killed) |
+| **Bugs** | Bug could ignore limit | Bug cannot bypass K8s |
+| **Visibility** | Hidden in agent logs | CRD status visible |
+| **Recovery** | Agent must handle | Controller handles |
+| **Audit** | Manual log parsing | Events + metrics |
+
+---
+
+### Pattern 2: Three-Phase Pipeline with Human Gates (Houston)
+
+**The Problem:** Long-running agent tasks need natural breakpoints for human review.
+
+**The Solution:** Three-phase pipeline with explicit HOLD states for human approval.
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    THREE-PHASE PIPELINE (Houston)                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  PHASE 1: RESEARCH                                                      │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │                                                                  │   │
+│  │   [prep] ──► [queued] ──► [launching] ──► [active] ──► [done]  │   │
+│  │                                                                  │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
+│                              │                                          │
+│                              ▼                                          │
+│                    ┌─────────────────┐                                 │
+│                    │   GATE 1: HOLD  │ ◄── Human reviews research      │
+│                    │   (Research     │                                 │
+│                    │    Review)      │                                 │
+│                    └─────────────────┘                                 │
+│                              │ approve                                  │
+│                              ▼                                          │
+│  PHASE 2: PLANNING                                                      │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │                                                                  │   │
+│  │   [prep] ──► [queued] ──► [launching] ──► [active] ──► [done]  │   │
+│  │                                                                  │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
+│                              │                                          │
+│                              ▼                                          │
+│                    ┌─────────────────┐                                 │
+│                    │   GATE 2: HOLD  │ ◄── Human approves plan         │
+│                    │   (Plan         │                                 │
+│                    │    Approval)    │                                 │
+│                    └─────────────────┘                                 │
+│                              │ approve                                  │
+│                              ▼                                          │
+│  PHASE 3: IMPLEMENTATION                                                │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │                                                                  │   │
+│  │   [prep] ──► [queued] ──► [launching] ──► [active] ──► [done]  │   │
+│  │                                                                  │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
+│                              │                                          │
+│                              ▼                                          │
+│                    ┌─────────────────┐                                 │
+│                    │   GATE 3: HOLD  │ ◄── Human reviews before deploy │
+│                    │   (Deploy       │                                 │
+│                    │    Approval)    │                                 │
+│                    └─────────────────┘                                 │
+│                              │ approve                                  │
+│                              ▼                                          │
+│                         [DEPLOYED]                                      │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+**Mission State Machine (Houston):**
+
+```python
+class MissionState(Enum):
+    """Houston mission lifecycle states."""
+
+    # Pre-execution states
+    PREP = "prep"           # Mission being configured
+    QUEUED = "queued"       # Ready to execute, waiting for worker
+    HELD = "held"           # Waiting for human approval
+
+    # Execution states
+    LAUNCHING = "launching" # Worker claimed, starting
+    ACTIVE = "active"       # Running
+
+    # Terminal states
+    COMPLETE = "complete"   # Successfully finished
+    FAILED = "failed"       # Error occurred
+    ABORTED = "aborted"     # Manually cancelled
+
+
+class Mission:
+    """Houston mission with human gates."""
+
+    def __init__(self, name: str, phases: List[Phase]):
+        self.name = name
+        self.phases = phases
+        self.current_phase = 0
+        self.state = MissionState.PREP
+
+    def advance_to_gate(self) -> bool:
+        """Execute current phase, stop at gate."""
+        phase = self.phases[self.current_phase]
+
+        # Execute phase
+        self.state = MissionState.ACTIVE
+        result = phase.execute()
+
+        if result.success:
+            if phase.has_gate:
+                # Stop at gate, wait for human
+                self.state = MissionState.HELD
+                self.save_gate_context(result)
+                return False  # Not done, waiting at gate
+            else:
+                # No gate, continue to next phase
+                self.current_phase += 1
+                if self.current_phase >= len(self.phases):
+                    self.state = MissionState.COMPLETE
+                    return True
+                return self.advance_to_gate()
+        else:
+            self.state = MissionState.FAILED
+            return True  # Done (failed)
+
+    def approve_gate(self, feedback: Optional[str] = None) -> bool:
+        """Human approves gate, mission continues."""
+        if self.state != MissionState.HELD:
+            raise InvalidStateTransition(f"Cannot approve from {self.state}")
+
+        if feedback:
+            self.incorporate_feedback(feedback)
+
+        self.current_phase += 1
+        if self.current_phase >= len(self.phases):
+            self.state = MissionState.COMPLETE
+            return True
+
+        self.state = MissionState.QUEUED
+        return self.advance_to_gate()
+
+    def reject_gate(self, reason: str) -> None:
+        """Human rejects at gate, mission aborted."""
+        if self.state != MissionState.HELD:
+            raise InvalidStateTransition(f"Cannot reject from {self.state}")
+
+        self.state = MissionState.ABORTED
+        self.abort_reason = reason
+```
+
+**Gate Context Template:**
+
+```yaml
+# Gate context saved for human review
+apiVersion: houston.ai/v1
+kind: GateContext
+metadata:
+  name: mission-123-gate-2
+spec:
+  mission: mission-123
+  phase: planning
+  gate: plan-approval
+
+  # What happened
+  summary: "Generated implementation plan for API pagination feature"
+
+  # Research findings (from previous phase)
+  research:
+    findings:
+      - "API supports cursor-based pagination"
+      - "Rate limit is 100 req/min"
+      - "Existing clients expect offset pagination"
+    confidence: 0.92
+
+  # Proposed plan
+  plan:
+    approach: "Implement cursor pagination with offset fallback"
+    files_to_change:
+      - src/api/pagination.py
+      - src/api/routes.py
+      - tests/test_pagination.py
+    estimated_tokens: 50000
+    estimated_duration: "30m"
+
+  # Alternatives considered
+  alternatives:
+    - name: "Cursor-only"
+      reason_rejected: "Would break existing clients"
+    - name: "Offset-only"
+      reason_rejected: "Poor performance on large datasets"
+
+  # Risk assessment
+  risks:
+    - risk: "Backwards compatibility"
+      mitigation: "Fallback to offset when cursor not provided"
+    - risk: "Performance regression"
+      mitigation: "Add caching layer"
+
+  # Human decision required
+  decision_required:
+    approve: "Proceed with implementation"
+    reject: "Abort mission"
+    revise: "Modify plan based on feedback"
+```
+
+---
+
+### Pattern 3: ToolCall Audit Trail (Fractal)
+
+**The Problem:** Understanding what agents did requires parsing logs, which is unreliable.
+
+**The Solution:** Every tool call is a CRD—auditable, approvable, reversible.
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                       TOOLCALL AUDIT TRAIL                              │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  AGENT EXECUTION                      AUDIT TRAIL (CRDs)                │
+│                                                                         │
+│  ┌─────────────┐                     ┌─────────────────────────────┐   │
+│  │   Agent     │                     │ ToolCall: tc-001            │   │
+│  │  executes   │ ──────────────────► │ tool: read_file             │   │
+│  │ read_file() │                     │ args: {path: "config.yaml"} │   │
+│  └─────────────┘                     │ status: completed           │   │
+│        │                             │ result: {content: "..."}    │   │
+│        │                             │ duration: 150ms             │   │
+│        ▼                             │ tokens: 500                 │   │
+│  ┌─────────────┐                     └─────────────────────────────┘   │
+│  │   Agent     │                                                        │
+│  │  executes   │ ──────────────────► ┌─────────────────────────────┐   │
+│  │ write_file()│                     │ ToolCall: tc-002            │   │
+│  └─────────────┘                     │ tool: write_file            │   │
+│        │                             │ args: {path: "config.yaml"} │   │
+│        │                             │ status: pending_approval    │   │
+│        ▼                             │ requires_approval: true     │   │
+│  ┌─────────────┐                     └─────────────────────────────┘   │
+│  │   BLOCKED   │                              │                        │
+│  │  (waiting   │ ◄────────────────────────────┘                        │
+│  │  approval)  │                                                        │
+│  └─────────────┘                                                        │
+│        │                                                                │
+│        │ human approves                                                 │
+│        ▼                                                                │
+│  ┌─────────────┐                     ┌─────────────────────────────┐   │
+│  │   Agent     │                     │ ToolCall: tc-002            │   │
+│  │  continues  │                     │ status: approved            │   │
+│  │             │                     │ approved_by: user@example   │   │
+│  └─────────────┘                     │ approved_at: 2025-01-15...  │   │
+│                                      └─────────────────────────────┘   │
+│                                                                         │
+│  QUERYABLE: kubectl get toolcalls -l shardrun=sr-123                   │
+│  REVERSIBLE: kubectl delete toolcall tc-002 (with rollback)            │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+**ToolCall CRD Definition:**
+
+```yaml
+apiVersion: fractal.ai/v1alpha1
+kind: ToolCall
+metadata:
+  name: tc-001-read-config
+  namespace: ai-agents
+  labels:
+    shardrun: sr-123
+    agent: research-agent
+    phase: research
+spec:
+  # What tool was called
+  tool: read_file
+  arguments:
+    path: "/app/config.yaml"
+
+  # Approval requirements
+  requiresApproval: false  # Read is safe
+  approvalTimeout: "1h"
+
+  # Context
+  shardRunRef:
+    name: sr-123
+    namespace: ai-agents
+  agentRef:
+    name: research-agent
+  sequence: 1  # Order in execution
+
+status:
+  phase: Completed  # Pending | Approved | Rejected | Completed | Failed
+
+  # Execution details
+  startTime: "2025-01-15T10:30:00Z"
+  completionTime: "2025-01-15T10:30:00.150Z"
+  duration: "150ms"
+
+  # Result
+  result:
+    success: true
+    output: |
+      api_version: v1
+      pagination:
+        default_limit: 100
+    tokensUsed: 500
+
+  # Approval (if required)
+  approval:
+    required: false
+
+  # Error (if failed)
+  error: null
+```
+
+**ToolCall Approval Flow:**
+
+```python
+class ToolCallController:
+    """Controller that manages ToolCall approval flow."""
+
+    DANGEROUS_TOOLS = {
+        'write_file': {'approval': 'required', 'timeout': '1h'},
+        'delete_file': {'approval': 'required', 'timeout': '1h'},
+        'execute_command': {'approval': 'required', 'timeout': '30m'},
+        'send_email': {'approval': 'required', 'timeout': '2h'},
+        'deploy': {'approval': 'required', 'timeout': '4h'},
+    }
+
+    SAFE_TOOLS = {
+        'read_file': {'approval': 'none'},
+        'list_directory': {'approval': 'none'},
+        'search_code': {'approval': 'none'},
+        'get_documentation': {'approval': 'none'},
+    }
+
+    def create_toolcall(self, agent: str, tool: str, args: dict) -> ToolCall:
+        """Create ToolCall CRD for tracking."""
+        tc = ToolCall(
+            metadata=ObjectMeta(
+                name=f"tc-{uuid.uuid4().hex[:8]}-{tool}",
+                labels={
+                    'agent': agent,
+                    'tool': tool,
+                }
+            ),
+            spec=ToolCallSpec(
+                tool=tool,
+                arguments=args,
+                requiresApproval=tool in self.DANGEROUS_TOOLS,
+            )
+        )
+
+        # Create CRD
+        self.client.create(tc)
+
+        # If requires approval, wait
+        if tc.spec.requiresApproval:
+            tc = self.wait_for_approval(tc)
+            if tc.status.approval.decision == 'rejected':
+                raise ToolCallRejected(tc.status.approval.reason)
+
+        return tc
+
+    def wait_for_approval(self, tc: ToolCall) -> ToolCall:
+        """Block until human approves or rejects."""
+        timeout = self.DANGEROUS_TOOLS[tc.spec.tool]['timeout']
+
+        # Notify human
+        self.notify_approval_required(tc)
+
+        # Wait with timeout
+        start = time.time()
+        while time.time() - start < parse_duration(timeout):
+            tc = self.client.get(tc.metadata.name)
+            if tc.status.approval.decision:
+                return tc
+            time.sleep(5)
+
+        # Timeout - reject by default (fail safe)
+        tc.status.approval.decision = 'rejected'
+        tc.status.approval.reason = 'Approval timeout'
+        return tc
+```
+
+---
+
+### Pattern 4: Async Human Gates with SSE Telemetry (Houston)
+
+**The Problem:** Synchronous human gates block agent execution. Humans may not be available immediately.
+
+**The Solution:** Async gates with SSE (Server-Sent Events) for real-time notifications.
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    ASYNC GATES + SSE TELEMETRY                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  AGENT                           GATE SERVICE              HUMAN        │
+│                                                                         │
+│  ┌─────────┐                    ┌─────────────┐          ┌─────────┐  │
+│  │ Execute │                    │             │          │         │  │
+│  │ Phase 1 │                    │             │          │         │  │
+│  └────┬────┘                    │             │          │         │  │
+│       │                         │             │          │         │  │
+│       │ POST /gates/create      │             │          │         │  │
+│       │ {phase: "plan",         │             │          │         │  │
+│       │  context: {...}}        │             │          │         │  │
+│       │─────────────────────────►│  Create    │          │         │  │
+│       │                         │   Gate     │          │         │  │
+│       │◄─────────────────────────│            │          │         │  │
+│       │ {gate_id: "g-123",      │             │          │         │  │
+│       │  status: "pending"}     │             │          │         │  │
+│       │                         │             │ SSE push │         │  │
+│       │                         │─────────────────────────►│ Review  │  │
+│  ┌────┴────┐                    │             │          │ Request │  │
+│  │  SAVE   │                    │             │          │         │  │
+│  │  STATE  │                    │             │          │         │  │
+│  │ (pause) │                    │             │          │         │  │
+│  └─────────┘                    │             │          │         │  │
+│                                 │             │          │         │  │
+│       ... hours later ...       │             │          │         │  │
+│                                 │             │          │         │  │
+│                                 │             │ approve  │         │  │
+│                                 │◄─────────────────────────│         │  │
+│                                 │             │          │         │  │
+│  ┌─────────┐                    │             │ SSE push │         │  │
+│  │  RESUME │◄─────────────────────────────────│          │         │  │
+│  │  STATE  │ {gate_id: "g-123", │             │          │         │  │
+│  │         │  status: "approved"}             │          │         │  │
+│  └────┬────┘                    │             │          │         │  │
+│       │                         │             │          │         │  │
+│       │                         │             │          │         │  │
+│  ┌────┴────┐                    │             │          │         │  │
+│  │ Execute │                    │             │          │         │  │
+│  │ Phase 2 │                    │             │          │         │  │
+│  └─────────┘                    │             │          │         │  │
+│                                                                         │
+│  KEY: Agent doesn't block. Saves state. Resumes when approved.         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+**SSE Gate Service (Houston):**
+
+```python
+from fastapi import FastAPI, HTTPException
+from sse_starlette.sse import EventSourceResponse
+import asyncio
+
+app = FastAPI()
+
+# In-memory gate store (use Redis/DB in production)
+gates: Dict[str, Gate] = {}
+subscribers: Dict[str, List[asyncio.Queue]] = {}
+
+
+@app.post("/gates")
+async def create_gate(request: GateCreateRequest) -> Gate:
+    """Create a new human gate."""
+    gate = Gate(
+        id=f"g-{uuid.uuid4().hex[:8]}",
+        mission_id=request.mission_id,
+        phase=request.phase,
+        context=request.context,
+        status="pending",
+        created_at=datetime.utcnow(),
+    )
+    gates[gate.id] = gate
+
+    # Notify subscribers
+    await notify_subscribers(gate.mission_id, {
+        "type": "gate_created",
+        "gate": gate.dict()
+    })
+
+    return gate
+
+
+@app.post("/gates/{gate_id}/approve")
+async def approve_gate(gate_id: str, request: ApprovalRequest) -> Gate:
+    """Human approves a gate."""
+    gate = gates.get(gate_id)
+    if not gate:
+        raise HTTPException(404, "Gate not found")
+
+    gate.status = "approved"
+    gate.approved_by = request.user
+    gate.approved_at = datetime.utcnow()
+    gate.feedback = request.feedback
+
+    # Notify subscribers (agent waiting for approval)
+    await notify_subscribers(gate.mission_id, {
+        "type": "gate_approved",
+        "gate": gate.dict()
+    })
+
+    return gate
+
+
+@app.get("/gates/{mission_id}/stream")
+async def gate_stream(mission_id: str) -> EventSourceResponse:
+    """SSE stream for gate events."""
+    queue = asyncio.Queue()
+
+    if mission_id not in subscribers:
+        subscribers[mission_id] = []
+    subscribers[mission_id].append(queue)
+
+    async def event_generator():
+        try:
+            while True:
+                event = await queue.get()
+                yield {
+                    "event": event["type"],
+                    "data": json.dumps(event)
+                }
+        finally:
+            subscribers[mission_id].remove(queue)
+
+    return EventSourceResponse(event_generator())
+
+
+async def notify_subscribers(mission_id: str, event: dict):
+    """Push event to all subscribers."""
+    if mission_id in subscribers:
+        for queue in subscribers[mission_id]:
+            await queue.put(event)
+```
+
+**Agent-Side Gate Handling:**
+
+```python
+class GateAwareAgent:
+    """Agent that handles async human gates."""
+
+    def __init__(self, gate_service_url: str):
+        self.gate_url = gate_service_url
+        self.state_store = StateStore()
+
+    async def execute_with_gates(self, mission: Mission):
+        """Execute mission, pausing at gates."""
+        for phase in mission.phases:
+            # Execute phase
+            result = await phase.execute()
+
+            if phase.has_gate:
+                # Create gate
+                gate = await self.create_gate(mission.id, phase, result)
+
+                # Save state
+                await self.state_store.save(mission.id, {
+                    'current_phase': phase.name,
+                    'result': result,
+                    'gate_id': gate.id,
+                })
+
+                # Wait for approval (async)
+                gate = await self.wait_for_gate(gate.id)
+
+                if gate.status == "rejected":
+                    raise GateRejected(gate.reason)
+
+                # Incorporate feedback if any
+                if gate.feedback:
+                    mission.incorporate_feedback(gate.feedback)
+
+        return mission.result
+
+    async def wait_for_gate(self, gate_id: str) -> Gate:
+        """Wait for gate approval via SSE."""
+        async with aiohttp.ClientSession() as session:
+            async with session.get(
+                f"{self.gate_url}/gates/{gate_id}/stream"
+            ) as response:
+                async for line in response.content:
+                    if line.startswith(b"data:"):
+                        event = json.loads(line[5:])
+                        if event["type"] in ("gate_approved", "gate_rejected"):
+                            return Gate(**event["gate"])
+```
+
+---
+
+### Anti-Patterns for Human Validation
+
+**❌ Anti-Pattern 1: No Hard Limits**
+```
+Wrong: Trust agent to respect token budget
+       agent.max_tokens = 100000  # Agent might ignore
+
+Right: Infrastructure-enforced BudgetQuota
+       BudgetQuota CRD + Controller = Cannot exceed
+```
+
+**❌ Anti-Pattern 2: Synchronous Blocking**
+```
+Wrong: Agent blocks thread waiting for human
+       approval = wait_for_human()  # Thread blocked for hours
+
+Right: Async gates with state persistence
+       gate = create_gate()
+       save_state()
+       # Resume when notified
+```
+
+**❌ Anti-Pattern 3: Invisible Tool Calls**
+```
+Wrong: Tool calls buried in logs
+       agent.execute()  # What did it do? Check logs...
+
+Right: Every tool call is a CRD
+       kubectl get toolcalls -l agent=research  # Full audit trail
+```
+
+---
+
+### Production Checklist for Human Validation
+
+```markdown
+## Human Validation Infrastructure Checklist
+
+### Budget Enforcement
+- [ ] BudgetQuota CRD defines hard limits
+- [ ] Controller watches usage in real-time
+- [ ] Automatic termination on limit exceeded
+- [ ] Slack/PagerDuty alerts on warnings
+
+### Three-Phase Pipeline
+- [ ] HOLD state implemented in state machine
+- [ ] Gate context saved with full details
+- [ ] Human can approve/reject/request-revision
+- [ ] Feedback incorporated into next phase
+
+### ToolCall Audit
+- [ ] Every tool call creates CRD
+- [ ] Dangerous tools require approval
+- [ ] Full audit trail queryable via kubectl
+- [ ] Rollback capability for reversible actions
+
+### Async Gates
+- [ ] SSE or webhook for real-time notifications
+- [ ] State persistence across gate waits
+- [ ] Timeout handling with safe defaults
+- [ ] Escalation path defined
+```
+
+---
+
 **Remember:** Human gates are not about distrust—they're about partnership. AI does the heavy lifting (research, planning, implementation), humans provide strategic oversight (is this the right direction?). Together, you catch expensive mistakes early when they're cheap to fix.

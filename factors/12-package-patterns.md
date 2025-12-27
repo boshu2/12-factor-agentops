@@ -627,4 +627,859 @@ Result: Portable, reusable domain knowledge
 
 ---
 
+## Implementation Patterns
+
+These patterns emerge from production deployments in Houston (local-first), Fractal (Kubernetes-native), and ai-platform (IC-hardened). They extend the conceptual packaging principles with battle-tested infrastructure patterns for deploying agents across constrained environments.
+
+### Pattern 1: Three-Tier IC Deployment Model
+
+**The Problem:** Different deployment environments have vastly different constraints (connectivity, compute, classification). A single deployment model doesn't work everywhere.
+
+**The Solution:** Three-tier model designed for maximum constraints first, then relaxed for less constrained environments.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                      THREE-TIER IC DEPLOYMENT MODEL                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  │                        TIER 3: CONNECTED                              │ │
+│  │                                                                        │ │
+│  │  • Frontier models (Claude, GPT-4)                                    │ │
+│  │  • Full internet connectivity                                         │ │
+│  │  • Cloud-native deployment                                            │ │
+│  │  • Controlled external access for updates                             │ │
+│  │                                                                        │ │
+│  │  USE: Development, research, complex reasoning                        │ │
+│  └───────────────────────────────────────────────────────────────────────┘ │
+│                              ▲                                              │
+│                              │ fallback                                     │
+│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  │                    TIER 2: INTERNAL DATACENTER                        │ │
+│  │                                                                        │ │
+│  │  • Large models (70B-123B)                                            │ │
+│  │  • Shared HPCaaS GPU cluster                                          │ │
+│  │  • Internal network only                                              │ │
+│  │  • No external connectivity                                           │ │
+│  │                                                                        │ │
+│  │  USE: Analysis, planning, heavy compute                               │ │
+│  └───────────────────────────────────────────────────────────────────────┘ │
+│                              ▲                                              │
+│                              │ fallback                                     │
+│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  │                     TIER 1: TACTICAL EDGE                             │ │
+│  │                                                                        │ │
+│  │  • Quantized 7B models (Mistral, Llama)                               │ │
+│  │  • 3 GPU nodes, limited compute                                       │ │
+│  │  • 0% internet connectivity (air-gapped)                              │ │
+│  │  • Latency-critical (<100ms)                                          │ │
+│  │                                                                        │ │
+│  │  USE: Tactical decisions, edge inference, field ops                   │ │
+│  └───────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│  PRINCIPLE: Design for Tier 1 first. If it works air-gapped, it works     │
+│             everywhere.                                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Tier Configuration (Helm values):**
+
+```yaml
+# values-tier1-edge.yaml - Tactical Edge (most constrained)
+global:
+  tier: edge
+  connectivity: none
+  classification: secret
+
+models:
+  primary:
+    name: mistral-7b-instruct-q4
+    size: 7B
+    quantization: q4_K_M
+    maxContext: 8192
+  fallback: null  # No fallback at edge
+
+resources:
+  gpu:
+    nodes: 3
+    perNode: 1
+    type: nvidia-a10g
+  memory:
+    perPod: 16Gi
+
+networking:
+  egress: deny-all
+  ingress: internal-only
+
+registry:
+  type: local
+  url: registry.local:5000
+
+---
+# values-tier2-datacenter.yaml - Internal Datacenter
+global:
+  tier: datacenter
+  connectivity: internal
+  classification: secret
+
+models:
+  primary:
+    name: llama-70b-instruct
+    size: 70B
+    quantization: none
+    maxContext: 32768
+  fallback:
+    name: mistral-7b-instruct
+    size: 7B
+
+resources:
+  gpu:
+    nodes: 8
+    perNode: 4
+    type: nvidia-h100
+  memory:
+    perPod: 64Gi
+
+networking:
+  egress: internal-only
+  ingress: internal-only
+
+registry:
+  type: harbor
+  url: harbor.internal.mil:443
+
+---
+# values-tier3-connected.yaml - Connected (least constrained)
+global:
+  tier: connected
+  connectivity: external
+  classification: unclassified
+
+models:
+  primary:
+    name: claude-sonnet-4
+    provider: anthropic
+    maxContext: 200000
+  fallback:
+    name: llama-70b-instruct
+    size: 70B
+
+resources:
+  gpu:
+    nodes: dynamic
+    type: cloud
+  memory:
+    perPod: 32Gi
+
+networking:
+  egress: allow-approved
+  ingress: load-balanced
+
+registry:
+  type: ecr
+  url: 123456789.dkr.ecr.us-gov-west-1.amazonaws.com
+```
+
+---
+
+### Pattern 2: Air-Gap Deployment Playbook
+
+**The Problem:** Air-gapped environments have zero internet connectivity. Standard deployment tools (helm pull, docker pull) don't work.
+
+**The Solution:** Four-phase air-gap deployment: Collect → Transfer → Load → Deploy.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        AIR-GAP DEPLOYMENT PLAYBOOK                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  CONNECTED ENVIRONMENT                    AIR-GAPPED ENVIRONMENT            │
+│  (Internet access)                        (No internet)                     │
+│                                                                             │
+│  ┌─────────────────────┐                                                   │
+│  │  PHASE 1: COLLECT   │                                                   │
+│  │                     │                                                   │
+│  │  • Pull all images  │                                                   │
+│  │  • Download charts  │                                                   │
+│  │  • Gather deps      │                                                   │
+│  │  • Package docs     │                                                   │
+│  └──────────┬──────────┘                                                   │
+│             │                                                               │
+│             ▼                                                               │
+│  ┌─────────────────────┐                                                   │
+│  │  PHASE 2: TRANSFER  │                                                   │
+│  │                     │                                                   │
+│  │  • Create tarball   │                                                   │
+│  │  • Burn to media    │ ────────────────────────────────►  ┌───────────┐ │
+│  │  • Verify checksum  │         (Sneakernet/DVDX)          │  MEDIA    │ │
+│  │  • Sign package     │                                    │  IMPORT   │ │
+│  └─────────────────────┘                                    └─────┬─────┘ │
+│                                                                   │       │
+│                                                                   ▼       │
+│                                                   ┌─────────────────────┐ │
+│                                                   │  PHASE 3: LOAD      │ │
+│                                                   │                     │ │
+│                                                   │  • Extract tarball  │ │
+│                                                   │  • Push to registry │ │
+│                                                   │  • Install charts   │ │
+│                                                   │  • Verify integrity │ │
+│                                                   └──────────┬──────────┘ │
+│                                                              │            │
+│                                                              ▼            │
+│                                                   ┌─────────────────────┐ │
+│                                                   │  PHASE 4: DEPLOY    │ │
+│                                                   │                     │ │
+│                                                   │  • helm install     │ │
+│                                                   │  • kubectl apply    │ │
+│                                                   │  • Smoke test       │ │
+│                                                   │  • Enable agents    │ │
+│                                                   └─────────────────────┘ │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Phase 1: Collect Script**
+
+```bash
+#!/bin/bash
+# collect-airgap-bundle.sh - Run in connected environment
+
+set -euo pipefail
+
+BUNDLE_DIR="airgap-bundle-$(date +%Y%m%d)"
+mkdir -p "$BUNDLE_DIR"/{images,charts,docs,models}
+
+echo "=== Phase 1: Collecting Air-Gap Bundle ==="
+
+# 1. Pull and save container images
+echo "Pulling container images..."
+IMAGES=(
+    "ai-platform/etl-service:v1.2.0"
+    "ai-platform/inference:v1.2.0"
+    "ai-platform/gateway:v1.2.0"
+    "ai-platform/ui:v1.2.0"
+    "postgres:15"
+    "redis:7"
+    "neo4j:5"
+)
+
+for img in "${IMAGES[@]}"; do
+    echo "  Pulling $img"
+    docker pull "$img"
+    docker save "$img" | gzip > "$BUNDLE_DIR/images/$(echo $img | tr '/:' '-').tar.gz"
+done
+
+# 2. Download Helm charts
+echo "Packaging Helm charts..."
+helm package ./charts/ai-platform -d "$BUNDLE_DIR/charts"
+helm dep update ./charts/ai-platform
+cp -r ./charts/ai-platform/charts "$BUNDLE_DIR/charts/dependencies"
+
+# 3. Download model weights
+echo "Downloading model weights..."
+huggingface-cli download mistralai/Mistral-7B-Instruct-v0.2 \
+    --local-dir "$BUNDLE_DIR/models/mistral-7b"
+
+# 4. Bundle documentation
+echo "Bundling documentation..."
+cp -r ./docs "$BUNDLE_DIR/docs"
+cp ./INSTALL-AIRGAP.md "$BUNDLE_DIR/"
+
+# 5. Create manifest
+echo "Creating manifest..."
+cat > "$BUNDLE_DIR/manifest.yaml" << EOF
+version: 1.2.0
+created: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+tier: edge
+images:
+$(for img in "${IMAGES[@]}"; do echo "  - $img"; done)
+charts:
+  - ai-platform-1.2.0.tgz
+models:
+  - mistral-7b-instruct-v0.2
+checksum: $(sha256sum "$BUNDLE_DIR"/* | sha256sum | cut -d' ' -f1)
+EOF
+
+# 6. Create final tarball
+echo "Creating final tarball..."
+tar -czvf "$BUNDLE_DIR.tar.gz" "$BUNDLE_DIR"
+sha256sum "$BUNDLE_DIR.tar.gz" > "$BUNDLE_DIR.tar.gz.sha256"
+
+echo "=== Bundle created: $BUNDLE_DIR.tar.gz ==="
+echo "Transfer to air-gapped environment via approved media"
+```
+
+**Phase 3-4: Load and Deploy Script**
+
+```bash
+#!/bin/bash
+# deploy-airgap-bundle.sh - Run in air-gapped environment
+
+set -euo pipefail
+
+BUNDLE="$1"
+REGISTRY="registry.local:5000"
+NAMESPACE="ai-platform"
+
+echo "=== Phase 3: Loading Air-Gap Bundle ==="
+
+# 1. Extract bundle
+echo "Extracting bundle..."
+tar -xzvf "$BUNDLE"
+BUNDLE_DIR="${BUNDLE%.tar.gz}"
+
+# 2. Verify checksum
+echo "Verifying integrity..."
+sha256sum -c "$BUNDLE.sha256"
+
+# 3. Load images into local registry
+echo "Loading images to registry..."
+for img_archive in "$BUNDLE_DIR/images"/*.tar.gz; do
+    echo "  Loading $(basename $img_archive)"
+    gunzip -c "$img_archive" | docker load
+
+    # Re-tag for local registry
+    original_tag=$(docker images --format '{{.Repository}}:{{.Tag}}' | head -1)
+    local_tag="$REGISTRY/${original_tag##*/}"
+    docker tag "$original_tag" "$local_tag"
+    docker push "$local_tag"
+done
+
+# 4. Load model weights
+echo "Loading model weights..."
+kubectl create configmap model-weights \
+    --from-file="$BUNDLE_DIR/models/" \
+    -n "$NAMESPACE" --dry-run=client -o yaml | kubectl apply -f -
+
+echo "=== Phase 4: Deploying ==="
+
+# 5. Install Helm chart
+echo "Installing Helm chart..."
+helm upgrade --install ai-platform \
+    "$BUNDLE_DIR/charts/ai-platform-1.2.0.tgz" \
+    -f values-tier1-edge.yaml \
+    -n "$NAMESPACE" \
+    --create-namespace \
+    --set global.registry="$REGISTRY" \
+    --wait --timeout 10m
+
+# 6. Smoke test
+echo "Running smoke tests..."
+kubectl run smoke-test --rm -it --restart=Never \
+    --image="$REGISTRY/ai-platform/inference:v1.2.0" \
+    -- /bin/sh -c "curl -s http://ai-platform-gateway/health"
+
+echo "=== Deployment complete ==="
+kubectl get pods -n "$NAMESPACE"
+```
+
+---
+
+### Pattern 3: Classification Boundary Enforcement
+
+**The Problem:** In multi-level security environments, data cannot cross classification boundaries. Agents must respect these boundaries.
+
+**The Solution:** Namespace-based isolation with NetworkPolicy enforcement.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CLASSIFICATION BOUNDARY ENFORCEMENT                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  KUBERNETES CLUSTER                                                         │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                    NAMESPACE: unclassified                          │   │
+│  │  ┌─────────┐  ┌─────────┐  ┌─────────┐                             │   │
+│  │  │ Agent A │  │ Agent B │  │ Gateway │                             │   │
+│  │  └─────────┘  └─────────┘  └─────────┘                             │   │
+│  │                                                                      │   │
+│  │  NetworkPolicy: Allow ingress from unclassified only                │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│         │                                                                   │
+│         │ ✗ BLOCKED                                                        │
+│         ▼                                                                   │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                    NAMESPACE: secret                                │   │
+│  │  ┌─────────┐  ┌─────────┐  ┌─────────┐                             │   │
+│  │  │ Agent C │  │ Agent D │  │   DB    │                             │   │
+│  │  └─────────┘  └─────────┘  └─────────┘                             │   │
+│  │                                                                      │   │
+│  │  NetworkPolicy: Allow ingress from secret only                      │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│         │                                                                   │
+│         │ ✗ BLOCKED                                                        │
+│         ▼                                                                   │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                    NAMESPACE: top-secret                            │   │
+│  │  ┌─────────┐  ┌─────────┐  ┌─────────┐                             │   │
+│  │  │ Agent E │  │ Agent F │  │   DB    │                             │   │
+│  │  └─────────┘  └─────────┘  └─────────┘                             │   │
+│  │                                                                      │   │
+│  │  NetworkPolicy: Allow ingress from top-secret only                  │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ENFORCEMENT: NetworkPolicies + PodSecurityPolicies + RBAC                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**NetworkPolicy Definition:**
+
+```yaml
+# networkpolicy-secret-namespace.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: classification-boundary
+  namespace: secret
+spec:
+  # Apply to all pods in this namespace
+  podSelector: {}
+
+  policyTypes:
+    - Ingress
+    - Egress
+
+  # Only allow traffic from same namespace
+  ingress:
+    - from:
+        - podSelector: {}  # Same namespace only
+
+  # Only allow traffic to same namespace + system services
+  egress:
+    # Same namespace
+    - to:
+        - podSelector: {}
+
+    # DNS (kube-system)
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+        - podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - protocol: UDP
+          port: 53
+
+---
+# RBAC: Prevent cross-namespace access
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: agent-role
+  namespace: secret
+rules:
+  # Can only access resources in own namespace
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["fractal.ai"]
+    resources: ["kagents", "shardruns", "toolcalls"]
+    verbs: ["get", "list", "watch", "create", "update"]
+  # Cannot access secrets from other namespaces
+  # (ClusterRole would be needed for that)
+```
+
+**Classification-Aware Agent Configuration:**
+
+```yaml
+# kagent-secret.yaml
+apiVersion: fractal.ai/v1alpha1
+kind: KAgent
+metadata:
+  name: research-agent
+  namespace: secret  # Deployed to secret namespace
+  labels:
+    classification: secret
+spec:
+  # Agent configuration
+  image: registry.local:5000/ai-platform/agent:v1.2.0
+  model: mistral-7b-instruct
+
+  # Classification constraints
+  classification:
+    level: secret
+    allowedDataSources:
+      - secret-data-store
+      - secret-knowledge-base
+    deniedDataSources:
+      - unclassified-*
+      - top-secret-*
+
+  # Cannot make external calls
+  networking:
+    egress:
+      allowed: false
+
+  # Audit all tool calls
+  audit:
+    enabled: true
+    logLevel: debug
+    destination: splunk-secret
+```
+
+---
+
+### Pattern 4: Multi-Tenancy via Namespaces
+
+**The Problem:** Multiple teams need isolated agent environments within the same cluster.
+
+**The Solution:** Team-per-namespace isolation with resource quotas and network policies.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       MULTI-TENANCY ARCHITECTURE                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  SHARED CLUSTER                                                             │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                    SHARED SERVICES (kube-system, etc.)              │   │
+│  │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐               │   │
+│  │  │   DNS   │  │ Ingress │  │ Registry│  │Monitoring│               │   │
+│  │  └─────────┘  └─────────┘  └─────────┘  └─────────┘               │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│         │                   │                   │                           │
+│         ▼                   ▼                   ▼                           │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐                    │
+│  │  TEAM-ALPHA │    │  TEAM-BETA  │    │  TEAM-GAMMA │                    │
+│  │  namespace  │    │  namespace  │    │  namespace  │                    │
+│  │             │    │             │    │             │                    │
+│  │ ┌─────────┐ │    │ ┌─────────┐ │    │ ┌─────────┐ │                    │
+│  │ │ Agents  │ │    │ │ Agents  │ │    │ │ Agents  │ │                    │
+│  │ └─────────┘ │    │ └─────────┘ │    │ └─────────┘ │                    │
+│  │ ┌─────────┐ │    │ ┌─────────┐ │    │ ┌─────────┐ │                    │
+│  │ │   DB    │ │    │ │   DB    │ │    │ │   DB    │ │                    │
+│  │ └─────────┘ │    │ └─────────┘ │    │ └─────────┘ │                    │
+│  │             │    │             │    │             │                    │
+│  │ Quota: 10Gi │    │ Quota: 20Gi │    │ Quota: 15Gi │                    │
+│  │ GPU: 2      │    │ GPU: 4      │    │ GPU: 3      │                    │
+│  └─────────────┘    └─────────────┘    └─────────────┘                    │
+│         │                   │                   │                           │
+│         └───────────────────┼───────────────────┘                           │
+│                             │                                               │
+│                    ┌────────┴────────┐                                     │
+│                    │  NetworkPolicy  │                                     │
+│                    │  ISOLATES ALL   │                                     │
+│                    └─────────────────┘                                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Namespace Template (Helm):**
+
+```yaml
+# templates/tenant-namespace.yaml
+{{- range .Values.tenants }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .name }}
+  labels:
+    team: {{ .name }}
+    tier: {{ $.Values.global.tier }}
+---
+# Resource quota per tenant
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: {{ .name }}-quota
+  namespace: {{ .name }}
+spec:
+  hard:
+    requests.cpu: {{ .quota.cpu }}
+    requests.memory: {{ .quota.memory }}
+    requests.nvidia.com/gpu: {{ .quota.gpu }}
+    persistentvolumeclaims: {{ .quota.pvcs }}
+    pods: {{ .quota.pods }}
+---
+# Network isolation
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: tenant-isolation
+  namespace: {{ .name }}
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector: {}  # Same namespace only
+  egress:
+    - to:
+        - podSelector: {}  # Same namespace
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+      ports:
+        - port: 53
+          protocol: UDP
+---
+# BudgetQuota per tenant
+apiVersion: fractal.ai/v1alpha1
+kind: BudgetQuota
+metadata:
+  name: {{ .name }}-budget
+  namespace: {{ .name }}
+spec:
+  limits:
+    maxTotalTokens: {{ .budget.tokens }}
+    maxTotalCost: {{ .budget.cost | quote }}
+    maxConcurrentRuns: {{ .budget.concurrency }}
+{{- end }}
+```
+
+**Tenant Values:**
+
+```yaml
+# values-tenants.yaml
+tenants:
+  - name: team-alpha
+    quota:
+      cpu: "10"
+      memory: "20Gi"
+      gpu: "2"
+      pvcs: "5"
+      pods: "20"
+    budget:
+      tokens: 1000000
+      cost: "$100.00"
+      concurrency: 5
+
+  - name: team-beta
+    quota:
+      cpu: "20"
+      memory: "40Gi"
+      gpu: "4"
+      pvcs: "10"
+      pods: "40"
+    budget:
+      tokens: 2000000
+      cost: "$200.00"
+      concurrency: 10
+
+  - name: team-gamma
+    quota:
+      cpu: "15"
+      memory: "30Gi"
+      gpu: "3"
+      pvcs: "7"
+      pods: "30"
+    budget:
+      tokens: 1500000
+      cost: "$150.00"
+      concurrency: 7
+```
+
+---
+
+### Pattern 5: Helm Chart Structure (86 Templates)
+
+**The Problem:** Complex agent deployments require many interdependent resources.
+
+**The Solution:** Comprehensive Helm chart with all components, configurable per tier.
+
+```
+ai-platform/
+├── Chart.yaml
+├── values.yaml                    # Defaults
+├── values-tier1-edge.yaml         # Edge overrides
+├── values-tier2-datacenter.yaml   # Datacenter overrides
+├── values-tier3-connected.yaml    # Connected overrides
+│
+├── templates/
+│   ├── _helpers.tpl               # Template helpers
+│   │
+│   ├── # CORE INFRASTRUCTURE (20 templates)
+│   ├── namespace.yaml
+│   ├── configmap-global.yaml
+│   ├── secret-credentials.yaml
+│   ├── pvc-models.yaml
+│   ├── pvc-data.yaml
+│   ├── networkpolicy-default.yaml
+│   ├── resourcequota.yaml
+│   ├── limitrange.yaml
+│   ├── podsecuritypolicy.yaml
+│   ├── serviceaccount.yaml
+│   ├── role.yaml
+│   ├── rolebinding.yaml
+│   ├── clusterrole.yaml
+│   ├── clusterrolebinding.yaml
+│   ├── priorityclass.yaml
+│   ├── poddisruptionbudget.yaml
+│   ├── horizontalpodautoscaler.yaml
+│   ├── verticalpodautoscaler.yaml
+│   ├── podmonitor.yaml
+│   ├── servicemonitor.yaml
+│   │
+│   ├── # AGENT INFRASTRUCTURE (15 templates)
+│   ├── kagent-crd.yaml
+│   ├── shardrun-crd.yaml
+│   ├── toolcall-crd.yaml
+│   ├── budgetquota-crd.yaml
+│   ├── blackboard-crd.yaml
+│   ├── controller-deployment.yaml
+│   ├── controller-service.yaml
+│   ├── webhook-deployment.yaml
+│   ├── webhook-service.yaml
+│   ├── webhook-certificate.yaml
+│   ├── validatingwebhook.yaml
+│   ├── mutatingwebhook.yaml
+│   ├── agent-configmap.yaml
+│   ├── agent-secret.yaml
+│   ├── default-budgetquota.yaml
+│   │
+│   ├── # INFERENCE SERVICE (12 templates)
+│   ├── inference-deployment.yaml
+│   ├── inference-service.yaml
+│   ├── inference-configmap.yaml
+│   ├── inference-hpa.yaml
+│   ├── inference-pdb.yaml
+│   ├── inference-networkpolicy.yaml
+│   ├── model-loader-job.yaml
+│   ├── model-pvc.yaml
+│   ├── vllm-deployment.yaml
+│   ├── vllm-service.yaml
+│   ├── triton-deployment.yaml
+│   ├── triton-service.yaml
+│   │
+│   ├── # ETL SERVICE (10 templates)
+│   ├── etl-deployment.yaml
+│   ├── etl-service.yaml
+│   ├── etl-configmap.yaml
+│   ├── etl-cronjob.yaml
+│   ├── etl-job-template.yaml
+│   ├── etl-pvc.yaml
+│   ├── etl-networkpolicy.yaml
+│   ├── etl-hpa.yaml
+│   ├── etl-secret.yaml
+│   ├── etl-serviceaccount.yaml
+│   │
+│   ├── # GATEWAY/UI (8 templates)
+│   ├── gateway-deployment.yaml
+│   ├── gateway-service.yaml
+│   ├── gateway-ingress.yaml
+│   ├── gateway-configmap.yaml
+│   ├── ui-deployment.yaml
+│   ├── ui-service.yaml
+│   ├── ui-configmap.yaml
+│   ├── ui-ingress.yaml
+│   │
+│   ├── # DATA STORES (12 templates)
+│   ├── postgres-statefulset.yaml
+│   ├── postgres-service.yaml
+│   ├── postgres-pvc.yaml
+│   ├── postgres-secret.yaml
+│   ├── postgres-configmap.yaml
+│   ├── neo4j-statefulset.yaml
+│   ├── neo4j-service.yaml
+│   ├── neo4j-pvc.yaml
+│   ├── redis-statefulset.yaml
+│   ├── redis-service.yaml
+│   ├── qdrant-statefulset.yaml
+│   ├── qdrant-service.yaml
+│   │
+│   ├── # OBSERVABILITY (9 templates)
+│   ├── prometheus-rules.yaml
+│   ├── grafana-dashboard-agents.yaml
+│   ├── grafana-dashboard-inference.yaml
+│   ├── grafana-dashboard-budgets.yaml
+│   ├── alertmanager-config.yaml
+│   ├── langfuse-deployment.yaml
+│   ├── langfuse-service.yaml
+│   ├── langfuse-configmap.yaml
+│   ├── langfuse-secret.yaml
+│   │
+│   └── # TESTS (varies)
+│       ├── test-connection.yaml
+│       ├── test-inference.yaml
+│       └── test-agent.yaml
+│
+└── charts/                        # Dependencies
+    ├── postgresql/
+    ├── redis/
+    ├── neo4j/
+    └── qdrant/
+```
+
+---
+
+### Anti-Patterns for Production Packaging
+
+**❌ Anti-Pattern 1: Single Deployment Model**
+```
+Wrong: One values.yaml for all environments
+       helm install ai-platform -f values.yaml
+
+Right: Tier-specific values
+       helm install ai-platform -f values.yaml -f values-tier1-edge.yaml
+```
+
+**❌ Anti-Pattern 2: Internet-Dependent Deployment**
+```
+Wrong: Helm install pulls from internet
+       helm install ai-platform oci://registry.io/ai-platform
+
+Right: Air-gap bundle with local registry
+       helm install ai-platform ./charts/ai-platform \
+           --set global.registry=registry.local:5000
+```
+
+**❌ Anti-Pattern 3: Trust-Based Isolation**
+```
+Wrong: "Teams won't access each other's namespaces"
+       # No NetworkPolicies
+
+Right: Infrastructure-enforced isolation
+       NetworkPolicy + RBAC + ResourceQuota
+```
+
+---
+
+### Production Checklist for Package Deployment
+
+```markdown
+## Package Deployment Checklist
+
+### Tier Selection
+- [ ] Tier identified (Edge/Datacenter/Connected)
+- [ ] Values file selected for tier
+- [ ] Connectivity constraints documented
+- [ ] Model selection matches tier capabilities
+
+### Air-Gap (if Tier 1/2)
+- [ ] All images collected and archived
+- [ ] Helm charts packaged
+- [ ] Model weights bundled
+- [ ] Checksums verified
+- [ ] Transfer media approved
+
+### Classification (if IC)
+- [ ] Namespace matches classification level
+- [ ] NetworkPolicies block cross-namespace traffic
+- [ ] RBAC limits access to own namespace
+- [ ] Audit logging enabled
+
+### Multi-Tenancy
+- [ ] Namespace per team created
+- [ ] ResourceQuota applied
+- [ ] BudgetQuota applied
+- [ ] Network isolation verified
+
+### Helm Deployment
+- [ ] Chart version matches manifest
+- [ ] Values overrides applied
+- [ ] Dependencies resolved
+- [ ] helm test passes
+- [ ] Smoke tests pass
+```
+
+---
+
 **Remember:** Domain knowledge is valuable. Package it, version it, share it. Packages enable instant productivity in new domains. Build once, reuse everywhere. The first package takes years. The second takes weeks. The third takes days. Compound your knowledge investment.

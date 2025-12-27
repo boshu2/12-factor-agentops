@@ -579,4 +579,468 @@ Example: 10 tasks routed to cheap workflows instead of expensive = $50 saved
 
 ---
 
+## Implementation Patterns
+
+These patterns emerge from production deployments in Houston (local-first), Fractal (Kubernetes-native), and ai-platform (IC-hardened). They extend the conceptual routing principles with battle-tested infrastructure patterns.
+
+### Pattern 1: Composable Not Chainable (Blackboard Architecture)
+
+**The Problem:** Traditional orchestration chains agents linearly (A → B → C), creating tight coupling and brittle pipelines.
+
+**The Solution:** Blackboard-mediated coordination where agents read/write to shared state, infrastructure handles routing.
+
+```
+┌──────────────────────────────────────────────────────────────────────────┐
+│                         BLACKBOARD ARCHITECTURE                          │
+├──────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│                    ┌─────────────────────────────┐                       │
+│                    │        BLACKBOARD           │                       │
+│                    │   (Shared State Store)      │                       │
+│                    │                             │                       │
+│                    │  ┌─────────┐ ┌──────────┐  │                       │
+│                    │  │Decisions│ │Directives│  │                       │
+│                    │  │(append) │ │ (upsert) │  │                       │
+│                    │  └─────────┘ └──────────┘  │                       │
+│                    └─────────────────────────────┘                       │
+│                           ▲           │                                  │
+│              ┌────────────┘           └────────────┐                     │
+│              │ write                        read   │                     │
+│              │                                     ▼                     │
+│      ┌───────┴───────┐                    ┌───────────────┐             │
+│      │   Agent A     │                    │   Agent B     │             │
+│      │ (Research)    │                    │  (Planning)   │             │
+│      └───────────────┘                    └───────────────┘             │
+│              ▲                                     │                     │
+│              │                                     │ write               │
+│              │ read                                ▼                     │
+│      ┌───────────────┐                    ┌───────────────┐             │
+│      │   Agent D     │◄───── read ────────│   Agent C     │             │
+│      │  (Review)     │                    │(Implementation)│             │
+│      └───────────────┘                    └───────────────┘             │
+│                                                                          │
+│  KEY INSIGHT: Agents don't know about each other, only the blackboard   │
+└──────────────────────────────────────────────────────────────────────────┘
+```
+
+**Blackboard Data Model (from Fractal):**
+
+```yaml
+# Two types of blackboard entries
+apiVersion: fractal.ai/v1alpha1
+kind: BlackboardEntry
+
+# Type 1: Decisions (append-only, audit trail)
+metadata:
+  name: research-findings-001
+spec:
+  type: decision
+  phase: research
+  content:
+    findings:
+      - "API supports pagination via cursor"
+      - "Rate limit is 100 req/min"
+    confidence: 0.92
+  author: research-agent
+  timestamp: "2025-01-15T10:30:00Z"
+
+---
+# Type 2: Directives (upsertable, current state)
+metadata:
+  name: current-approach
+spec:
+  type: directive
+  content:
+    approach: "cursor-based-pagination"
+    priority: "latency"
+    constraints:
+      - "no breaking changes"
+  lastUpdated: "2025-01-15T10:35:00Z"
+```
+
+**Why Composable Beats Chainable:**
+
+| Aspect | Chainable (A→B→C) | Composable (Blackboard) |
+|--------|-------------------|-------------------------|
+| **Coupling** | Tight (each agent knows next) | Loose (agents know only blackboard) |
+| **Failure** | Chain breaks | Other agents continue |
+| **Scaling** | Add more chains | Add more agents to same blackboard |
+| **Debugging** | Trace through chain | Read blackboard state |
+| **Recovery** | Restart chain | Resume from blackboard |
+
+---
+
+### Pattern 2: SharedInformer Caching (Kubernetes-Native)
+
+**The Problem:** Agents polling for routing decisions create N×M API calls (N agents × M decisions).
+
+**The Solution:** SharedInformer pattern from Kubernetes—local read cache with watch for updates.
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    SHAREDINFORMER CACHING                               │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│     ┌─────────────────────────────────────────────────────────────┐    │
+│     │                     API SERVER                               │    │
+│     │              (Source of Truth)                               │    │
+│     └─────────────────────────────────────────────────────────────┘    │
+│                              │                                          │
+│                    ┌─────────┴─────────┐                               │
+│                    │  Initial List +   │                               │
+│                    │   Watch Stream    │                               │
+│                    └─────────┬─────────┘                               │
+│                              │                                          │
+│                              ▼                                          │
+│     ┌─────────────────────────────────────────────────────────────┐    │
+│     │                  SHARED INFORMER                             │    │
+│     │  ┌──────────────────────────────────────────────────────┐   │    │
+│     │  │                    LOCAL CACHE                        │   │    │
+│     │  │  ┌──────────┐  ┌──────────┐  ┌──────────┐           │   │    │
+│     │  │  │ Agent A  │  │ Agent B  │  │ Agent C  │           │   │    │
+│     │  │  │  config  │  │  config  │  │  config  │           │   │    │
+│     │  │  └──────────┘  └──────────┘  └──────────┘           │   │    │
+│     │  └──────────────────────────────────────────────────────┘   │    │
+│     │                                                              │    │
+│     │  EVENT HANDLERS:                                             │    │
+│     │  - OnAdd    → Route new agent                               │    │
+│     │  - OnUpdate → Re-route changed agent                        │    │
+│     │  - OnDelete → Remove from routing table                     │    │
+│     └─────────────────────────────────────────────────────────────┘    │
+│                              │                                          │
+│              ┌───────────────┼───────────────┐                         │
+│              │               │               │                         │
+│              ▼               ▼               ▼                         │
+│     ┌─────────────┐ ┌─────────────┐ ┌─────────────┐                   │
+│     │  Router 1   │ │  Router 2   │ │  Router 3   │                   │
+│     │ (instant    │ │ (instant    │ │ (instant    │                   │
+│     │  local read)│ │  local read)│ │  local read)│                   │
+│     └─────────────┘ └─────────────┘ └─────────────┘                   │
+│                                                                         │
+│  BENEFIT: O(1) reads from local cache, watch keeps cache fresh         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+**Implementation (from Fractal):**
+
+```go
+// SharedInformer for routing decisions
+type RoutingInformer struct {
+    informer cache.SharedIndexInformer
+    lister   v1alpha1.KAgentLister
+}
+
+func NewRoutingInformer(client kubernetes.Interface) *RoutingInformer {
+    informer := cache.NewSharedIndexInformer(
+        &cache.ListWatch{
+            ListFunc: func(options metav1.ListOptions) (runtime.Object, error) {
+                return client.FractalV1alpha1().KAgents("").List(ctx, options)
+            },
+            WatchFunc: func(options metav1.ListOptions) (watch.Interface, error) {
+                return client.FractalV1alpha1().KAgents("").Watch(ctx, options)
+            },
+        },
+        &v1alpha1.KAgent{},
+        resyncPeriod,
+        cache.Indexers{
+            "byCapability": indexByCapability,  // Index agents by what they can do
+            "byDomain":     indexByDomain,      // Index agents by domain
+        },
+    )
+
+    return &RoutingInformer{informer: informer}
+}
+
+// Route task to best agent - O(1) local cache read
+func (r *RoutingInformer) Route(task Task) (*v1alpha1.KAgent, error) {
+    // Get agents with matching capability from local cache
+    agents, err := r.informer.GetIndexer().ByIndex("byCapability", task.RequiredCapability)
+    if err != nil {
+        return nil, err
+    }
+
+    // Score and select best agent
+    return r.selectBestAgent(agents, task)
+}
+```
+
+---
+
+### Pattern 3: Classification-Aware Routing (IC Pattern)
+
+**The Problem:** In IC environments, data cannot cross classification boundaries. Routing must respect security constraints.
+
+**The Solution:** Classification-aware routing that keeps data within its security boundary.
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                 CLASSIFICATION-AWARE ROUTING                            │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  TASK ARRIVES WITH CLASSIFICATION LABEL                                 │
+│                    │                                                    │
+│                    ▼                                                    │
+│     ┌─────────────────────────────────┐                                │
+│     │     CLASSIFICATION ROUTER       │                                │
+│     │   (Checks label, routes to      │                                │
+│     │    appropriate namespace)       │                                │
+│     └─────────────────────────────────┘                                │
+│                    │                                                    │
+│        ┌───────────┼───────────┐                                       │
+│        │           │           │                                       │
+│        ▼           ▼           ▼                                       │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐                               │
+│  │UNCLASS   │ │ SECRET   │ │TOP SECRET│                               │
+│  │Namespace │ │Namespace │ │Namespace │                               │
+│  │          │ │          │ │          │                               │
+│  │┌────────┐│ │┌────────┐│ │┌────────┐│                               │
+│  ││Agent A ││ ││Agent B ││ ││Agent C ││                               │
+│  │└────────┘│ │└────────┘│ │└────────┘│                               │
+│  │┌────────┐│ │┌────────┐│ │┌────────┐│                               │
+│  ││Agent D ││ ││Agent E ││ ││Agent F ││                               │
+│  │└────────┘│ │└────────┘│ │└────────┘│                               │
+│  └──────────┘ └──────────┘ └──────────┘                               │
+│        │           │           │                                       │
+│        │    NetworkPolicy      │                                       │
+│        │    BLOCKS cross-      │                                       │
+│        │    namespace traffic  │                                       │
+│        └───────────┴───────────┘                                       │
+│                                                                         │
+│  ENFORCEMENT: Kubernetes NetworkPolicies prevent data spillage         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+**NetworkPolicy Enforcement:**
+
+```yaml
+# Block all cross-namespace traffic by default
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-cross-namespace
+  namespace: secret
+spec:
+  podSelector: {}  # Apply to all pods in namespace
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector: {}  # Only from same namespace
+  egress:
+    - to:
+        - podSelector: {}  # Only to same namespace
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              name: kube-system  # Allow DNS
+        ports:
+          - port: 53
+            protocol: UDP
+```
+
+**Classification-Aware Router:**
+
+```python
+class ClassificationRouter:
+    """Routes tasks to agents within classification boundary."""
+
+    CLASSIFICATION_HIERARCHY = {
+        'unclassified': 0,
+        'cui': 1,
+        'secret': 2,
+        'top_secret': 3
+    }
+
+    def route(self, task: Task) -> Agent:
+        # Get task classification
+        task_level = self.CLASSIFICATION_HIERARCHY[task.classification]
+
+        # Get available agents at or below task classification
+        # (can route DOWN but never UP)
+        eligible_agents = [
+            agent for agent in self.agents
+            if self.CLASSIFICATION_HIERARCHY[agent.namespace] <= task_level
+        ]
+
+        if not eligible_agents:
+            raise SecurityViolation(
+                f"No agents available at classification {task.classification}"
+            )
+
+        # Route to best agent within boundary
+        return self.select_best(eligible_agents, task)
+
+    def validate_response(self, response: Response, task: Task) -> bool:
+        """Ensure response doesn't leak higher classification."""
+        response_level = self.detect_classification(response.content)
+        task_level = self.CLASSIFICATION_HIERARCHY[task.classification]
+
+        if response_level > task_level:
+            raise SecurityViolation(
+                f"Response contains {response_level} data for {task_level} task"
+            )
+        return True
+```
+
+---
+
+### Pattern 4: Multi-Tier Model Routing (ai-platform)
+
+**The Problem:** Different deployment environments have different constraints (GPU, latency, connectivity).
+
+**The Solution:** Route to appropriate tier based on task requirements and available resources.
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    MULTI-TIER MODEL ROUTING                             │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│                         TASK ARRIVES                                    │
+│                              │                                          │
+│                              ▼                                          │
+│                    ┌─────────────────┐                                 │
+│                    │  TIER ROUTER    │                                 │
+│                    │                 │                                 │
+│                    │ Evaluates:      │                                 │
+│                    │ - Latency req   │                                 │
+│                    │ - Model size    │                                 │
+│                    │ - Connectivity  │                                 │
+│                    │ - Cost budget   │                                 │
+│                    └─────────────────┘                                 │
+│                              │                                          │
+│           ┌──────────────────┼──────────────────┐                      │
+│           │                  │                  │                      │
+│           ▼                  ▼                  ▼                      │
+│  ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐          │
+│  │    TIER 1       │ │    TIER 2       │ │    TIER 3       │          │
+│  │ Tactical Edge   │ │   Datacenter    │ │   Connected     │          │
+│  │                 │ │                 │ │                 │          │
+│  │ • 7B quantized  │ │ • 70B-123B      │ │ • Frontier      │          │
+│  │ • 3 GPU nodes   │ │ • Shared HPCaaS │ │ • Claude/GPT-4  │          │
+│  │ • 0% internet   │ │ • Internal only │ │ • Full internet │          │
+│  │ • <100ms latency│ │ • <1s latency   │ │ • <5s latency   │          │
+│  │                 │ │                 │ │                 │          │
+│  │ USE: Tactical   │ │ USE: Analysis,  │ │ USE: Complex    │          │
+│  │ decisions, edge │ │ planning, heavy │ │ reasoning, code │          │
+│  │ inference       │ │ compute         │ │ generation      │          │
+│  └─────────────────┘ └─────────────────┘ └─────────────────┘          │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+**Tier Selection Logic:**
+
+```python
+class TierRouter:
+    """Routes to appropriate tier based on task requirements."""
+
+    def select_tier(self, task: Task) -> Tier:
+        # Tier 1: Edge - for latency-critical, simple tasks
+        if task.latency_requirement_ms < 100:
+            if task.complexity == "simple":
+                return Tier.EDGE
+            else:
+                raise LatencyConstraintViolation(
+                    "Complex task cannot meet <100ms latency"
+                )
+
+        # Tier 2: Datacenter - for analysis, medium complexity
+        if task.requires_large_model and not task.requires_internet:
+            return Tier.DATACENTER
+
+        # Tier 3: Connected - for frontier capabilities
+        if task.requires_frontier_model or task.requires_internet:
+            if self.connectivity_available():
+                return Tier.CONNECTED
+            else:
+                # Fallback to datacenter with degraded capability
+                return Tier.DATACENTER
+
+        # Default: Datacenter (best balance)
+        return Tier.DATACENTER
+
+    def route_with_fallback(self, task: Task) -> Response:
+        """Route with automatic tier fallback."""
+        preferred_tier = self.select_tier(task)
+
+        try:
+            return self.execute_on_tier(task, preferred_tier)
+        except TierUnavailable:
+            # Fallback chain: Connected → Datacenter → Edge
+            for fallback in self.get_fallback_chain(preferred_tier):
+                try:
+                    return self.execute_on_tier(task, fallback)
+                except TierUnavailable:
+                    continue
+
+            raise AllTiersUnavailable(task)
+```
+
+---
+
+### Anti-Patterns for Production Routing
+
+**❌ Anti-Pattern 1: Orchestrator Coupling**
+```
+Wrong: Router calls orchestrator which calls agents
+       Router → Orchestrator → Agent A → Agent B → Agent C
+
+Right: Router writes to blackboard, agents react
+       Router → Blackboard ← Agents (react to state changes)
+```
+
+**❌ Anti-Pattern 2: Synchronous Routing**
+```
+Wrong: Router blocks waiting for agent response
+       router.route(task)  # Blocks for 30 seconds
+
+Right: Router enqueues, worker processes
+       router.enqueue(task)  # Returns immediately
+       worker.process_queue()  # Async processing
+```
+
+**❌ Anti-Pattern 3: No Classification Enforcement**
+```
+Wrong: Trust agents to respect classification
+       agent.process(task)  # Agent "promises" to stay in boundary
+
+Right: Infrastructure enforces boundaries
+       NetworkPolicy + NamespaceIsolation  # Cannot violate
+```
+
+---
+
+### Production Checklist for Smart Routing
+
+```markdown
+## Routing Infrastructure Checklist
+
+### Blackboard Architecture
+- [ ] Decisions are append-only (audit trail)
+- [ ] Directives are upsertable (current state)
+- [ ] Agents read/write blackboard, not each other
+- [ ] Blackboard survives agent failures
+
+### Caching Layer
+- [ ] SharedInformer or equivalent for routing data
+- [ ] Local cache with watch-based updates
+- [ ] O(1) routing lookups (not O(N) API calls)
+- [ ] Cache invalidation on config changes
+
+### Classification (if IC)
+- [ ] NetworkPolicies block cross-namespace traffic
+- [ ] Router enforces classification boundaries
+- [ ] Response validation prevents data spillage
+- [ ] Audit log for all routing decisions
+
+### Multi-Tier (if applicable)
+- [ ] Tier selection based on task requirements
+- [ ] Automatic fallback chain defined
+- [ ] Latency SLOs enforced per tier
+- [ ] Cost tracking per tier
+```
+
+---
+
 **Remember:** Routing is not just about automation—it's about learning. Every routing decision is a learning opportunity. Measure accuracy, analyze failures, and continuously improve. The router should get smarter with every task.
