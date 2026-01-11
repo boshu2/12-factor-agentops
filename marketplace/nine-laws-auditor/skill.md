@@ -1,3 +1,18 @@
+---
+name: nine-laws-auditor
+description: Audit sessions against the Nine Laws of AgentOps
+version: 2.0.0
+author: boshu2
+license: Apache-2.0
+context: fork
+user-invocable: true
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+---
+
 # Nine Laws Auditor
 
 **Audit sessions against the Nine Laws of AgentOps**

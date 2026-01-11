@@ -1,3 +1,18 @@
+---
+name: factor-compliance-checker
+description: Validate workflows against the 12-Factor AgentOps methodology
+version: 2.0.0
+author: boshu2
+license: Apache-2.0
+context: fork
+user-invocable: true
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+---
+
 # Factor Compliance Checker
 
 **Validate workflows against the 12-Factor AgentOps methodology**

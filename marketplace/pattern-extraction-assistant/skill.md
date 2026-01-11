@@ -1,3 +1,18 @@
+---
+name: pattern-extraction-assistant
+description: Extract reusable patterns from completed work sessions
+version: 2.0.0
+author: boshu2
+license: Apache-2.0
+context: fork
+user-invocable: true
+allowed-tools:
+  - Read
+  - Write
+  - Grep
+  - Glob
+---
+
 # Pattern Extraction Assistant
 
 **Extract reusable patterns from completed work sessions**

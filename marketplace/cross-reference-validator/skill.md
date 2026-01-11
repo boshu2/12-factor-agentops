@@ -1,3 +1,19 @@
+---
+name: cross-reference-validator
+description: Validate cross-references and links across documentation
+version: 2.0.0
+author: boshu2
+license: Apache-2.0
+context: fork
+user-invocable: true
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebFetch
+---
+
 # Cross-Reference Validator
 
 **Validate cross-references and links across documentation**

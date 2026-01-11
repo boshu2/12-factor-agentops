@@ -1,3 +1,18 @@
+---
+name: research-formatter
+description: Format research findings into structured, reusable documentation
+version: 2.0.0
+author: boshu2
+license: Apache-2.0
+context: fork
+user-invocable: true
+allowed-tools:
+  - Read
+  - Write
+  - Grep
+  - Glob
+---
+
 # Research Formatter
 
 **Format research findings into structured, reusable documentation**
