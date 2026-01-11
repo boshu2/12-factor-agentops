@@ -4,8 +4,17 @@
 
 ### Operational principles for reliable AI agents
 
+<!-- Build & Status -->
+[![CI](https://img.shields.io/github/actions/workflow/status/boshu2/12-factor-agentops/validate-profiles.yml?label=CI)](https://github.com/boshu2/12-factor-agentops/actions)
+[![Version](https://img.shields.io/badge/Version-2.0.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
+
+<!-- Technology -->
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-2.1-blueviolet.svg)](https://docs.anthropic.com/en/docs/claude-code)
+[![12 Factors](https://img.shields.io/badge/Factors-12-00CED1.svg)](factors/)
+[![Skills](https://img.shields.io/badge/Skills-5-00CED1.svg)](marketplace/)
+
+<!-- Meta -->
 [![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
-[![Version](https://img.shields.io/badge/Version-v2.0.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
 [![GitHub Stars](https://img.shields.io/github/stars/boshu2/12-factor-agentops?style=social)](https://github.com/boshu2/12-factor-agentops)
 
 <br/>
