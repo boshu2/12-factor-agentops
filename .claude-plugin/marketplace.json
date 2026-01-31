@@ -1,7 +1,7 @@
 {
   "name": "12-factor-agentops",
   "version": "1.1.0",
-  "description": "Operational principles for reliable AI agents - validation and pattern extraction skills",
+  "description": "DevOps for Vibe-Coding - shift-left validation for coding agents",
   "author": "boshu2",
   "repository": "https://github.com/boshu2/12-factor-agentops",
   "homepage": "https://github.com/boshu2/12-factor-agentops",
