@@ -2,7 +2,8 @@
 
 # 12-Factor AgentOps
 
-### Operational principles for reliable AI agents
+### DevOps for Vibe-Coding
+#### Shift-Left Validation for Coding Agents
 
 <!-- Build & Status -->
 [![CI](https://img.shields.io/github/actions/workflow/status/boshu2/12-factor-agentops/validate-profiles.yml?label=CI)](https://github.com/boshu2/12-factor-agentops/actions)
@@ -25,7 +26,7 @@
 
 ---
 
-### How do we take AI agents from 80% reliable to production-grade?
+### How do we shift validation left—before AI-generated code ships?
 
 </div>
 
