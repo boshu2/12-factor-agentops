@@ -1,51 +1,74 @@
-name: Validate Profiles
+name: Validate Factors
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'profiles/**'
+      - 'factors/**'
+      - 'README.md'
+      - 'GOALS.yaml'
   pull_request:
     branches: [ main ]
     paths:
-      - 'profiles/**'
+      - 'factors/**'
+      - 'README.md'
+      - 'GOALS.yaml'
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Install yamllint
-        run: pip install yamllint
-      
-      - name: Validate YAML syntax
+      - uses: actions/checkout@v4
+
+      - name: Verify all 12 factors exist
         run: |
-          for profile in profiles/*/profile.yaml; do
-            if [ -f "$profile" ]; then
-              echo "Validating $profile"
-              yamllint "$profile" || exit 1
+          expected="01-context-is-everything 02-track-everything-in-git 03-one-agent-one-job 04-research-before-you-build 05-validate-externally 06-lock-progress-forward 07-extract-learnings 08-compound-knowledge 09-measure-what-matters 10-isolate-workers 11-supervise-hierarchically 12-harvest-failures-as-wisdom"
+          missing=0
+          for name in $expected; do
+            if [ ! -f "factors/${name}.md" ]; then
+              echo "MISSING: factors/${name}.md"
+              missing=$((missing+1))
             fi
           done
-      
-      - name: Verify profile structure
-        run: |
-          for profile in profiles/*/profile.yaml; do
-            if [ -f "$profile" ]; then
-              echo "Checking $profile structure"
-              # Check required fields
-              grep -q "apiVersion" "$profile" || exit 1
-              grep -q "kind: WorkflowProfile" "$profile" || exit 1
-              grep -q "metadata:" "$profile" || exit 1
-              grep -q "spec:" "$profile" || exit 1
-            fi
-          done
-      
-      - name: Count profiles
-        run: |
-          count=$(find profiles -name "profile.yaml" | wc -l)
-          echo "Found $count profiles"
-          if [ $count -lt 3 ]; then
-            echo "Error: Expected at least 3 profiles"
+          if [ "$missing" -gt 0 ]; then
+            echo "Error: $missing factor files missing"
             exit 1
           fi
+          echo "All 12 factors present"
+
+      - name: Verify factor structure
+        run: |
+          errors=0
+          for f in factors/0[1-9]-*.md factors/1[0-2]-*.md; do
+            [ -f "$f" ] || continue
+            echo "Checking $f"
+            if ! grep -qi '## .*Rule' "$f"; then
+              echo "  MISSING: Rule section"
+              errors=$((errors+1))
+            fi
+            if ! grep -qi 'What good looks like' "$f"; then
+              echo "  MISSING: What Good Looks Like section"
+              errors=$((errors+1))
+            fi
+            words=$(wc -w < "$f" | tr -d ' ')
+            if [ "$words" -lt 500 ]; then
+              echo "  TOO SHORT: $words words (minimum 500)"
+              errors=$((errors+1))
+            fi
+          done
+          if [ "$errors" -gt 0 ]; then
+            echo "Error: $errors structural issues found"
+            exit 1
+          fi
+          echo "All factors pass structural checks"
+
+      - name: Check for stale framing
+        run: |
+          if grep -rl 'coding agents only\|Shift-Left Validation\|DevOps for Vibe-Coding' \
+            factors/ README.md 2>/dev/null | grep -q .; then
+            echo "Error: Stale framing references found:"
+            grep -rl 'coding agents only\|Shift-Left Validation\|DevOps for Vibe-Coding' \
+              factors/ README.md 2>/dev/null
+            exit 1
+          fi
+          echo "No stale framing references"

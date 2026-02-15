@@ -60,7 +60,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-[INSERT CONTACT EMAIL].
+https://github.com/boshu2/12-factor-agentops/issues.
 
 All complaints will be reviewed and investigated promptly and fairly.
 

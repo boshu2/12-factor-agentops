@@ -5,6 +5,43 @@ All notable changes to 12-Factor AgentOps will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-02-15
+
+### Changed - Operational Discipline Pivot
+
+**Complete rewrite of all 12 factors** for the v3 operational discipline framing:
+
+- All 12 factors rewritten with new titles reflecting operational principles
+- Adoption model inverted: results-first (start with learnings.md), not manifesto-first
+- Knowledge compounding (Factor VIII) elevated as hero differentiator
+- Scale factors (X-XII) marked optional/advanced
+- Every factor includes "Without Tooling" or practical zero-infrastructure entry points
+- Removed old framing ("Shift-Left Validation", "DevOps for Vibe-Coding", "Five Pillars", "Nine Laws")
+
+**New factor names:**
+
+| # | Factor |
+|---|--------|
+| I | Context Is Everything |
+| II | Track Everything in Git |
+| III | One Agent, One Job |
+| IV | Research Before You Build |
+| V | Validate Externally |
+| VI | Lock Progress Forward |
+| VII | Extract Learnings |
+| VIII | Compound Knowledge |
+| IX | Measure What Matters |
+| X | Isolate Workers |
+| XI | Supervise Hierarchically |
+| XII | Harvest Failures as Wisdom |
+
+**Documentation:**
+- README rewritten for new framing
+- PRODUCT.md and GOALS.yaml added
+- Old factors archived in `_archived/factors-v1/` with mapping table
+
+---
+
 ## [2.0.0] - 2025-12-27
 
 ### Added - Production Implementation Patterns
@@ -116,18 +153,7 @@ Existing 12-Factor AgentOps implementations continue to work unchanged. Vibe Cod
 
 | Version | Date | Major Changes |
 |---------|------|---------------|
+| 3.0.0 | 2026-02-15 | Operational discipline pivot — all factors rewritten, knowledge compounding as hero |
 | 2.0.0 | 2025-12-27 | Production Implementation Patterns from Houston/Fractal/ai-platform |
 | 1.1.0 | 2025-11-29 | Vibe Coding integration as complementary framework |
-| 1.0.0 | 2024-10-XX | Initial public release |
-
----
-
-## Upcoming (Roadmap)
-
-**Potential v2.1 features:**
-- Community-contributed Implementation Patterns
-- Additional domain-specific deployment profiles
-- Expanded air-gap playbooks for other environments
-- Tool integrations (Terraform, Pulumi)
-
-**Note:** All versions maintain backward compatibility. We don't break existing implementations.
+| 1.0.0 | 2025-01-27 | Initial public release |
