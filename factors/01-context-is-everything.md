@@ -72,11 +72,11 @@ Example: You're working on a multi-phase refactoring task.
 
 Each phase gets exactly what it needs, when it needs it. Nothing more.
 
-### Compression Between Phases
+### Deliberate Compression Between Phases
 
 When you hand off work from one phase to the next—or from one session to the next—don't pass the entire transcript.
 
-Write a summary.
+Write a summary. This is *deliberate* compression — you choose what to keep. This is the opposite of automatic compaction, where the tool chooses for you (and gets it wrong).
 
 A good handoff summary is 3-20 lines:
 - What was the goal?
@@ -266,6 +266,20 @@ You loaded a file at the beginning of the session. Forty messages later, the age
 
 **Fix:** When you modify files outside the agent's session, explicitly reload them. Or better: work in phases where the agent both reads and writes within the same short session, then hand off to a fresh session for validation.
 
+### Hitting the Compaction Wall
+
+You've been running a long session. The tool silently summarizes your earlier conversation to make room for new messages. You don't notice — until the agent forgets a critical decision, contradicts its earlier plan, or loses track of files it already edited.
+
+This is **automatic context compaction** — the tool's emergency measure when conversation history exceeds the context window. It's lossy. It's uncontrolled. You don't choose what gets kept and what gets discarded. The tool's summarizer decides, and it routinely drops the details that matter most: specific file paths, exact error messages, nuanced decisions, partial progress on multi-step work.
+
+**Compaction is not compression.** Deliberate summarization (writing a handoff summary yourself) preserves what matters because *you* choose what to keep. Automatic compaction preserves what the summarizer thinks matters — which is often wrong.
+
+**The symptoms:** Agent contradicts decisions from earlier in the session. Agent re-reads files it already read. Agent loses track of which issues are done vs pending. Agent forgets the plan and starts improvising.
+
+**Fix:** Never let a session reach the compaction wall. The 40% rule exists precisely to prevent this. When you're past 20-30 exchanges, wrap up the current task, write a handoff summary to a file, and start a fresh session. If you're running autonomous workflows (like multi-agent orchestration), have agents write results to files and return only a signal — not their full output into the orchestrator's context.
+
+**The rule:** If compaction fires, you already failed at context management. Treat compaction like an OOM kill — it means you didn't manage your resources. The goal is to never need it.
+
 ---
 
 ## Why This Factor Comes First
@@ -293,7 +307,7 @@ Context is everything. Manage it like production.
 
 3. **Just-in-time loading:** Load what you need for THIS step, not everything you might need for ALL steps.
 
-4. **Compression between phases:** Summarize before handoff. Don't pass full transcripts.
+4. **Deliberate compression between phases:** Summarize before handoff. Don't pass full transcripts. Never let automatic compaction decide what to keep — you decide.
 
 5. **The agent that knows less but knows the RIGHT things wins.** Focus beats volume.
 
@@ -323,7 +337,7 @@ The 40% rule isn't dogma — it's a starting point. Adjust based on your model, 
 
 You rarely get an exact token count during a session. Instead, use these proxies:
 
-- **Message count:** After 20-30 exchanges in a single session, you're likely past the 40% mark. Time to compress or start fresh.
+- **Message count:** After 20-30 exchanges in a single session, you're likely past the 40% mark. Time to write a handoff summary and start fresh — before the tool compacts for you.
 - **Loaded file count:** Each source file averages 200-500 tokens. Loading 20 files means 4K-10K tokens just from file reads.
 - **Behavioral signals:** The symptoms listed above (repetition, contradictions, confabulation) are your real-time meter. When they appear, you've exceeded the effective limit regardless of raw token count.
 
