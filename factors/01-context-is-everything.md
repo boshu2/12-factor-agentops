@@ -8,7 +8,7 @@ Context management is the foundational discipline of operational agent work. It 
 
 ---
 
-## Rationale
+## The Rationale
 
 ### The Problem: Context Windows Are Not Infinite Memory
 
@@ -220,6 +220,54 @@ If yes to any of these, prune the context or start fresh.
 
 ---
 
+## Anti-Patterns
+
+### The Kitchen Sink Session
+
+"Let me just load everything so the agent has all the context it needs."
+
+You open a session and immediately read 40 files, load the full git log, paste in three Slack threads, and dump the entire test suite. The agent now has 150K tokens of context. You ask it to fix a one-line bug. It suggests changes to files that aren't relevant. It proposes a refactoring you didn't ask for. It's lost in the noise.
+
+**Fix:** Load only the files directly involved in the bug. Add more only when the agent asks for them or when you discover they're needed.
+
+### The Eternal Transcript
+
+You've been working with an agent for three hours. The conversation history is 80K tokens. You're still adding tasks to the same session because "it already knows the context."
+
+It doesn't. Not anymore. The early context is buried. The agent is operating on the last 20-30K tokens of working memory. It has forgotten decisions from hour one. It contradicts things it said earlier.
+
+**Fix:** When you notice drift, wrap up the current task, write a handoff summary, and start fresh. The new session with a 500-token summary will outperform the old session with an 80K-token transcript.
+
+### The Copy-Paste Context
+
+You copy-paste a 5,000-word design document, a 3,000-word requirements spec, and a 2,000-word architecture overview into the prompt. "Here's everything you need to know."
+
+The agent reads all 10K tokens but can't distinguish critical requirements from nice-to-have background. It treats everything with equal weight. It misses the three-word constraint buried on page four that makes the entire design feasible.
+
+**Fix:** Write a focused brief for the specific task. Extract the 10-15 bullet points that actually matter for THIS implementation step. Reference the full documents by path for the agent to read on demand.
+
+### The "Just In Case" File Load
+
+"I'll load the database schema, the API routes, the middleware, the models, the tests, the config, and the deployment manifest. The agent might need any of them."
+
+It won't need most of them. But now the agent has 60K tokens of "might need" context competing for attention with the 3K tokens it actually needs.
+
+**Fix:** Start with the minimum. Let the agent request more context. If it needs the database schema, it'll ask for it (or you'll realize it needs it when the first attempt fails). Reactive loading beats speculative loading.
+
+### The Undifferentiated Dump
+
+You pipe the output of `find . -name "*.py" | head -50` into the agent. All 50 file paths with no indication of which ones matter. The agent reads them all dutifully, filling its context with 50 files when only 3 are relevant.
+
+**Fix:** Curate. Tell the agent which 3 files to read and why. "Read `src/auth/handler.py` (the failing endpoint), `src/auth/middleware.py` (the auth check), and `tests/test_auth.py` (the failing test)."
+
+### The Stale Context
+
+You loaded a file at the beginning of the session. Forty messages later, the agent references that file. But you've edited it since then. The agent is reasoning from a stale snapshot without knowing it.
+
+**Fix:** When you modify files outside the agent's session, explicitly reload them. Or better: work in phases where the agent both reads and writes within the same short session, then hand off to a fresh session for validation.
+
+---
+
 ## Why This Factor Comes First
 
 Context management is Factor I because it's the foundation. If you get this wrong, nothing else works.
@@ -257,6 +305,40 @@ Treat your context budget like production resources. Allocate deliberately. Moni
 
 ---
 
+## The 40% Rule
+
+A practical heuristic: keep your context utilization under 40% of the window size. If your model has 200K tokens, aim to stay under 80K of active context.
+
+Why 40%? Three reasons:
+
+1. **The model needs room to reason.** Generated output consumes context too. If you start at 160K tokens in a 200K window, the model has 40K tokens to respond — barely enough for a complex implementation.
+
+2. **Attention quality degrades before the hard limit.** The "lost in the middle" effect intensifies as context grows. At 40% utilization, you're in the sweet spot where attention is distributed well. At 80%, the middle is largely ignored.
+
+3. **Buffer for unexpected context.** Tool calls return variable amounts of data. A file read might return 500 tokens or 5,000. If you're already at 90% capacity, one unexpected result pushes you over the cliff.
+
+The 40% rule isn't dogma — it's a starting point. Adjust based on your model, your task complexity, and the quality of your results. But if you're regularly seeing the symptoms of context overload, check your utilization first.
+
+### Measuring Context Utilization in Practice
+
+You rarely get an exact token count during a session. Instead, use these proxies:
+
+- **Message count:** After 20-30 exchanges in a single session, you're likely past the 40% mark. Time to compress or start fresh.
+- **Loaded file count:** Each source file averages 200-500 tokens. Loading 20 files means 4K-10K tokens just from file reads.
+- **Behavioral signals:** The symptoms listed above (repetition, contradictions, confabulation) are your real-time meter. When they appear, you've exceeded the effective limit regardless of raw token count.
+
+### The Context Is the Product
+
+In traditional software engineering, the code is the product. In agent-driven workflows, the context is the product. The quality of what you put into the context window directly determines the quality of what comes out.
+
+A carefully curated 20K-token context produces better results than a carelessly assembled 200K-token context. Every time.
+
+This is counterintuitive. More information should mean better decisions. But LLMs are not databases — they don't simply look up facts. They attend to information proportionally, and irrelevant information dilutes the attention given to relevant information.
+
+The discipline of context management is the discipline of asking: "What does the agent need to know RIGHT NOW to do THIS task well?" Everything else is noise.
+
+---
+
 ## References
 
 - Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2023). Lost in the Middle: How Language Models Use Long Contexts. *arXiv preprint arXiv:2307.03172*.
@@ -265,4 +347,4 @@ Treat your context budget like production resources. Allocate deliberately. Moni
 
 ---
 
-**Next:** [Factor II: One Agent, One Job](./02-one-agent-one-job.md)
+**Next:** [Factor II: Track Everything in Git](./02-track-everything-in-git.md)

@@ -357,6 +357,28 @@ If you're not sure whether you need isolation, you probably don't yet. You'll kn
 
 That's when you implement Factor X.
 
+### Isolation Checklist
+
+Before spawning parallel workers, verify:
+
+- [ ] Each worker has its own git worktree (not the main clone)
+- [ ] Each worker's context window starts fresh (no inherited conversation history)
+- [ ] No shared temp files, lock files, or environment state between workers
+- [ ] Workers communicate through git artifacts (commits, issue comments), not shared memory
+- [ ] Each worker has a scoped task assignment (one issue, not "help out where needed")
+- [ ] Merge strategy is decided before spawning (first-wins, merge queue, or manual)
+
+If any checkbox fails, you'll debug contamination later. It's always cheaper to isolate up front than to untangle later.
+
+### Why Not Just Use Feature Branches?
+
+Feature branches provide code isolation but not:
+- **Context isolation:** Two agents in different branches can still share the same conversation session, polluting each other's reasoning
+- **State isolation:** Build artifacts, test databases, and temp files are still shared at the OS level
+- **Process isolation:** If one agent runs `npm install` it affects the shared `node_modules`
+
+Worktrees solve the code and file-level isolation. Fresh sessions solve context isolation. The combination is what makes parallel work actually parallel.
+
 ### Summary
 
 Isolation is the foundation of scalable parallel work. It's not about paranoia or over-engineering. It's about making failures local, making debugging tractable, and making parallelism actually parallel.

@@ -1,7 +1,7 @@
 # III. One Agent, One Job
 ## Fresh context per task. Never reuse a saturated window.
 
-### The Rule
+## The Rule
 
 Each agent gets a scoped task and fresh context. Never reuse a saturated window.
 
@@ -9,7 +9,7 @@ An agent that just finished researching your auth system is the worst agent to i
 
 When an agent completes a phase of work, end its session. The next phase gets a new agent with a clean window, loaded with only what it needs to execute.
 
-### Rationale
+## The Rationale
 
 #### The Context Saturation Problem
 
@@ -143,7 +143,7 @@ Instead:
 
 The orchestration layer (Refinery, Convoy, human) sees the list of issues. The worker sees one issue. This separation of concerns prevents context pollution.
 
-### What Good Looks Like
+## What Good Looks Like
 
 #### Research → Implementation Handoff
 
@@ -350,7 +350,7 @@ If a session runs past 90 minutes, it's probably doing too much. Consider splitt
 
 If a session runs past 2 hours, it's definitely saturated. End it. Distill. Spawn fresh.
 
-### Without Tooling
+## Without Tooling
 
 If you're working with agents without formal orchestration tools, apply the principle manually:
 

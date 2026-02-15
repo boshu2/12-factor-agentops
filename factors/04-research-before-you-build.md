@@ -436,6 +436,57 @@ Research before you build.
 
 ---
 
+## Without Tooling
+
+You don't need a research skill or knowledge base to apply this factor. You need discipline.
+
+### Before Any Implementation Session
+
+1. **Open a fresh session** dedicated to research — not implementation
+2. **Write down your questions** before touching the codebase: What exists? What patterns does this project use? Where does this code live?
+3. **Read before you write** — open the relevant files, trace the call paths, understand the data flow
+4. **Document what you find** in a simple markdown file: `research-YYYY-MM-DD-topic.md`
+
+### The Research Document Template
+
+```markdown
+# Research: [Topic]
+
+## Questions
+- What does the current implementation look like?
+- What patterns does this project follow?
+- Where are the integration points?
+
+## Findings
+- [What you actually found]
+
+## Recommendations
+- [What you'd suggest for implementation]
+
+## Files Examined
+- [List of files you read and why they matter]
+```
+
+### Simple Research Habits
+
+- **Grep before you create** — search for existing implementations before writing new ones
+- **Read the tests** — they document intended behavior better than comments
+- **Check git log** — understand why the current code looks the way it does
+- **Look at adjacent code** — follow existing patterns rather than inventing new ones
+- **Time-box research** — 15-30 minutes is usually enough. If you're still confused, the problem scope is too large; break it down
+
+### The Research → Implementation Handoff
+
+When you switch from research to implementation:
+1. Close the research session
+2. Open a fresh implementation session
+3. Load only the research findings document
+4. The research document IS your context — everything else is noise
+
+This keeps implementation focused on what you learned, not burdened by how you learned it.
+
+---
+
 ## The Promise
 
 When you commit to research-first development, you make a promise to yourself and your codebase:

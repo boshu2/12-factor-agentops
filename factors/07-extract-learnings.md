@@ -1,6 +1,8 @@
 # VII. Extract Learnings
 
-## Every session produces two outputs — the work product and the lessons learned.
+## The Rule
+
+Every session produces two outputs — the work product and the lessons learned.
 
 The work is visible. The code merged, the bug fixed, the feature shipped. Everyone celebrates the work product. But there's a second output that most teams throw away: the knowledge generated during the session.
 
@@ -16,7 +18,7 @@ A session you didn't extract from is a session the organization forgot.
 
 ---
 
-## Rationale
+## The Rationale
 
 ### The Knowledge Generation Rate
 
@@ -848,6 +850,52 @@ Session: ag-2054
 ```
 
 **Why this works:** Prevents someone else from making the same mistake. Documents when event sourcing might be appropriate. Provides the simpler alternative.
+
+---
+
+## Without Tooling
+
+You don't need a knowledge flywheel or extraction CLI. You need five minutes at the end of every session.
+
+### The End-of-Session Ritual
+
+Before closing any work session, answer four questions in a text file:
+
+1. **What did I decide?** — Any non-obvious choices, with the reasoning
+2. **What failed?** — Approaches that didn't work, and why
+3. **What pattern did I discover?** — Reusable insights about the codebase or tools
+4. **What will trip up the next person?** — Gotchas, edge cases, surprising behavior
+
+### Where to Put Extractions
+
+Create a `learnings/` directory in your project. One file per session:
+
+```
+learnings/
+  2026-02-15-auth-refactor.md
+  2026-02-16-api-migration.md
+```
+
+### The Minimum Viable Extraction
+
+Even a three-line commit message body is better than nothing:
+
+```
+fix: resolve race condition in session handler
+
+Root cause: concurrent map access without mutex.
+Tried channel-based approach first — too complex for this use case.
+Simple sync.RWMutex was sufficient.
+```
+
+That's extraction. Three lines. Thirty seconds. The next person who hits the same race condition finds this in `git log` and saves an hour.
+
+### Building the Habit
+
+- **Set a timer** — when your session hits 90 minutes, pause and extract
+- **Extract before committing** — make it part of your commit workflow
+- **Review your own extractions** — they should be useful to someone who wasn't in the session
+- **Keep them searchable** — use consistent headings so grep works
 
 ---
 

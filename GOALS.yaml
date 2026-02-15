@@ -23,7 +23,7 @@ goals:
       count=0
       for f in factors/0[1-9]-*.md factors/1[0-2]-*.md; do
         [ -f "$f" ] || continue
-        grep -q 'Rule:' "$f" || continue
+        grep -qi '## .*Rule' "$f" || continue
         grep -qi 'What good looks like' "$f" || continue
         words=$(wc -w < "$f" | tr -d ' ')
         [ "$words" -ge 500 ] || continue

@@ -2,7 +2,7 @@
 
 > **This factor is part of the Scale tier (X-XII) — advanced patterns for multi-agent workflows. Not a prerequisite for getting value from Factors I-IX.**
 
-## Rule
+## The Rule
 
 **Failed attempts are data. Extract and index them with the same rigor as successes.**
 
@@ -10,7 +10,7 @@ Every failed approach is a negative result. Negative results are knowledge. Know
 
 When an agent tries three approaches before the fourth works, you don't just have one success — you have three documented learnings about what doesn't work under specific conditions. That's the wisdom that prevents the next agent from burning cycles on the same dead ends.
 
-## Rationale
+## The Rationale
 
 ### Failures Are Tuition, Learnings Are the Degree
 
@@ -448,6 +448,45 @@ Start with Factors I-IX. Add Factor XII when:
 - You notice agents repeating mistakes
 - Compute costs are rising without proportional output increase
 - You want compound learning across agent generations
+
+## Without Tooling
+
+Since this is a Scale tier factor, the "without tooling" approach is simpler: document failures alongside successes.
+
+### The Failure Log
+
+Keep a `failures/` directory in your project or a `## What Didn't Work` section in every session log:
+
+```markdown
+# Failed Approach: Regex Config Parsing
+
+**Date:** 2026-02-15
+**Task:** Parse nested configuration
+**What we tried:** Regex-based parsing
+**Why it failed:** Nested structures break regex (no recursive matching)
+**What worked instead:** JSON preprocessing + standard parser
+**Time wasted:** ~45 minutes
+```
+
+### Pre-Implementation Failure Check
+
+Before starting any task, search your failure logs:
+
+```bash
+grep -r "config pars" failures/
+```
+
+If someone already failed at this approach, skip it.
+
+### Team Practice
+
+- **In code reviews**, ask: "What did you try before this approach?"
+- **In retrospectives**, dedicate time to harvested failures
+- **In onboarding**, share the failure log alongside the codebase tour
+
+The failures are the tuition. The log is the degree. Don't pay tuition twice.
+
+---
 
 ## The Payoff
 
