@@ -1,26 +1,116 @@
-version: 1
+version: 2
 mission: "The operational discipline for working with AI agents — principles that turn ad-hoc agent usage into a reliable, compounding practice."
 
 goals:
-  # Content coverage: all 12 new factors exist with full writeups
-  - id: all-factors-written
-    description: "All 12 factors have dedicated files in factors/ with Rule, rationale, and What Good Looks Like sections"
+  # ── Structure checks ──
+
+  # Factor file naming matches new factor titles
+  - id: factor-naming-consistent
+    description: "Factor files are numbered 01-12 and filenames reflect the new factor titles"
     check: |
+      expected="01-context-is-everything 02-track-everything-in-git 03-one-agent-one-job 04-research-before-you-build 05-validate-externally 06-lock-progress-forward 07-extract-learnings 08-compound-knowledge 09-measure-what-matters 10-isolate-workers 11-supervise-hierarchically 12-harvest-failures-as-wisdom"
       count=0
-      for f in factors/0[1-9]-*.md factors/1[0-2]-*.md; do
-        [ -f "$f" ] && grep -q 'Rule:' "$f" && grep -q 'What good looks like' "$f" && count=$((count+1))
+      for name in $expected; do
+        [ -f "factors/${name}.md" ] && count=$((count+1))
       done
       [ "$count" -ge 12 ]
     weight: 10
 
-  # README reflects the pivot
+  # All 12 factors have required sections and minimum depth
+  - id: all-factors-written
+    description: "All 12 factors have Rule, rationale, and What Good Looks Like sections with 500+ words of substantive content"
+    check: |
+      count=0
+      for f in factors/0[1-9]-*.md factors/1[0-2]-*.md; do
+        [ -f "$f" ] || continue
+        grep -q 'Rule:' "$f" || continue
+        grep -qi 'What good looks like' "$f" || continue
+        words=$(wc -w < "$f" | tr -d ' ')
+        [ "$words" -ge 500 ] || continue
+        count=$((count+1))
+      done
+      [ "$count" -ge 12 ]
+    weight: 10
+
+  # ── Substance checks (post pre-mortem v2) ──
+
+  # Foundation factors (I-III) have "Without Tooling" sections
+  - id: foundation-without-tooling
+    description: "Factors 01-03 each have a 'Without tooling' or 'Without Tooling' section"
+    check: |
+      count=0
+      for f in factors/01-*.md factors/02-*.md factors/03-*.md; do
+        [ -f "$f" ] && grep -qi 'without tooling' "$f" && count=$((count+1))
+      done
+      [ "$count" -ge 3 ]
+    weight: 9
+
+  # Factor I mentions observable symptoms (not just invisible metrics)
+  - id: factor-i-observable-symptoms
+    description: "Factor I discusses observable symptoms of context overload, not just the 40% rule"
+    check: |
+      grep -qi 'symptom\|repeats itself\|ignores.*instructions\|confabulat' factors/01-*.md
+    weight: 8
+
+  # Factor VIII has flywheel/compounding content (the hero)
+  - id: factor-viii-flywheel
+    description: "Factor VIII contains the compounding equation or flywheel pattern content"
+    check: |
+      grep -qi 'flywheel\|compounding equation\|retrieval rate\|decay rate' factors/08-*.md
+    weight: 9
+
+  # Scale factors (X-XII) marked as optional/advanced
+  - id: scale-factors-optional
+    description: "Factors 10-12 are explicitly marked as optional or advanced tier"
+    check: |
+      count=0
+      for f in factors/10-*.md factors/11-*.md factors/12-*.md; do
+        [ -f "$f" ] && grep -qi 'optional\|advanced\|not prerequisite' "$f" && count=$((count+1))
+      done
+      [ "$count" -ge 3 ]
+    weight: 8
+
+  # ── README checks ──
+
+  # README reflects the pivot (no stale framing)
   - id: readme-reflects-pivot
-    description: "README contains the new tagline and does not reference 'Shift-Left Validation' or 'DevOps for Vibe-Coding'"
+    description: "README contains the new tagline and does not reference old framing"
     check: |
       grep -q 'Operational Discipline' README.md && \
       ! grep -q 'Shift-Left Validation' README.md && \
       ! grep -q 'DevOps for Vibe-Coding' README.md
     weight: 8
+
+  # README has required structural sections
+  - id: readme-sections
+    description: "README contains hero/pitch, quickstart, factor overview with tiering, and reference implementation sections"
+    check: |
+      grep -qi 'knowledge compound\|smarter over time\|institutional memory' README.md && \
+      grep -qi 'quickstart\|getting started\|5.minute' README.md && \
+      grep -qi 'foundation.*workflow.*knowledge\|tier' README.md && \
+      grep -qi 'without tooling\|no plugin\|zero.infrastructure\|no.tooling' README.md
+    weight: 9
+
+  # README has minimum depth (not a stub)
+  - id: readme-depth
+    description: "README has at least 800 words of content"
+    check: |
+      words=$(wc -w < README.md | tr -d ' ')
+      [ "$words" -ge 800 ]
+    weight: 7
+
+  # ── Archival checks ──
+
+  # Old factors archived with mapping table
+  - id: archive-with-mapping
+    description: "Old factors archived in _archived/factors-v1/ with a MAPPING.md file"
+    check: |
+      [ -d "_archived/factors-v1" ] && \
+      [ -f "_archived/factors-v1/MAPPING.md" ] && \
+      ls _archived/factors-v1/*.md 2>/dev/null | grep -v MAPPING | wc -l | grep -q '[1-9]'
+    weight: 7
+
+  # ── Hygiene checks ──
 
   # No stale framing references anywhere in active content
   - id: no-stale-framing
@@ -53,15 +143,3 @@ goals:
       grep -q '## Target Personas' PRODUCT.md && \
       grep -q '## Competitive Landscape' PRODUCT.md
     weight: 5
-
-  # Factor file naming matches new factor titles
-  - id: factor-naming-consistent
-    description: "Factor files are numbered 01-12 and filenames reflect the new factor titles"
-    check: |
-      expected="01-context-is-everything 02-track-everything-in-git 03-one-agent-one-job 04-research-before-you-build 05-validate-externally 06-lock-progress-forward 07-extract-learnings 08-compound-knowledge 09-measure-what-matters 10-isolate-workers 11-supervise-hierarchically 12-harvest-failures-as-wisdom"
-      count=0
-      for name in $expected; do
-        [ -f "factors/${name}.md" ] && count=$((count+1))
-      done
-      [ "$count" -ge 12 ]
-    weight: 9
