@@ -1,12 +1,12 @@
 # Contributing to 12-Factor AgentOps
 
-**DevOps for Vibe-Coding** — Shift-left validation for coding agents.
+**The Operational Discipline for Working With AI Agents** — principles that turn ad-hoc agent usage into a reliable, compounding practice.
 
 ---
 
-## Our Focus: Coding Agents
+## Our Focus: AI Agent Operations
 
-We focus specifically on **coding agents** — AI assistants that write, modify, and review code:
+We focus on the operational principles for working with AI agents — coding agents, research agents, planning agents, and beyond:
 
 - Claude Code running in terminal/IDE
 - AI pair programming sessions

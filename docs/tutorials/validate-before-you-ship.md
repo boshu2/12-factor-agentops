@@ -661,7 +661,7 @@ git commit
 - [The Workflow Guide](workflow-guide.md) - Complete session management
 - [Factor IV: Continuous Validation](../factors/04-continuous-validation.md) - The validation principle
 - [Failure Patterns](../reference/failure-patterns.md) - What validation catches
-- [DevOps for Vibe-Coding](https://github.com/boshu2/agentops/blob/main/docs/positioning/devops-for-vibe-coding.md) - The positioning
+- [12-Factor AgentOps](https://github.com/boshu2/12-factor-agentops) - The operational discipline for working with AI agents
 
 ---
 

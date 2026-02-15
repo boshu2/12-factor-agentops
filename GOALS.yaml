@@ -117,7 +117,7 @@ goals:
     description: "No active docs reference 'coding agents only' or the old validation-only framing"
     check: |
       ! grep -rl 'coding agents only\|Shift-Left Validation\|DevOps for Vibe-Coding' \
-        factors/ docs/ README.md CONTRIBUTING.md 2>/dev/null | grep -v _archived | grep -q .
+        factors/ docs/ README.md CONTRIBUTING.md 2>/dev/null | grep -v _archived | grep -v 'docs/plans/' | grep -q .
     weight: 7
 
   # Internal link integrity

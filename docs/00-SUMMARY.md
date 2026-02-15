@@ -1,23 +1,22 @@
 # 12-Factor AgentOps Summary
 
-**Purpose:** DevOps for Vibe-Coding—shift-left validation for coding agents
+**Purpose:** The Operational Discipline for Working With AI Agents — principles that turn ad-hoc agent usage into a reliable, compounding practice
 **Compression:** ~10k token summary providing 99% context from full corpus
 
 ---
 
-## DevOps for Vibe-Coding
+## The Operational Discipline
 
-**The Problem:** AI-generated code still needs validation. The 80% that works is valuable. The 20% that doesn't can be catastrophic.
+**The Problem:** Every agent session starts from zero. Same mistakes, same context problems, same rework. Better models don't fix this — better operations do.
 
-**The Solution:** Apply the same operational principles that made infrastructure reliable—shift-left testing, post-mortems, continuous validation—to coding agents.
+**The Solution:** Twelve vendor-neutral principles for managing context, validating work, and compounding knowledge across agent sessions.
 
 **The Workflow:**
 ```
-Traditional:  Write code → Ship → CI catches problems → Fix → Repeat
-Shift-Left:   /pre-mortem → Implement → /vibe → Commit → Knowledge compounds
+Research → Plan → Implement → Validate → Extract learnings → Compound knowledge
 ```
 
-**We Are:** DevOps principles applied to coding agents—the operational layer around Claude Code, Copilot, and similar tools.
+**We Are:** Operational principles for working with AI agents — the discipline underneath build methodologies like Vibe Coding, GSD, and Superpowers.
 
 **We Are NOT:** A framework for general autonomous production agents. For that, see [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) by Dex Horthy.
 
