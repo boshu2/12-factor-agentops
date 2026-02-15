@@ -70,29 +70,6 @@ Traces the lineage from Heroku's 12-Factor App (2011) through 12-Factor Agents (
 
 ---
 
-### [The Five Pillars](./five-pillars.md)
-
-**Read time:** 20 minutes
-**When to read:** Understanding the philosophical basis
-
-The minimal set of disciplines needed for reliable agent operations:
-1. Constraint-Based Engineering -- start with limits, optimize within them
-2. DevOps + SRE -- operational rigor and reliability engineering
-3. Learning Science -- how humans and systems acquire knowledge
-4. Context Engineering -- managing cognitive load and information flow
-5. Knowledge OS -- git as institutional memory
-
----
-
-### [The Nine Laws](./nine-laws.md)
-
-**Read time:** 20 minutes
-**When to read:** Understanding the mandatory operational principles
-
-Distilled from production experience, these laws separate effective agent operations from chaotic ones: always extract learnings, always improve self or system, always document context, always validate before execute, always share patterns.
-
----
-
 ### [Context Engineering](./context-engineering.md)
 
 **Read time:** 15 minutes

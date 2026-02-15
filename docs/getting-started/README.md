@@ -8,7 +8,7 @@ Welcome! Choose your path based on what you want to achieve.
 
 ### 🚀 I want to start using AI workflows immediately
 
-**Goal:** Get FAAFO (Fast, Ambitious, Autonomous, Fun, Optionality) as quickly as possible
+**Goal:** Get reliable results from AI agents as quickly as possible
 
 **Start here:** [Quick Start Guide](quick-start.md)
 - 15 minutes to first workflow
@@ -57,9 +57,9 @@ Welcome! Choose your path based on what you want to achieve.
 
 **Goal:** Deep understanding before implementation
 
-**Start here:** [FAAFO Philosophy](../explanation/faafo-north-star.md)
+**Start here:** [The North Star](../explanation/faafo-north-star.md)
 - Why this exists (the driving belief)
-- How it connects to the Five Pillars
+- How it connects to the 12 Factors
 - Industry validation from AI Summit 2025
 
 **Then:** [Standing on Giants](../explanation/standing-on-giants.md)
@@ -77,7 +77,7 @@ Welcome! Choose your path based on what you want to achieve.
 | Solo dev frustrated with AI failures | Solo Developer | 1-2 hours | Low |
 | Team lead rolling out AI | Team Workflows | 1 day | Medium |
 | Platform engineer | Platform Engineering | 1 week | High |
-| Want philosophy first | FAAFO + Standing on Giants | 30 min reading | Low (reading) |
+| Want philosophy first | North Star + Standing on Giants | 30 min reading | Low (reading) |
 
 ---
 
@@ -86,7 +86,7 @@ Welcome! Choose your path based on what you want to achieve.
 ### After 15 minutes (Quick Start)
 ✅ First AI workflow with validation gates
 ✅ 2-5x speedup on simple tasks
-✅ Understanding of FAAFO philosophy
+✅ Understanding of operational discipline philosophy
 
 ### After 1-2 hours (Solo Developer)
 ✅ 35% → 70% success rate improvement
@@ -159,6 +159,6 @@ A: No. Git + any AI assistant (Claude, GitHub Copilot, etc.) is enough. We show 
 
 ---
 
-**Remember:** FAAFO is not a destination, it's a compass. Every decision should move you closer to Fast, Ambitious, Autonomous, Fun, Optionality.
+**Remember:** Operational discipline is not a destination, it's a practice. Every session should make the next one smarter.
 
 Choose your path and let's get started! 🚀

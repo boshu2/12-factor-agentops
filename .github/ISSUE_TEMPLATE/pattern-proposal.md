@@ -34,12 +34,19 @@ assignees: ''
 
 **How It Works:** [Step-by-step overview of the pattern]
 
-**Why This Works:** [Theoretical grounding - which of the Five Pillars supports this?]
-- [ ] Constraint-Based Engineering
-- [ ] DevOps + SRE
-- [ ] Learning Science
-- [ ] Context Engineering
-- [ ] Knowledge OS
+**Why This Works:** [Which of the 12 Factors does this pattern support?]
+- [ ] I: Context Is Everything
+- [ ] II: Track Everything in Git
+- [ ] III: One Agent, One Job
+- [ ] IV: Research Before You Build
+- [ ] V: Validate Externally
+- [ ] VI: Lock Progress Forward
+- [ ] VII: Extract Learnings
+- [ ] VIII: Compound Knowledge
+- [ ] IX: Measure What Matters
+- [ ] X: Isolate Workers
+- [ ] XI: Supervise Hierarchically
+- [ ] XII: Harvest Failures as Wisdom
 
 ---
 
@@ -99,15 +106,9 @@ If you have a draft of the pattern following our 13-section structure, link it h
 
 ---
 
-## Compliance with Nine Laws
+## Alignment with 12 Factors
 
-How does this pattern embody the Nine Laws?
-
-- **Law 1 (Extract Learnings):** [How does this pattern help extract learnings?]
-- **Law 2 (Improve):** [What does this pattern improve?]
-- **Law 3 (Document Context):** [How does this preserve context?]
-- **Law 4 (Validate):** [What validation does this pattern include?]
-- **Law 5 (Share):** [How does this pattern facilitate sharing?]
+Which factors does this pattern reinforce? (Reference the checkboxes in "Why This Works" above and explain how.)
 
 ---
 
@@ -134,7 +135,7 @@ Before submitting, please ensure:
 - [ ] Pattern addresses a real operational challenge (not theoretical)
 - [ ] Pattern has been tested in production (not just designed)
 - [ ] Quantified results provided (metrics, not just intuition)
-- [ ] Theoretical grounding clear (which Pillars/Laws support this)
+- [ ] Theoretical grounding clear (which of the 12 Factors support this)
 - [ ] Generalization potential assessed (other domains considered)
 - [ ] Related to AI agent operations (not general software patterns)
 
