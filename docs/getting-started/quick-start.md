@@ -262,8 +262,6 @@ cp fibonacci.py .patterns/validated-function-template.py
 
 **Keep going:**
 - **Solo developer?** → [Solo Developer Guide](solo-developer.md)
-- **Leading a team?** → [Team Workflows Guide](team-workflows.md)
-- **Building a platform?** → [Platform Engineering Guide](platform-engineering.md)
 - **Want deeper understanding?** → [FAAFO Philosophy](../explanation/faafo-north-star.md)
 
 ---

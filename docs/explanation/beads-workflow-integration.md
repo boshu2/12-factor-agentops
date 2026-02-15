@@ -137,12 +137,12 @@ The workflow creates persistent memory across sessions:
 
 | Factor | Beads Support |
 |--------|---------------|
-| **I. Automated Tracking** | Git-backed `.beads/issues.jsonl` |
-| **II. Context Loading** | JIT loading via `bd show` |
-| **III. Focused Agents** | One issue per `/implement` |
-| **IV. Continuous Validation** | Status tracking (`open` → `in_progress` → `closed`) |
-| **V. Measure Everything** | Issue lifecycle metrics |
-| **VI. Resume Work** | `bd ready` picks up where you left off |
+| **I. Context Is Everything** | Git-backed `.beads/issues.jsonl` |
+| **II. Track Everything in Git** | JIT loading via `bd show` |
+| **III. One Agent, One Job** | One issue per `/implement` |
+| **IV. Research Before You Build** | Status tracking (`open` → `in_progress` → `closed`) |
+| **V. Validate Externally** | Issue lifecycle metrics |
+| **VI. Lock Progress Forward** | `bd ready` picks up where you left off |
 
 ## Attribution
 
@@ -158,4 +158,4 @@ The unified workflow emerged from combining:
 **Related:**
 - [Vibe Coding Integration](vibe-coding-integration.md)
 - [Standing on Giants](standing-on-giants.md)
-- [Factor I: Automated Tracking](../../factors/01-automated-tracking.md)
+- [Factor I: Context Is Everything](../../factors/01-context-is-everything.md)

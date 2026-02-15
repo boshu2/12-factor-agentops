@@ -138,10 +138,10 @@ Each AgentOps factor prevents specific failure patterns:
 
 | AgentOps Factor | Prevents Failure Pattern |
 |-----------------|-------------------------|
-| I. Automated Tracking | 7. Memory Tattoo Decay |
-| II. Context Loading | 2. Context Amnesia |
-| IV. Continuous Validation | 1. Tests Passing Lie |
-| VIII. Human Validation | 9. Bridge Torching |
+| I. Context Is Everything | 7. Memory Tattoo Decay |
+| II. Track Everything in Git | 2. Context Amnesia |
+| IV. Research Before You Build | 1. Tests Passing Lie |
+| VIII. Compound Knowledge | 9. Bridge Torching |
 
 ### 12-Factor Agents Provides Foundation
 HumanLayer's factors ensure agents are built in a way that CAN be operated:

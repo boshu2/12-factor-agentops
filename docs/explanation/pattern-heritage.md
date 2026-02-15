@@ -82,7 +82,7 @@ Houston introduced explicit state machines for multi-phase work.
 │  │ COMPLETE │  │ FAILED │  │ ABORTED │                                │
 │  └──────────┘  └────────┘  └─────────┘                                │
 │                                                                         │
-│  INFORMED: Factor VI (Resume Work), Factor VIII (Human Validation)     │
+│  INFORMED: Factor VI (Lock Progress Forward), Factor VIII (Compound Knowledge) │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -114,7 +114,7 @@ class Mission:
         self.emit_event(StateChange(self.id, new_state))
 ```
 
-**Factors informed:** VI (Resume Work), VIII (Human Validation)
+**Factors informed:** VI (Lock Progress Forward), VIII (Compound Knowledge)
 
 ---
 
@@ -155,7 +155,7 @@ class AtomicLock:
 
 **Why this matters:** No Redis, no Zookeeper, no network. Just filesystem semantics that work everywhere, including air-gapped environments.
 
-**Factors informed:** XII (Package Patterns) - works in any environment
+**Factors informed:** XII (Harvest Failures as Wisdom) - works in any environment
 
 ---
 
@@ -195,7 +195,7 @@ async def mission_events(mission_id: str):
 - Auto-reconnects on disconnect
 - No WebSocket complexity
 
-**Factors informed:** V (Measure Everything), VIII (Human Validation async gates)
+**Factors informed:** V (Validate Externally), VIII (Compound Knowledge async gates)
 
 ---
 
@@ -232,7 +232,7 @@ Houston maximized throughput with N parallel workers + 1 initializer.
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Factors informed:** III (Focused Agents), VII (Smart Routing)
+**Factors informed:** III (One Agent, One Job), VII (Extract Learnings)
 
 ---
 
@@ -272,7 +272,7 @@ class WorkerMonitor:
                 mission.worker = None
 ```
 
-**Factors informed:** XI (Fail-Safe Checks)
+**Factors informed:** XI (Supervise Hierarchically)
 
 ---
 
@@ -390,7 +390,7 @@ status:
       - "Rate limit: 100 req/min"
 ```
 
-**Factors informed:** VI (Resume Work), III (Focused Agents)
+**Factors informed:** VI (Lock Progress Forward), III (One Agent, One Job)
 
 ---
 
@@ -457,7 +457,7 @@ func (c *BudgetController) Reconcile(ctx context.Context, req ctrl.Request) (ctr
 }
 ```
 
-**Factors informed:** VIII (Human Validation), XI (Fail-Safe Checks)
+**Factors informed:** VIII (Compound Knowledge), XI (Supervise Hierarchically)
 
 ---
 
@@ -533,7 +533,7 @@ spec:
       - "no breaking changes"
 ```
 
-**Factors informed:** VII (Smart Routing)
+**Factors informed:** VII (Extract Learnings)
 
 ---
 
@@ -569,7 +569,7 @@ func (c *Controller) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Resu
 | Must track what's processed | Idempotent by design |
 | Complex event ordering | Simple state comparison |
 
-**Factors informed:** XI (Fail-Safe Checks)
+**Factors informed:** XI (Supervise Hierarchically)
 
 ---
 
@@ -611,7 +611,7 @@ status:
 - Reversible actions can be rolled back
 - Compliance-ready logging
 
-**Factors informed:** VIII (Human Validation), V (Measure Everything)
+**Factors informed:** VIII (Compound Knowledge), V (Validate Externally)
 
 ---
 
@@ -619,16 +619,16 @@ status:
 
 | Pattern | Source | Primary Factor | Supporting Factors |
 |---------|--------|----------------|-------------------|
-| Mission Lifecycle State Machine | Houston | VI (Resume Work) | VIII (Human Validation) |
-| mkdir Atomic Locking | Houston | XII (Package Patterns) | - |
-| SSE Telemetry | Houston | V (Measure Everything) | VIII (Human Validation) |
-| N+1 Worker Pattern | Houston | III (Focused Agents) | VII (Smart Routing) |
-| PID-Based Crash Recovery | Houston | XI (Fail-Safe Checks) | - |
-| Shard/ShardRun Separation | Fractal | VI (Resume Work) | III (Focused Agents) |
-| BudgetQuota CRD | Fractal | VIII (Human Validation) | XI (Fail-Safe Checks) |
-| Blackboard Coordination | Fractal | VII (Smart Routing) | III (Focused Agents) |
-| Level-Triggered Reconciliation | Fractal | XI (Fail-Safe Checks) | IV (Continuous Validation) |
-| ToolCall Audit Trail | Fractal | VIII (Human Validation) | V (Measure Everything) |
+| Mission Lifecycle State Machine | Houston | VI (Lock Progress Forward) | VIII (Compound Knowledge) |
+| mkdir Atomic Locking | Houston | XII (Harvest Failures as Wisdom) | - |
+| SSE Telemetry | Houston | V (Validate Externally) | VIII (Compound Knowledge) |
+| N+1 Worker Pattern | Houston | III (One Agent, One Job) | VII (Extract Learnings) |
+| PID-Based Crash Recovery | Houston | XI (Supervise Hierarchically) | - |
+| Shard/ShardRun Separation | Fractal | VI (Lock Progress Forward) | III (One Agent, One Job) |
+| BudgetQuota CRD | Fractal | VIII (Compound Knowledge) | XI (Supervise Hierarchically) |
+| Blackboard Coordination | Fractal | VII (Extract Learnings) | III (One Agent, One Job) |
+| Level-Triggered Reconciliation | Fractal | XI (Supervise Hierarchically) | IV (Research Before You Build) |
+| ToolCall Audit Trail | Fractal | VIII (Compound Knowledge) | V (Validate Externally) |
 
 ---
 
@@ -683,12 +683,12 @@ ai-platform combined Houston's simplicity with Fractal's Kubernetes-native appro
 
 - **From Theory to Production**: [./from-theory-to-production.md](./from-theory-to-production.md)
 - **The 12 Factors**: [../../factors/README.md](../../factors/README.md)
-- **Factor III Implementation Patterns**: [../../factors/03-focused-agents.md#implementation-patterns](../../factors/03-focused-agents.md#implementation-patterns)
-- **Factor VI Implementation Patterns**: [../../factors/06-resume-work.md#implementation-patterns](../../factors/06-resume-work.md#implementation-patterns)
-- **Factor VII Implementation Patterns**: [../../factors/07-smart-routing.md#implementation-patterns](../../factors/07-smart-routing.md#implementation-patterns)
-- **Factor VIII Implementation Patterns**: [../../factors/08-human-validation.md#implementation-patterns](../../factors/08-human-validation.md#implementation-patterns)
-- **Factor XI Implementation Patterns**: [../../factors/11-fail-safe-checks.md#implementation-patterns](../../factors/11-fail-safe-checks.md#implementation-patterns)
-- **Factor XII Implementation Patterns**: [../../factors/12-package-patterns.md#implementation-patterns](../../factors/12-package-patterns.md#implementation-patterns)
+- **Factor III Implementation Patterns**: [../../factors/03-one-agent-one-job.md#implementation-patterns](../../factors/03-one-agent-one-job.md#implementation-patterns)
+- **Factor VI Implementation Patterns**: [../../factors/06-lock-progress-forward.md#implementation-patterns](../../factors/06-lock-progress-forward.md#implementation-patterns)
+- **Factor VII Implementation Patterns**: [../../factors/07-extract-learnings.md#implementation-patterns](../../factors/07-extract-learnings.md#implementation-patterns)
+- **Factor VIII Implementation Patterns**: [../../factors/08-compound-knowledge.md#implementation-patterns](../../factors/08-compound-knowledge.md#implementation-patterns)
+- **Factor XI Implementation Patterns**: [../../factors/11-supervise-hierarchically.md#implementation-patterns](../../factors/11-supervise-hierarchically.md#implementation-patterns)
+- **Factor XII Implementation Patterns**: [../../factors/12-harvest-failures-as-wisdom.md#implementation-patterns](../../factors/12-harvest-failures-as-wisdom.md#implementation-patterns)
 
 ---
 

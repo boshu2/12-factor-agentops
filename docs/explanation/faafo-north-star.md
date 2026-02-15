@@ -100,7 +100,7 @@ FAAFO describes the **ideal state of developer experience** when AI augments wor
 
 **Technical pillar applied:** Context Engineering (40% rule)
 
-**12-Factor implementation:** Factor II (Context Loading), Factor VI (Resume Work)
+**12-Factor implementation:** Factor II (Track Everything in Git), Factor VI (Lock Progress Forward)
 
 **Workflow implementation:** JIT loading, thin kernels, bundle compression (12:1 ratio)
 
@@ -118,7 +118,7 @@ FAAFO describes the **ideal state of developer experience** when AI augments wor
 
 **Technical pillar applied:** DevOps/SRE (CI/CD, validation gates)
 
-**12-Factor implementation:** Factor IV (Continuous Validation), Factor V (Measure Everything)
+**12-Factor implementation:** Factor IV (Research Before You Build), Factor V (Validate Externally)
 
 **Workflow implementation:** Multi-layer validation (syntax → schema → security → policy)
 
@@ -136,7 +136,7 @@ FAAFO describes the **ideal state of developer experience** when AI augments wor
 
 **Technical pillar applied:** Learning Science (pattern reuse, spaced repetition)
 
-**12-Factor implementation:** Factor IX (Mine Patterns), Factor XII (Package Patterns)
+**12-Factor implementation:** Factor IX (Measure What Matters), Factor XII (Harvest Failures as Wisdom)
 
 **Workflow implementation:** Bundle system, golden patterns, 84 specialized agents
 

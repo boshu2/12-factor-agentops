@@ -413,7 +413,7 @@ The 40% Rule unifies human cognition, AI systems, and engineering because:
 **Related Documentation:**
 - [Production Metrics](production-metrics.md) - Empirical validation
 - [Context Engineering](principles/context-engineering.md) - Practical application
-- [Factor I: Context Is Everything](../factors/02-context-loading.md) - Implementation
+- [Factor I: Context Is Everything](../factors/01-context-is-everything.md) - Implementation
 - [Workflow Guide](tutorials/workflow-guide.md) - Operational usage
 
 **Research Sources:**

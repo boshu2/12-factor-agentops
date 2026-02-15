@@ -48,35 +48,12 @@ The math is brutal: if you run 20 sessions a month and extract nothing, you gene
 
 ### The Symptoms of Missing Extraction
 
-You can diagnose missing extraction by observable symptoms:
+You can diagnose missing extraction by these patterns:
 
-**Symptom: Repetitive mistakes**
-- Same bug reintroduced across sessions
-- Same architectural dead ends explored repeatedly
-- Same integration traps hit over and over
-
-**Root cause:** No one extracted what failed last time.
-
-**Symptom: Constant re-explanation**
-- New team members ask the same questions
-- "Why did we build it this way?" has no answer
-- Tribal knowledge locked in senior developers' heads
-
-**Root cause:** Decisions were never documented when they were made.
-
-**Symptom: No recall of prior work**
-- "Didn't we already solve this?"
-- "I think we tried that before but I don't remember why it didn't work"
-- Searching the codebase finds the code but not the context
-
-**Root cause:** Work products exist, learnings don't.
-
-**Symptom: Fear of refactoring**
-- No one knows why the code is shaped this way
-- Changing it might break invisible invariants
-- "Just leave it, it works"
-
-**Root cause:** The original design rationale was never extracted.
+- **Repetitive mistakes** — Same bugs, same dead ends, same integration traps across sessions. No one extracted what failed last time.
+- **Constant re-explanation** — New team members ask questions with no written answers. Tribal knowledge locked in senior developers' heads.
+- **No recall of prior work** — "Didn't we already solve this?" The code exists but not the context around it.
+- **Fear of refactoring** — No one knows why the code is shaped this way. "Just leave it, it works."
 
 ### What Gets Extracted
 
@@ -99,14 +76,9 @@ Not everything is worth extracting. Focus on knowledge with half-life longer tha
 
 ### Extraction Is Deliberate, Not Automatic
 
-Your brain doesn't naturally produce good extractions. During execution, you're thinking in implementation details. You need a deliberate shift:
+Your brain doesn't naturally produce good extractions. During execution, you're in implementation mode. At session end, you need a deliberate shift to ask: "What did I learn?"
 
-**During the session:** Focus on solving the problem
-**At session end:** Step back and ask extraction questions
-
-If you try to extract while coding, you'll slow down execution. If you finish coding and immediately close the tab, you'll lose everything. The extraction phase is a distinct activity with distinct value.
-
-This is why tools exist for post-session extraction: `/post-mortem`, `/retro`, `ao forge transcript`. They force the deliberate shift from "what did I do" to "what did I learn."
+If you try to extract while coding, you'll slow down. If you close the tab without extracting, you'll forget everything. The extraction phase is distinct from execution — and both are required.
 
 ---
 
@@ -290,163 +262,13 @@ we use retries with exponential backoff in a few places
 
 Where? How? When should I use it? When shouldn't I?
 
-### Good Extraction: Codebase Mental Models
+### Good Extraction: Mental Models and Gotchas
 
-The most valuable extractions are mental models — how to think about the system.
+The most valuable extractions are mental models (how to think about the system) and integration gotchas (where reality diverges from documentation).
 
-**Example: Mental Model Documentation**
+**Mental model example:** Don't just note "the pipeline is kind of like a state machine." Document the states, transitions, why this framing helps, and how to apply it when adding new stages. A good mental model extraction transforms how people think about the code.
 
-```markdown
-# Mental Model: Pipeline as State Machine
-
-## The Insight
-Don't think of the processing pipeline as a sequence of functions.
-Think of it as a state machine where each stage is a state transition.
-
-## Why This Matters
-- Makes error handling obvious (invalid transitions)
-- Makes logging obvious (state change events)
-- Makes testing obvious (verify state transitions)
-- Makes debugging obvious (which state transition failed)
-
-## The States
-```
-RECEIVED → VALIDATED → ENRICHED → PROCESSED → COMPLETED
-     ↓          ↓           ↓           ↓
-  REJECTED  REJECTED   REJECTED    FAILED
-```
-
-## Code Manifestation
-```go
-type PipelineState int
-
-const (
-    StateReceived PipelineState = iota
-    StateValidated
-    StateEnriched
-    StateProcessed
-    StateCompleted
-    StateRejected
-    StateFailed
-)
-
-func (p *Pipeline) Transition(to PipelineState) error {
-    if !p.isValidTransition(p.state, to) {
-        return fmt.Errorf("invalid transition %v -> %v", p.state, to)
-    }
-    p.emit(StateTransitionEvent{From: p.state, To: to})
-    p.state = to
-    return nil
-}
-```
-
-## Before This Mental Model
-- Functions called functions (no structure)
-- Error handling ad-hoc
-- Hard to answer "where did this fail?"
-- Testing focused on happy path
-
-## After This Mental Model
-- Clear state transitions (invalid ones rejected)
-- Error handling is transition logic
-- Every failure has a terminal state
-- Testing covers all transitions
-
-## Applying It
-When adding a new pipeline stage:
-1. Define the new state
-2. Define valid transitions to/from it
-3. Implement transition logic
-4. Add tests for invalid transitions
-5. Add logging for state changes
-
-## Tags
-#mental-models #architecture #state-machine #pipeline
-
-Date: 2026-02-15
-Session: ag-2050
-```
-
-**Why this works:**
-- Transforms how you think about the code
-- Before/after comparison shows impact
-- Application guide makes it actionable
-- New features inherit the model
-
-**Bad version:**
-
-```
-the pipeline is kind of like a state machine
-```
-
-Kind of? How? What changes if I think of it that way?
-
-### Good Extraction: Integration Gotchas
-
-APIs lie. Docs are wrong. Behavior is weird. Extract the truth.
-
-**Example: Integration Gotcha Documentation**
-
-```markdown
-# Integration Gotcha: GitHub API Rate Limits
-
-## The Official Story
-GitHub API allows 5000 requests/hour with authentication.
-
-## The Actual Behavior
-- Limit is per-token, not per-application
-- Limit resets at fixed time (not sliding window)
-- Some endpoints count as multiple requests (GraphQL)
-- Search API has separate limit (30 requests/min)
-- Conditional requests (If-None-Match) don't count if not modified
-
-## What This Means
-- Don't share tokens across parallel workers
-- Cache reset time, don't spam retry
-- Use GraphQL carefully (can burn 10+ requests in one call)
-- Use search sparingly or separate token
-- Use ETags religiously (free requests)
-
-## How We Got Burned
-Initially used single token for all workers. Hit rate limit in 15 minutes
-because GraphQL queries counted as ~50 requests each.
-
-## The Fix
-```go
-// Bad: Single shared token
-client := github.NewClient(sharedToken)
-
-// Good: Token pool with rate tracking
-pool := NewTokenPool(tokens)
-client := pool.GetClient() // Rotates to next available
-```
-
-## Observable Symptoms When You Violate This
-- 403 responses with "rate limit exceeded"
-- X-RateLimit-Remaining header at 0
-- Mysterious failures at top of hour
-- GraphQL succeeding but requests depleted
-
-## Tags
-#integration #github #rate-limiting #gotchas #api
-
-Date: 2026-02-15
-Session: ag-2051
-```
-
-**Why this works:**
-- Official story vs reality documented
-- How you got burned prevents repetition
-- Observable symptoms aid debugging
-- Fix is concrete code
-
-**Bad version:**
-
-```
-watch out for github rate limits
-```
-
-Watch out how? What specifically? What happens if I don't?
+**Integration gotcha example:** Don't just write "watch out for GitHub rate limits." Document the official story vs actual behavior, how you got burned, the fix with code, and observable symptoms. Future developers need specifics to avoid repeating your mistakes.
 
 ### The Extraction Workflow
 
@@ -493,155 +315,28 @@ Different knowledge types need different formats:
 | Patterns | Pattern catalog | "How we handle Z" |
 | Gotchas | Gotcha documentation | "API quirk W" |
 | Mental models | Model guide | "Think of it as..." |
-| Integration | Integration notes | "Service S behavior" |
-| Debugging | Symptom-solution map | "Error E means F" |
 
-**Consistency matters.** Use templates so extractions are comparable and searchable.
-
-### Tools for Extraction
-
-**Manual extraction:**
-- End-of-session markdown files
-- Decision records in `/docs/decisions/`
-- Pattern catalog in `/docs/patterns/`
-- ARCHITECTURE.md updates
-
-**AgentOps extraction:**
-- `/post-mortem` - Structured session analysis
-- `/retro` - Team retrospective
-- `ao forge transcript` - Mine session for learnings
-- `ao pool promote` - Elevate extractions to knowledge base
-
-**Storage locations:**
-- **Project docs** - `/docs/` for project-specific knowledge
-- **Knowledge base** - AgentOps pools for cross-project patterns
-- **Wiki** - For broad organizational knowledge
-- **Code comments** - For localized gotchas
-
-**The key:** Pick a system and use it consistently. Inconsistent extraction is only marginally better than no extraction.
+Use templates so extractions are comparable and searchable. Pick a system and use it consistently — inconsistent extraction is only marginally better than no extraction.
 
 ### Extraction Smells
 
-Bad extraction has tells:
-
-**Smell: Vague summaries**
-- "Had some trouble with the API but figured it out"
-- What trouble? How did you figure it out?
-
-**Smell: No decisions documented**
-- Code changed but no record of why
-- Future refactors will repeat the analysis
-
-**Smell: Only happy path documented**
-- "Here's how it works"
-- What about how it fails? What doesn't work?
-
-**Smell: No observable symptoms**
-- "Authentication was broken"
-- How did you know? What did you see?
-
-**Smell: Solutions without context**
-- "Use approach X"
-- Why? Instead of what? When not to use X?
+Bad extraction has tells: vague summaries ("had some trouble but figured it out"), no decisions documented, only happy path covered, no observable symptoms, and solutions without context.
 
 **Good extraction answers:** What? Why? How? When? When not? What else did you try? What should someone watch out for?
 
-### Organizational Impact
-
-Extraction quality compounds:
-
-**Month 1: Individual benefit**
-- You stop repeating your own mistakes
-- You recall decisions you made
-
-**Month 3: Team benefit**
-- New teammates find answers in extracted knowledge
-- Less re-explanation required
-
-**Month 6: Organizational benefit**
-- Common patterns cataloged
-- Decisions traceable
-- Onboarding faster
-
-**Year 1: Institutional knowledge**
-- Codebase is navigable by extraction index
-- Architectural evolution is documented
-- Mistakes are not repeated across teams
-
-**Without extraction:** Every session starts from zero. Knowledge resets with every personnel change. The organization has no memory.
-
-**With extraction:** Knowledge accumulates. Each session builds on prior learnings. The organization gets smarter over time.
-
 ### The Discipline
 
-Extraction is not natural. After solving a hard problem, your brain wants celebration, not documentation. After a long session, you want to close the laptop, not write markdown.
+Extraction is not natural. After solving a hard problem, your brain wants celebration, not documentation. This is why extraction must be part of the workflow — not optional, not "when you have time."
 
-**This is why extraction must be part of the workflow.**
+**Extract from every session.** Small extractions are fine. One decision record. One failure note. One pattern observation. If the session was valuable, the extraction is mandatory.
 
-Not "extract if you feel like it." Not "extract the big stuff." Not "extract when you have time."
+Note that extraction differs from documentation. Documentation describes how the system works ("call function X with parameter Y"). Extraction describes how it came to work this way ("we chose X over Y because Z"). Documentation enables usage. Extraction enables change. You need both.
 
-**Extract from every session.** Small extractions are fine. One decision record. One failure note. One pattern observation.
+### Organizational Impact
 
-**The rule:** If it's worth doing, it's worth extracting from.
+Extraction quality compounds. Month 1: you stop repeating your own mistakes. Month 3: new teammates find answers without asking. Month 6: common patterns are cataloged and decisions are traceable. Year 1: architectural evolution is documented and mistakes are not repeated across teams.
 
-If you're not going to extract, question whether the session was valuable. If the session was valuable, the extraction is mandatory.
-
-### Extraction vs. Documentation
-
-These are different activities:
-
-**Documentation:** Describes how the system works
-- "The API returns JSON with these fields"
-- "Call function X with parameter Y"
-- Answers: How do I use this?
-
-**Extraction:** Describes how the system came to work this way
-- "We chose JSON over XML because..."
-- "Function X exists to handle edge case Y"
-- Answers: Why is it like this?
-
-Both matter. Documentation enables usage. Extraction enables change.
-
-**You need both.** Code without documentation is hard to use. Code without extraction is hard to modify.
-
-### The Extraction Mindset
-
-**During the session:** You're in execution mode
-- Trying approaches
-- Making decisions
-- Discovering patterns
-- Hitting obstacles
-
-**At session end:** Shift to extraction mode
-- Which approaches worked/failed?
-- Which decisions matter?
-- Which patterns are reusable?
-- Which obstacles will others hit?
-
-The mindset shift is critical. If you try to extract in execution mode, you'll slow down. If you skip extraction mode entirely, you'll forget everything.
-
-**The discipline:** Every session has two phases. Execution, then extraction. Both are required.
-
-### Measuring Extraction Quality
-
-You can measure whether extraction is working:
-
-**Leading indicators:**
-- Extraction artifacts produced per session
-- Extraction artifacts referenced in later work
-- Time spent on extraction
-
-**Lagging indicators:**
-- Repetitive mistakes declining
-- Onboarding time decreasing
-- "Why did we do it this way?" questions dropping
-- Refactoring confidence increasing
-
-**If extractions are never referenced:** They're not useful. Improve searchability or content quality.
-
-**If same questions keep arising:** Extraction is missing or not findable.
-
-**The goal:** Every major decision, failure, and pattern is extracted and retrievable.
+**Without extraction:** Every session starts from zero. The organization has no memory. **With extraction:** Knowledge accumulates. The organization gets smarter over time.
 
 ---
 
@@ -720,136 +415,7 @@ Tags: #authentication #bugs #tokens #security
 
 **Value of extraction:** 4 hours saved + consistency maintained
 
-### Example: Extracted Decision
-
-```markdown
-# Decision 003: Use gRPC for Internal Services
-
-## Context
-Microservices communicate frequently. Need efficient, type-safe RPC.
-Considering REST, gRPC, GraphQL for internal communication.
-
-## Decision
-gRPC for all internal service-to-service communication.
-REST reserved for external-facing APIs only.
-
-## Rationale
-**Pros:**
-- Binary protocol (faster than JSON)
-- Schema-first (protobuf prevents drift)
-- Streaming support (long-running operations)
-- Code generation (clients in all languages)
-
-**Cons:**
-- Harder to debug (binary, not text)
-- Steeper learning curve
-- Requires HTTP/2 (infrastructure requirement)
-
-**Why not REST:**
-- JSON overhead for internal chatty calls
-- Schema drift common without enforcement
-- No built-in streaming
-
-**Why not GraphQL:**
-- Over-fetching not a concern internally
-- Complexity not worth it for point-to-point RPC
-- gRPC faster for our access patterns
-
-## Consequences
-- All new services must define .proto files
-- Debugging requires grpcurl or specialized tools
-- Load balancers must support HTTP/2
-- External APIs remain REST (no change)
-
-## Success Metrics
-- Inter-service latency <50ms p99
-- Schema drift incidents zero
-- New service integration time <1 day
-
-## Review Date
-2026-08-15 (6 months) - Evaluate if decision still holds
-
-## Tags
-#architecture #grpc #microservices #decisions
-
-Date: 2026-02-15
-Session: ag-2053
-```
-
-**Why this works:** Six months from now when someone questions "why gRPC?" this extraction answers it. When evaluating a new technology, this provides the comparison framework. When debugging latency, this sets the success criteria.
-
-### Example: Extracted Failure
-
-```markdown
-# Failed Approach: Event Sourcing for User Preferences
-
-## What We Tried
-Store user preferences as event stream (event sourcing pattern).
-Replay events to reconstruct current state.
-
-## Why It Sounded Good
-- Audit trail of all preference changes
-- Temporal queries ("what were settings on date X")
-- Undo/redo capability
-
-## What Actually Happened
-- State reconstruction slow (100+ events for active users)
-- Queries require full replay (no indexing)
-- Event schema migration nightmare
-- Complexity overwhelmed benefits
-
-## Observable Failures
-- Preference load time >500ms for active users
-- "What's the current value" requires scanning event log
-- Event schema v1 incompatible with v2 (migration broke)
-- Simple "update preference" required event versioning
-
-## What We Did Instead
-Traditional update-in-place with audit log table:
-
-```sql
-CREATE TABLE user_preferences (
-    user_id INT PRIMARY KEY,
-    theme VARCHAR,
-    notifications BOOLEAN,
-    updated_at TIMESTAMP
-);
-
-CREATE TABLE preference_audit (
-    id SERIAL PRIMARY KEY,
-    user_id INT,
-    field VARCHAR,
-    old_value VARCHAR,
-    new_value VARCHAR,
-    changed_at TIMESTAMP
-);
-```
-
-## Why This Works
-- Current state is single row read (fast)
-- Audit trail still exists (separate table)
-- Schema changes are normal migrations
-- Simplicity appropriate for problem size
-
-## Lessons
-- Event sourcing is not free
-- Most problems don't need temporal queries
-- Complexity must be justified by requirements
-- Simple solutions can still provide audit trails
-
-## When Event Sourcing Might Work
-- Financial transactions (audit critical)
-- Collaborative editing (conflict resolution)
-- True temporal requirements (not nice-to-have)
-
-## Tags
-#failures #event-sourcing #architecture #over-engineering
-
-Date: 2026-02-15
-Session: ag-2054
-```
-
-**Why this works:** Prevents someone else from making the same mistake. Documents when event sourcing might be appropriate. Provides the simpler alternative.
+See the "What Good Looks Like" section above for additional extraction formats: decision records, failure logs, and pattern catalogs.
 
 ---
 

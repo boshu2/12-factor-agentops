@@ -148,7 +148,7 @@
 
 ---
 
-### 5. JIT Context Loading
+### 5. JIT Context Loading (now Factor II: Track Everything in Git)
 
 #### Our Discovery (2024)
 
@@ -174,7 +174,7 @@
 
 ---
 
-### 6. Human Validation Checkpoints
+### 6. Human Validation Checkpoints (now Factor V: Validate Externally)
 
 #### Our Discovery (2024)
 

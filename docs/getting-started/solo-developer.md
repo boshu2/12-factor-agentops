@@ -587,18 +587,7 @@ cp working-code.py .patterns/[pattern-name].py
 
 ---
 
-### Option B: Scale to Team
-
-**Leading a team?**
-
-**Guide:** [Team Workflows](team-workflows.md)
-- Shared pattern libraries
-- Compound knowledge for institutional memory
-- Hierarchical supervision for team safety
-
----
-
-### Option C: Understand Deeply
+### Option B: Understand Deeply
 
 **Want to know why this works?**
 
