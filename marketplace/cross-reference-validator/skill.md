@@ -1,7 +1,7 @@
 ---
 name: cross-reference-validator
 description: Validate cross-references and links across documentation
-version: 2.0.0
+version: 3.0.0
 author: boshu2
 license: Apache-2.0
 context: fork
@@ -20,15 +20,16 @@ allowed-tools:
 
 | Aspect | Details |
 |--------|---------|
-| **Type** | Validation Skill |
+| **Type** | Operational Discipline Skill |
 | **Trigger** | Before commit, during review |
 | **Output** | Broken link report with fixes |
+| **Factors** | V: Validate Externally, VI: Lock Progress Forward |
 
 ---
 
 ## Summary
 
-Documentation rots when links break. This skill scans your docs for broken cross-references, outdated links, and orphaned files.
+Documentation rots when links break. This skill implements Factor V (Validate Externally) for documentation: it scans your docs for broken cross-references, outdated links, and orphaned files using external file-system and HTTP checks -- not LLM guesswork.
 
 ## What Gets Validated
 
@@ -46,15 +47,15 @@ Documentation rots when links break. This skill scans your docs for broken cross
 |-------|---------|-----|
 | **Dead URLs** | 404 responses | Update or archive |
 | **Redirects** | 301/302 responses | Update to final URL |
-| **HTTP → HTTPS** | Insecure links | Upgrade to HTTPS |
+| **HTTP to HTTPS** | Insecure links | Upgrade to HTTPS |
 
 ### Cross-References
 
 | Check | Example | Fix |
 |-------|---------|-----|
-| **Factor references** | "See Factor XIV" | Factor XIV doesn't exist |
+| **Factor references** | "See Factor XIV" | Only 12 factors exist (I-XII) |
+| **Factor name accuracy** | "Factor IV: Continuous Validation" | Correct: Factor V: Validate Externally |
 | **Pattern references** | "Uses Pattern X" | Pattern X not in library |
-| **Law references** | "Law 10" | Only 9 laws exist |
 
 ### Orphaned Files
 
@@ -64,19 +65,38 @@ Documentation rots when links break. This skill scans your docs for broken cross
 | **Dead patterns** | Patterns not referenced by any factor |
 | **Unused assets** | Images/diagrams not embedded |
 
+## v3 Factor Reference (for validation)
+
+When checking factor references, validate against these canonical names:
+
+| Number | Name | Tier |
+|--------|------|------|
+| I | Context Is Everything | Foundation |
+| II | Track Everything in Git | Foundation |
+| III | One Agent, One Job | Foundation |
+| IV | Research Before You Build | Workflow |
+| V | Validate Externally | Workflow |
+| VI | Lock Progress Forward | Workflow |
+| VII | Extract Learnings | Knowledge |
+| VIII | Compound Knowledge | Knowledge |
+| IX | Measure What Matters | Knowledge |
+| X | Isolate Workers | Scale |
+| XI | Supervise Hierarchically | Scale |
+| XII | Harvest Failures as Wisdom | Scale |
+
 ## Validation Process
 
 ```
 Documentation change detected
-    ↓
+    |
 1. Scan changed files for links
-    ↓
+    |
 2. Validate internal links (path exists, anchor exists)
-    ↓
+    |
 3. Validate external links (HTTP HEAD request)
-    ↓
-4. Check cross-references (factors, laws, patterns)
-    ↓
+    |
+4. Check cross-references (factors, patterns)
+    |
 5. Report findings with fixes
 ```
 
@@ -93,7 +113,6 @@ Documentation change detected
 
 | File | Line | Link | Issue |
 |------|------|------|-------|
-| factors/01-automated-tracking.md | 45 | `../patterns/git-workflow.md` | File not found |
 | docs/principles/five-pillars.md | 112 | `#pillar-6` | Anchor not found |
 
 ### External Link Issues
@@ -107,6 +126,7 @@ Documentation change detected
 | File | Line | Reference | Issue |
 |------|------|-----------|-------|
 | workflow-guide.md | 89 | "Factor XIV" | Only 12 factors exist |
+| tutorial.md | 23 | "Factor IV: Continuous Validation" | Stale name; correct: Factor V: Validate Externally |
 
 ### Orphaned Files
 
@@ -116,10 +136,10 @@ Documentation change detected
 
 ### Recommended Fixes
 
-1. Create `patterns/git-workflow.md` or update link
-2. Rename anchor to match actual heading
-3. Update HTTP to HTTPS
-4. Change "Factor XIV" to valid factor
+1. Fix anchor to match actual heading
+2. Update HTTP to HTTPS
+3. Change "Factor XIV" to valid factor (I-XII)
+4. Update stale factor names to v3 canonical names
 5. Review orphaned pattern for inclusion or deletion
 ```
 
@@ -161,4 +181,4 @@ Fix mode (auto-fix where possible):
 
 ---
 
-**Remember:** Broken links erode trust. Every dead link is a promise unkept. Validate before you ship.
+**Remember:** Broken links erode trust. Every dead link is a promise unkept. Validate externally before you commit.

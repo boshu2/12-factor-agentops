@@ -34,76 +34,59 @@
   </g>
 
   <text x="540" y="230" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-        font-size="20" font-weight="600" fill="#3B82F6">Factors I - IV</text>
+        font-size="20" font-weight="600" fill="#3B82F6">Factors I - III</text>
 
   <!-- Factor cards -->
   <g transform="translate(540, 520)">
     <!-- Factor I -->
-    <g transform="translate(-230, -200)">
-      <rect x="-190" y="-90" width="380" height="180" rx="16"
+    <g transform="translate(0, -250)">
+      <rect x="-350" y="-90" width="700" height="180" rx="16"
             fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
-      <rect x="-160" y="-65" width="50" height="50" rx="25" fill="url(#blueGrad)"/>
-      <text x="-135" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+      <rect x="-320" y="-65" width="50" height="50" rx="25" fill="url(#blueGrad)"/>
+      <text x="-295" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
             font-size="22" font-weight="800" fill="#FFFFFF">I</text>
-      <text x="30" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Automated</text>
-      <text x="30" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Tracking</text>
+      <text x="-130" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="18" font-weight="700" fill="#FAFAFA">Context Is</text>
+      <text x="-130" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="18" font-weight="700" fill="#FAFAFA">Everything</text>
       <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Track everything in git.</text>
+            font-size="14" fill="#94A3B8">Load the right context at the right time.</text>
+      <text x="0" y="55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Agents without context hallucinate.</text>
+    </g>
+
+    <!-- Factor II -->
+    <g transform="translate(0, 0)">
+      <rect x="-350" y="-90" width="700" height="180" rx="16"
+            fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+      <rect x="-320" y="-65" width="50" height="50" rx="25" fill="url(#blueGrad)"/>
+      <text x="-295" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="22" font-weight="800" fill="#FFFFFF">II</text>
+      <text x="-130" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="18" font-weight="700" fill="#FAFAFA">Track Everything</text>
+      <text x="-130" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="18" font-weight="700" fill="#FAFAFA">in Git</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">Every decision, every artifact, in version control.</text>
       <text x="0" y="55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
             font-size="14" fill="#94A3B8">No tribal knowledge.</text>
     </g>
 
-    <!-- Factor II -->
-    <g transform="translate(230, -200)">
-      <rect x="-190" y="-90" width="380" height="180" rx="16"
-            fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
-      <rect x="-160" y="-65" width="50" height="50" rx="25" fill="url(#blueGrad)"/>
-      <text x="-135" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="22" font-weight="800" fill="#FFFFFF">II</text>
-      <text x="30" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Context</text>
-      <text x="30" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Loading</text>
-      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Load only what you need.</text>
-      <text x="0" y="55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Stay under 40%.</text>
-    </g>
-
     <!-- Factor III -->
-    <g transform="translate(-230, 100)">
-      <rect x="-190" y="-90" width="380" height="180" rx="16"
+    <g transform="translate(0, 250)">
+      <rect x="-350" y="-90" width="700" height="180" rx="16"
             fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
-      <rect x="-160" y="-65" width="50" height="50" rx="25" fill="url(#blueGrad)"/>
-      <text x="-135" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+      <rect x="-320" y="-65" width="50" height="50" rx="25" fill="url(#blueGrad)"/>
+      <text x="-295" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
             font-size="22" font-weight="800" fill="#FFFFFF">III</text>
-      <text x="30" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Focused</text>
-      <text x="30" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Agents</text>
+      <text x="-130" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="18" font-weight="700" fill="#FAFAFA">One Agent,</text>
+      <text x="-130" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="18" font-weight="700" fill="#FAFAFA">One Job</text>
       <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">One agent, one job.</text>
+            font-size="14" fill="#94A3B8">Single responsibility per agent.</text>
       <text x="0" y="55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Compose specialists.</text>
-    </g>
-
-    <!-- Factor IV -->
-    <g transform="translate(230, 100)">
-      <rect x="-190" y="-90" width="380" height="180" rx="16"
-            fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
-      <rect x="-160" y="-65" width="50" height="50" rx="25" fill="url(#blueGrad)"/>
-      <text x="-135" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="22" font-weight="800" fill="#FFFFFF">IV</text>
-      <text x="30" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Continuous</text>
-      <text x="30" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Validation</text>
-      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Check at every step.</text>
-      <text x="0" y="55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Catch errors early.</text>
+            font-size="14" fill="#94A3B8">Compose specialists, don't overload.</text>
     </g>
   </g>
 

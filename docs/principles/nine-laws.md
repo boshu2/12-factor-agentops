@@ -2,9 +2,9 @@
 
 ## Introduction
 
-The Nine Laws of an Agent are **mandatory operational rules** that govern all agent sessions. These aren't aspirational guidelines—they're constitutional requirements that separate reliable agent operations from chaotic ones.
+The Nine Laws of an Agent are **mandatory operational rules** that govern all agent sessions. These aren't aspirational guidelines—they're constitutional requirements that embody the operational discipline for working with AI agents.
 
-These laws emerged from thousands of hours operating AI agents in production, distilled into nine actionable principles.
+These laws emerged from thousands of hours operating AI agents in production, distilled into nine actionable principles. They complement the [12 Factors](../../factors/README.md) by providing session-level rules that enforce the factors' architectural principles.
 
 ---
 
@@ -283,7 +283,21 @@ These nine laws evolved from the original Five Laws (philosophical foundation) c
 - Session Protocol (from multi-day project needs)
 - Protect Feature Definitions (from 2-Agent Harness requirements)
 
-The laws consolidated to nine, with validation becoming part of other laws (Git Discipline, TDD with Tracers) and sharing becoming a documentation concern.
+The laws consolidated to nine, with external validation becoming part of other laws (Git Discipline, TDD with Tracers) and sharing becoming a documentation concern.
+
+### Mapping to Factors
+
+| Law | Primary Factor Alignment |
+|-----|--------------------------|
+| 1. Learn and Improve | VII. Extract Learnings, VIII. Compound Knowledge |
+| 2. Document for Future | II. Track Everything in Git |
+| 3. Git Discipline | II. Track Everything in Git, VI. Lock Progress Forward |
+| 4. TDD with Tracers | V. Validate Externally |
+| 5. Guide with Workflows | IV. Research Before You Build |
+| 6. Classify Vibe Level | IX. Measure What Matters |
+| 7. Measure and Calibrate | IX. Measure What Matters |
+| 8. Session Protocol | III. One Agent, One Job, VI. Lock Progress Forward |
+| 9. Protect Feature Definitions | V. Validate Externally |
 
 ---
 

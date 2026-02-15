@@ -184,7 +184,7 @@
 - `/prime` routes to right specialist, human confirms
 
 **Evidence:**
-- Factor VIII: Human Validation
+- Factor V: Validate Externally (with human oversight)
 - Pre-commit hooks require approval
 - No autonomous deployment (yet)
 
@@ -350,7 +350,7 @@
 - "Anthropic, Stanford, McKinsey converged on this approach"
 
 **Example:**
-> The 40% Context Rule (Factor II) emerged from production experience in 2024. At the AI Engineer Summit 2025, Replit and Google Labs independently validated this threshold through research.
+> The 40% Context Rule (Factor I: Context Is Everything) emerged from production experience in 2024. At the AI Engineer Summit 2025, Replit and Google Labs independently validated this threshold through research.
 
 ---
 

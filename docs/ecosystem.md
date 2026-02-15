@@ -17,7 +17,7 @@ BUILD → WORK → RUN
 **Vibe Coding** shows how to WORK WITH agents effectively.
 **12-Factor AgentOps** shows how to RUN agents reliably.
 
-**This is the SRE to their DevOps.**
+**The operational discipline for running AI agents reliably.**
 
 ---
 
@@ -31,22 +31,22 @@ BUILD → WORK → RUN
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │  LAYER 3: 12-FACTOR AGENTOPS (Operations)          ← THIS REPO      │    │
 │  │  ─────────────────────────────────────────────────────────────────  │    │
-│  │  "This is the SRE to their DevOps"                                  │    │
+│  │  "The operational discipline for running AI agents reliably"         │    │
 │  │                                                                      │    │
 │  │  RUN all agents reliably in production                              │    │
 │  │  • Workflow agents, autonomous agents, business process agents      │    │
 │  │  • Disconnected, zero-tolerance, constrained environments           │    │
 │  │  • Monitoring, validation, incident response, reliability           │    │
 │  │                                                                      │    │
-│  │  Foundation (I-IV):        Operations (V-VIII):                      │    │
-│  │  I.   Automated Tracking   V.    Measure Everything                 │    │
-│  │  II.  Context Loading      VI.   Resume Work                        │    │
-│  │  III. Focused Agents       VII.  Smart Routing                      │    │
-│  │  IV.  Continuous Valid.    VIII. Human Validation                   │    │
+│  │  Foundation (I-III):        Workflow (IV-VI):                        │    │
+│  │  I.   Context Is Everything IV.   Research Before You Build         │    │
+│  │  II.  Track Everything      V.    Validate Externally               │    │
+│  │  III. One Agent, One Job    VI.   Lock Progress Forward              │    │
 │  │                                                                      │    │
-│  │  Improvement (IX-XII):                                               │    │
-│  │  IX.  Mine Patterns        XI.   Fail-Safe Checks                   │    │
-│  │  X.   Small Iterations     XII.  Package Patterns                   │    │
+│  │  Knowledge (VII-IX):        Scale (X-XII):                           │    │
+│  │  VII. Extract Learnings     X.    Isolate Workers                    │    │
+│  │  VIII.Compound Knowledge    XI.   Supervise Hierarchically           │    │
+│  │  IX.  Measure What Matters  XII.  Harvest Failures as Wisdom         │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                              ▲                                               │
 │                              │ Agents deployed here                          │
@@ -183,24 +183,21 @@ That's why 12-Factor AgentOps applies 20 years of DevOps/SRE wisdom to AI agents
 
 | Vibe Coding Concept | AgentOps Factor | Prevention |
 |---------------------|-----------------|------------|
-| Memory tattoos | I. Automated Tracking | Pattern 7: Memory Decay |
-| 40% rule | II. Context Loading | Pattern 2: Context Amnesia |
-| Head chef / sous chefs | III. Focused Agents | Pattern 3: Instruction Drift |
-| Prevent-Detect-Correct | IV. Continuous Validation | Pattern 1: Tests Passing Lie |
-| FAAFO metrics | V. Measure Everything | Pattern 11: Process Gridlock |
-| Session continuity | VI. Resume Work | Pattern 7: Memory Decay |
-| Three loops | VII. Smart Routing | Pattern 4: Debug Loop Spiral |
-| Critical decisions | VIII. Human Validation | Pattern 9: Bridge Torching |
+| Memory tattoos | I. Context Is Everything | Pattern 7: Memory Decay |
+| 40% rule | II. Track Everything in Git | Pattern 2: Context Amnesia |
+| Head chef / sous chefs | III. One Agent, One Job | Pattern 3: Instruction Drift |
+| Prevent-Detect-Correct | V. Validate Externally | Pattern 1: Tests Passing Lie |
+| FAAFO metrics | IX. Measure What Matters | Pattern 11: Process Gridlock |
+| Session continuity | VI. Lock Progress Forward | Pattern 7: Memory Decay |
 
 ### 12-Factor Agents → AgentOps
 
 | 12-Factor Agents | AgentOps Factor | Relationship |
 |------------------|-----------------|--------------|
-| Own your prompts | I. Automated Tracking | Track prompt evolution in git |
-| Own your context window | II. Context Loading | Operational enforcement of context limits |
-| Small, focused agents | III. Focused Agents | Same principle, operational focus |
-| Launch/Pause/Resume | VI. Resume Work | Operational implementation of state persistence |
-| Contact humans | VIII. Human Validation | When and how to escalate |
+| Own your prompts | I. Context Is Everything | Context includes prompt evolution |
+| Own your context window | II. Track Everything in Git | Operational enforcement of context limits |
+| Small, focused agents | III. One Agent, One Job | Same principle, operational focus |
+| Launch/Pause/Resume | VI. Lock Progress Forward | Operational implementation of state persistence |
 
 ---
 
@@ -243,4 +240,4 @@ Provides 6 plugins: constitution, core-workflow, session-management, vibe-coding
 | Vibe Coding | WORK WITH agents | Learn to drive |
 | 12-Factor AgentOps | RUN agents | Operate the fleet |
 
-**This is the SRE to their DevOps.**
+**The operational discipline for running AI agents reliably.**

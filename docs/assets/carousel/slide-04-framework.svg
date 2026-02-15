@@ -56,67 +56,78 @@
     SRE principles for AI systems
   </text>
 
-  <!-- Three pillars -->
+  <!-- Four pillars -->
   <g transform="translate(540, 700)">
     <!-- Foundation -->
-    <g transform="translate(-300, 0)">
-      <rect x="-120" y="-150" width="240" height="300" rx="20"
+    <g transform="translate(-340, 0)">
+      <rect x="-100" y="-150" width="200" height="280" rx="20"
             fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.3)" stroke-width="2"/>
-      <rect x="-100" y="-130" width="200" height="50" rx="25" fill="url(#blueGrad)"/>
-      <text x="0" y="-97" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FFFFFF">Foundation</text>
-      <text x="0" y="-50" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="16" font-weight="600" fill="#3B82F6">I - IV</text>
-      <text x="0" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Track</text>
-      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Load Context</text>
-      <text x="0" y="60" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Focus Agents</text>
-      <text x="0" y="90" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Validate</text>
+      <rect x="-80" y="-130" width="160" height="45" rx="22" fill="url(#blueGrad)"/>
+      <text x="0" y="-100" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FFFFFF">Foundation</text>
+      <text x="0" y="-55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" font-weight="600" fill="#3B82F6">I - III</text>
+      <text x="0" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Context</text>
+      <text x="0" y="15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Track in Git</text>
+      <text x="0" y="45" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">One Agent, One Job</text>
     </g>
 
-    <!-- Operations -->
-    <g transform="translate(0, 0)">
-      <rect x="-120" y="-150" width="240" height="300" rx="20"
+    <!-- Workflow -->
+    <g transform="translate(-113, 0)">
+      <rect x="-100" y="-150" width="200" height="280" rx="20"
             fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="2"/>
-      <rect x="-100" y="-130" width="200" height="50" rx="25" fill="url(#greenGrad)"/>
-      <text x="0" y="-97" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FFFFFF">Operations</text>
-      <text x="0" y="-50" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="16" font-weight="600" fill="#22C55E">V - VIII</text>
-      <text x="0" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Measure</text>
-      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Resume Work</text>
-      <text x="0" y="60" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Smart Routing</text>
-      <text x="0" y="90" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Human Loop</text>
+      <rect x="-80" y="-130" width="160" height="45" rx="22" fill="url(#greenGrad)"/>
+      <text x="0" y="-100" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FFFFFF">Workflow</text>
+      <text x="0" y="-55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" font-weight="600" fill="#22C55E">IV - VI</text>
+      <text x="0" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Research First</text>
+      <text x="0" y="15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Validate Externally</text>
+      <text x="0" y="45" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Lock Progress</text>
     </g>
 
-    <!-- Improvement -->
-    <g transform="translate(300, 0)">
-      <rect x="-120" y="-150" width="240" height="300" rx="20"
+    <!-- Knowledge -->
+    <g transform="translate(113, 0)">
+      <rect x="-100" y="-150" width="200" height="280" rx="20"
+            fill="rgba(167,139,250,0.08)" stroke="rgba(167,139,250,0.3)" stroke-width="2"/>
+      <rect x="-80" y="-130" width="160" height="45" rx="22" fill="rgba(167,139,250,0.9)"/>
+      <text x="0" y="-100" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FFFFFF">Knowledge</text>
+      <text x="0" y="-55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" font-weight="600" fill="#A78BFA">VII - IX</text>
+      <text x="0" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Extract Learnings</text>
+      <text x="0" y="15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Compound Knowledge</text>
+      <text x="0" y="45" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Measure What Matters</text>
+    </g>
+
+    <!-- Scale -->
+    <g transform="translate(340, 0)">
+      <rect x="-100" y="-150" width="200" height="280" rx="20"
             fill="rgba(251,146,60,0.08)" stroke="rgba(251,146,60,0.3)" stroke-width="2"/>
-      <rect x="-100" y="-130" width="200" height="50" rx="25" fill="url(#orangeGrad)"/>
-      <text x="0" y="-97" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FFFFFF">Improvement</text>
-      <text x="0" y="-50" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="16" font-weight="600" fill="#FB923C">IX - XII</text>
-      <text x="0" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Mine Patterns</text>
-      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Small Steps</text>
-      <text x="0" y="60" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Fail-Safe</text>
-      <text x="0" y="90" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Package</text>
+      <rect x="-80" y="-130" width="160" height="45" rx="22" fill="url(#orangeGrad)"/>
+      <text x="0" y="-100" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FFFFFF">Scale</text>
+      <text x="0" y="-55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" font-weight="600" fill="#FB923C">X - XII</text>
+      <text x="0" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Isolate Workers</text>
+      <text x="0" y="15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Supervise Hierarchy</text>
+      <text x="0" y="45" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Harvest Failures</text>
     </g>
 
     <!-- Connecting arrows -->
-    <path d="M -160 180 Q 0 230 160 180" stroke="#475569" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.5"/>
+    <path d="M -240 160 Q 0 210 240 160" stroke="#475569" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.5"/>
   </g>
 
   <!-- Bottom tagline -->

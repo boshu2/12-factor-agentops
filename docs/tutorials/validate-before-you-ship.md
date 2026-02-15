@@ -2,9 +2,9 @@
 
 <div align="center">
 
-**A step-by-step guide to shift-left validation with coding agents**
+**The complete operational discipline for working with AI agents**
 
-*Catch it before you ship it.*
+*Research, plan, implement, validate, extract, compound.*
 
 </div>
 
@@ -12,49 +12,57 @@
 
 <div align="center">
 
-## The Shift-Left Workflow
+## The Operational Discipline Workflow
 
 </div>
 
 <table>
 <tr>
-<td align="center" width="20%">
+<td align="center" width="16%">
 
 **1. Research**
 
 Understand
 
 </td>
-<td align="center" width="4%">-></td>
-<td align="center" width="20%">
+<td align="center" width="3%">-></td>
+<td align="center" width="16%">
 
-**2. Pre-Mortem**
+**2. Plan**
 
-Simulate Failures
+Anticipate Failures
 
 </td>
-<td align="center" width="4%">-></td>
-<td align="center" width="20%">
+<td align="center" width="3%">-></td>
+<td align="center" width="16%">
 
 **3. Implement**
 
 Build
 
 </td>
-<td align="center" width="4%">-></td>
-<td align="center" width="20%">
-
-**4. Vibe**
-
-Validate
-
-</td>
-<td align="center" width="4%">-></td>
+<td align="center" width="3%">-></td>
 <td align="center" width="16%">
 
-**5. Retro**
+**4. Validate**
+
+Verify Externally
+
+</td>
+<td align="center" width="3%">-></td>
+<td align="center" width="16%">
+
+**5. Extract**
 
 Learn
+
+</td>
+<td align="center" width="3%">-></td>
+<td align="center" width="12%">
+
+**6. Compound**
+
+Grow
 
 </td>
 </tr>
@@ -68,18 +76,18 @@ Learn
 
 ---
 
-## Why Validate Before You Ship?
+## Why This Matters
 
 <table>
 <tr>
-<th width="45%">Traditional Workflow</th>
+<th width="45%">Ad-Hoc Agent Usage</th>
 <th width="10%"></th>
-<th width="45%">Shift-Left Workflow</th>
+<th width="45%">Operational Discipline</th>
 </tr>
 <tr>
 <td align="center">Write code -> Ship -> CI catches problems -> Fix -> Repeat</td>
 <td align="center">vs</td>
-<td align="center">/pre-mortem -> Implement -> /vibe -> Commit -> Knowledge compounds</td>
+<td align="center">/research -> /pre-mortem -> /implement -> /vibe -> Commit -> /retro -> Compound</td>
 </tr>
 <tr>
 <td align="center">Problems found AFTER shipping</td>
@@ -92,19 +100,19 @@ Learn
 <td align="center">Early course correction</td>
 </tr>
 <tr>
-<td align="center">Isolated sessions</td>
+<td align="center">Isolated sessions, no memory</td>
 <td align="center">vs</td>
-<td align="center">Knowledge that compounds</td>
+<td align="center">Knowledge that compounds across sessions</td>
 </tr>
 </table>
 
-**The 80/20 reality:** AI-generated code is valuable. The 80% that works saves time. The 20% that doesn't can be catastrophic. Shift-left validation catches the 20% before it ships.
+**The 80/20 reality:** AI-generated code is valuable. The 80% that works saves enormous time. The 20% that doesn't can be catastrophic. An operational discipline catches the 20% before it ships and turns every session into fuel for the next one.
 
 ---
 
-## Step 1: Start with /research
+## Step 1: Research Before You Build (Factor IV)
 
-**Purpose:** Understand the codebase before making changes.
+**Purpose:** Understand the codebase before making changes. This is Factor IV: Research Before You Build.
 
 <table>
 <tr>
@@ -145,9 +153,9 @@ Research bundle saved: .agents/ao/bundles/research-auth-001.md
 
 <br/>
 
-**Why it matters:**
+**Factor IV in action:**
 
-Understanding before acting prevents working on the wrong thing.
+Understanding before acting prevents working on the wrong thing entirely.
 
 </td>
 </tr>
@@ -156,15 +164,15 @@ Understanding before acting prevents working on the wrong thing.
 ### Key Practices
 
 1. **Use /research BEFORE implementing** - Never assume you know the codebase
-2. **Let it create bundles** - Compressed context for future sessions
+2. **Let it create bundles** - Compressed context persists across sessions (Factor I: Context Is Everything)
 3. **Verify the summary** - Make sure it captured the right things
 4. **Ask clarifying questions** - "What patterns does this codebase use for X?"
 
 ---
 
-## Step 2: Use /pre-mortem Before Implementing
+## Step 2: Plan and Simulate Failures (Factor IV continued)
 
-**Purpose:** Simulate failures before you build. Find the problems before they find you.
+**Purpose:** Simulate failures before you build. Find the problems before they find you. The /pre-mortem skill extends research into risk anticipation.
 
 <table>
 <tr>
@@ -216,7 +224,7 @@ Pre-mortem saved: .agents/ao/pre-mortems/rate-limiting-001.md
 - Simulate failure modes
 - Identify risks BEFORE building
 - Create mitigation plan
-- Define checkpoints
+- Define validation checkpoints
 
 <br/>
 
@@ -237,16 +245,16 @@ Pre-mortem: "What COULD go wrong?"
 
 ### Key Practices
 
-1. **Run BEFORE implementation** - This is the shift in "shift-left"
+1. **Run BEFORE implementation** - Research first, then anticipate failures
 2. **Take the risks seriously** - If it identifies a HIGH risk, address it in your plan
-3. **Create checkpoints** - Use the mitigation list as your validation gates
+3. **Create checkpoints** - These become your validation gates for Factor V
 4. **Review with the team** - Pre-mortems surface assumptions worth discussing
 
 ---
 
-## Step 3: Run /vibe Before Every Commit
+## Step 3: Validate Externally Before Every Commit (Factor V)
 
-**Purpose:** Validate that your implementation does what you intended.
+**Purpose:** Validate that your implementation does what you intended using external checks, not just the agent's self-assessment. This is Factor V: Validate Externally.
 
 <table>
 <tr>
@@ -303,7 +311,7 @@ rate limiting to unauthenticated routes (/api/health, /api/public/*).
 
 **This is NOT a linter:**
 
-/vibe checks semantic correctness - does the code do what you intended? Not just syntax, but meaning.
+/vibe checks semantic correctness -- does the code do what you intended? Not just syntax, but meaning.
 
 <br/>
 
@@ -342,9 +350,24 @@ Safe to commit.
 
 ---
 
-## Step 4: Extract Learnings with /retro
+## Step 4: Lock Progress Forward (Factor VI)
 
-**Purpose:** Close the loop. Extract what worked so future sessions benefit.
+**Purpose:** Once validation passes, commit immediately. Each validated commit becomes a safe checkpoint you can return to. This is Factor VI: Lock Progress Forward.
+
+Every passing /vibe check should result in an immediate commit. Small, validated commits create a trail of known-good states. If something breaks later, you know exactly where to roll back to.
+
+### Key Practices
+
+1. **Commit after every passing /vibe** - Don't batch multiple changes
+2. **Use descriptive commit messages** - Future sessions load this context
+3. **Everything in git** - Progress files, research bundles, learnings (Factor II: Track Everything in Git)
+4. **Never skip the commit** - An uncommitted validation is a lost checkpoint
+
+---
+
+## Step 5: Extract Learnings (Factor VII)
+
+**Purpose:** Close the loop. Extract what worked so future sessions benefit. This is Factor VII: Extract Learnings.
 
 <table>
 <tr>
@@ -394,7 +417,7 @@ Flywheel updated: 2 patterns, 1 anti-pattern
 - Review what worked
 - Note what didn't
 - Extract reusable patterns
-- Feed the flywheel
+- Feed the knowledge flywheel
 
 <br/>
 
@@ -424,9 +447,9 @@ Without /retro, every session starts from zero. With /retro, knowledge compounds
 
 ---
 
-## Step 5: Compound Knowledge with the Flywheel
+## Step 6: Compound Knowledge (Factor VIII)
 
-**Purpose:** Make every session build on the last.
+**Purpose:** Make every session build on the last. This is Factor VIII: Compound Knowledge (HERO) -- Harvest, Extract, Refine, Operationalize.
 
 <table>
 <tr>
@@ -482,11 +505,11 @@ This is the moat.
 
 <br/>
 
-**The Flywheel Cycle:**
+**The HERO Cycle:**
 
-Session -> Forge -> Pool -> Inject -> Better Session
-   ^                                      |
-   |______________________________________|
+Harvest -> Extract -> Refine -> Operationalize
+   ^                                   |
+   |___________________________________|
 
 </td>
 </tr>
@@ -528,7 +551,7 @@ Pending Candidates (3):
 
 <div align="center">
 
-### The Complete Validation Flow
+### The Complete Operational Discipline
 
 </div>
 
@@ -536,36 +559,49 @@ Pending Candidates (3):
 <tr>
 <th>Step</th>
 <th>Command</th>
+<th>Factor</th>
 <th>What It Catches</th>
 <th>When</th>
 </tr>
 <tr>
 <td><strong>1</strong></td>
 <td><code>/research</code></td>
+<td>IV. Research Before You Build</td>
 <td>Working on the wrong thing</td>
 <td>Before planning</td>
 </tr>
 <tr>
 <td><strong>2</strong></td>
 <td><code>/pre-mortem</code></td>
+<td>IV. Research Before You Build</td>
 <td>Problems before they exist</td>
 <td>Before implementing</td>
 </tr>
 <tr>
 <td><strong>3</strong></td>
 <td><code>/vibe</code></td>
+<td>V. Validate Externally</td>
 <td>Implementation doesn't match intent</td>
 <td>Before every commit</td>
 </tr>
 <tr>
 <td><strong>4</strong></td>
 <td><code>/retro</code></td>
+<td>VII. Extract Learnings</td>
 <td>Lost learnings</td>
 <td>After significant work</td>
 </tr>
 <tr>
 <td><strong>5</strong></td>
+<td><code>/post-mortem</code></td>
+<td>XII. Harvest Failures as Wisdom</td>
+<td>Repeated mistakes</td>
+<td>After failures</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
 <td><code>/flywheel</code></td>
+<td>VIII. Compound Knowledge</td>
 <td>Knowledge decay</td>
 <td>Weekly check-in</td>
 </tr>
@@ -591,7 +627,7 @@ Simple changes with no risks are fast to implement with confidence.
 
 ### "How do I know /vibe is working?"
 
-Check your metrics over time:
+Check your metrics over time (Factor IX: Measure What Matters):
 - Trust pass rate should increase
 - Rework ratio should decrease
 - Fewer "oops" commits fixing previous commits
@@ -603,7 +639,7 @@ If these aren't improving, you might be ignoring /vibe warnings.
 For a single session? Probably not.
 For a codebase you'll work on for months? Absolutely.
 
-The flywheel benefit is compound. Session 1 feels the same. Session 50 feels like magic.
+The flywheel benefit is compound. Session 1 feels the same. Session 50 feels like magic. This is what separates ad-hoc agent usage from a real operational discipline.
 
 ---
 
@@ -615,8 +651,8 @@ The flywheel benefit is compound. Session 1 feels the same. Session 50 feels lik
 
 ### Before You Build
 ```
-/research <topic>     # Understand first
-/pre-mortem <plan>    # Simulate failures
+/research <topic>     # Understand first (Factor IV)
+/pre-mortem <plan>    # Simulate failures (Factor IV)
 ```
 
 </td>
@@ -624,10 +660,10 @@ The flywheel benefit is compound. Session 1 feels the same. Session 50 feels lik
 
 ### Before You Commit
 ```
-/vibe                 # Validate changes
+/vibe                 # Validate externally (Factor V)
 # Fix any warnings
 /vibe                 # Confirm fix
-git commit
+git commit            # Lock progress (Factor VI)
 ```
 
 </td>
@@ -637,8 +673,8 @@ git commit
 
 ### After You Ship
 ```
-/retro                # Extract learnings
-/flywheel promote     # Compound knowledge
+/retro                # Extract learnings (Factor VII)
+/flywheel promote     # Compound knowledge (Factor VIII)
 ```
 
 </td>
@@ -648,6 +684,7 @@ git commit
 ```
 /flywheel status      # Check health
 /flywheel pool list   # Clear backlog
+# Review metrics      # Factor IX
 ```
 
 </td>
@@ -658,9 +695,9 @@ git commit
 
 ## Related Resources
 
-- [The Workflow Guide](workflow-guide.md) - Complete session management
-- [Factor IV: Continuous Validation](../factors/04-continuous-validation.md) - The validation principle
+- [The Workflow Guide](workflow-guide.md) - Complete session workflow
 - [Failure Patterns](../reference/failure-patterns.md) - What validation catches
+- [Quick Start](../getting-started/quick-start.md) - Get started in 15 minutes
 - [12-Factor AgentOps](https://github.com/boshu2/12-factor-agentops) - The operational discipline for working with AI agents
 
 ---
@@ -669,7 +706,7 @@ git commit
 
 **Catch it before you ship it.**
 
-/research -> /pre-mortem -> Implement -> /vibe -> Commit -> /retro -> Compound
+/research -> /pre-mortem -> /implement -> /vibe -> Commit -> /retro -> Compound
 
 *Every cycle validates. Every session compounds.*
 

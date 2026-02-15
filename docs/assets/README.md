@@ -9,11 +9,11 @@ This directory contains visual diagrams and assets for the 12-Factor AgentOps fr
 **Purpose:** Comprehensive overview of all 12 factors organized by their operational layers.
 
 **Shows:**
-- All 12 factors in a clear 3×4 grid layout
-- Three operational layers: Foundation (I-IV), Operations (V-VIII), Improvement (IX-XII)
+- All 12 factors in a clear 4×3 grid layout
+- Four tiers: Foundation (I-III), Workflow (IV-VI), Knowledge (VII-IX), Scale (X-XII)
 - Brief description of what each factor does
 - Visual flow showing how factors build on each other
-- Continuous feedback loop from Improvement back to Foundation
+- Continuous feedback loop across all tiers
 
 **Use cases:**
 - Repository README
@@ -31,10 +31,10 @@ This directory contains visual diagrams and assets for the 12-Factor AgentOps fr
 **Purpose:** Simplified diagram showing how the factors work together in practice.
 
 **Shows:**
-- Three-stage operational flow: Foundation → Operations → Improvement
+- Four-stage operational flow: Foundation → Workflow → Knowledge → Scale
 - Key insight: AI agents aren't deterministic, infrastructure patterns work
-- Operations breakdown: Telemetry → Continuity → Routing + Human oversight
-- Continuous feedback loop back to Foundation
+- Workflow breakdown: Research → Validate → Lock Progress
+- Continuous feedback loop across all tiers
 - Expected results: 80% → 99%+ reliability
 
 **Use cases:**
@@ -55,9 +55,10 @@ All visuals follow these principles:
 1. **Clarity over complexity** - Simple, clean layouts
 2. **Warm, vibrant color palette** - Inspired by Anthropic's design language:
    - **Background:** Warm cream (#FAF8F5)
-   - **Foundation (I-IV):** Vibrant blue (#1A7FCC) with light blue fill (#E8F4FD)
-   - **Operations (V-VIII):** Fresh green (#15B871) with light green fill (#E8F7EC)
-   - **Improvement (IX-XII):** Warm orange (#D97948) with light peach fill (#FFF4ED)
+   - **Foundation (I-III):** Vibrant blue (#1A7FCC) with light blue fill (#E8F4FD)
+   - **Workflow (IV-VI):** Fresh green (#15B871) with light green fill (#E8F7EC)
+   - **Knowledge (VII-IX):** Purple (#A78BFA) with light purple fill
+   - **Scale (X-XII):** Warm orange (#D97948) with light peach fill (#FFF4ED)
    - **Text:** Deep charcoal (#1A1A1A, #2D2A24) with earth tone accents (#5A5449, #7A6F5D)
 3. **Typography** - Inter font family (modern, clean, similar to Anthropic's aesthetic) with system font fallbacks
 4. **Accessibility** - High contrast, readable fonts, proper font weights
@@ -92,6 +93,6 @@ All visuals are created as standalone SVG files with embedded styles. No externa
 
 ---
 
-**Version:** v1.0.0
-**Updated:** November 2025
+**Version:** v3.0.0
+**Updated:** February 2026
 **License:** CC BY-SA 4.0

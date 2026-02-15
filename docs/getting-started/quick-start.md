@@ -14,7 +14,7 @@
 
 ---
 
-## Step 1: Create Your First Factor (Factor I: Automated Tracking)
+## Step 1: Create Your First Factor (Factor II: Track Everything in Git)
 
 **Time:** 2 minutes
 
@@ -45,7 +45,7 @@ git config --local commit.template .gitmessage
 
 ---
 
-## Step 2: Add Validation Gates (Factor IV: Continuous Validation)
+## Step 2: Add Validation Gates (Factor V: Validate Externally)
 
 **Time:** 5 minutes
 
@@ -54,7 +54,7 @@ git config --local commit.template .gitmessage
 ```makefile
 .PHONY: quick validate
 
-# Factor IV: Continuous Validation
+# Factor V: Validate Externally
 quick:
 	@echo "🔍 Running quick validation..."
 	@# Syntax check
@@ -87,7 +87,7 @@ make quick
 **Why this matters (FAAFO):**
 - ✅ **Fast:** 5-second validation vs 4-hour manual review (27x faster)
 - ✅ **Fun:** Catch errors before they waste time debugging
-- ✅ **Autonomous:** Pre-commit validation enables confident solo work
+- ✅ **Autonomous:** External validation enables confident solo work
 
 ---
 
@@ -120,7 +120,7 @@ You: Commit
 git add fibonacci.py
 git commit -m "feat: add fibonacci function
 
-Factors used: I (Automated Tracking), IV (Continuous Validation)
+Factors used: II (Track Everything in Git), V (Validate Externally)
 Success rate: 100%
 Time saved: ~10 min (vs manual validation)"
 ```
@@ -156,8 +156,8 @@ cat > METRICS.md <<EOF
 # AI Workflow Metrics
 
 ## Factor Implementation
-- ✅ Factor I: Automated Tracking (git)
-- ✅ Factor IV: Continuous Validation (make quick)
+- ✅ Factor II: Track Everything in Git
+- ✅ Factor V: Validate Externally (make quick)
 
 ## Results (Week 1)
 - Tasks completed: 1
@@ -192,17 +192,17 @@ EOF
 
 **Fun:**
 - ✅ More time building, zero time debugging
-- ✅ Confidence from automated validation
+- ✅ Confidence from external validation
 
 **Optionality:**
 - ✅ Can iterate quickly without fear
-- ✅ Validation gates = safety net for experimentation
+- ✅ Operational discipline = safety net for experimentation
 
 ---
 
 ## Next Steps (15 More Minutes)
 
-### Add Factor II: Context Loading
+### Add Factor I: Context Is Everything
 
 **Goal:** Load AI context efficiently (no context collapse)
 
@@ -236,7 +236,7 @@ EOF
 
 ---
 
-### Add Factor XII: Package Patterns
+### Add Factor VII: Extract Learnings
 
 **Goal:** Save what works for reuse
 
@@ -248,14 +248,14 @@ mkdir -p .patterns
 cp fibonacci.py .patterns/validated-function-template.py
 ```
 
-**Why:** 85% pattern reuse vs 10% baseline (8.5x knowledge leverage)
+**Why:** Extracting learnings compounds knowledge over time
 
 ---
 
 ## You're Ready!
 
 **In 15 minutes you've:**
-- ✅ Implemented 2 factors (I + IV)
+- ✅ Implemented 2 factors (II + V)
 - ✅ Experienced 3x speedup
 - ✅ Achieved 100% success rate
 - ✅ Felt FAAFO (Fast, Ambitious, Autonomous, Fun, Optionality)

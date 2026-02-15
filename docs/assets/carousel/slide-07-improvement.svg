@@ -26,84 +26,118 @@
   <ellipse cx="200" cy="200" rx="200" ry="200" fill="#FB923C" opacity="0.05" filter="url(#glow)"/>
   <ellipse cx="880" cy="1100" rx="150" ry="150" fill="#FB923C" opacity="0.04" filter="url(#glow)"/>
 
-  <!-- Header pill -->
-  <g transform="translate(540, 130)">
-    <rect x="-115" y="-35" width="230" height="70" rx="35" fill="url(#orangeGrad)"/>
+  <!-- Knowledge header pill -->
+  <g transform="translate(310, 130)">
+    <rect x="-100" y="-35" width="200" height="70" rx="35" fill="rgba(167,139,250,0.9)"/>
     <text x="0" y="10" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-          font-size="24" font-weight="700" fill="#FFFFFF">Improvement</text>
+          font-size="22" font-weight="700" fill="#FFFFFF">Knowledge</text>
   </g>
 
-  <text x="540" y="230" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-        font-size="20" font-weight="600" fill="#FB923C">Factors IX - XII</text>
+  <!-- Scale header pill -->
+  <g transform="translate(770, 130)">
+    <rect x="-100" y="-35" width="200" height="70" rx="35" fill="url(#orangeGrad)"/>
+    <text x="0" y="10" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+          font-size="22" font-weight="700" fill="#FFFFFF">Scale</text>
+  </g>
 
-  <!-- Factor cards -->
-  <g transform="translate(540, 520)">
-    <!-- Factor IX -->
-    <g transform="translate(-230, -200)">
-      <rect x="-190" y="-90" width="380" height="180" rx="16"
-            fill="rgba(251,146,60,0.06)" stroke="rgba(251,146,60,0.2)" stroke-width="1"/>
-      <rect x="-160" y="-65" width="50" height="50" rx="25" fill="url(#orangeGrad)"/>
-      <text x="-135" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="22" font-weight="800" fill="#FFFFFF">IX</text>
-      <text x="30" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Mine</text>
-      <text x="30" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Patterns</text>
-      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Search history.</text>
-      <text x="0" y="55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Find what works.</text>
+  <text x="310" y="225" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+        font-size="18" font-weight="600" fill="#A78BFA">Factors VII - IX</text>
+  <text x="770" y="225" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+        font-size="18" font-weight="600" fill="#FB923C">Factors X - XII</text>
+
+  <!-- Knowledge factor cards (left column) -->
+  <g transform="translate(310, 520)">
+    <!-- Factor VII -->
+    <g transform="translate(0, -200)">
+      <rect x="-190" y="-70" width="380" height="140" rx="16"
+            fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.2)" stroke-width="1"/>
+      <rect x="-160" y="-50" width="50" height="50" rx="25" fill="rgba(167,139,250,0.9)"/>
+      <text x="-135" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="20" font-weight="800" fill="#FFFFFF">VII</text>
+      <text x="30" y="-25" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Extract</text>
+      <text x="30" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Learnings</text>
+      <text x="0" y="40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Turn sessions into knowledge.</text>
     </g>
 
+    <!-- Factor VIII -->
+    <g transform="translate(0, 0)">
+      <rect x="-190" y="-70" width="380" height="140" rx="16"
+            fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.2)" stroke-width="1"/>
+      <rect x="-160" y="-50" width="50" height="50" rx="25" fill="rgba(167,139,250,0.9)"/>
+      <text x="-135" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="20" font-weight="800" fill="#FFFFFF">VIII</text>
+      <text x="30" y="-25" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Compound</text>
+      <text x="30" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Knowledge</text>
+      <text x="0" y="40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Knowledge builds on knowledge.</text>
+    </g>
+
+    <!-- Factor IX -->
+    <g transform="translate(0, 200)">
+      <rect x="-190" y="-70" width="380" height="140" rx="16"
+            fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.2)" stroke-width="1"/>
+      <rect x="-160" y="-50" width="50" height="50" rx="25" fill="rgba(167,139,250,0.9)"/>
+      <text x="-135" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="20" font-weight="800" fill="#FFFFFF">IX</text>
+      <text x="30" y="-25" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Measure What</text>
+      <text x="30" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Matters</text>
+      <text x="0" y="40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Track the right metrics.</text>
+    </g>
+  </g>
+
+  <!-- Scale factor cards (right column) -->
+  <g transform="translate(770, 520)">
     <!-- Factor X -->
-    <g transform="translate(230, -200)">
-      <rect x="-190" y="-90" width="380" height="180" rx="16"
+    <g transform="translate(0, -200)">
+      <rect x="-190" y="-70" width="380" height="140" rx="16"
             fill="rgba(251,146,60,0.06)" stroke="rgba(251,146,60,0.2)" stroke-width="1"/>
-      <rect x="-160" y="-65" width="50" height="50" rx="25" fill="url(#orangeGrad)"/>
-      <text x="-135" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="22" font-weight="800" fill="#FFFFFF">X</text>
-      <text x="30" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Small</text>
-      <text x="30" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Iterations</text>
-      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Improve continuously.</text>
-      <text x="0" y="55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Small tweaks compound.</text>
+      <rect x="-160" y="-50" width="50" height="50" rx="25" fill="url(#orangeGrad)"/>
+      <text x="-135" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="20" font-weight="800" fill="#FFFFFF">X</text>
+      <text x="30" y="-25" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Isolate</text>
+      <text x="30" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Workers</text>
+      <text x="0" y="40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Each worker in its own space.</text>
     </g>
 
     <!-- Factor XI -->
-    <g transform="translate(-230, 100)">
-      <rect x="-190" y="-90" width="380" height="180" rx="16"
+    <g transform="translate(0, 0)">
+      <rect x="-190" y="-70" width="380" height="140" rx="16"
             fill="rgba(251,146,60,0.06)" stroke="rgba(251,146,60,0.2)" stroke-width="1"/>
-      <rect x="-160" y="-65" width="50" height="50" rx="25" fill="url(#orangeGrad)"/>
-      <text x="-135" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="22" font-weight="800" fill="#FFFFFF">XI</text>
-      <text x="30" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Fail-Safe</text>
-      <text x="30" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Checks</text>
-      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Prevent repeating</text>
-      <text x="0" y="55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">mistakes. Add guardrails.</text>
+      <rect x="-160" y="-50" width="50" height="50" rx="25" fill="url(#orangeGrad)"/>
+      <text x="-135" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="20" font-weight="800" fill="#FFFFFF">XI</text>
+      <text x="30" y="-25" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Supervise</text>
+      <text x="30" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Hierarchically</text>
+      <text x="0" y="40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Layers of oversight.</text>
     </g>
 
     <!-- Factor XII -->
-    <g transform="translate(230, 100)">
-      <rect x="-190" y="-90" width="380" height="180" rx="16"
+    <g transform="translate(0, 200)">
+      <rect x="-190" y="-70" width="380" height="140" rx="16"
             fill="rgba(251,146,60,0.06)" stroke="rgba(251,146,60,0.2)" stroke-width="1"/>
-      <rect x="-160" y="-65" width="50" height="50" rx="25" fill="url(#orangeGrad)"/>
-      <text x="-135" y="-30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="22" font-weight="800" fill="#FFFFFF">XII</text>
-      <text x="30" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Package</text>
-      <text x="30" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FAFAFA">Patterns</text>
-      <text x="0" y="30" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Bundle what works.</text>
-      <text x="0" y="55" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="14" fill="#94A3B8">Reuse it.</text>
+      <rect x="-160" y="-50" width="50" height="50" rx="25" fill="url(#orangeGrad)"/>
+      <text x="-135" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="20" font-weight="800" fill="#FFFFFF">XII</text>
+      <text x="30" y="-25" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">Harvest Failures</text>
+      <text x="30" y="0" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="16" font-weight="700" fill="#FAFAFA">as Wisdom</text>
+      <text x="0" y="40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="13" fill="#94A3B8">Every failure teaches.</text>
     </g>
   </g>
 
@@ -113,7 +147,7 @@
           fill="rgba(251,146,60,0.1)" stroke="rgba(251,146,60,0.2)" stroke-width="1"/>
     <text x="0" y="10" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
           font-size="20" font-weight="600" fill="#FB923C">
-      Learn, adapt, get better every day
+      Learn, compound, and scale with confidence
     </text>
   </g>
 

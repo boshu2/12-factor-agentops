@@ -1,115 +1,95 @@
-# Knowledge OS Foundations
+# Principles
 
-**Philosophical and theoretical foundations for reliable knowledge work at scale.**
+**The philosophical and theoretical foundations of 12-Factor AgentOps: The Operational Discipline for Working With AI Agents.**
 
-This directory contains deep dives into the core concepts that underpin the Knowledge OS framework. These documents explore the **WHY** behind the practices. For operational **HOW**, see the 12 Factors.
+This directory contains deep dives into the core concepts that underpin the framework. These documents explore the **WHY** behind the practices. For the operational **WHAT**, see the [12 Factors](../../factors/README.md).
 
 ---
 
-## Overview
+## The 12 Factors at a Glance
 
-Knowledge OS rests on **Five Pillars** (foundational disciplines) and enforces **Nine Laws** (mandatory principles).
+Twelve vendor-neutral principles organized in four tiers. Each tier builds on the previous one. You can stop at any tier and keep the value.
 
-### The Five Pillars (Foundation)
+### Foundation (I-III) -- Non-negotiable basics
 
-1. **Constraint-Based Engineering** - Start with limits, optimize within them
-2. **DevOps + SRE** - Operational rigor and reliability
-3. **Learning Science** - How humans and systems learn
-4. **Context Engineering** - Manage cognitive load (40% rule)
-5. **Knowledge OS** - Git as institutional memory
+| # | Factor | The Rule |
+|---|--------|----------|
+| **[I](../../factors/01-context-is-everything.md)** | **Context Is Everything** | Manage what enters the context window like you manage what enters production. |
+| **[II](../../factors/02-track-everything-in-git.md)** | **Track Everything in Git** | If it's not in git, it didn't happen. |
+| **[III](../../factors/03-one-agent-one-job.md)** | **One Agent, One Job** | Each agent gets a scoped task and fresh context. Never reuse a saturated window. |
 
-→ [five-pillars.md](five-pillars.md)
+### Workflow (IV-VI) -- The discipline that separates prompting from operating
 
-### The Nine Laws (Mandatory)
+| # | Factor | The Rule |
+|---|--------|----------|
+| **[IV](../../factors/04-research-before-you-build.md)** | **Research Before You Build** | Understand the problem space before generating a single line of code. |
+| **[V](../../factors/05-validate-externally.md)** | **Validate Externally** | No agent grades its own work. Ever. |
+| **[VI](../../factors/06-lock-progress-forward.md)** | **Lock Progress Forward** | Once work passes validation, it ratchets -- it cannot regress. |
 
-→ [nine-laws.md](nine-laws.md)
+### Knowledge (VII-IX) -- Where compounding kicks in
 
-Together, these create a comprehensive philosophy for operating knowledge work with the same rigor you'd apply to production infrastructure.
+| # | Factor | The Rule |
+|---|--------|----------|
+| **[VII](../../factors/07-extract-learnings.md)** | **Extract Learnings** | Every session produces two outputs -- the work product and the lessons learned. |
+| **[VIII](../../factors/08-compound-knowledge.md)** | **Compound Knowledge** | Learnings must flow back into future sessions automatically. |
+| **[IX](../../factors/09-measure-what-matters.md)** | **Measure What Matters** | Track fitness toward goals, not activity metrics. |
+
+**Factor VIII is the hero.** It is the knowledge flywheel: extract learnings, gate for quality, inject into future sessions, measure retrieval, let stale knowledge decay. This is the differentiator that no amount of model improvement replaces -- better models with amnesia still repeat your mistakes.
+
+### Scale (X-XII) -- Advanced, optional
+
+Multi-agent orchestration patterns. Skip this tier if you work solo.
+
+| # | Factor | The Rule |
+|---|--------|----------|
+| **[X](../../factors/10-isolate-workers.md)** | **Isolate Workers** | Each worker gets its own workspace, its own context, and zero shared mutable state. |
+| **[XI](../../factors/11-supervise-hierarchically.md)** | **Supervise Hierarchically** | Escalation flows up, never sideways. |
+| **[XII](../../factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Failed attempts are data. Extract and index them with the same rigor as successes. |
 
 ---
 
 ## Foundation Documents
 
-### [Constraint-Based Engineering](./constraint-based-engineering.md) ⭐ NEW
+### [Constraint-Based Engineering](./constraint-based-engineering.md)
 
 **Read time:** 25 minutes
-**When to read:** Understanding the meta-philosophy that generates everything else
+**When to read:** Understanding the meta-philosophy that generates the entire framework
 
-**What it covers:**
-- The core principle: constraint-first vs capability-first design
-- The 5-step methodology for constraint optimization
-- How constraints produce the Five Pillars
-- How pillars produce the Twelve Factors
-- Production examples from DoD/IC environments
-- The constraint taxonomy and interaction effects
-
-**Why it matters:**
-This is the meta-philosophy that generates the entire framework. Every factor exists because it solves a specific constraint optimization problem. Understanding constraint-based engineering shows you WHY the framework is structured the way it is.
-
-**Key insight:**
-You can't eliminate constraints. You can only architect optimally within them. This shift from capability-first to constraint-first thinking is what makes 12-Factor AgentOps universal.
+The core insight: you cannot eliminate constraints. You can only architect optimally within them. This shift from capability-first to constraint-first thinking is what makes the 12 factors universal rather than situational. Covers the 5-step methodology, how constraints produce factors, and production examples from constrained environments.
 
 ---
 
-### [Evolution of 12-Factor](../docs/principles/evolution-of-12-factor.md)
+### [Evolution of 12-Factor](./evolution-of-12-factor.md)
 
 **Read time:** 12 minutes
-**When to read:** Understanding how this framework relates to the original 12-Factor App
+**When to read:** Understanding how this framework relates to the original 12-Factor App and 12-Factor Agents
 
-**What it covers:**
-- How the original 12-Factor App evolved into 12-Factor Agents and 12-Factor AgentOps
-- The three-layer stack: App (2011) → Agents (2025) → AgentOps (2025)
-- Complete mapping showing how each original factor adapted for AI
-- Why AI operations require extensions beyond the original 12 factors
-- Zero-trust cognitive infrastructure principles
+Traces the lineage from Heroku's 12-Factor App (2011) through 12-Factor Agents (2025) to 12-Factor AgentOps v3 (2026). Shows why AI operations require an operational discipline layer beyond application architecture.
 
-**Why it matters:**
-This framework didn't emerge in a vacuum—it's the evolution of proven cloud-native methodology adapted for the AI age. Understanding this lineage helps you see AgentOps as an extension of established best practices, not a radical departure.
-
-**Key insight:**
-The original 12-Factor App, 12-Factor Agents (Dex Horthy), and 12-Factor AgentOps are complementary frameworks operating at different layers of the stack. You need all three to succeed with AI in production.
-
-**See also:** [Comparison Table](../docs/principles/comparison-table.md) for detailed factor-by-factor mapping
+**See also:** [Comparison Table](./comparison-table.md) for a detailed factor-by-factor mapping across all three frameworks.
 
 ---
 
 ### [The Five Pillars](./five-pillars.md)
 
 **Read time:** 20 minutes
-**When to read:** Understanding the philosophical basis of Knowledge OS
+**When to read:** Understanding the philosophical basis
 
-**What it covers:**
-- **Pillar 1: Constraint-Based Engineering** - Start with limits, optimize within them
-- **Pillar 2: DevOps + SRE** - Operational rigor and reliability engineering
-- **Pillar 3: Learning Science** - How humans and systems acquire knowledge
-- **Pillar 4: Context Engineering** - Managing cognitive load and information flow
-- **Pillar 5: Knowledge OS** - Git as institutional memory
-
-**Why it matters:**
-These aren't arbitrary categories—they're the minimal set of perspectives needed to build reliable, learning, sustainable knowledge work operations. Each pillar addresses a specific dimension of operational excellence.
-
-**Key insight:**
-Knowledge work isn't magic. It's a system that deserves the same operational discipline as production infrastructure. The Five Pillars provide that discipline.
+The minimal set of disciplines needed for reliable agent operations:
+1. Constraint-Based Engineering -- start with limits, optimize within them
+2. DevOps + SRE -- operational rigor and reliability engineering
+3. Learning Science -- how humans and systems acquire knowledge
+4. Context Engineering -- managing cognitive load and information flow
+5. Knowledge OS -- git as institutional memory
 
 ---
 
 ### [The Nine Laws](./nine-laws.md)
 
 **Read time:** 20 minutes
-**When to read:** Understanding why the operational laws exist
+**When to read:** Understanding the mandatory operational principles
 
-**What it covers:**
-- **Law 1: ALWAYS Extract Learnings** - Transform experience into reusable knowledge
-- **Law 2: ALWAYS Improve Self or System** - Continuous improvement is mandatory
-- **Law 3: ALWAYS Document Context** - Preserve decisions for future agents
-- **Law 4: ALWAYS Validate Before Execute** - Prevention is cheaper than recovery
-- **Law 5: ALWAYS Share Patterns Publicly** - Build collective knowledge
-
-**Why it matters:**
-Each law emerged from observing what separates effective agent operations from chaotic ones. They're not arbitrary rules—they're distilled wisdom from production experience.
-
-**Key insight:**
-The laws aren't restrictions—they're enablers. They make it possible to operate agents with consistent quality, continuous improvement, and knowledge compounding.
+Distilled from production experience, these laws separate effective agent operations from chaotic ones: always extract learnings, always improve self or system, always document context, always validate before execute, always share patterns.
 
 ---
 
@@ -118,288 +98,101 @@ The laws aren't restrictions—they're enablers. They make it possible to operat
 **Read time:** 15 minutes
 **When to read:** Understanding the 40% rule and cognitive load management
 
-**What it covers:**
-- The 40% rule derivation (ADHD research + AI context windows)
-- How context collapse manifests in humans and AI
-- Just-In-Time (JIT) loading strategies
-- Empirical validation from production operations
-
-**Why it matters:**
-Both human cognition and AI context windows show catastrophic performance degradation around 40% capacity utilization. Stay under this threshold, and performance remains high. Exceed it, and collapse happens suddenly.
-
-**Key insight:**
-Context collapse isn't gradual—it's a cliff. The 40% rule isn't conservative; it's operating in the zone where quality stays consistently high.
+Both human cognition and AI context windows show catastrophic performance degradation around 40% capacity utilization. Covers the derivation, just-in-time loading strategies, and empirical validation. Directly supports Factor I (Context Is Everything) and Factor III (One Agent, One Job).
 
 ---
 
 ### [Knowledge OS](./knowledge-os.md)
 
 **Read time:** 15 minutes
-**When to read:** Understanding Git as institutional memory
+**When to read:** Understanding git as institutional memory
 
-**What it covers:**
-- Commits as memory writes (persistent, immutable)
-- Branches as process isolation (parallel work)
-- Merges as knowledge integration (combining insights)
-- History as audit trail (every decision preserved)
-- Pattern compounding over time (exponential learning)
+Git is not just version control -- it is the operating system for institutional knowledge. Commits as memory writes, branches as process isolation, merges as knowledge integration, history as audit trail. Directly supports Factor II (Track Everything in Git) and Factor VIII (Compound Knowledge).
 
-**Why it matters:**
-Git isn't just version control—it's an operating system for organizational knowledge. Repositories that treat it this way get smarter over time, preserve institutional memory, and enable knowledge compounding.
+---
 
-**Key insight:**
-Every commit is either a throwaway snapshot or a knowledge artifact. The difference is whether you capture context, learnings, and impact in the commit message.
+## The Knowledge Flywheel
+
+The central mechanism of 12-Factor AgentOps. Every factor contributes to it; Factor VIII (Compound Knowledge) is its beating heart.
+
+```
+              Extract (Factor VII)
+                    |
+                    v
+    Session --> Learnings --> Quality Gate
+                                  |
+                                  v
+    Measure (Factor IX) <-- Knowledge Base --> Inject (Factor I)
+         |                                         |
+         v                                         v
+    Decay / Prune                          Next Session (smarter)
+```
+
+**The cycle:**
+1. **Extract** -- Every session produces learnings alongside work product (Factor VII)
+2. **Gate** -- Learnings pass quality checks before entering the knowledge base (Factor V)
+3. **Inject** -- Future sessions load relevant knowledge just-in-time (Factor I)
+4. **Measure** -- Track whether injected knowledge improves outcomes (Factor IX)
+5. **Decay** -- Stale knowledge loses priority; wrong knowledge gets pruned
+
+This is the differentiator that cannot be commoditized. Better models do not replace institutional memory.
 
 ---
 
 ## Recommended Reading Order
 
-### For Newcomers to AgentOps
+### For newcomers
 
-1. **Start:** [Five Pillars](./five-pillars.md) - Get the big picture (15 min)
-2. **Then:** [Nine Laws](./nine-laws.md) - Understand the operational principles (20 min)
-3. **Deep dive:** [Context Engineering](./context-engineering.md) - Learn the 40% rule (15 min)
-4. **Finally:** [Knowledge OS](./knowledge-os.md) - See how it all compounds (15 min)
+1. [Five Pillars](./five-pillars.md) -- get the big picture (20 min)
+2. [Context Engineering](./context-engineering.md) -- learn the 40% rule (15 min)
+3. [Knowledge OS](./knowledge-os.md) -- see how knowledge compounds (15 min)
+4. [Evolution of 12-Factor](./evolution-of-12-factor.md) -- understand the lineage (12 min)
 
-**Total time:** ~65 minutes to understand the complete philosophical foundation.
+**Total time:** ~60 minutes for the complete philosophical foundation.
 
-### For Practitioners (Already Using AgentOps)
+### For practitioners already using the factors
 
-1. **Deepen:** [Context Engineering](./context-engineering.md) - Optimize your workflow efficiency
-2. **Expand:** [Knowledge OS](./knowledge-os.md) - Maximize knowledge compounding
-3. **Refresh:** [Nine Laws](./nine-laws.md) - Ensure you're following all laws
-4. **Integrate:** [Five Pillars](./five-pillars.md) - See how everything connects
+1. [Context Engineering](./context-engineering.md) -- optimize context budgets
+2. [Knowledge OS](./knowledge-os.md) -- maximize knowledge compounding
+3. [Constraint-Based Engineering](./constraint-based-engineering.md) -- understand why factors are structured this way
 
-### For Contributors (Building on AgentOps)
+### For contributors
 
-1. **Understand:** All four foundation docs (read in any order)
-2. **Reference:** Operational enforcement examples available in production implementations
-3. **Study:** Patterns validated across 52 production workflows
-4. **Contribute:** [CONTRIBUTING.md](../CONTRIBUTING.md) - Share your patterns
+1. All foundation documents (any order)
+2. [Comparison Table](./comparison-table.md) -- understand the three-framework landscape
+3. [CONTRIBUTING.md](../../CONTRIBUTING.md) -- share your patterns
 
 ---
 
 ## How Foundations Connect to Practice
 
-### Theory → Practice Flow
-
 ```
-Foundations (12-factor-agentops)
-    ↓ Philosophical basis
-CONSTITUTION (agentops)
-    ↓ Operational enforcement
-Agents & Commands (agentops)
-    ↓ Working implementations
+Principles (this directory)
+    | Philosophical basis: WHY
+    v
+12 Factors (factors/)
+    | Operational principles: WHAT
+    v
+Reference Implementation (AgentOps plugin)
+    | Automation: HOW
+    v
 Your Work
-    ↓ Patterns extracted
-Community (12-factor-agentops)
-    ↓ Shared learnings
+    | Patterns extracted
+    v
+Knowledge Flywheel
+    | Compounds over time
 ```
 
-**This repository (12-factor-agentops):** Theory and philosophy
-**agentops repository:** Practice and implementation
+**This repository:** Theory and principles
+**AgentOps plugin:** Reference implementation (optional -- every factor works manually)
 **Your work:** Application and validation
-**Community:** Collective improvement
-
-### Cross-References
-
-**From foundations to practice:**
-- Each foundation doc links to corresponding agentops implementation
-- See "Operational Enforcement" sections for practical guides
-- See "See It In Action" sections for working examples
-
-**From practice to foundations:**
-- agentops docs reference foundations for "why"
-- Agents reference laws for compliance
-- Workflows embody pillar principles
-
----
-
-## Key Concepts Quick Reference
-
-### The Five Pillars
-
-| Pillar | Core Question | Key Insight |
-|--------|---------------|-------------|
-| **DevOps + SRE** | How do we apply operational rigor to AI agents? | Treat agents like production infrastructure |
-| **Learning Science** | How do humans and systems learn effectively? | Research → Plan → Implement (not code-first) |
-| **Context Engineering** | How do we prevent cognitive overload? | Stay under 40% capacity utilization |
-| **Knowledge OS** | How do we build institutional memory? | Git commits are knowledge artifacts |
-
-### The Nine Laws
-
-| Law | Principle | Impact |
-|-----|-----------|--------|
-| **1: Extract Learnings** | Transform experience into patterns | Linear → Exponential improvement |
-| **2: Improve Self/System** | Continuous improvement mandatory | Prevent entropy/degradation |
-| **3: Document Context** | Preserve decisions and rationale | Enable knowledge compounding |
-| **4: Validate Before Execute** | Prevention over recovery | Catch errors early (cheap) |
-| **5: Share Patterns Publicly** | Build collective knowledge | Network effects, reputation |
-
-### The 40% Rule
-
-**Observation:** Performance collapse happens around 40% capacity utilization (humans + AI)
-**Application:** Stay under 40% context utilization to maintain peak performance
-**Strategy:** Just-In-Time loading, progressive disclosure, periodic compression
-**Validation:** Initial applications show 8x efficiency improvement, 0% collapse rate observed
-
-### Knowledge OS
-
-**Mental model:** Git as operating system for institutional memory
-**Primitives:** Commits (memory writes), branches (process isolation), merges (integration)
-**Result:** Repositories get smarter over time through pattern compounding
-**Evidence:** Production use since Claude 2.0, exponential efficiency improvement (1x → 16x)
-
----
-
-## Empirical Validation
-
-**Foundation concepts grounded in proven methodologies and initial applications:**
-
-### Context Engineering (40% Rule)
-- **Grounded in:** Cognitive load theory (Sweller, 1988), ADHD research (Barkley, 2015)
-- **Initial results:** 8x efficiency improvement, 0% context collapse observed
-- **Evidence:** Validated across 200+ production sessions
-
-### Knowledge OS (Pattern Compounding)
-- **Grounded in:** 15+ years of GitOps practices, Infrastructure as Code patterns
-- **Initial results:** 1x → 16x efficiency improvement observed with production use since Claude 2.0
-- **Evidence:** Git history analysis, measured velocity
-
-### Nine Laws (Operational Compliance)
-- **Grounded in:** SRE practices, DevOps principles, Continuous Improvement methodologies
-- **Initial results:** 95% success rate observed in production environments
-- **Evidence:** Commit message analysis, session metrics
-
-### Five Pillars (Integrated Framework)
-- **Grounded in:** DevOps (20+ years), SRE (15+ years), Learning Science (decades), Zero-Trust (10+ years)
-- **Initial applications:** 52 production workflows developed and refined
-- **Evidence:** Production implementation examples available in enterprise environments
-
-**These aren't invented principles—they're proven practices adapted to AI agent operations.**
-
----
-
-## Common Questions
-
-### "Do I need to read all of this?"
-
-**For basic usage:** No. Read [Five Pillars](./five-pillars.md) for overview, then use agentops workflows.
-
-**For deep understanding:** Yes. All four docs provide context for why AgentOps works the way it does.
-
-**For contributing:** Absolutely. You need to understand the philosophy to extract and share patterns.
-
-### "How does this relate to the 12 factors?"
-
-**Foundations** provide the philosophical basis.
-**The 12 factors** (coming soon) operationalize the philosophy for AI agent systems.
-**agentops** implements both in production workflows.
-
-Think: Foundations = theory, 12 Factors = principles, agentops = practice.
-
-### "What if I disagree with a foundation concept?"
-
-**Try it empirically first.** Most objections ("40% is too conservative", "detailed commits take too long") dissolve with real-world testing.
-
-**If still skeptical:** Document your experience, share results. These foundations evolved from production learnings—they can evolve further based on new evidence.
-
-**Science over dogma.** Challenge with data, not assumptions.
-
-### "Can I use parts without the whole?"
-
-**Yes, but synergies matter.**
-
-You can apply:
-- Just the 40% rule (will improve efficiency)
-- Just detailed commit messages (will improve context preservation)
-- Just validation-before-execution (will reduce errors)
-
-**But:** The pillars and laws interact. The whole is greater than the sum.
-
-Example: 40% rule + Knowledge OS = context preservation that compounds. One without the other is less effective.
-
----
-
-## Next Steps
-
-### After Reading Foundations
-
-1. **Apply to your work:**
-   - Try the 40% rule in your next session
-   - Write one detailed commit message using the template
-   - Extract one pattern from recent work
-
-2. **Explore operational implementation:**
-   - Reference operational enforcement patterns
-   - Study production agent examples
-   - Apply priming command patterns
-
-3. **Measure and validate:**
-   - Track your efficiency before/after applying principles
-   - Document what works in your context
-   - Share learnings back to community
-
-4. **Contribute:**
-   - Extract patterns from your experience
-   - Propose refinements based on your domain
-   - Help others in the community
-
----
-
-## Contributing to Foundations
-
-**We welcome:**
-- Empirical evidence supporting or challenging concepts
-- Domain-specific adaptations and insights
-- Clarifying examples from your experience
-- Research references that strengthen theoretical grounding
-
-**See:** [CONTRIBUTING.md](../CONTRIBUTING.md) for how to contribute patterns and insights.
 
 ---
 
 ## Version and Status
 
-**Foundations Version:** 1.0
-**Last Updated:** 2025-11-06
-**Status:** Stable (validated in production, open for community refinement)
+**Version:** 3.0
+**Last Updated:** 2026-02-15
+**Status:** Stable, open for community refinement
 
-**Built on:**
-- Decades of proven DevOps, GitOps, and Zero-Trust practices
-- Production use since Claude 2.0 informing pattern development
-- Research from cognitive psychology, ADHD studies, LLM behavior
-- Initial applications in production environments (solo dev to DoD infrastructure)
-- Community validation now in progress to discover universal patterns
-
----
-
-## Further Reading
-
-**In this repository:**
-- [README.md](../README.md) - Framework overview
-- [CONTRIBUTING.md](../CONTRIBUTING.md) - How to contribute
-- [content/factors/](../content/factors/) - (Coming) The 12 Factors detailed
-- [content/patterns/](../content/patterns/) - (Coming) Pattern library
-
-**In production implementations:**
-- Operational enforcement patterns (CONSTITUTION-based)
-- Concept deep-dives and explanations
-- Practical how-to guides
-- 52 production workflows (enterprise environments)
-
-**Research references:**
-- Miller (1956) - "The Magical Number Seven, Plus or Minus Two"
-- Cowan (2001) - "The Magical Number 4 in Short-Term Memory"
-- Csikszentmihalyi (1990) - "Flow: The Psychology of Optimal Experience"
-- Liu et al. (2023) - "Lost in the Middle: How Language Models Use Long Contexts"
-
----
-
-**Welcome to the foundations of AgentOps.**
-
-These concepts transform AI agent operations from ad-hoc experimentation into **rigorous, reliable, continuously improving systems**.
-
-Read. Apply. Measure. Contribute.
-
-**Let's build production-grade AI operations together.**
+Built on decades of proven DevOps, SRE, GitOps, and zero-trust practices. Validated in production environments ranging from solo development to enterprise infrastructure. Community validation in progress.

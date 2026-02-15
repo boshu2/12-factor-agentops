@@ -628,7 +628,12 @@ Never exceed capacity in any session
 
 ---
 
-## Connection to Other AgentOps Principles
+## Connection to Other Factors and Principles
+
+Context engineering directly supports several factors in the 12-Factor framework:
+- **I. Context Is Everything** - The 40% rule is the foundation of this factor
+- **III. One Agent, One Job** - Focused agents prevent context pollution
+- **VI. Lock Progress Forward** - Session boundaries and state persistence prevent context loss
 
 ### Relationship to Learning Science (Pillar 2)
 
@@ -677,7 +682,7 @@ Context engineering is the discipline of managing cognitive load to prevent coll
 ## Further Reading
 
 **Theory and research:**
-- [Five Pillars](./five-pillars.md#pillar-4-context-engineering) - Context Engineering pillar overview
+- [Four Pillars](./five-pillars.md#pillar-3-context-engineering) - Context Engineering pillar overview
 - [Nine Laws](./nine-laws.md) - How laws support context management
 
 **Operational implementation:**

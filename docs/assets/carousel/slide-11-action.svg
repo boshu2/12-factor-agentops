@@ -64,7 +64,7 @@
             font-size="32" fill="#475569">→</text>
       <rect x="220" y="-25" width="160" height="50" rx="25" fill="url(#blueGrad)"/>
       <text x="300" y="10" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FFFFFF">Factor II</text>
+            font-size="18" font-weight="700" fill="#FFFFFF">Factor I</text>
     </g>
 
     <!-- Reliability issues -->
@@ -79,7 +79,7 @@
             font-size="32" fill="#475569">→</text>
       <rect x="220" y="-25" width="160" height="50" rx="25" fill="url(#greenGrad)"/>
       <text x="300" y="10" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FFFFFF">Factor IV</text>
+            font-size="18" font-weight="700" fill="#FFFFFF">Factor V</text>
     </g>
 
     <!-- No visibility -->
@@ -94,7 +94,7 @@
             font-size="32" fill="#475569">→</text>
       <rect x="220" y="-25" width="160" height="50" rx="25" fill="url(#orangeGrad)"/>
       <text x="300" y="10" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="18" font-weight="700" fill="#FFFFFF">Factor V</text>
+            font-size="18" font-weight="700" fill="#FFFFFF">Factor IX</text>
     </g>
   </g>
 

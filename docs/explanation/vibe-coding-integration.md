@@ -1,374 +1,127 @@
-# Vibe Coding + 12-Factor AgentOps Integration
+# Vibe Coding and Operational Discipline
 
-**Two frameworks, one complete system for reliable 10x productivity.**
-
----
-
-## Executive Summary
-
-**[Vibe Coding](https://www.youtube.com/watch?v=vibe-coding)** (Gene Kim & Steve Yegge) provides the **vision**: developers evolving from "line cooks" to "head chefs," achieving 10-16x productivity through AI collaboration.
-
-**12-Factor AgentOps** (this framework) provides the **operational discipline**: production-proven patterns for achieving FAAFO (Fast, Ambitious, Autonomous, Fun, Optionality) reliably without chaos.
-
-### The Synthesis
-
-> *"Vibe Coding shows the promise. 12-Factor AgentOps shows how to deliver it safely in production."*
-
-**Together:**
-- Vibe Coding → The research, the vision, the transformation narrative
-- 12-Factor AgentOps → The patterns, the discipline, the production safety
-- Result → Complete playbook for 10x productivity without eldritch code horrors
+**Vibe coding is a practice. 12-Factor AgentOps is the operational discipline underneath it.**
 
 ---
 
-## Two Frameworks, One Complete System
+## The Core Insight
 
-### Vibe Coding (Gene Kim & Steve Yegge)
+Vibe coding — the practice of collaborating with AI agents through natural language, rapid iteration, and creative flow — is transforming how developers work. But the practice alone does not guarantee reliable results. The gap between a great vibe coding session and a frustrating one is not the model. It is the operations.
 
-**What it is:**
-- Research-backed framework for AI-assisted development
-- Documents what elite organizations achieve with AI
-- Identifies five value dimensions (FAAFO)
-- Warns about failure modes (eldritch horrors, bridge torching, context amnesia)
+12-Factor AgentOps provides the operational principles that make vibe coding sessions consistently productive. These principles work regardless of which tool you use — Claude Code, Cursor, Codex, Copilot, or any other agent-powered environment. No specific tooling is required. The discipline is what matters.
 
-**What it provides:**
-- **Vision:** Developers as "head chefs" orchestrating AI "sous chefs"
-- **Research:** 10-16x productivity gains, impossible → feasible projects
-- **Framework:** Three Developer Loops (Inner/Middle/Outer)
-- **Warning:** Without discipline → chaos (3,000-line functions, API breakage)
-
-**Their focus:** Developer experience, transformation narrative, what's possible
+> *"The model isn't the problem. The operations are."*
 
 ---
 
-### 12-Factor AgentOps (This Framework)
+## How Operational Discipline Supports Vibe Coding
 
-**What it is:**
-- Production-validated operational patterns (2 years, 95% success rate)
-- Adaptation of DevOps/SRE principles to AI workflows
-- Platform engineering proof (1 developer = whole team)
+The 12 factors are organized into four tiers. Each tier addresses a different layer of what makes vibe coding reliable, from individual sessions to organizational scale.
 
-**What it provides:**
-- **Discipline:** How to achieve FAAFO reliably
-- **Patterns:** 12 factors mapping to Three Developer Loops
-- **Safety:** Prevention/Detection/Correction for each failure mode
-- **Proof:** 1,175+ commits, 2.7-40x speedup, 35% → 95% success rate
+### Tier 1: Foundation (Factors I-III)
 
-**Our focus:** Operational reliability, production safety, proven implementation
+**Making each session start strong and stay focused.**
 
----
+These factors address the most common vibe coding frustrations: the agent does not understand the codebase, produces inconsistent results, or tries to do too many things at once.
 
-## The Three Developer Loops: Core Integration Point
+| Factor | What It Solves |
+|--------|---------------|
+| [I. Context Is Everything](../../factors/01-context-is-everything.md) | The agent performs poorly because it lacks project context. Load relevant context deliberately — architecture docs, coding standards, recent changes — and agent output quality transforms without changing the model. |
+| [II. Track Everything in Git](../../factors/02-track-everything-in-git.md) | Sessions produce work that gets lost, overwritten, or cannot be rolled back. When every artifact — code, research, plans, decisions — lives in git, vibe coding sessions become recoverable and auditable. |
+| [III. One Agent, One Job](../../factors/03-one-agent-one-job.md) | A single agent juggling research, coding, testing, and review produces mediocre results across all of them. Scoping each agent to a clear responsibility makes vibe coding sessions predictable. |
 
-Gene Kim's Three Developer Loops framework maps perfectly to our 12 Factors:
-
-### Inner Loop: Seconds to Minutes
-
-**Direct AI collaboration in immediate coding flow**
-
-**Vibe Coding Concerns:**
-- "Tests passing" lies (AI claims tests pass, code doesn't compile)
-- Context amnesia (AI forgets instructions from 5 minutes ago)
-- Debug loop spiral (AI adds logging instead of fixing root cause)
-
-**AgentOps Factors:**
-- **Factor 1: Fast Feedback Loops** - Sub-second validation catches AI lies immediately
-- **Factor 5: Testing First** - TDD forces AI to write verifiable tests
-- **Factor 6: Validation** - Ruthless validation gates prevent hallucinations
-
-**Prevention Strategy:**
-- Checkpoint frequently (git commits every few minutes)
-- AI-written specs and tests (not just code)
-- Git mastery (easy rollback on failures)
-
-**Detection Strategy:**
-- TDD (write test first, verify it fails, then implement)
-- Verify AI claims independently (run tests yourself)
-- Always on watch (don't trust, verify)
-
-**Correction Strategy:**
-- Fix-forward or rollback (git revert if broken)
-- AI as rubber duck debugger (explain problem, get ideas)
-- Manual control when AI fails (use debugger yourself)
+**Without tooling:** You can apply these principles with nothing more than a well-structured CLAUDE.md file, a git repository, and discipline about what you ask each agent session to do.
 
 ---
 
-### Middle Loop: Hours to Days
+### Tier 2: Workflow (Factors IV-VI)
 
-**Multi-agent coordination and extended sessions**
+**Making the work between sessions reliable.**
 
-**Vibe Coding Concerns:**
-- Eldritch code horror (3,000+ line functions, everything connected)
-- Agent workspace collision (multiple agents modify same files)
-- Multi-agent deadlock (circular dependencies, agents waiting for each other)
+These factors address what happens when vibe coding moves beyond a single quick session into sustained development — multi-step features, complex integrations, and production-bound changes.
 
-**AgentOps Factors:**
-- **Factor 3: Autonomous Agents** - Clear agent boundaries prevent collisions
-- **Factor 9: Modularity** - Architecture constraints prevent eldritch horrors
-- **Factor 10: Context Windows** - 40% rule prevents context amnesia
+| Factor | What It Solves |
+|--------|---------------|
+| [IV. Research Before You Build](../../factors/04-research-before-you-build.md) | Jumping straight into implementation wastes sessions on wrong approaches. A brief research phase — reading existing code, checking constraints, exploring alternatives — makes the build phase dramatically more productive. |
+| [V. Validate Externally](../../factors/05-validate-externally.md) | The agent says "tests pass" but the code does not compile. External validation — running tests independently, checking outputs against real systems, verifying claims outside the agent session — catches lies and hallucinations before they compound. |
+| [VI. Lock Progress Forward](../../factors/06-lock-progress-forward.md) | A productive session's work gets undone by the next session. Commit working states frequently, tag milestones, and treat each validated checkpoint as a ratchet that prevents regression. |
 
-**Prevention Strategy:**
-- Written rules (AI can't read minds, explicit constraints required)
-- Memento method (context management patterns)
-- Intentional coordination (don't let agents randomly interact)
-
-**Detection Strategy:**
-- Waking to "eldritch horrors" (can't understand code AI wrote)
-- Agent contention detection (file lock conflicts)
-- CI/CD gates (validation catches integration failures)
-
-**Correction Strategy:**
-- Tracer bullets (implement vertical slice end-to-end first)
-- Workflow automation (codify coordination patterns)
-- Economics of optionality (NK/t/σ - run parallel experiments)
+**Without tooling:** Commit after each working state. Run tests outside your agent session. Spend the first few minutes of a session reading before generating. These are habits, not tools.
 
 ---
 
-### Outer Loop: Weeks to Months
+### Tier 3: Knowledge (Factors VII-IX)
 
-**Long-term architecture, processes, organizational patterns**
+**Making each session smarter than the last.**
 
-**Vibe Coding Concerns:**
-- Bridge torching (AI changes function signatures, breaks callers)
-- Repository deletion disaster (AI deletes "unused" branches)
-- Organizational process gridlock (AI productivity negated by approvals)
+This is where vibe coding transforms from a series of isolated sessions into a compounding practice. These factors are the differentiator between teams that plateau and teams that accelerate.
 
-**AgentOps Factors:**
-- **Factor 2: Disposability** - Fast rollback when AI breaks things
-- **Factor 8: Organizational Transformation** - Cultural change for AI adoption
-- **Factor 11: Dev/Prod Parity** - Production safety (don't torch production)
+| Factor | What It Solves |
+|--------|---------------|
+| [VII. Extract Learnings](../../factors/07-extract-learnings.md) | Every session produces implicit knowledge — what worked, what failed, what the codebase actually does — that evaporates when the session ends. Deliberately extracting learnings turns ephemeral sessions into durable organizational knowledge. |
+| [VIII. Compound Knowledge](../../factors/08-compound-knowledge.md) | Extracted learnings sit in a document nobody reads. A deliberate cycle of Harvest, Evaluate, Refine, and Operationalize (HERO) turns raw learnings into context that automatically improves future sessions. This is the factor that makes vibe coding a compounding investment rather than a flat cost. |
+| [IX. Measure What Matters](../../factors/09-measure-what-matters.md) | You cannot tell if your vibe coding practice is improving. Tracking meaningful metrics — success rates, time-to-working-state, knowledge reuse — reveals whether your operational changes are actually helping. |
 
-**Prevention Strategy:**
-- Don't torch bridges (API stability, backward compatibility)
-- Modularization (isolate changes, reduce blast radius)
-- Fleet management (manage multiple AI agents/workflows)
+**Without tooling:** After each session, write down what you learned in a file that your next session will read. Review those notes weekly. Delete what is stale. Promote what keeps being useful. This is the knowledge flywheel in its simplest form.
 
-**Detection Strategy:**
-- When AI throws everything out (massive refactor = warning sign)
-- CI/CD in AI age (validation catches breaking changes)
-
-**Correction Strategy:**
-- Heroic merge recovery (git reflog, manual conflict resolution)
-- Navigate legacy constraints (work within existing systems)
+**Factor VIII is the differentiator.** Most vibe coding advice focuses on prompting techniques for a single session. Compound Knowledge addresses the harder problem: making every session build on everything that came before. An organization that compounds knowledge across hundreds of agent sessions operates at a fundamentally different level than one that starts fresh each time.
 
 ---
 
-## Mapping Table: Three Loops → 12 Factors
+### Tier 4: Scale (Factors X-XII, Optional)
 
-| Loop | Timescale | AgentOps Factors | Production Safety Provided |
-|------|-----------|-----------------|---------------------------|
-| **Inner Loop**<br>Immediate coding | Seconds-minutes | **1:** Fast Feedback Loops<br>**5:** Testing First<br>**6:** Validation | ✅ Catch "tests passing" lies<br>✅ Prevent context amnesia<br>✅ Stop debug spirals |
-| **Middle Loop**<br>Multi-agent work | Hours-days | **3:** Autonomous Agents<br>**9:** Modularity<br>**10:** Context Windows | ✅ Prevent eldritch horrors<br>✅ Manage workspace collisions<br>✅ Coordinate multiple agents |
-| **Outer Loop**<br>Architecture/org | Weeks-months | **2:** Disposability<br>**8:** Org Transformation<br>**11:** Dev/Prod Parity | ✅ Stop bridge torching<br>✅ Scale to organization<br>✅ Recover from disasters |
+**Making vibe coding work across teams and complex systems.**
 
-**Other Factors (Cross-Loop):**
-- **Factor 4:** Continuous Validation - Applies to all loops (prevent failures)
-- **Factor 7:** Learn from Failures - Applies to all loops (improve over time)
-- **Factor 12:** Package Patterns - Applies to all loops (reusable solutions)
+These factors are optional for solo developers but become essential when vibe coding scales beyond one person and one agent.
 
----
+| Factor | What It Solves |
+|--------|---------------|
+| [X. Isolate Workers](../../factors/10-isolate-workers.md) | Multiple agents editing the same files create merge conflicts and corrupted state. Isolated workspaces — separate worktrees, branches, or directories — let parallel vibe coding sessions proceed without interference. |
+| [XI. Supervise Hierarchically](../../factors/11-supervise-hierarchically.md) | A fleet of agents with no coordination produces duplicated work and conflicting changes. A supervisory layer — whether a lead agent, a human coordinator, or a dispatch system — keeps parallel sessions aligned. |
+| [XII. Harvest Failures as Wisdom](../../factors/12-harvest-failures-as-wisdom.md) | Failed sessions feel like wasted time. When failures are systematically analyzed — what went wrong, what context was missing, what validation would have caught it — they become the most valuable input to the knowledge flywheel. |
 
-## Where They Align
-
-| Vibe Coding Principle | AgentOps Factor | Shared Insight |
-|---------------------|----------------|----------------|
-| Fast feedback loops (Inner Loop) | Factor 1, 5, 6 | Sub-second validation is foundational |
-| Modularity (Middle Loop) | Factor 9 | Architecture enables everything |
-| Validation (all loops) | Factor 6 | Ruthless validation required |
-| Context management | Factor 10 | Context is the limiting resource |
-| Autonomy with accountability | Factor 3 | Delegation ≠ abdication |
-| Learn from failures | Factor 7, Law #2 | Failures are learning opportunities |
-| Head chef orchestration | All factors | Developers orchestrate, AI executes |
+**Without tooling:** Use separate git branches for parallel work. Designate one person to coordinate when multiple developers are vibe coding on the same codebase. When a session fails, write a brief note about why before starting over.
 
 ---
 
-## Where AgentOps Adds Value
+## The Compounding Effect
 
-### 1. Production Safety Framework
+The relationship between vibe coding and operational discipline is not additive. It is multiplicative.
 
-**Vibe Coding:** Focuses on developer experience and productivity gains
+**Vibe coding without operational discipline:**
+- Each session starts from zero context
+- Successes are not repeatable
+- Failures recur because nothing was learned
+- Quality depends entirely on the developer's memory and the model's luck
 
-**AgentOps:** Provides operational discipline (disposability, dev/prod parity, logs)
+**Vibe coding with operational discipline:**
+- Each session inherits accumulated context and learnings
+- Successful patterns are captured and replicated
+- Failures feed back into better context and validation
+- Quality improves systematically over time
 
-**Example:**
-- Vibe Coding identifies "bridge torching" failure (AI breaks APIs)
-- AgentOps provides Factor 11 (Dev/Prod Parity) + Factor 4 (Continuous Validation) to prevent it
-- Result: API compatibility tests catch breaks before production
-
-### 2. Organizational Transformation Playbook
-
-**Vibe Coding:** Acknowledges cultural change needed
-
-**AgentOps:** Detailed change management playbook (Factor 8)
-
-**Example:**
-- Vibe Coding notes "organizational process gridlock" kills AI productivity
-- AgentOps provides Factor 8 patterns: fast lanes, incremental adoption, stakeholder alignment
-- Result: Cultural transformation roadmap for teams
-
-### 3. Multi-Flavor Coordination
-
-**Vibe Coding:** Focuses on coding agents
-
-**AgentOps:** Cross-domain orchestration (dev, ops, business, personal)
-
-**Example:**
-- Vibe Coding optimizes code development workflows
-- AgentOps extends to infrastructure, documentation, planning, personal knowledge
-- Result: Unified operational model across all knowledge work
-
-### 4. Horizontal Scaling Patterns
-
-**Vibe Coding:** Mentions parallel agents
-
-**AgentOps:** Formalized scaling model (Factor 12: Package Patterns)
-
-**Example:**
-- Vibe Coding demonstrates multiple agents working concurrently
-- AgentOps provides patterns for coordination, context sharing, conflict resolution
-- Result: Proven multi-agent orchestration at scale
+The difference compounds. After 10 sessions, the gap is noticeable. After 100 sessions, the disciplined practice operates at a fundamentally different capability level.
 
 ---
 
-## Where Vibe Coding Provides Context
+## Common Failure Modes and Which Factors Address Them
 
-### 1. Developer Experience Vision
+| Failure Pattern | Root Cause | Relevant Factor |
+|----------------|-----------|-----------------|
+| Agent produces wrong approach | Missing project context | [I. Context Is Everything](../../factors/01-context-is-everything.md) |
+| Work from a good session gets lost | No checkpoint discipline | [II. Track Everything in Git](../../factors/02-track-everything-in-git.md) |
+| Agent tries to do everything at once | Unclear scope | [III. One Agent, One Job](../../factors/03-one-agent-one-job.md) |
+| Implementation goes in circles | No research phase | [IV. Research Before You Build](../../factors/04-research-before-you-build.md) |
+| Agent claims success but code is broken | No external validation | [V. Validate Externally](../../factors/05-validate-externally.md) |
+| Next session undoes previous progress | No progress locking | [VI. Lock Progress Forward](../../factors/06-lock-progress-forward.md) |
+| Same mistakes repeat across sessions | No learning extraction | [VII. Extract Learnings](../../factors/07-extract-learnings.md) |
+| Learnings exist but nobody uses them | No compounding system | [VIII. Compound Knowledge](../../factors/08-compound-knowledge.md) |
+| Cannot tell if practice is improving | No measurement | [IX. Measure What Matters](../../factors/09-measure-what-matters.md) |
+| Parallel sessions create conflicts | No workspace isolation | [X. Isolate Workers](../../factors/10-isolate-workers.md) |
+| Multiple agents duplicate or conflict | No coordination layer | [XI. Supervise Hierarchically](../../factors/11-supervise-hierarchically.md) |
+| Failed sessions feel like waste | No failure harvesting | [XII. Harvest Failures as Wisdom](../../factors/12-harvest-failures-as-wisdom.md) |
 
-**AgentOps:** Can be too operational/mechanical
-
-**Vibe Coding:** Human/joy/fun dimension (FAAFO)
-
-**Example:**
-- AgentOps says "implement validation gates"
-- Vibe Coding explains why: rediscover joy in coding, achieve flow states
-- Result: Engineers understand the "why" behind discipline
-
-### 2. The "Why" for Transformation
-
-**AgentOps:** Doesn't articulate productivity potential
-
-**Vibe Coding:** 10-16x productivity, impossible → feasible
-
-**Example:**
-- AgentOps provides patterns for success
-- Vibe Coding quantifies potential: 4,176 lines in 4 days (10x normal)
-- Result: Compelling business case for adoption
-
-### 3. Head Chef Mental Model
-
-**AgentOps:** Lacks orchestrator/conductor framing
-
-**Vibe Coding:** Clear metaphor for role transformation
-
-**Example:**
-- AgentOps describes agent coordination
-- Vibe Coding provides metaphor: line cook → head chef (implementation → orchestration)
-- Result: Intuitive mental model for engineers
-
-### 4. The Three Loops Framework
-
-**AgentOps:** Doesn't separate by timescale
-
-**Vibe Coding:** Clear Inner/Middle/Outer with distinct strategies
-
-**Example:**
-- AgentOps lists 12 factors
-- Vibe Coding groups into Inner (sec-min), Middle (hrs-days), Outer (wks-mos)
-- Result: Easier to understand when to apply which factors
-
-### 5. Option Value Economics
-
-**AgentOps:** Doesn't quantify strategic value
-
-**Vibe Coding:** NK/t/σ equation formalizes optionality
-
-**Example:**
-- AgentOps recommends parallel exploration
-- Vibe Coding quantifies: Option Value = (N × K × σ) / t, AI increases K and decreases t → 100x+ value
-- Result: Economic justification for AI investment
-
----
-
-## Vibe Coding Failure Modes → AgentOps Factors
-
-Every failure pattern Gene Kim identifies maps to violated AgentOps factors:
-
-### Inner Loop Failures
-
-| Failure Pattern | Violated Factor | AgentOps Remedy |
-|----------------|----------------|----------------|
-| "Tests passing" lie | Factor 6 (Validation) | Independent test execution |
-| Context amnesia | Factor 10 (Context Windows) | Clear context at 40%, JIT loading |
-| Debug loop spiral | Factor 1 (Fast Feedback) | Manual debugger, root cause analysis |
-
-### Middle Loop Failures
-
-| Failure Pattern | Violated Factor | AgentOps Remedy |
-|----------------|----------------|----------------|
-| Eldritch code horror | Factor 9 (Modularity) | Stop, add tests, modularize incrementally |
-| Agent workspace collision | Factor 3 (Autonomous Agents) | Pause all, resolve conflicts, reassign territories |
-| Multi-agent deadlock | Factor 9 (Modularity) | Break dependency cycle manually |
-
-### Outer Loop Failures
-
-| Failure Pattern | Violated Factor | AgentOps Remedy |
-|----------------|----------------|----------------|
-| Bridge torching | Factor 11 (Dev/Prod Parity) | Roll back, API compatibility tests |
-| Repository deletion | Factor 1 (Automated Tracking) | git reflog recovery |
-| Process gridlock | Factor 8 (Org Transformation) | Fast lane for low-risk changes |
-
-**[Complete failure catalog →](../reference/failure-patterns.md)**
-
----
-
-## Together: The Complete Playbook
-
-```
-     🌟 Vibe Coding (Gene Kim & Steve Yegge)
-      Vision: 10-16x productivity possible
-      Research: Elite orgs achieving FAAFO
-      Framework: Three Developer Loops
-      Warning: Discipline required or chaos
-                    ↓
-     🛡️ 12-Factor AgentOps (This Framework)
-      Discipline: Production-proven patterns
-      Safety: Prevention/Detection/Correction
-      Validation: 2 years, 95% success rate
-      Scaling: Platform engineering proof
-                    ↓
-     ⚡ Complete Playbook for Reliable AI Workflows
-      Vision + Execution = Reliable Transformation
-      Promise + Patterns = Production Success
-      Research + Implementation = Proven Results
-```
-
-### What You Get with Both
-
-**Vibe Coding alone:**
-- Inspiring vision of what's possible
-- Understanding of failure modes
-- Framework for thinking about AI development
-
-**12-Factor AgentOps alone:**
-- Operational patterns that work
-- Production validation and proof
-- Implementation guidance
-
-**Vibe Coding + AgentOps together:**
-- **Complete understanding** - Why (FAAFO) + How (12 Factors)
-- **Risk mitigation** - Know failure modes + Have remedies
-- **Proven path** - Research validates + Production proves
-- **Full lifecycle** - Inner/Middle/Outer loops all covered
-
----
-
-## Positioning Statement
-
-> **In [Vibe Coding](https://www.youtube.com/watch?v=vibe-coding), Gene Kim and Steve Yegge document the transformation: developers evolving from "line cooks" (implementation) to "head chefs" (orchestration), achieving 10-16x productivity through AI collaboration. They identify five value dimensions (FAAFO) and warn about failure modes—from context amnesia to eldritch code horrors.**
->
-> **12-Factor AgentOps is the operational framework to realize FAAFO benefits while avoiding the dark side. Adapted from DevOps and proven over 2 years in platform engineering, these 12 factors map directly to Vibe Coding's Three Loops: fast feedback (Inner Loop), modularity and context management (Middle Loop), dev/prod parity and organizational transformation (Outer Loop).**
->
-> **Vibe Coding is the destination. 12-Factor AgentOps is the navigation system.**
+For a detailed catalog of failure patterns and remedies, see the [failure patterns reference](../reference/failure-patterns.md).
 
 ---
 
@@ -376,106 +129,38 @@ Every failure pattern Gene Kim identifies maps to violated AgentOps factors:
 
 ### For Individual Developers
 
-**Use Vibe Coding to:**
-- Understand the transformation you're experiencing
-- Set expectations for 10x productivity potential
-- Recognize failure patterns early
-- Think in terms of Inner/Middle/Outer loops
+Start with the Foundation tier. These three factors — context loading, git discipline, and focused agent scope — produce the most immediate improvement in vibe coding session quality. They cost nothing to implement and work with any tool.
 
-**Use 12-Factor AgentOps to:**
-- Implement specific practices (validation gates, context management)
-- Achieve 95% success rate (not 35%)
-- Avoid eldritch code horrors with modularity constraints
-- Systematically improve through blameless postmortems
+Then add the Workflow tier as you take on larger tasks. Research before building, validate externally, and lock progress forward. These habits prevent the most common session failures.
+
+The Knowledge tier is where long-term advantage emerges. Even a simple practice of writing down what you learned after each session, and loading those notes into the next one, creates a compounding effect that transforms your practice over weeks and months.
 
 ### For Teams
 
-**Use Vibe Coding to:**
-- Communicate the vision to stakeholders
-- Justify AI investment (10-16x ROI)
-- Align on FAAFO as shared goal
-- Educate on transformation (line cook → head chef)
+Everything above applies, plus the Scale tier. Isolated workspaces prevent parallel sessions from colliding. Hierarchical supervision keeps multiple developers' agent work aligned. And harvesting failures across the team means everyone benefits from each person's hard-won lessons.
 
-**Use 12-Factor AgentOps to:**
-- Standardize AI workflows across team
-- Implement organizational transformation (Factor 8)
-- Scale from solo to team to organization
-- Prove ROI with production metrics
+The Knowledge tier becomes especially powerful at team scale. When one developer discovers that a particular codebase requires a specific context-loading pattern, that learning can compound into every team member's future sessions through shared knowledge artifacts.
 
 ### For Organizations
 
-**Use Vibe Coding to:**
-- Executive-level business case (impossible → feasible)
-- Industry validation (Gene Kim, AI Engineer Summit)
-- Strategic roadmap (Inner → Middle → Outer loops)
+The 12 factors provide a shared vocabulary for discussing agent operations. Instead of ad-hoc "tips and tricks" for prompting, teams can reason about which factors they are strong or weak on and invest accordingly.
 
-**Use 12-Factor AgentOps to:**
-- Tactical implementation roadmap
-- Risk mitigation (failure pattern catalog)
-- Change management playbook (Factor 8)
-- Production validation (2 years proof)
+Factor VIII (Compound Knowledge) is the organizational strategic advantage. Organizations that systematically compound knowledge across hundreds of agent sessions across dozens of developers build a durable asset that no model upgrade or tool switch can replicate.
 
 ---
 
 ## Next Steps
 
-1. **Read Vibe Coding research** - Understand Gene Kim's vision and framework
-2. **Study Three Developer Loops** - [Read the deep dive →](./three-developer-loops.md)
-3. **Review failure patterns** - [Read the complete catalog →](../reference/failure-patterns.md)
-4. **Implement 12 Factors** - [Start with Factor 1 →](../../factors/01-automated-tracking.md)
-5. **Join the community** - Share your experience, learn from others
+1. **Start with Factor I** - [Context Is Everything](../../factors/01-context-is-everything.md) produces immediate improvement
+2. **Understand the failure patterns** - [Failure patterns reference](../reference/failure-patterns.md)
+3. **See the full factor list** - [All 12 factors](../../factors/README.md)
+4. **Try the workflow** - [Getting started guide](../getting-started/quick-start.md)
+5. **Understand the knowledge flywheel** - [Compound Knowledge (Factor VIII)](../../factors/08-compound-knowledge.md)
 
 ---
 
-## Credits
+## Related
 
-**Vibe Coding Framework:**
-- Gene Kim & Steve Yegge
-- AI Engineer Summit 2025
-- Research documenting elite AI development practices
-
-**12-Factor AgentOps:**
-- 2 years production validation (1,175+ commits)
-- Standing on giants: 12-Factor App, DevOps/SRE, Learning Science, Context Engineering
-- Independent discovery validated by industry convergence
-
-**Synthesis:**
-- Convergent evolution in AI operations space
-- Same destination, different paths
-- Vision + Execution = Complete playbook
-
----
-
-**Not competing. Completing.**
-
-Vibe Coding shows what's possible. 12-Factor AgentOps shows how to achieve it reliably.
-
-Together: The complete playbook for 10x productivity without chaos.
-
----
-
-## Beads: The Implementation Layer
-
-Steve Yegge, co-author of Vibe Coding, also created [Beads](https://github.com/steveyegge/beads) - a git-backed issue tracker designed specifically for AI agent workflows.
-
-**How Beads Complements Vibe Coding:**
-
-| Vibe Coding Principle | Beads Implementation |
-|-----------------------|---------------------|
-| Three Developer Loops | Issues track work across all loops |
-| Context preservation | `bd comment` survives compaction |
-| Dependency awareness | `bd dep add` creates execution order |
-| Continuous validation | `bd ready` ensures prerequisites complete |
-
-**The workflow:**
-```
-/research "topic" → .agents/research/YYYY-MM-DD-topic.md
-        ↓
-/plan .agents/research/... → .agents/plans/... + beads issues
-        ↓
-bd ready → shows unblocked work
-        ↓
-/implement → executes one issue at a time
-```
-
-See [Beads Workflow Integration](beads-workflow-integration.md) for full documentation.
+- [Three Developer Loops](./three-developer-loops.md) - How the factors map to different development timescales
+- [Beads Workflow Integration](./beads-workflow-integration.md) - Git-backed issue tracking for agent workflows
+- [Standing on Giants](./standing-on-giants.md) - The heritage behind these operational principles

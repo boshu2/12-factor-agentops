@@ -159,15 +159,15 @@
     <!-- Section header -->
     <rect x="0" y="0" width="160" height="40" rx="6" fill="url(#greenGrad)"/>
     <text x="80" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Foundation</text>
-    <text x="180" y="27" font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#94a3b8">Build reliability from the ground up</text>
+    <text x="180" y="27" font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#94a3b8">Context, tracking, and focus</text>
 
     <!-- Factor I -->
     <g class="factor-card" transform="translate(0, 60)">
       <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
       <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#greenGrad)"/>
       <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">I</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Automated Tracking</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Track all decisions, context, and outcomes in git. No tribal knowledge.</text>
+      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Context Is Everything</text>
+      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Load what you need, when you need it. Right context drives reliable decisions.</text>
     </g>
 
     <!-- Factor II -->
@@ -175,8 +175,8 @@
       <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
       <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#greenGrad)"/>
       <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">II</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Context Loading</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Load only what you need, when you need it. Stay under 40% context window.</text>
+      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Track Everything in Git</text>
+      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Track all decisions, context, and outcomes in git. No tribal knowledge.</text>
     </g>
 
     <!-- Factor III -->
@@ -184,8 +184,8 @@
       <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
       <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#greenGrad)"/>
       <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">III</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Focused Agents</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">One agent, one job. Compose specialists rather than building generalists.</text>
+      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">One Agent, One Job</text>
+      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Compose specialists rather than building generalists. Each agent does one job well.</text>
     </g>
 
     <!-- Factor IV -->
@@ -193,8 +193,8 @@
       <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
       <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#greenGrad)"/>
       <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">IV</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Continuous Validation</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Check outputs at every step. Catch errors early before they compound.</text>
+      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Research Before You Build</text>
+      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Understand context and constraints before implementation. Research first.</text>
     </g>
   </g>
 
@@ -202,16 +202,16 @@
   <g transform="translate(80, 560)">
     <!-- Section header -->
     <rect x="0" y="0" width="160" height="40" rx="6" fill="url(#yellowGrad)"/>
-    <text x="80" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#1a1a1a">Operations</text>
-    <text x="180" y="27" font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#94a3b8">Run with observability and control</text>
+    <text x="80" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#1a1a1a">Workflow</text>
+    <text x="180" y="27" font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#94a3b8">Validate, lock progress, and learn</text>
 
     <!-- Factor V -->
     <g class="factor-card" transform="translate(0, 60)">
       <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(234,179,8,0.08)" stroke="rgba(234,179,8,0.3)" stroke-width="1"/>
       <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#yellowGrad)"/>
       <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#1a1a1a">V</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Measure Everything</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">If you can't measure it, you can't improve it. Track latency, cost, quality.</text>
+      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Validate Externally</text>
+      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Check outputs at every step. Catch errors early before they compound.</text>
     </g>
 
     <!-- Factor VI -->
@@ -219,8 +219,8 @@
       <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(234,179,8,0.08)" stroke="rgba(234,179,8,0.3)" stroke-width="1"/>
       <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#yellowGrad)"/>
       <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#1a1a1a">VI</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Resume Work</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Save state frequently. Pick up exactly where you left off across sessions.</text>
+      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Lock Progress Forward</text>
+      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Save state frequently. Never lose progress across sessions and restarts.</text>
     </g>
 
     <!-- Factor VII -->

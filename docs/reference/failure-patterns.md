@@ -46,12 +46,12 @@
 - Confabulation of success based on code structure, not execution
 - No actual test harness invoked
 
-**Violated Factor:** **Factor IV (Continuous Validation)**
+**Violated Factor:** **Factor V (Validate Externally)**
 
 **Prevention:**
 - Always run tests independently (don't trust AI claims)
 - Never accept "tests pass" without verification
-- Use Factor 1 (Automated Tracking) to log actual test runs with timestamps
+- Use Factor II (Track Everything in Git) to log actual test runs with timestamps
 
 **Detection:**
 - Compilation fails despite "passing tests" claim
@@ -100,12 +100,12 @@ Output: FAILED tests/test_calculate.py::test_sum - NameError: name 'sum_values' 
 - Performance degrades non-linearly (cliff, not slope)
 - AI loses track of earlier conversation
 
-**Violated Factor:** **Factor II (Context Loading)**
+**Violated Factor:** **Factor I (Context Is Everything)**
 
 **Prevention:**
 - Monitor context utilization actively (estimate tokens used)
 - Clear context proactively at 40% threshold
-- Use Factor 2 (Context Loading) for JIT reload patterns
+- Use Factor I (Context Is Everything) for JIT reload patterns
 - Save session state before clearing (memento method)
 
 **Detection:**
@@ -155,7 +155,7 @@ AI: "What caching solution should we use?"
 - Guessing rather than analyzing
 - Each iteration adds more logging, no fix
 
-**Violated Factor:** **Factor VII (Smart Routing)**
+**Violated Factor:** **Factor IV (Research Before You Build)**
 
 **Prevention:**
 - Use debugger first (breakpoint at error location)
@@ -214,7 +214,7 @@ Error: Still occurs
 - AI loses track of change intent partway through
 - Result: Incomplete refactor, broken state
 
-**Violated Factor:** **Factor X (Small Iterations)** + **Factor II (Context Loading)**
+**Violated Factor:** **Factor X (Isolate Workers)** + **Factor I (Context Is Everything)**
 
 **Prevention:**
 - Keep files <500 lines (modularity constraint)
@@ -255,7 +255,7 @@ If file too large:
 - Each fix breaks something else
 - No holistic understanding of codebase
 
-**Violated Factor:** **Factor IV (Continuous Validation)** + **Factor X (Small Iterations)**
+**Violated Factor:** **Factor V (Validate Externally)** + **Factor X (Isolate Workers)**
 
 **Prevention:**
 - Validate code structure before committing
@@ -297,7 +297,7 @@ After AI edit:
 - No modularity constraints enforced
 - Extended session without architectural oversight
 
-**Violated Factor:** **Factor X (Small Iterations)**
+**Violated Factor:** **Factor X (Isolate Workers)**
 
 **Prevention:**
 - Set explicit modularity constraints upfront:
@@ -358,7 +358,7 @@ def process_everything(data, config, db, cache, logger, metrics, ...):
 - Agents overlap in scope
 - No explicit handoff protocols
 
-**Violated Factor:** **Factor III (Focused Agents)** + **Factor VII (Smart Routing)**
+**Violated Factor:** **Factor III (One Agent, One Job)** + **Factor IV (Research Before You Build)**
 
 **Prevention:**
 - Assign agents to specific domains (Agent A = frontend, B = backend, C = DB)
@@ -411,7 +411,7 @@ Git: CONFLICT (content): Merge conflict in src/api/routes.py
 - Circular dependencies (A needs B, B needs A)
 - No tracer bullet to break cycle
 
-**Violated Factor:** **Factor X (Small Iterations)** + poor task decomposition
+**Violated Factor:** **Factor X (Isolate Workers)** + poor task decomposition
 
 **Prevention:**
 - Implement tracer bullet first (vertical slice end-to-end)
@@ -451,7 +451,7 @@ Before parallel agents:
 - Each agent has different view of system
 - State synchronization not implemented
 
-**Violated Factor:** **Factor II (Context Loading)** + multi-agent coordination
+**Violated Factor:** **Factor I (Context Is Everything)** + multi-agent coordination
 
 **Prevention:**
 - Shared state file (read by all agents)
@@ -484,7 +484,7 @@ Before parallel agents:
 - No backward compatibility validation
 - Missing contract testing
 
-**Violated Factor:** **Factor IV (Continuous Validation)** + **Factor VIII (Human Validation)**
+**Violated Factor:** **Factor V (Validate Externally)** + **Factor XI (Supervise Hierarchically)**
 
 **Prevention:**
 - API compatibility tests in CI/CD pipeline
@@ -546,7 +546,7 @@ result = calculate(10)  # TypeError: missing required argument 'multiplier'
 - Over-optimizes for "cleanliness"
 - Deletes branches with unmerged work
 
-**Violated Factor:** **Factor VIII (Human Validation)** + **Factor I (Automated Tracking)**
+**Violated Factor:** **Factor XI (Supervise Hierarchically)** + **Factor II (Track Everything in Git)**
 
 **Prevention:**
 - Protected branches policy (can't delete main, develop, production)
@@ -593,7 +593,7 @@ Git hook:
 - Every change requires committee approval
 - Manual review slower than AI generation
 
-**Violated Factor:** **Factor IV (Continuous Validation)** + **Factor V (Measure Everything)**
+**Violated Factor:** **Factor V (Validate Externally)** + **Factor IX (Measure What Matters)**
 
 **Prevention:**
 - Implement fast lane for low-risk changes
@@ -640,7 +640,7 @@ Else:
 - Changes deployed directly to production
 - Missing integration tests
 
-**Violated Factor:** **Factor IV (Continuous Validation)** + **Factor VIII (Human Validation)** + **Factor 4 (Continuous Validation)**
+**Violated Factor:** **Factor V (Validate Externally)** + **Factor XI (Supervise Hierarchically)**
 
 **Prevention:**
 - Staging environment matching production
@@ -676,16 +676,16 @@ Deployment flow:
 
 | Symptom | Pattern | Loop | Violated Factors | Page |
 |---------|---------|------|-----------------|------|
-| AI claims tests pass, code broken | "Tests Passing" Lie | Inner | 6 (Validation) | ↑ |
-| AI forgets recent instructions | Context Amnesia | Inner | 10 (Context Windows) | ↑ |
-| AI adds logging instead of fixing bug | Debug Loop Spiral | Inner | 1 (Fast Feedback) | ↑ |
-| 3,000-line unmaintainable function | Eldritch Code Horror | Middle | 9 (Modularity) | ↑ |
-| Multiple agents modify same file | Agent Workspace Collision | Middle | 3 (Autonomous Agents) | ↑ |
-| Agents waiting for each other | Multi-Agent Deadlock | Middle | 9 (Modularity) | ↑ |
-| Production API breaks after deployment | Bridge Torching | Outer | 11 (Dev/Prod Parity) | ↑ |
-| Git branch with work deleted | Repository Deletion | Outer | 1 (Automated Tracking) | ↑ |
-| AI code waits weeks for approval | Process Gridlock | Outer | 8 (Org Transformation) | ↑ |
-| Production deployment breaks system | Cascading Failures | Outer | 11, 4 (Parity, Validation) | ↑ |
+| AI claims tests pass, code broken | "Tests Passing" Lie | Inner | V (Validate Externally) | ↑ |
+| AI forgets recent instructions | Context Amnesia | Inner | I (Context Is Everything) | ↑ |
+| AI adds logging instead of fixing bug | Debug Loop Spiral | Inner | IV (Research Before You Build) | ↑ |
+| 3,000-line unmaintainable function | Eldritch Code Horror | Middle | X (Isolate Workers) | ↑ |
+| Multiple agents modify same file | Agent Workspace Collision | Middle | III (One Agent, One Job) | ↑ |
+| Agents waiting for each other | Multi-Agent Deadlock | Middle | X (Isolate Workers) | ↑ |
+| Production API breaks after deployment | Bridge Torching | Outer | V (Validate Externally) | ↑ |
+| Git branch with work deleted | Repository Deletion | Outer | II (Track Everything in Git) | ↑ |
+| AI code waits weeks for approval | Process Gridlock | Outer | IX (Measure What Matters) | ↑ |
+| Production deployment breaks system | Cascading Failures | Outer | V, XI (Validate, Supervise) | ↑ |
 
 ---
 
@@ -704,19 +704,19 @@ Deployment flow:
 ## Prevention Hierarchy
 
 **Best (Factor-based design):**
-- Factor 9 (Modularity) prevents eldritch horrors before they form
-- Factor 3 (Autonomous Agents) prevents workspace collisions with domain boundaries
+- Factor X (Isolate Workers) prevents eldritch horrors before they form
+- Factor III (One Agent, One Job) prevents workspace collisions with domain boundaries
 
 **Good (Automated detection):**
-- Factor 6 (Validation) catches "tests passing" lies immediately
-- Factor 11 (Dev/Prod Parity) catches API breakage before production
+- Factor V (Validate Externally) catches "tests passing" lies immediately
+- Factor VI (Lock Progress Forward) catches regressions before they compound
 
 **Acceptable (Human review):**
-- Factor 8 (Human Validation) identifies issues manual inspection
+- Factor XI (Supervise Hierarchically) identifies issues through oversight
 - Code review catches problems automated tools miss
 
 **Last Resort (Rollback and retry):**
-- Factor 2 (Disposability) enables quick rollback when all else fails
+- Factor II (Track Everything in Git) enables quick rollback when all else fails
 - git revert restores known-good state
 
 **Hierarchy:** Prevention > Detection > Correction > Rollback
@@ -746,7 +746,7 @@ Deployment flow:
 
 **After any failure:**
 1. **Find the pattern** in this catalog
-2. **Run blameless postmortem** (Factor 7)
+2. **Run blameless postmortem** (Factor VII: Extract Learnings)
 3. **Add to institutional memory** (document in team runbook)
 4. **Improve factor implementation** (strengthen prevention)
 

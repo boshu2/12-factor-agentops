@@ -57,52 +57,64 @@
     Continuous Feedback
   </text>
 
-  <!-- Cycle diagram -->
+  <!-- Cycle diagram - 4 tiers -->
   <g transform="translate(540, 650)">
-    <!-- Curved arrows -->
-    <path d="M 80 -180 Q 220 -80 80 40"
+    <!-- Curved arrows (square cycle) -->
+    <path d="M 100 -180 Q 200 -100 160 0"
           stroke="url(#blueGrad)" stroke-width="4" fill="none" opacity="0.8"
           stroke-dasharray="10, 6" marker-end="url(#arrowBlue)"/>
-    <path d="M 50 120 Q 0 240 -50 120"
+    <path d="M 130 80 Q 50 180 -80 120"
           stroke="url(#greenGrad)" stroke-width="4" fill="none" opacity="0.8"
           stroke-dasharray="10, 6" marker-end="url(#arrowGreen)"/>
-    <path d="M -80 40 Q -220 -80 -80 -180"
+    <path d="M -160 60 Q -220 -40 -130 -120"
           stroke="url(#orangeGrad)" stroke-width="4" fill="none" opacity="0.8"
           stroke-dasharray="10, 6" marker-end="url(#arrowOrange)"/>
+    <path d="M -60 -190 Q 10 -220 70 -200"
+          stroke="rgba(167,139,250,0.8)" stroke-width="4" fill="none" opacity="0.8"
+          stroke-dasharray="10, 6"/>
 
     <!-- Foundation Node -->
-    <g transform="translate(0, -200)">
-      <circle cx="0" cy="0" r="90" fill="rgba(59,130,246,0.15)" stroke="#3B82F6" stroke-width="3"/>
-      <text x="0" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="20" font-weight="700" fill="#60A5FA">Foundation</text>
-      <text x="0" y="15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="16" fill="#94A3B8">I - IV</text>
+    <g transform="translate(80, -200)">
+      <circle cx="0" cy="0" r="75" fill="rgba(59,130,246,0.15)" stroke="#3B82F6" stroke-width="3"/>
+      <text x="0" y="-12" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="17" font-weight="700" fill="#60A5FA">Foundation</text>
+      <text x="0" y="14" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">I - III</text>
     </g>
 
-    <!-- Operations Node -->
-    <g transform="translate(110, 70)">
-      <circle cx="0" cy="0" r="90" fill="rgba(34,197,94,0.15)" stroke="#22C55E" stroke-width="3"/>
-      <text x="0" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="20" font-weight="700" fill="#4ADE80">Operations</text>
-      <text x="0" y="15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="16" fill="#94A3B8">V - VIII</text>
+    <!-- Workflow Node -->
+    <g transform="translate(160, 30)">
+      <circle cx="0" cy="0" r="75" fill="rgba(34,197,94,0.15)" stroke="#22C55E" stroke-width="3"/>
+      <text x="0" y="-12" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="17" font-weight="700" fill="#4ADE80">Workflow</text>
+      <text x="0" y="14" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">IV - VI</text>
     </g>
 
-    <!-- Improvement Node -->
-    <g transform="translate(-110, 70)">
-      <circle cx="0" cy="0" r="90" fill="rgba(251,146,60,0.15)" stroke="#FB923C" stroke-width="3"/>
-      <text x="0" y="-15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="20" font-weight="700" fill="#FB923C">Improvement</text>
-      <text x="0" y="15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="16" fill="#94A3B8">IX - XII</text>
+    <!-- Knowledge Node -->
+    <g transform="translate(-100, 100)">
+      <circle cx="0" cy="0" r="75" fill="rgba(167,139,250,0.15)" stroke="#A78BFA" stroke-width="3"/>
+      <text x="0" y="-12" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="17" font-weight="700" fill="#A78BFA">Knowledge</text>
+      <text x="0" y="14" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">VII - IX</text>
+    </g>
+
+    <!-- Scale Node -->
+    <g transform="translate(-140, -120)">
+      <circle cx="0" cy="0" r="75" fill="rgba(251,146,60,0.15)" stroke="#FB923C" stroke-width="3"/>
+      <text x="0" y="-12" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="17" font-weight="700" fill="#FB923C">Scale</text>
+      <text x="0" y="14" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+            font-size="14" fill="#94A3B8">X - XII</text>
     </g>
 
     <!-- Center glow -->
-    <circle cx="0" cy="-30" r="50" fill="rgba(167,139,250,0.1)" stroke="rgba(167,139,250,0.3)" stroke-width="2" stroke-dasharray="4,3"/>
-    <text x="0" y="-40" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-          font-size="12" font-weight="600" fill="#A78BFA">Continuous</text>
-    <text x="0" y="-22" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-          font-size="12" font-weight="600" fill="#A78BFA">Feedback</text>
+    <circle cx="10" cy="-40" r="40" fill="rgba(167,139,250,0.1)" stroke="rgba(167,139,250,0.3)" stroke-width="2" stroke-dasharray="4,3"/>
+    <text x="10" y="-48" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+          font-size="11" font-weight="600" fill="#A78BFA">Continuous</text>
+    <text x="10" y="-32" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
+          font-size="11" font-weight="600" fill="#A78BFA">Feedback</text>
   </g>
 
   <!-- Bottom insight -->

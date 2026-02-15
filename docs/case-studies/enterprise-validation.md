@@ -1,16 +1,16 @@
-# Enterprise Case Studies: AI-Assisted Development at Scale
+# Enterprise Case Studies: Operational Discipline for AI Agents at Scale
 
 **Type:** Reference (evidence-oriented)
 **Source:** Gene Kim & Steve Yegge, *Vibe Coding* (IT Revolution Press, 2025) + AI Engineer Summit 2025
-**Purpose:** Document enterprise validation of AI-assisted development patterns
+**Purpose:** Document enterprise validation of operational discipline patterns for working with AI agents
 
 ---
 
 ## Executive Summary
 
-These case studies represent **industry validation** of patterns we independently discovered through production experience. The convergence of findings across diverse organizations strengthens confidence in the 12-Factor AgentOps methodology.
+These case studies represent **industry validation** of patterns we independently discovered through production experience. The convergence of findings across diverse organizations strengthens confidence in the 12-Factor AgentOps methodology as an operational discipline for working with AI agents.
 
-**Key Insight:** Success correlates with **methodology investment**, not tool adoption alone.
+**Key Insight:** Success correlates with **operational discipline**, not tool adoption alone. Organizations that invested in structured methodology -- context management, external validation, knowledge compounding -- dramatically outperformed those that simply deployed AI tools.
 
 ---
 
@@ -39,15 +39,15 @@ These case studies represent **industry validation** of patterns we independentl
 
 3. **"Happy time" is measurable**
    - Developers reported spending more time building, less debugging
-   - Aligns with FAAFO's "Fun" dimension
+   - Validates the impact of external validation on reducing rework
 
 ### Factor Mapping
 
 | Finding | Related Factor |
 |---------|---------------|
-| Training > tools | Factor III: Focused Agents (methodology) |
-| Juniors benefit most | Factor IX: Mine Patterns (learning) |
-| Happy time increase | Factor IV: Continuous Validation (fewer bugs) |
+| Training > tools | Factor III: One Agent, One Job (clear roles and methodology) |
+| Juniors benefit most | Factor VII: Extract Learnings (accelerated learning) |
+| Happy time increase | Factor V: Validate Externally (fewer escaped bugs) |
 
 ---
 
@@ -68,11 +68,11 @@ These case studies represent **industry validation** of patterns we independentl
 
 1. **Smaller MRs = faster throughput**
    - AI-assisted development naturally produces smaller, focused changes
-   - Aligns with Factor X: Small Iterations
+   - Operational discipline channels agents toward incremental progress
 
 2. **Quality improved with speed**
    - Contrary to "fast = sloppy" assumption
-   - Validation gates maintained quality (Factor IV)
+   - External validation gates maintained quality
 
 3. **Review bottleneck addressed**
    - Smaller MRs easier to review
@@ -82,9 +82,9 @@ These case studies represent **industry validation** of patterns we independentl
 
 | Finding | Related Factor |
 |---------|---------------|
-| 70% smaller MRs | Factor X: Small Iterations |
-| Quality + speed | Factor IV: Continuous Validation |
-| Review efficiency | Factor VIII: Human Validation (focused review) |
+| 70% smaller MRs | Factor VI: Lock Progress Forward (incremental commits) |
+| Quality + speed | Factor V: Validate Externally (tests, linters, CI) |
+| Review efficiency | Factor III: One Agent, One Job (focused scope) |
 
 ---
 
@@ -97,7 +97,7 @@ These case studies represent **industry validation** of patterns we independentl
 
 | Metric | Improvement |
 |--------|-------------|
-| Project timeline | 100x compression (5 months → 5 days) |
+| Project timeline | 100x compression (5 months to 5 days) |
 | Executive participation | Executives prototype directly |
 | Decision velocity | Dramatically faster |
 
@@ -106,23 +106,23 @@ These case studies represent **industry validation** of patterns we independentl
 1. **Non-developers can prototype**
    - Executives described what they wanted in natural language
    - AI translated to working prototypes
-   - Aligns with "Head Chef" model (orchestration over implementation)
+   - Success depended on clear context (Factor I) and validation (Factor V)
 
-2. **Impossible → Feasible**
+2. **Impossible became feasible**
    - Projects previously requiring months of planning
    - Now viable as rapid experiments
 
-3. **FAAFO "Ambitious" dimension validated**
+3. **Ambition increased with discipline**
    - Scope of feasible projects expanded dramatically
-   - Risk reduced through rapid validation
+   - Risk reduced through structured research and validation
 
 ### Factor Mapping
 
 | Finding | Related Factor |
 |---------|---------------|
-| 100x compression | FAAFO: Ambitious + Fast |
-| Non-dev prototyping | Factor III: Focused Agents (AI as executor) |
-| Rapid validation | Factor IV: Continuous Validation |
+| 100x compression | Factor IV: Research Before You Build (front-loaded clarity) |
+| Non-dev prototyping | Factor I: Context Is Everything (clear problem framing) |
+| Rapid validation | Factor V: Validate Externally (fast feedback loops) |
 
 ---
 
@@ -144,7 +144,7 @@ These case studies represent **industry validation** of patterns we independentl
 1. **Start narrow, then expand**
    - Focused on specific query types first
    - Expanded scope after proving value
-   - Aligns with Factor X: Small Iterations
+   - Demonstrates the discipline of locking progress forward incrementally
 
 2. **Augmentation over replacement**
    - AI handled routine queries
@@ -159,9 +159,9 @@ These case studies represent **industry validation** of patterns we independentl
 
 | Finding | Related Factor |
 |---------|---------------|
-| Start narrow | Factor X: Small Iterations |
-| Augmentation model | Factor VIII: Human Validation |
-| Measurable FTE savings | Factor V: Measure Everything |
+| Start narrow | Factor VI: Lock Progress Forward (incremental expansion) |
+| Augmentation model | Factor III: One Agent, One Job (clear division of labor) |
+| Measurable FTE savings | Factor IX: Measure What Matters (concrete metrics) |
 
 ---
 
@@ -183,14 +183,14 @@ These case studies represent **industry validation** of patterns we independentl
 1. **Agents excel at patterns**
    - Repetitive support issues perfect for AI
    - Complex/novel issues still require humans
-   - Aligns with Factor VII: Smart Routing
+   - Proper task scoping (Factor III) drives this result
 
 2. **Velocity compounding**
    - Less time on routine fixes
    - More time on improvements
-   - Velocity increased over time
+   - Velocity increased over time as knowledge compounded
 
-3. **Augmentation > Replacement**
+3. **Augmentation over replacement**
    - Agent handles 40%, humans handle 60%
    - Total throughput doubled
 
@@ -198,9 +198,9 @@ These case studies represent **industry validation** of patterns we independentl
 
 | Finding | Related Factor |
 |---------|---------------|
-| Pattern matching | Factor VII: Smart Routing |
-| Velocity compounding | Factor IX: Mine Patterns |
-| Human + AI collaboration | Factor VIII: Human Validation |
+| Pattern matching | Factor VIII: Compound Knowledge (reusable solutions) |
+| Velocity compounding | Factor VII: Extract Learnings (each fix teaches the next) |
+| Human + AI collaboration | Factor XI: Supervise Hierarchically (human oversight) |
 
 ---
 
@@ -219,10 +219,10 @@ These case studies represent **industry validation** of patterns we independentl
 
 ### Key Learnings
 
-1. **Methodology > Tools**
+1. **Discipline beats tools**
    - Tool adoption alone: minimal gains
-   - Tool + methodology: significant gains
-   - Top performers had AI-native workflows (not bolt-on)
+   - Tool + operational discipline: significant gains
+   - Top performers had structured AI workflows (not bolt-on)
 
 2. **The 7x Differential**
    - Top performers 7x more likely to have restructured workflows
@@ -238,22 +238,22 @@ These case studies represent **industry validation** of patterns we independentl
 
 | Finding | Related Factor |
 |---------|---------------|
-| Methodology investment | All 12 Factors (systematic approach) |
-| AI-native workflows | Factor XII: Package Patterns |
-| Training importance | Factor IX: Mine Patterns (learning) |
+| Discipline investment | All 12 Factors (systematic operational discipline) |
+| AI-native workflows | Factor VIII: Compound Knowledge (built-in learning loops) |
+| Training importance | Factor VII: Extract Learnings (institutional knowledge) |
 
 ---
 
-## Synthesis: What Works at Enterprise Scale
+## Synthesis: What Operational Discipline Delivers at Enterprise Scale
 
 ### The Success Pattern
 
 ```
-Investment in Training
+Operational Discipline
        +
-Systematic Methodology
+Structured Methodology (Research, Validate, Learn)
        +
-Validation Gates
+External Validation Gates
        =
 Enterprise-Scale Success
 ```
@@ -263,7 +263,7 @@ Enterprise-Scale Success
 ```
 Tool Adoption Only
        +
-Hope-Based Methodology
+No Operational Discipline
        +
 No Validation
        =
@@ -272,27 +272,27 @@ No Validation
 
 ### Cross-Case Themes
 
-1. **Methodology investment correlates with success**
-   - All successful cases invested in training and process
+1. **Operational discipline correlates with success**
+   - All successful cases invested in structured methodology
    - Tool-only adoption showed minimal improvement
 
 2. **Augmentation beats replacement**
    - AI handles routine, humans handle complex
    - Total capability increases, not just efficiency
 
-3. **Small iterations compound**
+3. **Incremental progress compounds**
    - Smaller changes = faster review = higher throughput
-   - Aligns with Factor X: Small Iterations
+   - Aligns with Factor VI: Lock Progress Forward
 
 4. **Measurement enables improvement**
    - Successful cases measured specific metrics
    - Clear ROI enabled expansion
-   - Aligns with Factor V: Measure Everything
+   - Aligns with Factor IX: Measure What Matters
 
-5. **Validation maintains quality**
+5. **External validation maintains quality**
    - Fast + sloppy is not the pattern
-   - Fast + validated = enterprise-grade
-   - Aligns with Factor IV: Continuous Validation
+   - Fast + externally validated = enterprise-grade
+   - Aligns with Factor V: Validate Externally
 
 ---
 
@@ -305,13 +305,13 @@ Our production validation (200+ sessions) aligns with enterprise findings:
 | Productivity gain | 2.7-40x | 5-15% | 20-30% |
 | Success rate | 95% | Variable | >90% |
 | Quality | Maintained | Maintained | Improved |
-| Methodology | 12-Factor | Variable | AI-native workflows |
+| Methodology | 12-Factor AgentOps | Variable | AI-native workflows |
 
 **Why higher than enterprise average?**
-- Full methodology implementation (all 12 factors)
-- JIT context loading (40% rule)
-- Validation gates at every step
-- Pattern reuse across workflows
+- Full operational discipline implementation (all 12 factors)
+- Context engineering (Factor I: Context Is Everything)
+- External validation gates at every step (Factor V)
+- Knowledge compounding across sessions (Factor VIII)
 
 ---
 
@@ -319,22 +319,22 @@ Our production validation (200+ sessions) aligns with enterprise findings:
 
 ### For Individual Developers
 
-1. **Invest in methodology before tools**
-   - Learn Research → Plan → Implement workflow
+1. **Invest in operational discipline before tools**
+   - Learn Research Before You Build (Factor IV) workflow
    - Understand 12-Factor AgentOps principles
-   - Practice validation-first development
+   - Practice external validation (Factor V)
 
 2. **Start narrow, expand after success**
    - Pick one workflow to optimize
-   - Measure before/after
+   - Measure before/after (Factor IX)
    - Expand based on results
 
 ### For Teams
 
 1. **Training investment is critical**
    - Budget for methodology training (not just tool licenses)
-   - Create team patterns and playbooks
-   - Share learnings across the team
+   - Create team patterns and playbooks (Factor VIII)
+   - Share learnings across the team (Factor VII)
 
 2. **Measure specific outcomes**
    - Pick 3-5 metrics that matter
@@ -345,12 +345,12 @@ Our production validation (200+ sessions) aligns with enterprise findings:
 
 1. **Expect 7x differential**
    - Some teams will excel, others will struggle
-   - Difference is methodology, not people
+   - Difference is operational discipline, not people
    - Invest in methodology for all teams
 
 2. **Process transformation required**
    - Adding AI to broken processes = faster broken processes
-   - Fix process, then add AI
+   - Establish operational discipline, then scale AI
    - Expect 6-12 month transformation period
 
 ---
@@ -369,6 +369,7 @@ Our production validation (200+ sessions) aligns with enterprise findings:
 
 ---
 
-**Document Version:** 1.0.0
+**Document Version:** 2.0.0
 **Created:** 2025-11-28
+**Updated:** 2026-02-15
 **Maintainer:** AgentOps Team

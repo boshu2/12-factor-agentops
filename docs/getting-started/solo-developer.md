@@ -59,7 +59,7 @@ Success rate: 100% (1/1)
 Feeling: Confident
 ```
 
-**The difference:** Validation gates catch failures before they waste your time.
+**The difference:** Operational discipline catches failures before they waste your time.
 
 ---
 
@@ -67,9 +67,9 @@ Feeling: Confident
 
 ### Phase 1: Foundation (30 minutes)
 
-**Implement Factors I-IV to establish reliability**
+**Implement the Foundation and Workflow factors to establish operational discipline**
 
-#### Factor I: Automated Tracking
+#### Factor II: Track Everything in Git
 
 **Goal:** Git captures every decision
 
@@ -99,7 +99,7 @@ git config --local commit.template .gitmessage
 
 ---
 
-#### Factor II: Context Loading
+#### Factor I: Context Is Everything
 
 **Goal:** Prevent context collapse (40% rule)
 
@@ -160,7 +160,7 @@ def process_data(data: dict) -> dict:
 
 ---
 
-#### Factor III: Focused Agents
+#### Factor III: One Agent, One Job
 
 **Goal:** Each AI interaction has one clear purpose
 
@@ -193,7 +193,7 @@ Success rate: 95% (each session succeeds)
 
 ---
 
-#### Factor IV: Continuous Validation
+#### Factor V: Validate Externally
 
 **Goal:** Catch errors in 5 seconds, not 5 hours
 
@@ -275,7 +275,7 @@ git commit       # Hook runs validation automatically
 
 **Add observability and continuous improvement**
 
-#### Factor V: Measure Everything
+#### Factor IX: Measure What Matters
 
 **Goal:** Know your AI success rate and speedup
 
@@ -312,12 +312,12 @@ cat > METRICS.md <<EOF
 - Optionality: ✅ Validation gates enable experimentation
 
 ## Factor Implementation
-- ✅ I: Automated Tracking (git)
-- ✅ II: Context Loading (CLAUDE.md)
-- ✅ III: Focused Agents (one task per session)
-- ✅ IV: Continuous Validation (make quick/test/all)
-- ✅ V: Measure Everything (this file)
-- 🔜 VI-XII: Coming next
+- ✅ I: Context Is Everything (CLAUDE.md)
+- ✅ II: Track Everything in Git
+- ✅ III: One Agent, One Job (one task per session)
+- ✅ V: Validate Externally (make quick/test/all)
+- ✅ IX: Measure What Matters (this file)
+- Coming next: IV, VI-VIII, X-XII
 EOF
 ```
 
@@ -337,7 +337,7 @@ echo "" >> METRICS.md
 
 ---
 
-#### Factor VI: Resume Work
+#### Factor VI: Lock Progress Forward
 
 **Goal:** Pick up where you left off (multi-day projects)
 
@@ -360,7 +360,7 @@ cat > .sessions/2025-11-25-auth-feature.md <<EOF
 - Unit tests (12 tests, all passing)
 
 ## What Works
-- Token generation (Factor III: focused task)
+- Token generation (Factor III: One Agent, One Job)
 - Validation catches expired tokens
 - Tests cover edge cases
 
@@ -397,9 +397,9 @@ cat .sessions/2025-11-25-auth-feature.md
 
 ---
 
-#### Factor XII: Package Patterns
+#### Factor VII: Extract Learnings
 
-**Goal:** Reuse what works (85% pattern reuse vs 10% baseline)
+**Goal:** Reuse what works by extracting and compounding knowledge
 
 **Create pattern library:**
 
@@ -460,16 +460,18 @@ Time: 5 min (was 30 min)
 
 **After 1-2 hours, you should have:**
 
-✅ **Foundation (Factors I-IV):**
-- Git tracking every decision
-- Context file preventing AI confusion
-- Focused prompts (one task per session)
-- Validation gates (make quick/test/all)
+**Foundation (Factors I-III):**
+- Context file preventing AI confusion (I: Context Is Everything)
+- Git tracking every decision (II: Track Everything in Git)
+- Focused prompts, one task per session (III: One Agent, One Job)
 
-✅ **Operations (Factors V-VI, XII):**
-- Metrics tracking success rate
-- Session notes for resuming work
-- Pattern library for reuse
+**Workflow (Factors V-VII):**
+- Validation gates (V: Validate Externally)
+- Session notes for resuming work (VI: Lock Progress Forward)
+- Pattern library for reuse (VII: Extract Learnings)
+
+**Knowledge (Factor IX):**
+- Metrics tracking success rate (IX: Measure What Matters)
 
 ✅ **Measured results:**
 - 30-35% → 90-95% success rate
@@ -497,16 +499,16 @@ Success rate: 50% (worked on 2nd try)
 Stress level: High
 ```
 
-**After (with Factors I-IV):**
+**After (with operational discipline):**
 ```
 Task: Deploy database schema update
 Time: 90 seconds
 
 Steps:
-1. AI generates migration (Factor II: context-aware)
+1. AI generates migration (Factor I: Context Is Everything)
 2. make quick validates syntax (5s)
 3. make test runs migration tests (30s)
-4. Automated deployment pipeline (Factor IV: validation gates)
+4. Automated deployment pipeline (Factor V: Validate Externally)
 5. Health checks pass automatically (45s)
 
 Success rate: 100%
@@ -514,7 +516,7 @@ Stress level: Low
 Speedup: 27x (4 hours → 90 seconds)
 ```
 
-**The difference:** Validation gates automated what you did manually.
+**The difference:** Operational discipline automated what you did manually.
 
 ---
 
@@ -557,7 +559,7 @@ integration: test
 
 **Diagnosis:** Not reusing patterns (starting from scratch each time)
 
-**Fix:** Build pattern library (Factor XII)
+**Fix:** Extract and reuse learnings (Factor VII)
 ```bash
 # After successful task
 cp working-code.py .patterns/[pattern-name].py
@@ -574,12 +576,12 @@ cp working-code.py .patterns/[pattern-name].py
 
 ### Option A: Add More Factors (Full 12)
 
-**Implement Factors VII-XI:**
-- VII: Smart Routing (route tasks to specialized AI agents)
-- VIII: Human Validation (approval gates for risky operations)
-- IX: Mine Patterns (extract learnings from git history)
-- X: Small Iterations (incremental improvements)
-- XI: Fail-Safe Checks (prevent repeating mistakes)
+**Implement remaining factors:**
+- IV: Research Before You Build (research before coding)
+- VIII: Compound Knowledge (build institutional memory)
+- X: Isolate Workers (independent execution environments)
+- XI: Supervise Hierarchically (coordination at scale)
+- XII: Harvest Failures as Wisdom (learn from what goes wrong)
 
 **Guide:** [Complete Workflow Guide](../tutorials/workflow-guide.md)
 
@@ -591,8 +593,8 @@ cp working-code.py .patterns/[pattern-name].py
 
 **Guide:** [Team Workflows](team-workflows.md)
 - Shared pattern libraries
-- Knowledge OS for institutional memory
-- Human validation for team safety
+- Compound knowledge for institutional memory
+- Hierarchical supervision for team safety
 
 ---
 
@@ -615,13 +617,13 @@ cp working-code.py .patterns/[pattern-name].py
 **Confidence:** Ready to tackle ambitious projects solo
 
 **Factors implemented:**
-- ✅ I: Automated Tracking
-- ✅ II: Context Loading
-- ✅ III: Focused Agents
-- ✅ IV: Continuous Validation
-- ✅ V: Measure Everything
-- ✅ VI: Resume Work
-- ✅ XII: Package Patterns
+- ✅ I: Context Is Everything
+- ✅ II: Track Everything in Git
+- ✅ III: One Agent, One Job
+- ✅ V: Validate Externally
+- ✅ VI: Lock Progress Forward
+- ✅ VII: Extract Learnings
+- ✅ IX: Measure What Matters
 
 **FAAFO achieved:**
 - ✅ Fast: 2.7-10x speedup

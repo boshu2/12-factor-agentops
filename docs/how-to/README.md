@@ -1,124 +1,97 @@
 # How-To Guides
 
-**Task-oriented guides for common operations**
+**Task-oriented guides for applying operational discipline with AI agents**
 
 Choose the task you want to accomplish:
 
 ---
 
+## Context & Focus
+
+- **Context File Setup** - Create a CLAUDE.md, .cursorrules, or equivalent project context file (Factor I: Context Is Everything)
+- **Prevent Context Collapse** - Keep context budget under 40% per phase (Factor I)
+- **Scope Agent Work** - Give each agent a single, well-defined job (Factor III: One Agent, One Job)
+
+---
+
+## Research & Planning
+
+- **Structured Research** - Use Research-Plan-Implement phasing before writing code (Factor IV: Research Before You Build)
+- **Multi-Phase Workflows** - Break complex work into focused phases with clear handoffs
+
+---
+
 ## Validation & Quality
 
-- **[Implement Validation Gates](implement-validation-gates.md)** - Set up make quick/test/all pipeline (Factor IV)
-- **[Add Pre-Commit Hooks](add-precommit-hooks.md)** - Automatic validation before commits
-- **[Run Security Scans](run-security-scans.md)** - Integrate security checks into workflow
+- **External Validation** - Set up make quick/test/all pipelines for automated checks (Factor V: Validate Externally)
+- **Pre-Commit Hooks** - Automate validation before every commit
+- **Security Scans** - Integrate security checks into your workflow
 
 ---
 
-## Context Management
+## Progress & Session Management
 
-- **[Prevent Context Collapse](prevent-context-collapse.md)** - Keep under 40% budget (Factor II)
-- **[Create Project Context File](create-context-file.md)** - CLAUDE.md, .cursorrules, etc.
-- **[Manage Multi-Phase Workflows](manage-multiphase-workflows.md)** - Research → Plan → Implement
-
----
-
-## Pattern Libraries
-
-- **[Build Pattern Library](build-pattern-library.md)** - Reusable code patterns (Factor XII)
-- **[Extract Patterns from History](extract-patterns-from-history.md)** - Mine git for patterns (Factor IX)
-- **[Share Patterns Across Team](share-patterns-across-team.md)** - Team pattern libraries
+- **Lock Progress Forward** - Commit incrementally so work is never lost (Factor VI: Lock Progress Forward)
+- **Session Notes** - Capture context for multi-day project continuity
+- **Git Workflow** - Use git as your institutional memory (Factor II: Track Everything in Git)
 
 ---
 
-## Measurement & Observability
+## Knowledge & Learning
 
-- **[Track Success Rates](track-success-rates.md)** - Measure AI effectiveness (Factor V)
-- **[Measure Speedup](measure-speedup.md)** - Calculate ROI on AI workflows
-- **[Monitor FAAFO Metrics](monitor-faafo-metrics.md)** - Track all 5 FAAFO dimensions
-
----
-
-## Session Management
-
-- **[Resume Work Across Sessions](resume-work-across-sessions.md)** - Multi-day project continuity (Factor VI)
-- **[Create Session Notes](create-session-notes.md)** - Capture context for later
-- **[Bundle Compression](bundle-compression.md)** - Compress 60k → 5k tokens
+- **Extract Learnings** - Turn session outcomes into reusable knowledge (Factor VII: Extract Learnings)
+- **Build a Knowledge Base** - Compound knowledge across sessions using HERO pattern (Factor VIII: Compound Knowledge)
+- **Track What Matters** - Measure success rates, speedup, and operational health (Factor IX: Measure What Matters)
 
 ---
 
-## Team Workflows
+## Scale (Multi-Agent)
 
-- **[Set Up Shared Knowledge OS](setup-shared-knowledge-os.md)** - Team-wide git memory
-- **[Implement Human Validation Gates](implement-human-validation.md)** - Review checkpoints (Factor VIII)
-- **[Onboard Team Members](onboard-team-members.md)** - Get team to 95% success rate
+- **Isolate Workers** - Give each agent its own worktree and environment (Factor X: Isolate Workers)
+- **Hierarchical Supervision** - Set up supervisors to manage agent fleets (Factor XI: Supervise Hierarchically)
+- **Harvest Failures** - Turn failures into documented wisdom that prevents recurrence (Factor XII: Harvest Failures as Wisdom)
 
 ---
 
 ## Debugging & Troubleshooting
 
-- **[Debug Context Collapse](debug-context-collapse.md)** - When AI stops working well
-- **[Fix Low Success Rates](fix-low-success-rates.md)** - Below 70% success? Start here
-- **[Optimize Slow Workflows](optimize-slow-workflows.md)** - Make it faster
-
----
-
-## Advanced
-
-- **[Smart Routing](implement-smart-routing.md)** - Route tasks to specialized agents (Factor VII)
-- **[Fail-Safe Checks](implement-failsafe-checks.md)** - Prevent repeating mistakes (Factor XI)
-- **[Small Iterations](implement-small-iterations.md)** - Incremental improvements (Factor X)
+- **Debug Context Collapse** - When AI output quality degrades mid-session
+- **Fix Low Success Rates** - Below 70% success? Check context, validation, and focus
+- **Optimize Slow Workflows** - Reduce cycle time without cutting corners
 
 ---
 
 ## By Factor
 
-Find how-to guides organized by which factor they implement:
+Find how-to guides organized by which factor they support:
 
-| Factor | How-To Guides |
-|--------|---------------|
-| **I: Automated Tracking** | [Git Workflow](setup-git-workflow.md) |
-| **II: Context Loading** | [Context File](create-context-file.md), [Prevent Collapse](prevent-context-collapse.md) |
-| **III: Focused Agents** | [Multi-Phase Workflows](manage-multiphase-workflows.md) |
-| **IV: Continuous Validation** | [Validation Gates](implement-validation-gates.md), [Pre-Commit Hooks](add-precommit-hooks.md) |
-| **V: Measure Everything** | [Track Success](track-success-rates.md), [Measure Speedup](measure-speedup.md) |
-| **VI: Resume Work** | [Session Notes](create-session-notes.md), [Resume Work](resume-work-across-sessions.md) |
-| **VII: Smart Routing** | [Smart Routing](implement-smart-routing.md) |
-| **VIII: Human Validation** | [Human Validation Gates](implement-human-validation.md) |
-| **IX: Mine Patterns** | [Extract Patterns](extract-patterns-from-history.md) |
-| **X: Small Iterations** | [Small Iterations](implement-small-iterations.md) |
-| **XI: Fail-Safe Checks** | [Fail-Safe Checks](implement-failsafe-checks.md) |
-| **XII: Package Patterns** | [Build Pattern Library](build-pattern-library.md), [Share Patterns](share-patterns-across-team.md) |
-
----
-
-## By FAAFO Dimension
-
-Find how-to guides organized by FAAFO goal:
-
-| FAAFO Dimension | How-To Guides |
-|-----------------|---------------|
-| **Fast** | Validation Gates, Measure Speedup, Optimize Workflows |
-| **Ambitious** | Pattern Libraries, Team Workflows |
-| **Autonomous** | Validation Gates, Fail-Safe Checks, Success Tracking |
-| **Fun** | Pre-Commit Hooks, Debug Context Collapse |
-| **Optionality** | Context Management, Session Management |
+| Tier | Factor | Key Tasks |
+|------|--------|-----------|
+| **Foundation** | **I: Context Is Everything** | Context file setup, prevent collapse |
+| | **II: Track Everything in Git** | Git workflow, commit templates |
+| | **III: One Agent, One Job** | Scope agent work, single-task sessions |
+| **Workflow** | **IV: Research Before You Build** | Structured research, multi-phase workflows |
+| | **V: Validate Externally** | Validation gates, pre-commit hooks, security scans |
+| | **VI: Lock Progress Forward** | Session notes, incremental commits |
+| **Knowledge** | **VII: Extract Learnings** | Post-session extraction, pattern capture |
+| | **VIII: Compound Knowledge** | HERO pattern, knowledge base setup |
+| | **IX: Measure What Matters** | Success tracking, speedup measurement |
+| **Scale** | **X: Isolate Workers** | Worker isolation, dedicated worktrees |
+| | **XI: Supervise Hierarchically** | Supervisor setup, fleet management |
+| | **XII: Harvest Failures as Wisdom** | Failure documentation, prevention patterns |
 
 ---
 
 ## Quick Reference
 
-**Most popular guides:**
-1. [Implement Validation Gates](implement-validation-gates.md) - Start here
-2. [Create Context File](create-context-file.md) - Prevent context collapse
-3. [Build Pattern Library](build-pattern-library.md) - Reuse what works
-4. [Track Success Rates](track-success-rates.md) - Measure improvement
-5. [Resume Work](resume-work-across-sessions.md) - Multi-day projects
+**Start here based on your situation:**
+
+1. **New to 12-Factor AgentOps?** -- Read [Getting Started](../getting-started/) first, then set up a context file
+2. **Context collapse issues?** -- Focus on Factor I (context budget) and Factor III (agent focus)
+3. **Low success rate?** -- Add external validation (Factor V) and research phasing (Factor IV)
+4. **Knowledge keeps getting lost?** -- Extract learnings (Factor VII) and compound them (Factor VIII)
+5. **Scaling to multiple agents?** -- Start with isolation (Factor X), then add supervision (Factor XI)
 
 ---
 
-**Need help choosing?**
-- **New to 12-Factor AgentOps?** → Start with [Implement Validation Gates](implement-validation-gates.md)
-- **Context collapse issues?** → [Prevent Context Collapse](prevent-context-collapse.md)
-- **Low success rate?** → [Fix Low Success Rates](fix-low-success-rates.md)
-- **Want to reuse code?** → [Build Pattern Library](build-pattern-library.md)
-- **Team adoption?** → [Set Up Shared Knowledge OS](setup-shared-knowledge-os.md)
+**This is task-oriented documentation.** For background and theory, see [Explanation](../explanation/). For quick lookup, see [Reference](../reference/).

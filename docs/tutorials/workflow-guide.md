@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**A complete Claude Code session from start to finish**
+**The complete operational discipline session from start to finish**
 
 *Day 5 agents inherit everything Day 1 agents discovered.*
 
@@ -12,44 +12,57 @@
 
 <div align="center">
 
-## The Complete Flow
+## The Complete Operational Discipline Flow
 
 </div>
 
 <table>
 <tr>
-<td align="center" width="16%">
+<td align="center" width="14%">
 
-**🚀**
 **Start**
 
-</td>
-<td align="center" width="4%">→</td>
-<td align="center" width="16%">
+Load Context
 
-**📚**
+</td>
+<td align="center" width="3%">-></td>
+<td align="center" width="14%">
+
 **Research**
 
-</td>
-<td align="center" width="4%">→</td>
-<td align="center" width="16%">
+Understand
 
-**📋**
+</td>
+<td align="center" width="3%">-></td>
+<td align="center" width="14%">
+
 **Plan**
 
-</td>
-<td align="center" width="4%">→</td>
-<td align="center" width="16%">
+Anticipate
 
-**⚡**
+</td>
+<td align="center" width="3%">-></td>
+<td align="center" width="14%">
+
 **Implement**
 
-</td>
-<td align="center" width="4%">→</td>
-<td align="center" width="16%">
+Build + Validate
 
-**🏁**
+</td>
+<td align="center" width="3%">-></td>
+<td align="center" width="14%">
+
+**Extract**
+
+Learn
+
+</td>
+<td align="center" width="3%">-></td>
+<td align="center" width="14%">
+
 **End**
+
+Lock Progress
 
 </td>
 </tr>
@@ -57,9 +70,7 @@
 
 <div align="center">
 
-↓ *context high?* ↓
-
-**🔄 Resume** → continue → **🔍 Retro** → **🧠 Learn**
+*Context high? End session, resume fresh. Knowledge persists.*
 
 </div>
 
@@ -67,54 +78,54 @@
 
 <div align="center">
 
-## Before & After
+## Before and After
 
 </div>
 
 <table>
 <tr>
-<th width="40%">Without Session Management</th>
+<th width="40%">Without Operational Discipline</th>
 <th width="20%"></th>
 <th width="40%">With the Workflow</th>
 </tr>
 <tr>
-<td align="center"><strong>Every day</strong></td>
-<td align="center">→</td>
+<td align="center"><strong>Every session</strong></td>
+<td align="center">-></td>
 <td align="center"><strong>Day 1 only</strong></td>
 </tr>
 <tr>
 <td align="center">Start from zero</td>
-<td align="center">→</td>
+<td align="center">-></td>
 <td align="center">Resume where you left off</td>
 </tr>
 <tr>
 <td align="center"><strong>100%</strong></td>
-<td align="center">→</td>
+<td align="center">-></td>
 <td align="center"><strong>0%</strong></td>
 </tr>
 <tr>
 <td align="center">Re-research same problems</td>
-<td align="center">→</td>
+<td align="center">-></td>
 <td align="center">Load compressed bundles</td>
 </tr>
 <tr>
 <td align="center"><strong>Lost</strong></td>
-<td align="center">→</td>
+<td align="center">-></td>
 <td align="center"><strong>Persisted</strong></td>
 </tr>
 <tr>
 <td align="center">Context between sessions</td>
-<td align="center">→</td>
-<td align="center">State files track everything</td>
+<td align="center">-></td>
+<td align="center">State files track everything in git</td>
 </tr>
 <tr>
 <td align="center"><strong>Linear</strong></td>
-<td align="center">→</td>
+<td align="center">-></td>
 <td align="center"><strong>Compound</strong></td>
 </tr>
 <tr>
 <td align="center">Same speed forever</td>
-<td align="center">→</td>
+<td align="center">-></td>
 <td align="center">Day 10 is 10x faster</td>
 </tr>
 </table>
@@ -123,7 +134,7 @@
 
 <div align="center">
 
-## vibe-check: The 5 Metrics
+## The 5 Metrics (Factor IX: Measure What Matters)
 
 </div>
 
@@ -179,7 +190,7 @@ productive work
 
 ## Example: Adding Auth to a Web App
 
-*Follow along as we implement a feature across two sessions*
+*Follow along as we implement a feature across two sessions using the full operational discipline*
 
 </div>
 
@@ -187,9 +198,9 @@ productive work
 
 <table>
 <tr>
-<td width="100%" bgcolor="#1a1a2e">
+<td width="100%">
 
-### 🚀 Session Start
+### Session Start (Factor I: Context Is Everything)
 
 </td>
 </tr>
@@ -202,18 +213,18 @@ productive work
 ```
 > /session-start
 
-📂 Context: my-webapp
-📋 Incomplete: AUTH-001, AUTH-002
-📝 Last session: Set up project structure
-🎯 Next: AUTH-001 (User login flow)
+Context: my-webapp
+Incomplete: AUTH-001, AUTH-002
+Last session: Set up project structure
+Next: AUTH-001 (User login flow)
 
-🎯 What Vibe Level? (0-5)
+What Vibe Level? (0-5)
 ```
 
 ```
 > Level 2 - new feature with complexity
 
-📊 Capturing baseline (vibe-check)...
+Capturing baseline (vibe-check)...
    Trust Pass Rate: 87% (last 7 days)
    Rework Ratio: 12%
    Avg Velocity: 4.2/hr
@@ -228,11 +239,15 @@ Ready to proceed.
 
 **What's happening:**
 
-✓ Load progress files
-✓ Show incomplete work
-✓ Set verification level
-✓ Capture vibe-check baseline
-✓ Ready to work
+- Load progress files
+- Show incomplete work
+- Set verification level
+- Capture baseline metrics
+- Ready to work
+
+<br/>
+
+**Factor I:** Context loaded from git-tracked state files. No starting from zero.
 
 </td>
 </tr>
@@ -242,9 +257,9 @@ Ready to proceed.
 
 <table>
 <tr>
-<td width="100%" bgcolor="#1e3a5f">
+<td width="100%">
 
-### 📚 Research
+### Research (Factor IV: Research Before You Build)
 
 </td>
 </tr>
@@ -257,23 +272,23 @@ Ready to proceed.
 ```
 > /research
 
-🔍 Topic: User authentication
+Topic: User authentication
    Loading context JIT...
 
 Stack: Next.js 14 + Prisma + PostgreSQL
 
-┌─────────────┬──────────────────┬─────────────────┐
-│ Option      │ Pros             │ Cons            │
-├─────────────┼──────────────────┼─────────────────┤
-│ NextAuth.js │ Built for Next   │ Abstraction     │
-│ Lucia Auth  │ Full control     │ More setup      │
-│ Custom JWT  │ Complete control │ Security risk   │
-└─────────────┴──────────────────┴─────────────────┘
++-------------+------------------+-----------------+
+| Option      | Pros             | Cons            |
++-------------+------------------+-----------------+
+| NextAuth.js | Built for Next   | Abstraction     |
+| Lucia Auth  | Full control     | More setup      |
+| Custom JWT  | Complete control | Security risk   |
++-------------+------------------+-----------------+
 
 Recommendation: NextAuth.js
 
-💾 Bundle saved: research-auth-001.md
-   12K tokens → 3K compressed
+Bundle saved: research-auth-001.md
+   12K tokens -> 3K compressed
 ```
 
 ```
@@ -289,15 +304,15 @@ Updated. Ready for /plan
 
 **What's happening:**
 
-✓ Explore approaches
-✓ Document trade-offs
-✓ Get user input
-✓ Compress to bundle
+- Explore approaches
+- Document trade-offs
+- Get user input
+- Compress to bundle
 
 <br/>
 
 **Output:**
-Research bundle (5:1 compression)
+Research bundle (5:1 compression ratio). Future sessions load this instead of re-exploring.
 
 </td>
 </tr>
@@ -307,9 +322,9 @@ Research bundle (5:1 compression)
 
 <table>
 <tr>
-<td width="100%" bgcolor="#1e5f3a">
+<td width="100%">
 
-### 📋 Plan
+### Plan (Factor IV continued + Factor V: Validate Externally)
 
 </td>
 </tr>
@@ -322,19 +337,19 @@ Research bundle (5:1 compression)
 ```
 > /plan
 
-📋 Loading research bundle...
+Loading research bundle...
 
 Steps:
-1. Install deps      → validate: no conflicts
-2. Prisma schema     → validate: db push works
-3. Auth config       → validate: endpoints respond
-4. Session provider  → validate: hook works
-5. Login UI          → validate: can sign in/out
-6. Route protection  → validate: redirects work
+1. Install deps      -> validate: no conflicts
+2. Prisma schema     -> validate: db push works
+3. Auth config       -> validate: endpoints respond
+4. Session provider  -> validate: hook works
+5. Login UI          -> validate: can sign in/out
+6. Route protection  -> validate: redirects work
 
-⚠️ Human checkpoint: Review auth config (step 3)
+Human checkpoint: Review auth config (step 3)
 
-💾 Bundle saved: plan-auth-001.md
+Bundle saved: plan-auth-001.md
 ```
 
 ```
@@ -348,16 +363,16 @@ Steps:
 
 **What's happening:**
 
-✓ Load research
-✓ Define steps
-✓ Add validation gates
-✓ Mark human checkpoints
-✓ Compress to bundle
+- Load research
+- Define steps with validation gates
+- Each step has external validation criteria
+- Mark human checkpoints
+- Compress to bundle
 
 <br/>
 
 **Output:**
-Plan with 6 validated steps
+Plan with 6 validated steps. Every step has a concrete way to verify it worked -- not just "looks right."
 
 </td>
 </tr>
@@ -367,9 +382,9 @@ Plan with 6 validated steps
 
 <table>
 <tr>
-<td width="100%" bgcolor="#5f3a1e">
+<td width="100%">
 
-### ⚡ Implement
+### Implement (Factor V: Validate Externally + Factor VI: Lock Progress Forward)
 
 </td>
 </tr>
@@ -385,12 +400,12 @@ Plan with 6 validated steps
 Loading plan...
 
 Step 1: npm install next-auth @auth/prisma-adapter
-        ✅ Committed
+        Validated. Committed.
 
 Step 2: Update prisma/schema.prisma
-        ✅ Committed
+        Validated. Committed.
 
-Step 3: ⚠️ Human checkpoint
+Step 3: Human checkpoint
         Review auth config?
 ```
 
@@ -399,15 +414,15 @@ Step 3: ⚠️ Human checkpoint
 ```
 
 ```
-        ✅ Committed
+        Validated. Committed.
 
 Step 4: Add SessionProvider
-        ✅ Committed
+        Validated. Committed.
 
 Step 5: Create login components
-        ✅ Committed
+        Validated. Committed.
 
-⚠️ Context: 52% (above 40% threshold)
+Context: 52% (above 40% threshold)
    Recommend: /session-end now
 ```
 
@@ -418,17 +433,17 @@ Step 5: Create login components
 
 **What's happening:**
 
-✓ Execute each step
-✓ Validate after each
-✓ Commit with context
-✓ Human approval
-✓ Monitor context %
+- Execute each step
+- Validate externally after each (Factor V)
+- Commit immediately on pass (Factor VI)
+- Human approval at checkpoints
+- Monitor context usage
 
 <br/>
 
 **Context warning!**
 Above 40% threshold.
-Time to save and resume.
+Time to save and resume fresh. Quality degrades as context fills.
 
 </td>
 </tr>
@@ -438,9 +453,9 @@ Time to save and resume.
 
 <table>
 <tr>
-<td width="100%" bgcolor="#3a1e5f">
+<td width="100%">
 
-### 🏁 Session End (Mid-Feature)
+### Session End -- Mid-Feature (Factor II: Track Everything in Git)
 
 </td>
 </tr>
@@ -453,23 +468,23 @@ Time to save and resume.
 ```
 > /session-end
 
-🏁 Ending Session
+Ending Session
 
 Completed: Steps 1-5
 Remaining: Step 6 (route protection)
 Context: 52%
 Commits: 5
 
-📊 Session vibe-check:
+Session vibe-check:
    Trust Pass: 100% (5/5 steps validated)
    Rework: 0%
    Velocity: 6.7/hr
    Spirals: 0
 
-Updating claude-progress.json...
+Updating progress state...
   working_on: "AUTH-001: Step 6 remaining"
 
-💾 State saved
+State saved to git.
 
 Run /retro? > Not yet, finishing first
 ```
@@ -481,17 +496,16 @@ Run /retro? > Not yet, finishing first
 
 **What's happening:**
 
-✓ Check git status
-✓ Run vibe-check delta
-✓ Update progress files
-✓ Save current state
-✓ Ready for resume
+- Check git status
+- Run vibe-check delta
+- Update progress files
+- Save state to git
+- Ready for resume
 
 <br/>
 
 **Why stop at 52%?**
-Context > 40% degrades quality.
-Fresh session = better results.
+Context above 40% degrades quality. A fresh session produces better results than pushing through a stale one.
 
 </td>
 </tr>
@@ -501,7 +515,7 @@ Fresh session = better results.
 
 <div align="center">
 
-### ☀️ Next Day
+### Next Day
 
 </div>
 
@@ -509,9 +523,9 @@ Fresh session = better results.
 
 <table>
 <tr>
-<td width="100%" bgcolor="#1a1a2e">
+<td width="100%">
 
-### 🔄 Session Resume
+### Session Resume (Factor I: Context Is Everything)
 
 </td>
 </tr>
@@ -524,12 +538,12 @@ Fresh session = better results.
 ```
 > /session-resume
 
-🔄 Resuming: AUTH-001
-   Progress: Steps 1-5 ✓
+Resuming: AUTH-001
+   Progress: Steps 1-5 done
    Remaining: Step 6
 
 Loading bundles...
-   ✓ plan-auth-001.md
+   plan-auth-001.md loaded
 
 Context: 8% (fresh!)
 
@@ -549,16 +563,15 @@ Pick up at Step 6?
 
 **What's happening:**
 
-✓ Load progress state
-✓ Load compressed bundles
-✓ Show where we left off
-✓ Fresh 8% context!
+- Load progress state from git
+- Load compressed bundles
+- Show where we left off
+- Fresh 8% context
 
 <br/>
 
 **The magic:**
-Yesterday's 52% → Today's 8%
-All context preserved in bundles
+Yesterday's 52% becomes today's 8%. All context preserved in bundles. This is Factor I in action.
 
 </td>
 </tr>
@@ -568,9 +581,9 @@ All context preserved in bundles
 
 <table>
 <tr>
-<td width="100%" bgcolor="#5f3a1e">
+<td width="100%">
 
-### ⚡ Implement (Continued)
+### Implement Continued (Factor V + Factor VI)
 
 </td>
 </tr>
@@ -585,12 +598,12 @@ Step 6: Create middleware.ts
         Route protection for /dashboard/*
 
 Testing...
-  /dashboard (no auth) → /login ✅
-  /dashboard (auth)    → renders ✅
+  /dashboard (no auth) -> /login PASS
+  /dashboard (auth)    -> renders PASS
 
-✅ Committed
+Validated. Committed.
 
-🎉 AUTH-001 Complete!
+AUTH-001 Complete!
 ```
 
 ```
@@ -604,15 +617,15 @@ Testing...
 
 **What's happening:**
 
-✓ Finish remaining step
-✓ Validate behavior
-✓ Commit with context
+- Finish remaining step
+- Validate behavior externally
+- Commit with context (Factor VI)
 
 <br/>
 
 **Result:**
-Feature complete in 2 sessions
-Full context preserved
+Feature complete in 2 sessions.
+Full context preserved across the boundary.
 
 </td>
 </tr>
@@ -622,9 +635,9 @@ Full context preserved
 
 <table>
 <tr>
-<td width="100%" bgcolor="#3a1e5f">
+<td width="100%">
 
-### 🏁 Session End (Feature Complete)
+### Session End -- Feature Complete (Factor IX: Measure What Matters)
 
 </td>
 </tr>
@@ -637,19 +650,19 @@ Full context preserved
 ```
 > /session-end
 
-🏁 Session Complete
+Session Complete
 
-AUTH-001: passes: true ✅
+AUTH-001: PASSED
 Commits: 6 total (5 + 1)
 Sessions: 2
 
-📊 Feature vibe-check (both sessions):
-   Trust Pass: 100% ↑ from 87% baseline
-   Rework: 5% ↓ from 12% baseline
-   Velocity: 5.8/hr ↑ from 4.2/hr
+Feature vibe-check (both sessions):
+   Trust Pass: 100%  (up from 87% baseline)
+   Rework: 5%        (down from 12% baseline)
+   Velocity: 5.8/hr  (up from 4.2/hr)
    Spirals: 0
 
-💾 State saved
+State saved.
 
 Run /retro? > Yes
 ```
@@ -661,10 +674,14 @@ Run /retro? > Yes
 
 **What's happening:**
 
-✓ Mark feature complete
-✓ Update feature-list.json
-✓ Compare to baseline
-✓ Ready for retrospective
+- Mark feature complete
+- Compare to baseline
+- Quantify improvement
+- Ready for retrospective
+
+<br/>
+
+**Factor IX:** Concrete metrics prove the discipline works. Not vibes about vibes -- numbers.
 
 </td>
 </tr>
@@ -674,9 +691,9 @@ Run /retro? > Yes
 
 <table>
 <tr>
-<td width="100%" bgcolor="#1e5f5f">
+<td width="100%">
 
-### 🔍 Retro
+### Retro (Factor VII: Extract Learnings)
 
 </td>
 </tr>
@@ -689,32 +706,32 @@ Run /retro? > Yes
 ```
 > /retro
 
-🔍 AUTH-001 Retrospective
+AUTH-001 Retrospective
 
 What worked:
-✓ Research caught JWT vs DB sessions early
-✓ Human checkpoint on auth config
-✓ Session split at 40% context
++ Research caught JWT vs DB sessions early
++ Human checkpoint on auth config
++ Session split at 40% context
 
 What didn't:
-✗ Missed adapter version requirement
-✗ Could have used tracer test
+- Missed adapter version requirement
+- Could have used tracer test
 
 Patterns found:
-• OAuth config with database adapter
-• Middleware route protection
-• Session split at 40%
+  OAuth config with database adapter
+  Middleware route protection
+  Session split at 40%
 
-📊 vibe-check summary:
-┌────────────────┬──────────┬─────────┬────────┐
-│ Metric         │ Baseline │ Actual  │ Delta  │
-├────────────────┼──────────┼─────────┼────────┤
-│ Trust Pass     │ 87%      │ 100%    │ +13%   │
-│ Rework Ratio   │ 12%      │ 5%      │ -7%    │
-│ Velocity       │ 4.2/hr   │ 5.8/hr  │ +38%   │
-│ Debug Spirals  │ 0.3/day  │ 0       │ ✓      │
-│ Flow Efficiency│ 71%      │ 89%     │ +18%   │
-└────────────────┴──────────┴─────────┴────────┘
+vibe-check summary:
++----------------+----------+---------+--------+
+| Metric         | Baseline | Actual  | Delta  |
++----------------+----------+---------+--------+
+| Trust Pass     | 87%      | 100%    | +13%   |
+| Rework Ratio   | 12%      | 5%      | -7%    |
+| Velocity       | 4.2/hr   | 5.8/hr  | +38%   |
+| Debug Spirals  | 0.3/day  | 0       | clean  |
+| Flow Efficiency| 71%      | 89%     | +18%   |
++----------------+----------+---------+--------+
 
 Save learnings? > Yes
 ```
@@ -726,18 +743,15 @@ Save learnings? > Yes
 
 **What's happening:**
 
-✓ Review what worked
-✓ Note what didn't
-✓ Identify patterns
-✓ Compare vibe metrics
+- Review what worked
+- Note what didn't
+- Identify patterns
+- Compare vibe metrics
 
 <br/>
 
 **Why retro?**
-Patterns extracted here
-become shortcuts later.
-
-vibe-check proves it worked.
+Patterns extracted here become shortcuts later. The vibe-check proves the discipline worked with real numbers.
 
 </td>
 </tr>
@@ -747,9 +761,9 @@ vibe-check proves it worked.
 
 <table>
 <tr>
-<td width="100%" bgcolor="#5f5f1e">
+<td width="100%">
 
-### 🧠 Learn
+### Compound Knowledge (Factor VIII: Compound Knowledge -- HERO)
 
 </td>
 </tr>
@@ -760,9 +774,12 @@ vibe-check proves it worked.
 <td width="70%">
 
 ```
-> /learn
+> /flywheel status
 
-🧠 Extracting Patterns
+Extracting Patterns (HERO cycle)
+
+Harvest: 3 candidates from retro
+Extract: Filtering noise...
 
 Pattern 1: NextAuth Database Sessions
   Problem: Secure auth for Next.js
@@ -778,7 +795,10 @@ Anti-pattern: Version Assumption
   Problem: Assumed adapter worked with v4
   Prevention: Check compatibility in research
 
-💾 Saved to patterns/
+Refine: 2 patterns promoted, 1 anti-pattern logged
+Operationalize: Injected into knowledge base
+
+Saved to learnings pool.
 ```
 
 </td>
@@ -788,16 +808,15 @@ Anti-pattern: Version Assumption
 
 **What's happening:**
 
-✓ Extract reusable patterns
-✓ Document solutions
-✓ Note anti-patterns
-✓ Save to library
+- Harvest candidates from retro
+- Extract reusable patterns
+- Refine by filtering noise
+- Operationalize into knowledge base
 
 <br/>
 
 **The payoff:**
-Next auth feature loads
-these patterns automatically
+Next auth feature loads these patterns automatically. The HERO cycle (Harvest, Extract, Refine, Operationalize) turns one-time work into permanent knowledge.
 
 </td>
 </tr>
@@ -851,7 +870,7 @@ these patterns automatically
 
 <div align="center">
 
-*Each feature makes the next one faster.*
+*Each feature makes the next one faster. This is the operational discipline working.*
 
 </div>
 
@@ -867,32 +886,36 @@ these patterns automatically
 <tr>
 <th>Command</th>
 <th>When</th>
+<th>Factor</th>
 <th>What</th>
 </tr>
-<tr><td><code>/session-start</code></td><td>Beginning</td><td>Load state, capture baseline</td></tr>
-<tr><td><code>/research</code></td><td>New problem</td><td>Explore → bundle</td></tr>
-<tr><td><code>/plan</code></td><td>After research</td><td>Design → bundle</td></tr>
-<tr><td><code>/implement</code></td><td>After approval</td><td>Execute + validate</td></tr>
-<tr><td><code>/session-end</code></td><td>Context high / done</td><td>Save state, capture delta</td></tr>
-<tr><td><code>/session-resume</code></td><td>Continuing</td><td>Load bundles</td></tr>
-<tr><td><code>/retro</code></td><td>Feature done</td><td>Review + vibe-check</td></tr>
-<tr><td><code>/learn</code></td><td>After retro</td><td>Extract patterns</td></tr>
+<tr><td><code>/session-start</code></td><td>Beginning</td><td>I. Context Is Everything</td><td>Load state, capture baseline</td></tr>
+<tr><td><code>/research</code></td><td>New problem</td><td>IV. Research Before You Build</td><td>Explore, compress to bundle</td></tr>
+<tr><td><code>/plan</code></td><td>After research</td><td>IV. Research Before You Build</td><td>Design steps with validation gates</td></tr>
+<tr><td><code>/pre-mortem</code></td><td>Before implementing</td><td>IV. Research Before You Build</td><td>Simulate failures, define checkpoints</td></tr>
+<tr><td><code>/implement</code></td><td>After approval</td><td>V. Validate Externally</td><td>Execute + validate each step</td></tr>
+<tr><td><code>/vibe</code></td><td>Before every commit</td><td>V. Validate Externally</td><td>Semantic validation of changes</td></tr>
+<tr><td><code>/session-end</code></td><td>Context high or done</td><td>VI. Lock Progress Forward</td><td>Save state, capture delta</td></tr>
+<tr><td><code>/session-resume</code></td><td>Continuing work</td><td>I. Context Is Everything</td><td>Load bundles, resume fresh</td></tr>
+<tr><td><code>/retro</code></td><td>Feature done</td><td>VII. Extract Learnings</td><td>Review + extract patterns</td></tr>
+<tr><td><code>/post-mortem</code></td><td>After failures</td><td>XII. Harvest Failures as Wisdom</td><td>Turn failures into prevention</td></tr>
+<tr><td><code>/flywheel</code></td><td>After retro</td><td>VIII. Compound Knowledge</td><td>HERO cycle: promote learnings</td></tr>
 </table>
 
 ---
 
-<div align="center">
+## Related Resources
 
-[Factor I: Git Memory](../factors/01-automated-tracking.md) · [Factor VI: Resume Work](../factors/06-resume-work.md) · [Factor IX: Mine Patterns](../factors/09-mine-patterns.md)
-
-</div>
+- [Validate Before You Ship](validate-before-you-ship.md) - Deep dive on the validation workflow
+- [Failure Patterns](../reference/failure-patterns.md) - What validation catches
+- [Quick Start](../getting-started/quick-start.md) - Get started in 15 minutes
 
 ---
 
 <div align="center">
 
-**Start → Research → Plan → Implement → End → Resume → Retro → Learn**
+**Start -> Research -> Plan -> Implement -> Validate -> Extract -> Compound**
 
-*Every cycle compounds.*
+*Every cycle validates. Every session compounds. This is the operational discipline.*
 
 </div>

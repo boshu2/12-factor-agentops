@@ -23,7 +23,7 @@ BUILD → WORK → RUN
 | **WORK** | [Vibe Coding](https://itrevolution.com/product/vibe-coding-book/) | Methodology for working with AI agents |
 | **RUN** | **12-Factor AgentOps** (this repo) | Operational principles for reliability |
 
-**This is the SRE to their DevOps.**
+**The operational discipline for running AI agents reliably.**
 
 → [Full ecosystem overview](./ecosystem.md)
 
@@ -62,7 +62,7 @@ BUILD → WORK → RUN
   - [Prevent Context Collapse](./how-to/README.md#context-management) - Factor II
   - [Build Pattern Library](./how-to/README.md#pattern-libraries) - Factor XII
   - [Track Success Rates](./how-to/README.md#measurement--observability) - Factor V
-  - [Resume Work Across Sessions](./how-to/README.md#session-management) - Factor VI
+  - [Lock Progress Forward](./how-to/README.md#session-management) - Factor VI
   - [And 20+ more...](./how-to/)
 
 ---
@@ -95,23 +95,14 @@ BUILD → WORK → RUN
 - [Knowledge OS](./principles/knowledge-os.md) - Git as institutional memory
 - [Constraint-Based Engineering](./principles/constraint-based-engineering.md) - Designing within limits
 - [Scientific Foundation](./reference/scientific-foundation.md) - Research backing the patterns
-- [Production Metrics](./case-studies/production/metrics.md) - Real-world results (35% → 95%, 2.7-40x speedup)
+- Production Metrics - Real-world results (35% → 95%, 2.7-40x speedup)
 
 ---
 
 ### 📊 Case Studies
 **Real-world implementations and outcomes**
 
-- [Production Case Studies](./case-studies/production/) - How it works in practice
-  - [Factor Mapping](./case-studies/production/factor-mapping.md)
-  - [Metrics](./case-studies/production/metrics.md)
-
----
-
-### 🎯 Domain-Specific
-**Specialized guides for specific domains**
-
-- [Platform Engineering Agent](./domain-guides/platform-engineering-agent.md)
+- [Enterprise Validation](./case-studies/enterprise-validation.md) - How it works in practice
 
 ---
 
@@ -130,7 +121,7 @@ BUILD → WORK → RUN
 → [Explanation](./explanation/) → Deep dives
 
 ### "I want to see real examples"
-→ [Case Studies](./case-studies/) → Production stories
+→ [Case Studies](./case-studies/enterprise-validation.md) → Production stories
 
 ---
 
@@ -140,12 +131,12 @@ Looking for documentation about a specific factor?
 
 | Factor | Getting Started | How-To | Reference | Explanation |
 |--------|-----------------|--------|-----------|-------------|
-| **I: Automated Tracking** | [Quick Start](./getting-started/quick-start.md#step-1) | Git Workflow | [Factor I](../factors/01-automated-tracking.md) | [Knowledge OS](./principles/knowledge-os.md) |
-| **II: Context Loading** | [Quick Start](./getting-started/quick-start.md#add-factor-ii) | [Prevent Collapse](./how-to/README.md#context-management) | [Factor II](../factors/02-context-loading.md) | [Context Engineering](./principles/context-engineering.md) |
-| **III: Focused Agents** | [Solo Dev](./getting-started/solo-developer.md#factor-iii) | Multi-Phase | [Factor III](../factors/03-focused-agents.md) | [Learning Science](./principles/five-pillars.md) |
-| **IV: Continuous Validation** | [Quick Start](./getting-started/quick-start.md#step-2) | [Validation Gates](./how-to/README.md#validation--quality) | [Factor IV](../factors/04-continuous-validation.md) | [DevOps/SRE](./principles/five-pillars.md) |
-| **V: Measure Everything** | [Solo Dev](./getting-started/solo-developer.md#factor-v) | [Track Success](./how-to/README.md#measurement--observability) | [Factor V](../factors/05-measure-everything.md) | [Metrics](./production-metrics.md) |
-| **VI: Resume Work** | [Solo Dev](./getting-started/solo-developer.md#factor-vi) | [Session Notes](./how-to/README.md#session-management) | [Factor VI](../factors/06-resume-work.md) | [Context Engineering](./principles/context-engineering.md) |
+| **I: Context Is Everything** | [Quick Start](./getting-started/quick-start.md#step-1) | Git Workflow | [Factor I](../factors/01-context-is-everything.md) | [Knowledge OS](./principles/knowledge-os.md) |
+| **II: Track Everything in Git** | [Quick Start](./getting-started/quick-start.md#add-factor-ii) | [Prevent Collapse](./how-to/README.md#context-management) | [Factor II](../factors/02-track-everything-in-git.md) | [Context Engineering](./principles/context-engineering.md) |
+| **III: One Agent, One Job** | [Solo Dev](./getting-started/solo-developer.md#factor-iii) | Multi-Phase | [Factor III](../factors/03-one-agent-one-job.md) | [Learning Science](./principles/five-pillars.md) |
+| **IV: Research Before You Build** | [Quick Start](./getting-started/quick-start.md#step-2) | [Validation Gates](./how-to/README.md#validation--quality) | [Factor IV](../factors/04-research-before-you-build.md) | [DevOps/SRE](./principles/five-pillars.md) |
+| **V: Validate Externally** | [Solo Dev](./getting-started/solo-developer.md#factor-v) | [Track Success](./how-to/README.md#measurement--observability) | [Factor V](../factors/05-validate-externally.md) | Metrics |
+| **VI: Lock Progress Forward** | [Solo Dev](./getting-started/solo-developer.md#factor-vi) | [Session Notes](./how-to/README.md#session-management) | [Factor VI](../factors/06-lock-progress-forward.md) | [Context Engineering](./principles/context-engineering.md) |
 | **VII-XII** | [Workflow Guide](./tutorials/workflow-guide.md) | [How-To](./how-to/) | [Factors](../factors/) | [Pillars](./principles/five-pillars.md) |
 
 ---
@@ -179,7 +170,7 @@ Looking to achieve a specific FAAFO goal?
 → [Explanation](./explanation/) - Conceptual understanding
 
 **"Does this actually work in production?"**
-→ [Production Metrics](./production-metrics.md) + [Case Studies](./case-studies/)
+→ [Case Studies](./case-studies/enterprise-validation.md)
 
 ---
 

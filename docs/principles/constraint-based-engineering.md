@@ -1,6 +1,6 @@
 # Constraint-Based Engineering: The Philosophy Behind 12-Factor AgentOps
 
-**The meta-principle that generates the Five Pillars and produces the Twelve Factors.**
+**The meta-principle that generates the [Four Pillars](./five-pillars.md) and produces the Twelve Factors.**
 
 ---
 
@@ -88,8 +88,8 @@ AI systems operate under hard constraints that cannot be "fixed," only optimized
 
 **Constraint:** 200k context window, performance degrades >40%
 **Architecture:**
-- JIT context loading (Factor II)
-- Sub-agent isolation with focused contexts (Factor III)
+- JIT context loading (Factor I: Context Is Everything)
+- Sub-agent isolation with focused contexts (Factor III: One Agent, One Job)
 - Progressive disclosure, load only what's needed
 - Context budgets per phase (<20k kernel, <30k workflow)
 
@@ -127,16 +127,16 @@ AI systems operate under hard constraints that cannot be "fixed," only optimized
 **Ask:** Can this architecture be reused for similar constraints?
 
 **Examples:**
-- Context optimization → Factor II (JIT Context Loading)
-- Air-gap patterns → Factor XII (Domain Portability)
-- Cost optimization → Factor VII (Smart Routing)
-- Latency requirements → Factor III (Focused Agents)
+- Context optimization → Factor I (Context Is Everything)
+- Air-gap patterns → Factor X (Isolate Workers)
+- Cost optimization → Factor IX (Measure What Matters)
+- Latency requirements → Factor III (One Agent, One Job)
 
 **Key:** Successful constraint solutions become reusable factors.
 
 ---
 
-## How This Produces the Five Pillars
+## How This Produces the Four Pillars
 
 Each pillar represents a **class of constraints** and proven architectural responses:
 
@@ -150,11 +150,11 @@ Each pillar represents a **class of constraints** and proven architectural respo
 
 **Architectural Response:**
 - Version control for all changes (rollback capability)
-- Validation gates before deployment (shift-left testing)
+- Validation gates before deployment (external validation)
 - Observability as first-class concern (metrics, logs, traces)
 - Reliability engineering patterns (circuit breakers, retries, fallbacks)
 
-**Maps to Factors:** I (tracking), IV (validation), V (telemetry), X (improvement), XI (guardrails)
+**Maps to Factors:** II (Track Everything in Git), V (Validate Externally), IX (Measure What Matters), XII (Harvest Failures as Wisdom)
 
 ### Pillar 2: Learning Science
 
@@ -170,7 +170,7 @@ Each pillar represents a **class of constraints** and proven architectural respo
 - Pattern extraction (learn from experience, don't repeat)
 - Phase-based workflows (research → plan → implement)
 
-**Maps to Factors:** III (focused agents), VII (routing), VIII (human gates), IX (pattern mining)
+**Maps to Factors:** III (One Agent, One Job), IV (Research Before You Build), VII (Extract Learnings), VIII (Compound Knowledge)
 
 ### Pillar 3: Context Engineering
 
@@ -186,7 +186,7 @@ Each pillar represents a **class of constraints** and proven architectural respo
 - Progressive disclosure (bootstrap → workflow → details)
 - Sub-agent isolation (separate contexts, don't pollute)
 
-**Maps to Factors:** II (JIT context), III (focused agents), VI (continuity)
+**Maps to Factors:** I (Context Is Everything), III (One Agent, One Job), VI (Lock Progress Forward)
 
 ### Pillar 4: Knowledge OS
 
@@ -202,7 +202,7 @@ Each pillar represents a **class of constraints** and proven architectural respo
 - History as audit trail (why decisions were made)
 - Patterns compound over time (organizational learning)
 
-**Maps to Factors:** I (tracking), IX (patterns), X (improvement), XII (portability)
+**Maps to Factors:** II (Track Everything in Git), VII (Extract Learnings), VIII (Compound Knowledge)
 
 ---
 
@@ -212,18 +212,18 @@ Each factor is a **specific constraint-optimization pattern:**
 
 | Factor | Constraint Addressed | Optimization Pattern |
 |--------|---------------------|---------------------|
-| **I. Automated Tracking** | Human memory limitations | External memory via version control |
-| **II. Context Loading** | 200k token context window | JIT loading, <40% utilization |
-| **III. Focused Agents** | Cognitive load per agent | Single-responsibility, composition |
-| **IV. Continuous Validation** | Probabilistic AI outputs | Validation gates, zero-trust |
-| **V. Measure Everything** | System observability limits | Telemetry as first-class feature |
-| **VI. Resume Work** | Multi-day work constraints | State persistence, session continuity |
-| **VII. Smart Routing** | Specialized capabilities | Task classification, optimal routing |
-| **VIII. Human Validation** | Critical decision risk | Human-in-loop for high-stakes operations |
-| **IX. Mine Patterns** | Institutional learning rate | Automated pattern extraction from history |
-| **X. Small Iterations** | Optimization cycle time | Continuous small improvements |
-| **XI. Fail-Safe Checks** | Repeated failure prevention | Constitutional guardrails, safety checks |
-| **XII. Package Patterns** | Cross-domain reuse | Domain portability, template packaging |
+| **I. Context Is Everything** | 200k token context window | JIT loading, <40% utilization |
+| **II. Track Everything in Git** | Human memory limitations | External memory via version control |
+| **III. One Agent, One Job** | Cognitive load per agent | Single-responsibility, composition |
+| **IV. Research Before You Build** | Premature implementation risk | Research-plan-implement workflow |
+| **V. Validate Externally** | Probabilistic AI outputs | External validation gates, zero-trust |
+| **VI. Lock Progress Forward** | Multi-day work constraints | State persistence, session continuity |
+| **VII. Extract Learnings** | Institutional learning rate | Pattern extraction from every session |
+| **VIII. Compound Knowledge** | Knowledge decay over time | HERO cycle, compounding institutional memory |
+| **IX. Measure What Matters** | System observability limits | Targeted telemetry, actionable metrics |
+| **X. Isolate Workers** | Cross-contamination risk | Worker isolation, independent worktrees |
+| **XI. Supervise Hierarchically** | Coordination overhead at scale | Hierarchical supervision, escalation paths |
+| **XII. Harvest Failures as Wisdom** | Repeated failure prevention | Failure analysis, pattern extraction from errors |
 
 **The pattern:** Constraint → Factor (specific solution) → Pillar (solution class)
 
@@ -291,10 +291,10 @@ Each factor is a **specific constraint-optimization pattern:**
 - Context optimization: <40% rule reduces token costs
 
 **Quality Constraint → Validation Infrastructure:**
-- Automated quality checks (Factor IV)
-- Human review for Tier 3 (Factor VIII)
-- Pattern learning improves routing (Factor IX)
-- Continuous optimization (Factor X)
+- External validation checks (Factor V: Validate Externally)
+- Hierarchical review for Tier 3 (Factor XI: Supervise Hierarchically)
+- Pattern learning improves operations (Factor VII: Extract Learnings)
+- Targeted measurement (Factor IX: Measure What Matters)
 
 **Result:** 10x user growth within budget through constraint-optimized routing.
 
@@ -477,29 +477,29 @@ Understanding the full landscape of constraints helps identify which factors app
 ### Factor Selection by Constraint Profile
 
 **High context constraints (limited tokens):**
-- Factor II: Context Loading (primary)
-- Factor III: Focused Agents (supporting)
-- Factor VI: Resume Work (supporting)
+- Factor I: Context Is Everything (primary)
+- Factor III: One Agent, One Job (supporting)
+- Factor VI: Lock Progress Forward (supporting)
 
 **High reliability constraints (zero tolerance):**
-- Factor IV: Continuous Validation (primary)
-- Factor VIII: Human Validation (primary)
-- Factor XI: Fail-Safe Checks (supporting)
+- Factor V: Validate Externally (primary)
+- Factor XI: Supervise Hierarchically (primary)
+- Factor XII: Harvest Failures as Wisdom (supporting)
 
 **High cost constraints (budget limited):**
-- Factor VII: Smart Routing (primary)
-- Factor III: Focused Agents (supporting)
-- Factor X: Small Iterations (supporting)
+- Factor IX: Measure What Matters (primary)
+- Factor III: One Agent, One Job (supporting)
+- Factor X: Isolate Workers (supporting)
 
 **High scale constraints (growth expected):**
-- Factor V: Measure Everything (primary)
-- Factor XII: Package Patterns (primary)
-- Factor IX: Mine Patterns (supporting)
+- Factor IX: Measure What Matters (primary)
+- Factor X: Isolate Workers (primary)
+- Factor VII: Extract Learnings (supporting)
 
 **High security constraints (classified/regulated):**
-- Factor I: Automated Tracking (primary)
-- Factor XI: Fail-Safe Checks (primary)
-- Factor VIII: Human Validation (supporting)
+- Factor II: Track Everything in Git (primary)
+- Factor V: Validate Externally (primary)
+- Factor XI: Supervise Hierarchically (supporting)
 
 ---
 
@@ -569,15 +569,15 @@ Apply this to every constraint you encounter. The solutions become your factors.
 ## Further Reading
 
 **Foundations:**
-- [Five Pillars](./five-pillars.md) - The constraint classes
+- [Four Pillars](./five-pillars.md) - The constraint classes
 - [Nine Laws](./nine-laws.md) - The operational principles
 - [Context Engineering](./context-engineering.md) - The 40% rule in depth
 - [Knowledge OS](./knowledge-os.md) - Git as institutional memory
 
 **Factors:**
 - [All 12 Factors](../../factors/) - Specific constraint-optimization patterns
-- [Factor II: Context Loading](../../factors/02-context-loading.md) - Context window constraints
-- [Factor VII: Smart Routing](../../factors/07-smart-routing.md) - Capability constraints
+- [Factor I: Context Is Everything](../../factors/01-context-is-everything.md) - Context window constraints
+- [Factor VII: Extract Learnings](../../factors/07-extract-learnings.md) - Pattern extraction
 
 **Application:**
 - [Workflow Guide](../tutorials/workflow-guide.md) - Applying constraint-based thinking

@@ -2,7 +2,7 @@
 
 **Source:** [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) - Anthropic Engineering, November 2025
 
-**Relation to 12-Factor AgentOps:** This pattern directly implements [Factor VI: Resume Work](../../factors/06-resume-work.md) and validates our git-based memory approach.
+**Relation to 12-Factor AgentOps:** This pattern directly implements [Factor VI: Lock Progress Forward](../../factors/06-resume-work.md) and validates our git-based memory approach.
 
 ---
 

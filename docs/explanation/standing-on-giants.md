@@ -47,9 +47,9 @@ This framework doesn't invent new principles. It **adapts proven operational pat
 - **Constraints:** Infrastructure limits → Context windows + cognitive load
 
 **Mapping examples:**
-- Their Factor I (Codebase) → Our Factor I (Automated Tracking in Git)
-- Their Factor III (Config) → Our Factor II (Context Loading)
-- Their Factor XI (Logs) → Our Factor V (Measure Everything)
+- Their Factor I (Codebase) → Our Factor II (Track Everything in Git)
+- Their Factor III (Config) → Our Factor I (Context Is Everything)
+- Their Factor XI (Logs) → Our Factor IX (Measure What Matters)
 
 **Why this works:** Infrastructure operations and knowledge operations face similar problems:
 - Partial failures
@@ -83,11 +83,11 @@ This framework doesn't invent new principles. It **adapts proven operational pat
 **Applied to AI workflows:**
 - **CI/CD** → Multi-layer validation gates (`make quick` → `make ci-all`)
 - **Validation gates** → Pre-commit hooks, human approval checkpoints
-- **Monitoring** → Factor V (Measure Everything: metrics, logs, token usage)
-- **Postmortems** → Factor IX (Mine Patterns: extract learnings from failures)
-- **Gradual rollouts** → Factor X (Small Iterations: incremental improvements)
-- **Zero-trust** → Factor IV (Continuous Validation: never trust a single step)
-- **Runbooks** → Factor XII (Package Patterns: capture workflows as templates)
+- **Monitoring** → Factor IX (Measure What Matters: metrics, logs, token usage)
+- **Postmortems** → Factor XII (Harvest Failures as Wisdom: extract learnings from failures)
+- **Gradual rollouts** → Factor X (Isolate Workers: incremental, independent execution)
+- **Zero-trust** → Factor V (Validate Externally: never trust a single step)
+- **Runbooks** → Factor VIII (Compound Knowledge: capture workflows as institutional memory)
 
 **Why this works:** AI agents exhibit the same failure modes as distributed infrastructure:
 - Partial failures (one tool call fails, rest must continue)
@@ -146,7 +146,7 @@ This framework doesn't invent new principles. It **adapts proven operational pat
 
 **What we added:**
 - **Production validation** → 2 years, 95% success rate, 1,175+ commits
-- **Operational discipline** → How to achieve FAAFO reliably (not just describe it)
+- **Operational discipline** → How to achieve reliable AI workflows (not just describe them)
 - **Factor-based diagnosis** → Each failure maps to violated factor
 - **Platform engineering proof** → 1 developer = whole team
 
@@ -204,12 +204,12 @@ Together: Complete Playbook
 
 | Learning Science | Our Implementation |
 |------------------|-------------------|
-| **Working Memory (7±2 items)** | 40% context budget rule (Factor II) |
+| **Working Memory (7±2 items)** | 40% context budget rule (Factor I: Context Is Everything) |
 | **Cognitive Load** | JIT loading (load docs when needed, not upfront) |
 | **Spaced Repetition** | Bundle maintenance: hot → warm → cold memory tiers |
-| **Chunking** | Factor III (Focused Agents: each does one job well) |
+| **Chunking** | Factor III (One Agent, One Job: each does one job well) |
 | **Progressive Disclosure** | Thin kernels + JIT pointers (CLAUDE.md ~800 tokens) |
-| **Deliberate Practice** | Factor IX (Mine Patterns) + Factor X (Small Iterations) |
+| **Deliberate Practice** | Factor VII (Extract Learnings) + Factor IX (Measure What Matters) |
 
 **Why this works:** AI context windows mirror human working memory:
 - Both have hard limits (7±2 items for humans, 200k tokens for AI)
@@ -241,10 +241,10 @@ Together: Complete Playbook
 
 | Principle | Our Implementation |
 |-----------|-------------------|
-| **Context Switching (40% cost)** | 40% context budget (Factor II) |
+| **Context Switching (40% cost)** | 40% context budget (Factor I: Context Is Everything) |
 | **Information Architecture** | CLAUDE.md hierarchy (workspace → repo → task) |
-| **Progressive Disclosure** | JIT loading (Factor VI: Resume Work) |
-| **Cognitive Overhead** | Factor VII (Smart Routing: send tasks to right specialist) |
+| **Progressive Disclosure** | JIT loading (Factor VI: Lock Progress Forward) |
+| **Cognitive Overhead** | Factor III (One Agent, One Job: focused execution) |
 | **State Management** | Bundle system (compress 60k → 5k tokens) |
 
 **Why this works:** AI systems face the same context management challenges as humans:
@@ -370,14 +370,14 @@ Together: Complete Playbook
 | **Study** | 12-Factor App addresses deployment and operational consistency for cloud apps |
 | **Identify constraint** | Cloud apps face: config management, dependency isolation, statelessness requirements |
 | **Map to AI** | AI workflows face: context management, validation requirements, state persistence |
-| **Test** | Applied Factor II (Context Loading) → measured context collapse prevention |
+| **Test** | Applied Factor I (Context Is Everything) → measured context collapse prevention |
 | **Measure** | 0% context collapse across 252 sessions (validation) |
 
 ---
 
 ## What We Added (Original Contributions)
 
-### 1. The 40% Context Rule (Factor II)
+### 1. The 40% Context Rule (Factor I: Context Is Everything)
 
 **Source:** Production observation + Learning Science (working memory)
 **Discovery:** Context collapse happens >40% window utilization
@@ -386,7 +386,7 @@ Together: Complete Playbook
 
 ---
 
-### 2. Sub-Agent Orchestration (Factor III + VII)
+### 2. Sub-Agent Orchestration (Factor III + X)
 
 **Source:** DevOps microservices + separation of concerns
 **Discovery:** Fresh context per workflow phase prevents error accumulation
@@ -395,7 +395,7 @@ Together: Complete Playbook
 
 ---
 
-### 3. Bundle Compression System (Factor VI + XII)
+### 3. Bundle Compression System (Factor VI + VIII)
 
 **Source:** Learning Science (spaced repetition) + Context Engineering (state management)
 **Discovery:** 12:1 compression ratio (60k tokens → 5k) enables multi-session continuity
@@ -404,7 +404,7 @@ Together: Complete Playbook
 
 ---
 
-### 4. Validation > Generation (Factor IV)
+### 4. Validation > Generation (Factor V)
 
 **Source:** DevOps CI/CD + SRE validation gates
 **Discovery:** Pre-commit validation is 10x ROI vs post-commit fixes

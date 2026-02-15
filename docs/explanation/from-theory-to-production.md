@@ -1,12 +1,12 @@
 # From Theory to Production: The Evolution of 12-Factor AgentOps
 
-**How philosophical principles became production-grade infrastructure patterns**
+**How operational discipline principles became production-grade infrastructure patterns**
 
 ---
 
 ## Executive Summary
 
-12-Factor AgentOps began as operational principles for individual practitioners achieving reliable AI workflows. Through deployment in increasingly constrained environments—from solo development to Intelligence Community air-gapped edge systems—it evolved into a complete methodology for treating agents as reliable infrastructure.
+12-Factor AgentOps began as an operational discipline for individual practitioners achieving reliable AI workflows. Through deployment in increasingly constrained environments—from solo development to Intelligence Community air-gapped edge systems—it evolved into a complete methodology for treating agents as reliable infrastructure.
 
 **The evolution:**
 - **Phase 1** (2024): Principles for individual effectiveness
@@ -27,8 +27,8 @@
 
 **Artifacts:**
 - The 12 Factors (Factors I-XII)
-- Five Pillars (constraint-based engineering, DevOps/SRE, learning science, context engineering, knowledge OS)
-- Nine Laws (extract learnings, improve system, document context, validate before execute, share patterns)
+- Four Tiers (Foundation, Workflow, Knowledge, Scale)
+- Core principles (extract learnings, improve system, document context, validate externally, compound knowledge)
 
 **Audience:** Anyone using AI agents (developers, writers, researchers, teams)
 
@@ -140,10 +140,10 @@ The Intelligence Community (IC) represents the most constrained deployment envir
 - No systematic improvement
 
 **Solution:** Initial 12 Factors
-- Factor II: Context Loading (40% rule, JIT loading)
-- Factor I: Automated Tracking (Git as memory)
-- Factor IX: Mine Patterns (extract from history)
-- Factor X: Small Iterations (continuous improvement)
+- Factor I: Context Is Everything (40% rule, JIT loading)
+- Factor II: Track Everything in Git (Git as memory)
+- Factor VII: Extract Learnings (extract from history)
+- Factor X: Isolate Workers (focused, independent execution)
 
 **Validation:** 40x speedups on complex workflows, 0% context collapse
 
@@ -168,7 +168,7 @@ The Intelligence Community (IC) represents the most constrained deployment envir
 - **SSE telemetry** (Houston): One-way observability, simpler than WebSocket
 
 **Integration into 12-Factor:**
-- These patterns enhance Factors III, VI, VII, VIII, XI (see Implementation Patterns sections)
+- These patterns enhance Factors III, VI, VIII, IX, XI (see Implementation Patterns sections)
 - Documented in `docs/explanation/pattern-heritage.md`
 
 ---
@@ -193,7 +193,7 @@ The Intelligence Community (IC) represents the most constrained deployment envir
 - **Multi-tenancy via namespaces:** Team-per-namespace isolation
 
 **Integration into 12-Factor:**
-- Factor XII: Package Patterns now includes IC deployment profiles
+- Factor XII: Harvest Failures as Wisdom now includes IC deployment profiles
 - Proves framework works under maximum constraints
 
 ---
@@ -240,7 +240,7 @@ Two prototype control planes informed the evolution from principles to productio
 - **PID-based crash recovery:** Detect failures without heartbeats
 - **Feature seeder pipeline:** PLAN → COMMIT → EXECUTE with human gates
 
-**Informed factors:** III (single responsibility), V (observability), VI (state machines), VIII (human gates)
+**Informed factors:** III (One Agent, One Job), IX (Measure What Matters), VI (Lock Progress Forward), VIII (Compound Knowledge)
 
 ---
 
@@ -256,7 +256,7 @@ Two prototype control planes informed the evolution from principles to productio
 - **ToolCall audit trail:** Every action is a CRD (auditable, approvable, reversible)
 - **SharedInformer caching:** Local read cache with watch for updates
 
-**Informed factors:** IV (reconciliation), VII (coordination), VIII (budget limits), XI (fail-safe)
+**Informed factors:** IV (Research Before You Build), VIII (Compound Knowledge), IX (Measure What Matters), XII (Harvest Failures as Wisdom)
 
 ---
 
@@ -264,81 +264,79 @@ Two prototype control planes informed the evolution from principles to productio
 
 Each factor maps to concrete implementation patterns from Houston, Fractal, and ai-platform.
 
-### Foundation Tier (I-IV): Build Reliability from Ground Up
+### Foundation Tier (I-III): Build Reliability from Ground Up
 
-**[Factor I: Automated Tracking](../../factors/01-automated-tracking.md)**
-- **Philosophy:** Git as institutional memory
-- **Production:** Langfuse traces + ToolCall CRDs for audit trail
-- **IC deployment:** All actions logged to PostgreSQL for compliance
-
-**[Factor II: Context Loading](../../factors/02-context-loading.md)**
+**Factor I: Context Is Everything**
 - **Philosophy:** 40% rule, JIT loading
 - **Production:** Multi-tier model routing (edge 7B → datacenter 70B → frontier Claude)
 - **IC deployment:** Edge tier keeps context minimal for latency/resource constraints
 
-**[Factor III: Focused Agents](../../factors/03-focused-agents.md)**
+**Factor II: Track Everything in Git**
+- **Philosophy:** Git as institutional memory
+- **Production:** Langfuse traces + ToolCall CRDs for audit trail
+- **IC deployment:** All actions logged to PostgreSQL for compliance
+
+**Factor III: One Agent, One Job**
 - **Philosophy:** Single responsibility, composable
 - **Production:** KAgent CRD definitions, event-driven activation (webhook > orchestrator)
 - **IC deployment:** Namespace-scoped agents for classification boundaries
-- **Implementation Patterns →** (See factor document for Event-Driven Activation, Webhook-First)
 
-**[Factor IV: Continuous Validation](../../factors/04-continuous-validation.md)**
-- **Philosophy:** Validation gates, zero-trust
-- **Production:** Reconciliation loops (Fractal), self-healing
+---
+
+### Workflow Tier (IV-VI): Disciplined Execution
+
+**Factor IV: Research Before You Build**
+- **Philosophy:** Understand before implementing
+- **Production:** Reconciliation loops (Fractal), informed decision-making
 - **IC deployment:** Policy enforcement via admission controllers
 
----
-
-### Operations Tier (V-VIII): Scale and Maintain in Production
-
-**[Factor V: Measure Everything](../../factors/05-measure-everything.md)**
-- **Philosophy:** Observability
+**Factor V: Validate Externally**
+- **Philosophy:** Validation gates, zero-trust, independent verification
 - **Production:** SSE telemetry (Houston), Langfuse traces, Prometheus metrics
-- **IC deployment:** Air-gapped Grafana dashboards
+- **IC deployment:** Air-gapped validation pipelines
 
-**[Factor VI: Resume Work](../../factors/06-resume-work.md)**
-- **Philosophy:** Context bundles for multi-day work
+**Factor VI: Lock Progress Forward**
+- **Philosophy:** Context bundles for multi-day work, checkpointing
 - **Production:** Neo4j state machines, explicit memory architecture (RAG/Graph/Historical)
 - **IC deployment:** Stateless agents + external PostgreSQL/Neo4j
-- **Implementation Patterns →** (See factor document for Explicit Memory Architecture)
-
-**[Factor VII: Smart Routing](../../factors/07-smart-routing.md)**
-- **Philosophy:** Task classification, optimal routing
-- **Production:** Composable coordination (Blackboard pattern from Fractal)
-- **IC deployment:** Classification-aware routing (route within boundary)
-- **Implementation Patterns →** (See factor document for Composable Not Chainable, Blackboard)
-
-**[Factor VIII: Human Validation](../../factors/08-human-validation.md)**
-- **Philosophy:** Human gates for critical decisions
-- **Production:** BudgetQuota enforcement (Fractal), 3-phase pipeline (Houston)
-- **IC deployment:** Hard limits on token/cost budgets
-- **Implementation Patterns →** (See factor document for BudgetQuota, 3-Phase Pipeline)
 
 ---
 
-### Improvement Tier (IX-XII): Continuous Learning and Adaptation
+### Knowledge Tier (VII-IX): Continuous Learning
 
-**[Factor IX: Mine Patterns](../../factors/09-mine-patterns.md)**
+**Factor VII: Extract Learnings**
 - **Philosophy:** Extract from history
 - **Production:** Houston/Fractal patterns codified into architecture
 - **IC deployment:** Pattern libraries for air-gapped environments
 
-**[Factor X: Small Iterations](../../factors/10-small-iterations.md)**
-- **Philosophy:** Continuous improvement
+**Factor VIII: Compound Knowledge (HERO)**
+- **Philosophy:** Knowledge compounds over time
+- **Production:** BudgetQuota enforcement (Fractal), 3-phase pipeline (Houston)
+- **IC deployment:** Hard limits on token/cost budgets
+
+**Factor IX: Measure What Matters**
+- **Philosophy:** Observability of what counts
+- **Production:** Effective output metrics, quality ratios, cost tracking
+- **IC deployment:** Air-gapped Grafana dashboards
+
+---
+
+### Scale Tier (X-XII, optional): Multi-Agent Operations
+
+**Factor X: Isolate Workers**
+- **Philosophy:** Independent, focused execution
 - **Production:** Feature seeder pipeline (Houston), beads issue tracking
 - **IC deployment:** Offline improvement backlog
 
-**[Factor XI: Fail-Safe Checks](../../factors/11-fail-safe-checks.md)**
-- **Philosophy:** Guardrails
+**Factor XI: Supervise Hierarchically**
+- **Philosophy:** Guardrails and oversight
 - **Production:** Reconciliation loops, fail-closed defaults, ToolCall audit (Fractal)
 - **IC deployment:** Constitutional enforcement of security policies
-- **Implementation Patterns →** (See factor document for Reconciliation, Fail-Closed)
 
-**[Factor XII: Package Patterns](../../factors/12-package-patterns.md)**
-- **Philosophy:** Domain portability
+**Factor XII: Harvest Failures as Wisdom**
+- **Philosophy:** Learn from every failure
 - **Production:** 3-tier IC deployment model (Edge/Datacenter/Frontier)
-- **IC deployment:** Air-gap playbook, classification boundaries
-- **Implementation Patterns →** (See factor document for IC Deployment Profiles)
+- **IC deployment:** Air-gap playbook, blameless postmortems
 
 ---
 
@@ -347,9 +345,9 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 ### For Individual Practitioners
 
 **Start with:** Factors I-III (Foundation)
-1. Factor I: Start tracking decisions in Git
-2. Factor II: Implement 40% rule, use sub-agents
-3. Factor III: Break work into focused sessions
+1. Factor I: Context Is Everything — Implement 40% rule, use JIT loading
+2. Factor II: Track Everything in Git — Decisions persist across sessions
+3. Factor III: One Agent, One Job — Break work into focused sessions
 
 **Expected outcome:** Context collapse eliminated, decisions persist, productivity 2-8x
 
@@ -357,12 +355,13 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 
 ### For Teams
 
-**Add:** Factors IV-VIII (Operations)
-4. Factor IV: Add validation gates before deployment
-5. Factor V: Implement telemetry for debugging
-6. Factor VI: Create pattern libraries
-7. Factor VII: Route tasks to specialized agents
-8. Factor VIII: Add human review for critical changes
+**Add:** Factors IV-IX (Workflow + Knowledge)
+4. Factor IV: Research Before You Build — Understand before implementing
+5. Factor V: Validate Externally — Independent verification gates
+6. Factor VI: Lock Progress Forward — Checkpoint and resume multi-day work
+7. Factor VII: Extract Learnings — Capture patterns from every session
+8. Factor VIII: Compound Knowledge — Build institutional memory
+9. Factor IX: Measure What Matters — Track effective output, not vanity metrics
 
 **Expected outcome:** Team coordination improves, quality gates prevent breakage, 8-20x productivity
 
@@ -370,11 +369,10 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 
 ### For Platform Engineers
 
-**Add:** Factors IX-XII (Improvement + Packaging)
-9. Factor IX: Extract patterns systematically
-10. Factor X: Maintain improvement backlog
-11. Factor XI: Add constitutional guardrails
-12. Factor XII: Package for reuse across domains
+**Add:** Factors X-XII (Scale)
+10. Factor X: Isolate Workers — Independent execution environments
+11. Factor XI: Supervise Hierarchically — Oversight and guardrails
+12. Factor XII: Harvest Failures as Wisdom — Learn from every failure
 
 **Expected outcome:** Patterns compound across teams, reliability 95%+, scales to enterprise
 
@@ -383,8 +381,8 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 ### For IC/DoD Deployment
 
 **Full implementation + IC profiles:**
-- All 12 factors with Implementation Patterns
-- 3-tier deployment model (Factor XII)
+- All 12 factors with implementation patterns
+- 3-tier deployment model
 - Air-gap playbook
 - Classification boundary enforcement
 - BudgetQuota hard limits
@@ -438,16 +436,14 @@ The tighter your constraints, the more valuable the patterns. But even with zero
 - Vibe Coding shows the promise (10-16x productivity)
 - 12-Factor AgentOps shows how to deliver it safely (95% success rate)
 
-See [Vibe Coding Integration](./vibe-coding-integration.md) for detailed comparison.
-
 ---
 
 ### Q: Can I use this with GPT/Gemini/Llama instead of Claude?
 
 **A:** Yes. These are LLM-agnostic operational principles:
-- The 40% rule (Factor II) applies to any context window
-- Validation gates (Factor IV) work with any LLM output
-- BudgetQuota (Factor VIII) limits cost regardless of provider
+- The 40% rule (Factor I: Context Is Everything) applies to any context window
+- Validation gates (Factor V: Validate Externally) work with any LLM output
+- Budget limits (Factor IX: Measure What Matters) track cost regardless of provider
 
 Implementation examples use Claude (ai-platform) and Anthropic patterns, but principles transfer to any model.
 
@@ -457,7 +453,7 @@ Implementation examples use Claude (ai-platform) and Anthropic patterns, but pri
 
 1. **Understand the philosophy:** Read [The 12 Factors](../../factors/README.md)
 2. **Learn the patterns:** Read `docs/explanation/pattern-heritage.md` (Houston + Fractal)
-3. **Implement one factor:** Start with Factor I or II
+3. **Implement one factor:** Start with Factor I (Context Is Everything) or Factor II (Track Everything in Git)
 4. **Measure the difference:** Track success rate before/after
 5. **Share your experience:** Help validate patterns across contexts
 
@@ -467,17 +463,12 @@ Implementation examples use Claude (ai-platform) and Anthropic patterns, but pri
 
 **Philosophy:**
 - [The 12 Factors](../../factors/README.md) - Complete factor documentation
-- [Five Pillars](../principles/five-pillars.md) - Foundational philosophy
-- [Constraint-Based Engineering](../principles/constraint-based-engineering.md) - The meta-principle
+- [Standing on Giants](./standing-on-giants.md) - Heritage and lineage
+- [Phoenix Project Lineage](./phoenix-project-lineage.md) - Origin story
 
 **Architecture:**
-- [Pattern Heritage](./pattern-heritage.md) - Houston + Fractal patterns *(to be created)*
-- [Vibe Coding Integration](./vibe-coding-integration.md) - Vision meets discipline
-- [Evolution of 12-Factor](../principles/evolution-of-12-factor.md) - From 12-Factor App to AgentOps
-
-**Production:**
-- [IC Deployment Profiles](../../factors/12-package-patterns.md#ic-deployment-profiles) - 3-tier model *(to be added)*
-- [Air-Gap Playbook](../../factors/12-package-patterns.md#air-gap-deployment) - Disconnected deployment *(to be added)*
+- [Three Developer Loops](./three-developer-loops.md) - Framework for timescales
+- [AI Summit Validation](./ai-summit-validation-2025.md) - Industry convergence
 
 ---
 
@@ -487,4 +478,4 @@ Implementation examples use Claude (ai-platform) and Anthropic patterns, but pri
 
 ---
 
-*From individual practitioner to production infrastructure: The 12-Factor AgentOps journey is constraint-first, production-validated, and ready for your environment.*
+*From individual practitioner to production infrastructure: The 12-Factor AgentOps journey provides operational discipline for working with AI agents, production-validated and ready for your environment.*

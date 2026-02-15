@@ -1,7 +1,7 @@
 ---
 name: factor-compliance-checker
-description: Validate workflows against the 12-Factor AgentOps methodology
-version: 2.0.0
+description: Validate workflows against the 12-Factor AgentOps operational discipline
+version: 3.0.0
 author: boshu2
 license: Apache-2.0
 context: fork
@@ -15,11 +15,11 @@ allowed-tools:
 
 # Factor Compliance Checker
 
-**Validate workflows against the 12-Factor AgentOps methodology**
+**Validate workflows against the 12-Factor AgentOps operational discipline**
 
 | Aspect | Details |
 |--------|---------|
-| **Type** | Validation Skill |
+| **Type** | Operational Discipline Skill |
 | **Trigger** | After implementation, before commit |
 | **Output** | Compliance report with recommendations |
 
@@ -27,43 +27,48 @@ allowed-tools:
 
 ## Summary
 
-Analyze a workflow, commit, or session against the 12 factors. Report compliance gaps and provide actionable recommendations.
+Analyze a workflow, commit, or session against the 12 factors of operational discipline for working with AI agents. Report compliance gaps and provide actionable recommendations.
 
 ## When to Use
 
 - Before committing significant work
 - During code review
 - After implementing new workflows
-- Periodic compliance audits
+- Periodic operational discipline audits
 
 ## Validation Checklist
 
-### Foundation (I-IV)
+### Foundation (I-III)
 
 | Factor | Check | Pass Criteria |
 |--------|-------|---------------|
-| **I. Automated Tracking** | Commit message structure | Context/Solution/Learning/Impact present |
-| **II. Context Loading** | Context utilization | Under 40% threshold |
-| **III. Focused Agents** | Agent scope | Single responsibility per agent |
-| **IV. Continuous Validation** | Validation gates | Check before each major step |
+| **I. Context Is Everything** | Context quality | Relevant context loaded; under 40% window threshold |
+| **II. Track Everything in Git** | Git hygiene | All artifacts tracked; structured commit messages |
+| **III. One Agent, One Job** | Agent scope | Single responsibility per agent; clear boundaries |
 
-### Operations (V-VIII)
-
-| Factor | Check | Pass Criteria |
-|--------|-------|---------------|
-| **V. Measure Everything** | Telemetry | Metrics/logs/traces emitted |
-| **VI. Resume Work** | State persistence | Can resume from checkpoint |
-| **VII. Smart Routing** | Task routing | Right agent for right task |
-| **VIII. Human Validation** | Approval gates | Critical steps require human |
-
-### Improvement (IX-XII)
+### Workflow (IV-VI)
 
 | Factor | Check | Pass Criteria |
 |--------|-------|---------------|
-| **IX. Mine Patterns** | Pattern extraction | At least one learning documented |
-| **X. Small Iterations** | Iteration size | Changes are incremental |
-| **XI. Fail-Safe Checks** | Guardrails | Hooks prevent known failures |
-| **XII. Package Patterns** | Reusability | Patterns documented for reuse |
+| **IV. Research Before You Build** | Research phase | Problem explored before implementation started |
+| **V. Validate Externally** | External validation | Tests, linters, or CI confirm correctness (not just LLM self-check) |
+| **VI. Lock Progress Forward** | Progress persistence | Incremental commits; can resume from checkpoint |
+
+### Knowledge (VII-IX)
+
+| Factor | Check | Pass Criteria |
+|--------|-------|---------------|
+| **VII. Extract Learnings** | Learning capture | At least one learning documented from session |
+| **VIII. Compound Knowledge** | Knowledge reuse | Patterns documented for reuse; HERO loop active |
+| **IX. Measure What Matters** | Metrics | Relevant metrics tracked; outcomes measured |
+
+### Scale (X-XII, optional)
+
+| Factor | Check | Pass Criteria |
+|--------|-------|---------------|
+| **X. Isolate Workers** | Worker isolation | Each agent has its own worktree/environment |
+| **XI. Supervise Hierarchically** | Oversight structure | Supervisors monitor workers; escalation paths defined |
+| **XII. Harvest Failures as Wisdom** | Failure capture | Failures documented with root cause and fix |
 
 ## Output Format
 
@@ -73,17 +78,17 @@ Analyze a workflow, commit, or session against the 12 factors. Report compliance
 **Overall Score:** 8/12 factors compliant
 
 ### Passing
-- ✅ Factor I: Commit includes Context/Solution/Learning/Impact
-- ✅ Factor IV: Validation gates present
-- ✅ Factor IX: Pattern extracted and documented
+- Factor I: Context loaded and under threshold
+- Factor V: External validation gates present (tests pass)
+- Factor VII: Learning extracted and documented
 
 ### Needs Attention
-- ⚠️ Factor II: Context at 45% (threshold: 40%)
-- ⚠️ Factor V: No telemetry found
+- Factor II: Uncommitted changes found; track in git
+- Factor IX: No metrics captured for this session
 
 ### Recommendations
-1. Reduce context by extracting helper functions to sub-agent
-2. Add metrics emission at phase boundaries
+1. Commit work-in-progress before switching tasks (Factor II)
+2. Add a metrics summary at session end (Factor IX)
 ```
 
 ## Usage
@@ -102,4 +107,4 @@ Or specify a commit:
 
 ---
 
-**Remember:** Compliance is a practice, not a checkbox. Each check teaches you something about your workflow.
+**Remember:** Operational discipline is a practice, not a checkbox. Each check teaches you something about your workflow.

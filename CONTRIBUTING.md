@@ -1,17 +1,17 @@
 # Contributing to 12-Factor AgentOps
 
-**The Operational Discipline for Working With AI Agents** — principles that turn ad-hoc agent usage into a reliable, compounding practice.
+**The Operational Discipline for Working With AI Agents** -- principles that turn ad-hoc agent usage into a reliable, compounding practice.
 
 ---
 
 ## Our Focus: AI Agent Operations
 
-We focus on the operational principles for working with AI agents — coding agents, research agents, planning agents, and beyond:
+We define the operational discipline for working with AI agents -- coding agents, research agents, planning agents, and beyond:
 
 - Claude Code running in terminal/IDE
 - AI pair programming sessions
-- Code generation with validation workflows
-- Agents using Read, Edit, Write, Bash for development
+- Multi-agent orchestration workflows
+- Any tool-using agent that reads, writes, and executes
 
 **We are NOT:**
 
@@ -20,46 +20,75 @@ We focus on the operational principles for working with AI agents — coding age
 - An SDK for multi-modal agents
 - A solution for general autonomous production agents
 
-For general autonomous agents, see [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) by Dex Horthy — we're complementary, not competing.
+For general autonomous agents, see [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) by Dex Horthy -- we're complementary, not competing.
 
 ---
 
-## Philosophy: Validation First
+## Philosophy: Operational Discipline
 
-We apply DevOps principles to coding agents:
+The model is not the problem. The operations are. We apply decades of DevOps and SRE methodology to how people work with AI agents:
 
-| DevOps Principle | Our Application |
-|------------------|-----------------|
-| Shift-Left Testing | `/pre-mortem` before implementation |
-| Continuous Integration | `/vibe` checks before every commit |
-| Post-Mortems | `/retro` to extract and compound learnings |
-| Observability | Knowledge flywheel tracks what works |
-| Infrastructure as Code | Prompts and workflows as versioned artifacts |
+| DevOps / SRE Principle | Our Application (v3 Factor) |
+|------------------------|-----------------------------|
+| Configuration Management | **I. Context Is Everything** -- manage what enters the context window like you manage what enters production |
+| Infrastructure as Code | **II. Track Everything in Git** -- prompts, learnings, workflows as versioned artifacts |
+| Single Responsibility | **III. One Agent, One Job** -- each agent gets a scoped task and fresh context |
+| Design Reviews | **IV. Research Before You Build** -- understand the problem space before generating code |
+| Zero-Trust Verification | **V. Validate Externally** -- no agent grades its own work, ever |
+| Continuous Delivery | **VI. Lock Progress Forward** -- validated work ratchets and cannot regress |
+| Post-Mortems | **VII. Extract Learnings** -- every session produces two outputs: the work and the lessons |
+| Observability & Feedback Loops | **VIII. Compound Knowledge** -- the knowledge flywheel that makes sessions smarter over time |
+| SLOs & Error Budgets | **IX. Measure What Matters** -- track fitness toward goals, not activity metrics |
+| Process Isolation | **X. Isolate Workers** -- each worker gets its own workspace and zero shared mutable state |
+| Escalation Hierarchies | **XI. Supervise Hierarchically** -- escalation flows up, never sideways |
+| Blameless Post-Mortems | **XII. Harvest Failures as Wisdom** -- failed attempts are data, not waste |
 
-**The core insight:** Validation happens BEFORE code ships, not after.
+**The core insight:** Better operations make the same model perform dramatically better. Knowledge compounding (Factor VIII) is the differentiator that no amount of model improvement replaces.
 
 ```
-Traditional:  Write code → Ship → CI catches problems → Fix → Repeat
-Shift-Left:   /pre-mortem → Implement → /vibe → Commit → Knowledge compounds
+Ad-hoc:      Prompt agent -> Hope for good output -> Repeat from scratch
+Disciplined: Context -> Research -> Implement -> Validate -> Extract -> Compound
 ```
+
+### The Four-Tier Structure
+
+Contributions map to the tier they strengthen:
+
+| Tier | Factors | Focus |
+|------|---------|-------|
+| **Foundation (I-III)** | Context, Git, Scoping | Non-negotiable basics, zero tooling required |
+| **Workflow (IV-VI)** | Research, Validation, Ratcheting | The discipline that separates hoping from operating |
+| **Knowledge (VII-IX)** | Extraction, Compounding, Measurement | Where sessions get measurably smarter over time |
+| **Scale (X-XII)** | Isolation, Supervision, Failure Harvesting | Multi-agent orchestration (advanced, optional) |
 
 ---
 
 ## How to Contribute
 
-### 1. Add Validation Skills (Highest Value)
+### 1. Add Operational Patterns (Highest Value)
 
-The best contributions add new validation patterns. Every skill should answer: **"What could go wrong, and how do we catch it early?"**
+The best contributions add new operational patterns that practitioners can apply. Every pattern should answer: **"What operational discipline does this enforce, and how does it make agent sessions more reliable?"**
 
-**Validation skill checklist:**
+Patterns can address any tier. Some high-value categories:
 
-- [ ] Catches problems before they compound
-- [ ] Has clear trigger conditions (when to run)
-- [ ] Produces actionable output (not just "looks good")
-- [ ] Works within a coding session (single-session scope)
-- [ ] Can be invoked as a skill (`/skill-name`)
+- **Context management patterns** (Factor I) -- techniques for loading, pruning, and structuring context windows
+- **Workflow discipline patterns** (Factors IV-VI) -- research templates, validation checklists, ratcheting mechanisms
+- **Knowledge compounding patterns** (Factor VIII) -- extraction workflows, quality gates, retrieval strategies, decay management
+- **Failure harvesting patterns** (Factor XII) -- techniques for capturing and indexing what did not work
 
-**To add a new validation skill:**
+**Operational pattern checklist:**
+
+- [ ] Addresses a specific factor or cross-cutting concern
+- [ ] Works without tooling (the "Without Tooling" principle)
+- [ ] Has clear trigger conditions (when to apply)
+- [ ] Produces actionable output (not just "be careful")
+- [ ] Includes evidence from real agent sessions
+
+### 2. Add Skills to the Marketplace
+
+Skills are executable implementations of operational patterns. They live in `marketplace/` and can be invoked as slash commands (`/skill-name`).
+
+**To add a new skill:**
 
 ```bash
 # 1. Create skill directory
@@ -70,16 +99,16 @@ cat > marketplace/your-skill-name/.claude-plugin/plugin.json << 'EOF'
 {
   "name": "your-skill-name",
   "version": "1.0.0",
-  "description": "What this skill validates",
+  "description": "What operational discipline this skill enforces",
   "author": "your-github-username",
   "repository": "https://github.com/boshu2/12-factor-agentops",
-  "keywords": ["validation", "agentops", "your-category"],
+  "keywords": ["agentops", "your-tier", "your-category"],
   "skills": ["skill.md"]
 }
 EOF
 
 # 3. Create skill.md with definition (see template below)
-# 4. Submit PR with validation evidence
+# 4. Submit PR with usage evidence
 ```
 
 **Skill template (`skill.md`):**
@@ -87,7 +116,7 @@ EOF
 ```markdown
 ---
 name: your-skill-name
-description: What this skill validates
+description: What operational discipline this skill enforces
 version: 1.0.0
 author: your-username
 license: Apache-2.0
@@ -102,109 +131,108 @@ allowed-tools:
 
 # Your Skill Name
 
-**What this skill validates**
+**What operational discipline this enforces**
 
 | Aspect | Details |
 |--------|---------|
-| **Type** | Validation Skill |
-| **Trigger** | When to run (e.g., "before commit", "after implementation") |
-| **Output** | What it produces (e.g., "compliance report with gaps") |
+| **Tier** | Foundation / Workflow / Knowledge / Scale |
+| **Factor** | Which factor(s) this implements |
+| **Trigger** | When to run (e.g., "before implementation", "end of session") |
+| **Output** | What it produces (e.g., "extracted learnings for compounding") |
 
 ---
 
-## What It Checks
+## What It Does
 
-| Check | Question | Evidence Required |
-|-------|----------|-------------------|
-| **1. Check Name** | What question does this answer? | What proves it passed? |
-| **2. Check Name** | ... | ... |
+| Step | Action | Evidence Produced |
+|------|--------|-------------------|
+| **1. Step Name** | What this step does | What it outputs |
+| **2. Step Name** | ... | ... |
 
-## Validation Process
+## Process
 
-```
 Trigger condition met
-    ↓
-1. First validation step
-    ↓
-2. Second validation step
-    ↓
-3. Output actionable report
-```
+    |
+1. First operational step
+    |
+2. Second operational step
+    |
+3. Output actionable result
 
 ## Output Format
 
-```markdown
-## Your Skill Audit
+## Your Skill Report
 
-**Context:** What was checked
+**Context:** What was examined
+**Tier:** Which operational tier
 **Score:** X/Y checks passed
 
-### Passed
-- Check 1: Evidence
-- Check 2: Evidence
+### Completed
+- Step 1: Evidence
+- Step 2: Evidence
 
-### Failed
-- Check 3: What went wrong
+### Gaps Found
+- Step 3: What operational discipline was missing
 
-### Required Actions
-1. Fix this before proceeding
-2. Consider this improvement
-```
+### Recommended Actions
+1. Immediate action
+2. Follow-up improvement
 
 ## Usage
 
-```
 /your-skill-name
 ```
-```
 
-### 2. Report Validation Gaps
+### 3. Report Operational Gaps
 
-Found a class of errors that our skills don't catch? That's exactly what we need.
+Found a class of agent failures that our factors do not address? That is exactly what we need.
 
 **Good issue format:**
 
 ```markdown
-## Validation Gap
+## Operational Gap
 
-**What I tried:** Describe the situation
-**What went wrong:** What error occurred
-**When it should have been caught:** Which validation point
-**Suggested check:** How to catch it early
+**What I tried:** Describe the agent workflow
+**What went wrong:** What operational failure occurred
+**Which factor should have prevented it:** Map to the 12 factors
+**Suggested discipline:** How to prevent it systematically
 
 ## Evidence
 
 - Link to session where this happened
-- Example of the error
-- Proposed validation criteria
+- Example of the failure
+- Proposed operational check
 ```
 
-### 3. Improve Existing Skills
+### 4. Improve Existing Skills and Patterns
 
-Our skills can always be sharper. Contributions that improve catch rates are valuable:
+Our skills and patterns can always be sharper. Contributions that improve operational outcomes are valuable:
 
-- Add edge cases we're missing
+- Add edge cases the skill does not handle
 - Improve output actionability
-- Reduce false positives
+- Reduce false positives in validation skills
 - Add clearer remediation guidance
+- Strengthen the connection to specific factors
 
-### 4. Share Patterns
+### 5. Share Knowledge Compounding Workflows
 
-Discovered a validation pattern that works in your domain? Document it:
+Factor VIII (Compound Knowledge) is the hero differentiator. Contributions that demonstrate real knowledge compounding workflows are especially valuable:
 
-- What problem it solves
-- Why it works
-- How to apply it
-- Evidence it catches real issues
+- How you structure `learnings.md` files
+- Quality gating criteria for extracted knowledge
+- Retrieval strategies that improve context relevance
+- Decay management approaches for stale learnings
+- Evidence of measurable improvement across sessions
 
-### 5. Fix Documentation
+### 6. Fix Documentation
 
-Clear docs help everyone validate better:
+Clear docs help everyone operate better:
 
 - Fix unclear explanations
-- Add examples of validation in action
-- Document failure patterns you've seen
-- Improve skill trigger guidance
+- Add examples of operational discipline in action
+- Document failure patterns and how factors prevent them
+- Improve factor interconnection explanations
+- Ensure all internal links resolve correctly
 
 ---
 
@@ -213,67 +241,69 @@ Clear docs help everyone validate better:
 ### Small Changes (docs, examples)
 
 1. Fork the repository
-2. Create a branch: `git checkout -b docs/improve-validation-guide`
+2. Create a branch: `git checkout -b docs/improve-factor-guide`
 3. Make changes
 4. Submit PR with clear description
 
-### New Validation Skills
+### New Skills or Patterns
 
 1. Fork the repository
-2. Create skill in `marketplace/your-skill/`
+2. Create skill in `marketplace/your-skill/` or pattern doc in appropriate location
 3. Include:
-   - `.claude-plugin/plugin.json` (metadata)
-   - `skill.md` (skill definition)
-   - Evidence that it catches real issues
-4. Submit PR with validation evidence
+   - `.claude-plugin/plugin.json` (metadata, for skills)
+   - `skill.md` (skill definition, for skills)
+   - Evidence from real agent sessions
+4. Submit PR with usage evidence
 
 **PR requirements for new skills:**
 
-- [ ] Skill has clear validation purpose (not just "information")
+- [ ] Skill maps to one or more of the 12 factors
+- [ ] Works without tooling (manual fallback documented)
 - [ ] Trigger conditions are explicit
-- [ ] Output is actionable (tells you what to fix)
-- [ ] Works within single coding session
-- [ ] Includes example of what it catches
+- [ ] Output is actionable (tells you what to do)
+- [ ] Works within a single coding session
+- [ ] Includes example of operational improvement it provides
 
 ### Framework Changes
 
 Discussion first:
 
-1. Open an issue describing the validation gap
-2. Explain what errors we're not catching
-3. Propose how to catch them
+1. Open an issue describing the operational gap
+2. Explain what the current factors do not address
+3. Propose how the framework should evolve
 4. Discuss approach with maintainers
 5. Implement if approved
 
 ---
 
-## What Makes a Good Validation Skill
+## What Makes a Good Contribution
 
 | Quality | Good | Bad |
 |---------|------|-----|
-| **Actionable** | "Fix line 42: missing null check" | "Code could be improved" |
-| **Timely** | Catches it before commit | Catches it in production |
-| **Specific** | Clear what to fix | Vague suggestions |
-| **Evidence-based** | Shows the problem | Asserts without proof |
-| **Automatable** | Can run as skill | Requires manual analysis |
+| **Actionable** | "Add this check before commit to enforce Factor V" | "Agents could be better" |
+| **Grounded** | Maps to specific factor(s) and tier | Generic agent advice |
+| **Evidence-based** | Shows real session improvement | Theoretical claims |
+| **Portable** | Works without specific tooling | Requires proprietary setup |
+| **Specific** | Clear trigger, clear output, clear remediation | Vague suggestions |
 
 ---
 
 ## Code of Conduct
 
-- **Validation over blame** — We catch errors, we don't judge developers
-- **Assume good intent** — AI-generated code needs validation, not criticism
-- **Share what you learn** — Every caught error is a lesson for everyone
-- **Be specific** — Vague feedback doesn't help anyone validate better
+- **Discipline over blame** -- We build operational discipline, not judgment systems
+- **Assume good intent** -- AI-generated output needs operational guardrails, not criticism
+- **Share what you learn** -- Every operational insight helps the entire community compound knowledge
+- **Be specific** -- Vague feedback does not help anyone operate better
+- **Without Tooling first** -- Every contribution should work manually before automating
 
 ---
 
 ## Questions?
 
-- **How to validate something?** Open a discussion
-- **Found an uncaught error class?** Open an issue
+- **How to apply a factor?** Open a discussion
+- **Found an operational gap?** Open an issue
 - **Want to add a skill?** Start with the template above
-- **Not sure if it fits?** Ask — we'll help you figure it out
+- **Not sure which tier it fits?** Ask -- we will help you map it
 
 ---
 
@@ -282,11 +312,11 @@ Discussion first:
 Contributors are recognized in:
 
 - Git commit history (preserved forever)
-- Release notes (for new validation skills)
-- Marketplace listing (skill authorship)
+- Release notes (for new skills and patterns)
+- [Marketplace](./marketplace/) listing (skill authorship)
 
-**Your work helps catch errors before they ship.**
+**Your work helps build the operational discipline for an entire field.**
 
 ---
 
-**Welcome to 12-Factor AgentOps. Let's shift validation left — together.**
+**Welcome to 12-Factor AgentOps. The model is not the problem. The operations are.**

@@ -71,7 +71,7 @@
 - Blameless postmortems (learn from AI failures)
 - Constraint management (context windows = new bottleneck)
 
-**This was a gamble.** No one was talking about "DevOps for AI" in 2023.
+**This was a gamble.** No one was talking about operational discipline for AI agents in 2023.
 
 ---
 
@@ -119,7 +119,7 @@
   4. **Knowledge OS** - Git as organizational memory
 
 **The framework:**
-- 12 Factors (lifecycle-ordered: Foundation → Operations → Improvement)
+- 12 Factors (tier-ordered: Foundation → Workflow → Knowledge → Scale)
 - Nine Laws (universal principles)
 - FAAFO as north star (independently discovered the concept, didn't have Gene's term yet)
 
@@ -176,14 +176,14 @@
 
 ---
 
-### 2025: Version 2.0
+### 2025: Version 3.0
 
 **What changed:**
 - Explicit Vibe Coding integration (no longer implicit)
 - Three Developer Loops as organizing framework
 - Phoenix Project lineage documented (full circle)
 - Gene Kim properly credited (Vibe Coding vision, FAAFO term)
-- Positioning refined: "The Operational Discipline for Vibe Coding at Scale"
+- Positioning refined: "The Operational Discipline for Working With AI Agents"
 
 **What stayed the same:**
 - All 12 Factors unchanged (same principles)
@@ -232,7 +232,7 @@
 - Safety framework (prevention/detection/correction)
 - Implementation proof (1 developer = whole team)
 
-**My positioning:** 12-Factor AgentOps as the operational discipline
+**My positioning:** 12-Factor AgentOps as the operational discipline for working with AI agents
 
 ---
 
@@ -266,14 +266,14 @@
 
 ## The Story for Engineers
 
-> **"Phoenix Project shaped my 10-year DevOps career. When AI tools hit 35% success rates, I applied DevOps principles to fix it. 95% success rate, 2 years later. Then Gene Kim's Vibe Coding research validated my patterns—turns out I'm doing what elite orgs do. This is v1.1: DevOps + Vibe Coding as complementary framework, production-proven, industry-confirmed."**
+> **"Phoenix Project shaped my 10-year DevOps career. When AI tools hit 35% success rates, I applied DevOps principles to fix it. 95% success rate, 2 years later. Then Gene Kim's Vibe Coding research validated my patterns—turns out I'm doing what elite orgs do. This is v3: DevOps + Vibe Coding as complementary framework, production-proven, industry-confirmed."**
 
 **Short version:**
 - Phoenix Project (2013) → DevOps foundation
 - AI frustration (2023) → Applied DevOps to AI
 - Independent discovery (2023-2024) → 95% success rate
 - Industry convergence (2025) → Gene Kim validates patterns
-- v1.1 (2025) → Vibe Coding integration
+- v3 (2025) → Vibe Coding integration
 
 **The through-line:** Gene Kim's work guided me, my work validates his research, we complete each other
 
@@ -348,7 +348,7 @@
 
 ## Gene Kim Attribution
 
-**Throughout v1.1 documentation:**
+**Throughout v3 documentation:**
 
 **Vibe Coding concept:**
 - Credit: Gene Kim & Steve Yegge
@@ -371,7 +371,7 @@
 **12-Factor AgentOps:**
 - Credit: Our production implementation
 - Inspiration: Standing on giants (12factor.net, DevOps, Gene's work)
-- Positioning: Operational discipline for Vibe Coding
+- Positioning: Operational discipline for working with AI agents
 
 **Credit where due. Synthesis where valuable.**
 
@@ -379,7 +379,7 @@
 
 ## The Next Chapter
 
-### Gene Kim Outreach (After v1.1 Publication)
+### Gene Kim Outreach (After v3 Publication)
 
 **Planned email:**
 
@@ -439,7 +439,7 @@
 **2023-2024:** Independent discovery → 95% success rate, 1,175+ commits
 **Oct 2024:** Codification → 12-Factor AgentOps v1.0
 **Nov 2025:** Industry convergence → Gene Kim's Vibe Coding validates patterns
-**2025:** v1.1 → Vibe Coding as complementary framework
+**2025:** v3 → Vibe Coding as complementary framework
 
 **The circle:**
 - Gene Kim's work → Guided my foundation
@@ -453,4 +453,4 @@
 
 ---
 
-**This is v1.1. The operational discipline for Vibe Coding at scale.**
+**This is v3. The operational discipline for working with AI agents.**

@@ -1,70 +1,22 @@
-# The Five Pillars of Knowledge OS
+# The Four Pillars of Operational Discipline
 
 ## Introduction
 
-Knowledge OS emerges from the synthesis of five foundational disciplines, each contributing essential principles that transform how we design, operate, and evolve knowledge work systems. These pillars aren't arbitrary categories—they represent the minimal set of perspectives needed to build reliable, learning, sustainable operations for any knowledge work.
+The 12-Factor Agents framework emerges from the synthesis of four foundational disciplines, each contributing essential principles that transform how we design, operate, and evolve AI agent operations. These pillars aren't arbitrary categories—they represent the minimal set of perspectives needed to build reliable, learning, sustainable operational discipline for working with AI agents.
 
-**The Five Pillars:**
-1. **Constraint-Based Engineering** - Start with limits, optimize within them
-2. **DevOps + SRE** - Operational rigor and reliability engineering
-3. **Learning Science** - How humans and systems acquire and apply knowledge
-4. **Context Engineering** - Managing cognitive load and information flow
-5. **Knowledge OS** - Git as the operating system for institutional memory
+**The Four Pillars:**
+1. **DevOps + SRE** - Operational rigor and reliability engineering
+2. **Learning Science** - How humans and systems acquire and apply knowledge
+3. **Context Engineering** - Managing cognitive load and information flow
+4. **Knowledge OS** - Git as the operating system for institutional memory
 
-Together, these pillars create a framework where knowledge work operates with the same discipline as production infrastructure, learns continuously from experience, manages complexity effectively, and builds compounding institutional knowledge.
+Together, these pillars create a framework where AI agent operations run with the same discipline as production infrastructure, learn continuously from experience, manage complexity effectively, and build compounding institutional knowledge.
 
----
-
-## Pillar 1: Constraint-Based Engineering
-
-### Philosophy
-
-**Core Question:** How do we design for limits rather than infinite capacity?
-
-Most engineering starts with capabilities ("What can this technology do?"). Constraint-based engineering inverts this: we start with limits ("What are the boundaries? How do we optimize within them?").
-
-### Core Principles
-
-#### 1. Start With Limits
-
-| Capability-First | Constraint-First |
-|------------------|------------------|
-| "Claude can do X" | "I have Y constraints, what's optimal?" |
-| "Let's use Kubernetes" | "I need orchestration with Z limits" |
-| "More GPUs = better" | "Maximum value from available GPUs" |
-| 80% solution for everyone | 100% solution for edge cases |
-
-#### 2. The 40% Rule
-
-Both humans and AI systems show cognitive collapse at approximately 40% capacity utilization. This isn't a guideline—it's a hard constraint discovered through production experience.
-
-**Applications:**
-- Never exceed 40% of context window
-- JIT load context only when needed
-- Compress aggressively (10k → 500 tokens)
-- Progressive disclosure instead of upfront loading
-
-#### 3. Constraint Classification
-
-Every task has constraints across multiple dimensions:
-- **Latency:** Real-time (<100ms) → Batch (hours)
-- **Privacy:** Public → Classified
-- **Compute:** Edge (1 GPU) → Datacenter (1000 GPUs)
-- **Cost:** Unlimited → Strict per-query limits
-
-Classify constraints first, then route to optimal architecture.
-
-### Mapping to Factors
-
-| Factor | How It Embodies Constraint-Based Engineering |
-|--------|---------------------------------------------|
-| II. Context Loading | 40% rule enforcement |
-| VII. Smart Routing | Route based on constraint classification |
-| VIII. Human Validation | Constraint on autonomous execution |
+The [Constraint-Based Engineering](./constraint-based-engineering.md) philosophy is the meta-principle that generates these pillars and produces the twelve factors. It is documented separately as the foundational methodology.
 
 ---
 
-## Pillar 2: DevOps + SRE
+## Pillar 1: DevOps + SRE
 
 ### Philosophy
 
@@ -566,7 +518,7 @@ Production implementation examples demonstrate:
 
 ---
 
-## How the Five Pillars Interact
+## How the Four Pillars Interact
 
 ### Pillar Interdependencies
 
@@ -615,7 +567,7 @@ Remove any pillar, and the framework collapses.
 
 ## From Theory to Practice
 
-These Five Pillars provide the **philosophical foundation**. For operational implementation:
+These Four Pillars provide the **philosophical foundation**. For operational implementation:
 
 - Operational enforcement via CONSTITUTION-based patterns
 - Pillars applied to 52 production workflows
@@ -625,7 +577,7 @@ These Five Pillars provide the **philosophical foundation**. For operational imp
 
 ## Conclusion
 
-The Five Pillars of AgentOps aren't academic theory—they're battle-tested principles extracted from operating AI agents at production scale.
+The Four Pillars of operational discipline aren't academic theory—they're battle-tested principles extracted from operating AI agents at production scale.
 
 **DevOps + SRE** gives us operational discipline.
 **Learning Science** teaches us how to improve continuously.
@@ -634,4 +586,4 @@ The Five Pillars of AgentOps aren't academic theory—they're battle-tested prin
 
 Together, they transform AI agent operations from ad-hoc experimentation into **rigorous, reliable, continuously improving systems**.
 
-The pillars don't just support AgentOps—they define what it means to operate AI agents professionally.
+The pillars don't just support the framework—they define the operational discipline for working with AI agents.

@@ -371,10 +371,10 @@ See [production-metrics.md](production-metrics.md) for complete empirical valida
 
 **In 12-Factor AgentOps:**
 
-1. **Context Loading (Factor 2):** Never exceed 40% of model context window
-2. **Focused Agents (Factor 3):** Break tasks to keep cognitive load <40%
-3. **Continuous Validation (Factor 4):** Catch errors before load increases
-4. **Mine Patterns (Factor 9):** Reduce cognitive load through automation
+1. **Context Is Everything (Factor I):** Never exceed 40% of model context window
+2. **One Agent, One Job (Factor III):** Break tasks to keep cognitive load <40%
+3. **Validate Externally (Factor V):** Catch errors before load increases
+4. **Extract Learnings (Factor VII):** Reduce cognitive load through automation
 
 ### Why It Works Across AI and Humans
 
@@ -413,7 +413,7 @@ The 40% Rule unifies human cognition, AI systems, and engineering because:
 **Related Documentation:**
 - [Production Metrics](production-metrics.md) - Empirical validation
 - [Context Engineering](principles/context-engineering.md) - Practical application
-- [Factor 2: Context Loading](../factors/02-context-loading.md) - Implementation
+- [Factor I: Context Is Everything](../factors/02-context-loading.md) - Implementation
 - [Workflow Guide](tutorials/workflow-guide.md) - Operational usage
 
 **Research Sources:**

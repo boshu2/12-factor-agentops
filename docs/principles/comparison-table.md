@@ -1,27 +1,35 @@
-# Complete 12-Factor Comparison: Original → Agents → AgentOps
+# Complete 12-Factor Comparison: App, Agents, AgentOps
 
-This document provides a detailed comparison showing how each of the original 12 factors evolved for AI applications and AI operations.
+Three frameworks, three layers of the stack. This document maps each original 12-Factor App principle through its AI-age adaptations.
+
+- **12-Factor App** (Heroku, 2011): How to build cloud-native applications
+- **12-Factor Agents** (Dex Horthy, 2025): How to build reliable AI applications
+- **12-Factor AgentOps** (v3, 2026): The operational discipline for working with AI agents
+
+---
 
 ## Quick Reference
 
-| # | Original (2011) | Agents (2025) | AgentOps (2025) |
-|---|-----------------|---------------|-----------------|
-| I | Codebase | Own your prompts | Automated Tracking |
-| II | Dependencies | Own your context window | Context Loading |
-| III | Config | Tools as structured outputs | Fail-Safe Checks |
-| IV | Backing Services | Small, focused agents | Focused Agents |
-| V | Build/Release/Run | Launch/Pause/Resume APIs | Continuous Validation |
-| VI | Processes | Stateless reducer | Resume Work |
-| VII | Port Binding | Trigger from anywhere | Smart Routing |
-| VIII | Concurrency | Small, focused agents | Focused Agents |
-| IX | Disposability | Launch/Pause/Resume | Context Loading |
-| X | Dev/Prod Parity | Implicit | Package Patterns |
-| XI | Logs | Compact errors | Measure Everything |
-| XII | Admin Processes | Contact humans | Human Validation |
+| # | 12-Factor App (2011) | 12-Factor Agents (2025) | 12-Factor AgentOps v3 (2026) |
+|---|----------------------|-------------------------|------------------------------|
+| I | Codebase | Own your prompts | **[Context Is Everything](../../factors/01-context-is-everything.md)** |
+| II | Dependencies | Own your context window | **[Track Everything in Git](../../factors/02-track-everything-in-git.md)** |
+| III | Config | Tools as structured outputs | **[One Agent, One Job](../../factors/03-one-agent-one-job.md)** |
+| IV | Backing Services | Small, focused agents | **[Research Before You Build](../../factors/04-research-before-you-build.md)** |
+| V | Build/Release/Run | Launch/Pause/Resume APIs | **[Validate Externally](../../factors/05-validate-externally.md)** |
+| VI | Processes | Stateless reducer | **[Lock Progress Forward](../../factors/06-lock-progress-forward.md)** |
+| VII | Port Binding | Trigger from anywhere | **[Extract Learnings](../../factors/07-extract-learnings.md)** |
+| VIII | Concurrency | Small, focused agents | **[Compound Knowledge](../../factors/08-compound-knowledge.md)** |
+| IX | Disposability | Launch/Pause/Resume | **[Measure What Matters](../../factors/09-measure-what-matters.md)** |
+| X | Dev/Prod Parity | Implicit | **[Isolate Workers](../../factors/10-isolate-workers.md)** |
+| XI | Logs | Compact errors into context | **[Supervise Hierarchically](../../factors/11-supervise-hierarchically.md)** |
+| XII | Admin Processes | Contact humans with tools | **[Harvest Failures as Wisdom](../../factors/12-harvest-failures-as-wisdom.md)** |
+
+---
 
 ## Detailed Comparison
 
-### Factor I: Codebase / Prompts / Knowledge OS
+### Factor I: Codebase / Prompts / Context Is Everything
 
 **Original 12-Factor App (I: Codebase)**
 - *Principle*: One codebase tracked in revision control, many deploys
@@ -33,15 +41,15 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: LLM behavior is determined by prompts, not traditional code
 - *Key Practice*: Don't let frameworks hide your prompts in abstractions
 
-**12-Factor AgentOps (I: Automated Tracking)**
-- *Evolution*: Git becomes institutional memory for operations
-- *Why Different*: Operations require more than prompts—entire knowledge bases
-- *Key Practice*: All operational knowledge lives in version-controlled repos
-- *Unique Aspect*: Git isn't just version control, it's the memory system
+**12-Factor AgentOps (I: Context Is Everything)**
+- *Evolution*: Manage what enters the context window like you manage what enters production
+- *Why Different*: Agent output quality is determined by input context quality -- garbage in, garbage out
+- *Key Practice*: Budget context deliberately; load knowledge just-in-time; stay under the 40% utilization threshold
+- *Unique Aspect*: Context is the operational lever -- same model performs dramatically differently based on what it sees
 
 ---
 
-### Factor II: Dependencies / Context / JIT Loading
+### Factor II: Dependencies / Context Window / Track Everything in Git
 
 **Original 12-Factor App (II: Dependencies)**
 - *Principle*: Explicitly declare and isolate dependencies
@@ -53,15 +61,15 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: Context window is the LLM's "working memory"
 - *Key Practice*: Don't let frameworks auto-populate context
 
-**12-Factor AgentOps (II: Context Loading)**
-- *Evolution*: Load context just-in-time to prevent cognitive collapse
-- *Why Different*: Operating at scale requires preventing context overload
-- *Key Practice*: 40% rule—never exceed 40% context utilization
-- *Unique Aspect*: Sub-agents for isolated context scopes
+**12-Factor AgentOps (II: Track Everything in Git)**
+- *Evolution*: If it's not in git, it didn't happen
+- *Why Different*: Agent sessions are ephemeral; git is the only durable memory
+- *Key Practice*: Learnings, decisions, context, and patterns all live in version-controlled repositories
+- *Unique Aspect*: Git becomes institutional memory, not just version control
 
 ---
 
-### Factor III: Config / Tools / Guardrails
+### Factor III: Config / Tools / One Agent, One Job
 
 **Original 12-Factor App (III: Config)**
 - *Principle*: Store config in the environment
@@ -73,15 +81,15 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: LLMs don't "call" tools, they generate structured output
 - *Key Practice*: Understand tool calling as output parsing
 
-**12-Factor AgentOps (XI: Fail-Safe Checks)**
-- *Evolution*: Non-negotiable operational rules enforced at infrastructure level
-- *Why Different*: Operations need governance boundaries for autonomous decisions
-- *Key Practice*: Nine Laws always enforced, regardless of agent or human
-- *Unique Aspect*: Constitutional rules that can't be overridden
+**12-Factor AgentOps (III: One Agent, One Job)**
+- *Evolution*: Each agent gets a scoped task and fresh context
+- *Why Different*: Overloaded agents produce degraded output as context saturates
+- *Key Practice*: One issue, one agent session; never reuse a saturated context window
+- *Unique Aspect*: Grounded in cognitive load theory -- context collapse is a cliff, not a slope
 
 ---
 
-### Factor IV: Backing Services / Small Agents / Single Responsibility
+### Factor IV: Backing Services / Small Agents / Research Before You Build
 
 **Original 12-Factor App (IV: Backing Services)**
 - *Principle*: Treat backing services as attached resources
@@ -93,15 +101,15 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: Large agents get stuck at 70-80% quality
 - *Key Practice*: One agent, one well-defined responsibility
 
-**12-Factor AgentOps (III: Focused Agents)**
-- *Evolution*: Composable, specialized agents for operations
-- *Why Different*: Operations require orchestration of specialized skills
-- *Key Practice*: 3-10 steps max per agent, compose into workflows
-- *Unique Aspect*: Agent routing system for intelligent task distribution
+**12-Factor AgentOps (IV: Research Before You Build)**
+- *Evolution*: Understand the problem space before generating code
+- *Why Different*: Agents that skip research produce plausible but wrong solutions
+- *Key Practice*: Separate research phase from implementation phase; understand before generating
+- *Unique Aspect*: Inverts the "code first, fix later" pattern that causes most agent failures
 
 ---
 
-### Factor V: Build/Release/Run / Launch-Pause-Resume / Continuous Validation
+### Factor V: Build/Release/Run / Launch-Pause-Resume / Validate Externally
 
 **Original 12-Factor App (V: Build, Release, Run)**
 - *Principle*: Strictly separate build and run stages
@@ -113,15 +121,15 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: AI workflows need to pause/resume across sessions
 - *Key Practice*: Simple APIs for agent lifecycle management
 
-**12-Factor AgentOps (IV: Continuous Validation)**
-- *Evolution*: Test before deploy, zero-trust validation
-- *Why Different*: Operations can't risk unvalidated AI changes in production
-- *Key Practice*: Every change passes through validation pipeline
-- *Unique Aspect*: Treats AI and human changes identically
+**12-Factor AgentOps (V: Validate Externally)**
+- *Evolution*: No agent grades its own work
+- *Why Different*: Agents are confident but not reliable -- they cannot objectively evaluate their own output
+- *Key Practice*: External validation via tests, linters, a different agent, or human review
+- *Unique Aspect*: Zero-trust principle applied to cognition -- validate the output, not the source
 
 ---
 
-### Factor VI: Processes / Stateless Reducer / Resume Work
+### Factor VI: Processes / Stateless Reducer / Lock Progress Forward
 
 **Original 12-Factor App (VI: Processes)**
 - *Principle*: Execute app as stateless processes
@@ -129,19 +137,19 @@ This document provides a detailed comparison showing how each of the original 12
 - *Key Practice*: Store state in backing services, not in process memory
 
 **12-Factor Agents (Stateless Reducer)**
-- *Adaptation*: Agents as pure functions: input → output
+- *Adaptation*: Agents as pure functions: input leads to output
 - *Why Changed*: Makes agents reproducible and testable
 - *Key Practice*: Agent takes state, produces new state, no hidden memory
 
-**12-Factor AgentOps (VI: Resume Work)**
-- *Evolution*: External state enables long-running operations
-- *Why Different*: Operations span days/weeks, need session resumption
-- *Key Practice*: Context bundles compress session state 5:1 to 10:1
-- *Unique Aspect*: Pause/resume across sessions with full context
+**12-Factor AgentOps (VI: Lock Progress Forward)**
+- *Evolution*: Once work passes validation, it ratchets -- it cannot regress
+- *Why Different*: Without ratcheting, agents undo validated work during later iterations
+- *Key Practice*: Commit validated work to protected branches; checkpoint progress
+- *Unique Aspect*: Prevents the "two steps forward, one step back" pattern common in long agent sessions
 
 ---
 
-### Factor VII: Port Binding / Trigger Anywhere / Intelligent Routing
+### Factor VII: Port Binding / Trigger Anywhere / Extract Learnings
 
 **Original 12-Factor App (VII: Port Binding)**
 - *Principle*: Export services via port binding
@@ -153,15 +161,15 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: Users interact through multiple interfaces
 - *Key Practice*: Meet users where they are
 
-**12-Factor AgentOps (VII: Smart Routing)**
-- *Evolution*: Route tasks to specialized agents automatically
-- *Why Different*: Operations require matching tasks to expertise
-- *Key Practice*: 90.9% accuracy NLP classification for agent selection
-- *Unique Aspect*: Self-organizing agent ecosystem
+**12-Factor AgentOps (VII: Extract Learnings)**
+- *Evolution*: Every session produces two outputs -- the work product and the lessons learned
+- *Why Different*: Without explicit extraction, hard-won knowledge dies with the session
+- *Key Practice*: End every session by capturing what worked, what failed, and why
+- *Unique Aspect*: Feeds the knowledge flywheel; the raw material for Factor VIII (Compound Knowledge)
 
 ---
 
-### Factor VIII: Concurrency (Shared with Factor IV)
+### Factor VIII: Concurrency / Focused Agents / Compound Knowledge
 
 **Original 12-Factor App (VIII: Concurrency)**
 - *Principle*: Scale out via the process model
@@ -169,18 +177,19 @@ This document provides a detailed comparison showing how each of the original 12
 - *Key Practice*: Add more processes, not bigger processes
 
 **12-Factor Agents (Small, Focused Agents)**
-- *Adaptation*: Same as Factor IV—compose many small agents
+- *Adaptation*: Same as Factor IV -- compose many small agents
 - *Why Changed*: Scaling AI through composition, not monoliths
 - *Key Practice*: Parallelize via multiple agents
 
-**12-Factor AgentOps (Maps to Factor III/IV)**
-- *Evolution*: Focused Agents enable parallel operations
-- *Why Different*: Operations scale through agent specialization
-- *Note*: This factor reinforces Factors III and IV
+**12-Factor AgentOps (VIII: Compound Knowledge)**
+- *Evolution*: Learnings must flow back into future sessions automatically
+- *Why Different*: Extraction without injection is a write-only journal nobody reads
+- *Key Practice*: Quality-gate extracted learnings, inject relevant knowledge at session start, measure retrieval effectiveness, let stale knowledge decay
+- *Unique Aspect*: The HERO factor -- the knowledge flywheel that makes each session smarter than the last
 
 ---
 
-### Factor IX: Disposability / Launch-Pause-Resume / JIT Loading
+### Factor IX: Disposability / Launch-Pause-Resume / Measure What Matters
 
 **Original 12-Factor App (IX: Disposability)**
 - *Principle*: Fast startup, graceful shutdown
@@ -190,16 +199,17 @@ This document provides a detailed comparison showing how each of the original 12
 **12-Factor Agents (Launch/Pause/Resume)**
 - *Adaptation*: Instant agent lifecycle management
 - *Why Changed*: AI workflows need rapid start/stop
-- *Key Practice*: Same as Factor V—agent lifecycle APIs
+- *Key Practice*: Same as Factor V -- agent lifecycle APIs
 
-**12-Factor AgentOps (Maps to Factor II)**
-- *Evolution*: Context Loading enables instant agent spin-up
-- *Why Different*: Operations require minimal startup time
-- *Note*: This factor reinforces Factor II
+**12-Factor AgentOps (IX: Measure What Matters)**
+- *Evolution*: Track fitness toward goals, not activity metrics
+- *Why Different*: Without measurement, you cannot know if your operations are improving
+- *Key Practice*: Measure outcomes (validation pass rates, rework frequency, knowledge retrieval hit rates) not vanity metrics (tokens consumed, sessions run)
+- *Unique Aspect*: Closes the feedback loop on the knowledge flywheel
 
 ---
 
-### Factor X: Dev/Prod Parity / Implicit / Package Patterns
+### Factor X: Dev/Prod Parity / Implicit / Isolate Workers
 
 **Original 12-Factor App (X: Dev/Prod Parity)**
 - *Principle*: Keep development, staging, and production as similar as possible
@@ -208,18 +218,17 @@ This document provides a detailed comparison showing how each of the original 12
 
 **12-Factor Agents (Implicit)**
 - *Adaptation*: Not explicitly called out, but implied in all factors
-- *Why Changed*: Good agent practices work everywhere
 - *Note*: Incorporated into other factors
 
-**12-Factor AgentOps (XII: Package Patterns)**
-- *Evolution*: Patterns work across constrained environments
-- *Why Different*: Operations must work air-gapped, edge, and cloud
-- *Key Practice*: Same methodology in all environments
-- *Unique Aspect*: Explicit focus on constrained/edge deployments
+**12-Factor AgentOps (X: Isolate Workers)**
+- *Evolution*: Each worker gets its own workspace, its own context, and zero shared mutable state
+- *Why Different*: Parallel agents sharing state create cascading conflicts
+- *Key Practice*: Git worktrees, separate context windows, independent validation
+- *Unique Aspect*: Scale tier -- skip if working solo; essential for multi-agent orchestration
 
 ---
 
-### Factor XI: Logs / Compact Errors / Measure Everything
+### Factor XI: Logs / Compact Errors / Supervise Hierarchically
 
 **Original 12-Factor App (XI: Logs)**
 - *Principle*: Treat logs as event streams
@@ -231,17 +240,17 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: LLMs learn from failures in context window
 - *Key Practice*: Error summaries become future context
 
-**12-Factor AgentOps (V: Measure Everything)**
-- *Evolution*: Metrics, logs, traces for agent operations
-- *Why Different*: Operations need full observability stack
-- *Key Practice*: All agent reasoning is instrumented and queryable
-- *Unique Aspect*: Pattern extraction from telemetry
+**12-Factor AgentOps (XI: Supervise Hierarchically)**
+- *Evolution*: Escalation flows up, never sideways
+- *Why Different*: Multi-agent systems without hierarchy devolve into circular coordination
+- *Key Practice*: Coordinator agents delegate and escalate; worker agents execute and report
+- *Unique Aspect*: Scale tier -- skip if working solo; prevents coordination chaos in multi-agent setups
 
 ---
 
-### Factor XII: Admin Processes / Contact Humans / Human Validation
+### Factor XII: Admin Processes / Contact Humans / Harvest Failures as Wisdom
 
-**Original 12-Factor App (XII: Admin processes)**
+**Original 12-Factor App (XII: Admin Processes)**
 - *Principle*: Run admin/management tasks as one-off processes
 - *Problem Solved*: Consistent environment for management tasks
 - *Key Practice*: Same environment and codebase as long-running processes
@@ -251,80 +260,51 @@ This document provides a detailed comparison showing how each of the original 12
 - *Why Changed*: AI needs human judgment for critical decisions
 - *Key Practice*: Human contact is a first-class operation, not exception
 
-**12-Factor AgentOps (VIII: Human Validation)**
-- *Evolution*: Critical decision checkpoints require human approval
-- *Why Different*: Operations require explicit approval gates
-- *Key Practice*: Validation before critical actions
-- *Unique Aspect*: Systematic human-in-the-loop at infrastructure level
+**12-Factor AgentOps (XII: Harvest Failures as Wisdom)**
+- *Evolution*: Failed attempts are data -- extract and index them with the same rigor as successes
+- *Why Different*: Failures contain the highest-value learnings but are typically discarded
+- *Key Practice*: Document what did not work and why; index failure patterns for future avoidance
+- *Unique Aspect*: Scale tier -- feeds directly into Factor VII (Extract Learnings) and Factor VIII (Compound Knowledge)
 
 ---
 
-## AI-Specific Extensions
+## The Three Frameworks Are Complementary
 
-### New from 12-Factor Agents
-
-These factors didn't exist in the original because deterministic apps don't need them:
-
-1. **Natural Language → Tool Calls**: LLM's core capability
-2. **Own Your Control Flow**: Don't hide logic in framework abstractions
-3. **Unify Execution & Business State**: Different state lifecycles
-4. **Compact Errors into Context**: Learning from failures
-
-### New from 12-Factor AgentOps
-
-These factors didn't exist in either original or Agents because operations have unique needs:
-
-**IX. Mine Patterns**
-- Systems that learn from operations
-- Continuous knowledge accumulation
-- Pattern libraries that improve over time
-
-**X. Small Iterations**
-- Systems that evolve based on usage
-- Systematic refinement process
-- Operational improvements compound
-
-**XI. Fail-Safe Checks** (mentioned above)
-- Non-negotiable governance for autonomous decisions
-- Always-enforced operational boundaries
-
-**XII. Package Patterns** (mentioned above)
-- Cross-environment operational consistency
-- Air-gapped, edge, and cloud support
-
----
-
-## When to Use Each Framework
+Each addresses a different layer. You need the right framework for your problem:
 
 ### Use 12-Factor App for:
-- Traditional web applications
-- SaaS products
+- Traditional web applications and SaaS products
 - Cloud-native deployments
 - Deterministic business logic
 
 ### Use 12-Factor Agents for:
 - Building AI-powered applications
 - Integrating LLMs into products
-- Reliable agent workflows
-- Customer-facing AI features
+- Reliable agent workflows in customer-facing features
 
 ### Use 12-Factor AgentOps for:
-- Using AI agents/LLMs safely in any context
+- Using AI agents for any work (coding, writing, research, automation)
 - Solo development with AI coding assistants
 - Team collaboration with AI tools
-- Production AI deployments
 - Any environment (cloud, local, air-gapped)
-- Building trust in AI outputs
-- Making AI usage get better over time
+- Making AI usage get better over time through knowledge compounding
 
 ---
 
 ## The Stack in Practice
 
-Real-world example: **AI-powered customer service system**
+**Example: AI-powered customer service system**
 
-- **12-Factor App**: Web interface hosting (cloud-native infrastructure)
-- **12-Factor Agents**: Customer service agent logic (reliable AI application)
-- **12-Factor AgentOps**: Multi-region deployment, validation, monitoring (safe operations at scale)
+- **12-Factor App**: Cloud-native web interface and API hosting
+- **12-Factor Agents**: Reliable AI conversation agent
+- **12-Factor AgentOps**: Operational discipline -- validate responses before customers see them, extract learnings from interactions, compound knowledge across the team
 
-You need **all three layers** to succeed with AI in production.
+All three layers, complementary, not competitive.
+
+---
+
+## Further Reading
+
+- [Original 12-Factor App Methodology](https://12factor.net) - Adam Wiggins, Heroku (2011)
+- [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) - Dex Horthy, HumanLayer (2025)
+- [Evolution of 12-Factor](./evolution-of-12-factor.md) - Full lineage from App to Agents to AgentOps

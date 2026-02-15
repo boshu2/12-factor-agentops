@@ -90,26 +90,26 @@ This is the tight feedback loop of:
 
 ### AgentOps Implementation
 
-#### Factor 1: Fast Feedback Loops
+#### Factor II: Track Everything in Git
 
 **Maps to Inner Loop Prevention:**
-- Sub-second validation catches AI errors immediately
+- Every change tracked, every decision persisted
 - Pre-commit hooks prevent broken code from entering repo
-- Fast syntax checks stop "tests passing" lies
+- Easy rollback when AI goes wrong
 
 **Example:**
 ```bash
-# Every file save triggers:
-make quick              # <5s validation
-# AI can't commit broken code
+# Every change is tracked:
+git commit -m "Add validation logic"
+# AI can't silently break things
 ```
 
-#### Factor 5: Testing First
+#### Factor V: Validate Externally
 
 **Maps to Inner Loop Detection:**
+- Independent verification of AI output
 - Write test before implementation
 - Forces AI to produce verifiable code
-- Fail test first, then implement
 
 **Example:**
 ```python
@@ -124,19 +124,19 @@ def calculate_total(items):
 # You verify: Test actually passes
 ```
 
-#### Factor 6: Validation
+#### Factor VI: Lock Progress Forward
 
 **Maps to Inner Loop Correction:**
-- Ruthless validation gates
+- Checkpoint frequently so you can roll back
 - Independent verification (don't trust AI)
-- Rollback immediately on failure
+- Rollback immediately on failure, resume from last good state
 
 **Example:**
 ```bash
 # AI claims "tests pass"
 # You run:
 pytest tests/
-# Sees failures → git revert
+# Sees failures → git revert to checkpoint
 ```
 
 ---
@@ -149,12 +149,12 @@ pytest tests/
 
 **Root cause:** AI hallucinates test results without running them
 
-**Violated factor:** Factor 6 (Validation)
+**Violated factor:** Factor V (Validate Externally)
 
 **Remedy:**
 - Always run tests independently
 - Never trust AI test claims without verification
-- Use Factor 1 (Automated Tracking) to log actual test runs
+- Use Factor II (Track Everything in Git) to log actual test runs
 
 #### Failure 2: Context Amnesia
 
@@ -162,12 +162,12 @@ pytest tests/
 
 **Root cause:** Context window exceeds 40% threshold, performance degrades
 
-**Violated factor:** Factor 10 (Context Windows)
+**Violated factor:** Factor I (Context Is Everything)
 
 **Remedy:**
 - Monitor context utilization actively
 - Clear context proactively at 40%
-- Use Factor 2 (Context Loading) for JIT patterns
+- Use JIT loading patterns to manage context budget
 
 #### Failure 3: Debug Loop Spiral
 
@@ -175,7 +175,7 @@ pytest tests/
 
 **Root cause:** AI doesn't understand problem, keeps guessing
 
-**Violated factor:** Factor 1 (Fast Feedback Loops)
+**Violated factor:** Factor IV (Research Before You Build)
 
 **Remedy:**
 - Take manual control immediately
@@ -262,7 +262,7 @@ This is the loop of:
 
 ### AgentOps Implementation
 
-#### Factor 3: Autonomous Agents
+#### Factor III: One Agent, One Job
 
 **Maps to Middle Loop Prevention:**
 - Clear agent boundaries prevent collisions
@@ -277,13 +277,12 @@ Agent 3: Frontend components
 # No overlap, clear boundaries
 ```
 
-#### Factor 9: Modularity
+#### Factor X: Isolate Workers
 
 **Maps to Middle Loop Detection:**
 - Architecture constraints prevent eldritch horrors
-- Max function length: 200 lines
-- Max file length: 500 lines
-- Clear module interfaces
+- Independent execution environments per worker
+- Clear module interfaces, no shared mutable state
 
 **Example:**
 ```python
@@ -293,7 +292,7 @@ Agent 3: Frontend components
 # Forces AI to modularize
 ```
 
-#### Factor 10: Context Windows
+#### Factor I: Context Is Everything
 
 **Maps to Middle Loop Correction:**
 - 40% rule prevents context collapse
@@ -319,7 +318,7 @@ Agent 3: Frontend components
 
 **Root cause:** AI optimizes for "working" not "maintainable," no modularity constraints
 
-**Violated factor:** Factor 9 (Modularity)
+**Violated factor:** Factor X (Isolate Workers)
 
 **Remedy:**
 - STOP IMMEDIATELY - Do not proceed
@@ -333,7 +332,7 @@ Agent 3: Frontend components
 
 **Root cause:** Poor coordination, no domain boundaries
 
-**Violated factor:** Factor 3 (Autonomous Agents)
+**Violated factor:** Factor III (One Agent, One Job)
 
 **Remedy:**
 - Pause all agents immediately
@@ -347,7 +346,7 @@ Agent 3: Frontend components
 
 **Root cause:** Poor task decomposition, circular dependencies
 
-**Violated factor:** Factor 9 (Modularity) + task decomposition
+**Violated factor:** Factor X (Isolate Workers) + task decomposition
 
 **Remedy:**
 - Break dependency cycle manually
@@ -423,12 +422,12 @@ This is the loop of:
 
 ### AgentOps Implementation
 
-#### Factor 2: Disposability
+#### Factor VI: Lock Progress Forward
 
 **Maps to Outer Loop Prevention:**
 - Fast rollback when AI breaks things
-- Immutable deployments
-- Blue-green deployment patterns
+- Immutable checkpoints
+- Never lose progress
 
 **Example:**
 ```bash
@@ -438,35 +437,35 @@ git revert [commit-sha]
 # Production restored immediately
 ```
 
-#### Factor 8: Organizational Transformation
+#### Factor XI: Supervise Hierarchically
 
 **Maps to Outer Loop Detection:**
-- Cultural change for AI adoption
+- Oversight and guardrails for AI adoption
 - Fast lane for low-risk changes
-- Stakeholder alignment
+- Stakeholder alignment through hierarchical review
 
 **Example:**
 ```
 # AI productivity hits approval bottleneck
-# Solution: Fast lane process
-# Low-risk changes: Auto-approve
-# High-risk changes: Committee review
+# Solution: Hierarchical oversight
+# Low-risk changes: Automated validation
+# High-risk changes: Human review
 # Productivity maintained
 ```
 
-#### Factor 11: Dev/Prod Parity
+#### Factor XII: Harvest Failures as Wisdom
 
 **Maps to Outer Loop Correction:**
-- Production safety (don't torch production)
-- API compatibility tests
-- Backward compatibility validation
+- Learn from every production incident
+- API compatibility tests prevent future breakage
+- Blameless postmortems capture institutional knowledge
 
 **Example:**
 ```bash
 # Pre-deployment check:
 make api-compatibility-test
 # Catches API breakage before production
-# Prevents bridge torching
+# Each failure becomes a new validation rule
 ```
 
 ---
@@ -479,10 +478,10 @@ make api-compatibility-test
 
 **Root cause:** AI doesn't understand production impact of API changes
 
-**Violated factor:** Factor 11 (Dev/Prod Parity)
+**Violated factor:** Factor V (Validate Externally)
 
 **Remedy:**
-- Rollback immediately (Factor 2: Disposability)
+- Rollback immediately (Factor VI: Lock Progress Forward)
 - Restore API compatibility
 - Add API compatibility tests before retrying
 - Implement contract testing
@@ -493,7 +492,7 @@ make api-compatibility-test
 
 **Root cause:** AI doesn't understand git history value, over-optimizes for "cleanliness"
 
-**Violated factor:** Factor 1 (Automated Tracking)
+**Violated factor:** Factor II (Track Everything in Git)
 
 **Remedy:**
 ```bash
@@ -510,7 +509,7 @@ git branch recovery-branch  # Save it
 
 **Root cause:** Traditional processes don't account for AI velocity
 
-**Violated factor:** Factor 8 (Organizational Transformation)
+**Violated factor:** Factor XI (Supervise Hierarchically)
 
 **Remedy:**
 - Implement fast lane for low-risk changes
@@ -561,9 +560,9 @@ Outer Loop (codify as org patterns)
 ### Diagnostic Use: "Which Loop Am I In?"
 
 **Ask yourself:**
-- Am I coding a single function? → Inner Loop (use Factor 1, 5, 6)
-- Am I coordinating multiple agents? → Middle Loop (use Factor 3, 9, 10)
-- Am I changing architecture/process? → Outer Loop (use Factor 2, 8, 11)
+- Am I coding a single function? → Inner Loop (use Factors II, V, VI)
+- Am I coordinating multiple agents? → Middle Loop (use Factors I, III, X)
+- Am I changing architecture/process? → Outer Loop (use Factors VI, XI, XII)
 
 **Example:**
 ```
@@ -609,7 +608,7 @@ Prevention for each loop planned upfront
 Failure: Production API broke after deployment
 
 Loop: Outer (production impact)
-Violated factor: Factor 11 (Dev/Prod Parity)
+Violated factor: Factor V (Validate Externally)
 Correction: Rollback immediately
 Prevention: Add API compatibility tests to CI/CD
 ```
@@ -620,14 +619,14 @@ Prevention: Add API compatibility tests to CI/CD
 
 | Loop | Timescale | AgentOps Factors | Prevention | Detection | Correction |
 |------|-----------|-----------------|-----------|-----------|------------|
-| **Inner** | Seconds-minutes | 1, 5, 6 | Checkpoint frequently, TDD, git mastery | Verify AI claims, always on watch | Rollback, manual debugging |
-| **Middle** | Hours-days | 3, 9, 10 | Written rules, memento method | Eldritch horror detection, CI/CD gates | Tracer bullets, workflow automation |
-| **Outer** | Weeks-months | 2, 8, 11 | Don't torch bridges, modularization | AI throws everything out, CI/CD | git reflog recovery, navigate legacy |
+| **Inner** | Seconds-minutes | II, V, VI | Checkpoint frequently, TDD, git mastery | Verify AI claims, always on watch | Rollback, manual debugging |
+| **Middle** | Hours-days | I, III, X | Written rules, memento method | Eldritch horror detection, CI/CD gates | Tracer bullets, workflow automation |
+| **Outer** | Weeks-months | VI, XI, XII | Don't torch bridges, modularization | AI throws everything out, CI/CD | git reflog recovery, navigate legacy |
 
 **Cross-Loop Factors:**
-- Factor 4: Continuous Validation (applies to all loops)
-- Factor 7: Learn from Failures (applies to all loops)
-- Factor 12: Package Patterns (applies to all loops)
+- Factor IV: Research Before You Build (applies to all loops)
+- Factor VII: Extract Learnings (applies to all loops)
+- Factor VIII: Compound Knowledge (applies to all loops)
 
 ---
 

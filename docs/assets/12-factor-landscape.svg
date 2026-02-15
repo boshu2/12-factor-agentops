@@ -78,10 +78,10 @@
   <!-- Foundation Layer -->
   <g id="foundation">
     <text x="1200" y="188" text-anchor="middle" font-size="33" font-weight="700" fill="#60A5FA">
-      Foundation (I-IV)
+      Foundation / Workflow (I-IV)
     </text>
     <text x="1200" y="225" text-anchor="middle" font-size="23" fill="#94A3B8" font-weight="500">
-      Build reliability from the ground up
+      Context, tracking, focus, and research
     </text>
 
     <!-- Factor I -->
@@ -89,16 +89,16 @@
       <rect x="75" y="248" width="540" height="180" rx="20" fill="url(#foundation-gradient)" stroke="rgba(96,165,250,0.3)" stroke-width="1"/>
       <circle cx="345" cy="285" r="8" fill="#60A5FA"/>
       <text x="345" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#60A5FA">
-        I. Automated Tracking
+        I. Context Is Everything
       </text>
       <text x="345" y="356" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Track everything automatically
+        Load what you need, nothing more
       </text>
       <text x="345" y="384" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Builds institutional knowledge
+        Right context at the right time
       </text>
       <text x="345" y="410" text-anchor="middle" font-size="15" fill="#94A3B8">
-        through version control
+        drives reliable decisions
       </text>
     </g>
 
@@ -107,16 +107,16 @@
       <rect x="660" y="248" width="540" height="180" rx="20" fill="url(#foundation-gradient)" stroke="rgba(96,165,250,0.3)" stroke-width="1"/>
       <circle cx="930" cy="285" r="8" fill="#60A5FA"/>
       <text x="930" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#60A5FA">
-        II. Context Loading
+        II. Track Everything in Git
       </text>
       <text x="930" y="356" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Load only what you need
+        Track all decisions and outcomes
       </text>
       <text x="930" y="384" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Delegate to sub-agents
+        Builds institutional knowledge
       </text>
       <text x="930" y="410" text-anchor="middle" font-size="15" fill="#94A3B8">
-        as much as possible
+        through version control
       </text>
     </g>
 
@@ -125,7 +125,7 @@
       <rect x="1245" y="248" width="540" height="180" rx="20" fill="url(#foundation-gradient)" stroke="rgba(96,165,250,0.3)" stroke-width="1"/>
       <circle cx="1515" cy="285" r="8" fill="#60A5FA"/>
       <text x="1515" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#60A5FA">
-        III. Focused Agents
+        III. One Agent, One Job
       </text>
       <text x="1515" y="356" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
         Each agent does one job well
@@ -143,16 +143,16 @@
       <rect x="1830" y="248" width="540" height="180" rx="20" fill="url(#foundation-gradient)" stroke="rgba(96,165,250,0.3)" stroke-width="1"/>
       <circle cx="2100" cy="285" r="8" fill="#60A5FA"/>
       <text x="2100" y="318" text-anchor="middle" font-size="21" font-weight="700" fill="#60A5FA">
-        IV. Continuous Validation
+        IV. Research Before You Build
       </text>
       <text x="2100" y="356" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Check at every step
+        Understand before you act
       </text>
       <text x="2100" y="384" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Catch errors before
+        Research context and constraints
       </text>
       <text x="2100" y="410" text-anchor="middle" font-size="15" fill="#94A3B8">
-        they propagate
+        before implementation
       </text>
     </g>
   </g>
@@ -163,10 +163,10 @@
   <!-- Operations Layer -->
   <g id="operations">
     <text x="1200" y="563" text-anchor="middle" font-size="33" font-weight="700" fill="#34D399">
-      Operations (V-VIII)
+      Workflow / Knowledge (V-VIII)
     </text>
     <text x="1200" y="600" text-anchor="middle" font-size="23" fill="#94A3B8" font-weight="500">
-      Scale and maintain reliability in production
+      Validate, lock progress, extract and compound learnings
     </text>
 
     <!-- Factor V -->
@@ -174,16 +174,16 @@
       <rect x="75" y="623" width="540" height="180" rx="20" fill="url(#operations-gradient)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
       <circle cx="345" cy="660" r="8" fill="#34D399"/>
       <text x="345" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#34D399">
-        V. Measure Everything
+        V. Validate Externally
       </text>
       <text x="345" y="731" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Track metrics and logs
+        Check outputs at every step
       </text>
       <text x="345" y="759" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Observable performance
+        Catch errors before
       </text>
       <text x="345" y="785" text-anchor="middle" font-size="15" fill="#94A3B8">
-        and agent decisions
+        they propagate
       </text>
     </g>
 
@@ -192,16 +192,16 @@
       <rect x="660" y="623" width="540" height="180" rx="20" fill="url(#operations-gradient)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
       <circle cx="930" cy="660" r="8" fill="#34D399"/>
       <text x="930" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#34D399">
-        VI. Resume Work
+        VI. Lock Progress Forward
       </text>
       <text x="930" y="731" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Continue multi-day sessions
+        Save state and resume reliably
       </text>
       <text x="930" y="759" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Save context to pick up
+        Never lose progress across
       </text>
       <text x="930" y="785" text-anchor="middle" font-size="15" fill="#94A3B8">
-        where you left off
+        sessions and restarts
       </text>
     </g>
 
@@ -210,16 +210,16 @@
       <rect x="1245" y="623" width="540" height="180" rx="20" fill="url(#operations-gradient)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
       <circle cx="1515" cy="660" r="8" fill="#34D399"/>
       <text x="1515" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#34D399">
-        VII. Smart Routing
+        VII. Extract Learnings
       </text>
       <text x="1515" y="731" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Send tasks to specialists
+        Search history for patterns
       </text>
       <text x="1515" y="759" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Route work to the agent
+        Mine successful runs for
       </text>
       <text x="1515" y="785" text-anchor="middle" font-size="15" fill="#94A3B8">
-        best suited for it
+        reusable knowledge
       </text>
     </g>
 
@@ -228,16 +228,16 @@
       <rect x="1830" y="623" width="540" height="180" rx="20" fill="url(#operations-gradient)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
       <circle cx="2100" cy="660" r="8" fill="#34D399"/>
       <text x="2100" y="693" text-anchor="middle" font-size="21" font-weight="700" fill="#34D399">
-        VIII. Human Validation
+        VIII. Compound Knowledge
       </text>
       <text x="2100" y="731" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Humans approve critical steps
+        Knowledge builds on knowledge
       </text>
       <text x="2100" y="759" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Ultimate validator for
+        Each learning compounds
       </text>
       <text x="2100" y="785" text-anchor="middle" font-size="15" fill="#94A3B8">
-        risky operations
+        into deeper capability
       </text>
     </g>
   </g>
@@ -248,10 +248,10 @@
   <!-- Improvement Layer -->
   <g id="improvement">
     <text x="1200" y="938" text-anchor="middle" font-size="33" font-weight="700" fill="#FB923C">
-      Improvement (IX-XII)
+      Knowledge / Scale (IX-XII)
     </text>
     <text x="1200" y="975" text-anchor="middle" font-size="23" fill="#94A3B8" font-weight="500">
-      Continuous learning and adaptation
+      Measure, isolate, supervise, and harvest wisdom
     </text>
 
     <!-- Factor IX -->
@@ -259,16 +259,16 @@
       <rect x="75" y="998" width="540" height="180" rx="20" fill="url(#improvement-gradient)" stroke="rgba(251,146,60,0.3)" stroke-width="1"/>
       <circle cx="345" cy="1035" r="8" fill="#FB923C"/>
       <text x="345" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#FB923C">
-        IX. Mine Patterns
+        IX. Measure What Matters
       </text>
       <text x="345" y="1106" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Search history for patterns
+        Track metrics that drive quality
       </text>
       <text x="345" y="1134" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Query git, logs, and metrics
+        Observable performance
       </text>
       <text x="345" y="1160" text-anchor="middle" font-size="15" fill="#94A3B8">
-        to find trends
+        and agent decisions
       </text>
     </g>
 
@@ -277,16 +277,16 @@
       <rect x="660" y="998" width="540" height="180" rx="20" fill="url(#improvement-gradient)" stroke="rgba(251,146,60,0.3)" stroke-width="1"/>
       <circle cx="930" cy="1035" r="8" fill="#FB923C"/>
       <text x="930" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#FB923C">
-        X. Small Iterations
+        X. Isolate Workers
       </text>
       <text x="930" y="1106" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Make small improvements
+        Each worker gets its own space
       </text>
       <text x="930" y="1134" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Tweak workflows and agents
+        Isolated environments prevent
       </text>
       <text x="930" y="1160" text-anchor="middle" font-size="15" fill="#94A3B8">
-        based on patterns
+        cross-contamination
       </text>
     </g>
 
@@ -295,16 +295,16 @@
       <rect x="1245" y="998" width="540" height="180" rx="20" fill="url(#improvement-gradient)" stroke="rgba(251,146,60,0.3)" stroke-width="1"/>
       <circle cx="1515" cy="1035" r="8" fill="#FB923C"/>
       <text x="1515" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#FB923C">
-        XI. Fail-Safe Checks
+        XI. Supervise Hierarchically
       </text>
       <text x="1515" y="1106" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Prevent repeating mistakes
+        Supervisors watch workers
       </text>
       <text x="1515" y="1134" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Add hooks and validations
+        Hierarchical oversight ensures
       </text>
       <text x="1515" y="1160" text-anchor="middle" font-size="15" fill="#94A3B8">
-        to stop bad patterns
+        quality at every level
       </text>
     </g>
 
@@ -313,16 +313,16 @@
       <rect x="1830" y="998" width="540" height="180" rx="20" fill="url(#improvement-gradient)" stroke="rgba(251,146,60,0.3)" stroke-width="1"/>
       <circle cx="2100" cy="1035" r="8" fill="#FB923C"/>
       <text x="2100" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#FB923C">
-        XII. Package Patterns
+        XII. Harvest Failures as Wisdom
       </text>
       <text x="2100" y="1106" text-anchor="middle" font-size="17" fill="#E2E8F0" font-weight="600">
-        Bundle what works for reuse
+        Every failure teaches something
       </text>
       <text x="2100" y="1134" text-anchor="middle" font-size="15" fill="#94A3B8">
-        Capture successful workflows
+        Transform errors into guardrails
       </text>
       <text x="2100" y="1160" text-anchor="middle" font-size="15" fill="#94A3B8">
-        as reusable templates
+        and preventive knowledge
       </text>
     </g>
   </g>
@@ -344,7 +344,7 @@
 
   <!-- Footer -->
   <text x="1200" y="1268" text-anchor="middle" font-size="20" fill="#94A3B8" font-weight="600">
-    The factors build on each other: Foundation → Operations → Improvement
+    The factors build on each other: Foundation → Workflow → Knowledge → Scale
   </text>
   <text x="1200" y="1313" text-anchor="middle" font-size="15" fill="#64748B" font-weight="500">
     Version v1.1.0 | License: CC BY-SA 4.0 | github.com/boshu2/12-factor-agentops
