@@ -7,7 +7,7 @@
 Principles that turn ad-hoc agent usage into a reliable, compounding practice.
 
 <!-- Build & Status -->
-[![CI](https://img.shields.io/github/actions/workflow/status/boshu2/12-factor-agentops/validate-profiles.yml?label=CI)](https://github.com/boshu2/12-factor-agentops/actions)
+[![CI](https://img.shields.io/github/actions/workflow/status/boshu2/12-factor-agentops/validate-factors.yml?label=CI)](https://github.com/boshu2/12-factor-agentops/actions)
 [![Version](https://img.shields.io/badge/Version-3.0.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
 
 <!-- Technology -->
