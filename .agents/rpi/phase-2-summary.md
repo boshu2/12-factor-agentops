@@ -1,3 +1,11 @@
+---
+id: rpi-2026-02-15-phase-2-summary
+type: rpi
+date: '2026-02-15'
+rig: 12factor
+epic: 12-pr7 (v3 Documentation Full Rewrite)
+---
+
 # Phase 2 Summary: Plan (v3 docs rewrite)
 
 **Epic:** 12-pr7 (v3 Documentation Full Rewrite)
@@ -13,3 +21,10 @@
 - SVGs edited in-place (text element replacement)
 - Alignment passes preserve content, update references
 - Full rewrites reframe philosophy while keeping valuable substance
+
+<!-- mind:auto-start -->
+## Connections
+
+- **Next in RPI chain:** [[12factor/.agents/rpi/phase-3-summary]]
+
+<!-- mind:auto-end -->

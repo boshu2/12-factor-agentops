@@ -1,3 +1,11 @@
+---
+id: retro-2026-02-15-epic-12-pr7-v3-docs-rewrite
+type: retro
+date: '2026-02-15'
+rig: 12factor
+epic: 12-pr7 (15/15 issues closed)
+---
+
 # Retro: Epic 12-pr7 — v3 Documentation Full Rewrite
 
 **Date:** 2026-02-15
@@ -34,3 +42,10 @@
 - Returning full results into orchestrator context
 - Single mega-commit for multi-wave epic
 - Cleanup issue blocked by everything else
+
+<!-- mind:auto-start -->
+## Connections
+
+- **Previous in RPI chain:** [[12factor/.agents/council/2026-02-15-post-mortem-12-pr7]]
+
+<!-- mind:auto-end -->

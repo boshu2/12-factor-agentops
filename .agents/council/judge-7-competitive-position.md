@@ -1,3 +1,10 @@
+---
+id: council-2026-02-15-judge-7-competitive-position
+type: council
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Judge: competitive-position
 
 ## Verdict: WARN

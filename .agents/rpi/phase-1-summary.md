@@ -1,3 +1,10 @@
+---
+id: rpi-2026-02-15-phase-1-summary
+type: rpi
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Phase 1 Summary: Research
 
 **Goal:** Full rewrite of all documents to v3 philosophy

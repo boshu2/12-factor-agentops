@@ -1,3 +1,10 @@
+---
+id: council-2026-02-15-post-mortem-evolve-v3-cleanup
+type: council
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Post-Mortem: /evolve v3 Cleanup
 
 **Date:** 2026-02-15

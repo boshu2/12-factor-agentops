@@ -1,3 +1,10 @@
+---
+id: council-2026-02-15-judge-5-user-value
+type: council
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Judge: user-value
 
 ## Verdict: PASS

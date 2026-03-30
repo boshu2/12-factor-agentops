@@ -1,9 +1,18 @@
 ---
 date: 2025-12-27
-type: Research
-topic: "Agent Understanding Evolution & 12-Factor AgentOps v2.0 Path"
-tags: [research, ai-platform, 12-factor, evolution, ic, edge, constraint-engineering]
+type: research
+topic: Agent Understanding Evolution & 12-Factor AgentOps v2.0 Path
+tags:
+- research
+- ai-platform
+- 12-factor
+- evolution
+- ic
+- edge
+- constraint-engineering
 status: COMPLETE
+id: research-2025-12-27-agent-evolution-ai-platform-analysis
+rig: 12factor
 ---
 
 # Research: Your Evolution as the "Kelsey Hightower of Agents"

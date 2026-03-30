@@ -1,9 +1,16 @@
 ---
 date: 2025-12-27
-type: Research
-topic: "Sync agentops-showcase website with v2.0 factor updates"
-tags: [research, website, showcase, sync, implementation-patterns]
+type: research
+topic: Sync agentops-showcase website with v2.0 factor updates
+tags:
+- research
+- website
+- showcase
+- sync
+- implementation-patterns
 status: COMPLETE
+id: research-2025-12-27-agentops-showcase-sync
+rig: 12factor
 ---
 
 # Research: agentops-showcase Website Sync

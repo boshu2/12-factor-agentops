@@ -1,10 +1,17 @@
 ---
 date: 2025-12-27
-type: Plan
-topic: "12-Factor AgentOps v2.0: Integrate ai-platform Learnings"
-research: ".agents/research/2025-12-27-agent-evolution-ai-platform-analysis.md"
-tags: [plan, 12-factor, evolution, ai-platform, constraint-engineering]
+type: plan
+topic: '12-Factor AgentOps v2.0: Integrate ai-platform Learnings'
+research: .agents/research/2025-12-27-agent-evolution-ai-platform-analysis.md
+tags:
+- plan
+- 12-factor
+- evolution
+- ai-platform
+- constraint-engineering
 status: READY_FOR_APPROVAL
+id: plan-2025-12-27-12-factor-v2-evolution-plan
+rig: 12factor
 ---
 
 # Plan: 12-Factor AgentOps v2.0 Evolution

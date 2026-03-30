@@ -1,3 +1,11 @@
+---
+id: council-2026-02-15-pre-mortem-v3-docs-rewrite
+type: council
+date: '2026-02-15'
+rig: 12factor
+epic: 12-pr7 (15 issues, 2 waves)
+---
+
 # Pre-Mortem: v3 Documentation Full Rewrite
 
 **Date:** 2026-02-15

@@ -1,3 +1,10 @@
+---
+id: council-2026-02-15-judge-1-missing-requirements
+type: council
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Judge: missing-requirements
 
 ## Verdict: WARN

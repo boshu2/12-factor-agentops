@@ -1,3 +1,10 @@
+---
+id: council-2026-02-15-pre-mortem-pivot-claude-scope
+type: council
+date: '2026-02-15'
+rig: 12factor
+---
+
 ```json
 {
   "verdict": "WARN",

@@ -1,3 +1,10 @@
+---
+id: council-2026-02-15-pre-mortem-pivot-consolidated
+type: council
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Pre-Mortem: 12-Factor AgentOps Pivot
 
 **Date:** 2026-02-15

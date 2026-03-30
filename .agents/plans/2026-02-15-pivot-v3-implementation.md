@@ -1,3 +1,12 @@
+---
+id: plan-2026-02-15-pivot-v3-implementation
+type: plan
+date: '2026-02-15'
+rig: 12factor
+epic: 12-3jc
+source: docs/plans/2026-02-15-pivot-design.md (v3)
+---
+
 # Plan: 12-Factor AgentOps Pivot v3 Implementation
 
 **Date:** 2026-02-15

@@ -1,3 +1,12 @@
+---
+id: rpi-2026-02-15-phase-4-summary
+type: rpi
+date: '2026-02-15'
+rig: 12factor
+epic: 12-pr7 (v3 Documentation Full Rewrite)
+status: DONE (recovered from context explosion)
+---
+
 # Phase 4 Summary: Crank (v3 docs rewrite)
 
 **Epic:** 12-pr7 (v3 Documentation Full Rewrite)
@@ -22,3 +31,11 @@
 
 ## Files Modified
 40+ files across docs/, factors/, marketplace/, CONTRIBUTING.md, and SVG assets.
+
+<!-- mind:auto-start -->
+## Connections
+
+- **Previous in RPI chain:** [[12factor/.agents/rpi/phase-3-summary]]
+- **Next in RPI chain:** [[12factor/.agents/rpi/phase-5-summary]]
+
+<!-- mind:auto-end -->

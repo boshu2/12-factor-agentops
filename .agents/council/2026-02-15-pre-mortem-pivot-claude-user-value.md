@@ -1,3 +1,10 @@
+---
+id: council-2026-02-15-pre-mortem-pivot-claude-user-value
+type: council
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Council Member 5: User-Value Analysis
 
 ```json

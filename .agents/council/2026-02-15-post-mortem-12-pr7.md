@@ -1,3 +1,11 @@
+---
+id: council-2026-02-15-post-mortem-12-pr7
+type: council
+date: '2026-02-15'
+rig: 12factor
+epic: 12-pr7 (15/15 issues closed)
+---
+
 # Post-Mortem: Epic 12-pr7 — v3 Documentation Full Rewrite
 
 **Date:** 2026-02-15
@@ -75,3 +83,10 @@ Conformance is mechanically verified:
 ## Status
 
 [x] CLOSED - Work complete, learnings captured, next-work harvested
+
+<!-- mind:auto-start -->
+## Connections
+
+- **Next in RPI chain:** [[12factor/.agents/retros/2026-02-15-epic-12-pr7-v3-docs-rewrite]]
+
+<!-- mind:auto-end -->

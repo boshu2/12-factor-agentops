@@ -1,3 +1,11 @@
+---
+id: plan-2026-02-15-v3-stale-content-cleanup
+type: plan
+date: '2026-02-15'
+rig: 12factor
+source: Audit via Explore agent + manual review
+---
+
 # Plan: Clean Up Remaining Stale V1/V2 Content
 
 **Date:** 2026-02-15

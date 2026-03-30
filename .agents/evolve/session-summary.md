@@ -1,3 +1,11 @@
+---
+id: evolve-2026-02-15-session-summary
+type: evolve
+date: '2026-02-15'
+rig: 12factor
+status: Stagnation — all goals pass, no repo-relevant harvested work remains
+---
+
 # /evolve Session Summary
 
 **Date:** 2026-02-15T19:25:00-05:00

@@ -1,3 +1,10 @@
+---
+id: council-2026-02-15-judge-6-adoption-barriers
+type: council
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Judge: adoption-barriers
 
 ## Verdict: PASS

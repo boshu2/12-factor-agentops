@@ -1,3 +1,10 @@
+---
+id: council-2026-02-15-pre-mortem-pivot-claude-missing-requirements
+type: council
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Pre-Mortem: Pivot Design — Missing Requirements Analysis
 
 **Judge:** Council Member 1 — THE MISSING-REQUIREMENTS

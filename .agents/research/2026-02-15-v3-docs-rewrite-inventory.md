@@ -1,3 +1,10 @@
+---
+id: research-2026-02-15-v3-docs-rewrite-inventory
+type: research
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Research: v3 Documentation Full Rewrite
 
 **Date:** 2026-02-15

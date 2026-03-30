@@ -1,3 +1,10 @@
+---
+id: council-2026-02-15-pre-mortem-pivot-claude-spec-completeness
+type: council
+date: '2026-02-15'
+rig: 12factor
+---
+
 # Council Review: Spec-Completeness Analysis
 
 **Judge:** Council Member 4 (Spec-Completeness)

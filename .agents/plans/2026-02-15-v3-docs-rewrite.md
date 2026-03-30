@@ -1,3 +1,11 @@
+---
+id: plan-2026-02-15-v3-docs-rewrite
+type: plan
+date: '2026-02-15'
+rig: 12factor
+source: .agents/research/2026-02-15-v3-docs-rewrite-inventory.md
+---
+
 # Plan: Full v3 Documentation Rewrite
 
 **Date:** 2026-02-15
