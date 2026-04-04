@@ -10,6 +10,10 @@ Every failed approach is a negative result. Negative results are knowledge. Know
 
 When an agent tries three approaches before the fourth works, you don't just have one success — you have three documented learnings about what doesn't work under specific conditions. That's the wisdom that prevents the next agent from burning cycles on the same dead ends.
 
+In operator-model terms, failures are durable traces. They coordinate future work across sessions by narrowing the search space for the next actor. That matters because actors are replaceable. The environment has to remember the dead ends so the next worker does not pay the same tuition again.
+
+Harvesting failures also creates promotion loops for negative knowledge: failed attempt → validated pattern → preventative rule. Successes are not the only things worth promoting.
+
 ## The Rationale
 
 ### Failures Are Tuition, Learnings Are the Degree
@@ -32,6 +36,20 @@ What you lost:
 - Why the next method succeeded where this one failed
 
 Without that detail, the next agent starts from zero knowledge. With it, they start from negative knowledge — "don't try X when Y is true" — which is often more valuable than positive knowledge because it prunes the search space.
+
+This is how traces coordinate across sessions. The failure record is not just a diary entry. It is a routing hint for the next worker.
+
+### Gates Decide What Survives
+
+Not every failed attempt should become doctrine. Some failures come from sloppy execution, stale dependencies, or misread constraints. Negative knowledge still needs selection gates.
+
+Ask:
+- Did this failure reveal a real pattern or just a local mistake?
+- Has the same failure repeated under similar conditions?
+- Was the eventual alternative actually better, or merely different?
+- Does this failure belong in a local note, a validated learning, or a broader preventive rule?
+
+That is governance at work. Governance sets the boundary for how aggressively the system should promote negative knowledge, and selection gates determine what survives.
 
 ### Negative Knowledge Accumulates
 

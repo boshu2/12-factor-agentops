@@ -8,6 +8,8 @@
 
 Every session must extract validated learnings and inject them at startup. Knowledge must compound over time through a closed-loop flywheel: extract what worked, gate for quality, decay what's stale, inject at session start. If learnings don't flow back automatically, you're running a write-only database that your agents will never read.
 
+Seen through the operator model, this is where a **stateful environment** becomes smarter than any single session. The actors remain replaceable. The environment carries continuity through learnings, citations, checkpoints, and reusable rules. Intelligence compounds when those traces move through **promotion loops** instead of sitting in storage.
+
 The compounding equation must hold:
 
 ```
@@ -75,6 +77,8 @@ Compound knowledge requires a closed loop:
 **CITE**: During execution, track when agents reference injected knowledge. Citations prove utility. Uncited knowledge is either invisible or irrelevant—both problems.
 
 **DECAY**: Prune knowledge that hasn't been cited in N sessions. Stale learnings clutter retrieval. Code changes, APIs evolve, old advice becomes wrong. Decay is not failure—it's hygiene.
+
+This is more than a storage loop. It is a promotion loop. Each pass asks whether a trace should stay local, become a validated learning, graduate into a reusable pattern, or decay out of the system.
 
 ### The Compounding Equation
 
@@ -381,6 +385,8 @@ Not all learnings go straight to the knowledge base. Use quality pools:
 3. **Knowledge base**: Validated, cited learnings (high confidence)
 
 Progression: forge → review → knowledge base
+
+These pools are promotion loops in practice. They keep raw observations separate from governed knowledge and make it clear what has earned the right to shape future sessions.
 
 Demotion: knowledge base → review (if contradicted) → pruned (if uncited)
 

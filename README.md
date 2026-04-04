@@ -126,6 +126,14 @@ Multi-agent orchestration patterns. **Skip this entire tier if you work solo.** 
 
 ---
 
+## The Operator Model Underneath the Factors
+
+The twelve factors are the public operating rules. Underneath them is a simple operator model: the **stateful environment** carries continuity, **replaceable actors** do bounded work, durable traces coordinate work across sessions, **selection gates** decide what survives, **promotion loops** turn observations into reusable knowledge, and **governance** sets the objective, boundaries, and escalation path.
+
+This does not replace the factors. It explains why they fit together as one system instead of twelve isolated habits. If you want the full crosswalk, read [The Operator Model Behind the 12 Factors](./docs/explanation/operator-model.md).
+
+---
+
 ## Why These Factors?
 
 ### For the Solo Developer

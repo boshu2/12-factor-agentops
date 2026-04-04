@@ -6,6 +6,8 @@ Every token you load into an agent's context window is a decision. Every file re
 
 Context management is the foundational discipline of operational agent work. It separates agents that ship reliable work from agents that confabulate, repeat themselves, and ignore half of what you tell them.
 
+Seen through the operator model, Factor I is where the **stateful environment** begins. Continuity should live in summaries, issue state, commits, notes, and other durable traces that can be reloaded on demand. The current worker is only a temporary reader of that context. Fresh sessions often outperform saturated ones precisely because the actor is replaceable while the environment preserves the right continuity.
+
 ---
 
 ## The Rationale
@@ -165,6 +167,12 @@ You track how much context you're using:
 - Is the model still attending to early instructions, or are they lost in the middle?
 
 You adjust based on observed behavior. If the agent starts repeating itself or ignoring instructions, you know you've exceeded the effective context limit.
+
+### 7. Replaceable Actors, Durable Context
+
+A good context system assumes the current actor may disappear at any phase boundary. Work should still resume cleanly because the environment preserves the handoff summary, the next step, the relevant artifacts, and the evidence trail.
+
+This is how traces coordinate across sessions. The goal is not to keep one heroic session alive forever. The goal is to let a fresh actor load the right bounded context and continue with less drift than the previous saturated one.
 
 ---
 

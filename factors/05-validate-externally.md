@@ -8,6 +8,10 @@ Self-validation is confirmation bias with extra steps. The same context that gen
 
 If you can't validate externally, you haven't validated at all.
 
+In operator-model terms, validation is a **selection gate**. The environment, not the author, decides what survives: tests, review, ratchets, deploy checks, and other external gates accept or reject work before it becomes shared state.
+
+This is also where **governance** becomes concrete. Governance sets the objective, the risk tolerance, and the boundaries; selection gates enforce them. A solo developer can do that with tests and a deliberate review pass. A team can add independent reviewers, deployment approvals, and escalation paths. The principle is the same.
+
 ---
 
 ## Rationale
@@ -149,6 +153,8 @@ The pattern: agents can *propose* and *implement*, but humans must *validate* wh
 ### Validation Gates in the Development Pipeline
 
 Every stage of development has appropriate external validation:
+
+These are not ceremonial steps. They are the gates that decide whether work is promoted, revised, or discarded.
 
 **Code changes:**
 - Author: Agent A
@@ -439,6 +445,8 @@ You'll spend more time fixing the bugs that escaped than you would have spent on
 **External validation works** because it brings different context, different assumptions, different blind spots. The errors you can't see are obvious to someone else.
 
 **Good validation is layered:** Peer review. Automated tests. Multi-model councils. Human experts. Each layer catches different error classes.
+
+**Selection gates decide what survives.** Governance decides where those gates sit and how strict they must be.
 
 **Validation is not optional.** It's not a nice-to-have for when you have time. It's a required step between "work done" and "work shipped."
 

@@ -2,7 +2,20 @@
 
 Operational discipline for AI-assisted development. Twelve factors in four tiers that turn chaotic agent workflows into repeatable, compounding systems.
 
+The twelve factors stay the primary public surface. The [operator model](../docs/explanation/operator-model.md) is the compression layer underneath them: a stateful environment carries continuity, replaceable actors do scoped work, traces coordinate across sessions, selection gates decide what survives, promotion loops compound intelligence, and governance sets objective and boundaries.
+
 ---
+
+## Operator Model Crosswalk
+
+| Operator mechanism | What it means here | Primary factors |
+|---|---|---|
+| **Stateful environment** | Continuity lives in the repo, the artifacts, and the handoff surfaces | I, II, VI, VIII |
+| **Replaceable actors** | Workers stay scoped, swappable, and easy to restart | III, X, XI |
+| **Durable traces** | Commits, learnings, checkpoints, and failures coordinate work across sessions | II, VII, XII |
+| **Selection gates** | Tests, review, ratchets, and outcome checks decide what survives | V, VI, IX |
+| **Promotion loops** | Raw observations become reusable patterns and operating rules | VIII, XII |
+| **Governance** | Humans and explicit constraints set objective, boundaries, and escalation | IV, V, IX, XI |
 
 ## Foundation (I--III)
 
