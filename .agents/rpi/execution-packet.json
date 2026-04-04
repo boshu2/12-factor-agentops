@@ -1,0 +1,52 @@
+{
+  "objective": "Enhance the 12factor doctrine after the operator-model pass by aligning the next refinement wave with the current AgentOps repo contract and the mined operator-kernel knowledge, without flattening 12factor into AgentOps product language.",
+  "epic_id": null,
+  "contract_surfaces": [
+    "docs/explanation/operator-model.md",
+    "factors/07-extract-learnings.md",
+    "factors/09-measure-what-matters.md",
+    "docs/principles/comparison-table.md",
+    "docs/principles/evolution-of-12-factor.md",
+    "docs/explanation/from-theory-to-production.md"
+  ],
+  "validation_commands": [
+    "git diff --check",
+    "rg -n 'fitness gradient|provenance|stateful environment|replaceable actors|selection gates|promotion loops|governance' README.md factors docs/explanation docs/principles",
+    "rg -n 'three gaps|judgment validation|durable learning|loop closure' README.md factors docs/explanation docs/principles"
+  ],
+  "tracker_mode": "tasklist",
+  "done_criteria": [
+    "Factors VII and IX explicitly cover provenance and fitness gradient in 12factor language.",
+    "comparison-table, evolution-of-12-factor, and from-theory-to-production reflect the operator model beneath the factor surface.",
+    "AgentOps remains a narrower product/reference implementation, not the repo's primary frame.",
+    "The change stays limited to the targeted explanatory surfaces with no broad wording sweep."
+  ],
+  "complexity": "standard",
+  "pre_mortem_verdict": "WARN",
+  "discovery_timestamp": "2026-04-04T10:06:00-04:00",
+  "test_levels": [
+    "L0",
+    "L1",
+    "L2"
+  ],
+  "ranked_packet": [
+    {
+      "rank": 1,
+      "kind": "research-finding",
+      "summary": "Core doctrine is aligned; the remaining gap is in secondary docs plus fitness gradient and provenance."
+    },
+    {
+      "rank": 2,
+      "kind": "operator-kernel",
+      "summary": "The strongest mined kernel is context orchestration, distributed cognition, provenance-backed handoff, and planning/validation loops."
+    },
+    {
+      "rank": 3,
+      "kind": "carry-forward-item",
+      "summary": "Harvest hygiene remains noisy because next-work artifacts are not yet target_repo-aware."
+    }
+  ],
+  "research_artifact": ".agents/research/2026-04-04-operator-model-phase-2-discovery.md",
+  "plan_artifact": ".agents/plans/2026-04-04-operator-model-phase-2-refinement.md",
+  "pre_mortem_artifact": ".agents/pre-mortems/2026-04-04-operator-model-phase-2-refinement.md"
+}
