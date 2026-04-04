@@ -48,6 +48,8 @@ Stage 3: 12-Factor AgentOps v3 (Burkhart, 2026)
 
 **They are complementary, not competitive.** Each addresses a different layer of the stack.
 
+What the latest doctrine adds is a cleaner compression underneath the factor surface: a **stateful environment** carries continuity, **replaceable actors** do bounded work, **durable traces** coordinate work across sessions, **selection gates** decide what survives, **promotion loops** compound intelligence, and **governance** sets objective and boundaries.
+
 ---
 
 ## Why a Third Stage Was Needed
@@ -141,8 +143,21 @@ AI operations broke every assumption:
 - **Progress ratcheting** -- validated work cannot regress (Factor VI)
 - **Research-first workflow** -- understand before generating (Factor IV)
 - **Outcome measurement** -- track what matters, not activity (Factor IX)
+- **Fitness gradient** -- define better versus worse states through goals, metrics, and gates (Factor IX)
+- **Provenance-backed learning** -- know where a learning came from before trusting or promoting it (Factors II, VII)
 - **Failure harvesting** -- failed attempts are high-value data (Factor XII)
 - **Tiered adoption** -- start with zero tooling, scale when needed
+
+### The Compression Beneath v3
+
+As the doctrine matured, the factors became easier to compress into one operating picture:
+
+- **Context, git, and artifacts create the stateful environment** that preserves continuity beyond any one session
+- **Scoped sessions and isolated workers create replaceable actors** that can be swapped without losing the mission
+- **Commits, handoffs, learnings, and failures become durable traces** that coordinate work across time
+- **Tests, reviews, ratchets, and approvals act as selection gates** that decide what survives
+- **Extraction, reuse, promotion, and decay form promotion loops** that compound intelligence instead of hoarding notes
+- **Goals, measurements, budgets, and escalation paths provide governance** so the system improves within explicit boundaries
 
 ---
 
@@ -213,6 +228,8 @@ The zero-trust principle survives as Factor V (Validate Externally): no agent gr
 
 And at scale: isolating workers (X), supervising hierarchically (XI), and harvesting failures as wisdom (XII).
 
+The latest refinement is that these practices can now be compressed more cleanly into one operator picture: fitness gradient, stateful environment, replaceable actors, durable traces, selection gates, promotion loops, and governance.
+
 ---
 
 ## Use Cases: When To Use Each Framework
@@ -233,6 +250,7 @@ And at scale: isolating workers (X), supervising hierarchically (XI), and harves
 - Using AI agents for any work (coding, writing, research, automation)
 - Want AI usage to get better over time through knowledge compounding
 - Need validation gates so agents do not break things
+- Need a doctrine layer broader than any single coding-agent implementation
 - Working solo or on a team with AI augmentation
 - Operating in any environment (cloud, local, air-gapped)
 

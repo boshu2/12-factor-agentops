@@ -16,6 +16,8 @@ Token counts don't tell you if the right code got written. Session counts don't 
 
 Measure outcomes, not motions. Track learning, not churn. Optimize for goal completion, not resource utilization.
 
+In operator-model terms, measurement defines the **fitness gradient**. It tells the environment what counts as better, what counts as worse, and which outcomes deserve to survive, repeat, or stop.
+
 And understand this: **dormancy is success.** When goals are met and the system stops generating work, you've won. Manufacturing new activity to keep metrics climbing is the opposite of operational discipline.
 
 ---
@@ -63,6 +65,19 @@ These metrics create perverse incentives. They reward motion over progress. They
 - **Dormancy cycles**: How often does the system correctly recognize goal completion and stop?
 
 These metrics are harder to game. They require actual progress. They align agent behavior with desired outcomes.
+
+### The Fitness Gradient
+
+Measurement is not just reporting. It is how the system steers.
+
+The fitness gradient has four parts:
+
+1. **Goal state**: What better looks like in observable terms
+2. **Measurement surface**: Which signals tell you whether you are moving toward that state
+3. **Selection gates**: Which thresholds determine whether work counts as progress
+4. **Governance**: Who sets the objective, the budget, and the boundaries
+
+If any of these are missing, metrics drift into theater. A dashboard without gates is just observation. A dashboard without governance is just opinion.
 
 ### The Dormancy Principle
 
@@ -353,6 +368,10 @@ Track cost-per-goal, not uptime percentage.
 
 Track goals achieved, not tickets closed.
 
+**Measure the fitness gradient, not just the dashboard.**
+
+Track the signals, gates, and constraints that distinguish better states from worse ones.
+
 **Measure dormancy, not persistence.**
 
 Track healthy stops, not manufactured continuity.
@@ -371,6 +390,7 @@ For every goal, write down:
 - What does done look like? (observable outcome)
 - How will we know we achieved it? (success criteria)
 - When can we stop working on it? (completion signal)
+- What gates determine whether progress actually counts? (selection pressure)
 
 Vague goals can't be measured. "Improve performance" is unmeasurable. "Achieve <100ms p95 latency on /api/search" is measurable.
 
@@ -469,5 +489,7 @@ Uptime percentage tells you if systems are running. Dormancy rate tells you if s
 **You get what you measure.** If you measure busyness, you get busy agents accomplishing nothing. If you measure goal completion, you get agents that finish work and stop.
 
 The healthiest agent is the one that completes its mission efficiently and goes dormant.
+
+Measurement plus gates create the fitness gradient. Governance decides which gradients matter. Everything else is noise.
 
 Measure that.

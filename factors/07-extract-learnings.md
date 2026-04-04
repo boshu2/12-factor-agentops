@@ -14,6 +14,8 @@ This knowledge exists for exactly as long as the session stays open. The moment 
 
 Most people think they'll remember. They won't. Most people think the commit message is enough. It isn't. Most people think "the code is the documentation." The code shows what you built, not why you built it that way, not what you tried first, not what traps to avoid.
 
+Seen through the operator model, extraction is the act of turning transient session experience into durable traces. But durable traces only become reusable intelligence when they carry provenance: where the learning came from, what evidence supports it, and how confident you should be in reusing it.
+
 A session you didn't extract from is a session the organization forgot.
 
 ---
@@ -73,6 +75,19 @@ Not everything is worth extracting. Focus on knowledge with half-life longer tha
 - "It was hard" without explaining why
 
 **The test:** Will this help someone (including future you) avoid wasting time or make a better decision?
+
+### Provenance Makes Learnings Trustworthy
+
+Teams often confuse extraction with accumulation. A pile of notes is not a knowledge system. If you do not know which session produced an insight, what evidence it came from, or whether it was validated, you cannot safely trust it later.
+
+Provenance is what turns a note into an operational asset:
+
+- **Observation**: What was seen during the session
+- **Learning**: What the team now believes because of the evidence
+- **Pattern**: What is stable enough to reuse in future work
+- **Confidence**: How sure you are that the learning will generalize
+
+This matters because extraction is upstream of compounding. The environment can only promote what it can trace. If provenance is missing, the safest default is skepticism.
 
 ### Extraction Is Deliberate, Not Automatic
 
@@ -289,13 +304,19 @@ The most valuable extractions are mental models (how to think about the system) 
    - Mental model guides
    - Integration gotcha notes
 
-4. **Tag and file appropriately:**
+4. **Attach provenance and confidence:**
+   - Date, session, and author
+   - Evidence: logs, tests, failures, benchmarks, or diffs
+   - Affected systems, services, or files
+   - Whether this is observation, validated learning, or reusable pattern
+
+5. **Tag and file appropriately:**
    - Add to knowledge base
    - Link from related code
    - Update project docs
    - Feed to AgentOps flywheel
 
-5. **Make it searchable:**
+6. **Make it searchable:**
    - Descriptive titles
    - Relevant tags
    - Observable symptoms for debugging
@@ -317,6 +338,8 @@ Different knowledge types need different formats:
 | Mental models | Model guide | "Think of it as..." |
 
 Use templates so extractions are comparable and searchable. Pick a system and use it consistently — inconsistent extraction is only marginally better than no extraction.
+
+At minimum, every extraction should preserve provenance: date, session or author, affected area, supporting evidence, and confidence level. If that feels heavy, remember the alternative is trusting orphaned notes with no chain of reasoning.
 
 ### Extraction Smells
 
@@ -487,6 +510,8 @@ At the end of every session, before you close the tab, ask:
 - What will trip up the next person?
 
 Then create structured artifacts answering those questions.
+
+Make those artifacts provenance-backed so future teams can trust, reject, or promote them intelligently.
 
 Five minutes of extraction can save five hours of duplicate work.
 

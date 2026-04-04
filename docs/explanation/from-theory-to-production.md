@@ -8,6 +8,8 @@
 
 12-Factor AgentOps began as an operational discipline for individual practitioners achieving reliable AI workflows. Through deployment in increasingly constrained environments—from solo development to Intelligence Community air-gapped edge systems—it evolved into a complete methodology for treating agents as reliable infrastructure.
 
+The clearest compression of that evolution is now straightforward: a **stateful environment** carries continuity, **replaceable actors** execute bounded work, **durable traces** coordinate work across sessions, **selection gates** decide what survives, **promotion loops** compound intelligence, and **governance** sets the objective and boundaries.
+
 **The evolution:**
 - **Phase 1** (2024): Principles for individual effectiveness
 - **Phase 2** (2024-2025): Multi-agent system architecture (Houston, Fractal)
@@ -33,6 +35,19 @@
 **Audience:** Anyone using AI agents (developers, writers, researchers, teams)
 
 **Question answered:** "What principles make agents reliable?"
+
+---
+
+### The Compression Between Doctrine and Architecture
+
+Between the factor surface and production architecture, the doctrine now compresses into a small set of operating truths:
+
+- **Stateful environment over session memory**: continuity belongs in the repo, artifacts, and runtime surfaces
+- **Replaceable actors over single-agent heroics**: workers are disposable when the environment preserves state
+- **Durable traces and provenance over implicit handoff**: future sessions need attributable evidence, not vibes
+- **Selection gates over self-report**: tests, review, and approvals decide what survives
+- **Promotion loops over write-only storage**: only reused, validated knowledge should compound
+- **Governance and fitness gradient over vague improvement rhetoric**: objectives, budgets, and boundaries determine what better means
 
 ---
 
@@ -228,6 +243,8 @@ The Intelligence Community (IC) represents the most constrained deployment envir
 
 Two prototype control planes informed the evolution from principles to production patterns.
 
+What they validate most strongly is not one magic orchestrator. They validate environment-carried continuity, replaceable execution, and gated promotion of work and knowledge.
+
 ### Houston (2024): Local-First Control Plane
 
 **Philosophy:** Agents coordinate through shared filesystem, not network calls
@@ -273,7 +290,7 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 
 **Factor II: Track Everything in Git**
 - **Philosophy:** Git as institutional memory
-- **Production:** Langfuse traces + ToolCall CRDs for audit trail
+- **Production:** Langfuse traces + ToolCall CRDs for audit trail and provenance
 - **IC deployment:** All actions logged to PostgreSQL for compliance
 
 **Factor III: One Agent, One Job**
@@ -291,7 +308,7 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 - **IC deployment:** Policy enforcement via admission controllers
 
 **Factor V: Validate Externally**
-- **Philosophy:** Validation gates, zero-trust, independent verification
+- **Philosophy:** Validation gates, independent verification, governed selection pressure
 - **Production:** SSE telemetry (Houston), Langfuse traces, Prometheus metrics
 - **IC deployment:** Air-gapped validation pipelines
 
@@ -306,7 +323,7 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 
 **Factor VII: Extract Learnings**
 - **Philosophy:** Extract from history
-- **Production:** Houston/Fractal patterns codified into architecture
+- **Production:** Houston/Fractal patterns codified into architecture with provenance and replay value
 - **IC deployment:** Pattern libraries for air-gapped environments
 
 **Factor VIII: Compound Knowledge (HERO)**
@@ -315,7 +332,7 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 - **IC deployment:** Hard limits on token/cost budgets
 
 **Factor IX: Measure What Matters**
-- **Philosophy:** Observability of what counts
+- **Philosophy:** Make the fitness gradient visible
 - **Production:** Effective output metrics, quality ratios, cost tracking
 - **IC deployment:** Air-gapped Grafana dashboards
 
@@ -364,6 +381,8 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 9. Factor IX: Measure What Matters — Track effective output, not vanity metrics
 
 **Expected outcome:** Team coordination improves, quality gates prevent breakage, 8-20x productivity
+
+This is also where provenance and fitness start to matter operationally: teams need to know which learnings are trustworthy and which measurements actually steer the system.
 
 ---
 
@@ -473,7 +492,7 @@ Implementation examples use Claude (ai-platform) and Anthropic patterns, but pri
 ---
 
 **Version:** 2.0.0
-**Last Updated:** 2025-12-27
+**Last Updated:** 2026-04-04
 **Status:** Living document (evolves with production learnings)
 
 ---

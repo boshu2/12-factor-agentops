@@ -27,6 +27,24 @@ Three frameworks, three layers of the stack. This document maps each original 12
 
 ---
 
+## The Compression Underneath the Table
+
+The public surface of this repo is still the twelve factors. Under that surface, the newer doctrine compresses into an operator model that explains why the factors work together:
+
+| Operator mechanism | What it means in 12factor terms |
+|--------------------|----------------------------------|
+| **Fitness gradient** | Goals, metrics, and gates define what counts as better |
+| **Stateful environment** | Continuity lives in the repo, artifacts, and runtime surfaces, not in one session |
+| **Replaceable actors** | Sessions and workers are disposable as long as the environment preserves state |
+| **Durable traces + provenance** | Decisions, failures, and learnings stay inspectable and attributable |
+| **Selection gates** | Validation decides what work survives, merges, or gets promoted |
+| **Promotion loops** | Reused patterns compound; stale or weak knowledge decays |
+| **Governance** | Objectives, budgets, and boundaries shape the system's behavior |
+
+This compression does not replace the factors. It explains the mechanism beneath them.
+
+---
+
 ## Detailed Comparison
 
 ### Factor I: Codebase / Prompts / Context Is Everything
@@ -164,8 +182,8 @@ Three frameworks, three layers of the stack. This document maps each original 12
 **12-Factor AgentOps (VII: Extract Learnings)**
 - *Evolution*: Every session produces two outputs -- the work product and the lessons learned
 - *Why Different*: Without explicit extraction, hard-won knowledge dies with the session
-- *Key Practice*: End every session by capturing what worked, what failed, and why
-- *Unique Aspect*: Feeds the knowledge flywheel; the raw material for Factor VIII (Compound Knowledge)
+- *Key Practice*: End every session by capturing what worked, what failed, why it mattered, and where the learning came from
+- *Unique Aspect*: Provenance-backed learnings can later be trusted, rejected, or promoted instead of turning into note sprawl
 
 ---
 
@@ -204,8 +222,8 @@ Three frameworks, three layers of the stack. This document maps each original 12
 **12-Factor AgentOps (IX: Measure What Matters)**
 - *Evolution*: Track fitness toward goals, not activity metrics
 - *Why Different*: Without measurement, you cannot know if your operations are improving
-- *Key Practice*: Measure outcomes (validation pass rates, rework frequency, knowledge retrieval hit rates) not vanity metrics (tokens consumed, sessions run)
-- *Unique Aspect*: Closes the feedback loop on the knowledge flywheel
+- *Key Practice*: Measure outcomes (validation pass rates, recurrence, knowledge reuse, cost per goal) not vanity metrics (tokens consumed, sessions run)
+- *Unique Aspect*: Makes the fitness gradient explicit so the system can distinguish better states from worse ones
 
 ---
 
@@ -271,6 +289,8 @@ Three frameworks, three layers of the stack. This document maps each original 12
 ## The Three Frameworks Are Complementary
 
 Each addresses a different layer. You need the right framework for your problem:
+
+The doctrine in this repo is broader than any single implementation. The AgentOps plugin and repo-native tooling are a narrower coding-agent lane inside that broader doctrine, not a replacement for it.
 
 ### Use 12-Factor App for:
 - Traditional web applications and SaaS products
