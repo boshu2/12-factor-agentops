@@ -2,9 +2,10 @@
 
 # 12-Factor AgentOps
 
-### The Operational Discipline for Working With AI Agents
+### The Principles Behind the Operational Layer for Coding Agents
 
-Principles that turn ad-hoc agent usage into a reliable, compounding practice.
+Doctrine that turns ad-hoc agent usage into bookkeeping, validation,
+primitives, and flows that compound.
 
 <!-- Build & Status -->
 [![CI](https://img.shields.io/github/actions/workflow/status/boshu2/12-factor-agentops/validate-factors.yml?label=CI)](https://github.com/boshu2/12-factor-agentops/actions)
@@ -21,29 +22,43 @@ Principles that turn ad-hoc agent usage into a reliable, compounding practice.
 
 ## The Problem
 
-Every agent session starts from zero. Same context problems. Same mistakes repeated. Same rework. You get good results sometimes and bad results other times, with no idea why. Your agent forgets everything between sessions — every conversation is like training a new junior developer.
+Every agent session starts from zero. Same context problems. Same mistakes
+repeated. Same rework. You get good results sometimes and bad results other
+times, with no idea why. There is no bookkeeping between sessions, no stable
+validation model, and no reliable way to turn completed work into better next
+work.
 
 **The model isn't the problem. The operations are.**
 
-Most people blame the model when they get bad results. The real problem is how they operate: overloaded context windows, no session memory, no validation, no learning loops. Fix the operations and the same model performs dramatically better.
+Most people blame the model when they get bad results. The real problem is how
+they operate: overloaded context windows, no bookkeeping between sessions, no
+validation, no learning loops. Fix the operations and the same model performs
+dramatically better.
 
-## The Solution: Knowledge Compounds
+## The Solution: The Operational Layer Compounds
 
-12-Factor AgentOps makes each session smarter than the last. Not through better models — through better operations.
+AgentOps is the operational layer for coding agents. 12-Factor AgentOps is the
+doctrine behind it: the public rules that make bookkeeping, validation,
+primitives, and flows compound instead of resetting every session.
 
 **Session 1:** Your agent knows nothing about your codebase. It makes common mistakes. It ignores your conventions. It writes code that doesn't fit.
 
 **Session 10:** Your agent knows your patterns. It avoids documented pitfalls. It follows your conventions because they're in the context.
 
-**Session 100:** Your agent operates with institutional memory. It knows what's been tried and failed. It knows why architectural decisions were made. It builds on everything that came before.
+**Session 100:** Your agent operates with durable bookkeeping. It knows what's
+been tried and failed. It knows why architectural decisions were made. It
+builds on everything that came before.
 
-**The hook:** Knowledge compounding is the one thing no amount of model improvement replaces. Better models with amnesia still repeat your mistakes.
+**The hook:** Compounding work is the one thing no amount of model improvement
+replaces. Better models with no bookkeeping still repeat your mistakes.
 
 ---
 
 ## Quickstart: 5 Minutes, Zero Infrastructure
 
 No plugins, no tooling, no setup. Just a text file and discipline.
+
+That file is the smallest possible bookkeeping layer.
 
 **Step 1:** Create a `learnings.md` file in your project root.
 
@@ -86,7 +101,7 @@ Non-negotiable basics that work with zero tooling. Get these wrong and nothing e
 
 **Without tooling:** Keep sessions short. Start fresh for new tasks. Write handoff summaries. Commit your `learnings.md`. One issue per agent session.
 
-### Workflow (IV–VI) — The Discipline
+### Flow (IV–VI) — The Discipline
 
 How work flows through agents. The discipline that separates "prompting and hoping" from a reliable operating model.
 
@@ -108,7 +123,10 @@ Systematic extraction and injection of knowledge. This is where sessions start g
 | **[VIII](./factors/08-compound-knowledge.md)** | **Compound Knowledge** | Learnings must flow back into future sessions automatically. |
 | **[IX](./factors/09-measure-what-matters.md)** | **Measure What Matters** | Track fitness toward goals, not activity metrics. |
 
-**Factor VIII is the hero.** It's the knowledge flywheel: extract learnings, gate for quality, inject into future sessions, measure retrieval, let stale knowledge decay. This is the differentiator that can't be commoditized — better models don't replace institutional memory.
+**Factor VIII is the hero.** It's the knowledge flywheel: extract learnings,
+gate for quality, inject into future sessions, measure retrieval, let stale
+knowledge decay. This is the differentiator that can't be commoditized —
+better models don't replace durable bookkeeping.
 
 **Without tooling:** Manually update `learnings.md` after each session. Review it weekly and prune stale entries. It's tedious but it works. The AgentOps plugin automates this — but the principle is portable.
 
@@ -128,7 +146,13 @@ Multi-agent orchestration patterns. **Skip this entire tier if you work solo.** 
 
 ## The Operator Model Underneath the Factors
 
-The twelve factors are the public operating rules. Underneath them is a simple operator model: the **stateful environment** carries continuity, **replaceable actors** do bounded work, durable traces coordinate work across sessions, **selection gates** decide what survives, **promotion loops** turn observations into reusable knowledge, and **governance** sets the objective, boundaries, and escalation path.
+The twelve factors are the public operating rules behind bookkeeping,
+validation, primitives, and flows. Underneath them is a simple operator model:
+the **stateful environment** carries continuity, **replaceable actors** do
+bounded work, durable traces coordinate work across sessions, **selection
+gates** decide what survives, **promotion loops** turn observations into
+reusable knowledge, and **governance** sets the objective, boundaries, and
+escalation path.
 
 This does not replace the factors. It explains why they fit together as one system instead of twelve isolated habits. If you want the full crosswalk, read [The Operator Model Behind the 12 Factors](./docs/explanation/operator-model.md).
 
@@ -146,7 +170,9 @@ Factors I-III give you immediate improvement: keep context focused, track what y
 
 Your team runs agents in parallel. Work conflicts. Learnings from one developer's sessions don't help others. There's no consistent quality bar.
 
-Factors IV-VI add workflow discipline: research first, validate externally, lock progress forward. Factor VIII gives you shared institutional memory. Scale factors (X-XII) provide isolation and coordination patterns.
+Factors IV-VI add flow discipline: research first, validate externally, lock
+progress forward. Factor VIII gives you shared bookkeeping and compounding
+context. Scale factors (X-XII) provide isolation and coordination patterns.
 
 ### For the Tool Builder
 
@@ -163,7 +189,7 @@ You can start with zero infrastructure and level up when you need to:
 ```
 Quickstart (5 min)     → learnings.md file, zero tooling
 Foundation (I-III)     → Context discipline, git tracking, fresh sessions
-Workflow (IV-VI)       → Research, validation, ratcheting
+Flow (IV-VI)           → Research, validation, ratcheting
 Knowledge (VII-IX)     → Extraction, compounding, measurement
 Scale (X-XII)          → Multi-agent isolation, supervision, failure harvesting (OPTIONAL)
 ```
@@ -172,8 +198,8 @@ Scale (X-XII)          → Multi-agent isolation, supervision, failure harvestin
 
 **When to level up:**
 - **Quickstart → Foundation:** When your `learnings.md` gets unwieldy or you notice repeated context problems
-- **Foundation → Workflow:** When you find yourself re-explaining codebase patterns to new sessions
-- **Workflow → Knowledge:** When the same mistakes recur across sessions despite research
+- **Foundation → Flow:** When you find yourself re-explaining codebase patterns to new sessions
+- **Flow → Knowledge:** When the same mistakes recur across sessions despite research
 - **Knowledge → Scale:** When you're running multiple agents in parallel and conflicts emerge
 
 ---
@@ -205,7 +231,11 @@ These principles stand on decades of proven methodology:
 
 ## Reference Implementation
 
-The [AgentOps plugin](https://github.com/boshu2/agentops) is the reference implementation of these factors for Claude Code. It automates the knowledge flywheel (extraction, quality gating, semantic retrieval, decay management), provides research and planning skills, and implements multi-agent coordination patterns.
+The [AgentOps plugin](https://github.com/boshu2/agentops) is the reference
+implementation of these factors for Claude Code and Codex. It automates the
+bookkeeping flywheel (extraction, quality gating, semantic retrieval, decay
+management), provides research and planning skills, and implements multi-agent
+coordination patterns.
 
 **But the plugin is not a prerequisite.** Every factor in this document can be applied manually with zero tooling. The principles are universal; the automation is optional.
 

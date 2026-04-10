@@ -1,6 +1,6 @@
 # 12-Factor AgentOps -- Summary
 
-**The Operational Discipline for Working With AI Agents**
+**The Principles Behind the Operational Layer for Coding Agents**
 
 Twelve vendor-neutral principles that turn ad-hoc agent usage into a reliable,
 compounding practice. The model is not the problem. The operations are.
@@ -13,7 +13,8 @@ Every agent session starts from zero. Same context problems. Same mistakes
 repeated. Same rework. People blame the model when they get bad results.
 The real problem is how they operate.
 
-**The solution:** Operational discipline that makes knowledge compound over time.
+**The solution:** Operational discipline that makes bookkeeping and validation
+compound over time.
 
 ```
 Research --> Plan --> Implement --> Validate --> Extract --> Compound
@@ -23,8 +24,9 @@ Research --> Plan --> Implement --> Validate --> Extract --> Compound
 
 ## We Are / We Are Not
 
-**We are:** Operational principles for working with AI agents -- the discipline
-underneath build methodologies like Vibe Coding, GSD, and Superpowers.
+**We are:** The doctrine behind the operational layer for coding agents -- the
+discipline underneath build methodologies like Vibe Coding, GSD, and
+Superpowers.
 
 **We are not:** A framework for building autonomous agent applications. For that,
 see [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) by Dex Horthy.
@@ -43,7 +45,7 @@ Non-negotiable basics. Zero tooling required. Get these wrong and nothing else m
 | **[II](../factors/02-track-everything-in-git.md)** | **Track Everything in Git** | If it is not in git, it did not happen -- learnings, decisions, and knowledge live alongside code. |
 | **[III](../factors/03-one-agent-one-job.md)** | **One Agent, One Job** | Each agent gets a scoped task and fresh context; never reuse a saturated window. |
 
-### Workflow (IV--VI) -- The Discipline
+### Flow (IV--VI) -- The Discipline
 
 How work flows through agents. The discipline that separates "prompting and hoping"
 from a reliable operating model.
@@ -91,7 +93,7 @@ tier and keep the value.
 ```
 Quickstart (5 min)     --> learnings.md file, zero tooling
 Foundation (I-III)     --> Context discipline, git tracking, fresh sessions
-Workflow (IV-VI)       --> Research, external validation, ratcheting
+Flow (IV-VI)           --> Research, external validation, ratcheting
 Knowledge (VII-IX)     --> Extraction, compounding, measurement
 Scale (X-XII)          --> Multi-agent isolation, supervision, failure harvesting
 ```
@@ -99,8 +101,8 @@ Scale (X-XII)          --> Multi-agent isolation, supervision, failure harvestin
 | Transition | Trigger |
 |------------|---------|
 | Quickstart to Foundation | learnings.md gets unwieldy or context problems recur |
-| Foundation to Workflow | You keep re-explaining codebase patterns to new sessions |
-| Workflow to Knowledge | The same mistakes recur across sessions despite research |
+| Foundation to Flow | You keep re-explaining codebase patterns to new sessions |
+| Flow to Knowledge | The same mistakes recur across sessions despite research |
 | Knowledge to Scale | Multiple parallel agents cause conflicts |
 
 ---

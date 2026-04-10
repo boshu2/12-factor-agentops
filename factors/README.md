@@ -1,8 +1,15 @@
 # The Twelve Factors
 
-Operational discipline for AI-assisted development. Twelve factors in four tiers that turn chaotic agent workflows into repeatable, compounding systems.
+Doctrine behind the operational layer for coding agents. Twelve factors in four
+tiers that turn ad-hoc agent work into bookkeeping, validation, and compounding
+flows.
 
-The twelve factors stay the primary public surface. The [operator model](../docs/explanation/operator-model.md) is the compression layer underneath them: a stateful environment carries continuity, replaceable actors do scoped work, traces coordinate across sessions, selection gates decide what survives, promotion loops compound intelligence, and governance sets objective and boundaries.
+The twelve factors stay the primary public surface. The
+[operator model](../docs/explanation/operator-model.md) is the compression
+layer underneath them: a stateful environment carries continuity, replaceable
+actors do scoped work, traces coordinate across sessions, selection gates
+decide what survives, promotion loops compound intelligence, and governance
+sets objective and boundaries.
 
 ---
 
@@ -27,7 +34,7 @@ The non-negotiable starting point.
 | [II](./02-track-everything-in-git.md) | **Track Everything in Git** | If it is not in git, it did not happen. |
 | [III](./03-one-agent-one-job.md) | **One Agent, One Job** | One agent, one task. Compose specialists. |
 
-## Workflow (IV--VI)
+## Flow (IV--VI)
 
 How work moves from idea to done.
 
@@ -39,7 +46,7 @@ How work moves from idea to done.
 
 ## Knowledge (VII--IX)
 
-Turn completions into organizational intelligence.
+Turn completions into reusable bookkeeping and organizational intelligence.
 
 | # | Factor | One-liner |
 |---|--------|-----------|

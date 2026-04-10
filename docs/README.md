@@ -21,9 +21,9 @@ BUILD → WORK → RUN
 |-------|-----------|-------|
 | **BUILD** | [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) | Engineering patterns for building AI apps |
 | **WORK** | [Vibe Coding](https://itrevolution.com/product/vibe-coding-book/) | Methodology for working with AI agents |
-| **RUN** | **12-Factor AgentOps** (this repo) | Operational principles for reliability |
+| **RUN** | **12-Factor AgentOps** (this repo) | Doctrine behind bookkeeping, validation, primitives, and flows |
 
-**The operational discipline for running AI agents reliably.**
+**The doctrine behind the operational layer for coding agents.**
 
 → [Full ecosystem overview](./ecosystem.md)
 
@@ -35,7 +35,7 @@ BUILD → WORK → RUN
 → [Getting Started Guide](./getting-started/) - Choose your path (15 min - 1 week)
 
 **Want FAAFO immediately?**
-→ [Quick Start](./getting-started/quick-start.md) - 15 minutes to first workflow
+→ [Quick Start](./getting-started/quick-start.md) - 15 minutes to first flow
 
 **Solo developer?**
 → [Solo Developer Guide](./getting-started/solo-developer.md) - 35% → 95% success rate
@@ -50,7 +50,7 @@ BUILD → WORK → RUN
 - [Getting Started](./getting-started/) - Choose your journey
   - [Quick Start](./getting-started/quick-start.md) - 15 min to FAAFO
   - [Solo Developer](./getting-started/solo-developer.md) - 35% → 95% success rate
-- [Complete Workflow Guide](./tutorials/workflow-guide.md) - Research → Plan → Implement → Learn
+- [Complete Flow Guide](./tutorials/workflow-guide.md) - Research → Plan → Implement → Learn
 
 ---
 
@@ -88,7 +88,7 @@ BUILD → WORK → RUN
 - [AI Summit Validation 2025](./explanation/ai-summit-validation-2025.md) - Industry validation from 22 technical leaders
 - [Vibe Coding Integration](./explanation/vibe-coding-integration.md) - Vision meets operational discipline
 - [Context Engineering](./principles/context-engineering.md) - The 40% rule explained
-- [Knowledge OS](./principles/knowledge-os.md) - Git as institutional memory
+- [Knowledge OS](./principles/knowledge-os.md) - Git as a bookkeeping substrate
 - [Constraint-Based Engineering](./principles/constraint-based-engineering.md) - Designing within limits
 - [Scientific Foundation](./reference/scientific-foundation.md) - Research backing the patterns
 - Production Metrics - Real-world results (35% → 95%, 2.7-40x speedup)
@@ -133,7 +133,7 @@ Looking for documentation about a specific factor?
 | **IV: Research Before You Build** | [Quick Start](./getting-started/quick-start.md#step-2) | [Validation Gates](./how-to/README.md#validation--quality) | [Factor IV](../factors/04-research-before-you-build.md) | [DevOps/SRE](./principles/five-pillars.md) |
 | **V: Validate Externally** | [Solo Dev](./getting-started/solo-developer.md#factor-v) | [Track Success](./how-to/README.md#measurement--observability) | [Factor V](../factors/05-validate-externally.md) | Metrics |
 | **VI: Lock Progress Forward** | [Solo Dev](./getting-started/solo-developer.md#factor-vi) | [Session Notes](./how-to/README.md#session-management) | [Factor VI](../factors/06-lock-progress-forward.md) | [Context Engineering](./principles/context-engineering.md) |
-| **VII-XII** | [Workflow Guide](./tutorials/workflow-guide.md) | [How-To](./how-to/) | [Factors](../factors/) | [Pillars](./principles/five-pillars.md) |
+| **VII-XII** | [Flow Guide](./tutorials/workflow-guide.md) | [How-To](./how-to/) | [Factors](../factors/) | [Pillars](./principles/five-pillars.md) |
 
 ---
 

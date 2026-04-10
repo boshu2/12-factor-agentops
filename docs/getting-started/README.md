@@ -6,12 +6,12 @@ Welcome! Choose your path based on what you want to achieve.
 
 ## Choose Your Journey
 
-### 🚀 I want to start using AI workflows immediately
+### 🚀 I want to start using agent flows immediately
 
 **Goal:** Get reliable results from AI agents as quickly as possible
 
 **Start here:** [Quick Start Guide](quick-start.md)
-- 15 minutes to first workflow
+- 15 minutes to first flow
 - See immediate 2-5x speedup
 - Minimal setup required
 
@@ -22,21 +22,21 @@ Welcome! Choose your path based on what you want to achieve.
 **Goal:** Go from 35% → 95% success rate with AI coding tools
 
 **Start here:** [Solo Developer Guide](solo-developer.md)
-- Focus on validation gates (Factor IV)
-- Context management (Factor II)
-- Pattern libraries (Factor XII)
+- Focus on validation gates (Factor V)
+- Context management (Factor I)
+- Bookkeeping habits (Factors II + VII)
 - Real example: Database deployment 4 hours → 90 seconds
 
 ---
 
-### 👥 I'm leading a team adopting AI workflows
+### 👥 I'm leading a team adopting agent flows
 
 **Goal:** Scale AI usage across a team without chaos
 
 **Start here:** [Standing on Giants](../explanation/standing-on-giants.md) (team workflows coming soon)
 - Shared pattern libraries
-- Knowledge OS for institutional memory
-- Human validation checkpoints (Factor VIII)
+- Shared bookkeeping layer for learnings
+- Human validation checkpoints (Factor V)
 - Real example: 5-person team → 1-person productivity
 
 ---
@@ -75,7 +75,7 @@ Welcome! Choose your path based on what you want to achieve.
 |----------------|-------------------|---------------|------------|
 | Just want to try it | Quick Start | 15 min | Low |
 | Solo dev frustrated with AI failures | Solo Developer | 1-2 hours | Low |
-| Team lead rolling out AI | Team Workflows | 1 day | Medium |
+| Team lead rolling out agent flows | Team Flows | 1 day | Medium |
 | Platform engineer | Platform Engineering | 1 week | High |
 | Want philosophy first | North Star + Standing on Giants | 30 min reading | Low (reading) |
 
@@ -84,7 +84,7 @@ Welcome! Choose your path based on what you want to achieve.
 ## What to Expect
 
 ### After 15 minutes (Quick Start)
-✅ First AI workflow with validation gates
+✅ First agent flow with validation gates
 ✅ 2-5x speedup on simple tasks
 ✅ Understanding of operational discipline philosophy
 
@@ -93,8 +93,8 @@ Welcome! Choose your path based on what you want to achieve.
 ✅ Context management preventing collapse
 ✅ Pattern library started
 
-### After 1 day (Team Workflows)
-✅ Shared knowledge OS
+### After 1 day (Team Flows)
+✅ Shared bookkeeping layer
 ✅ Team using 4-6 factors consistently
 ✅ Institutional memory building
 
@@ -116,8 +116,9 @@ A: These principles work for all knowledge work. The examples use code, but patt
 **Q: How long until I see results?**
 A: Most people see 2-5x speedup within the first day. 95% success rate takes 1-2 weeks.
 
-**Q: Is this only for AI agents?**
-A: No! These patterns work for any knowledge work. AI just made them impossible to ignore.
+**Q: Is this only for coding agents?**
+A: These patterns are sharpest for coding agents, but they generalize to other
+knowledge work. Agentic coding simply made the discipline impossible to ignore.
 
 **Q: Do I need special tools?**
 A: No. Git + any AI assistant (Claude, GitHub Copilot, etc.) is enough. We show examples with specific tools, but principles are universal.
