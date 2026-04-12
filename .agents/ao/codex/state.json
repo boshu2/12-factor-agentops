@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "runtime": {
+    "runtime": "codex",
+    "mode": "codex-hookless-fallback",
+    "hook_capable": false,
+    "hook_configured": false,
+    "session_id": "019d5894-a3cd-7ce1-8e75-65c83ea55afb",
+    "thread_name": "Update doctrine with operator model",
+    "reason": "Codex does not expose the Claude/OpenCode hook lifecycle under ~/.codex; use ao codex start/stop for explicit lifecycle handling."
+  },
+  "last_start": {
+    "session_id": "019d5894-a3cd-7ce1-8e75-65c83ea55afb",
+    "thread_name": "Update doctrine with operator model",
+    "query": "Update doctrine with operator model",
+    "timestamp": "2026-04-04T13:00:49Z",
+    "startup_context_path": "/Users/fullerbt/gt/12factor/.agents/ao/codex/startup-context.md",
+    "memory_path": "/Users/fullerbt/gt/12factor/MEMORY.md",
+    "status": "codex-hookless-fallback",
+    "summary": "surfaced 0 learnings, 0 patterns, 0 findings"
+  },
+  "last_stop": {
+    "session_id": "019cd92c-27e4-7c71-8841-63e8019e0e90",
+    "thread_name": "Update doctrine with operator model",
+    "timestamp": "2026-04-04T18:17:58Z",
+    "transcript_path": "/Users/fullerbt/.codex/archived_sessions/rollout-2026-03-10T15-14-35-019cd92c-27e4-7c71-8841-63e8019e0e90.jsonl",
+    "transcript_source": "archived",
+    "memory_path": "/Users/fullerbt/gt/12factor/MEMORY.md",
+    "status": "accumulating",
+    "summary": "Session closed: 0 decisions, 19 learnings extracted",
+    "handoff_path": "/Users/fullerbt/gt/12factor/.agents/handoff/auto-019cd92.json"
+  },
+  "updated_at": "2026-04-04T18:17:58Z"
+}

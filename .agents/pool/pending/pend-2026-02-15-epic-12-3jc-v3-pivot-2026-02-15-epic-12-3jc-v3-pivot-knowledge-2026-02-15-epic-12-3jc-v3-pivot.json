@@ -1,0 +1,44 @@
+{
+  "candidate": {
+    "id": "pend-2026-02-15-epic-12-3jc-v3-pivot-2026-02-15-epic-12-3jc-v3-pivot-knowledge-2026-02-15-epic-12-3jc-v3-pivot",
+    "type": "decision",
+    "content": "# Retro: Epic 12-3jc — 12-Factor AgentOps v3 Pivot\n\n**Date:** 2026-02-15\n**Epic:** 12-3jc (15/15 issues closed)\n**Duration:** ~2 hours (research through post-mortem)\n\n## What Went Well\n\n1. **Pre-mortem caught 3 blockers before implementation.** v1 pre-mortem FAILED with inverted adoption model, zero-infrastructure entry missing, and Factor VIII not positioned as hero. Fixing before writing saved full rewrites. Cost: ~5 minutes. Savings: hours.\n\n2. **Parallel factor writing worked at scale.** 12 factors written simultaneously by background agents in Wave 2. All completed successfully. Wave vibe gate caught 5 structural issues (missing sections, wrong heading levels) and they were fixed in one pass.\n\n3. **GOALS.yaml as mechanically-verifiable exit criteria.** 13 shell-script checks eliminated \"is this done?\" debates. Every check is a grep/wc/find command — zero ambiguity. The `no-stale-framing` check caught 3 files we would have missed manually.\n\n4. **Content budgets prevented bloat.** 400-600 lines per factor target kept content focused. Only Factor VII (4,264 words / 933 lines) exceeded — a minor outlier.\n\n5. **Wave-based execution was efficient.** 4 waves out of 50 max. Wave 1 (archive), Wave 2 (12 factors parallel), Wave 3 (README), Wave 4 (GOALS.yaml verification). Clean progression.\n\n## What Was Hard\n\n1. **Wave 2 agents had inconsistent section naming.** Some used `### The Rule` (h3), others `## The Rule` (h2), others just `## Rule`. The plan specified `## The Rule` but agents interpreted differently. Required post-wave structural fixes.\n\n2. **GOALS.yaml check syntax matters.** The `Rule:` check (with colon) didn't match `## The Rule` (without colon). Caught during Wave 4 verification. Had to fix the check itself, not just the content.\n\n3. **Stale framing references in non-obvious places.** `docs/00-SUMMARY.md`, `CONTRIBUTING.md`, and tutorial link text all contained old framing. The `no-stale-framing` GOALS.yaml check caught these mechanically — manual review would have missed them.\n\n4. **zsh vs bash variable behavior.** Running GOALS.yaml checks with `\u0026\u0026` chaining in zsh produced wrong results for counter variables. All checks needed to run in explicit `bash -c` subshells.\n\n5. **Context compaction during long RPI lifecycle.** The full RPI (research → plan → pre-mortem → crank → vibe → post-mortem) exceeded context limits, requiring session continuation with summary recovery.\n\n## Do Differently Next Time\n\n1. **Include exact markdown templates in worker prompts.** Don't just list section names — provide the exact heading format with level indicators. e.g., `## The Rule` not just \"The Rule section\".\n\n2. **Test GOALS.yaml checks against sample content before implementation.** Write a test factor stub and run all checks against it. Catches syntax mismatches before workers produce content.\n\n3. **Run stale-framing check incrementally.** Don't wait for Wave 4 — run `no-stale-framing` after each wave to catch drift early.\n\n4. **Always use bash for shell-script checks.** Avoid zsh-specific behavior by wrapping all verification in `bash -c`.\n\n## Patterns to Reuse\n\n1. **PATTERN: Pre-mortem as Plan Gate**\n   - Problem: Plans with structural flaws get implemented, requiring full rewrites\n   - Solution: Run `/pre-mortem` with council judges before any implementation. FAIL verdict → fix plan → re-run.\n   - Evidence: v1 FAIL caught 3 blockers that would have cost hours of rework.\n\n2. **PATTERN: Parallel Agent Writing with Vibe Gate**\n   - Problem: N agents writing simultaneously produce inconsistent output\n   - Solution: Let agents write in parallel, then run structural vibe gate on all output. Fix inconsistencies in one batch.\n   - Evidence: 12 factors written in parallel, 5 structural issues caught and fixed in ~10 minutes.\n\n3. **PATTERN: Mechanically-Verifiable Exit Criteria (GOALS.yaml)**\n   - Problem: \"Is this done?\" debates waste time and introduce subjectivity\n   - Solution: Define all exit criteria as shell-script checks. Run them mechanically. 100% pass = done.\n   - Evidence: 13 checks, all passing. No subjective judgment needed for completion.\n\n4. **PATTERN: Inverted Adoption Model**\n   - Problem: \"Read the manifesto first\" repels users who want quick value\n   - Solution: Lead with 5-minute quickstart that delivers value, then explain principles\n   - Evidence: README restructured to quickstart → factors → deep dive. Pre-mortem specifically flagged the original manifesto-first approach.\n\n## Anti-Patterns to Avoid\n\n1. **ANTI-PATTERN: Section Name Without Format Spec**\n   - Problem: Telling agents \"include a Rule section\" without specifying `## The Rule` (h2, with \"The\")\n   - Prevention: Always include exact markdown heading in worker prompts\n   - Evidence: 5 of 12 factors had inconsistent heading formats\n\n2. **ANTI-PATTERN: Check-Then-Fix Instead of Prevent**\n   - Problem: GOALS.yaml check syntax wasn't validated against actual content format until Wave 4\n   - Prevention: Test checks against sample content before implementation starts\n   - Evidence: `Rule:` vs `## The Rule` mismatch caught late\n\n3. **ANTI-PATTERN: Assuming Shell Compatibility**\n   - Problem: GOALS.yaml checks worked in bash but produced wrong results in zsh\n   - Prevention: Always wrap shell checks in explicit `bash -c` invocations\n   - Evidence: Counter variable `count=$((count+1))` with `\u0026\u0026` behaved differently in zsh",
+    "source": {
+      "transcript_path": "/Users/fullerbt/gt/12factor/.agents/knowledge/pending/2026-02-15-epic-12-3jc-v3-pivot.md",
+      "message_index": 0,
+      "timestamp": "2026-02-15T00:00:00Z",
+      "session_id": "2026-02-15-epic-12-3jc-v3-pivot"
+    },
+    "raw_score": 0.8525,
+    "tier": "gold",
+    "extracted_at": "2026-02-15T00:00:00Z",
+    "metadata": {
+      "pending_category": "knowledge",
+      "pending_confidence": "medium",
+      "pending_title": "Retro: Epic 12-3jc — 12-Factor AgentOps v3 Pivot"
+    },
+    "is_current": true,
+    "expiry_status": "active",
+    "utility": 0.5,
+    "last_reward_at": "0001-01-01T00:00:00Z",
+    "maturity": "provisional",
+    "confidence": 0.95,
+    "last_decay_at": "2026-02-15T00:00:00Z"
+  },
+  "scoring_result": {
+    "raw_score": 0.8525,
+    "tier_assignment": "gold",
+    "rubric": {
+      "specificity": 1,
+      "actionability": 0.8,
+      "novelty": 0.6,
+      "context": 0.5,
+      "confidence": 0.7
+    },
+    "gate_required": false,
+    "scored_at": "2026-04-04T09:00:44.521952-04:00"
+  },
+  "status": "pending",
+  "added_at": "2026-02-15T00:00:00Z",
+  "updated_at": "2026-04-04T09:00:44.522259-04:00"
+}
