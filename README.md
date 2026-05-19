@@ -52,6 +52,18 @@ builds on everything that came before.
 **The hook:** Compounding work is the one thing no amount of model improvement
 replaces. Better models with no bookkeeping still repeat your mistakes.
 
+### Single-runtime by default. Cross-vendor where it pays.
+
+The doctrine is vendor-neutral by design — every factor applies whether you run
+Claude Code, Codex CLI, Cursor, or OpenCode. The reference implementation
+defaults to a single runtime so install-to-first-value stays cheap. Cross-vendor
+coordination (mixed-model councils, runtime-asymmetric planning) is kept because
+in real runs Codex judges have surfaced load-bearing findings that all-Claude
+councils missed. That capability earns its place by changing verdicts, not by
+sitting in the install matrix.
+
+**[Read the sovereignty proof →](https://12factoragentops.com/sovereignty-proof)** — three real `/council --mixed` runs with file:line citations, the standing exhibit for the cross-vendor claim.
+
 ---
 
 ## Quickstart: 5 Minutes, Zero Infrastructure
