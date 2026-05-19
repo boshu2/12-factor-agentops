@@ -29,7 +29,7 @@ that compound.
 - **Bookkeeping compounds across sessions** — Every session makes the next one smarter. Not a wiki nobody reads — extracted learnings become reusable context.
 - **Validation becomes an operating rule** — The doctrine makes separate review, ratcheting, and evidence-backed closeout part of the normal flow.
 - **Primitives and flows scale from one developer to many** — Start with one dev + one agent. The same principles extend to multi-agent orchestration.
-- **Vendor-neutral doctrine** — Works with Claude Code, Cursor, Codex, Copilot, or custom setups. Not locked to any toolchain.
+- **Vendor-neutral doctrine, single-runtime default** — Every factor applies whether you run Claude Code, Cursor, Codex, Copilot, or custom setups. The reference implementation defaults to a single runtime so install-to-first-value stays cheap. Cross-vendor coordination is kept as a falsifiable capability — preserved because in real `/council --mixed` runs the second vendor has changed load-bearing verdicts, not because it sits in the install matrix. The [standing proof](https://12factoragentops.com/sovereignty-proof) is auditable.
 
 ## Competitive Landscape
 
