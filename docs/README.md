@@ -75,6 +75,7 @@ BUILD → WORK → RUN
   - [FAAFO Dimensions](./reference/README.md#faafo-dimensions) - Fast, Ambitious, Autonomous, Fun, Optionality
   - [Key Metrics](./reference/README.md#key-metrics) - Success rate, speedup, FAAFO score
   - [Common Commands](./reference/README.md#common-commands) - Make targets, git workflow
+  - [JobSpec v0 RFC](./reference/jobspec-openapi-v0-rfc.md) - Daemon job API contract
   - [Glossary](./reference/README.md#glossary) - Terms and definitions
 
 ---
