@@ -1,0 +1,8 @@
+issue_prefix: 1fa
+issue-prefix: 1fa
+dolt.auto-start: false
+gc.endpoint_origin: inherited_city
+gc.endpoint_status: verified
+dolt.port: 3306
+backup.enabled: false
+export.git-add: false

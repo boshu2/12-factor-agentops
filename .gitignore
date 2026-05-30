@@ -71,3 +71,8 @@ config.json
 *_token
 *_secret
 *.credentials
+
+# Gas City
+.beads/*
+!.beads/config.yaml
+!.beads/metadata.json
