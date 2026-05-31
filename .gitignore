@@ -76,3 +76,4 @@ config.json
 .beads/*
 !.beads/config.yaml
 !.beads/metadata.json
+.beads/metadata.json
