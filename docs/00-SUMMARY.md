@@ -53,7 +53,7 @@ from a reliable operating model.
 | # | Factor | One-Line Rule |
 |---|--------|---------------|
 | **[IV](../factors/04-research-before-you-build.md)** | **Research Before You Build** | Understand the problem space before generating a single line of code. |
-| **[V](../factors/05-validate-externally.md)** | **Validate Externally** | No agent grades its own work -- tests, linters, separate sessions, or humans validate. |
+| **[V](../factors/05-validate-externally.md)** | **Validate Externally** | The worker reports evidence; an independent checker writes the binding verdict. No agent grades its own work. |
 | **[VI](../factors/06-lock-progress-forward.md)** | **Lock Progress Forward** | Once work passes validation, it ratchets forward and cannot regress. |
 
 ### Knowledge (VII--IX) -- Where Compounding Kicks In
@@ -72,16 +72,18 @@ getting measurably smarter over time.
 > repeat your mistakes. Knowledge compounding is the one capability no amount of
 > model improvement replaces.
 
-### Scale (X--XII) -- Advanced, Optional
+### Scale (X--XII) -- The Factory Altitude
 
-Multi-agent orchestration. Skip this tier entirely if you work solo. These
-patterns apply only when running parallel agents on complex projects.
+The same factors at fleet scale. Working solo, you live them in miniature -- a
+git worktree is isolation, your own judgment is supervision, your `learnings.md`
+is failure harvesting -- so you grow into the altitude rather than skipping the
+factors.
 
 | # | Factor | One-Line Rule |
 |---|--------|---------------|
 | **[X](../factors/10-isolate-workers.md)** | **Isolate Workers** | Each worker gets its own workspace, context, and zero shared mutable state. |
 | **[XI](../factors/11-supervise-hierarchically.md)** | **Supervise Hierarchically** | Escalation flows up, never sideways -- one coordinator dispatches, workers execute. |
-| **[XII](../factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Failed attempts are data -- extract and index them with the same rigor as successes. |
+| **[XII](../factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Turn dead ends into routing hints that prune the next agent's search. |
 
 ---
 

@@ -338,7 +338,9 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 
 ---
 
-### Scale Tier (X-XII, optional): Multi-Agent Operations
+### Scale Tier (X-XII): The Factory Altitude
+
+The same three factors at fleet scale. Working solo you live them in miniature — a git worktree is isolation, your own judgment is supervision, your `learnings.md` is failure harvesting. Running parallel agents on complex projects, the same rules need real machinery. You grow into this altitude; you don't skip the factors.
 
 **Factor X: Isolate Workers**
 - **Philosophy:** Independent, focused execution

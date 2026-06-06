@@ -77,7 +77,7 @@ v3 restructured the factors around operational reality rather than theoretical t
 | **Organization** | Flat list of 12 | Four tiers: Foundation, Workflow, Knowledge, Scale |
 | **Adoption model** | All-or-nothing manifesto | Progressive -- stop at any tier, keep the value |
 | **Hero concept** | Distributed | Factor VIII (Compound Knowledge) is the differentiator |
-| **Scale factors** | Required | Optional (X-XII) -- skip if working solo |
+| **Scale factors** | Required | Factory altitude -- lived small solo, structural at fleet scale (never skipped) |
 | **Framing** | Framework for AI infrastructure | Operational discipline for working with agents |
 | **Entry point** | Read the theory first | Start with a `learnings.md` file and zero tooling |
 
@@ -139,13 +139,13 @@ AI operations broke every assumption:
 
 **12-Factor AgentOps v3** added:
 - **Knowledge compounding** -- the flywheel that makes each session smarter (Factors VII, VIII)
-- **External validation** -- no agent grades its own work (Factor V)
+- **External validation** -- the worker reports evidence; an independent checker writes the binding verdict (Factor V)
 - **Progress ratcheting** -- validated work cannot regress (Factor VI)
 - **Research-first workflow** -- understand before generating (Factor IV)
 - **Outcome measurement** -- track what matters, not activity (Factor IX)
 - **Fitness gradient** -- define better versus worse states through goals, metrics, and gates (Factor IX)
 - **Provenance-backed learning** -- know where a learning came from before trusting or promoting it (Factors II, VII)
-- **Failure harvesting** -- failed attempts are high-value data (Factor XII)
+- **Failure harvesting** -- dead ends become routing hints that prune the next agent's search (Factor XII)
 - **Tiered adoption** -- start with zero tooling, scale when needed
 
 ### The Compression Beneath v3
@@ -200,9 +200,9 @@ Research before building. Validate externally. Lock progress forward. The discip
 
 Extract learnings. Compound knowledge. Measure outcomes. This is where sessions start getting measurably smarter over time.
 
-### Scale (X-XII): Advanced, optional
+### Scale (X-XII): The factory altitude
 
-Isolate workers. Supervise hierarchically. Harvest failures. Multi-agent orchestration patterns. Skip this tier entirely if you work solo -- you lose nothing.
+Isolate workers. Supervise hierarchically. Harvest failures. These are the same factors at fleet scale -- you grow into the altitude, you don't skip the factors. Working solo you live them in miniature: a worktree is isolation, your own judgment is the supervisor, your `learnings.md` is failure-harvesting. The machinery becomes structural when one head can no longer hold the whole thing.
 
 ---
 
@@ -214,13 +214,13 @@ v3 reframes the core insight. The original framing was "zero-trust cognitive inf
 
 The v3 framing: **operational discipline for working with AI agents.** The same way DevOps transformed ad-hoc deployment into a reliable practice, 12-Factor AgentOps transforms ad-hoc agent usage into a reliable, compounding practice.
 
-The zero-trust principle survives as Factor V (Validate Externally): no agent grades its own work. But the framework is bigger than validation. It is about:
+The zero-trust principle survives as Factor V (Validate Externally): the worker reports evidence, an independent checker writes the binding verdict, and no agent grades its own work. But the framework is bigger than validation. It is about:
 
 1. **Managing context** so agents get good input (Factor I)
 2. **Persisting knowledge** so nothing is lost between sessions (Factor II)
 3. **Scoping work** so agents operate in their effective range (Factor III)
 4. **Understanding before building** so agents solve the right problem (Factor IV)
-5. **Validating externally** so quality is objective (Factor V)
+5. **Validating externally** so quality is objective -- claims from the worker, the binding verdict from an independent checker (Factor V)
 6. **Ratcheting progress** so validated work is protected (Factor VI)
 7. **Extracting learnings** so every session produces knowledge (Factor VII)
 8. **Compounding knowledge** so each session is smarter than the last (Factor VIII)

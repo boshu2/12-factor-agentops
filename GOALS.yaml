@@ -59,13 +59,13 @@ goals:
       grep -qi 'flywheel\|compounding equation\|retrieval rate\|decay rate' factors/08-*.md
     weight: 9
 
-  # Scale factors (X-XII) marked as optional/advanced
-  - id: scale-factors-optional
-    description: "Factors 10-12 are explicitly marked as optional or advanced tier"
+  # Scale factors (X-XII) framed as the factory altitude (same factors at fleet scale)
+  - id: scale-factors-factory-altitude
+    description: "Factors 10-12 are framed as the factory altitude (same factors at fleet scale), not an optional/skippable tier"
     check: |
       count=0
       for f in factors/10-*.md factors/11-*.md factors/12-*.md; do
-        [ -f "$f" ] && grep -qi 'optional\|advanced\|not prerequisite' "$f" && count=$((count+1))
+        [ -f "$f" ] && grep -qi 'factory altitude\|fleet scale\|grow into\|in miniature' "$f" && count=$((count+1))
       done
       [ "$count" -ge 3 ]
     weight: 8

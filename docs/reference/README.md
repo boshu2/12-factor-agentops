@@ -30,7 +30,7 @@
 | **VIII** | [Compound Knowledge](../../factors/08-compound-knowledge.md) | HERO pattern: knowledge grows across sessions |
 | **IX** | [Measure What Matters](../../factors/09-measure-what-matters.md) | Track the metrics that drive improvement |
 
-### Scale (X-XII, optional)
+### Scale (X-XII) — the factory altitude
 
 | # | Factor | Purpose |
 |---|--------|---------|
@@ -50,7 +50,7 @@ The 12 factors are organized into four tiers of increasing sophistication:
 
 **Knowledge (VII-IX)** -- The compounding engine. Extract learnings, compound them across sessions, and measure the metrics that actually matter.
 
-**Scale (X-XII)** -- Optional. For teams running multiple agents. Worker isolation, hierarchical supervision, and systematic failure harvesting.
+**Scale (X-XII)** -- The factory altitude: the same factors at fleet scale. Solo, you live them in miniature (a worktree is isolation, your judgment is supervision); running multiple agents, they become structural — worker isolation, hierarchical supervision, and systematic failure harvesting. You grow into the altitude, you don't skip the factors.
 
 ---
 

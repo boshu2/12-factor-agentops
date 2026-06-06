@@ -23,7 +23,7 @@ Twelve vendor-neutral principles organized in four tiers. Each tier builds on th
 | # | Factor | The Rule |
 |---|--------|----------|
 | **[IV](../../factors/04-research-before-you-build.md)** | **Research Before You Build** | Understand the problem space before generating a single line of code. |
-| **[V](../../factors/05-validate-externally.md)** | **Validate Externally** | No agent grades its own work. Ever. |
+| **[V](../../factors/05-validate-externally.md)** | **Validate Externally** | The worker reports evidence; an independent checker writes the binding verdict. No agent grades its own work. |
 | **[VI](../../factors/06-lock-progress-forward.md)** | **Lock Progress Forward** | Once work passes validation, it ratchets -- it cannot regress. |
 
 ### Knowledge (VII-IX) -- Where compounding kicks in
@@ -36,15 +36,18 @@ Twelve vendor-neutral principles organized in four tiers. Each tier builds on th
 
 **Factor VIII is the hero.** It is the knowledge flywheel: extract learnings, gate for quality, inject into future sessions, measure retrieval, let stale knowledge decay. This is the differentiator that no amount of model improvement replaces -- better models with amnesia still repeat your mistakes.
 
-### Scale (X-XII) -- Advanced, optional
+### Scale (X-XII) -- The Factory Altitude
 
-Multi-agent orchestration patterns. Skip this tier if you work solo.
+The same factors at fleet scale. Working solo, you live them in miniature -- a
+git worktree is isolation, your own judgment is supervision, your `learnings.md`
+is failure harvesting -- so you grow into the altitude rather than skipping the
+factors.
 
 | # | Factor | The Rule |
 |---|--------|----------|
 | **[X](../../factors/10-isolate-workers.md)** | **Isolate Workers** | Each worker gets its own workspace, its own context, and zero shared mutable state. |
 | **[XI](../../factors/11-supervise-hierarchically.md)** | **Supervise Hierarchically** | Escalation flows up, never sideways. |
-| **[XII](../../factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Failed attempts are data. Extract and index them with the same rigor as successes. |
+| **[XII](../../factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Turn dead ends into routing hints that prune the next agent's search. |
 
 ---
 

@@ -5,6 +5,38 @@ All notable changes to 12-Factor AgentOps will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-06-06
+
+### Changed - Whole-System Constitution Alignment
+
+The 12 factors are reframed as the **constitution of the whole agent system**,
+lived at altitudes (one agent → a fleet), correcting the earlier implicit
+"AgentOps owns I–IX / scale tier is optional" partition. **No factor was
+renamed, renumbered, or deleted — names and numbers remain frozen.** This is an
+expression + framing change, not a redefinition.
+
+- **Factor V (Validate Externally)** now leads with the claims-vs-verdicts /
+  single-writer rule: the worker emits claims plus evidence; an independent
+  checker is the sole writer of the binding verdict. Promoted from a buried
+  sentence to the spine; expressed at two altitudes (worker honesty / factory
+  authority). This is the moat.
+- **Factor XII (Harvest Failures)** rewritten from "failed attempts are data"
+  (a restatement of VII) to its distinct mechanism: failures as routing hints
+  that prune the next agent's search space, plus fresh-agent-on-failure.
+- **Factors VII ↔ VIII** boundary sharpened (capture/write vs inject/read); the
+  flywheel diagram no longer owns EXTRACT (shown as an inbound handoff from VII).
+- **Factors III ↔ X** disambiguated (temporal vs concurrent "fresh context");
+  fungible/disposable workers named (the bead is the durable unit).
+- **Factors X ↔ XI** framed as independence (peers) vs authority (chain).
+- **Scale tier (X–XII)** reframed from "Advanced, Optional / skip if solo" to
+  the **factory altitude** — the same factors at fleet scale, lived in miniature
+  solo. The progressive adoption path is preserved; the "optional / you lose
+  nothing" claim is retired across README, docs, and GOALS.
+- Added the **Core + Skin** rule and a **Doctrine Stability** (no-renumber /
+  no-delete) guard to the README.
+- Aligned all downstream docs (00-SUMMARY, principles/*, explanation/*,
+  reference/*) and the showcase site to the corrected framing.
+
 ## [3.0.0] - 2026-02-15
 
 ### Changed - Operational Discipline Pivot

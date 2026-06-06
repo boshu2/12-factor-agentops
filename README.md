@@ -9,7 +9,7 @@ primitives, and flows that compound.
 
 <!-- Build & Status -->
 [![CI](https://img.shields.io/github/actions/workflow/status/boshu2/12-factor-agentops/validate-factors.yml?label=CI)](https://github.com/boshu2/12-factor-agentops/actions)
-[![Version](https://img.shields.io/badge/Version-3.0.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
+[![Version](https://img.shields.io/badge/Version-3.1.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
 
 <!-- Technology -->
 [![12 Factors](https://img.shields.io/badge/Factors-12-00CED1.svg)](factors/)
@@ -150,7 +150,7 @@ The same factors at fleet scale. Working solo, you live these at a small altitud
 |---|--------|----------|
 | **[X](./factors/10-isolate-workers.md)** | **Isolate Workers** | Each worker gets its own workspace, its own context, and zero shared mutable state. |
 | **[XI](./factors/11-supervise-hierarchically.md)** | **Supervise Hierarchically** | Escalation flows up, never sideways. |
-| **[XII](./factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Failed attempts are data. Extract and index them with the same rigor as successes. |
+| **[XII](./factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Turn failed attempts into routing hints that prune the next agent's search; on repeat failure, hand the context to a fresh agent. |
 
 **Without tooling:** Use git worktrees for parallel work. Designate one person (or agent) as coordinator. Document what doesn't work alongside what does.
 
@@ -276,3 +276,4 @@ The factors evolve through production validation and community feedback.
 - **v1.0** (2025-01-27): Initial twelve factors — coding agent validation focus
 - **v2.0** (2025-12-27): Production implementation patterns added
 - **v3.0** (2026-02-15): Pivot to full operational discipline. Factors rewritten. Adoption model inverted (results-first, not manifesto-first). Knowledge compounding as hero differentiator. Scale factors marked optional.
+- **v3.1** (2026-06-06): Whole-system constitution alignment. The 12 are reframed as one constitution lived at altitudes (one agent → a fleet), not a product partition. Factor V leads with the claims-vs-verdicts / single-writer moat; Factor XII rewritten to routing-hints + fresh-agent-on-failure; VII↔VIII, III↔X, X↔XI boundaries sharpened; Scale tier reframed from "optional" to the factory altitude. No factor renamed, renumbered, or deleted.
