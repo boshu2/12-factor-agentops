@@ -1,12 +1,16 @@
 # X. Isolate Workers
 
-**This factor is part of the Scale tier (X-XII) — advanced patterns for multi-agent workflows. Not a prerequisite for getting value from Factors I-IX.**
+**Scale tier (X–XII) — lived at the factory altitude. Solo, you live it every time you spin up a second worktree; at fleet scale it becomes structural. The axis here is *independence between peers* — distinct from [Factor XI](./11-supervise-hierarchically.md), which is *authority up a chain*. Isolation keeps workers from corrupting each other; supervision decides who resolves it when they conflict. Different problems, often deployed together.**
 
 ## Rule
 
 **Each worker gets its own workspace, its own context, and zero shared mutable state.**
 
+Where [Factor III](./03-one-agent-one-job.md) scopes *one* agent over time — a fresh window between phases so research context doesn't bleed into implementation — this factor keeps *many* agents from contaminating each other at once. Same word, "fresh context," two different axes: III is temporal (one worker, phase to phase), X is concurrent (many workers, side by side).
+
 When you run multiple agents in parallel, isolation is everything. Two agents sharing a context window corrupt each other. Two agents sharing a working directory create race conditions. Two agents sharing mutable state create cascading failures that are impossible to debug.
+
+Isolation is also what makes workers **fungible**. When each worker is sealed off behind its own worktree and context, any one of them is disposable: if it fails, delete the worktree, spawn a fresh worker, reassign the job. The durable unit is the *tracked task*, not the worker that happens to be holding it — workers are interchangeable and ephemeral by design.
 
 True isolation means:
 - **Separate git worktrees** for each worker (not just branches)

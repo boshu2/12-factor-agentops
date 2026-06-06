@@ -2,15 +2,26 @@
 
 ## Rule
 
-**No agent grades its own work. Ever.**
+**The worker emits claims plus evidence; an independent checker is the sole writer of the binding verdict. No agent grades its own work. Ever.**
 
-Self-validation is confirmation bias with extra steps. The same context that generated the work is the worst possible context to validate it. Validation must come from outside the agent that did the work: a different agent, a different model, a test suite, or a human reviewer.
+Separate the two roles cleanly. The worker that did the work produces a **claim** — "this is done, here is the proof." Something outside that worker — a different agent, a different model, a test suite, a human reviewer — turns the claim into a **verdict**, and only that verdict is binding. The worker can assert; it cannot ratify. Self-validation is confirmation bias with extra steps: the same context that generated the work is the worst possible context to validate it.
 
 If you can't validate externally, you haven't validated at all.
 
+**This single-writer rule is the moat.** Anyone can have an agent that does work and reports success. The durable advantage is structural: claims and verdicts are written by different parties, and the authority to write the verdict is held outside the worker. When that separation is enforced in the write path — not just requested in a prompt — a worker *cannot* launder its own confidence into a result the rest of the system trusts.
+
 In operator-model terms, validation is a **selection gate**. The environment, not the author, decides what survives: tests, review, ratchets, deploy checks, and other external gates accept or reject work before it becomes shared state.
 
-This is also where **governance** becomes concrete. Governance sets the objective, the risk tolerance, and the boundaries; selection gates enforce them. A solo developer can do that with tests and a deliberate review pass. A team can add independent reviewers, deployment approvals, and escalation paths. The principle is the same.
+This is also where **governance** becomes concrete. Governance sets the objective, the risk tolerance, and the boundaries; selection gates enforce them.
+
+### Lived at two altitudes
+
+This factor is the same rule whether you're one developer or a fleet, but it shows up at two altitudes:
+
+- **Worker altitude (honesty).** The worker is responsible for fresh-eyes review and for reporting claims *with* their evidence — command output, diffs, repro steps — never bare confidence. A solo developer does this with tests and a deliberate second pass; the discipline is "report what's true, attach the proof."
+- **Factory altitude (authority).** A separate layer is the *sole writer* of the binding verdict and of anything promoted to shared, fleet-trusted state. The worker proposes; the gate disposes. At a team or fleet, this is independent reviewers, deployment approvals, and an assurance layer that holds write authority the workers don't have.
+
+The seam between them is the whole point: **honesty lives with the worker, authority lives with the gate.** Keep them in the same party and you're back to self-validation theater.
 
 ---
 

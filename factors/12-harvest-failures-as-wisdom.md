@@ -1,18 +1,19 @@
 # XII. Harvest Failures as Wisdom
 
-> **This factor is part of the Scale tier (X-XII) — advanced patterns for multi-agent workflows. Not a prerequisite for getting value from Factors I-IX.**
+> **Scale tier (X–XII) — lived at the factory altitude. Working solo, your `learnings.md` and your own memory of dead ends already do this in miniature; at fleet scale it needs real machinery. Not something you bolt on — something you grow into.**
 
 ## The Rule
 
-**Failed attempts are data. Extract and index them with the same rigor as successes.**
+**Turn failed attempts into routing hints that prune the next agent's search space.**
 
-Every failed approach is a negative result. Negative results are knowledge. Knowledge compounds. Most systems treat failures as noise to be suppressed. 12-Factor AgentOps treats them as signal to be harvested.
+[Factor VII](./07-extract-learnings.md) captures what a session learned. This factor is about the distinct power of *negative* knowledge and the machinery that exploits it. A recorded dead end doesn't merely stop the next agent from repeating a mistake — it removes whole branches from the search *before the agent starts*. "Don't try X when Y holds" is often worth more than a positive pattern, because positive knowledge tells you one thing to do while negative knowledge eliminates many things not to. The first prunes the tree; the second only adds a leaf.
 
-When an agent tries three approaches before the fourth works, you don't just have one success — you have three documented learnings about what doesn't work under specific conditions. That's the wisdom that prevents the next agent from burning cycles on the same dead ends.
+Two mechanisms make this factory-grade, and neither is just "extract learnings, but sad":
 
-In operator-model terms, failures are durable traces. They coordinate future work across sessions by narrowing the search space for the next actor. That matters because actors are replaceable. The environment has to remember the dead ends so the next worker does not pay the same tuition again.
+- **Failure as a routing hint.** A failure record is not a diary entry — it is an input the next worker reads *before choosing an approach*, so its search starts already narrowed. Index negative knowledge for retrieval at decision time, not for reading after the fact.
+- **Fresh-agent-on-failure.** When a worker is stuck, don't loop it through the hole it already mapped. Hand the failure context — what was tried, the conditions, the error signature — to a *fresh* agent. The stuck worker's saturated context is the worst place to recover from; a clean worker carrying the failure trace is the best.
 
-Harvesting failures also creates promotion loops for negative knowledge: failed attempt → validated pattern → preventative rule. Successes are not the only things worth promoting.
+When an agent tries three approaches before the fourth works, you don't just have one success — you have three documented dead ends that narrow the next agent's search to the branch that pays. In operator-model terms, failures are durable traces that coordinate future work by shrinking the search space, and they ride **promotion loops for negative knowledge**: failed attempt → validated dead end → preventative rule, gate, or test.
 
 ## The Rationale
 
