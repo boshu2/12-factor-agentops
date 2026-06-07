@@ -6,7 +6,7 @@
 
 ## Rule
 
-Every session must extract validated learnings and inject them at startup. Knowledge must compound over time through a closed-loop flywheel: extract what worked, gate for quality, decay what's stale, inject at session start. If learnings don't flow back automatically, you're running a write-only database that your agents will never read.
+Learnings must flow back into future sessions automatically. This factor is the **read** half of the knowledge loop: take what [Factor VII](./07-extract-learnings.md) captured and gate it, store it, inject it at session start, cite it, and decay what stops earning citations. Factor VII writes the lesson down; Factor VIII is what makes writing it down pay off. If learnings don't flow back automatically, you're running a write-only database that your agents will never read.
 
 Seen through the operator model, this is where a **stateful environment** becomes smarter than any single session. The actors remain replaceable. The environment carries continuity through learnings, citations, checkpoints, and reusable rules. Intelligence compounds when those traces move through **promotion loops** instead of sitting in storage.
 
@@ -27,6 +27,11 @@ If this inequality fails, your knowledge decays to zero. If it holds, session 50
 
 This is institutional memory that actually works—not a wiki nobody reads.
 
+### Lived at two altitudes
+
+- **Worker altitude (the flywheel).** Inside a project, the loop compounds: retrieve relevant prior lessons at task boundaries, cite them, let uncited knowledge decay. Session 50 beats session 1.
+- **Factory altitude (promotion authority).** Deciding what is assured-enough to promote into shared, fleet-trusted knowledge is its own gate — and, like the verdict in [Factor V](./05-validate-externally.md), that promotion is written by the assurance layer, not by the worker that produced the lesson. Honesty proposes a learning; authority promotes it.
+
 ---
 
 ## Rationale
@@ -41,29 +46,32 @@ So they make the same mistake. Again. And the team extracts the same learning. A
 
 ### The Flywheel Pattern
 
-Compound knowledge requires a closed loop:
+Compound knowledge requires a closed loop. Extraction (Factor VII) feeds the loop from outside; this factor owns everything from the quality gate onward:
 
 ```
+   Factor VII
+   (EXTRACT)
+       │  captured lesson + provenance
+       ▼
 ┌─────────────────────────────────────────────────┐
-│                                                 │
-│  ┌─────────┐     ┌──────┐     ┌───────┐       │
-│  │ EXTRACT │ ──> │ GATE │ ──> │ STORE │       │
-│  └─────────┘     └──────┘     └───────┘       │
-│       ▲                            │           │
-│       │                            ▼           │
-│  ┌─────────┐                  ┌────────┐      │
-│  │  CITE   │ <──────────────  │ INJECT │      │
-│  └─────────┘                  └────────┘      │
-│       │                                        │
-│       ▼                                        │
-│  ┌─────────┐                                   │
-│  │  DECAY  │ (prune uncited knowledge)         │
-│  └─────────┘                                   │
-│                                                 │
+│  ── Factor VIII: the compounding loop ──        │
+│  ┌──────┐     ┌───────┐                         │
+│  │ GATE │ ──> │ STORE │                         │
+│  └──────┘     └───────┘                         │
+│       ▲            │                            │
+│       │            ▼                            │
+│  ┌─────────┐  ┌────────┐                        │
+│  │  CITE   │ <─│ INJECT │                        │
+│  └─────────┘  └────────┘                        │
+│       │                                          │
+│       ▼                                          │
+│  ┌─────────┐                                     │
+│  │  DECAY  │ (prune uncited knowledge)           │
+│  └─────────┘                                     │
 └─────────────────────────────────────────────────┘
 ```
 
-**EXTRACT**: At session end, capture what worked, what failed, what you learned. This is post-mortem, retrospective, or simply structured reflection. The key: make it specific, actionable, and tagged for retrieval.
+**EXTRACT** *(Factor VII, feeding in)*: At session end, capture what worked, what failed, what you learned, with provenance. This is the *write* half and it belongs to Factor VII — the loop below consumes its output. The key: make it specific, actionable, and tagged for retrieval.
 
 **GATE**: Not all learnings are equal. Bad learnings pollute the knowledge base. Gate entries through quality filters:
 - Is it actionable? ("Don't use `rm -rf`" without safer alternatives is noise)

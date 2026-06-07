@@ -9,6 +9,8 @@ An agent that just finished researching your auth system is the worst agent to i
 
 When an agent completes a phase of work, end its session. The next phase gets a new agent with a clean window, loaded with only what it needs to execute.
 
+This factor is about *one* agent across time — fresh context phase to phase. Keeping *concurrent* workers from contaminating each other is a different axis, and it belongs to [Factor X](./10-isolate-workers.md). Same instinct ("fresh context"), two altitudes: III is temporal, X is parallel.
+
 ## The Rationale
 
 #### The Context Saturation Problem

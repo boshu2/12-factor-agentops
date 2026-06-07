@@ -9,7 +9,7 @@ primitives, and flows that compound.
 
 <!-- Build & Status -->
 [![CI](https://img.shields.io/github/actions/workflow/status/boshu2/12-factor-agentops/validate-factors.yml?label=CI)](https://github.com/boshu2/12-factor-agentops/actions)
-[![Version](https://img.shields.io/badge/Version-3.0.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
+[![Version](https://img.shields.io/badge/Version-3.1.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
 
 <!-- Technology -->
 [![12 Factors](https://img.shields.io/badge/Factors-12-00CED1.svg)](factors/)
@@ -99,7 +99,7 @@ In Cursor, add to `.cursorrules`. In Codex, add to `AGENTS.md`. The mechanism va
 
 ## The 12 Factors
 
-Twelve vendor-neutral principles organized in four tiers. Start at the top. Each tier builds on the previous one. You can stop at any tier and keep the value.
+Twelve vendor-neutral principles. No factor belongs to one tool or one tier — each is the same rule lived at whatever altitude you're working, from a single agent on one task to a fleet running many. The four tiers below are an **on-ramp, not a partition**: start at the top, stop at any tier and keep the value. But "stopping" means you haven't *automated* the later factors yet — it doesn't mean they no longer apply. A solo developer still lives isolation and supervision; they just live them with a worktree and their own judgment instead of a control plane.
 
 ### Foundation (I–III) — Start Here
 
@@ -120,7 +120,7 @@ How work flows through agents. The discipline that separates "prompting and hopi
 | # | Factor | The Rule |
 |---|--------|----------|
 | **[IV](./factors/04-research-before-you-build.md)** | **Research Before You Build** | Understand the problem space before generating a single line of code. |
-| **[V](./factors/05-validate-externally.md)** | **Validate Externally** | No agent grades its own work. Ever. |
+| **[V](./factors/05-validate-externally.md)** | **Validate Externally** | The worker emits claims plus evidence; an independent checker is the sole writer of the binding verdict. No agent grades its own work. Ever. |
 | **[VI](./factors/06-lock-progress-forward.md)** | **Lock Progress Forward** | Once work passes validation, it ratchets — it cannot regress. |
 
 **Without tooling:** Research before implementing. Have a different session (or human) review the work. Commit validated work to protected branches.
@@ -142,19 +142,27 @@ better models don't replace durable bookkeeping.
 
 **Without tooling:** Manually update `learnings.md` after each session. Review it weekly and prune stale entries. It's tedious but it works. The AgentOps plugin automates this — but the principle is portable.
 
-### Scale (X–XII) — Advanced, Optional
+### Scale (X–XII) — The Factory Altitude
 
-Multi-agent orchestration patterns. **Skip this entire tier if you work solo.** You lose nothing. These patterns apply when you're running parallel agents on complex projects.
+The same factors at fleet scale. Working solo, you live these at a small altitude — a git worktree is isolation, your own judgment is supervision, your `learnings.md` is failure harvesting. Running parallel agents on complex projects, the same three rules need real machinery. You don't *adopt* this tier so much as *grow into* its altitude; the rules were always there.
 
 | # | Factor | The Rule |
 |---|--------|----------|
 | **[X](./factors/10-isolate-workers.md)** | **Isolate Workers** | Each worker gets its own workspace, its own context, and zero shared mutable state. |
 | **[XI](./factors/11-supervise-hierarchically.md)** | **Supervise Hierarchically** | Escalation flows up, never sideways. |
-| **[XII](./factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Failed attempts are data. Extract and index them with the same rigor as successes. |
+| **[XII](./factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Turn failed attempts into routing hints that prune the next agent's search; on repeat failure, hand the context to a fresh agent. |
 
 **Without tooling:** Use git worktrees for parallel work. Designate one person (or agent) as coordinator. Document what doesn't work alongside what does.
 
 ---
+
+## Core and Skin
+
+Every layer of an agent system is a universal **core** plus a removable **skin**, and the two are never conflated. The core is the invariant — these twelve factors, the operator model below them. The skin is house style: your naming, your personas, your rituals, the story you tell yourself about the work. The skin is never imposed. You adopt the constitution without anyone's mythology, and you dress it in your own. That separation is what makes the doctrine portable across teams, tools, and vendors: take the rules, leave the costume.
+
+## Doctrine Stability
+
+The twelve names and numbers are frozen at v3.0.0. Corrections are **expression-only** — sharpen the prose, fix a diagram, re-cut a boundary that reads ambiguously. A factor may be rewritten, and a soft one may be reduced to an emphasis that points at its neighbor, but **no factor is ever deleted and the set is never renumbered.** The number is load-bearing (URLs, the badge, every inbound link, twenty years of "twelve-factor" recognition). When two factors feel redundant, the fix is to make the distinction legible, not to merge the slots.
 
 ## The Operator Model Underneath the Factors
 
@@ -203,10 +211,10 @@ Quickstart (5 min)     → learnings.md file, zero tooling
 Foundation (I-III)     → Context discipline, git tracking, fresh sessions
 Flow (IV-VI)           → Research, validation, ratcheting
 Knowledge (VII-IX)     → Extraction, compounding, measurement
-Scale (X-XII)          → Multi-agent isolation, supervision, failure harvesting (OPTIONAL)
+Scale (X-XII)          → Multi-agent isolation, supervision, failure harvesting (grow into it)
 ```
 
-**Key principle:** You can stop at any level and keep the value. Each level justifies the next, but none requires it.
+**Key principle:** You can stop adopting at any level and keep the value. Each level justifies the next, but none requires it. Stopping means you haven't automated the higher factors yet — not that they stopped applying.
 
 **When to level up:**
 - **Quickstart → Foundation:** When your `learnings.md` gets unwieldy or you notice repeated context problems
@@ -268,3 +276,4 @@ The factors evolve through production validation and community feedback.
 - **v1.0** (2025-01-27): Initial twelve factors — coding agent validation focus
 - **v2.0** (2025-12-27): Production implementation patterns added
 - **v3.0** (2026-02-15): Pivot to full operational discipline. Factors rewritten. Adoption model inverted (results-first, not manifesto-first). Knowledge compounding as hero differentiator. Scale factors marked optional.
+- **v3.1** (2026-06-06): Whole-system constitution alignment. The 12 are reframed as one constitution lived at altitudes (one agent → a fleet), not a product partition. Factor V leads with the claims-vs-verdicts / single-writer moat; Factor XII rewritten to routing-hints + fresh-agent-on-failure; VII↔VIII, III↔X, X↔XI boundaries sharpened; Scale tier reframed from "optional" to the factory altitude. No factor renamed, renumbered, or deleted.

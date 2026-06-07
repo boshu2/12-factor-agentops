@@ -68,11 +68,11 @@ This is where vibe coding transforms from a series of isolated sessions into a c
 
 ---
 
-### Tier 4: Scale (Factors X-XII, Optional)
+### Tier 4: Scale (Factors X-XII) — The Factory Altitude
 
 **Making vibe coding work across teams and complex systems.**
 
-These factors are optional for solo developers but become essential when vibe coding scales beyond one person and one agent.
+These are the same three factors at fleet scale. A solo developer already lives them in miniature — a git worktree is isolation, your own judgment is supervision, the note you write after a failed session is failure harvesting. When vibe coding scales beyond one person and one agent, the same rules need real machinery. You grow into this altitude; you don't skip the factors.
 
 | Factor | What It Solves |
 |--------|---------------|

@@ -6,7 +6,9 @@
 
 ## Tier
 
-This factor is part of the **Scale tier (X-XII)** — advanced patterns for multi-agent workflows. Not a prerequisite for getting value from Factors I-IX. You can run effective single-agent operations without supervision hierarchies. This becomes critical when you scale to multiple agents working concurrently, where failures compound and coordination overhead explodes without clear escalation paths.
+This factor is part of the **Scale tier (X–XII)**, lived at the factory altitude. Working solo you *are* the supervisor — you hold the escalation path in your head and break the ties yourself. The rule doesn't appear when you scale; it just stops fitting in one head, and the tree has to become structural. It becomes critical when multiple agents work concurrently and coordination overhead explodes without clear escalation paths.
+
+The axis here is **authority up a chain** — distinct from [Factor X](./10-isolate-workers.md), which is **independence between peers**. Isolation stops workers from corrupting each other; supervision decides who has the authority to resolve things when they conflict or get stuck. You can have one without the other: a flat swarm of isolated workers with no supervisor, or a supervisor over workers that share state. You usually want both, but they are answering different questions.
 
 ---
 

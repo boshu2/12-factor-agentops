@@ -140,10 +140,10 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Key Practice*: Simple APIs for agent lifecycle management
 
 **12-Factor AgentOps (V: Validate Externally)**
-- *Evolution*: No agent grades its own work
+- *Evolution*: The worker reports evidence; an independent checker writes the binding verdict. No agent grades its own work.
 - *Why Different*: Agents are confident but not reliable -- they cannot objectively evaluate their own output
-- *Key Practice*: External validation via tests, linters, a different agent, or human review
-- *Unique Aspect*: Zero-trust principle applied to cognition -- validate the output, not the source
+- *Key Practice*: The worker emits claims plus evidence; an independent checker -- tests, linters, a different agent, or a human reviewer -- is the sole writer of the binding verdict
+- *Unique Aspect*: Zero-trust principle applied to cognition -- claims and verdicts are written by different parties, so a worker cannot launder its own confidence into a trusted result (the single-writer moat)
 
 ---
 
@@ -242,7 +242,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Evolution*: Each worker gets its own workspace, its own context, and zero shared mutable state
 - *Why Different*: Parallel agents sharing state create cascading conflicts
 - *Key Practice*: Git worktrees, separate context windows, independent validation
-- *Unique Aspect*: Scale tier -- skip if working solo; essential for multi-agent orchestration
+- *Unique Aspect*: Scale tier (factory altitude) -- solo you live it every time you spin up a second worktree; structural for multi-agent orchestration
 
 ---
 
@@ -262,7 +262,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Evolution*: Escalation flows up, never sideways
 - *Why Different*: Multi-agent systems without hierarchy devolve into circular coordination
 - *Key Practice*: Coordinator agents delegate and escalate; worker agents execute and report
-- *Unique Aspect*: Scale tier -- skip if working solo; prevents coordination chaos in multi-agent setups
+- *Unique Aspect*: Scale tier (factory altitude) -- solo you are the supervisor and break ties yourself; structural when the escalation path no longer fits in one head
 
 ---
 
@@ -279,10 +279,10 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Key Practice*: Human contact is a first-class operation, not exception
 
 **12-Factor AgentOps (XII: Harvest Failures as Wisdom)**
-- *Evolution*: Failed attempts are data -- extract and index them with the same rigor as successes
+- *Evolution*: Turn dead ends into routing hints that prune the next agent's search space
 - *Why Different*: Failures contain the highest-value learnings but are typically discarded
-- *Key Practice*: Document what did not work and why; index failure patterns for future avoidance
-- *Unique Aspect*: Scale tier -- feeds directly into Factor VII (Extract Learnings) and Factor VIII (Compound Knowledge)
+- *Key Practice*: Index negative knowledge for retrieval at decision time, and hand a stuck worker's failure trace to a fresh agent rather than looping the saturated one
+- *Unique Aspect*: Scale tier (factory altitude) -- negative knowledge that prunes the search, distinct from Factor VII's generic capture; feeds Factor VIII (Compound Knowledge)
 
 ---
 
