@@ -5,6 +5,36 @@ All notable changes to 12-Factor AgentOps will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2026-06-07
+
+### Changed - Re-derivation (cross-model council, adversarially pressure-tested)
+
+A 3-model NTM council (Opus 4.8, Codex GPT-5.5, Gemini 3.5 Flash) re-derived the
+set from closer to first principles; the result was then adversarially
+pressure-tested (which rejected the council's "strict dependency chain" claim and
+its forced 3-per-phase symmetry as overreach — both corrected below).
+
+- **Regrouped into a four-phase operational lifecycle: Prepare → Bound → Select →
+  Govern**, replacing Foundation/Flow/Knowledge/Scale. Presented as a reading
+  **lens** (Govern feeds back to Prepare), explicitly NOT a strict per-factor
+  dependency chain.
+- **Added Factor IV — Enforce Least Privilege** (the security/permissions gap):
+  least-privilege envelope covering both ingress (authority, sandbox, untrusted
+  input can't widen it) and egress (secrets/PII containment, bounded blast radius).
+- **Merged Harvest Failures into X Compound Knowledge** — negative knowledge rides
+  the same flywheel — and **relocated fresh-agent-on-failure into XI Supervise
+  Hierarchically**, where it belongs as a recovery primitive.
+- **Renamed Measure What Matters → Measure Outcomes** (XII, the governance capstone).
+- **All factors renumbered** to the new order (slugs updated; old
+  `12-harvest-failures-as-wisdom` removed — content absorbed):
+  I Context · II Track-Git · III One-Agent · IV Least-Privilege · V Research ·
+  VI Isolate · VII Validate · VIII Lock · IX Extract · X Compound · XI Supervise ·
+  XII Measure Outcomes.
+- Carried in the v3.1/v3.2 accuracy fixes (no pseudo-math, invented numbers, or
+  absolutism; corrected cross-references and the OTP analogy).
+- The "12" is held deliberately for recognizability, not claimed as derived from
+  first principles.
+
 ## [3.1.0] - 2026-06-06
 
 ### Changed - Whole-System Constitution Alignment

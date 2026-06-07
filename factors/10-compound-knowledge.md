@@ -1,22 +1,28 @@
-# VIII. Compound Knowledge
+# X. Compound Knowledge
 
 **Learnings must flow back into future sessions automatically.**
 
 ---
 
+## Phase
+
+This factor is part of the **Govern phase (X–XII)**. Working solo, your `learnings.md` and your own memory of what worked and what died already do this in miniature; at fleet scale the loop needs real machinery — gating, injection at session start, citation tracking, and decay. It's not something you bolt on; it's something you grow into once one head can no longer hold all the scar tissue.
+
+---
+
 ## Rule
 
-Learnings must flow back into future sessions automatically. This factor is the **read** half of the knowledge loop: take what [Factor VII](./07-extract-learnings.md) captured and gate it, store it, inject it at session start, cite it, and decay what stops earning citations. Factor VII writes the lesson down; Factor VIII is what makes writing it down pay off. If learnings don't flow back automatically, you're running a write-only database that your agents will never read.
+Learnings must flow back into future sessions automatically. This factor is the **read** half of the knowledge loop: take what [Factor IX](./09-extract-learnings.md) captured and gate it, store it, inject it at session start, cite it, and decay what stops earning citations. Factor IX writes the lesson down; Factor X is what makes writing it down pay off. If learnings don't flow back automatically, you're running a write-only database that your agents will never read.
 
 Seen through the operator model, this is where a **stateful environment** becomes smarter than any single session. The actors remain replaceable. The environment carries continuity through learnings, citations, checkpoints, and reusable rules. Intelligence compounds when those traces move through **promotion loops** instead of sitting in storage.
 
-The compounding equation must hold:
+The compounding condition, as a directional heuristic (not a literal formula — the terms aren't dimensionally comparable, so read this as "which way the pressure points," not arithmetic):
 
 ```
-retrieval_rate × citation_rate > decay_rate
+knowledge that gets retrieved AND cited  >  knowledge that goes stale
 ```
 
-If this inequality fails, your knowledge decays to zero. If it holds, session 50 outperforms session 1 on the same model, same hardware, same code. This is the one capability that cannot be replicated by better models, faster APIs, or new frameworks.
+If stale knowledge accrues faster than useful knowledge gets retrieved and cited, compounding *stalls* — the store doesn't literally go to zero (extracted artifacts persist on disk), but it stops getting smarter and rots toward noise. If the balance tips the other way, session 50 outperforms session 1 on the same model, same hardware, same code. That compounding is the one capability better models, faster APIs, or new frameworks don't replace.
 
 **Observable symptoms of missing compounding:**
 - Agents suggest approaches already tried and rejected
@@ -30,7 +36,7 @@ This is institutional memory that actually works—not a wiki nobody reads.
 ### Lived at two altitudes
 
 - **Worker altitude (the flywheel).** Inside a project, the loop compounds: retrieve relevant prior lessons at task boundaries, cite them, let uncited knowledge decay. Session 50 beats session 1.
-- **Factory altitude (promotion authority).** Deciding what is assured-enough to promote into shared, fleet-trusted knowledge is its own gate — and, like the verdict in [Factor V](./05-validate-externally.md), that promotion is written by the assurance layer, not by the worker that produced the lesson. Honesty proposes a learning; authority promotes it.
+- **Factory altitude (promotion authority).** Deciding what is assured-enough to promote into shared, fleet-trusted knowledge is its own gate — and, like the verdict in [Factor VII](./07-validate-externally.md), that promotion is written by the assurance layer, not by the worker that produced the lesson. Honesty proposes a learning; authority promotes it.
 
 ---
 
@@ -46,15 +52,15 @@ So they make the same mistake. Again. And the team extracts the same learning. A
 
 ### The Flywheel Pattern
 
-Compound knowledge requires a closed loop. Extraction (Factor VII) feeds the loop from outside; this factor owns everything from the quality gate onward:
+Compound knowledge requires a closed loop. Extraction (Factor IX) feeds the loop from outside; this factor owns everything from the quality gate onward:
 
 ```
-   Factor VII
+   Factor IX
    (EXTRACT)
        │  captured lesson + provenance
        ▼
 ┌─────────────────────────────────────────────────┐
-│  ── Factor VIII: the compounding loop ──        │
+│  ── Factor X: the compounding loop ──           │
 │  ┌──────┐     ┌───────┐                         │
 │  │ GATE │ ──> │ STORE │                         │
 │  └──────┘     └───────┘                         │
@@ -71,7 +77,7 @@ Compound knowledge requires a closed loop. Extraction (Factor VII) feeds the loo
 └─────────────────────────────────────────────────┘
 ```
 
-**EXTRACT** *(Factor VII, feeding in)*: At session end, capture what worked, what failed, what you learned, with provenance. This is the *write* half and it belongs to Factor VII — the loop below consumes its output. The key: make it specific, actionable, and tagged for retrieval.
+**EXTRACT** *(Factor IX, feeding in)*: At session end, capture what worked, what failed, what you learned, with provenance. This is the *write* half and it belongs to Factor IX — the loop below consumes its output. The key: make it specific, actionable, and tagged for retrieval.
 
 **GATE**: Not all learnings are equal. Bad learnings pollute the knowledge base. Gate entries through quality filters:
 - Is it actionable? ("Don't use `rm -rf`" without safer alternatives is noise)
@@ -87,6 +93,21 @@ Compound knowledge requires a closed loop. Extraction (Factor VII) feeds the loo
 **DECAY**: Prune knowledge that hasn't been cited in N sessions. Stale learnings clutter retrieval. Code changes, APIs evolve, old advice becomes wrong. Decay is not failure—it's hygiene.
 
 This is more than a storage loop. It is a promotion loop. Each pass asks whether a trace should stay local, become a validated learning, graduate into a reusable pattern, or decay out of the system.
+
+### Negative Knowledge Compounds Too
+
+The loop above is described in terms of what *worked*, but failed approaches and dead ends ride exactly the same flywheel — and they are often the more valuable cargo. A positive learning adds one option to the next agent's menu ("use JSON preprocessing for configs with custom tags"). A negative learning ("regex fails on nested config structures") does something different: it biases the next agent *away* from a branch the last one already proved dead. One records a thing to do; the other records a class of things not to bother trying.
+
+This is not a literal pruning of the search space — the next agent can still choose the dead branch, and sometimes should (tooling changes, the old failure was a local mistake). What a recorded dead end actually does is shift the agent's prior *before it commits*: surfaced at decision time, "we tried X under condition Y and it failed because Z" makes the agent far less likely to spend a session re-walking that path. The value is the avoided repeat, not a guarantee.
+
+Because it rides the same flywheel, negative knowledge gets the same discipline — there is no separate machinery:
+
+- **GATE.** Not every failure is doctrine. Some come from sloppy execution, stale dependencies, or a misread constraint. A dead end earns promotion only when it reveals a real pattern (ideally seen more than once), not a one-off slip. Otherwise you manufacture superstition.
+- **STORE / INJECT.** A failure record is worthless as a diary entry read after the fact. It has to be indexed for retrieval and surfaced *at the moment an approach is being chosen* — alongside the positive learnings, in the same session-start injection.
+- **CITE.** When an agent skips a known-dead approach because a failure record told it to, that is a citation too. It proves the negative learning earned its place.
+- **DECAY.** Stale negative knowledge is more dangerous than stale positive knowledge, because it silently blocks approaches that may now work. A dead end from two years ago, never revalidated, becomes a rule the system obeys for no reason. Decay it like anything else, or revalidate before trusting it.
+
+The practical signature: when an agent tries three approaches before the fourth works, the run produced one success and three documented dead ends. Logged and injected, those dead ends bias every later agent on a similar task away from the same three holes. That is institutional scar tissue, and it is half of what makes session 50 beat session 1.
 
 ### The Compounding Equation
 
@@ -371,7 +392,7 @@ Retrieval rate:  0.87 (52/60 sessions)
 Citation rate:   0.74 (127/172 injected learnings cited)
 Decay rate:      0.08 (12/150 learnings pruned in last 10 sessions)
 
-Compounding:     0.87 × 0.74 = 0.644 > 0.08 ✓
+Compounding:     0.87 × 0.74 = 0.64, comfortably ahead of 0.08 decay ✓
 
 HEALTH: GOOD
 - Knowledge is compounding

@@ -1,12 +1,14 @@
-# X. Isolate Workers
+# VI. Isolate Workers
 
-**Scale tier (X–XII) — lived at the factory altitude. Solo, you live it every time you spin up a second worktree; at fleet scale it becomes structural. The axis here is *independence between peers* — distinct from [Factor XI](./11-supervise-hierarchically.md), which is *authority up a chain*. Isolation keeps workers from corrupting each other; supervision decides who resolves it when they conflict. Different problems, often deployed together.**
+**Phase: Bound. Isolation is an execution-time concern, not a scale-only one — you live it every time you spin up a second worktree, and at fleet scale it becomes structural. The axis here is *independence between peers* — distinct from [Factor XI](./11-supervise-hierarchically.md), which is *authority up a chain*. Isolation keeps workers from corrupting each other; supervision decides who resolves it when they conflict. Different problems, often deployed together.**
 
 ## Rule
 
-**Each worker gets its own workspace, its own context, and zero shared mutable state.**
+**Each worker gets its own workspace, its own context, and zero shared mutable *working* state.**
 
-Where [Factor III](./03-one-agent-one-job.md) scopes *one* agent over time — a fresh window between phases so research context doesn't bleed into implementation — this factor keeps *many* agents from contaminating each other at once. Same word, "fresh context," two different axes: III is temporal (one worker, phase to phase), X is concurrent (many workers, side by side).
+The qualifier "working" is load-bearing: workers *do* share a coordination substrate — the issue tracker they claim from, the `main` branch the merge queue advances. That shared state is append-mostly and gated, and it's how isolated workers cooperate at all. What they must never share is mutable *working* state: a worktree, a context window, temp files, locks. Share the coordination layer; isolate everything in flight.
+
+Where [Factor III](./03-one-agent-one-job.md) scopes *one* agent over time — a fresh window between phases so research context doesn't bleed into implementation — this factor keeps *many* agents from contaminating each other at once. Same word, "fresh context," two different axes: III is temporal (one worker, phase to phase), VI is concurrent (many workers, side by side).
 
 When you run multiple agents in parallel, isolation is everything. Two agents sharing a context window corrupt each other. Two agents sharing a working directory create race conditions. Two agents sharing mutable state create cascading failures that are impossible to debug.
 
@@ -199,7 +201,7 @@ Isolation becomes critical when:
 - **You run untrusted code.** Agent-generated code runs in an isolated environment for safety.
 - **You debug across multiple attempts.** Each attempt's worktree is preserved for inspection.
 
-If you never run multiple agents in parallel, you can skip this factor. But if you're reading the Scale tier factors, you're probably already running parallel workflows. That means isolation is not optional. It's foundational.
+If you never run multiple agents in parallel, you can skip this factor. But the moment you run parallel workflows, isolation is not optional. It's foundational.
 
 ### Isolation Is Not Containerization
 
@@ -359,7 +361,7 @@ You don't have to do all three phases at once. Each phase independently reduces 
 
 If you're not sure whether you need isolation, you probably don't yet. You'll know when you need it because you'll spend an afternoon debugging cross-contamination and decide "never again."
 
-That's when you implement Factor X.
+That's when you implement Factor VI.
 
 ### Isolation Checklist
 

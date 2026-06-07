@@ -77,3 +77,6 @@ config.json
 !.beads/config.yaml
 !.beads/metadata.json
 .beads/metadata.json
+
+# bv (beads viewer) local config and caches
+.bv/

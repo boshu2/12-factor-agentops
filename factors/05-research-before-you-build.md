@@ -1,4 +1,4 @@
-# IV. Research Before You Build
+# V. Research Before You Build
 
 **Understand the problem space before generating a single line of code.**
 
@@ -6,13 +6,13 @@
 
 ## The Rule
 
-Every implementation begins with research. Every single one.
+Any implementation that touches existing code begins with research. Research proportional to the integration surface.
 
 You don't start writing code until you've explored the codebase, understood existing patterns, identified relevant files, and documented your findings. Research is a distinct phase that produces findings, not code. Those findings become scoped context for the implementation phase.
 
-No exceptions. No shortcuts. No "I'll just quickly add this feature real fast."
+The honest exception: genuinely greenfield or throwaway work has little to integrate with, so there's little to research. A brand-new file with no dependencies, a one-off script you'll delete, a trivial typo fix — these don't earn a research phase. The trap is *thinking* your task is in that category when it actually plugs into existing patterns, base classes, or conventions. When in doubt, it isn't greenfield.
 
-**Research first. Build second. Always.**
+**The bigger the integration surface, the more research it deserves. Skip it only for work that genuinely touches nothing.**
 
 ---
 
@@ -226,7 +226,7 @@ Then you spend 20 minutes figuring out why the tests are failing because you did
 
 **The research would have taken 10 minutes. The rework took 45.**
 
-Simple tasks still benefit from research. Sometimes more than complex ones, because the rework cost is harder to justify.
+The lesson isn't "simple tasks need more research than complex ones" — that's backwards. It's that "simple" often means "small to write," not "small to integrate." A task with a tiny code footprint can still sit on top of a base class, a shared utility, or a convention you haven't seen. Judge the research need by how much existing code you're touching, not by how few lines you expect to write.
 
 ### "I'll Research Later If I Need To"
 
@@ -420,9 +420,9 @@ If you can answer all five, write down your findings and move to implementation.
 
 ## Research is Not Optional
 
-Here's the hard truth: every agent eventually does research. The only question is when.
+Here's the pattern that keeps showing up: when a task plugs into existing code, the understanding has to come from somewhere — and if you don't pay for it up front, you usually pay for it later, mid-rework, at a worse exchange rate. (This isn't a law; a lucky guess sometimes works, and truly isolated work needs none. But on integration-heavy tasks, the bill tends to come due.)
 
-You can research before implementation, while you have an empty slate and no sunk costs. Or you can research during rework, after you've already written code that doesn't fit and now have to throw it away.
+You can build that understanding before implementation, while you have an empty slate and no sunk costs. Or you can build it during rework, after you've already written code that doesn't fit and now have to throw it away.
 
 You can research deliberately, producing documented findings that help with this task and future tasks. Or you can research frantically, trying to understand why your perfectly reasonable code isn't working.
 

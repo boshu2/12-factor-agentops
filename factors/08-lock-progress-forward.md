@@ -1,10 +1,10 @@
-# Factor VI: Lock Progress Forward
+# VIII. Lock Progress Forward
 
 ## Rule
 
-**Once work passes validation, it ratchets — it cannot regress.**
+**Once work passes validation, it ratchets — progress is monotonic by default.**
 
-Progress is irreversible. Validated changes lock into the codebase. Failed attempts are discarded. The ratchet only turns forward.
+Progress is monotonic by default — regression requires an explicit, recorded, justified action. Validated changes lock into the codebase. Failed attempts are discarded. The ratchet turns forward unless you deliberately turn it back.
 
 ## Rationale
 
@@ -91,7 +91,7 @@ What counts as validation:
 
 The key: validation is boolean. Work either passes or it doesn't. No partial credit. No "mostly done."
 
-This is why Factor III (Validation First) matters. If your validation is weak, your ratchet is weak. Garbage passes through. Progress becomes regression.
+This is why Factor VII (Validate Externally) matters. If your validation is weak, your ratchet is weak. Garbage passes through. Progress becomes regression.
 
 Strong validation means strong ratcheting. When something merges, you know it's correct. When an issue closes, you know it's complete.
 
@@ -489,9 +489,9 @@ More chaos → more attempts → more learning → better validation → stronge
 
 The system gets better over time. Early on, validation is weak, so you constrain chaos (few agents, careful prompting). As validation strengthens, you unleash chaos (many agents, loose prompting). The ratchet handles it.
 
-Eventually, you reach a state where agent quality doesn't matter. Validation is so strong that even bad agents can't pollute main. Only good work merges. The ratchet is absolute.
+Push this far enough and agent quality matters less. Strong validation bounds how much a bad agent can pollute main to whatever your gates actually cover, and it lowers the cost of a bad agent — failures get caught and discarded instead of merged. It does not make agent quality irrelevant or the filter perfect: no finite test suite is total, and your ratchet is only as good as what your gates check.
 
-That's the goal. A system where adding more agents (even mediocre ones) improves outcomes, because the filter is perfect.
+That's the goal. A system where adding more agents (even mediocre ones) tends to improve outcomes, because the filter catches what it's built to catch.
 
 ---
 

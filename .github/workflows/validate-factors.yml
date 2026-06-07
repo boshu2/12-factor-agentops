@@ -23,7 +23,7 @@ jobs:
 
       - name: Verify all 12 factors exist
         run: |
-          expected="01-context-is-everything 02-track-everything-in-git 03-one-agent-one-job 04-research-before-you-build 05-validate-externally 06-lock-progress-forward 07-extract-learnings 08-compound-knowledge 09-measure-what-matters 10-isolate-workers 11-supervise-hierarchically 12-harvest-failures-as-wisdom"
+          expected="01-context-is-everything 02-track-everything-in-git 03-one-agent-one-job 04-enforce-least-privilege 05-research-before-you-build 06-isolate-workers 07-validate-externally 08-lock-progress-forward 09-extract-learnings 10-compound-knowledge 11-supervise-hierarchically 12-measure-outcomes"
           missing=0
           for name in $expected; do
             if [ ! -f "factors/${name}.md" ]; then
