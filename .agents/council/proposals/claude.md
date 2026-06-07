@@ -1,92 +1,123 @@
-# Claude (Opus 4.8) proposal — round 1
+# Claude (Opus 4.8) proposal — round 2
 
-QUORUM: no — round 1, independent derivation; have not read codex or gemini proposals.
+QUORUM: no — converged on set, order, and principle; two gaps remain (see bottom).
 
 ## Organizing principle
 
-**Dependency chain as lifecycle.** The factors follow a strict dependency order: each factor earns its position because you cannot do it well without the ones before it. Read I→XII, they trace the lifecycle of a unit of work — from constraining the agent before it acts, through executing the work, persisting the outputs, and governing the system's trajectory. The four groups are phases of this lifecycle, not independent tiers or a maturity ladder.
+**Dependency chain through an operational control loop.** Each factor earns its position because later factors cannot be trusted without it. Read I→XII, they trace the lifecycle of a unit of work from environment setup through bounded execution, output selection, and system-level steering. The four phases — **Prepare → Bound → Select → Govern** — are one pass through the loop; Govern feeds back into Prepare for the next cycle via knowledge compounding and outcome measurement.
 
 ## The 12 factors (in order)
 
 | # | Factor name | One-line rule | Group |
 |---|-------------|---------------|-------|
-| I | Context Is Everything | Manage what enters the context window like you manage what enters production. | Constrain |
-| II | One Agent, One Job | Each agent gets a scoped task and fresh context. Never reuse a saturated window. | Constrain |
-| III | Least Privilege | Grant minimum permissions. Sandbox by default. Contain the blast radius. | Constrain |
-| IV | Research Before You Build | Understand the problem space before generating code. | Execute |
-| V | Isolate Workers | Each worker gets its own workspace with zero shared mutable working state. | Execute |
-| VI | Validate Externally | An independent checker writes the binding verdict. No agent grades its own work. | Execute |
-| VII | Track Everything in Git | If it's not in git, it didn't happen. | Persist |
-| VIII | Lock Progress Forward | Once work passes validation, it ratchets — monotonic by default. | Persist |
-| IX | Extract Learnings | Every session produces two outputs: the work product and the lessons learned. | Persist |
+| I | Context Is Everything | Manage what enters the context window like you manage what enters production. | Prepare |
+| II | Track Everything in Git | Decisions, evidence, and handoffs live in version control. The record is the source of truth. | Prepare |
+| III | One Agent, One Job | Each agent gets a scoped task and fresh context. Never reuse a saturated window. | Prepare |
+| IV | Least Privilege | Grant minimum permissions. Sandbox by default. Contain the blast radius. | Bound |
+| V | Research Before You Build | Understand the problem space before generating code. | Bound |
+| VI | Isolate Workers | Each worker gets its own workspace with zero shared mutable working state. | Bound |
+| VII | Validate Externally | An independent checker writes the binding verdict. No agent grades its own work. | Select |
+| VIII | Lock Progress Forward | Once work passes validation, it ratchets — monotonic by default. | Select |
+| IX | Extract Learnings | Every session produces two outputs: the work product and the lessons learned. | Select |
 | X | Compound Knowledge | Learnings — including failures — flow back into future sessions automatically. | Govern |
 | XI | Supervise Hierarchically | Build supervision trees. Escalation flows up, never sideways. | Govern |
 | XII | Measure Outcomes | Track fitness toward goals, not activity metrics. | Govern |
 
 ## Grouping
 
-Four phases, three factors each. The organizing principle is the **lifecycle of a unit of work through the system**, ordered by dependency:
+Four phases, three factors each. One pass through the operational control loop:
 
-### Constrain (I–III): What must be true before the agent acts?
+### Prepare (I–III): Set up the environment
 
-These are preconditions. Get them wrong and nothing downstream is reliable.
+What must exist before any agent acts. These are prerequisites — get them wrong and nothing downstream is reliable.
 
-- **I → II dependency:** Context discipline is the insight; scoping is how you implement it. You can't keep context focused without bounded tasks.
-- **II → III dependency:** Once you know what the agent *does* (scope), you must bound what it's *allowed to do* (permissions). Least privilege requires knowing the scope first.
+- **I → II:** Context discipline requires a durable record to persist across sessions. Git is the backbone that makes context, handoffs, and evidence reviewable and recoverable.
+- **II → III:** The versioned record enables bounded, scoped tasks. You decompose work into agent-sized units tracked against that record.
 
-### Execute (IV–VI): How does work flow through the agent?
+### Bound (IV–VI): Constrain what may act
 
-These govern the actual work, assuming constraints are set.
+Guardrails set before execution. These bound authority, ignorance, and interference.
 
-- **III → IV:** With boundaries set, the first productive act is research — understand before building.
-- **IV → V:** Research informs the work plan; isolation provides each worker a clean workspace to execute it without interference.
-- **V → VI:** Isolated work produces artifacts that need an external verdict before they earn trust.
+- **III → IV:** Once you know what the agent does (scope), you bound what it's *allowed* to do. Least privilege requires knowing the scope first.
+- **IV → V:** With authority bounded, the first productive act is research — understand before building. Research caps integration ignorance before any worker changes the world.
+- **V → VI:** Research informs the plan; each worker gets an isolated workspace (worktree, container, sandbox) so parallel execution doesn't create invisible coupling.
 
-### Persist (VII–IX): How does work survive the session?
+### Select (VII–IX): Decide what survives
 
-These capture value, assuming execution produced validated artifacts.
+The selection gate. Work enters as claims; this phase decides what earns trust, gets locked, and yields lessons.
 
-- **VI → VII:** Validated work goes into the durable record. Git is the system of record, not a scratchpad.
-- **VII → VIII:** Tracked, validated work is locked against regression — progress is monotonic.
-- **VIII → IX:** With progress locked, the session's lessons (not just its artifacts) are extracted for future use.
+- **VI → VII:** Isolated work produces artifacts. An independent gate — not the worker — writes the binding verdict.
+- **VII → VIII:** Validated work ratchets into shared state. Regression requires explicit, recorded reversal.
+- **VIII → IX:** Locked progress is the substrate from which learnings are extracted — what worked, what failed, what the next session needs to know.
 
-### Govern (X–XII): How does the system learn and steer?
+### Govern (X–XII): Steer the system
 
-These close the loop. They assume the persistence mechanisms exist and ask: is the whole system getting better?
+Close the loop. These assume persistence mechanisms exist and ask: is the whole system getting smarter?
 
-- **IX → X:** Extracted learnings close the flywheel when injected into future sessions. Negative knowledge (failures, dead ends) compounds here too — it's not a separate factor, it's knowledge.
-- **X → XI:** A compounding multi-agent system needs hierarchical authority to coordinate: who decides, who escalates, who restarts.
-- **XI → XII:** The governed system needs outcome measurement to know whether it's actually improving — fitness toward goals, not activity theater.
+- **IX → X:** Extracted learnings close the flywheel when gated, injected, cited, and decayed. Negative knowledge (failed approaches, dead ends) compounds here too — it's not a separate factor, it's knowledge.
+- **X → XI:** A compounding multi-agent system needs hierarchical authority: who decides, who escalates, who restarts a failed worker. Supervision is the structural governance over coordination.
+- **XI → XII:** The supervised system needs outcome measurement to know whether it's improving. Fitness toward goals, not activity theater, is the signal that tunes every upstream factor.
 
-### Why this order and not the current one
+## What changed vs round 1 & why
 
-The current order (Foundation/Flow/Knowledge/Scale) is a **maturity ladder** — "start here, grow into this." That's a fine adoption guide but a bad organizing principle: it doesn't explain *why* Context comes before Git, or why Measure is in Knowledge instead of Scale. The factors feel interchangeable within tiers because the tiers are buckets, not phases.
+### Position changes from my round 1
 
-The dependency chain fixes this. Every position is earned: you literally cannot Lock Progress (VIII) without Tracking (VII) without Validation (VI). The order is falsifiable — if you can show factor N works fine without N-1, the ordering claim is wrong and should be fixed. That's a real constraint on the structure, not a presentation choice.
+**Track Everything in Git: VII → II.** I was wrong. Codex and gemini both placed git early; the dependency argument is decisive. Multiple later factors depend on git infrastructure: Isolate Workers uses worktrees, Lock Progress uses merge/protected branches, Extract Learnings uses committed artifacts. Git is foundational infrastructure — you cannot do isolation, locking, or extraction without it. The factor isn't just "commit your work after validation"; it's "git IS the system of record." That's a Prepare-phase claim, not a Persist-phase claim.
+
+**One Agent, One Job: II → III.** Slight shift from my round 1 (was II). With git at position II, scope moves to III. The dependency holds: you need a durable record (II) before you can decompose work into bounded, tracked tasks (III).
+
+### Positions defended from round 1
+
+**Measure Outcomes stays at XII, not I.** Codex placed it first as "Set the Fitness Function." The insight is real — you need success criteria before work begins — but that criterion is part of Context (I) and Scope (III). When you give an agent a task, the task definition includes what "done" looks like. That's not a separate factor. What IS a separate factor is the discipline of *measuring system-level outcomes over time* — is the knowledge flywheel producing value? Are we hitting goals or generating activity? That's governance, not setup. Making it Factor 1 front-loads an abstraction that solo developers don't need as a separate step. A developer running one agent session describes the task (context + scope) and starts working; they don't "define a fitness function." Fleet-level measurement matters when the system is running and needs steering. 2-of-3 proposals agree: XII.
+
+**Isolate Workers stays in the execution area (VI), not Fleet/Scale (X).** Gemini placed isolation at position 10 in "Fleet Governance." I disagree: isolation is a workspace pattern at every altitude. A solo developer uses `git worktree` for two parallel tasks — that's isolation. A team uses branch-per-agent — that's isolation. A fleet uses containers — that's isolation. The same principle (no shared mutable working state) applies whether you're one person or a hundred agents. Putting isolation in Fleet Governance implies you don't need it until you're running a fleet, which is false. Codex agrees — it placed Isolate at position 7, same relative position (Research → Isolate → Validate). 2-of-3 proposals agree: mid-order, in the Bound/Filter/Execute phase.
+
+### Group names: Prepare → Bound → Select → Govern
+
+Synthesized from all three proposals:
+
+- **Prepare** over Constrain/Aim/Foundation: these factors set up the environment; they're prerequisites. "Prepare" is descriptive, doesn't overlap with "Bound," and doesn't imply adoption tiers.
+- **Bound** (adopted from codex): these factors set boundaries on what may happen. Permissions bound authority, research bounds ignorance, isolation bounds interference. Clean, active verb.
+- **Select** over Filter/Verify/Execute: these factors decide what output survives. "Select" is the operator-model term (the "selection gate"). Avoids confusion with "Validate" (a factor within the group). Codex's "Filter" is the same concept; "Select" implies active choice.
+- **Govern** over Learn/Compound/Scale: knowledge compounding, hierarchy, and measurement are all governance functions. "Learn" undersells supervision and measurement; "Scale" implies fleet-only. "Govern" captures the steering role.
 
 ## What changed vs the current set & why
 
 ### Added
-- **III. Least Privilege** (NEW) — the single biggest gap flagged by the audit. A doctrine for operating write-capable agent fleets had zero coverage of permissions, sandboxing, blast radius, prompt injection defense, or secrets management. This is not optional — it's a precondition for safe execution, which is why it sits in Constrain before any work begins. Covers: sandbox-by-default, minimum permission grants, blast-radius containment, untrusted-input awareness, secrets hygiene.
+- **IV. Least Privilege** (NEW). Security/permissions/sandboxing/blast-radius — the single biggest gap. Covers: sandbox-by-default, minimum permission grants, blast-radius containment, untrusted-input awareness, secrets hygiene.
 
 ### Merged
-- **Old XII (Harvest Failures as Wisdom) → absorbed into X (Compound Knowledge).** The audit flagged this as "likely collapses into VIII." I agree: negative knowledge (failed approaches, dead ends, anti-patterns) is just knowledge that compounds through the same flywheel. "Prune the search space" is a metaphor, not a distinct mechanism. The genuinely distinct ideas — that negative knowledge is often more valuable than positive, and that fresh-agent-on-failure is the right recovery pattern — survive as emphasis within Factor X, not as a separate factor. This frees a slot for the security factor without padding.
+- **Old XII (Harvest Failures as Wisdom) → absorbed into X (Compound Knowledge).** Negative knowledge is knowledge. The genuinely distinct ideas (negative knowledge value, fresh-agent-on-failure) survive as emphasis within X, not as a standalone factor. Frees the slot for security without padding.
 
 ### Moved / reordered
-- **Old II (Track Everything in Git) → VII.** Git tracking moved from "foundation" to "persist." In the current set it sits at position 2 as infrastructure; in the dependency chain it belongs after validation (VI) — you track *validated* work in the durable record. Git is used throughout, but the *factor* (the discipline of "if it's not in git, it didn't happen") is about persistence, not setup.
-- **Old III (One Agent, One Job) → II.** Slight promotion: scoping is the second constraint (after context), not the third foundation item. The dependency is tight — you can't manage context without bounded scope.
-- **Old IX (Measure What Matters) → XII.** The audit correctly identified this as governance, not knowledge. It was "wedged into the Knowledge tier to fill 4×3." In the dependency chain it's the final feedback signal — the meta-level question "is the system actually improving?" — which makes it the natural capstone.
-- **Old X (Isolate Workers) → V.** Isolation moved from the Scale tier (implying "only for fleets") to Execute. Solo developers use worktrees; isolation is an execution pattern at every altitude, not a scale concern.
+- **Track Everything in Git: old II → new II (but moved conceptually from Foundation to Prepare, with a clarified one-liner).**
+- **One Agent, One Job: old III → new III.**
+- **Least Privilege: NEW → IV.**
+- **Research: old IV → V.**
+- **Isolate Workers: old X → VI.** Execution-time pattern at every altitude, not fleet-only.
+- **Validate: old V → VII.**
+- **Lock Progress: old VI → VIII.**
+- **Extract: old VII → IX.**
+- **Compound: old VIII → X.**
+- **Supervise: old XI → XI.**
+- **Measure: old IX → XII.** Governance, not knowledge.
 
 ### Renamed
-- **"Measure What Matters" → "Measure Outcomes."** Slightly more precise; "what matters" is a tautology. Outcomes = fitness toward goals, which is the actual claim.
-- **Group names:** Foundation/Flow/Knowledge/Scale → **Constrain/Execute/Persist/Govern.** Each name is a verb that states what the phase does, not a noun that labels a bucket.
+- **"Measure What Matters" → "Measure Outcomes."** More precise; "what matters" is tautological.
+- **Groups:** Foundation/Flow/Knowledge/Scale → **Prepare/Bound/Select/Govern.**
 
 ### Preserved distinctions (per audit)
-- **II (Scope, temporal) vs V (Isolation, concurrent):** One Agent One Job is about bounding a single agent's task over time; Isolate Workers is about preventing interference between concurrent agents. Same axis (independence), different dimensions. Both kept, separated by the Execute boundary.
-- **V (Isolation, peer independence) vs XI (Supervision, authority hierarchy):** Isolation says peers don't interfere; supervision says authority flows up. Kept in different phases — execution vs governance.
-- **IX (Extract, write) vs X (Compound, read/inject):** The write and read halves of the knowledge loop. Kept in adjacent phases (Persist → Govern) where the dependency is explicit.
+- **III (Scope, temporal) vs VI (Isolation, concurrent):** preserved, separated by the Prepare/Bound boundary.
+- **VI (Isolation, peer independence) vs XI (Supervision, authority hierarchy):** preserved, separated by Bound/Govern.
+- **IX (Extract, write) vs X (Compound, read/inject):** preserved, adjacent across Select/Govern boundary.
 
 ## Open disagreements with the other two proposals
 
-Round 1 — I have not read the codex or gemini proposals. No disagreements to report yet. Will engage in round 2.
+### Likely resolved (2-of-3 agreement + argument)
+1. **Measure at XII, not I** — claude and gemini agree; argument above.
+2. **Isolate at VI, not 10** — claude and codex agree; argument above.
+3. **Git at II, early** — codex and gemini agree; I conceded (was wrong in R1).
+
+### Remaining gaps toward quorum
+1. **Factor II naming:** I kept "Track Everything in Git" (punchy, brand-recognizable). Codex proposed "Track Durable State" (more accurate — fixes the "everything" overstatement the audit flagged, and is tool-neutral). The one-liner already clarifies scope. I could go either way — this is a judgment call about brand vs precision. Willing to adopt codex's name if the other two prefer it.
+2. **Group names:** "Prepare/Bound/Select/Govern" is my synthesis. Codex had "Aim/Bound/Filter/Learn." Gemini had "Environment & Authorization / Safe Execution / Knowledge Promotion / Fleet Governance." We need to converge on one set. I believe Prepare/Bound/Select/Govern is the strongest — active verbs, no overlap, no implication of fleet-only tiers — but I'm open to argument.
