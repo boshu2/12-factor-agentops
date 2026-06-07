@@ -4,7 +4,7 @@
 
 **If it's not in git, it didn't happen.**
 
-Not just code. Issues, learnings, patterns, session artifacts, decisions, failure analyses, agent handoffs—everything. Git gives you history, diffability, collaboration, and auditability for free. When your agent's knowledge base, issue tracker, and work artifacts all live in the repo, any agent can pick up where any other left off.
+Not just code. Issues, learnings, patterns, session artifacts, decisions, failure analyses, agent handoffs—everything. The durable *record* lives in git: for large or binary artifacts, that means a committed reference (path, hash, location) while the artifact itself lives in git-lfs or object storage. Either way, git is the index of record. Git gives you history, diffability, collaboration, and auditability for free. When your agent's knowledge base, issue tracker, and work artifacts all live in (or are referenced from) the repo, any agent can pick up where any other left off.
 
 ## Rationale
 
@@ -115,7 +115,7 @@ Agent A and Agent B both update the same issue simultaneously. Agent A marks it 
 
 Traditional approach: Last write wins. Either A's update or B's update disappears, depending on who commits last. Or you've built a complex CRDT/operational transform system. Or you lock the issue while someone's editing it.
 
-Git-tracked approach: Both agents commit to their branches. When they push, git detects the conflict. The conflict is in a text file (the issue's JSON or YAML). A human or automated merge process resolves it. Standard git conflict resolution. No custom logic required.
+Git-tracked approach: Both agents commit to their branches. When they push, git surfaces the divergence. But beware: a raw line-level merge of structured JSON or YAML routinely produces *silently corrupt* output—two valid edits to adjacent fields can merge cleanly and still yield a semantically broken record (a status that contradicts its notes, a duplicated key, a half-applied state transition). Structured-data concurrency needs conflict-aware tooling, not raw `git merge`. The durable pattern is append-only logs (JSONL, one record per line) plus a sync step that reconciles by ID—so two agents appending different events never collide on the same line. The state stays in git and stays diffable; the tooling, not the line-merge, guarantees it's coherent.
 
 ### The Distributed Work Case
 
@@ -149,7 +149,7 @@ Closing an issue: `bd close bd-003` → commits the change
 
 Querying issues: `bd list --status=open` → reads files, no API call
 
-The entire issue database is 200KB of JSON. You can `git clone` it in milliseconds. You can `git log` it to see every state transition. You can `git bisect` it to find when an issue was introduced.
+The entire issue database is 200KB of JSON. You can `git clone` it in milliseconds. You can `git log` it to see every state transition. You can `git log -S "bd-xyz"` (or `git log --follow -- .beads/bd-xyz.json`) to find exactly when an issue first appeared and every commit that touched it.
 
 No database server. No API. No credentials. Just files and git.
 

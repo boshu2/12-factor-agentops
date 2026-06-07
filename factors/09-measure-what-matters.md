@@ -18,7 +18,7 @@ Measure outcomes, not motions. Track learning, not churn. Optimize for goal comp
 
 In operator-model terms, measurement defines the **fitness gradient**. It tells the environment what counts as better, what counts as worse, and which outcomes deserve to survive, repeat, or stop.
 
-And understand this: **dormancy is success.** When goals are met and the system stops generating work, you've won. Manufacturing new activity to keep metrics climbing is the opposite of operational discipline.
+And understand this: **for work with a terminal state, dormancy on completion is success.** When the goal is met and the system stops generating work, you've won; manufacturing new activity to keep metrics climbing is the opposite of operational discipline. For continuous-operations agents—monitoring, on-call, SRE/platform—there is no terminal "done," so the success signal isn't idleness but *steady state with declining intervention*: the system keeps running, and over time it needs you less.
 
 ---
 
@@ -64,7 +64,7 @@ These metrics create perverse incentives. They reward motion over progress. They
 - **Cost per goal**: What's the total resource cost to achieve a goal?
 - **Dormancy cycles**: How often does the system correctly recognize goal completion and stop?
 
-These metrics are harder to game. They require actual progress. They align agent behavior with desired outcomes.
+These metrics are resistant to *activity*-gaming—you can't fake them by burning tokens or fragmenting sessions. But they're still vulnerable to *goal-redefinition*: shrink the goal, move the finish line, or quietly reclassify "done," and the numbers flatter you again (the manufactured-work spiral above is exactly this). The metric can't defend its own definition—governance has to. Guard the goals: who's allowed to define and change them, and by what review.
 
 ### The Fitness Gradient
 
@@ -81,11 +81,11 @@ If any of these are missing, metrics drift into theater. A dashboard without gat
 
 ### The Dormancy Principle
 
-**The healthiest system is one that knows when to stop.**
+**For bounded work, the healthiest system is one that knows when to stop.**
 
 In natural systems, fitness includes rest. Muscles grow during recovery, not during exercise. Forests regenerate during dormancy. Predators sleep between hunts.
 
-In agent systems, **dormancy is the ultimate success signal:**
+This principle applies to work with a terminal state—ship a feature, fix a bug, complete a migration. It does *not* mean a monitoring or on-call agent should go idle; for continuous-operations work the equivalent of dormancy is a quiet steady state where intervention keeps falling, not a system that shuts off. With that scope, **dormancy is the ultimate success signal for terminal work:**
 - Goals are met → system stops
 - No new high-priority work → system waits
 - Knowledge is sufficient → no research needed
@@ -98,7 +98,7 @@ Manufacturing activity when goals are complete is pathological. It wastes resour
 - Track "percentage of time idle with goals met" (higher is better)
 - Track "cost per goal achieved" (lower is better, discouraging unnecessary activity)
 
-The agent that completes its goals and shuts down is more valuable than the agent that stays busy but never finishes.
+For a bounded task, the agent that completes its goals and shuts down is more valuable than the agent that stays busy but never finishes. (For a continuous-operations agent the comparison is different: there's nothing to "shut down"—value shows up as the same coverage with fewer interventions.)
 
 ### The Cost of Wrong Metrics
 
@@ -488,7 +488,7 @@ Uptime percentage tells you if systems are running. Dormancy rate tells you if s
 
 **You get what you measure.** If you measure busyness, you get busy agents accomplishing nothing. If you measure goal completion, you get agents that finish work and stop.
 
-The healthiest agent is the one that completes its mission efficiently and goes dormant.
+For bounded work, the healthiest agent is the one that completes its mission efficiently and goes dormant; for continuous operations, it's the one that holds steady state while needing you less over time.
 
 Measurement plus gates create the fitness gradient. Governance decides which gradients matter. Everything else is noise.
 

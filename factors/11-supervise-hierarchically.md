@@ -54,12 +54,12 @@ Flat topologies optimize for "everyone is equal." But equality doesn't resolve c
 
 ### Supervision Trees: The Erlang Model
 
-Erlang's OTP supervision trees are the gold standard for fault-tolerant systems. The pattern:
+Erlang's OTP supervision trees are the canonical analogy here — but borrow the shape, not the mechanism. OTP restarts *deterministic* processes back to a *known* state, and its supervisors never diagnose or reframe; they just apply a restart strategy. Agents are stochastic, so "restart with fresh context" does not restore a known-good state, and the supervisors in this factor do more than OTP's ever do (they diagnose, reframe, and re-decompose). With that caveat, the structural pattern is:
 
 1. **Workers do work.** They don't manage failures beyond local retries.
 2. **Supervisors manage workers.** They decide restart strategies, timeouts, and escalation.
 3. **Supervisors supervise supervisors.** Failures at one level trigger decisions at the next.
-4. **The top is always stable.** The root supervisor never crashes. It's the ultimate fallback.
+4. **The top is the guarantee.** A root supervisor *can* crash — and in OTP, if it does, it takes the application down. The guarantee is the restart *strategy*, not the root process itself. It's the ultimate fallback only because its strategy is.
 
 In multi-agent systems:
 
@@ -426,8 +426,8 @@ Build the tree. Let it fail. Watch it recover.
 
 ## Further Reading
 
-- **Factor X: Dispose Gracefully** — Clean shutdown enables clean restarts
-- **Factor XII: Orchestrate Declaratively** — Declare the tree structure, let runtime enforce it
+- **Factor X: Isolate Workers** — Isolated workers can be restarted without corrupting siblings
+- **Factor XII: Harvest Failures as Wisdom** — Escalated failures become learnings, not just retries
 - Erlang OTP Design Principles (supervision trees)
 - Gas Town Witness documentation (`gt witness --help`)
 - Kubernetes controller hierarchy (similar pattern for container orchestration)

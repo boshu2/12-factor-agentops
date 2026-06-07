@@ -10,13 +10,13 @@ Learnings must flow back into future sessions automatically. This factor is the 
 
 Seen through the operator model, this is where a **stateful environment** becomes smarter than any single session. The actors remain replaceable. The environment carries continuity through learnings, citations, checkpoints, and reusable rules. Intelligence compounds when those traces move through **promotion loops** instead of sitting in storage.
 
-The compounding equation must hold:
+The compounding condition, as a directional heuristic (not a literal formula — the terms aren't dimensionally comparable, so read this as "which way the pressure points," not arithmetic):
 
 ```
-retrieval_rate × citation_rate > decay_rate
+knowledge that gets retrieved AND cited  >  knowledge that goes stale
 ```
 
-If this inequality fails, your knowledge decays to zero. If it holds, session 50 outperforms session 1 on the same model, same hardware, same code. This is the one capability that cannot be replicated by better models, faster APIs, or new frameworks.
+If stale knowledge accrues faster than useful knowledge gets retrieved and cited, compounding *stalls* — the store doesn't literally go to zero (extracted artifacts persist on disk), but it stops getting smarter and rots toward noise. If the balance tips the other way, session 50 outperforms session 1 on the same model, same hardware, same code. That compounding is the one capability better models, faster APIs, or new frameworks don't replace.
 
 **Observable symptoms of missing compounding:**
 - Agents suggest approaches already tried and rejected
@@ -371,7 +371,7 @@ Retrieval rate:  0.87 (52/60 sessions)
 Citation rate:   0.74 (127/172 injected learnings cited)
 Decay rate:      0.08 (12/150 learnings pruned in last 10 sessions)
 
-Compounding:     0.87 × 0.74 = 0.644 > 0.08 ✓
+Compounding:     0.87 × 0.74 = 0.64, comfortably ahead of 0.08 decay ✓
 
 HEALTH: GOOD
 - Knowledge is compounding

@@ -4,7 +4,9 @@
 
 ## Rule
 
-**Each worker gets its own workspace, its own context, and zero shared mutable state.**
+**Each worker gets its own workspace, its own context, and zero shared mutable *working* state.**
+
+The qualifier "working" is load-bearing: workers *do* share a coordination substrate — the issue tracker they claim from, the `main` branch the merge queue advances. That shared state is append-mostly and gated, and it's how isolated workers cooperate at all. What they must never share is mutable *working* state: a worktree, a context window, temp files, locks. Share the coordination layer; isolate everything in flight.
 
 Where [Factor III](./03-one-agent-one-job.md) scopes *one* agent over time — a fresh window between phases so research context doesn't bleed into implementation — this factor keeps *many* agents from contaminating each other at once. Same word, "fresh context," two different axes: III is temporal (one worker, phase to phase), X is concurrent (many workers, side by side).
 

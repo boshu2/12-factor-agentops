@@ -20,7 +20,7 @@ You cannot.
 
 Research on the "lost in the middle" effect (Liu et al., 2023) demonstrates that LLMs attend strongly to the beginning and end of their context window but lose track of information in the middle. Place a critical fact in the middle of a 100K-token context and the model may ignore it entirely, even when that fact is the key to answering the question you just asked.
 
-This isn't a bug. It's how attention mechanisms work. The model has finite computational resources to distribute across the entire context. Early tokens and recent tokens get the most attention. The middle gets less. The longer the context, the more severe this effect becomes.
+This isn't a fixed law of attention — it's an empirical, training-dependent artifact. Models have *historically* shown a strong lost-in-the-middle effect, but how severe it is varies by model, and on modern long-context models it is diminishing rather than guaranteed. Treat it as a tendency to design against, not a property you can count on every model exhibiting. The practical takeaway holds regardless: when it shows up, information buried in the middle of a long context can be effectively ignored, and longer contexts make that failure more likely.
 
 ### Observable Symptoms of Context Overload
 
@@ -329,13 +329,15 @@ Treat your context budget like production resources. Allocate deliberately. Moni
 
 ## The 40% Rule
 
-A practical heuristic: keep your context utilization under 40% of the window size. If your model has 200K tokens, aim to stay under 80K of active context.
+A practical rule-of-thumb: keep your context utilization under roughly 40% of the window size. If your model has 200K tokens, aim to stay under 80K of active context.
 
-Why 40%? Three reasons:
+To be clear about what this number is: 40% is a conservative, made-up-on-purpose starting point, not a measured threshold. No study identifies 40% as a cliff, and it does not fall out of the lost-in-the-middle research. It's a deliberately cautious default chosen to leave headroom — the *direction* (less is safer) is well supported; the *specific number* is a convention, not a finding. Pick your own once you've watched your own results.
+
+Why a number this low? Three reasons:
 
 1. **The model needs room to reason.** Generated output consumes context too. If you start at 160K tokens in a 200K window, the model has 40K tokens to respond — barely enough for a complex implementation.
 
-2. **Attention quality degrades before the hard limit.** The "lost in the middle" effect intensifies as context grows. At 40% utilization, you're in the sweet spot where attention is distributed well. At 80%, the middle is largely ignored.
+2. **Attention quality tends to degrade before the hard limit.** When the lost-in-the-middle effect is present, it intensifies as context grows. There's no measured "sweet spot" at 40% versus a cliff at 80% — these aren't empirical breakpoints. The point is directional: keeping utilization low buys margin against an effect that gets worse the fuller the window gets, on the models that exhibit it.
 
 3. **Buffer for unexpected context.** Tool calls return variable amounts of data. A file read might return 500 tokens or 5,000. If you're already at 90% capacity, one unexpected result pushes you over the cliff.
 

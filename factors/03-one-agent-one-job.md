@@ -5,7 +5,7 @@
 
 Each agent gets a scoped task and fresh context. Never reuse a saturated window.
 
-An agent that just finished researching your auth system is the worst agent to implement the fix — its window is full of research context, not implementation context. Spawn fresh. Scope tight.
+An agent that just finished researching your auth system is often a poor choice to implement a large or cross-cutting fix — its window is full of research context, not implementation context. The exception matters: for a small, local change, the research-warm agent is frequently the *better* choice, because it still holds the live mental model and a fresh handoff is lossy — you pay to re-summarize and you lose nuance that never made it into the notes. The rule earns its keep when the implementation surface is big enough that clean context beats warm context. Spawn fresh. Scope tight.
 
 When an agent completes a phase of work, end its session. The next phase gets a new agent with a clean window, loaded with only what it needs to execute.
 
@@ -92,7 +92,7 @@ The handoff document might be 500 words. The conversation that produced it might
 Spawn a new agent when:
 
 - **Phase transition**: Research → Planning → Implementation → Validation
-- **Context saturation**: Window >70% full, losing room for new work
+- **Context saturation**: window getting full (a rough ~70% is a conservative trigger, not a measured limit), losing room for new work
 - **Task completion**: Finished one issue, starting another unrelated issue
 - **Confusion**: Agent is contradicting itself, referencing stale information
 - **Scope change**: Original task expanded into something significantly different
@@ -511,11 +511,11 @@ Next phase loads the document, not the conversation. This forces you to distill.
 
 If you can't summarize the phase output in a document, the phase wasn't complete. Keep working until you can distill.
 
-#### The 50-Exchange Rule
+#### The 50-Exchange Heuristic
 
-If your conversation with an agent exceeds 50 exchanges (100 messages total), it's saturated. End it.
+A rough rule of thumb: somewhere around 50 exchanges (100 messages total), many sessions are saturated — consider ending it. But read this for what it is: a heuristic, not a measured constant. What actually saturates a window is *tokens*, not exchange count, and the two only correlate loosely. Fifty one-line back-and-forths might burn a few thousand tokens and leave plenty of room; fifty exchanges that each dump a file or a long tool output can blow past the limit. Use exchange count only as a cheap proxy when you can't see real token usage — the per-turn weight is what matters, so trust the behavioral signals below over any fixed number.
 
-Either:
+When the session is genuinely saturated, either:
 1. You're done → Close the issue, end session
 2. You're mid-work → Distill what you learned, end session, spawn fresh with summary
 

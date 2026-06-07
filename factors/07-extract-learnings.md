@@ -523,4 +523,4 @@ Don't let your knowledge evaporate. Extract it. Structure it. Make it searchable
 
 Your future self will thank you. Your teammates will thank you. Your organization will accumulate knowledge instead of resetting to zero with every personnel change.
 
-**Extract from every session. No exceptions.**
+**Extract from every session that taught you something — and most non-trivial sessions do.**
