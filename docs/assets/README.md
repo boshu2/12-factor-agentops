@@ -6,14 +6,13 @@ This directory contains visual diagrams and assets for the 12-Factor AgentOps fr
 
 ### 12-Factor Landscape (`12-factor-landscape.svg`)
 
-**Purpose:** Comprehensive overview of all 12 factors organized by their operational layers.
+**Purpose:** The 12 factors as a four-phase control loop.
 
 **Shows:**
-- All 12 factors in a clear 4×3 grid layout
-- Four tiers: Foundation (I-III), Workflow (IV-VI), Knowledge (VII-IX), Scale (X-XII)
-- Brief description of what each factor does
-- Visual flow showing how factors build on each other
-- Continuous feedback loop across all tiers
+- All 12 factors grouped into four phases of three
+- Four phases: Prepare (I-III), Bound (IV-VI), Select (VII-IX), Govern (X-XII)
+- The forward flow Prepare → Bound → Select → Govern
+- The feedback edge: Govern feeds back into Prepare ("the loop closes")
 
 **Use cases:**
 - Repository README
@@ -22,7 +21,7 @@ This directory contains visual diagrams and assets for the 12-Factor AgentOps fr
 - Educational materials
 - Social media sharing
 
-**Dimensions:** 1200×900px
+**Dimensions:** 960×410px (scales fluidly)
 
 ---
 
