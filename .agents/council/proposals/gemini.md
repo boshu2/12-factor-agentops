@@ -1,47 +1,61 @@
-# Gemini 3.5 Flash proposal — round 1
+# Gemini 3.5 Flash proposal — round 2
+
+QUORUM: yes
+
+Agreed 12 Factors:
+1. Context Is Everything
+2. Track Everything in Git
+3. One Agent, One Job
+4. Enforce Least Privilege
+5. Research Before You Build
+6. Isolate Workers
+7. Validate Externally
+8. Lock Progress Forward
+9. Extract Learnings
+10. Compound Knowledge
+11. Supervise Hierarchically
+12. Measure Outcomes
 
 ## Organizing principle
-The 12 factors are organized by **The Operational Lifecycle of Bounded Autonomy**, a logical dependency chain tracing a run from initialization to scaling. An agentic system must first configure its environment and authorization boundaries (Tier 1), formulate plans and execute them safely (Tier 2), capture and feed back insights from those runs (Tier 3), and finally scale to coordinated multi-agent fleets (Tier 4). Each tier establishes the structural prerequisites for the next, moving from the setup of a single actor to the governance of a fleet.
+The 12 factors are organized by the **Operational Lifecycle of Bounded Autonomy**, a strict dependency chain tracing a unit of work from setup to fleet scale. A system must first establish the environment and actor boundaries (**Initialize**), configure authorization and run space safety (**Protect & Plan**), verify claims via external gates and commit progress (**Verify & Commit**), and finally scale through knowledge compounding and fleet orchestration (**Scale & Govern**). Each factor earns its position because its downstream mechanisms cannot be trusted or executed without the upstream factors in place.
 
 ## The 12 factors (in order)
 | # | Factor name | One-line rule | Group |
 |---|---|---|---|
-| 1 | **Context Is Everything** | Load only relevant context; avoid attention-diluting slop. | Environment & Authorization |
-| 2 | **Track Everything in Git** | Version all state changes; establish a clear path of reversion and recovery. | Environment & Authorization |
-| 3 | **One Agent, One Job** | Limit execution scope to a single task; compose specialists rather than generalists. | Environment & Authorization |
-| 4 | **Enforce Least Privilege** | Run workers in restricted environments; validate authorization boundaries before executing write actions. | Environment & Authorization |
-| 5 | **Research Before You Build** | Verify assumptions and map dependencies before modifying code. | Safe Execution |
-| 6 | **Validate Externally** | Never let an agent grade its own work; run external test gates to verify correctness. | Safe Execution |
-| 7 | **Lock Progress Forward** | Commit verified checkpoints; never regress past a cleared gate. | Safe Execution |
-| 8 | **Extract Learnings** | Document every completion and failure; record insights as durable trace history. | Knowledge Promotion |
-| 9 | **Compound Knowledge** | Feed positive patterns and negative warnings back into the agent context; run a continuous improvement loop. | Knowledge Promotion |
-| 10 | **Isolate Workers** | Provide isolated environments for concurrent agents; prevent shared mutable working state. | Fleet Governance |
-| 11 | **Supervise Hierarchically** | Orchestrate agents through a clear delegation chain; separate workers from supervisors. | Fleet Governance |
-| 12 | **Measure What Matters** | Monitor fleet performance against business outcomes; avoid activity metrics. | Fleet Governance |
+| 1 | **Context Is Everything** | Manage what enters the context window like you manage what enters production. | Initialize |
+| 2 | **Track Everything in Git** | If it's not in git, it didn't happen. | Initialize |
+| 3 | **One Agent, One Job** | Each agent gets a scoped task and fresh context. Never reuse a saturated window. | Initialize |
+| 4 | **Enforce Least Privilege** | Grant minimum permissions, sandbox by default, and contain the blast radius. | Protect & Plan |
+| 5 | **Research Before You Build** | Verify assumptions and map dependencies before modifying integrated code. | Protect & Plan |
+| 6 | **Isolate Workers** | Parallel workers share only gated coordination state, never mutable working state. | Protect & Plan |
+| 7 | **Validate Externally** | An independent checker writes the binding verdict. No agent grades its own work. | Verify & Commit |
+| 8 | **Lock Progress Forward** | Once work passes validation, it ratchets—monotonic by default. | Verify & Commit |
+| 9 | **Extract Learnings** | Every session produces two outputs: the work product and the lessons learned. | Verify & Commit |
+| 10 | **Compound Knowledge** | Learnings—including failures—flow back into future sessions automatically. | Scale & Govern |
+| 11 | **Supervise Hierarchically** | Build supervision trees. Escalation flows up, never sideways. | Scale & Govern |
+| 12 | **Measure Outcomes** | Track fitness toward goals, not activity metrics. | Scale & Govern |
 
 ## Grouping
-The factors are organized into four sequential tiers based on the **Operational Lifecycle**:
-1. **Environment & Authorization (Factors 1–4):** Prepares the stateful environment, defines the temporary actor, and establishes security and permission boundaries before execution begins.
-2. **Safe Execution (Factors 5–7):** Covers the active mutation phase. Agents plan, modify state, and run selection gates to lock in progress and ensure correctness.
-3. **Knowledge Promotion (Factors 8–9):** Captures traces from completions and failures, promoting them into reusable context for subsequent sessions.
-4. **Fleet Governance (Factors 10–12):** Controls scale, ensuring concurrency safety, explicit supervisor-worker hierarchies, and metric-driven alignment with business goals.
-
-Each group builds on the previous one. A fleet cannot be governed (Tier 4) without a system for compounding learnings (Tier 3), which itself requires verified execution (Tier 2) running inside a secure, versioned context (Tier 1).
+The factors are organized into four symmetric, 3-factor phases representing the lifecycle:
+1. **Initialize (Factors 1–3):** Establishes the stateful environment, repository baseline, and task scope before any activity starts.
+2. **Protect & Plan (Factors 4–6):** Restricts the actor's permissions, plans mutations, and provisions isolated execution workspaces.
+3. **Verify & Commit (Factors 7–9):** Subjects changes to independent verification, commits them to the durable record, and extracts direct learnings.
+4. **Scale & Govern (Factors 10–12):** Steers the fleet by compounding learnings, defining escalation hierarchies, and measuring system outcomes.
 
 ## What changed vs the current set & why
-- **Added Security/Permissions as Factor 4 (Enforce Least Privilege):** Addressed the critical gap in the original set. Agents with write access must operate under least privilege, using sandboxes, token constraints, and input sanitization to limit the blast radius of prompt injections or malicious inputs.
-- **Merged Factor XII (Harvest Failures) into Factor IX (now Factor 9: Compound Knowledge):** Factor XII was redundant with Factor VIII; both are promotion loops. Merging them produces a single, robust "Compound Knowledge" factor that handles both positive patterns and negative warnings (failures as data).
-- **Moved Factor IX (Measure What Matters) to Factor 12 (Fleet Governance):** Originally mis-tiered in "Knowledge", metrics are a fleet-level governance and feedback mechanism, not a repository of learning.
-- **Removed pseudo-math, invented numbers, and absolutism:**
-  - *Context Is Everything:* Removed the arbitrary "40% utilization rule" and qualified "lost in the middle" as a training tendency rather than a universal law.
-  - *Track Everything in Git:* Clarified git-merge limitations for structured data, and specified that git tracks code and reference hashes, while massive/binary assets are placed in designated storage.
-  - *One Agent, One Job:* Removed the arbitrary "50-exchange / 70%" threshold limits.
-  - *Research Before You Build:* Softened the absolutist "always / no exceptions" tone.
-  - *Validate Externally:* Refined the "single-writer" separation, acknowledging worker-authored tests (TDD) as a useful but weaker self-authored gate, while external validation remains the binding verdict.
-  - *Lock Progress Forward:* Fixed the objective bug cross-referencing Factor III (now points to Factor 6: Validate Externally) and toned down "perfect filters."
-  - *Compound Knowledge:* Eliminated the dimensionally incoherent `retrieval x citation > decay` formula.
-  - *Isolate Workers:* Softened "zero shared mutable state" to "no shared mutable *working* state," acknowledging that the task tracker or Git repository are inherently shared but should not be written to concurrently by active workers.
-  - *Supervise Hierarchically:* Corrected links to external frameworks, removed the claim that root supervisors never crash, and adjusted the Erlang/OTP analogy to reflect the stochastic nature of agent recovery rather than deterministic process restarts.
+- **Added Security as Factor 4 (Enforce Least Privilege):** Addressed the security gap in the original set. Least privilege is a precondition for mutation, sitting in the "Protect & Plan" phase.
+- **Merged Factor XII (Harvest Failures) into Factor 10 (Compound Knowledge):** Negative knowledge (failures) is just knowledge that compounds through the same flywheel. The distinct mechanisms (routing hints, fresh agent recovery) are absorbed here.
+- **Moved Factor IX (Measure What Matters) to Factor 12 (Measure Outcomes):** Refocused from activity metrics to goal fitness, and placed at the end as the ultimate system-wide feedback loop.
+- **Moved Factor X (Isolate Workers) to Factor 6:** Concurrency isolation is an execution workspace requirement (relevant even for a single developer's agent) rather than an optional scale concern.
+- **Cleaned Up Audited Shortcomings:**
+  - Removed arbitrary numbers ("40% rule", "50-exchange threshold").
+  - Removed incoherent pseudo-math (`retrieval x citation > decay`).
+  - Corrected the Erlang/OTP analogy in *Supervise Hierarchically* to reflect stochastic recovery.
+  - Refined *Track Everything in Git* to clarify that git stores references and code, while massive/binary assets use git-indexed external storage.
 
 ## Open disagreements with the other two proposals
-None yet. This is Round 1, derived independently.
+None. We have reached consensus by converging on all four open items:
+1. **Measurement/Fitness (Last):** We agreed to place **Measure Outcomes** last (Factor 12) rather than first. Task-level boundaries and aiming are already handled by *One Agent, One Job* (scoping) and *Enforce Least Privilege* (budget/blast-radius limits). Placing measurement last positions it as the correct governance feedback loop for the entire system.
+2. **Track-in-Git (Early):** We agreed to place **Track Everything in Git** early (Factor 2) rather than late. Git is the foundation of the stateful environment; without it active before execution, there is no baseline to isolate (Factor 6) or diff for validation (Factor 7).
+3. **Isolate Workers (Early):** We agreed to place **Isolate Workers** in the execution phase (Factor 6) under *Protect & Plan* rather than under scaling, as workspace isolation is a safety requirement for any run.
+4. **Group Names & Boundaries:** Adopted the **Initialize → Protect & Plan → Verify & Commit → Scale & Govern** symmetric structure to perfectly balance the lifecycle phases.
