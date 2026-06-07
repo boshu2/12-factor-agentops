@@ -1,4 +1,4 @@
-# VII. Extract Learnings
+# IX. Extract Learnings
 
 ## The Rule
 
@@ -12,7 +12,7 @@ This knowledge exists for exactly as long as the session stays open. The moment 
 
 **Extraction is the difference between organizational learning and organizational amnesia.**
 
-This factor is the **write** half of the knowledge loop: capture the lesson and give it provenance so it outlives the session. Getting it *back* into a future session — retrieval, injection, decay — is a different mechanism, and it lives in [Factor VIII](./08-compound-knowledge.md). Extraction without VIII is a write-only archive; VIII without extraction has nothing to serve. The two are a producer/consumer pair, not one habit.
+This factor is the **write** half of the knowledge loop: capture the lesson and give it provenance so it outlives the session. Getting it *back* into a future session — retrieval, injection, decay — is a different mechanism, and it lives in [Factor X](./10-compound-knowledge.md). Extraction without X is a write-only archive; X without extraction has nothing to serve. The two are a producer/consumer pair, not one habit.
 
 Most people think they'll remember. They won't. Most people think the commit message is enough. It isn't. Most people think "the code is the documentation." The code shows what you built, not why you built it that way, not what you tried first, not what traps to avoid.
 

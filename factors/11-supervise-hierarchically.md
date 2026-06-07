@@ -4,11 +4,11 @@
 
 ---
 
-## Tier
+## Phase
 
-This factor is part of the **Scale tier (X–XII)**, lived at the factory altitude. Working solo you *are* the supervisor — you hold the escalation path in your head and break the ties yourself. The rule doesn't appear when you scale; it just stops fitting in one head, and the tree has to become structural. It becomes critical when multiple agents work concurrently and coordination overhead explodes without clear escalation paths.
+This factor is part of the **Govern phase (X–XII)**. Working solo you *are* the supervisor — you hold the escalation path in your head and break the ties yourself. The rule doesn't appear when you scale; it just stops fitting in one head, and the tree has to become structural. It becomes critical when multiple agents work concurrently and coordination overhead explodes without clear escalation paths.
 
-The axis here is **authority up a chain** — distinct from [Factor X](./10-isolate-workers.md), which is **independence between peers**. Isolation stops workers from corrupting each other; supervision decides who has the authority to resolve things when they conflict or get stuck. You can have one without the other: a flat swarm of isolated workers with no supervisor, or a supervisor over workers that share state. You usually want both, but they are answering different questions.
+The axis here is **authority up a chain** — distinct from [Factor VI](./06-isolate-workers.md), which is **independence between peers**. Isolation stops workers from corrupting each other; supervision decides who has the authority to resolve things when they conflict or get stuck. You can have one without the other: a flat swarm of isolated workers with no supervisor, or a supervisor over workers that share state. You usually want both, but they are answering different questions.
 
 ---
 
@@ -69,11 +69,13 @@ In multi-agent systems:
 
 When a worker fails, the supervisor decides:
 - **Restart** (same task, fresh context)
-- **Reassign** (different worker, same task)
+- **Reassign to a fresh agent** (hand the failure context — what was tried, the conditions, the error signature — to a *clean* worker)
 - **Reframe** (same worker, different approach)
 - **Escalate** (pass to next level with diagnosis)
 
 The supervisor has visibility the worker doesn't: task history, other workers' state, priority queue, global constraints.
+
+**Don't loop the saturated worker.** When a worker is stuck or has failed repeatedly, the worst place to recover from is the worker's own saturated context — it has already mapped the hole it's in, and looping it back through the same approach burns compute for nothing. The supervision move is to *escalate by handing the failure context to a fresh agent*: capture what was tried, the conditions, and the error signature, then start a clean worker carrying that trace. A fresh agent reading the failure record starts already narrowed, without the dead-end context dragging it back. This is a supervision/recovery decision — it's about *who acts* when a worker fails — which is why it lives here, not in knowledge harvesting.
 
 ---
 
@@ -292,7 +294,7 @@ When a worker fails, the supervisor tries (in order):
 
 1. **Restart:** Same task, fresh environment (clears transient state)
 2. **Retry with variation:** Same task, different approach (e.g., use merge instead of rebase)
-3. **Reassign:** Different worker, same task (maybe worker-specific issue)
+3. **Reassign to a fresh agent:** Different worker, same task, *carrying the failure context* — what was tried, the conditions, the error signature. Don't loop the saturated worker through the hole it already mapped; a clean worker reading the failure trace starts already narrowed (maybe worker-specific issue, maybe just exhausted context)
 4. **Reframe:** Same worker, reformulated task (maybe task was ambiguous)
 5. **Defer:** Put task back in queue, work on others (maybe blocker will clear)
 6. **Escalate:** Pass to next level with diagnosis (out of local options)
@@ -426,8 +428,8 @@ Build the tree. Let it fail. Watch it recover.
 
 ## Further Reading
 
-- **Factor X: Isolate Workers** — Isolated workers can be restarted without corrupting siblings
-- **Factor XII: Harvest Failures as Wisdom** — Escalated failures become learnings, not just retries
+- **Factor VI: Isolate Workers** — Isolated workers can be restarted (or replaced with a fresh agent) without corrupting siblings
+- **Factor X: Compound Knowledge** — Escalated failures become durable learnings, not just retries
 - Erlang OTP Design Principles (supervision trees)
 - Gas Town Witness documentation (`gt witness --help`)
 - Kubernetes controller hierarchy (similar pattern for container orchestration)

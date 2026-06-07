@@ -9,7 +9,7 @@ primitives, and flows that compound.
 
 <!-- Build & Status -->
 [![CI](https://img.shields.io/github/actions/workflow/status/boshu2/12-factor-agentops/validate-factors.yml?label=CI)](https://github.com/boshu2/12-factor-agentops/actions)
-[![Version](https://img.shields.io/badge/Version-3.1.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
+[![Version](https://img.shields.io/badge/Version-4.0.0-blue.svg)](https://github.com/boshu2/12-factor-agentops/releases)
 
 <!-- Technology -->
 [![12 Factors](https://img.shields.io/badge/Factors-12-00CED1.svg)](factors/)
@@ -91,7 +91,7 @@ Read learnings.md before starting any task.
 
 In Cursor, add to `.cursorrules`. In Codex, add to `AGENTS.md`. The mechanism varies; the principle doesn't.
 
-**That's it.** You're now doing Factors I (context management), II (git tracking), and VII (knowledge extraction) at a basic level. Your agent will stop repeating documented mistakes immediately.
+**That's it.** You're now doing Factors I (context management), II (git tracking), and IX (knowledge extraction) at a basic level. Your agent will stop repeating documented mistakes immediately.
 
 **When to level up:** When `learnings.md` exceeds ~50 entries or you stop reading it before sessions, you're ready for more structure.
 
@@ -99,60 +99,60 @@ In Cursor, add to `.cursorrules`. In Codex, add to `AGENTS.md`. The mechanism va
 
 ## The 12 Factors
 
-Twelve vendor-neutral principles. No factor belongs to one tool or one tier — each is the same rule lived at whatever altitude you're working, from a single agent on one task to a fleet running many. The four tiers below are an **on-ramp, not a partition**: start at the top, stop at any tier and keep the value. But "stopping" means you haven't *automated* the later factors yet — it doesn't mean they no longer apply. A solo developer still lives isolation and supervision; they just live them with a worktree and their own judgment instead of a control plane.
+Twelve vendor-neutral principles, grouped by a four-phase operational lifecycle — **Prepare → Bound → Select → Govern** — that a unit of work passes through, with Govern feeding back into Prepare. The phases are a **lens for reading the set, not a strict dependency chain**: the order is a sensible reading sequence, not a proof that each factor requires the one before it. And we hold the set at twelve on purpose — it's the recognizable name — rather than pretending exactly twelve fell out of first principles.
 
-### Foundation (I–III) — Start Here
+### Prepare (I–III) — set up the environment
 
-Non-negotiable basics that work with zero tooling. Get these wrong and nothing else matters.
+Get the inputs right before the agent acts. Cheap to do, expensive to skip.
 
 | # | Factor | The Rule |
 |---|--------|----------|
 | **[I](./factors/01-context-is-everything.md)** | **Context Is Everything** | Manage what enters the context window like you manage what enters production. |
-| **[II](./factors/02-track-everything-in-git.md)** | **Track Everything in Git** | If it's not in git, it didn't happen. |
+| **[II](./factors/02-track-everything-in-git.md)** | **Track Everything in Git** | If it's not in git, it didn't happen (a committed reference counts). |
 | **[III](./factors/03-one-agent-one-job.md)** | **One Agent, One Job** | Each agent gets a scoped task and fresh context. Never reuse a saturated window. |
 
 **Without tooling:** Keep sessions short. Start fresh for new tasks. Write handoff summaries. Commit your `learnings.md`. One issue per agent session.
 
-### Flow (IV–VI) — The Discipline
+### Bound (IV–VI) — constrain what may act
 
-How work flows through agents. The discipline that separates "prompting and hoping" from a reliable operating model.
-
-| # | Factor | The Rule |
-|---|--------|----------|
-| **[IV](./factors/04-research-before-you-build.md)** | **Research Before You Build** | Understand the problem space before generating a single line of code. |
-| **[V](./factors/05-validate-externally.md)** | **Validate Externally** | The worker emits claims plus evidence; an independent checker is the sole writer of the binding verdict. No agent grades its own work. Ever. |
-| **[VI](./factors/06-lock-progress-forward.md)** | **Lock Progress Forward** | Once work passes validation, it ratchets — it cannot regress. |
-
-**Without tooling:** Research before implementing. Have a different session (or human) review the work. Commit validated work to protected branches.
-
-### Knowledge (VII–IX) — Where Compounding Kicks In
-
-Systematic extraction and injection of knowledge. This is where sessions start getting measurably smarter over time.
+Cap what an agent is allowed to do, and what it needs to know, before it touches anything real.
 
 | # | Factor | The Rule |
 |---|--------|----------|
-| **[VII](./factors/07-extract-learnings.md)** | **Extract Learnings** | Every session produces two outputs — the work product and the lessons learned. |
-| **[VIII](./factors/08-compound-knowledge.md)** | **Compound Knowledge** | Learnings must flow back into future sessions automatically. |
-| **[IX](./factors/09-measure-what-matters.md)** | **Measure What Matters** | Track fitness toward goals, not activity metrics. |
+| **[IV](./factors/04-enforce-least-privilege.md)** | **Enforce Least Privilege** | An agent acts inside an explicit least-privilege envelope it cannot widen — not even when the input tells it to. |
+| **[V](./factors/05-research-before-you-build.md)** | **Research Before You Build** | Understand the integration surface before generating code. |
+| **[VI](./factors/06-isolate-workers.md)** | **Isolate Workers** | Concurrent workers share only gated coordination state, never mutable working state. |
 
-**Factor VIII is the hero.** It's the knowledge flywheel: extract learnings,
-gate for quality, inject into future sessions, measure retrieval, let stale
-knowledge decay. This is the differentiator that can't be commoditized —
-better models don't replace durable bookkeeping.
+**Without tooling:** Run agents with scoped credentials and a sandbox, not production keys. Research before implementing. Use git worktrees so parallel work can't collide.
 
-**Without tooling:** Manually update `learnings.md` after each session. Review it weekly and prune stale entries. It's tedious but it works. The AgentOps plugin automates this — but the principle is portable.
+### Select (VII–IX) — decide what survives
 
-### Scale (X–XII) — The Factory Altitude
-
-The same factors at fleet scale. Working solo, you live these at a small altitude — a git worktree is isolation, your own judgment is supervision, your `learnings.md` is failure harvesting. Running parallel agents on complex projects, the same three rules need real machinery. You don't *adopt* this tier so much as *grow into* its altitude; the rules were always there.
+Gate what's been produced: prove it, lock it, and capture what the session taught.
 
 | # | Factor | The Rule |
 |---|--------|----------|
-| **[X](./factors/10-isolate-workers.md)** | **Isolate Workers** | Each worker gets its own workspace, its own context, and zero shared mutable state. |
-| **[XI](./factors/11-supervise-hierarchically.md)** | **Supervise Hierarchically** | Escalation flows up, never sideways. |
-| **[XII](./factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Turn failed attempts into routing hints that prune the next agent's search; on repeat failure, hand the context to a fresh agent. |
+| **[VII](./factors/07-validate-externally.md)** | **Validate Externally** | The worker emits claims plus evidence; an independent checker writes the binding verdict. No agent grades its own work. |
+| **[VIII](./factors/08-lock-progress-forward.md)** | **Lock Progress Forward** | Once work passes validation, it ratchets — monotonic by default; regression takes an explicit, recorded reversal. |
+| **[IX](./factors/09-extract-learnings.md)** | **Extract Learnings** | Every non-trivial session produces two outputs — the work product and the lessons (including failures). |
 
-**Without tooling:** Use git worktrees for parallel work. Designate one person (or agent) as coordinator. Document what doesn't work alongside what does.
+**Without tooling:** Have a different session (or human) review the work. Commit validated work to protected branches. Append what you learned to `learnings.md` before closing the tab.
+
+### Govern (X–XII) — steer and feed back
+
+Close the loop: compound what's learned, coordinate the fleet, and steer by outcomes — feeding back into the next Prepare.
+
+| # | Factor | The Rule |
+|---|--------|----------|
+| **[X](./factors/10-compound-knowledge.md)** | **Compound Knowledge** | Learnings — positive *and* negative — flow back into future sessions automatically. |
+| **[XI](./factors/11-supervise-hierarchically.md)** | **Supervise Hierarchically** | Escalation flows up with evidence, authority flows down; a stuck worker's job goes to a fresh agent, not a retry loop. |
+| **[XII](./factors/12-measure-outcomes.md)** | **Measure Outcomes** | Track fitness toward goals, not activity — the feedback that closes the loop back to Prepare. |
+
+**Factor X is the hero.** It's the knowledge flywheel: extract (IX) feeds it, then
+gate for quality, inject into future sessions, cite, and let stale knowledge decay —
+positive and negative knowledge both. This is the differentiator that can't be
+commoditized; better models don't replace durable bookkeeping.
+
+**Without tooling:** Manually update `learnings.md` after each session and read it before the next. Designate one coordinator for parallel work. Track whether you're hitting goals, not how busy the agents look.
 
 ---
 
@@ -184,15 +184,16 @@ This does not replace the factors. It explains why they fit together as one syst
 
 You use Claude Code, Cursor, or Codex daily. Some sessions produce great results. Others are frustrating wastes of time. The difference isn't the model — it's the context.
 
-Factors I-III give you immediate improvement: keep context focused, track what you learn, start fresh for each task. Factor VII (extracting learnings) and Factor VIII (compounding knowledge) make each session build on the last.
+The Prepare phase (I–III) gives you immediate improvement: keep context focused, track what you learn, start fresh for each task. Then Extract Learnings (IX) and Compound Knowledge (X) make each session build on the last.
 
 ### For the Tech Lead
 
 Your team runs agents in parallel. Work conflicts. Learnings from one developer's sessions don't help others. There's no consistent quality bar.
 
-Factors IV-VI add flow discipline: research first, validate externally, lock
-progress forward. Factor VIII gives you shared bookkeeping and compounding
-context. Scale factors (X-XII) provide isolation and coordination patterns.
+The Bound phase (IV–VI) caps the blast radius and prevents collisions —
+least privilege, research, isolation. The Select phase (VII–IX) is your quality
+bar: external validation, a forward ratchet, and captured lessons. Govern
+(X–XII) gives you shared compounding knowledge, supervision, and outcome metrics.
 
 ### For the Tool Builder
 
@@ -208,19 +209,19 @@ You can start with zero infrastructure and level up when you need to:
 
 ```
 Quickstart (5 min)     → learnings.md file, zero tooling
-Foundation (I-III)     → Context discipline, git tracking, fresh sessions
-Flow (IV-VI)           → Research, validation, ratcheting
-Knowledge (VII-IX)     → Extraction, compounding, measurement
-Scale (X-XII)          → Multi-agent isolation, supervision, failure harvesting (grow into it)
+Prepare (I-III)        → Context discipline, git tracking, fresh sessions
+Bound (IV-VI)          → Least privilege, research-first, worker isolation
+Select (VII-IX)        → External validation, ratcheting, learning capture
+Govern (X-XII)         → Compounding knowledge, supervision, outcome metrics
 ```
 
-**Key principle:** You can stop adopting at any level and keep the value. Each level justifies the next, but none requires it. Stopping means you haven't automated the higher factors yet — not that they stopped applying.
+**Key principle:** The phases are a reading order and an adoption on-ramp — you can stop adopting at any phase and keep the value. Stopping means you haven't automated the later factors yet, not that they stopped applying: a solo dev still lives least privilege (a sandbox), isolation (a worktree), and supervision (their own judgment).
 
 **When to level up:**
-- **Quickstart → Foundation:** When your `learnings.md` gets unwieldy or you notice repeated context problems
-- **Foundation → Flow:** When you find yourself re-explaining codebase patterns to new sessions
-- **Flow → Knowledge:** When the same mistakes recur across sessions despite research
-- **Knowledge → Scale:** When you're running multiple agents in parallel and conflicts emerge
+- **Quickstart → Prepare:** When your `learnings.md` gets unwieldy or you notice repeated context problems
+- **Prepare → Bound:** When agents start touching real systems, or you run more than one at a time
+- **Bound → Select:** When "looks done" keeps shipping bugs and you need a real gate
+- **Select → Govern:** When lessons aren't compounding and parallel work needs coordination
 
 ---
 
@@ -230,14 +231,14 @@ These principles stand on decades of proven methodology:
 
 | Source | Factors |
 |--------|---------|
-| **DevOps practices** (20+ years) | I, V, VI, IX |
-| **Site Reliability Engineering** (Google, 15+ years) | V, VI, IX |
+| **DevOps practices** (20+ years) | I, VII, VIII, XII |
+| **Site Reliability Engineering** (Google, 15+ years) | VII, VIII, XII |
 | **Cognitive load theory** (Sweller, 1988) | I, III |
 | **Unix philosophy** (1978) | III |
 | **GitOps methodology** (10+ years) | II |
-| **Microservices patterns** (10+ years) | III, X, XI |
-| **Zero-trust architecture** (10+ years) | V |
-| **Learning science** (decades) | VII, VIII, XII |
+| **Microservices patterns** (10+ years) | III, VI, XI |
+| **Zero-trust architecture** (10+ years) | IV, VII |
+| **Learning science** (decades) | IX, X |
 
 ### Related Projects
 
@@ -277,3 +278,4 @@ The factors evolve through production validation and community feedback.
 - **v2.0** (2025-12-27): Production implementation patterns added
 - **v3.0** (2026-02-15): Pivot to full operational discipline. Factors rewritten. Adoption model inverted (results-first, not manifesto-first). Knowledge compounding as hero differentiator. Scale factors marked optional.
 - **v3.1** (2026-06-06): Whole-system constitution alignment. The 12 are reframed as one constitution lived at altitudes (one agent → a fleet), not a product partition. Factor V leads with the claims-vs-verdicts / single-writer moat; Factor XII rewritten to routing-hints + fresh-agent-on-failure; VII↔VIII, III↔X, X↔XI boundaries sharpened; Scale tier reframed from "optional" to the factory altitude. No factor renamed, renumbered, or deleted.
+- **v4.0** (2026-06-07): Re-derivation by cross-model council (Opus 4.8 · Codex GPT-5.5 · Gemini 3.5 Flash), pressure-tested adversarially. Regrouped into a four-phase operational lifecycle — **Prepare → Bound → Select → Govern** (a reading lens, not a strict dependency chain). **Added Factor IV: Enforce Least Privilege** (the security/permissions gap — ingress + egress). **Merged Harvest Failures into Compound Knowledge** (negative knowledge, same flywheel) and **relocated fresh-agent-on-failure into Supervise Hierarchically** (a recovery primitive). Renamed Measure What Matters → **Measure Outcomes**. All factors renumbered; accuracy fixes carried in. The "12" is held deliberately for recognizability, not claimed as derived.

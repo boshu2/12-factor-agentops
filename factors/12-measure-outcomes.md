@@ -1,4 +1,4 @@
-# Factor IX: Measure What Matters
+# XII. Measure Outcomes
 
 **Track fitness toward goals, not activity metrics.**
 
@@ -17,6 +17,8 @@ Token counts don't tell you if the right code got written. Session counts don't 
 Measure outcomes, not motions. Track learning, not churn. Optimize for goal completion, not resource utilization.
 
 In operator-model terms, measurement defines the **fitness gradient**. It tells the environment what counts as better, what counts as worse, and which outcomes deserve to survive, repeat, or stop.
+
+This is the **Govern** capstone — the last factor in the lifecycle and the one that closes the loop. The four phases run Prepare → Bound → Select → Govern, but they are not a one-way pipeline. Measurement is the feedback signal that flows back to the start: what you learn about goal completion, recurrence, cost, and intervention here is exactly what should reshape the context, goals, and boundaries you set in **Prepare** next cycle. A factor that only reported numbers would be a dead end; this one feeds them upstream so the next loop begins better-aimed than the last.
 
 And understand this: **for work with a terminal state, dormancy on completion is success.** When the goal is met and the system stops generating work, you've won; manufacturing new activity to keep metrics climbing is the opposite of operational discipline. For continuous-operations agents—monitoring, on-call, SRE/platform—there is no terminal "done," so the success signal isn't idleness but *steady state with declining intervention*: the system keeps running, and over time it needs you less.
 
@@ -114,7 +116,7 @@ For a bounded task, the agent that completes its goals and shuts down is more va
 
 5. **Technical debt accumulation**: Code written to hit metrics (lines of code, velocity) is rarely well-architected. Debt compounds.
 
-### How to Measure What Matters
+### How to Measure Outcomes
 
 **Start with goal clarity.** You can't measure fitness toward goals if goals are vague. "Improve the system" is not a goal. "Reduce P0 incident rate to <1 per month" is a goal.
 
@@ -472,7 +474,7 @@ Ask yourself:
 5. **Can I look at my dashboard and immediately answer: are we closer to our goals than yesterday?**
    - If no: your metrics aren't fitness-based.
 
-Fix what's broken. Measure what matters.
+Fix what's broken. Measure outcomes.
 
 ---
 

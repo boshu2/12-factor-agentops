@@ -1,4 +1,4 @@
-# Factor VI: Lock Progress Forward
+# VIII. Lock Progress Forward
 
 ## Rule
 
@@ -91,7 +91,7 @@ What counts as validation:
 
 The key: validation is boolean. Work either passes or it doesn't. No partial credit. No "mostly done."
 
-This is why Factor V (Validate Externally) matters. If your validation is weak, your ratchet is weak. Garbage passes through. Progress becomes regression.
+This is why Factor VII (Validate Externally) matters. If your validation is weak, your ratchet is weak. Garbage passes through. Progress becomes regression.
 
 Strong validation means strong ratcheting. When something merges, you know it's correct. When an issue closes, you know it's complete.
 

@@ -1,4 +1,4 @@
-# Factor V: Validate Externally
+# VII. Validate Externally
 
 ## Rule
 
