@@ -1,316 +1,111 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" role="img" aria-label="The 12 factors as a four-phase loop: Prepare, Bound, Select, Govern, with Govern feeding back into Prepare">
+  <title>The factor loop — Prepare → Bound → Select → Govern</title>
+  <desc>The twelve factors arranged as a control loop in four phases of three. Prepare (Context, Track, Scope) flows into Bound (Least Privilege, Research, Isolate), into Select (Validate, Lock, Extract), into Govern (Compound, Supervise, Measure), which feeds back into Prepare.</desc>
+
   <defs>
-    <!-- Background -->
-    <linearGradient id="darkBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a1628"/>
-      <stop offset="50%" style="stop-color:#0d1a2d"/>
-      <stop offset="100%" style="stop-color:#0f1f35"/>
+    <linearGradient id="flPanel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0b08"/>
+      <stop offset="100%" stop-color="#070605"/>
     </linearGradient>
-
-    <!-- Section colors matching LinkedIn style -->
-    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#22c55e"/>
-      <stop offset="100%" style="stop-color:#16a34a"/>
-    </linearGradient>
-    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#eab308"/>
-      <stop offset="100%" style="stop-color:#ca8a04"/>
-    </linearGradient>
-    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f97316"/>
-      <stop offset="100%" style="stop-color:#ea580c"/>
-    </linearGradient>
-
-    <!-- Glow filters -->
-    <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feFlood flood-color="#22c55e" flood-opacity="0.5"/>
-      <feComposite in2="blur" operator="in"/>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="glowYellow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feFlood flood-color="#eab308" flood-opacity="0.5"/>
-      <feComposite in2="blur" operator="in"/>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="glowOrange" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feFlood flood-color="#f97316" flood-opacity="0.5"/>
-      <feComposite in2="blur" operator="in"/>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <style>
-      /* Animated flowing line */
-      @keyframes flowDown {
-        0% { stroke-dashoffset: 40; }
-        100% { stroke-dashoffset: 0; }
-      }
-
-      @keyframes flowPulse {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 1; }
-      }
-
-      @keyframes dotFlow {
-        0% { transform: translateY(0); opacity: 0; }
-        10% { opacity: 1; }
-        90% { opacity: 1; }
-        100% { transform: translateY(300px); opacity: 0; }
-      }
-
-      @keyframes dotFlowLong {
-        0% { transform: translateY(0); opacity: 0; }
-        5% { opacity: 1; }
-        95% { opacity: 1; }
-        100% { transform: translateY(380px); opacity: 0; }
-      }
-
-      @keyframes connectPulse {
-        0%, 100% { stroke-opacity: 0.2; }
-        50% { stroke-opacity: 0.6; }
-      }
-
-      .flow-line {
-        stroke-dasharray: 8 8;
-        animation: flowDown 1s linear infinite;
-      }
-
-      .flow-dot-green {
-        animation: dotFlow 3s ease-in-out infinite;
-      }
-      .flow-dot-yellow {
-        animation: dotFlowLong 4s ease-in-out infinite;
-        animation-delay: 1s;
-      }
-      .flow-dot-orange {
-        animation: dotFlow 3s ease-in-out infinite;
-        animation-delay: 2s;
-      }
-
-      .connect-line {
-        animation: connectPulse 2s ease-in-out infinite;
-      }
-      .connect-line-2 {
-        animation: connectPulse 2s ease-in-out infinite;
-        animation-delay: 1s;
-      }
-
-      /* Factor highlight on hover simulation via animation */
-      @keyframes factorGlow {
-        0%, 8.33%, 100% { opacity: 1; }
-        4.165% { opacity: 0.6; }
-      }
-
-      .factor-card {
-        transition: all 0.3s ease;
-      }
-    </style>
+    <filter id="flGlow"><feGaussianBlur stdDeviation="1.4"/></filter>
+    <marker id="flArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9" fill="none" stroke="#fbbf24" stroke-width="1.4"/>
+    </marker>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="1600" fill="url(#darkBg)"/>
+  <!-- ground -->
+  <rect x="0" y="0" width="960" height="410" fill="#070a08"/>
 
-  <!-- Subtle grid pattern -->
-  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  </pattern>
-  <rect width="1200" height="1600" fill="url(#grid)"/>
+  <!-- drawing strip -->
+  <text x="30" y="30" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" letter-spacing="1.5" fill="#b78318">FIG. 02 — THE FACTOR LOOP</text>
+  <text x="930" y="30" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#6f6657">PREPARE → BOUND → SELECT → GOVERN</text>
+  <line x1="30" y1="42" x2="930" y2="42" stroke="#f59e0b" stroke-opacity="0.22"/>
 
-  <!-- ==================== HEADER ==================== -->
-  <text x="600" y="70" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-        font-size="52" font-weight="800" fill="#FAFAFA" letter-spacing="-0.02em">
-    12-Factor AgentOps
-  </text>
-  <text x="600" y="110" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-        font-size="20" font-weight="400" fill="#94a3b8">
-    Production-grade operations for AI agents
-  </text>
+  <!-- corner ticks -->
+  <g stroke="#f59e0b" stroke-opacity="0.45" stroke-width="1">
+    <path d="M30 56 h10 M30 56 v10"/><path d="M930 56 h-10 M930 56 v10"/>
+    <path d="M30 320 h10 M30 320 v-10"/><path d="M930 320 h-10 M930 320 v-10"/>
+  </g>
 
-  <!-- ==================== ANIMATED CONNECTION LINES ==================== -->
-  <!-- Vertical flow line - Foundation to Operations -->
-  <line x1="60" y1="180" x2="60" y2="480" stroke="#22c55e" stroke-width="2" class="flow-line" opacity="0.4"/>
-  <circle class="flow-dot-green" cx="60" cy="180" r="4" fill="#22c55e" filter="url(#glowGreen)"/>
-
-  <!-- Vertical flow line - Operations to Improvement -->
-  <line x1="60" y1="540" x2="60" y2="920" stroke="#eab308" stroke-width="2" class="flow-line" opacity="0.4"/>
-  <circle class="flow-dot-yellow" cx="60" cy="540" r="4" fill="#eab308" filter="url(#glowYellow)"/>
-
-  <!-- Vertical flow line - Improvement section -->
-  <line x1="60" y1="980" x2="60" y2="1280" stroke="#f97316" stroke-width="2" class="flow-line" opacity="0.4"/>
-  <circle class="flow-dot-orange" cx="60" cy="980" r="4" fill="#f97316" filter="url(#glowOrange)"/>
-
-  <!-- Horizontal connecting lines between sections -->
-  <path d="M 60 480 Q 80 510 100 510" stroke="#22c55e" stroke-width="2" fill="none" class="connect-line" stroke-dasharray="4 4"/>
-  <path d="M 60 920 Q 80 950 100 950" stroke="#eab308" stroke-width="2" fill="none" class="connect-line-2" stroke-dasharray="4 4"/>
-
-  <!-- ==================== FOUNDATION SECTION ==================== -->
-  <g transform="translate(80, 160)">
-    <!-- Section header -->
-    <rect x="0" y="0" width="160" height="40" rx="6" fill="url(#greenGrad)"/>
-    <text x="80" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Foundation</text>
-    <text x="180" y="27" font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#94a3b8">Context, tracking, and focus</text>
-
-    <!-- Factor I -->
-    <g class="factor-card" transform="translate(0, 60)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#greenGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">I</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Context Is Everything</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Load what you need, when you need it. Right context drives reliable decisions.</text>
+  <!-- ===== phase panels ===== -->
+  <!-- group: x, phase, range, [I num,name] x3 -->
+  <g font-family="'JetBrains Mono', ui-monospace, monospace">
+    <!-- PREPARE -->
+    <g class="ph">
+      <rect x="30" y="66" width="205" height="240" rx="7" fill="url(#flPanel)" stroke="#f59e0b" stroke-opacity="0.5"/>
+      <text x="46" y="92" font-size="13" font-weight="700" fill="#fbbf24" letter-spacing="1">PREPARE</text>
+      <text x="219" y="92" text-anchor="end" font-size="10" fill="#7d7363">I–III</text>
+      <text x="46" y="106" font-size="9" fill="#8a8378">set up the environment</text>
+      <line x1="46" y1="116" x2="219" y2="116" stroke="#f59e0b" stroke-opacity="0.18"/>
+      <g>
+        <text x="46" y="150" font-size="14" font-weight="700" fill="#fbbf24">I</text>   <text x="78" y="150" font-size="13" fill="#e8e4dd">Context</text>
+        <text x="46" y="200" font-size="14" font-weight="700" fill="#fbbf24">II</text>  <text x="78" y="200" font-size="13" fill="#e8e4dd">Track</text>
+        <text x="46" y="250" font-size="14" font-weight="700" fill="#fbbf24">III</text> <text x="92" y="250" font-size="13" fill="#e8e4dd">Scope</text>
+      </g>
     </g>
-
-    <!-- Factor II -->
-    <g class="factor-card" transform="translate(0, 140)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#greenGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">II</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Track Everything in Git</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Track all decisions, context, and outcomes in git. No tribal knowledge.</text>
+    <!-- BOUND -->
+    <g class="ph">
+      <rect x="265" y="66" width="205" height="240" rx="7" fill="url(#flPanel)" stroke="#f59e0b" stroke-opacity="0.5"/>
+      <text x="281" y="92" font-size="13" font-weight="700" fill="#fbbf24" letter-spacing="1">BOUND</text>
+      <text x="454" y="92" text-anchor="end" font-size="10" fill="#7d7363">IV–VI</text>
+      <text x="281" y="106" font-size="9" fill="#8a8378">constrain what may act</text>
+      <line x1="281" y1="116" x2="454" y2="116" stroke="#f59e0b" stroke-opacity="0.18"/>
+      <g>
+        <text x="281" y="150" font-size="14" font-weight="700" fill="#fbbf24">IV</text>  <text x="319" y="150" font-size="13" fill="#e8e4dd">Privilege</text>
+        <text x="281" y="200" font-size="14" font-weight="700" fill="#fbbf24">V</text>   <text x="313" y="200" font-size="13" fill="#e8e4dd">Research</text>
+        <text x="281" y="250" font-size="14" font-weight="700" fill="#fbbf24">VI</text>  <text x="319" y="250" font-size="13" fill="#e8e4dd">Isolate</text>
+      </g>
     </g>
-
-    <!-- Factor III -->
-    <g class="factor-card" transform="translate(0, 220)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#greenGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">III</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">One Agent, One Job</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Compose specialists rather than building generalists. Each agent does one job well.</text>
+    <!-- SELECT -->
+    <g class="ph">
+      <rect x="500" y="66" width="205" height="240" rx="7" fill="url(#flPanel)" stroke="#f59e0b" stroke-opacity="0.5"/>
+      <text x="516" y="92" font-size="13" font-weight="700" fill="#fbbf24" letter-spacing="1">SELECT</text>
+      <text x="689" y="92" text-anchor="end" font-size="10" fill="#7d7363">VII–IX</text>
+      <text x="516" y="106" font-size="9" fill="#8a8378">decide what survives</text>
+      <line x1="516" y1="116" x2="689" y2="116" stroke="#f59e0b" stroke-opacity="0.18"/>
+      <g>
+        <text x="516" y="150" font-size="14" font-weight="700" fill="#fbbf24">VII</text>  <text x="562" y="150" font-size="13" fill="#e8e4dd">Validate</text>
+        <text x="516" y="200" font-size="14" font-weight="700" fill="#fbbf24">VIII</text> <text x="574" y="200" font-size="13" fill="#e8e4dd">Lock</text>
+        <text x="516" y="250" font-size="14" font-weight="700" fill="#fbbf24">IX</text>   <text x="554" y="250" font-size="13" fill="#e8e4dd">Extract</text>
+      </g>
     </g>
-
-    <!-- Factor IV -->
-    <g class="factor-card" transform="translate(0, 300)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#greenGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">IV</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Research Before You Build</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Understand context and constraints before implementation. Research first.</text>
+    <!-- GOVERN -->
+    <g class="ph">
+      <rect x="735" y="66" width="205" height="240" rx="7" fill="url(#flPanel)" stroke="#f59e0b" stroke-opacity="0.5"/>
+      <text x="751" y="92" font-size="13" font-weight="700" fill="#fbbf24" letter-spacing="1">GOVERN</text>
+      <text x="924" y="92" text-anchor="end" font-size="10" fill="#7d7363">X–XII</text>
+      <text x="751" y="106" font-size="9" fill="#8a8378">steer and feed back</text>
+      <line x1="751" y1="116" x2="924" y2="116" stroke="#f59e0b" stroke-opacity="0.18"/>
+      <g>
+        <text x="751" y="150" font-size="14" font-weight="700" fill="#fbbf24">X</text>    <text x="783" y="150" font-size="13" fill="#e8e4dd">Compound</text>
+        <text x="751" y="200" font-size="14" font-weight="700" fill="#fbbf24">XI</text>   <text x="789" y="200" font-size="13" fill="#e8e4dd">Supervise</text>
+        <text x="751" y="250" font-size="14" font-weight="700" fill="#fbbf24">XII</text>  <text x="797" y="250" font-size="13" fill="#e8e4dd">Measure</text>
+      </g>
     </g>
   </g>
 
-  <!-- ==================== OPERATIONS SECTION ==================== -->
-  <g transform="translate(80, 560)">
-    <!-- Section header -->
-    <rect x="0" y="0" width="160" height="40" rx="6" fill="url(#yellowGrad)"/>
-    <text x="80" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#1a1a1a">Workflow</text>
-    <text x="180" y="27" font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#94a3b8">Validate, lock progress, and learn</text>
-
-    <!-- Factor V -->
-    <g class="factor-card" transform="translate(0, 60)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(234,179,8,0.08)" stroke="rgba(234,179,8,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#yellowGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#1a1a1a">V</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Validate Externally</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Check outputs at every step. Catch errors early before they compound.</text>
-    </g>
-
-    <!-- Factor VI -->
-    <g class="factor-card" transform="translate(0, 140)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(234,179,8,0.08)" stroke="rgba(234,179,8,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#yellowGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#1a1a1a">VI</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Lock Progress Forward</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Save state frequently. Never lose progress across sessions and restarts.</text>
-    </g>
-
-    <!-- Factor VII -->
-    <g class="factor-card" transform="translate(0, 220)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(234,179,8,0.08)" stroke="rgba(234,179,8,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#yellowGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#1a1a1a">VII</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Extract Learnings</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Send tasks to the right specialist. Match complexity to capability.</text>
-    </g>
-
-    <!-- Factor VIII -->
-    <g class="factor-card" transform="translate(0, 300)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(234,179,8,0.08)" stroke="rgba(234,179,8,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#yellowGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#1a1a1a">VIII</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Compound Knowledge</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Humans approve critical decisions. Keep humans in the loop for high-stakes.</text>
-    </g>
+  <!-- forward arrows between phases -->
+  <g stroke="#fbbf24" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#flArrow)">
+    <line x1="238" y1="186" x2="262" y2="186"/>
+    <line x1="473" y1="186" x2="497" y2="186"/>
+    <line x1="708" y1="186" x2="732" y2="186"/>
   </g>
 
-  <!-- ==================== IMPROVEMENT SECTION ==================== -->
-  <g transform="translate(80, 960)">
-    <!-- Section header -->
-    <rect x="0" y="0" width="175" height="40" rx="6" fill="url(#orangeGrad)"/>
-    <text x="87" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Improvement</text>
-    <text x="195" y="27" font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#94a3b8">Learn, adapt, get better every day</text>
+  <!-- feedback loop: Govern -> Prepare -->
+  <path id="flLoop" d="M837 308 C837 360, 837 372, 760 372 L210 372 C133 372, 133 360, 133 308"
+        fill="none" stroke="#f59e0b" stroke-opacity="0.7" stroke-width="1.3" stroke-dasharray="3 4" marker-end="url(#flArrow)"/>
+  <rect x="404" y="362" width="152" height="20" rx="4" fill="#070a08"/>
+  <text x="480" y="376" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#b78318">THE LOOP CLOSES</text>
 
-    <!-- Factor IX -->
-    <g class="factor-card" transform="translate(0, 60)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#orangeGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">IX</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Measure Outcomes</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Search history for what works. Extract patterns from successful runs.</text>
-    </g>
-
-    <!-- Factor X -->
-    <g class="factor-card" transform="translate(0, 140)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#orangeGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">X</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Isolate Workers</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Improve continuously with tiny tweaks. Small changes compound over time.</text>
-    </g>
-
-    <!-- Factor XI -->
-    <g class="factor-card" transform="translate(0, 220)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#orangeGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">XI</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Supervise Hierarchically</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Prevent repeating mistakes. Add guardrails that trigger on known failures.</text>
-    </g>
-
-    <!-- Factor XII -->
-    <g class="factor-card" transform="translate(0, 300)">
-      <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
-      <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#orangeGrad)"/>
-      <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">XII</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Compound Knowledge</text>
-      <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Bundle what works into reusable components. Share across projects and teams.</text>
-    </g>
-  </g>
-
-  <!-- ==================== CYCLE INDICATOR ==================== -->
-  <g transform="translate(600, 1420)">
-    <!-- Circular flow showing continuous improvement -->
-    <circle cx="0" cy="0" r="60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
-
-    <!-- Animated arc segments -->
-    <path d="M 0 -60 A 60 60 0 0 1 52 30" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" opacity="0.8">
-      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s" repeatCount="indefinite"/>
-    </path>
-    <path d="M 52 30 A 60 60 0 0 1 -52 30" fill="none" stroke="#eab308" stroke-width="3" stroke-linecap="round" opacity="0.8">
-      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s" begin="0.67s" repeatCount="indefinite"/>
-    </path>
-    <path d="M -52 30 A 60 60 0 0 1 0 -60" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round" opacity="0.8">
-      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s" begin="1.33s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Center text -->
-    <text x="0" y="5" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#94a3b8">CYCLE</text>
-  </g>
-
-  <!-- ==================== FOOTER ==================== -->
-  <g transform="translate(600, 1540)">
-    <rect x="-180" y="-22" width="360" height="44" rx="22" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-    <text x="0" y="6" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#94a3b8">
-      github.com/Vibe-Coding/12-factor-agentops
-    </text>
-  </g>
+  <style><![CDATA[
+    .ph rect { transition: stroke-opacity 240ms ease; animation: flpulse 9s ease-in-out infinite; }
+    .ph:nth-of-type(1) rect { animation-delay: 0s; }
+    .ph:nth-of-type(2) rect { animation-delay: 1.2s; }
+    .ph:nth-of-type(3) rect { animation-delay: 2.4s; }
+    .ph:nth-of-type(4) rect { animation-delay: 3.6s; }
+    .ph:hover rect, .ph:focus-within rect { stroke-opacity: 1; filter: url(#flGlow); }
+    @keyframes flpulse { 0%, 85%, 100% { stroke-opacity: 0.45; } 8%, 22% { stroke-opacity: 0.9; } }
+    @media (prefers-reduced-motion: reduce) { .ph rect { animation: none !important; stroke-opacity: 0.5 !important; } }
+  ]]></style>
 </svg>
