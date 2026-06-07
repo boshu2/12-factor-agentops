@@ -135,9 +135,9 @@ JobSpec v0 maps directly onto the doctrine:
 | --- | --- |
 | II. Track Everything in Git | Durable, inspectable ledger events |
 | III. One Agent, One Job | Stable ids, bounded payloads, and status |
-| V. Validate Externally | Independent status and event inspection |
-| VI. Lock Progress Forward | Accepted work survives restart and lost acks |
-| VIII. Compound Knowledge | Projections feed future sessions and tools |
+| VII. Validate Externally | Independent status and event inspection |
+| VIII. Lock Progress Forward | Accepted work survives restart and lost acks |
+| X. Compound Knowledge | Projections feed future sessions and tools |
 | XI. Supervise Hierarchically | Workers claim jobs through leases |
 
 The schema is not the product by itself. The conformance program is the

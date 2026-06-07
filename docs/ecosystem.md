@@ -38,15 +38,15 @@ BUILD → WORK → RUN
 │  │  • Disconnected, zero-tolerance, constrained environments           │    │
 │  │  • Monitoring, validation, incident response, reliability           │    │
 │  │                                                                      │    │
-│  │  Foundation (I-III):        Workflow (IV-VI):                        │    │
-│  │  I.   Context Is Everything IV.   Research Before You Build         │    │
-│  │  II.  Track Everything      V.    Validate Externally               │    │
-│  │  III. One Agent, One Job    VI.   Lock Progress Forward              │    │
+│  │  Prepare (I-IV):            Bound (V-VIII):                          │    │
+│  │  I.   Context Is Everything V.    Research Before You Build         │    │
+│  │  II.  Track Everything      VI.   Isolate Workers                   │    │
+│  │  III. One Agent, One Job    VII.  Validate Externally               │    │
+│  │  IV.  Enforce Least Priv.   VIII. Lock Progress Forward             │    │
 │  │                                                                      │    │
-│  │  Knowledge (VII-IX):        Scale (X-XII):                           │    │
-│  │  VII. Extract Learnings     X.    Isolate Workers                    │    │
-│  │  VIII.Compound Knowledge    XI.   Supervise Hierarchically           │    │
-│  │  IX.  Measure What Matters  XII.  Harvest Failures as Wisdom         │    │
+│  │  Select (IX-X):             Govern (XI-XII):                         │    │
+│  │  IX.  Extract Learnings     XI.   Supervise Hierarchically          │    │
+│  │  X.   Compound Knowledge    XII.  Measure Outcomes                  │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                              ▲                                               │
 │                              │ Agents deployed here                          │
@@ -186,9 +186,9 @@ That's why 12-Factor AgentOps applies 20 years of DevOps/SRE wisdom to AI agents
 | Memory tattoos | I. Context Is Everything | Pattern 7: Memory Decay |
 | 40% rule | II. Track Everything in Git | Pattern 2: Context Amnesia |
 | Head chef / sous chefs | III. One Agent, One Job | Pattern 3: Instruction Drift |
-| Prevent-Detect-Correct | V. Validate Externally | Pattern 1: Tests Passing Lie |
-| FAAFO metrics | IX. Measure What Matters | Pattern 11: Process Gridlock |
-| Session continuity | VI. Lock Progress Forward | Pattern 7: Memory Decay |
+| Prevent-Detect-Correct | VII. Validate Externally | Pattern 1: Tests Passing Lie |
+| FAAFO metrics | XII. Measure Outcomes | Pattern 11: Process Gridlock |
+| Session continuity | VIII. Lock Progress Forward | Pattern 7: Memory Decay |
 
 ### 12-Factor Agents → AgentOps
 
@@ -197,7 +197,7 @@ That's why 12-Factor AgentOps applies 20 years of DevOps/SRE wisdom to AI agents
 | Own your prompts | I. Context Is Everything | Context includes prompt evolution |
 | Own your context window | II. Track Everything in Git | Operational enforcement of context limits |
 | Small, focused agents | III. One Agent, One Job | Same principle, operational focus |
-| Launch/Pause/Resume | VI. Lock Progress Forward | Operational implementation of state persistence |
+| Launch/Pause/Resume | VIII. Lock Progress Forward | Operational implementation of state persistence |
 
 ---
 
@@ -210,7 +210,7 @@ Start with [Factor Mapping](./explanation/vibe-coding-integration.md) to see how
 Start with [Evolution of 12-Factor](./principles/evolution-of-12-factor.md) to see how AgentOps extends building patterns to operations.
 
 ### If you're starting fresh
-Start with [Getting Started](./getting-started/) and work through Foundation factors (I-III).
+Start with [Getting Started](./getting-started/) and work through the Prepare factors (I-IV).
 
 ---
 

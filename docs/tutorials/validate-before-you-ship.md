@@ -110,9 +110,9 @@ Grow
 
 ---
 
-## Step 1: Research Before You Build (Factor IV)
+## Step 1: Research Before You Build (Factor V)
 
-**Purpose:** Understand the codebase before making changes. This is Factor IV: Research Before You Build.
+**Purpose:** Understand the codebase before making changes. This is Factor V: Research Before You Build.
 
 <table>
 <tr>
@@ -153,7 +153,7 @@ Research bundle saved: .agents/ao/bundles/research-auth-001.md
 
 <br/>
 
-**Factor IV in action:**
+**Factor V in action:**
 
 Understanding before acting prevents working on the wrong thing entirely.
 
@@ -170,7 +170,7 @@ Understanding before acting prevents working on the wrong thing entirely.
 
 ---
 
-## Step 2: Plan and Simulate Failures (Factor IV continued)
+## Step 2: Plan and Simulate Failures (Factor V continued)
 
 **Purpose:** Simulate failures before you build. Find the problems before they find you. The /pre-mortem skill extends research into risk anticipation.
 
@@ -247,14 +247,14 @@ Pre-mortem: "What COULD go wrong?"
 
 1. **Run BEFORE implementation** - Research first, then anticipate failures
 2. **Take the risks seriously** - If it identifies a HIGH risk, address it in your plan
-3. **Create checkpoints** - These become your validation gates for Factor V
+3. **Create checkpoints** - These become your validation gates for Factor VII
 4. **Review with the team** - Pre-mortems surface assumptions worth discussing
 
 ---
 
-## Step 3: Validate Externally Before Every Commit (Factor V)
+## Step 3: Validate Externally Before Every Commit (Factor VII)
 
-**Purpose:** Validate that your implementation does what you intended using external checks, not just the agent's self-assessment. This is Factor V: Validate Externally.
+**Purpose:** Validate that your implementation does what you intended using external checks, not just the agent's self-assessment. This is Factor VII: Validate Externally.
 
 <table>
 <tr>
@@ -350,9 +350,9 @@ Safe to commit.
 
 ---
 
-## Step 4: Lock Progress Forward (Factor VI)
+## Step 4: Lock Progress Forward (Factor VIII)
 
-**Purpose:** Once validation passes, commit immediately. Each validated commit becomes a safe checkpoint you can return to. This is Factor VI: Lock Progress Forward.
+**Purpose:** Once validation passes, commit immediately. Each validated commit becomes a safe checkpoint you can return to. This is Factor VIII: Lock Progress Forward.
 
 Every passing /vibe check should result in an immediate commit. Small, validated commits create a trail of known-good states. If something breaks later, you know exactly where to roll back to.
 
@@ -365,9 +365,9 @@ Every passing /vibe check should result in an immediate commit. Small, validated
 
 ---
 
-## Step 5: Extract Learnings (Factor VII)
+## Step 5: Extract Learnings (Factor IX)
 
-**Purpose:** Close the loop. Extract what worked so future sessions benefit. This is Factor VII: Extract Learnings.
+**Purpose:** Close the loop. Extract what worked so future sessions benefit. This is Factor IX: Extract Learnings.
 
 <table>
 <tr>
@@ -447,9 +447,9 @@ Without /retro, every session starts from zero. With /retro, knowledge compounds
 
 ---
 
-## Step 6: Compound Knowledge (Factor VIII)
+## Step 6: Compound Knowledge (Factor X)
 
-**Purpose:** Make every session build on the last. This is Factor VIII: Compound Knowledge (HERO) -- Harvest, Extract, Refine, Operationalize.
+**Purpose:** Make every session build on the last. This is Factor X: Compound Knowledge (HERO) -- Harvest, Extract, Refine, Operationalize.
 
 <table>
 <tr>
@@ -566,42 +566,42 @@ Pending Candidates (3):
 <tr>
 <td><strong>1</strong></td>
 <td><code>/research</code></td>
-<td>IV. Research Before You Build</td>
+<td>V. Research Before You Build</td>
 <td>Working on the wrong thing</td>
 <td>Before planning</td>
 </tr>
 <tr>
 <td><strong>2</strong></td>
 <td><code>/pre-mortem</code></td>
-<td>IV. Research Before You Build</td>
+<td>V. Research Before You Build</td>
 <td>Problems before they exist</td>
 <td>Before implementing</td>
 </tr>
 <tr>
 <td><strong>3</strong></td>
 <td><code>/vibe</code></td>
-<td>V. Validate Externally</td>
+<td>VII. Validate Externally</td>
 <td>Implementation doesn't match intent</td>
 <td>Before every commit</td>
 </tr>
 <tr>
 <td><strong>4</strong></td>
 <td><code>/retro</code></td>
-<td>VII. Extract Learnings</td>
+<td>IX. Extract Learnings</td>
 <td>Lost learnings</td>
 <td>After significant work</td>
 </tr>
 <tr>
 <td><strong>5</strong></td>
 <td><code>/post-mortem</code></td>
-<td>XII. Harvest Failures as Wisdom</td>
+<td>X. Compound Knowledge</td>
 <td>Repeated mistakes</td>
 <td>After failures</td>
 </tr>
 <tr>
 <td><strong>6</strong></td>
 <td><code>/flywheel</code></td>
-<td>VIII. Compound Knowledge</td>
+<td>X. Compound Knowledge</td>
 <td>Knowledge decay</td>
 <td>Weekly check-in</td>
 </tr>
@@ -627,7 +627,7 @@ Simple changes with no risks are fast to implement with confidence.
 
 ### "How do I know /vibe is working?"
 
-Check your metrics over time (Factor IX: Measure What Matters):
+Check your metrics over time (Factor XII: Measure Outcomes):
 - Trust pass rate should increase
 - Rework ratio should decrease
 - Fewer "oops" commits fixing previous commits
@@ -651,8 +651,8 @@ The flywheel benefit is compound. Session 1 feels the same. Session 50 feels lik
 
 ### Before You Build
 ```
-/research <topic>     # Understand first (Factor IV)
-/pre-mortem <plan>    # Simulate failures (Factor IV)
+/research <topic>     # Understand first (Factor V)
+/pre-mortem <plan>    # Simulate failures (Factor V)
 ```
 
 </td>
@@ -660,10 +660,10 @@ The flywheel benefit is compound. Session 1 feels the same. Session 50 feels lik
 
 ### Before You Commit
 ```
-/vibe                 # Validate externally (Factor V)
+/vibe                 # Validate externally (Factor VII)
 # Fix any warnings
 /vibe                 # Confirm fix
-git commit            # Lock progress (Factor VI)
+git commit            # Lock progress (Factor VIII)
 ```
 
 </td>
@@ -673,8 +673,8 @@ git commit            # Lock progress (Factor VI)
 
 ### After You Ship
 ```
-/retro                # Extract learnings (Factor VII)
-/flywheel promote     # Compound knowledge (Factor VIII)
+/retro                # Extract learnings (Factor IX)
+/flywheel promote     # Compound knowledge (Factor X)
 ```
 
 </td>
@@ -684,7 +684,7 @@ git commit            # Lock progress (Factor VI)
 ```
 /flywheel status      # Check health
 /flywheel pool list   # Clear backlog
-# Review metrics      # Factor IX
+# Review metrics      # Factor XII
 ```
 
 </td>

@@ -104,7 +104,7 @@ git commit -m "Add validation logic"
 # AI can't silently break things
 ```
 
-#### Factor V: Validate Externally
+#### Factor VII: Validate Externally
 
 **Maps to Inner Loop Detection:**
 - Independent verification of AI output
@@ -124,7 +124,7 @@ def calculate_total(items):
 # You verify: Test actually passes
 ```
 
-#### Factor VI: Lock Progress Forward
+#### Factor VIII: Lock Progress Forward
 
 **Maps to Inner Loop Correction:**
 - Checkpoint frequently so you can roll back
@@ -149,7 +149,7 @@ pytest tests/
 
 **Root cause:** AI hallucinates test results without running them
 
-**Violated factor:** Factor V (Validate Externally)
+**Violated factor:** Factor VII (Validate Externally)
 
 **Remedy:**
 - Always run tests independently
@@ -175,7 +175,7 @@ pytest tests/
 
 **Root cause:** AI doesn't understand problem, keeps guessing
 
-**Violated factor:** Factor IV (Research Before You Build)
+**Violated factor:** Factor V (Research Before You Build)
 
 **Remedy:**
 - Take manual control immediately
@@ -277,7 +277,7 @@ Agent 3: Frontend components
 # No overlap, clear boundaries
 ```
 
-#### Factor X: Isolate Workers
+#### Factor VI: Isolate Workers
 
 **Maps to Middle Loop Detection:**
 - Architecture constraints prevent eldritch horrors
@@ -318,7 +318,7 @@ Agent 3: Frontend components
 
 **Root cause:** AI optimizes for "working" not "maintainable," no modularity constraints
 
-**Violated factor:** Factor X (Isolate Workers)
+**Violated factor:** Factor VI (Isolate Workers)
 
 **Remedy:**
 - STOP IMMEDIATELY - Do not proceed
@@ -346,7 +346,7 @@ Agent 3: Frontend components
 
 **Root cause:** Poor task decomposition, circular dependencies
 
-**Violated factor:** Factor X (Isolate Workers) + task decomposition
+**Violated factor:** Factor VI (Isolate Workers) + task decomposition
 
 **Remedy:**
 - Break dependency cycle manually
@@ -422,7 +422,7 @@ This is the loop of:
 
 ### AgentOps Implementation
 
-#### Factor VI: Lock Progress Forward
+#### Factor VIII: Lock Progress Forward
 
 **Maps to Outer Loop Prevention:**
 - Fast rollback when AI breaks things
@@ -453,7 +453,7 @@ git revert [commit-sha]
 # Productivity maintained
 ```
 
-#### Factor XII: Harvest Failures as Wisdom
+#### Factor X: Compound Knowledge
 
 **Maps to Outer Loop Correction:**
 - Learn from every production incident
@@ -478,10 +478,10 @@ make api-compatibility-test
 
 **Root cause:** AI doesn't understand production impact of API changes
 
-**Violated factor:** Factor V (Validate Externally)
+**Violated factor:** Factor VII (Validate Externally)
 
 **Remedy:**
-- Rollback immediately (Factor VI: Lock Progress Forward)
+- Rollback immediately (Factor VIII: Lock Progress Forward)
 - Restore API compatibility
 - Add API compatibility tests before retrying
 - Implement contract testing
@@ -560,9 +560,9 @@ Outer Loop (codify as org patterns)
 ### Diagnostic Use: "Which Loop Am I In?"
 
 **Ask yourself:**
-- Am I coding a single function? → Inner Loop (use Factors II, V, VI)
-- Am I coordinating multiple agents? → Middle Loop (use Factors I, III, X)
-- Am I changing architecture/process? → Outer Loop (use Factors VI, XI, XII)
+- Am I coding a single function? → Inner Loop (use Factors II, VII, VIII)
+- Am I coordinating multiple agents? → Middle Loop (use Factors I, III, VI)
+- Am I changing architecture/process? → Outer Loop (use Factors VIII, XI, X)
 
 **Example:**
 ```
@@ -608,7 +608,7 @@ Prevention for each loop planned upfront
 Failure: Production API broke after deployment
 
 Loop: Outer (production impact)
-Violated factor: Factor V (Validate Externally)
+Violated factor: Factor VII (Validate Externally)
 Correction: Rollback immediately
 Prevention: Add API compatibility tests to CI/CD
 ```
@@ -619,14 +619,14 @@ Prevention: Add API compatibility tests to CI/CD
 
 | Loop | Timescale | AgentOps Factors | Prevention | Detection | Correction |
 |------|-----------|-----------------|-----------|-----------|------------|
-| **Inner** | Seconds-minutes | II, V, VI | Checkpoint frequently, TDD, git mastery | Verify AI claims, always on watch | Rollback, manual debugging |
-| **Middle** | Hours-days | I, III, X | Written rules, memento method | Eldritch horror detection, CI/CD gates | Tracer bullets, workflow automation |
-| **Outer** | Weeks-months | VI, XI, XII | Don't torch bridges, modularization | AI throws everything out, CI/CD | git reflog recovery, navigate legacy |
+| **Inner** | Seconds-minutes | II, VII, VIII | Checkpoint frequently, TDD, git mastery | Verify AI claims, always on watch | Rollback, manual debugging |
+| **Middle** | Hours-days | I, III, VI | Written rules, memento method | Eldritch horror detection, CI/CD gates | Tracer bullets, workflow automation |
+| **Outer** | Weeks-months | VIII, XI, X | Don't torch bridges, modularization | AI throws everything out, CI/CD | git reflog recovery, navigate legacy |
 
 **Cross-Loop Factors:**
-- Factor IV: Research Before You Build (applies to all loops)
-- Factor VII: Extract Learnings (applies to all loops)
-- Factor VIII: Compound Knowledge (applies to all loops)
+- Factor V: Research Before You Build (applies to all loops)
+- Factor IX: Extract Learnings (applies to all loops)
+- Factor X: Compound Knowledge (applies to all loops)
 
 ---
 

@@ -134,7 +134,7 @@ Lock Progress
 
 <div align="center">
 
-## The 5 Metrics (Factor IX: Measure What Matters)
+## The 5 Metrics (Factor XII: Measure Outcomes)
 
 </div>
 
@@ -259,7 +259,7 @@ Ready to proceed.
 <tr>
 <td width="100%">
 
-### Research (Factor IV: Research Before You Build)
+### Research (Factor V: Research Before You Build)
 
 </td>
 </tr>
@@ -324,7 +324,7 @@ Research bundle (5:1 compression ratio). Future sessions load this instead of re
 <tr>
 <td width="100%">
 
-### Plan (Factor IV continued + Factor V: Validate Externally)
+### Plan (Factor V continued + Factor VII: Validate Externally)
 
 </td>
 </tr>
@@ -384,7 +384,7 @@ Plan with 6 validated steps. Every step has a concrete way to verify it worked -
 <tr>
 <td width="100%">
 
-### Implement (Factor V: Validate Externally + Factor VI: Lock Progress Forward)
+### Implement (Factor VII: Validate Externally + Factor VIII: Lock Progress Forward)
 
 </td>
 </tr>
@@ -434,8 +434,8 @@ Context: 52% (above 40% threshold)
 **What's happening:**
 
 - Execute each step
-- Validate externally after each (Factor V)
-- Commit immediately on pass (Factor VI)
+- Validate externally after each (Factor VII)
+- Commit immediately on pass (Factor VIII)
 - Human approval at checkpoints
 - Monitor context usage
 
@@ -455,7 +455,7 @@ Time to save and resume fresh. Quality degrades as context fills.
 <tr>
 <td width="100%">
 
-### Session End -- Mid-Feature (Factor II: Track Everything in Git)
+### Session End -- Mid-Feature (Factor VIII: Lock Progress Forward)
 
 </td>
 </tr>
@@ -583,7 +583,7 @@ Yesterday's 52% becomes today's 8%. All context preserved in bundles. This is Fa
 <tr>
 <td width="100%">
 
-### Implement Continued (Factor V + Factor VI)
+### Implement Continued (Factor VII + Factor VIII)
 
 </td>
 </tr>
@@ -619,7 +619,7 @@ AUTH-001 Complete!
 
 - Finish remaining step
 - Validate behavior externally
-- Commit with context (Factor VI)
+- Commit with context (Factor VIII)
 
 <br/>
 
@@ -637,7 +637,7 @@ Full context preserved across the boundary.
 <tr>
 <td width="100%">
 
-### Session End -- Feature Complete (Factor IX: Measure What Matters)
+### Session End -- Feature Complete (Factor XII: Measure Outcomes)
 
 </td>
 </tr>
@@ -681,7 +681,7 @@ Run /retro? > Yes
 
 <br/>
 
-**Factor IX:** Concrete metrics prove the discipline works. Not vibes about vibes -- numbers.
+**Factor XII:** Concrete metrics prove the discipline works. Not vibes about vibes -- numbers.
 
 </td>
 </tr>
@@ -693,7 +693,7 @@ Run /retro? > Yes
 <tr>
 <td width="100%">
 
-### Retro (Factor VII: Extract Learnings)
+### Retro (Factor IX: Extract Learnings)
 
 </td>
 </tr>
@@ -763,7 +763,7 @@ Patterns extracted here become shortcuts later. The vibe-check proves the discip
 <tr>
 <td width="100%">
 
-### Compound Knowledge (Factor VIII: Compound Knowledge -- HERO)
+### Compound Knowledge (Factor X: Compound Knowledge -- HERO)
 
 </td>
 </tr>
@@ -890,16 +890,16 @@ Next auth feature loads these patterns automatically. The HERO cycle (Harvest, E
 <th>What</th>
 </tr>
 <tr><td><code>/session-start</code></td><td>Beginning</td><td>I. Context Is Everything</td><td>Load state, capture baseline</td></tr>
-<tr><td><code>/research</code></td><td>New problem</td><td>IV. Research Before You Build</td><td>Explore, compress to bundle</td></tr>
-<tr><td><code>/plan</code></td><td>After research</td><td>IV. Research Before You Build</td><td>Design steps with validation gates</td></tr>
-<tr><td><code>/pre-mortem</code></td><td>Before implementing</td><td>IV. Research Before You Build</td><td>Simulate failures, define checkpoints</td></tr>
-<tr><td><code>/implement</code></td><td>After approval</td><td>V. Validate Externally</td><td>Execute + validate each step</td></tr>
-<tr><td><code>/vibe</code></td><td>Before every commit</td><td>V. Validate Externally</td><td>Semantic validation of changes</td></tr>
-<tr><td><code>/session-end</code></td><td>Context high or done</td><td>VI. Lock Progress Forward</td><td>Save state, capture delta</td></tr>
+<tr><td><code>/research</code></td><td>New problem</td><td>V. Research Before You Build</td><td>Explore, compress to bundle</td></tr>
+<tr><td><code>/plan</code></td><td>After research</td><td>V. Research Before You Build</td><td>Design steps with validation gates</td></tr>
+<tr><td><code>/pre-mortem</code></td><td>Before implementing</td><td>V. Research Before You Build</td><td>Simulate failures, define checkpoints</td></tr>
+<tr><td><code>/implement</code></td><td>After approval</td><td>VII. Validate Externally</td><td>Execute + validate each step</td></tr>
+<tr><td><code>/vibe</code></td><td>Before every commit</td><td>VII. Validate Externally</td><td>Semantic validation of changes</td></tr>
+<tr><td><code>/session-end</code></td><td>Context high or done</td><td>VIII. Lock Progress Forward</td><td>Save state, capture delta</td></tr>
 <tr><td><code>/session-resume</code></td><td>Continuing work</td><td>I. Context Is Everything</td><td>Load bundles, resume fresh</td></tr>
-<tr><td><code>/retro</code></td><td>Feature done</td><td>VII. Extract Learnings</td><td>Review + extract patterns</td></tr>
-<tr><td><code>/post-mortem</code></td><td>After failures</td><td>XII. Harvest Failures as Wisdom</td><td>Turn failures into prevention</td></tr>
-<tr><td><code>/flywheel</code></td><td>After retro</td><td>VIII. Compound Knowledge</td><td>HERO cycle: promote learnings</td></tr>
+<tr><td><code>/retro</code></td><td>Feature done</td><td>IX. Extract Learnings</td><td>Review + extract patterns</td></tr>
+<tr><td><code>/post-mortem</code></td><td>After failures</td><td>X. Compound Knowledge</td><td>Turn failures into prevention</td></tr>
+<tr><td><code>/flywheel</code></td><td>After retro</td><td>X. Compound Knowledge</td><td>HERO cycle: promote learnings</td></tr>
 </table>
 
 ---

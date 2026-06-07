@@ -49,7 +49,7 @@ This framework doesn't invent new principles. It **adapts proven operational pat
 **Mapping examples:**
 - Their Factor I (Codebase) → Our Factor II (Track Everything in Git)
 - Their Factor III (Config) → Our Factor I (Context Is Everything)
-- Their Factor XI (Logs) → Our Factor IX (Measure What Matters)
+- Their Factor XI (Logs) → Our Factor XII (Measure Outcomes)
 
 **Why this works:** Infrastructure operations and knowledge operations face similar problems:
 - Partial failures
@@ -83,11 +83,11 @@ This framework doesn't invent new principles. It **adapts proven operational pat
 **Applied to AI workflows:**
 - **CI/CD** → Multi-layer validation gates (`make quick` → `make ci-all`)
 - **Validation gates** → Pre-commit hooks, human approval checkpoints
-- **Monitoring** → Factor IX (Measure What Matters: metrics, logs, token usage)
-- **Postmortems** → Factor XII (Harvest Failures as Wisdom: extract learnings from failures)
-- **Gradual rollouts** → Factor X (Isolate Workers: incremental, independent execution)
-- **Zero-trust** → Factor V (Validate Externally: never trust a single step)
-- **Runbooks** → Factor VIII (Compound Knowledge: capture workflows as institutional memory)
+- **Monitoring** → Factor XII (Measure Outcomes: metrics, logs, token usage)
+- **Postmortems** → Factor X (Compound Knowledge: extract learnings from failures)
+- **Gradual rollouts** → Factor VI (Isolate Workers: incremental, independent execution)
+- **Zero-trust** → Factor VII (Validate Externally: never trust a single step)
+- **Runbooks** → Factor X (Compound Knowledge: capture workflows as institutional memory)
 
 **Why this works:** AI agents exhibit the same failure modes as distributed infrastructure:
 - Partial failures (one tool call fails, rest must continue)
@@ -209,7 +209,7 @@ Together: Complete Playbook
 | **Spaced Repetition** | Bundle maintenance: hot → warm → cold memory tiers |
 | **Chunking** | Factor III (One Agent, One Job: each does one job well) |
 | **Progressive Disclosure** | Thin kernels + JIT pointers (CLAUDE.md ~800 tokens) |
-| **Deliberate Practice** | Factor VII (Extract Learnings) + Factor IX (Measure What Matters) |
+| **Deliberate Practice** | Factor IX (Extract Learnings) + Factor XII (Measure Outcomes) |
 
 **Why this works:** AI context windows mirror human working memory:
 - Both have hard limits (7±2 items for humans, 200k tokens for AI)
@@ -243,7 +243,7 @@ Together: Complete Playbook
 |-----------|-------------------|
 | **Context Switching (40% cost)** | 40% context budget (Factor I: Context Is Everything) |
 | **Information Architecture** | CLAUDE.md hierarchy (workspace → repo → task) |
-| **Progressive Disclosure** | JIT loading (Factor VI: Lock Progress Forward) |
+| **Progressive Disclosure** | JIT loading (Factor VIII: Lock Progress Forward) |
 | **Cognitive Overhead** | Factor III (One Agent, One Job: focused execution) |
 | **State Management** | Bundle system (compress 60k → 5k tokens) |
 
@@ -386,7 +386,7 @@ Together: Complete Playbook
 
 ---
 
-### 2. Sub-Agent Orchestration (Factor III + X)
+### 2. Sub-Agent Orchestration (Factor III + VI)
 
 **Source:** DevOps microservices + separation of concerns
 **Discovery:** Fresh context per workflow phase prevents error accumulation
@@ -395,7 +395,7 @@ Together: Complete Playbook
 
 ---
 
-### 3. Bundle Compression System (Factor VI + VIII)
+### 3. Bundle Compression System (Factor VIII + X)
 
 **Source:** Learning Science (spaced repetition) + Context Engineering (state management)
 **Discovery:** 12:1 compression ratio (60k tokens → 5k) enables multi-session continuity
@@ -404,7 +404,7 @@ Together: Complete Playbook
 
 ---
 
-### 4. Validation > Generation (Factor V)
+### 4. Validation > Generation (Factor VII)
 
 **Source:** DevOps CI/CD + SRE validation gates
 **Discovery:** Pre-commit validation is 10x ROI vs post-commit fixes

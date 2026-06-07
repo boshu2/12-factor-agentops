@@ -128,8 +128,8 @@ AI systems operate under hard constraints that cannot be "fixed," only optimized
 
 **Examples:**
 - Context optimization → Factor I (Context Is Everything)
-- Air-gap patterns → Factor X (Isolate Workers)
-- Cost optimization → Factor IX (Measure What Matters)
+- Air-gap patterns → Factor VI (Isolate Workers)
+- Cost optimization → Factor XII (Measure Outcomes)
 - Latency requirements → Factor III (One Agent, One Job)
 
 **Key:** Successful constraint solutions become reusable factors.
@@ -154,7 +154,7 @@ Each pillar represents a **class of constraints** and proven architectural respo
 - Observability as first-class concern (metrics, logs, traces)
 - Reliability engineering patterns (circuit breakers, retries, fallbacks)
 
-**Maps to Factors:** II (Track Everything in Git), V (Validate Externally), IX (Measure What Matters), XII (Harvest Failures as Wisdom)
+**Maps to Factors:** II (Track Everything in Git), VII (Validate Externally), XII (Measure Outcomes), XII (Compound Knowledge)
 
 ### Pillar 2: Learning Science
 
@@ -170,7 +170,7 @@ Each pillar represents a **class of constraints** and proven architectural respo
 - Pattern extraction (learn from experience, don't repeat)
 - Phase-based workflows (research → plan → implement)
 
-**Maps to Factors:** III (One Agent, One Job), IV (Research Before You Build), VII (Extract Learnings), VIII (Compound Knowledge)
+**Maps to Factors:** III (One Agent, One Job), V (Research Before You Build), IX (Extract Learnings), X (Compound Knowledge)
 
 ### Pillar 3: Context Engineering
 
@@ -186,7 +186,7 @@ Each pillar represents a **class of constraints** and proven architectural respo
 - Progressive disclosure (bootstrap → workflow → details)
 - Sub-agent isolation (separate contexts, don't pollute)
 
-**Maps to Factors:** I (Context Is Everything), III (One Agent, One Job), VI (Lock Progress Forward)
+**Maps to Factors:** I (Context Is Everything), III (One Agent, One Job), VIII (Lock Progress Forward)
 
 ### Pillar 4: Knowledge OS
 
@@ -202,7 +202,7 @@ Each pillar represents a **class of constraints** and proven architectural respo
 - History as audit trail (why decisions were made)
 - Patterns compound over time (organizational learning)
 
-**Maps to Factors:** II (Track Everything in Git), VII (Extract Learnings), VIII (Compound Knowledge)
+**Maps to Factors:** II (Track Everything in Git), IX (Extract Learnings), X (Compound Knowledge)
 
 ---
 
@@ -215,15 +215,15 @@ Each factor is a **specific constraint-optimization pattern:**
 | **I. Context Is Everything** | 200k token context window | JIT loading, <40% utilization |
 | **II. Track Everything in Git** | Human memory limitations | External memory via version control |
 | **III. One Agent, One Job** | Cognitive load per agent | Single-responsibility, composition |
-| **IV. Research Before You Build** | Premature implementation risk | Research-plan-implement workflow |
-| **V. Validate Externally** | Probabilistic AI outputs | External validation gates, zero-trust |
-| **VI. Lock Progress Forward** | Multi-day work constraints | State persistence, session continuity |
-| **VII. Extract Learnings** | Institutional learning rate | Pattern extraction from every session |
-| **VIII. Compound Knowledge** | Knowledge decay over time | HERO cycle, compounding institutional memory |
-| **IX. Measure What Matters** | System observability limits | Targeted telemetry, actionable metrics |
-| **X. Isolate Workers** | Cross-contamination risk | Worker isolation, independent worktrees |
+| **V. Research Before You Build** | Premature implementation risk | Research-plan-implement workflow |
+| **VII. Validate Externally** | Probabilistic AI outputs | External validation gates, zero-trust |
+| **VIII. Lock Progress Forward** | Multi-day work constraints | State persistence, session continuity |
+| **IX. Extract Learnings** | Institutional learning rate | Pattern extraction from every session |
+| **X. Compound Knowledge** | Knowledge decay over time | HERO cycle, compounding institutional memory |
+| **XII. Measure Outcomes** | System observability limits | Targeted telemetry, actionable metrics |
+| **VI. Isolate Workers** | Cross-contamination risk | Worker isolation, independent worktrees |
 | **XI. Supervise Hierarchically** | Coordination overhead at scale | Hierarchical supervision, escalation paths |
-| **XII. Harvest Failures as Wisdom** | Repeated failure prevention | Failure analysis, pattern extraction from errors |
+| **XII. Compound Knowledge** | Repeated failure prevention | Failure analysis, pattern extraction from errors |
 
 **The pattern:** Constraint → Factor (specific solution) → Pillar (solution class)
 
@@ -291,10 +291,10 @@ Each factor is a **specific constraint-optimization pattern:**
 - Context optimization: <40% rule reduces token costs
 
 **Quality Constraint → Validation Infrastructure:**
-- External validation checks (Factor V: Validate Externally)
+- External validation checks (Factor VII: Validate Externally)
 - Hierarchical review for Tier 3 (Factor XI: Supervise Hierarchically)
-- Pattern learning improves operations (Factor VII: Extract Learnings)
-- Targeted measurement (Factor IX: Measure What Matters)
+- Pattern learning improves operations (Factor IX: Extract Learnings)
+- Targeted measurement (Factor XII: Measure Outcomes)
 
 **Result:** 10x user growth within budget through constraint-optimized routing.
 
@@ -479,26 +479,26 @@ Understanding the full landscape of constraints helps identify which factors app
 **High context constraints (limited tokens):**
 - Factor I: Context Is Everything (primary)
 - Factor III: One Agent, One Job (supporting)
-- Factor VI: Lock Progress Forward (supporting)
+- Factor VIII: Lock Progress Forward (supporting)
 
 **High reliability constraints (zero tolerance):**
-- Factor V: Validate Externally (primary)
+- Factor VII: Validate Externally (primary)
 - Factor XI: Supervise Hierarchically (primary)
-- Factor XII: Harvest Failures as Wisdom (supporting)
+- Factor XII: Compound Knowledge (supporting)
 
 **High cost constraints (budget limited):**
-- Factor IX: Measure What Matters (primary)
+- Factor XII: Measure Outcomes (primary)
 - Factor III: One Agent, One Job (supporting)
-- Factor X: Isolate Workers (supporting)
+- Factor VI: Isolate Workers (supporting)
 
 **High scale constraints (growth expected):**
-- Factor IX: Measure What Matters (primary)
-- Factor X: Isolate Workers (primary)
-- Factor VII: Extract Learnings (supporting)
+- Factor XII: Measure Outcomes (primary)
+- Factor VI: Isolate Workers (primary)
+- Factor IX: Extract Learnings (supporting)
 
 **High security constraints (classified/regulated):**
 - Factor II: Track Everything in Git (primary)
-- Factor V: Validate Externally (primary)
+- Factor VII: Validate Externally (primary)
 - Factor XI: Supervise Hierarchically (supporting)
 
 ---
@@ -577,7 +577,7 @@ Apply this to every constraint you encounter. The solutions become your factors.
 **Factors:**
 - [All 12 Factors](../../factors/) - Specific constraint-optimization patterns
 - [Factor I: Context Is Everything](../../factors/01-context-is-everything.md) - Context window constraints
-- [Factor VII: Extract Learnings](../../factors/07-extract-learnings.md) - Pattern extraction
+- [Factor IX: Extract Learnings](../../factors/09-extract-learnings.md) - Pattern extraction
 
 **Application:**
 - [Workflow Guide](../tutorials/workflow-guide.md) - Applying constraint-based thinking

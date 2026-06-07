@@ -174,7 +174,7 @@
 
 ---
 
-### 6. Human Validation Checkpoints (now Factor V: Validate Externally)
+### 6. Human Validation Checkpoints (now Factor VII: Validate Externally)
 
 #### Our Discovery (2024)
 
@@ -184,7 +184,7 @@
 - `/prime` routes to right specialist, human confirms
 
 **Evidence:**
-- Factor V: Validate Externally (with human oversight)
+- Factor VII: Validate Externally (with human oversight)
 - Pre-commit hooks require approval
 - No autonomous deployment (yet)
 

@@ -514,7 +514,7 @@
       <rect x="75" y="998" width="540" height="180" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4.5"/>
       <circle cx="345" cy="1035" r="8" fill="#D97948"/>
       <text x="345" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
-        IX. Measure What Matters
+        IX. Measure Outcomes
       </text>
       <text x="345" y="1106" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
         Track metrics that drive quality
@@ -568,7 +568,7 @@
       <rect x="1830" y="998" width="540" height="180" rx="15" fill="url(#improvement-gradient)" stroke="#D97948" stroke-width="4.5"/>
       <circle cx="2100" cy="1035" r="8" fill="#D97948"/>
       <text x="2100" y="1068" text-anchor="middle" font-size="21" font-weight="700" fill="#D97948">
-        XII. Harvest Failures as Wisdom
+        XII. Compound Knowledge as Wisdom
       </text>
       <text x="2100" y="1106" text-anchor="middle" font-size="17" fill="#2D2A24" font-weight="600">
         Every failure teaches something

@@ -29,7 +29,7 @@ The clearest compression of that evolution is now straightforward: a **stateful 
 
 **Artifacts:**
 - The 12 Factors (Factors I-XII)
-- Four Tiers (Foundation, Workflow, Knowledge, Scale)
+- Four Phases (Prepare, Bound, Select, Govern)
 - Core principles (extract learnings, improve system, document context, validate externally, compound knowledge)
 
 **Audience:** Anyone using AI agents (developers, writers, researchers, teams)
@@ -157,8 +157,8 @@ The Intelligence Community (IC) represents the most constrained deployment envir
 **Solution:** Initial 12 Factors
 - Factor I: Context Is Everything (40% rule, JIT loading)
 - Factor II: Track Everything in Git (Git as memory)
-- Factor VII: Extract Learnings (extract from history)
-- Factor X: Isolate Workers (focused, independent execution)
+- Factor IX: Extract Learnings (extract from history)
+- Factor VI: Isolate Workers (focused, independent execution)
 
 **Validation:** 40x speedups on complex workflows, 0% context collapse
 
@@ -183,7 +183,7 @@ The Intelligence Community (IC) represents the most constrained deployment envir
 - **SSE telemetry** (Houston): One-way observability, simpler than WebSocket
 
 **Integration into 12-Factor:**
-- These patterns enhance Factors III, VI, VIII, IX, XI (see Implementation Patterns sections)
+- These patterns enhance Factors III, VIII, X, XII, XI (see Implementation Patterns sections)
 - Documented in `docs/explanation/pattern-heritage.md`
 
 ---
@@ -208,7 +208,7 @@ The Intelligence Community (IC) represents the most constrained deployment envir
 - **Multi-tenancy via namespaces:** Team-per-namespace isolation
 
 **Integration into 12-Factor:**
-- Factor XII: Harvest Failures as Wisdom now includes IC deployment profiles
+- Factor X: Compound Knowledge now includes IC deployment profiles
 - Proves framework works under maximum constraints
 
 ---
@@ -257,7 +257,7 @@ What they validate most strongly is not one magic orchestrator. They validate en
 - **PID-based crash recovery:** Detect failures without heartbeats
 - **Feature seeder pipeline:** PLAN → COMMIT → EXECUTE with human gates
 
-**Informed factors:** III (One Agent, One Job), IX (Measure What Matters), VI (Lock Progress Forward), VIII (Compound Knowledge)
+**Informed factors:** III (One Agent, One Job), XII (Measure Outcomes), VIII (Lock Progress Forward), X (Compound Knowledge)
 
 ---
 
@@ -273,7 +273,7 @@ What they validate most strongly is not one magic orchestrator. They validate en
 - **ToolCall audit trail:** Every action is a CRD (auditable, approvable, reversible)
 - **SharedInformer caching:** Local read cache with watch for updates
 
-**Informed factors:** IV (Research Before You Build), VIII (Compound Knowledge), IX (Measure What Matters), XII (Harvest Failures as Wisdom)
+**Informed factors:** V (Research Before You Build), X (Compound Knowledge), XII (Measure Outcomes)
 
 ---
 
@@ -281,7 +281,7 @@ What they validate most strongly is not one magic orchestrator. They validate en
 
 Each factor maps to concrete implementation patterns from Houston, Fractal, and ai-platform.
 
-### Foundation Tier (I-III): Build Reliability from Ground Up
+### Prepare Phase (I-IV): Build Reliability from Ground Up
 
 **Factor I: Context Is Everything**
 - **Philosophy:** 40% rule, JIT loading
@@ -298,64 +298,64 @@ Each factor maps to concrete implementation patterns from Houston, Fractal, and 
 - **Production:** KAgent CRD definitions, event-driven activation (webhook > orchestrator)
 - **IC deployment:** Namespace-scoped agents for classification boundaries
 
+**Factor IV: Enforce Least Privilege**
+- **Philosophy:** Grant each agent only the access its job requires
+- **Production:** Scoped RBAC per KAgent, default-deny tool permissions, fail-closed credentials
+- **IC deployment:** Classification-aware access boundaries, no standing broad grants
+
 ---
 
-### Workflow Tier (IV-VI): Disciplined Execution
+### Bound Phase (V-VIII): Disciplined Execution
 
-**Factor IV: Research Before You Build**
+**Factor V: Research Before You Build**
 - **Philosophy:** Understand before implementing
 - **Production:** Reconciliation loops (Fractal), informed decision-making
 - **IC deployment:** Policy enforcement via admission controllers
 
-**Factor V: Validate Externally**
+**Factor VI: Isolate Workers**
+- **Philosophy:** Independent, focused execution
+- **Production:** Feature seeder pipeline (Houston), beads issue tracking
+- **IC deployment:** Offline improvement backlog
+
+**Factor VII: Validate Externally**
 - **Philosophy:** Validation gates, independent verification, governed selection pressure
 - **Production:** SSE telemetry (Houston), Langfuse traces, Prometheus metrics
 - **IC deployment:** Air-gapped validation pipelines
 
-**Factor VI: Lock Progress Forward**
+**Factor VIII: Lock Progress Forward**
 - **Philosophy:** Context bundles for multi-day work, checkpointing
 - **Production:** Neo4j state machines, explicit memory architecture (RAG/Graph/Historical)
 - **IC deployment:** Stateless agents + external PostgreSQL/Neo4j
 
 ---
 
-### Knowledge Tier (VII-IX): Continuous Learning
+### Select Phase (IX-X): Continuous Learning
 
-**Factor VII: Extract Learnings**
+**Factor IX: Extract Learnings**
 - **Philosophy:** Extract from history
 - **Production:** Houston/Fractal patterns codified into architecture with provenance and replay value
 - **IC deployment:** Pattern libraries for air-gapped environments
 
-**Factor VIII: Compound Knowledge (HERO)**
-- **Philosophy:** Knowledge compounds over time
-- **Production:** BudgetQuota enforcement (Fractal), 3-phase pipeline (Houston)
-- **IC deployment:** Hard limits on token/cost budgets
-
-**Factor IX: Measure What Matters**
-- **Philosophy:** Make the fitness gradient visible
-- **Production:** Effective output metrics, quality ratios, cost tracking
-- **IC deployment:** Air-gapped Grafana dashboards
+**Factor X: Compound Knowledge (HERO)**
+- **Philosophy:** Knowledge compounds over time; every failure becomes durable wisdom
+- **Production:** BudgetQuota enforcement (Fractal), 3-phase pipeline (Houston), 3-tier IC deployment model (Edge/Datacenter/Frontier)
+- **IC deployment:** Hard limits on token/cost budgets, air-gap playbook, blameless postmortems
 
 ---
 
-### Scale Tier (X-XII): The Factory Altitude
+### Govern Phase (XI-XII): The Factory Altitude
 
-The same three factors at fleet scale. Working solo you live them in miniature — a git worktree is isolation, your own judgment is supervision, your `learnings.md` is failure harvesting. Running parallel agents on complex projects, the same rules need real machinery. You grow into this altitude; you don't skip the factors.
-
-**Factor X: Isolate Workers**
-- **Philosophy:** Independent, focused execution
-- **Production:** Feature seeder pipeline (Houston), beads issue tracking
-- **IC deployment:** Offline improvement backlog
+You live these in miniature working solo — your own judgment is supervision, your `learnings.md` is the fitness gradient. Running parallel agents on complex projects, the same rules need real machinery. You grow into this altitude; you don't skip the factors.
 
 **Factor XI: Supervise Hierarchically**
 - **Philosophy:** Guardrails and oversight
 - **Production:** Reconciliation loops, fail-closed defaults, ToolCall audit (Fractal)
 - **IC deployment:** Constitutional enforcement of security policies
 
-**Factor XII: Harvest Failures as Wisdom**
-- **Philosophy:** Learn from every failure
-- **Production:** 3-tier IC deployment model (Edge/Datacenter/Frontier)
-- **IC deployment:** Air-gap playbook, blameless postmortems
+**Factor XII: Measure Outcomes**
+- **Philosophy:** Make the fitness gradient visible
+- **Production:** Effective output metrics, quality ratios, cost tracking
+- **IC deployment:** Air-gapped Grafana dashboards
 
 ---
 
@@ -363,10 +363,11 @@ The same three factors at fleet scale. Working solo you live them in miniature �
 
 ### For Individual Practitioners
 
-**Start with:** Factors I-III (Foundation)
+**Start with:** Factors I-IV (Prepare)
 1. Factor I: Context Is Everything — Implement 40% rule, use JIT loading
 2. Factor II: Track Everything in Git — Decisions persist across sessions
 3. Factor III: One Agent, One Job — Break work into focused sessions
+4. Factor IV: Enforce Least Privilege — Grant each agent only the access its job needs
 
 **Expected outcome:** Context collapse eliminated, decisions persist, productivity 2-8x
 
@@ -374,13 +375,13 @@ The same three factors at fleet scale. Working solo you live them in miniature �
 
 ### For Teams
 
-**Add:** Factors IV-IX (Workflow + Knowledge)
-4. Factor IV: Research Before You Build — Understand before implementing
-5. Factor V: Validate Externally — Independent verification gates
-6. Factor VI: Lock Progress Forward — Checkpoint and resume multi-day work
-7. Factor VII: Extract Learnings — Capture patterns from every session
-8. Factor VIII: Compound Knowledge — Build institutional memory
-9. Factor IX: Measure What Matters — Track effective output, not vanity metrics
+**Add:** Factors V-X (Bound + Select)
+5. Factor V: Research Before You Build — Understand before implementing
+6. Factor VI: Isolate Workers — Independent execution environments
+7. Factor VII: Validate Externally — Independent verification gates
+8. Factor VIII: Lock Progress Forward — Checkpoint and resume multi-day work
+9. Factor IX: Extract Learnings — Capture patterns from every session
+10. Factor X: Compound Knowledge — Build institutional memory; learn from every failure
 
 **Expected outcome:** Team coordination improves, quality gates prevent breakage, 8-20x productivity
 
@@ -390,10 +391,9 @@ This is also where provenance and fitness start to matter operationally: teams n
 
 ### For Platform Engineers
 
-**Add:** Factors X-XII (Scale)
-10. Factor X: Isolate Workers — Independent execution environments
+**Add:** Factors XI-XII (Govern)
 11. Factor XI: Supervise Hierarchically — Oversight and guardrails
-12. Factor XII: Harvest Failures as Wisdom — Learn from every failure
+12. Factor XII: Measure Outcomes — Track effective output, not vanity metrics
 
 **Expected outcome:** Patterns compound across teams, reliability 95%+, scales to enterprise
 
@@ -463,8 +463,8 @@ The tighter your constraints, the more valuable the patterns. But even with zero
 
 **A:** Yes. These are LLM-agnostic operational principles:
 - The 40% rule (Factor I: Context Is Everything) applies to any context window
-- Validation gates (Factor V: Validate Externally) work with any LLM output
-- Budget limits (Factor IX: Measure What Matters) track cost regardless of provider
+- Validation gates (Factor VII: Validate Externally) work with any LLM output
+- Budget limits (Factor XII: Measure Outcomes) track cost regardless of provider
 
 Implementation examples use Claude (ai-platform) and Anthropic patterns, but principles transfer to any model.
 

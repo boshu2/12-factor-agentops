@@ -140,9 +140,9 @@ The workflow creates persistent memory across sessions:
 | **I. Context Is Everything** | Git-backed `.beads/issues.jsonl` |
 | **II. Track Everything in Git** | JIT loading via `bd show` |
 | **III. One Agent, One Job** | One issue per `/implement` |
-| **IV. Research Before You Build** | Status tracking (`open` → `in_progress` → `closed`) |
-| **V. Validate Externally** | Issue lifecycle metrics |
-| **VI. Lock Progress Forward** | `bd ready` picks up where you left off |
+| **V. Research Before You Build** | Status tracking (`open` → `in_progress` → `closed`) |
+| **VII. Validate Externally** | Issue lifecycle metrics |
+| **VIII. Lock Progress Forward** | `bd ready` picks up where you left off |
 
 ## Attribution
 

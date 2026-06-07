@@ -633,7 +633,7 @@ Never exceed capacity in any session
 Context engineering directly supports several factors in the 12-Factor framework:
 - **I. Context Is Everything** - The 40% rule is the foundation of this factor
 - **III. One Agent, One Job** - Focused agents prevent context pollution
-- **VI. Lock Progress Forward** - Session boundaries and state persistence prevent context loss
+- **VIII. Lock Progress Forward** - Session boundaries and state persistence prevent context loss
 
 ### Relationship to Learning Science (Pillar 2)
 

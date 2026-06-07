@@ -16,9 +16,9 @@ Vibe coding — the practice of collaborating with AI agents through natural lan
 
 ## How Operational Discipline Supports Vibe Coding
 
-The 12 factors are organized into four tiers. Each tier addresses a different layer of what makes vibe coding reliable, from individual sessions to organizational scale.
+The 12 factors are organized into four phases. Each phase addresses a different layer of what makes vibe coding reliable, from individual sessions to organizational scale.
 
-### Tier 1: Foundation (Factors I-III)
+### Phase 1: Prepare (Factors I-IV)
 
 **Making each session start strong and stay focused.**
 
@@ -29,12 +29,13 @@ These factors address the most common vibe coding frustrations: the agent does n
 | [I. Context Is Everything](../../factors/01-context-is-everything.md) | The agent performs poorly because it lacks project context. Load relevant context deliberately — architecture docs, coding standards, recent changes — and agent output quality transforms without changing the model. |
 | [II. Track Everything in Git](../../factors/02-track-everything-in-git.md) | Sessions produce work that gets lost, overwritten, or cannot be rolled back. When every artifact — code, research, plans, decisions — lives in git, vibe coding sessions become recoverable and auditable. |
 | [III. One Agent, One Job](../../factors/03-one-agent-one-job.md) | A single agent juggling research, coding, testing, and review produces mediocre results across all of them. Scoping each agent to a clear responsibility makes vibe coding sessions predictable. |
+| [IV. Enforce Least Privilege](../../factors/04-enforce-least-privilege.md) | An agent with broad, standing access can do broad, standing damage when it goes wrong. Granting each agent only the access its job requires — scoped tools, default-deny permissions — keeps mistakes small and recoverable. |
 
 **Without tooling:** You can apply these principles with nothing more than a well-structured CLAUDE.md file, a git repository, and discipline about what you ask each agent session to do.
 
 ---
 
-### Tier 2: Workflow (Factors IV-VI)
+### Phase 2: Bound (Factors V-VIII)
 
 **Making the work between sessions reliable.**
 
@@ -42,15 +43,16 @@ These factors address what happens when vibe coding moves beyond a single quick 
 
 | Factor | What It Solves |
 |--------|---------------|
-| [IV. Research Before You Build](../../factors/04-research-before-you-build.md) | Jumping straight into implementation wastes sessions on wrong approaches. A brief research phase — reading existing code, checking constraints, exploring alternatives — makes the build phase dramatically more productive. |
-| [V. Validate Externally](../../factors/05-validate-externally.md) | The agent says "tests pass" but the code does not compile. External validation — running tests independently, checking outputs against real systems, verifying claims outside the agent session — catches lies and hallucinations before they compound. |
-| [VI. Lock Progress Forward](../../factors/06-lock-progress-forward.md) | A productive session's work gets undone by the next session. Commit working states frequently, tag milestones, and treat each validated checkpoint as a ratchet that prevents regression. |
+| [V. Research Before You Build](../../factors/05-research-before-you-build.md) | Jumping straight into implementation wastes sessions on wrong approaches. A brief research phase — reading existing code, checking constraints, exploring alternatives — makes the build phase dramatically more productive. |
+| [VI. Isolate Workers](../../factors/06-isolate-workers.md) | Multiple agents editing the same files create merge conflicts and corrupted state. Isolated workspaces — separate worktrees, branches, or directories — let parallel vibe coding sessions proceed without interference. |
+| [VII. Validate Externally](../../factors/07-validate-externally.md) | The agent says "tests pass" but the code does not compile. External validation — running tests independently, checking outputs against real systems, verifying claims outside the agent session — catches lies and hallucinations before they compound. |
+| [VIII. Lock Progress Forward](../../factors/08-lock-progress-forward.md) | A productive session's work gets undone by the next session. Commit working states frequently, tag milestones, and treat each validated checkpoint as a ratchet that prevents regression. |
 
 **Without tooling:** Commit after each working state. Run tests outside your agent session. Spend the first few minutes of a session reading before generating. These are habits, not tools.
 
 ---
 
-### Tier 3: Knowledge (Factors VII-IX)
+### Phase 3: Select (Factors IX-X)
 
 **Making each session smarter than the last.**
 
@@ -58,29 +60,27 @@ This is where vibe coding transforms from a series of isolated sessions into a c
 
 | Factor | What It Solves |
 |--------|---------------|
-| [VII. Extract Learnings](../../factors/07-extract-learnings.md) | Every session produces implicit knowledge — what worked, what failed, what the codebase actually does — that evaporates when the session ends. Deliberately extracting learnings turns ephemeral sessions into durable organizational knowledge. |
-| [VIII. Compound Knowledge](../../factors/08-compound-knowledge.md) | Extracted learnings sit in a document nobody reads. A deliberate cycle of Harvest, Evaluate, Refine, and Operationalize (HERO) turns raw learnings into context that automatically improves future sessions. This is the factor that makes vibe coding a compounding investment rather than a flat cost. |
-| [IX. Measure What Matters](../../factors/09-measure-what-matters.md) | You cannot tell if your vibe coding practice is improving. Tracking meaningful metrics — success rates, time-to-working-state, knowledge reuse — reveals whether your operational changes are actually helping. |
+| [IX. Extract Learnings](../../factors/09-extract-learnings.md) | Every session produces implicit knowledge — what worked, what failed, what the codebase actually does — that evaporates when the session ends. Deliberately extracting learnings turns ephemeral sessions into durable organizational knowledge. |
+| [X. Compound Knowledge](../../factors/10-compound-knowledge.md) | Extracted learnings sit in a document nobody reads. A deliberate cycle of Harvest, Evaluate, Refine, and Operationalize (HERO) turns raw learnings — including failed sessions — into context that automatically improves future sessions. This is the factor that makes vibe coding a compounding investment rather than a flat cost. |
 
 **Without tooling:** After each session, write down what you learned in a file that your next session will read. Review those notes weekly. Delete what is stale. Promote what keeps being useful. This is the knowledge flywheel in its simplest form.
 
-**Factor VIII is the differentiator.** Most vibe coding advice focuses on prompting techniques for a single session. Compound Knowledge addresses the harder problem: making every session build on everything that came before. An organization that compounds knowledge across hundreds of agent sessions operates at a fundamentally different level than one that starts fresh each time.
+**Factor X is the differentiator.** Most vibe coding advice focuses on prompting techniques for a single session. Compound Knowledge addresses the harder problem: making every session build on everything that came before. An organization that compounds knowledge across hundreds of agent sessions operates at a fundamentally different level than one that starts fresh each time.
 
 ---
 
-### Tier 4: Scale (Factors X-XII) — The Factory Altitude
+### Phase 4: Govern (Factors XI-XII) — The Factory Altitude
 
 **Making vibe coding work across teams and complex systems.**
 
-These are the same three factors at fleet scale. A solo developer already lives them in miniature — a git worktree is isolation, your own judgment is supervision, the note you write after a failed session is failure harvesting. When vibe coding scales beyond one person and one agent, the same rules need real machinery. You grow into this altitude; you don't skip the factors.
+A solo developer already lives these in miniature — your own judgment is supervision, the metric you track is whether last week was better than this one. When vibe coding scales beyond one person and one agent, the same rules need real machinery. You grow into this altitude; you don't skip the factors.
 
 | Factor | What It Solves |
 |--------|---------------|
-| [X. Isolate Workers](../../factors/10-isolate-workers.md) | Multiple agents editing the same files create merge conflicts and corrupted state. Isolated workspaces — separate worktrees, branches, or directories — let parallel vibe coding sessions proceed without interference. |
 | [XI. Supervise Hierarchically](../../factors/11-supervise-hierarchically.md) | A fleet of agents with no coordination produces duplicated work and conflicting changes. A supervisory layer — whether a lead agent, a human coordinator, or a dispatch system — keeps parallel sessions aligned. |
-| [XII. Harvest Failures as Wisdom](../../factors/12-harvest-failures-as-wisdom.md) | Failed sessions feel like wasted time. When failures are systematically analyzed — what went wrong, what context was missing, what validation would have caught it — they become the most valuable input to the knowledge flywheel. |
+| [XII. Measure Outcomes](../../factors/12-measure-outcomes.md) | You cannot tell if your vibe coding practice is improving. Tracking meaningful metrics — success rates, time-to-working-state, knowledge reuse — reveals whether your operational changes are actually helping. |
 
-**Without tooling:** Use separate git branches for parallel work. Designate one person to coordinate when multiple developers are vibe coding on the same codebase. When a session fails, write a brief note about why before starting over.
+**Without tooling:** Designate one person to coordinate when multiple developers are vibe coding on the same codebase. Track a simple metric — how often sessions succeed first try — so you know whether your practice is actually improving.
 
 ---
 
@@ -111,15 +111,15 @@ The difference compounds. After 10 sessions, the gap is noticeable. After 100 se
 | Agent produces wrong approach | Missing project context | [I. Context Is Everything](../../factors/01-context-is-everything.md) |
 | Work from a good session gets lost | No checkpoint discipline | [II. Track Everything in Git](../../factors/02-track-everything-in-git.md) |
 | Agent tries to do everything at once | Unclear scope | [III. One Agent, One Job](../../factors/03-one-agent-one-job.md) |
-| Implementation goes in circles | No research phase | [IV. Research Before You Build](../../factors/04-research-before-you-build.md) |
-| Agent claims success but code is broken | No external validation | [V. Validate Externally](../../factors/05-validate-externally.md) |
-| Next session undoes previous progress | No progress locking | [VI. Lock Progress Forward](../../factors/06-lock-progress-forward.md) |
-| Same mistakes repeat across sessions | No learning extraction | [VII. Extract Learnings](../../factors/07-extract-learnings.md) |
-| Learnings exist but nobody uses them | No compounding system | [VIII. Compound Knowledge](../../factors/08-compound-knowledge.md) |
-| Cannot tell if practice is improving | No measurement | [IX. Measure What Matters](../../factors/09-measure-what-matters.md) |
-| Parallel sessions create conflicts | No workspace isolation | [X. Isolate Workers](../../factors/10-isolate-workers.md) |
+| Agent has more access than its job needs | No privilege scoping | [IV. Enforce Least Privilege](../../factors/04-enforce-least-privilege.md) |
+| Implementation goes in circles | No research phase | [V. Research Before You Build](../../factors/05-research-before-you-build.md) |
+| Parallel sessions create conflicts | No workspace isolation | [VI. Isolate Workers](../../factors/06-isolate-workers.md) |
+| Agent claims success but code is broken | No external validation | [VII. Validate Externally](../../factors/07-validate-externally.md) |
+| Next session undoes previous progress | No progress locking | [VIII. Lock Progress Forward](../../factors/08-lock-progress-forward.md) |
+| Same mistakes repeat across sessions | No learning extraction | [IX. Extract Learnings](../../factors/09-extract-learnings.md) |
+| Learnings exist but nobody uses them; failed sessions feel like waste | No compounding system | [X. Compound Knowledge](../../factors/10-compound-knowledge.md) |
 | Multiple agents duplicate or conflict | No coordination layer | [XI. Supervise Hierarchically](../../factors/11-supervise-hierarchically.md) |
-| Failed sessions feel like waste | No failure harvesting | [XII. Harvest Failures as Wisdom](../../factors/12-harvest-failures-as-wisdom.md) |
+| Cannot tell if practice is improving | No measurement | [XII. Measure Outcomes](../../factors/12-measure-outcomes.md) |
 
 For a detailed catalog of failure patterns and remedies, see the [failure patterns reference](../reference/failure-patterns.md).
 
@@ -129,23 +129,23 @@ For a detailed catalog of failure patterns and remedies, see the [failure patter
 
 ### For Individual Developers
 
-Start with the Foundation tier. These three factors — context loading, git discipline, and focused agent scope — produce the most immediate improvement in vibe coding session quality. They cost nothing to implement and work with any tool.
+Start with the Prepare phase. These factors — context loading, git discipline, focused agent scope, and least-privilege access — produce the most immediate improvement in vibe coding session quality. They cost nothing to implement and work with any tool.
 
-Then add the Workflow tier as you take on larger tasks. Research before building, validate externally, and lock progress forward. These habits prevent the most common session failures.
+Then add the Bound phase as you take on larger tasks. Research before building, isolate parallel work, validate externally, and lock progress forward. These habits prevent the most common session failures.
 
-The Knowledge tier is where long-term advantage emerges. Even a simple practice of writing down what you learned after each session, and loading those notes into the next one, creates a compounding effect that transforms your practice over weeks and months.
+The Select phase is where long-term advantage emerges. Even a simple practice of writing down what you learned after each session, and loading those notes into the next one, creates a compounding effect that transforms your practice over weeks and months.
 
 ### For Teams
 
-Everything above applies, plus the Scale tier. Isolated workspaces prevent parallel sessions from colliding. Hierarchical supervision keeps multiple developers' agent work aligned. And harvesting failures across the team means everyone benefits from each person's hard-won lessons.
+Everything above applies, plus the Govern phase. Hierarchical supervision keeps multiple developers' agent work aligned, and measuring outcomes tells you whether the practice is improving across the team.
 
-The Knowledge tier becomes especially powerful at team scale. When one developer discovers that a particular codebase requires a specific context-loading pattern, that learning can compound into every team member's future sessions through shared knowledge artifacts.
+The Select phase becomes especially powerful at team scale. When one developer discovers that a particular codebase requires a specific context-loading pattern, that learning can compound into every team member's future sessions through shared knowledge artifacts.
 
 ### For Organizations
 
 The 12 factors provide a shared vocabulary for discussing agent operations. Instead of ad-hoc "tips and tricks" for prompting, teams can reason about which factors they are strong or weak on and invest accordingly.
 
-Factor VIII (Compound Knowledge) is the organizational strategic advantage. Organizations that systematically compound knowledge across hundreds of agent sessions across dozens of developers build a durable asset that no model upgrade or tool switch can replicate.
+Factor X (Compound Knowledge) is the organizational strategic advantage. Organizations that systematically compound knowledge across hundreds of agent sessions across dozens of developers build a durable asset that no model upgrade or tool switch can replicate.
 
 ---
 
@@ -155,7 +155,7 @@ Factor VIII (Compound Knowledge) is the organizational strategic advantage. Orga
 2. **Understand the failure patterns** - [Failure patterns reference](../reference/failure-patterns.md)
 3. **See the full factor list** - [All 12 factors](../../factors/README.md)
 4. **Try the workflow** - [Getting started guide](../getting-started/quick-start.md)
-5. **Understand the knowledge flywheel** - [Compound Knowledge (Factor VIII)](../../factors/08-compound-knowledge.md)
+5. **Understand the knowledge flywheel** - [Compound Knowledge (Factor X)](../../factors/10-compound-knowledge.md)
 
 ---
 

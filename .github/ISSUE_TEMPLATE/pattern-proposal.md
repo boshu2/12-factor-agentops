@@ -38,15 +38,15 @@ assignees: ''
 - [ ] I: Context Is Everything
 - [ ] II: Track Everything in Git
 - [ ] III: One Agent, One Job
-- [ ] IV: Research Before You Build
-- [ ] V: Validate Externally
-- [ ] VI: Lock Progress Forward
-- [ ] VII: Extract Learnings
-- [ ] VIII: Compound Knowledge
-- [ ] IX: Measure What Matters
-- [ ] X: Isolate Workers
+- [ ] IV: Enforce Least Privilege
+- [ ] V: Research Before You Build
+- [ ] VI: Isolate Workers
+- [ ] VII: Validate Externally
+- [ ] VIII: Lock Progress Forward
+- [ ] IX: Extract Learnings
+- [ ] X: Compound Knowledge
 - [ ] XI: Supervise Hierarchically
-- [ ] XII: Harvest Failures as Wisdom
+- [ ] XII: Measure Outcomes
 
 ---
 

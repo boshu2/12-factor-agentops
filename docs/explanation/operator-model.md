@@ -85,15 +85,15 @@ Governance does not do the work directly. It shapes the work so autonomy remains
 | **I. Context Is Everything** | Stateful environment | Keeps continuity in bounded, reloadable context instead of one overloaded session |
 | **II. Track Everything in Git** | Durable traces | Preserves memory, provenance, and resumability in versioned artifacts |
 | **III. One Agent, One Job** | Replaceable actors | Keeps workers scoped, swappable, and easy to restart |
-| **IV. Research Before You Build** | Governance | Clarifies objective, constraints, and evidence before action |
-| **V. Validate Externally** | Selection gates | Ensures the environment, not the author, decides what survives |
-| **VI. Lock Progress Forward** | Selection gates | Ratchets accepted work into durable state so later work cannot quietly erase it |
-| **VII. Extract Learnings** | Durable traces | Turns completed work into reusable evidence instead of lost experience |
-| **VIII. Compound Knowledge** | Promotion loops | Feeds validated learnings back into future sessions so performance improves over time |
-| **IX. Measure What Matters** | Governance | Keeps the system aligned to outcomes rather than activity theater |
-| **X. Isolate Workers** | Replaceable actors | Prevents hidden coupling when multiple workers operate in parallel |
+| **IV. Enforce Least Privilege** | Governance | Grants each actor only the access its job requires, bounding the blast radius of failure |
+| **V. Research Before You Build** | Governance | Clarifies objective, constraints, and evidence before action |
+| **VI. Isolate Workers** | Replaceable actors | Prevents hidden coupling when multiple workers operate in parallel |
+| **VII. Validate Externally** | Selection gates | Ensures the environment, not the author, decides what survives |
+| **VIII. Lock Progress Forward** | Selection gates | Ratchets accepted work into durable state so later work cannot quietly erase it |
+| **IX. Extract Learnings** | Durable traces | Turns completed work into reusable evidence instead of lost experience |
+| **X. Compound Knowledge** | Promotion loops | Feeds validated learnings — including failed attempts — back into future sessions so performance improves over time |
 | **XI. Supervise Hierarchically** | Governance | Makes escalation, coordination, and boundary-setting explicit |
-| **XII. Harvest Failures as Wisdom** | Promotion loops | Converts failed attempts into preventative knowledge and better future choices |
+| **XII. Measure Outcomes** | Governance | Keeps the system aligned to outcomes rather than activity theater |
 
 ---
 
