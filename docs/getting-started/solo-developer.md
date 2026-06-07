@@ -193,7 +193,7 @@ Success rate: 95% (each session succeeds)
 
 ---
 
-#### Factor V: Validate Externally
+#### Factor VII: Validate Externally
 
 **Goal:** Catch errors in 5 seconds, not 5 hours
 
@@ -275,7 +275,7 @@ git commit       # Hook runs validation automatically
 
 **Add observability and continuous improvement**
 
-#### Factor IX: Measure What Matters
+#### Factor XII: Measure Outcomes
 
 **Goal:** Know your AI success rate and speedup
 
@@ -315,9 +315,9 @@ cat > METRICS.md <<EOF
 - ✅ I: Context Is Everything (CLAUDE.md)
 - ✅ II: Track Everything in Git
 - ✅ III: One Agent, One Job (one task per session)
-- ✅ V: Validate Externally (make quick/test/all)
-- ✅ IX: Measure What Matters (this file)
-- Coming next: IV, VI-VIII, X-XII
+- ✅ VII: Validate Externally (make quick/test/all)
+- ✅ XII: Measure Outcomes (this file)
+- Coming next: IV-VI, VIII-XI
 EOF
 ```
 
@@ -337,7 +337,7 @@ echo "" >> METRICS.md
 
 ---
 
-#### Factor VI: Lock Progress Forward
+#### Factor VIII: Lock Progress Forward
 
 **Goal:** Pick up where you left off (multi-day projects)
 
@@ -397,7 +397,7 @@ cat .sessions/2025-11-25-auth-feature.md
 
 ---
 
-#### Factor VII: Extract Learnings
+#### Factor IX: Extract Learnings
 
 **Goal:** Reuse what works by extracting and compounding knowledge
 
@@ -465,13 +465,13 @@ Time: 5 min (was 30 min)
 - Git tracking every decision (II: Track Everything in Git)
 - Focused prompts, one task per session (III: One Agent, One Job)
 
-**Workflow (Factors V-VII):**
-- Validation gates (V: Validate Externally)
-- Session notes for resuming work (VI: Lock Progress Forward)
-- Pattern library for reuse (VII: Extract Learnings)
+**Workflow (Factors VII-VIII):**
+- Validation gates (VII: Validate Externally)
+- Session notes for resuming work (VIII: Lock Progress Forward)
 
-**Knowledge (Factor IX):**
-- Metrics tracking success rate (IX: Measure What Matters)
+**Knowledge (Factors IX, XII):**
+- Pattern library for reuse (IX: Extract Learnings)
+- Metrics tracking success rate (XII: Measure Outcomes)
 
 ✅ **Measured results:**
 - 30-35% → 90-95% success rate
@@ -508,7 +508,7 @@ Steps:
 1. AI generates migration (Factor I: Context Is Everything)
 2. make quick validates syntax (5s)
 3. make test runs migration tests (30s)
-4. Automated deployment pipeline (Factor V: Validate Externally)
+4. Automated deployment pipeline (Factor VII: Validate Externally)
 5. Health checks pass automatically (45s)
 
 Success rate: 100%
@@ -559,7 +559,7 @@ integration: test
 
 **Diagnosis:** Not reusing patterns (starting from scratch each time)
 
-**Fix:** Extract and reuse learnings (Factor VII)
+**Fix:** Extract and reuse learnings (Factor IX)
 ```bash
 # After successful task
 cp working-code.py .patterns/[pattern-name].py
@@ -577,11 +577,11 @@ cp working-code.py .patterns/[pattern-name].py
 ### Option A: Add More Factors (Full 12)
 
 **Implement remaining factors:**
-- IV: Research Before You Build (research before coding)
-- VIII: Compound Knowledge (build institutional memory)
-- X: Isolate Workers (independent execution environments)
+- IV: Enforce Least Privilege (scope agent permissions)
+- V: Research Before You Build (research before coding)
+- VI: Isolate Workers (independent execution environments)
+- X: Compound Knowledge (build institutional memory, learn from what goes wrong)
 - XI: Supervise Hierarchically (coordination at scale)
-- XII: Harvest Failures as Wisdom (learn from what goes wrong)
 
 **Guide:** [Complete Workflow Guide](../tutorials/workflow-guide.md)
 
@@ -609,10 +609,10 @@ cp working-code.py .patterns/[pattern-name].py
 - ✅ I: Context Is Everything
 - ✅ II: Track Everything in Git
 - ✅ III: One Agent, One Job
-- ✅ V: Validate Externally
-- ✅ VI: Lock Progress Forward
-- ✅ VII: Extract Learnings
-- ✅ IX: Measure What Matters
+- ✅ VII: Validate Externally
+- ✅ VIII: Lock Progress Forward
+- ✅ IX: Extract Learnings
+- ✅ XII: Measure Outcomes
 
 **FAAFO achieved:**
 - ✅ Fast: 2.7-10x speedup

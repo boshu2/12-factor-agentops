@@ -45,7 +45,7 @@ git config --local commit.template .gitmessage
 
 ---
 
-## Step 2: Add Validation Gates (Factor V: Validate Externally)
+## Step 2: Add Validation Gates (Factor VII: Validate Externally)
 
 **Time:** 5 minutes
 
@@ -54,7 +54,7 @@ git config --local commit.template .gitmessage
 ```makefile
 .PHONY: quick validate
 
-# Factor V: Validate Externally
+# Factor VII: Validate Externally
 quick:
 	@echo "🔍 Running quick validation..."
 	@# Syntax check
@@ -120,7 +120,7 @@ You: Commit
 git add fibonacci.py
 git commit -m "feat: add fibonacci function
 
-Factors used: II (Track Everything in Git), V (Validate Externally)
+Factors used: II (Track Everything in Git), VII (Validate Externally)
 Success rate: 100%
 Time saved: ~10 min (vs manual validation)"
 ```
@@ -157,7 +157,7 @@ cat > METRICS.md <<EOF
 
 ## Factor Implementation
 - ✅ Factor II: Track Everything in Git
-- ✅ Factor V: Validate Externally (make quick)
+- ✅ Factor VII: Validate Externally (make quick)
 
 ## Results (Week 1)
 - Tasks completed: 1
@@ -236,7 +236,7 @@ EOF
 
 ---
 
-### Add Factor VII: Extract Learnings
+### Add Factor IX: Extract Learnings
 
 **Goal:** Save what works for reuse
 

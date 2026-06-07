@@ -6,7 +6,7 @@
 
 ## The 12 Factors
 
-### Foundation (I-III)
+### Prepare (I-III)
 
 | # | Factor | Purpose |
 |---|--------|---------|
@@ -14,29 +14,29 @@
 | **II** | [Track Everything in Git](../../factors/02-track-everything-in-git.md) | Git as institutional memory for decisions, patterns, and history |
 | **III** | [One Agent, One Job](../../factors/03-one-agent-one-job.md) | Each agent gets a single, well-scoped task |
 
-### Workflow (IV-VI)
+### Bound (IV-VI)
 
 | # | Factor | Purpose |
 |---|--------|---------|
-| **IV** | [Research Before You Build](../../factors/04-research-before-you-build.md) | Understand the problem space before writing code |
-| **V** | [Validate Externally](../../factors/05-validate-externally.md) | Automated checks that catch errors the agent cannot see |
-| **VI** | [Lock Progress Forward](../../factors/06-lock-progress-forward.md) | Commit incrementally so work is never lost |
+| **IV** | [Enforce Least Privilege](../../factors/04-enforce-least-privilege.md) | An agent acts inside a least-privilege envelope it cannot widen -- not even on untrusted input |
+| **V** | [Research Before You Build](../../factors/05-research-before-you-build.md) | Understand the problem space before writing code |
+| **VI** | [Isolate Workers](../../factors/06-isolate-workers.md) | Each agent gets its own worktree and environment |
 
-### Knowledge (VII-IX)
-
-| # | Factor | Purpose |
-|---|--------|---------|
-| **VII** | [Extract Learnings](../../factors/07-extract-learnings.md) | Turn session outcomes into reusable knowledge |
-| **VIII** | [Compound Knowledge](../../factors/08-compound-knowledge.md) | HERO pattern: knowledge grows across sessions |
-| **IX** | [Measure What Matters](../../factors/09-measure-what-matters.md) | Track the metrics that drive improvement |
-
-### Scale (X-XII) — the factory altitude
+### Select (VII-IX)
 
 | # | Factor | Purpose |
 |---|--------|---------|
-| **X** | [Isolate Workers](../../factors/10-isolate-workers.md) | Each agent gets its own worktree and environment |
+| **VII** | [Validate Externally](../../factors/07-validate-externally.md) | Automated checks that catch errors the agent cannot see |
+| **VIII** | [Lock Progress Forward](../../factors/08-lock-progress-forward.md) | Commit incrementally so work is never lost |
+| **IX** | [Extract Learnings](../../factors/09-extract-learnings.md) | Turn session outcomes into reusable knowledge |
+
+### Govern (X-XII) — the factory altitude
+
+| # | Factor | Purpose |
+|---|--------|---------|
+| **X** | [Compound Knowledge](../../factors/10-compound-knowledge.md) | HERO pattern: knowledge grows across sessions; failures become documented prevention patterns |
 | **XI** | [Supervise Hierarchically](../../factors/11-supervise-hierarchically.md) | Supervisors manage agent fleets, not humans directly |
-| **XII** | [Harvest Failures as Wisdom](../../factors/12-harvest-failures-as-wisdom.md) | Failures become documented prevention patterns |
+| **XII** | [Measure Outcomes](../../factors/12-measure-outcomes.md) | Track the metrics that drive improvement |
 
 ---
 
@@ -44,13 +44,13 @@
 
 The 12 factors are organized into four tiers of increasing sophistication:
 
-**Foundation (I-III)** -- Get these right first. Context management, git discipline, and focused agents form the base that everything else builds on.
+**Prepare (I-III)** -- Get these right first. Context management, git discipline, and focused agents form the base that everything else builds on.
 
-**Workflow (IV-VI)** -- The operational loop. Research before building, validate with external tools, and lock progress forward through incremental commits.
+**Bound (IV-VI)** -- Bound the work before agents run. Enforce least privilege, research before building, and isolate workers so they cannot collide.
 
-**Knowledge (VII-IX)** -- The compounding engine. Extract learnings, compound them across sessions, and measure the metrics that actually matter.
+**Select (VII-IX)** -- Select the work that holds. Validate with external tools, lock progress forward through incremental commits, and extract learnings from every session.
 
-**Scale (X-XII)** -- The factory altitude: the same factors at fleet scale. Solo, you live them in miniature (a worktree is isolation, your judgment is supervision); running multiple agents, they become structural — worker isolation, hierarchical supervision, and systematic failure harvesting. You grow into the altitude, you don't skip the factors.
+**Govern (X-XII)** -- The factory altitude: the same factors at fleet scale. Solo, you live them in miniature (a worktree is isolation, your judgment is supervision); running multiple agents, they become structural — knowledge compounding, hierarchical supervision, and outcome measurement. You grow into the altitude, you don't skip the factors.
 
 ---
 
@@ -78,7 +78,7 @@ Example: Database deployment 4 hours -> 90 seconds = 27x
 
 ## Common Commands
 
-### Validation (Factor V)
+### Validation (Factor VII)
 ```bash
 make quick       # 5s syntax check
 make test        # 30s unit tests
@@ -94,7 +94,7 @@ git commit       # Commit template captures decisions
 git log          # Review history for patterns
 ```
 
-### Session Management (Factor VI)
+### Session Management (Factor VIII)
 ```bash
 ls .sessions/              # List sessions
 cat .sessions/[date].md    # Load session context
@@ -107,10 +107,10 @@ cat .sessions/[date].md    # Load session context
 ```
 project/
 ├── CLAUDE.md              # Context file (Factor I)
-├── Makefile               # Validation gates (Factor V)
-├── learnings.md           # Extracted knowledge (Factor VII)
+├── Makefile               # Validation gates (Factor VII)
+├── learnings.md           # Extracted knowledge (Factor IX)
 ├── .gitmessage            # Commit template (Factor II)
-├── .sessions/             # Session notes (Factor VI)
+├── .sessions/             # Session notes (Factor VIII)
 │   └── YYYY-MM-DD-[task].md
 └── src/                   # Your code
 ```
@@ -121,10 +121,10 @@ project/
 
 | Problem | Likely Cause | Factor to Review |
 |---------|--------------|------------------|
-| Low success rate (<70%) | Context overload or missing validation | I: Context Is Everything, V: Validate Externally |
-| Agent generates wrong code | Unclear scope or missing research | III: One Agent One Job, IV: Research Before You Build |
-| Same mistakes repeated | No learning extraction | VII: Extract Learnings, XII: Harvest Failures as Wisdom |
-| Can't resume work | Missing session notes | VI: Lock Progress Forward |
+| Low success rate (<70%) | Context overload or missing validation | I: Context Is Everything, VII: Validate Externally |
+| Agent generates wrong code | Unclear scope or missing research | III: One Agent One Job, V: Research Before You Build |
+| Same mistakes repeated | No learning extraction | IX: Extract Learnings, X: Compound Knowledge |
+| Can't resume work | Missing session notes | VIII: Lock Progress Forward |
 | Validation takes too long | Over-scoped checks | Start with `make quick` only |
 
 ---

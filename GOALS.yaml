@@ -8,7 +8,7 @@ goals:
   - id: factor-naming-consistent
     description: "Factor files are numbered 01-12 and filenames reflect the new factor titles"
     check: |
-      expected="01-context-is-everything 02-track-everything-in-git 03-one-agent-one-job 04-research-before-you-build 05-validate-externally 06-lock-progress-forward 07-extract-learnings 08-compound-knowledge 09-measure-what-matters 10-isolate-workers 11-supervise-hierarchically 12-harvest-failures-as-wisdom"
+      expected="01-context-is-everything 02-track-everything-in-git 03-one-agent-one-job 05-research-before-you-build 07-validate-externally 08-lock-progress-forward 09-extract-learnings 10-compound-knowledge 12-measure-outcomes 06-isolate-workers 11-supervise-hierarchically 10-compound-knowledge"
       count=0
       for name in $expected; do
         [ -f "factors/${name}.md" ] && count=$((count+1))

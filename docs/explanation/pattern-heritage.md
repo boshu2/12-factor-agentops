@@ -82,7 +82,7 @@ Houston introduced explicit state machines for multi-phase work.
 │  │ COMPLETE │  │ FAILED │  │ ABORTED │                                │
 │  └──────────┘  └────────┘  └─────────┘                                │
 │                                                                         │
-│  INFORMED: Factor VI (Lock Progress Forward), Factor VIII (Compound Knowledge) │
+│  INFORMED: Factor VIII (Lock Progress Forward), Factor X (Compound Knowledge) │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -114,7 +114,7 @@ class Mission:
         self.emit_event(StateChange(self.id, new_state))
 ```
 
-**Factors informed:** VI (Lock Progress Forward), VIII (Compound Knowledge)
+**Factors informed:** VIII (Lock Progress Forward), X (Compound Knowledge)
 
 ---
 
@@ -155,7 +155,7 @@ class AtomicLock:
 
 **Why this matters:** No Redis, no Zookeeper, no network. Just filesystem semantics that work everywhere, including air-gapped environments.
 
-**Factors informed:** XII (Harvest Failures as Wisdom) - works in any environment
+**Factors informed:** X (Compound Knowledge) - works in any environment
 
 ---
 
@@ -195,7 +195,7 @@ async def mission_events(mission_id: str):
 - Auto-reconnects on disconnect
 - No WebSocket complexity
 
-**Factors informed:** V (Validate Externally), VIII (Compound Knowledge async gates)
+**Factors informed:** VII (Validate Externally), X (Compound Knowledge async gates)
 
 ---
 
@@ -232,7 +232,7 @@ Houston maximized throughput with N parallel workers + 1 initializer.
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Factors informed:** III (One Agent, One Job), VII (Extract Learnings)
+**Factors informed:** III (One Agent, One Job), IX (Extract Learnings)
 
 ---
 
@@ -390,7 +390,7 @@ status:
       - "Rate limit: 100 req/min"
 ```
 
-**Factors informed:** VI (Lock Progress Forward), III (One Agent, One Job)
+**Factors informed:** VIII (Lock Progress Forward), III (One Agent, One Job)
 
 ---
 
@@ -457,7 +457,7 @@ func (c *BudgetController) Reconcile(ctx context.Context, req ctrl.Request) (ctr
 }
 ```
 
-**Factors informed:** VIII (Compound Knowledge), XI (Supervise Hierarchically)
+**Factors informed:** X (Compound Knowledge), XI (Supervise Hierarchically)
 
 ---
 
@@ -533,7 +533,7 @@ spec:
       - "no breaking changes"
 ```
 
-**Factors informed:** VII (Extract Learnings)
+**Factors informed:** IX (Extract Learnings)
 
 ---
 
@@ -611,7 +611,7 @@ status:
 - Reversible actions can be rolled back
 - Compliance-ready logging
 
-**Factors informed:** VIII (Compound Knowledge), V (Validate Externally)
+**Factors informed:** X (Compound Knowledge), VII (Validate Externally)
 
 ---
 
@@ -619,16 +619,16 @@ status:
 
 | Pattern | Source | Primary Factor | Supporting Factors |
 |---------|--------|----------------|-------------------|
-| Mission Lifecycle State Machine | Houston | VI (Lock Progress Forward) | VIII (Compound Knowledge) |
-| mkdir Atomic Locking | Houston | XII (Harvest Failures as Wisdom) | - |
-| SSE Telemetry | Houston | V (Validate Externally) | VIII (Compound Knowledge) |
-| N+1 Worker Pattern | Houston | III (One Agent, One Job) | VII (Extract Learnings) |
+| Mission Lifecycle State Machine | Houston | VIII (Lock Progress Forward) | X (Compound Knowledge) |
+| mkdir Atomic Locking | Houston | X (Compound Knowledge) | - |
+| SSE Telemetry | Houston | VII (Validate Externally) | X (Compound Knowledge) |
+| N+1 Worker Pattern | Houston | III (One Agent, One Job) | IX (Extract Learnings) |
 | PID-Based Crash Recovery | Houston | XI (Supervise Hierarchically) | - |
-| Shard/ShardRun Separation | Fractal | VI (Lock Progress Forward) | III (One Agent, One Job) |
-| BudgetQuota CRD | Fractal | VIII (Compound Knowledge) | XI (Supervise Hierarchically) |
-| Blackboard Coordination | Fractal | VII (Extract Learnings) | III (One Agent, One Job) |
-| Level-Triggered Reconciliation | Fractal | XI (Supervise Hierarchically) | IV (Research Before You Build) |
-| ToolCall Audit Trail | Fractal | VIII (Compound Knowledge) | V (Validate Externally) |
+| Shard/ShardRun Separation | Fractal | VIII (Lock Progress Forward) | III (One Agent, One Job) |
+| BudgetQuota CRD | Fractal | X (Compound Knowledge) | XI (Supervise Hierarchically) |
+| Blackboard Coordination | Fractal | IX (Extract Learnings) | III (One Agent, One Job) |
+| Level-Triggered Reconciliation | Fractal | XI (Supervise Hierarchically) | V (Research Before You Build) |
+| ToolCall Audit Trail | Fractal | X (Compound Knowledge) | VII (Validate Externally) |
 
 ---
 
@@ -684,11 +684,10 @@ ai-platform combined Houston's simplicity with Fractal's Kubernetes-native appro
 - **From Theory to Production**: [./from-theory-to-production.md](./from-theory-to-production.md)
 - **The 12 Factors**: [../../factors/README.md](../../factors/README.md)
 - **Factor III Implementation Patterns**: [../../factors/03-one-agent-one-job.md#implementation-patterns](../../factors/03-one-agent-one-job.md#implementation-patterns)
-- **Factor VI Implementation Patterns**: [../../factors/06-lock-progress-forward.md#implementation-patterns](../../factors/06-lock-progress-forward.md#implementation-patterns)
-- **Factor VII Implementation Patterns**: [../../factors/07-extract-learnings.md#implementation-patterns](../../factors/07-extract-learnings.md#implementation-patterns)
-- **Factor VIII Implementation Patterns**: [../../factors/08-compound-knowledge.md#implementation-patterns](../../factors/08-compound-knowledge.md#implementation-patterns)
+- **Factor VIII Implementation Patterns**: [../../factors/08-lock-progress-forward.md#implementation-patterns](../../factors/08-lock-progress-forward.md#implementation-patterns)
+- **Factor IX Implementation Patterns**: [../../factors/09-extract-learnings.md#implementation-patterns](../../factors/09-extract-learnings.md#implementation-patterns)
+- **Factor X Implementation Patterns**: [../../factors/10-compound-knowledge.md#implementation-patterns](../../factors/10-compound-knowledge.md#implementation-patterns)
 - **Factor XI Implementation Patterns**: [../../factors/11-supervise-hierarchically.md#implementation-patterns](../../factors/11-supervise-hierarchically.md#implementation-patterns)
-- **Factor XII Implementation Patterns**: [../../factors/12-harvest-failures-as-wisdom.md#implementation-patterns](../../factors/12-harvest-failures-as-wisdom.md#implementation-patterns)
 
 ---
 

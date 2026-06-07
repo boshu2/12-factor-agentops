@@ -58,11 +58,11 @@ BUILD → WORK → RUN
 **Problem-solving recipes for specific tasks**
 
 - [How-To Index](./how-to/) - All guides organized by task
-  - [Implement Validation Gates](./how-to/README.md#validation--quality) - Factor IV
-  - [Prevent Context Collapse](./how-to/README.md#context-management) - Factor II
-  - [Build Pattern Library](./how-to/README.md#pattern-libraries) - Factor XII
-  - [Track Success Rates](./how-to/README.md#measurement--observability) - Factor V
-  - [Lock Progress Forward](./how-to/README.md#session-management) - Factor VI
+  - [Implement Validation Gates](./how-to/README.md#validation--quality) - Factor VII
+  - [Prevent Context Collapse](./how-to/README.md#context-management) - Factor I
+  - [Build Pattern Library](./how-to/README.md#pattern-libraries) - Factor X
+  - [Track Success Rates](./how-to/README.md#measurement--observability) - Factor XII
+  - [Lock Progress Forward](./how-to/README.md#session-management) - Factor VIII
   - [And 20+ more...](./how-to/)
 
 ---
@@ -131,10 +131,12 @@ Looking for documentation about a specific factor?
 | **I: Context Is Everything** | [Quick Start](./getting-started/quick-start.md#step-1) | Git Workflow | [Factor I](../factors/01-context-is-everything.md) | [Knowledge OS](./principles/knowledge-os.md) |
 | **II: Track Everything in Git** | [Quick Start](./getting-started/quick-start.md#add-factor-ii) | [Prevent Collapse](./how-to/README.md#context-management) | [Factor II](../factors/02-track-everything-in-git.md) | [Context Engineering](./principles/context-engineering.md) |
 | **III: One Agent, One Job** | [Solo Dev](./getting-started/solo-developer.md#factor-iii) | Multi-Phase | [Factor III](../factors/03-one-agent-one-job.md) | [Learning Science](./principles/five-pillars.md) |
-| **IV: Research Before You Build** | [Quick Start](./getting-started/quick-start.md#step-2) | [Validation Gates](./how-to/README.md#validation--quality) | [Factor IV](../factors/04-research-before-you-build.md) | [DevOps/SRE](./principles/five-pillars.md) |
-| **V: Validate Externally** | [Solo Dev](./getting-started/solo-developer.md#factor-v) | [Track Success](./how-to/README.md#measurement--observability) | [Factor V](../factors/05-validate-externally.md) | Metrics |
-| **VI: Lock Progress Forward** | [Solo Dev](./getting-started/solo-developer.md#factor-vi) | [Session Notes](./how-to/README.md#session-management) | [Factor VI](../factors/06-lock-progress-forward.md) | [Context Engineering](./principles/context-engineering.md) |
-| **VII-XII** | [Flow Guide](./tutorials/workflow-guide.md) | [How-To](./how-to/) | [Factors](../factors/) | [Pillars](./principles/five-pillars.md) |
+| **IV: Enforce Least Privilege** | [Solo Dev](./getting-started/solo-developer.md) | [Validation Gates](./how-to/README.md#validation--quality) | [Factor IV](../factors/04-enforce-least-privilege.md) | [DevOps/SRE](./principles/five-pillars.md) |
+| **V: Research Before You Build** | [Quick Start](./getting-started/quick-start.md#step-2) | [Validation Gates](./how-to/README.md#validation--quality) | [Factor V](../factors/05-research-before-you-build.md) | [DevOps/SRE](./principles/five-pillars.md) |
+| **VI: Isolate Workers** | [Flow Guide](./tutorials/workflow-guide.md) | [How-To](./how-to/) | [Factor VI](../factors/06-isolate-workers.md) | [Pillars](./principles/five-pillars.md) |
+| **VII: Validate Externally** | [Solo Dev](./getting-started/solo-developer.md#factor-v) | [Track Success](./how-to/README.md#measurement--observability) | [Factor VII](../factors/07-validate-externally.md) | Metrics |
+| **VIII: Lock Progress Forward** | [Solo Dev](./getting-started/solo-developer.md#factor-vi) | [Session Notes](./how-to/README.md#session-management) | [Factor VIII](../factors/08-lock-progress-forward.md) | [Context Engineering](./principles/context-engineering.md) |
+| **IX-XII** | [Flow Guide](./tutorials/workflow-guide.md) | [How-To](./how-to/) | [Factors](../factors/) | [Pillars](./principles/five-pillars.md) |
 
 ---
 
@@ -144,11 +146,11 @@ Looking to achieve a specific FAAFO goal?
 
 | FAAFO Goal | Start Here | Relevant Factors |
 |------------|------------|------------------|
-| **Fast** | [Validation Gates](./how-to/README.md#validation--quality) | II, IV, V |
-| **Ambitious** | [Pattern Library](./how-to/README.md#pattern-libraries) | IX, XII |
-| **Autonomous** | [Solo Developer Guide](./getting-started/solo-developer.md) | I, III, IV, VII, VIII |
-| **Fun** | [Quick Start](./getting-started/quick-start.md) | IV, XI |
-| **Optionality** | [Context Management](./how-to/README.md#context-management) | II, VI |
+| **Fast** | [Validation Gates](./how-to/README.md#validation--quality) | II, V, VII |
+| **Ambitious** | [Pattern Library](./how-to/README.md#pattern-libraries) | IX, X |
+| **Autonomous** | [Solo Developer Guide](./getting-started/solo-developer.md) | I, III, V, IX, X |
+| **Fun** | [Quick Start](./getting-started/quick-start.md) | V, XI |
+| **Optionality** | [Context Management](./how-to/README.md#context-management) | II, VIII |
 
 ---
 

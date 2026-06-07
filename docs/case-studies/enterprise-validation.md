@@ -46,8 +46,8 @@ These case studies represent **industry validation** of patterns we independentl
 | Finding | Related Factor |
 |---------|---------------|
 | Training > tools | Factor III: One Agent, One Job (clear roles and methodology) |
-| Juniors benefit most | Factor VII: Extract Learnings (accelerated learning) |
-| Happy time increase | Factor V: Validate Externally (fewer escaped bugs) |
+| Juniors benefit most | Factor IX: Extract Learnings (accelerated learning) |
+| Happy time increase | Factor VII: Validate Externally (fewer escaped bugs) |
 
 ---
 
@@ -82,8 +82,8 @@ These case studies represent **industry validation** of patterns we independentl
 
 | Finding | Related Factor |
 |---------|---------------|
-| 70% smaller MRs | Factor VI: Lock Progress Forward (incremental commits) |
-| Quality + speed | Factor V: Validate Externally (tests, linters, CI) |
+| 70% smaller MRs | Factor VIII: Lock Progress Forward (incremental commits) |
+| Quality + speed | Factor VII: Validate Externally (tests, linters, CI) |
 | Review efficiency | Factor III: One Agent, One Job (focused scope) |
 
 ---
@@ -120,9 +120,9 @@ These case studies represent **industry validation** of patterns we independentl
 
 | Finding | Related Factor |
 |---------|---------------|
-| 100x compression | Factor IV: Research Before You Build (front-loaded clarity) |
+| 100x compression | Factor V: Research Before You Build (front-loaded clarity) |
 | Non-dev prototyping | Factor I: Context Is Everything (clear problem framing) |
-| Rapid validation | Factor V: Validate Externally (fast feedback loops) |
+| Rapid validation | Factor VII: Validate Externally (fast feedback loops) |
 
 ---
 
@@ -159,9 +159,9 @@ These case studies represent **industry validation** of patterns we independentl
 
 | Finding | Related Factor |
 |---------|---------------|
-| Start narrow | Factor VI: Lock Progress Forward (incremental expansion) |
+| Start narrow | Factor VIII: Lock Progress Forward (incremental expansion) |
 | Augmentation model | Factor III: One Agent, One Job (clear division of labor) |
-| Measurable FTE savings | Factor IX: Measure What Matters (concrete metrics) |
+| Measurable FTE savings | Factor XII: Measure Outcomes (concrete metrics) |
 
 ---
 
@@ -198,8 +198,8 @@ These case studies represent **industry validation** of patterns we independentl
 
 | Finding | Related Factor |
 |---------|---------------|
-| Pattern matching | Factor VIII: Compound Knowledge (reusable solutions) |
-| Velocity compounding | Factor VII: Extract Learnings (each fix teaches the next) |
+| Pattern matching | Factor X: Compound Knowledge (reusable solutions) |
+| Velocity compounding | Factor IX: Extract Learnings (each fix teaches the next) |
 | Human + AI collaboration | Factor XI: Supervise Hierarchically (human oversight) |
 
 ---
@@ -239,8 +239,8 @@ These case studies represent **industry validation** of patterns we independentl
 | Finding | Related Factor |
 |---------|---------------|
 | Discipline investment | All 12 Factors (systematic operational discipline) |
-| AI-native workflows | Factor VIII: Compound Knowledge (built-in learning loops) |
-| Training importance | Factor VII: Extract Learnings (institutional knowledge) |
+| AI-native workflows | Factor X: Compound Knowledge (built-in learning loops) |
+| Training importance | Factor IX: Extract Learnings (institutional knowledge) |
 
 ---
 
@@ -282,17 +282,17 @@ No Validation
 
 3. **Incremental progress compounds**
    - Smaller changes = faster review = higher throughput
-   - Aligns with Factor VI: Lock Progress Forward
+   - Aligns with Factor VIII: Lock Progress Forward
 
 4. **Measurement enables improvement**
    - Successful cases measured specific metrics
    - Clear ROI enabled expansion
-   - Aligns with Factor IX: Measure What Matters
+   - Aligns with Factor XII: Measure Outcomes
 
 5. **External validation maintains quality**
    - Fast + sloppy is not the pattern
    - Fast + externally validated = enterprise-grade
-   - Aligns with Factor V: Validate Externally
+   - Aligns with Factor VII: Validate Externally
 
 ---
 

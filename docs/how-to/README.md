@@ -16,14 +16,14 @@ Choose the task you want to accomplish:
 
 ## Research & Planning
 
-- **Structured Research** - Use Research-Plan-Implement phasing before writing code (Factor IV: Research Before You Build)
+- **Structured Research** - Use Research-Plan-Implement phasing before writing code (Factor V: Research Before You Build)
 - **Multi-Phase Workflows** - Break complex work into focused phases with clear handoffs
 
 ---
 
 ## Validation & Quality
 
-- **External Validation** - Set up make quick/test/all pipelines for automated checks (Factor V: Validate Externally)
+- **External Validation** - Set up make quick/test/all pipelines for automated checks (Factor VII: Validate Externally)
 - **Pre-Commit Hooks** - Automate validation before every commit
 - **Security Scans** - Integrate security checks into your workflow
 
@@ -31,7 +31,7 @@ Choose the task you want to accomplish:
 
 ## Progress & Session Management
 
-- **Lock Progress Forward** - Commit incrementally so work is never lost (Factor VI: Lock Progress Forward)
+- **Lock Progress Forward** - Commit incrementally so work is never lost (Factor VIII: Lock Progress Forward)
 - **Session Notes** - Capture context for multi-day project continuity
 - **Git Workflow** - Use git as your institutional memory (Factor II: Track Everything in Git)
 
@@ -39,17 +39,17 @@ Choose the task you want to accomplish:
 
 ## Knowledge & Learning
 
-- **Extract Learnings** - Turn session outcomes into reusable knowledge (Factor VII: Extract Learnings)
-- **Build a Knowledge Base** - Compound knowledge across sessions using HERO pattern (Factor VIII: Compound Knowledge)
-- **Track What Matters** - Measure success rates, speedup, and operational health (Factor IX: Measure What Matters)
+- **Extract Learnings** - Turn session outcomes into reusable knowledge (Factor IX: Extract Learnings)
+- **Build a Knowledge Base** - Compound knowledge across sessions using HERO pattern (Factor X: Compound Knowledge)
+- **Track What Matters** - Measure success rates, speedup, and operational health (Factor XII: Measure Outcomes)
 
 ---
 
 ## Scale (Multi-Agent)
 
-- **Isolate Workers** - Give each agent its own worktree and environment (Factor X: Isolate Workers)
+- **Isolate Workers** - Give each agent its own worktree and environment (Factor VI: Isolate Workers)
 - **Hierarchical Supervision** - Set up supervisors to manage agent fleets (Factor XI: Supervise Hierarchically)
-- **Harvest Failures** - Turn failures into documented wisdom that prevents recurrence (Factor XII: Harvest Failures as Wisdom)
+- **Harvest Failures** - Turn failures into documented wisdom that prevents recurrence (Factor X: Compound Knowledge)
 
 ---
 
@@ -70,15 +70,15 @@ Find how-to guides organized by which factor they support:
 | **Foundation** | **I: Context Is Everything** | Context file setup, prevent collapse |
 | | **II: Track Everything in Git** | Git workflow, commit templates |
 | | **III: One Agent, One Job** | Scope agent work, single-task sessions |
-| **Workflow** | **IV: Research Before You Build** | Structured research, multi-phase workflows |
-| | **V: Validate Externally** | Validation gates, pre-commit hooks, security scans |
-| | **VI: Lock Progress Forward** | Session notes, incremental commits |
-| **Knowledge** | **VII: Extract Learnings** | Post-session extraction, pattern capture |
-| | **VIII: Compound Knowledge** | HERO pattern, knowledge base setup |
-| | **IX: Measure What Matters** | Success tracking, speedup measurement |
-| **Scale** | **X: Isolate Workers** | Worker isolation, dedicated worktrees |
-| | **XI: Supervise Hierarchically** | Supervisor setup, fleet management |
-| | **XII: Harvest Failures as Wisdom** | Failure documentation, prevention patterns |
+| | **IV: Enforce Least Privilege** | Scoped permissions, minimal agent access |
+| **Workflow** | **V: Research Before You Build** | Structured research, multi-phase workflows |
+| | **VI: Isolate Workers** | Worker isolation, dedicated worktrees |
+| | **VII: Validate Externally** | Validation gates, pre-commit hooks, security scans |
+| | **VIII: Lock Progress Forward** | Session notes, incremental commits |
+| **Knowledge** | **IX: Extract Learnings** | Post-session extraction, pattern capture |
+| | **X: Compound Knowledge** | HERO pattern, knowledge base setup, failure documentation, prevention patterns |
+| **Scale** | **XI: Supervise Hierarchically** | Supervisor setup, fleet management |
+| | **XII: Measure Outcomes** | Success tracking, speedup measurement |
 
 ---
 
@@ -88,9 +88,9 @@ Find how-to guides organized by which factor they support:
 
 1. **New to 12-Factor AgentOps?** -- Read [Getting Started](../getting-started/) first, then set up a context file
 2. **Context collapse issues?** -- Focus on Factor I (context budget) and Factor III (agent focus)
-3. **Low success rate?** -- Add external validation (Factor V) and research phasing (Factor IV)
-4. **Knowledge keeps getting lost?** -- Extract learnings (Factor VII) and compound them (Factor VIII)
-5. **Scaling to multiple agents?** -- Start with isolation (Factor X), then add supervision (Factor XI)
+3. **Low success rate?** -- Add external validation (Factor VII) and research phasing (Factor V)
+4. **Knowledge keeps getting lost?** -- Extract learnings (Factor IX) and compound them (Factor X)
+5. **Scaling to multiple agents?** -- Start with isolation (Factor VI), then add supervision (Factor XI)
 
 ---
 

@@ -254,7 +254,7 @@
       <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
       <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#orangeGrad)"/>
       <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">IX</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Measure What Matters</text>
+      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Measure Outcomes</text>
       <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Search history for what works. Extract patterns from successful runs.</text>
     </g>
 
@@ -281,7 +281,7 @@
       <rect x="0" y="0" width="1040" height="70" rx="8" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
       <rect x="16" y="17" width="36" height="36" rx="6" fill="url(#orangeGrad)"/>
       <text x="34" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">XII</text>
-      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Harvest Failures</text>
+      <text x="70" y="32" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#FAFAFA">Compound Knowledge</text>
       <text x="70" y="52" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Bundle what works into reusable components. Share across projects and teams.</text>
     </g>
   </g>

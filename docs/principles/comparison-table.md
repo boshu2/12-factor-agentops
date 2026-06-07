@@ -4,26 +4,35 @@ Three frameworks, three layers of the stack. This document maps each original 12
 
 - **12-Factor App** (Heroku, 2011): How to build cloud-native applications
 - **12-Factor Agents** (Dex Horthy, 2025): How to build reliable AI applications
-- **12-Factor AgentOps** (v3, 2026): The operational discipline for working with AI agents
+- **12-Factor AgentOps** (v4, 2026): The operational discipline for working with AI agents
 
 ---
 
 ## Quick Reference
 
-| # | 12-Factor App (2011) | 12-Factor Agents (2025) | 12-Factor AgentOps v3 (2026) |
-|---|----------------------|-------------------------|------------------------------|
-| I | Codebase | Own your prompts | **[Context Is Everything](../../factors/01-context-is-everything.md)** |
-| II | Dependencies | Own your context window | **[Track Everything in Git](../../factors/02-track-everything-in-git.md)** |
-| III | Config | Tools as structured outputs | **[One Agent, One Job](../../factors/03-one-agent-one-job.md)** |
-| IV | Backing Services | Small, focused agents | **[Research Before You Build](../../factors/04-research-before-you-build.md)** |
-| V | Build/Release/Run | Launch/Pause/Resume APIs | **[Validate Externally](../../factors/05-validate-externally.md)** |
-| VI | Processes | Stateless reducer | **[Lock Progress Forward](../../factors/06-lock-progress-forward.md)** |
-| VII | Port Binding | Trigger from anywhere | **[Extract Learnings](../../factors/07-extract-learnings.md)** |
-| VIII | Concurrency | Small, focused agents | **[Compound Knowledge](../../factors/08-compound-knowledge.md)** |
-| IX | Disposability | Launch/Pause/Resume | **[Measure What Matters](../../factors/09-measure-what-matters.md)** |
-| X | Dev/Prod Parity | Implicit | **[Isolate Workers](../../factors/10-isolate-workers.md)** |
-| XI | Logs | Compact errors into context | **[Supervise Hierarchically](../../factors/11-supervise-hierarchically.md)** |
-| XII | Admin Processes | Contact humans with tools | **[Harvest Failures as Wisdom](../../factors/12-harvest-failures-as-wisdom.md)** |
+> **Read this table by column, not by row.** Each framework is numbered on its own
+> terms. The Heroku and Agents columns are listed against the closest AgentOps
+> ancestor as a *conceptual lineage*, not a 1:1 position match. After the v4
+> renumbering (which added **IV: Enforce Least Privilege** and folded "Harvest
+> Failures as Wisdom" into **X: Compound Knowledge**), the AgentOps numerals no
+> longer line up with Heroku's -- e.g. AgentOps IX is now Extract Learnings, not
+> a descendant of Heroku IX (Disposability). The rows below are ordered by the
+> **AgentOps v4** numeral.
+
+| AgentOps # | 12-Factor AgentOps v4 (2026) | Closest Heroku ancestor (2011) | Closest Agents ancestor (2025) |
+|---|------------------------------|--------------------------------|--------------------------------|
+| I | **[Context Is Everything](../../factors/01-context-is-everything.md)** | I Codebase | Own your prompts |
+| II | **[Track Everything in Git](../../factors/02-track-everything-in-git.md)** | II Dependencies | Own your context window |
+| III | **[One Agent, One Job](../../factors/03-one-agent-one-job.md)** | III Config | Tools as structured outputs |
+| IV | **[Enforce Least Privilege](../../factors/04-enforce-least-privilege.md)** | III Config / Zero-trust lineage | (new -- no direct Agents ancestor) |
+| V | **[Research Before You Build](../../factors/05-research-before-you-build.md)** | IV Backing Services | Small, focused agents |
+| VI | **[Isolate Workers](../../factors/06-isolate-workers.md)** | X Dev/Prod Parity | Implicit |
+| VII | **[Validate Externally](../../factors/07-validate-externally.md)** | V Build/Release/Run | Launch/Pause/Resume APIs |
+| VIII | **[Lock Progress Forward](../../factors/08-lock-progress-forward.md)** | VI Processes | Stateless reducer |
+| IX | **[Extract Learnings](../../factors/09-extract-learnings.md)** | VII Port Binding | Trigger from anywhere |
+| X | **[Compound Knowledge](../../factors/10-compound-knowledge.md)** | VIII Concurrency + XII Admin Processes | Small, focused agents; Contact humans with tools |
+| XI | **[Supervise Hierarchically](../../factors/11-supervise-hierarchically.md)** | XI Logs | Compact errors into context |
+| XII | **[Measure Outcomes](../../factors/12-measure-outcomes.md)** | IX Disposability | Launch/Pause/Resume |
 
 ---
 
@@ -46,6 +55,11 @@ This compression does not replace the factors. It explains the mechanism beneath
 ---
 
 ## Detailed Comparison
+
+> The headings below are organized by the **Heroku** factor (its 2011 numeral),
+> tracing each one forward to its closest AI-age descendant. The AgentOps numeral
+> shown for each is the **v4** numeral, which does not match the Heroku numeral --
+> the mapping is conceptual lineage, not a position match.
 
 ### Factor I: Codebase / Prompts / Context Is Everything
 
@@ -107,6 +121,22 @@ This compression does not replace the factors. It explains the mechanism beneath
 
 ---
 
+### New in v4: AgentOps IV: Enforce Least Privilege
+
+This factor is **new in AgentOps v4** -- it has no Heroku numeral of its own and no direct 12-Factor Agents ancestor. Its closest lineage is Heroku III (Config: keep secrets and environment-specific settings out of the codebase) extended through the **Zero-Trust** architecture tradition that also underpins Factor VII (Validate Externally).
+
+**Closest Heroku ancestor (III: Config / Zero-trust lineage)**
+- *Principle*: Store config (and secrets) in the environment, not the codebase
+- *Why it's the ancestor*: Both are about bounding what a component can reach -- Config externalizes credentials; Least Privilege bounds what those credentials can do
+
+**12-Factor AgentOps (IV: Enforce Least Privilege)**
+- *Evolution*: Grant each agent the minimum permissions, scopes, and blast radius required for its task -- and no more
+- *Why Different*: An agent with broad credentials can cause broad damage from a single bad inference; capability must be scoped to intent
+- *Key Practice*: Scope tokens, file access, and tool permissions per task; default-deny destructive operations; make irreversible actions require explicit approval
+- *Unique Aspect*: Applies zero-trust to agent *capability*, not just agent *output* -- the complement to Factor VII's zero-trust on verdicts
+
+---
+
 ### Factor IV: Backing Services / Small Agents / Research Before You Build
 
 **Original 12-Factor App (IV: Backing Services)**
@@ -119,7 +149,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Why Changed*: Large agents get stuck at 70-80% quality
 - *Key Practice*: One agent, one well-defined responsibility
 
-**12-Factor AgentOps (IV: Research Before You Build)**
+**12-Factor AgentOps (V: Research Before You Build)**
 - *Evolution*: Understand the problem space before generating code
 - *Why Different*: Agents that skip research produce plausible but wrong solutions
 - *Key Practice*: Separate research phase from implementation phase; understand before generating
@@ -139,7 +169,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Why Changed*: AI workflows need to pause/resume across sessions
 - *Key Practice*: Simple APIs for agent lifecycle management
 
-**12-Factor AgentOps (V: Validate Externally)**
+**12-Factor AgentOps (VII: Validate Externally)**
 - *Evolution*: The worker reports evidence; an independent checker writes the binding verdict. No agent grades its own work.
 - *Why Different*: Agents are confident but not reliable -- they cannot objectively evaluate their own output
 - *Key Practice*: The worker emits claims plus evidence; an independent checker -- tests, linters, a different agent, or a human reviewer -- is the sole writer of the binding verdict
@@ -159,7 +189,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Why Changed*: Makes agents reproducible and testable
 - *Key Practice*: Agent takes state, produces new state, no hidden memory
 
-**12-Factor AgentOps (VI: Lock Progress Forward)**
+**12-Factor AgentOps (VIII: Lock Progress Forward)**
 - *Evolution*: Once work passes validation, it ratchets -- it cannot regress
 - *Why Different*: Without ratcheting, agents undo validated work during later iterations
 - *Key Practice*: Commit validated work to protected branches; checkpoint progress
@@ -179,7 +209,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Why Changed*: Users interact through multiple interfaces
 - *Key Practice*: Meet users where they are
 
-**12-Factor AgentOps (VII: Extract Learnings)**
+**12-Factor AgentOps (IX: Extract Learnings)**
 - *Evolution*: Every session produces two outputs -- the work product and the lessons learned
 - *Why Different*: Without explicit extraction, hard-won knowledge dies with the session
 - *Key Practice*: End every session by capturing what worked, what failed, why it mattered, and where the learning came from
@@ -199,7 +229,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Why Changed*: Scaling AI through composition, not monoliths
 - *Key Practice*: Parallelize via multiple agents
 
-**12-Factor AgentOps (VIII: Compound Knowledge)**
+**12-Factor AgentOps (X: Compound Knowledge)**
 - *Evolution*: Learnings must flow back into future sessions automatically
 - *Why Different*: Extraction without injection is a write-only journal nobody reads
 - *Key Practice*: Quality-gate extracted learnings, inject relevant knowledge at session start, measure retrieval effectiveness, let stale knowledge decay
@@ -207,7 +237,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 
 ---
 
-### Factor IX: Disposability / Launch-Pause-Resume / Measure What Matters
+### Factor IX: Disposability / Launch-Pause-Resume / Measure Outcomes
 
 **Original 12-Factor App (IX: Disposability)**
 - *Principle*: Fast startup, graceful shutdown
@@ -219,7 +249,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Why Changed*: AI workflows need rapid start/stop
 - *Key Practice*: Same as Factor V -- agent lifecycle APIs
 
-**12-Factor AgentOps (IX: Measure What Matters)**
+**12-Factor AgentOps (XII: Measure Outcomes)**
 - *Evolution*: Track fitness toward goals, not activity metrics
 - *Why Different*: Without measurement, you cannot know if your operations are improving
 - *Key Practice*: Measure outcomes (validation pass rates, recurrence, knowledge reuse, cost per goal) not vanity metrics (tokens consumed, sessions run)
@@ -238,7 +268,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Adaptation*: Not explicitly called out, but implied in all factors
 - *Note*: Incorporated into other factors
 
-**12-Factor AgentOps (X: Isolate Workers)**
+**12-Factor AgentOps (VI: Isolate Workers)**
 - *Evolution*: Each worker gets its own workspace, its own context, and zero shared mutable state
 - *Why Different*: Parallel agents sharing state create cascading conflicts
 - *Key Practice*: Git worktrees, separate context windows, independent validation
@@ -266,7 +296,7 @@ This compression does not replace the factors. It explains the mechanism beneath
 
 ---
 
-### Factor XII: Admin Processes / Contact Humans / Harvest Failures as Wisdom
+### Factor XII: Admin Processes / Contact Humans / Compound Knowledge (folds in Harvest Failures)
 
 **Original 12-Factor App (XII: Admin Processes)**
 - *Principle*: Run admin/management tasks as one-off processes
@@ -278,11 +308,12 @@ This compression does not replace the factors. It explains the mechanism beneath
 - *Why Changed*: AI needs human judgment for critical decisions
 - *Key Practice*: Human contact is a first-class operation, not exception
 
-**12-Factor AgentOps (XII: Harvest Failures as Wisdom)**
-- *Evolution*: Turn dead ends into routing hints that prune the next agent's search space
+**12-Factor AgentOps (X: Compound Knowledge)**
+- *Note*: In v4 the former standalone "Harvest Failures as Wisdom" factor was folded into **X: Compound Knowledge** -- failure harvesting is now one mechanism inside the knowledge flywheel, not a separate factor.
+- *Evolution*: Turn dead ends into routing hints that prune the next agent's search space, alongside the positive learnings that compound across sessions
 - *Why Different*: Failures contain the highest-value learnings but are typically discarded
 - *Key Practice*: Index negative knowledge for retrieval at decision time, and hand a stuck worker's failure trace to a fresh agent rather than looping the saturated one
-- *Unique Aspect*: Scale tier (factory altitude) -- negative knowledge that prunes the search, distinct from Factor VII's generic capture; feeds Factor VIII (Compound Knowledge)
+- *Unique Aspect*: Negative knowledge that prunes the search space, now part of the same compounding loop as Factor IX (Extract Learnings) feeding Factor X (Compound Knowledge)
 
 ---
 

@@ -10,7 +10,7 @@ This directory contains deep dives into the core concepts that underpin the fram
 
 Twelve vendor-neutral principles organized in four tiers. Each tier builds on the previous one. You can stop at any tier and keep the value.
 
-### Foundation (I-III) -- Non-negotiable basics
+### Prepare (I-III) -- Non-negotiable basics
 
 | # | Factor | The Rule |
 |---|--------|----------|
@@ -18,25 +18,23 @@ Twelve vendor-neutral principles organized in four tiers. Each tier builds on th
 | **[II](../../factors/02-track-everything-in-git.md)** | **Track Everything in Git** | If it's not in git, it didn't happen. |
 | **[III](../../factors/03-one-agent-one-job.md)** | **One Agent, One Job** | Each agent gets a scoped task and fresh context. Never reuse a saturated window. |
 
-### Workflow (IV-VI) -- The discipline that separates prompting from operating
+### Bound (IV-VI) -- The discipline that separates prompting from operating
 
 | # | Factor | The Rule |
 |---|--------|----------|
-| **[IV](../../factors/04-research-before-you-build.md)** | **Research Before You Build** | Understand the problem space before generating a single line of code. |
-| **[V](../../factors/05-validate-externally.md)** | **Validate Externally** | The worker reports evidence; an independent checker writes the binding verdict. No agent grades its own work. |
-| **[VI](../../factors/06-lock-progress-forward.md)** | **Lock Progress Forward** | Once work passes validation, it ratchets -- it cannot regress. |
+| **[IV](../../factors/04-enforce-least-privilege.md)** | **Enforce Least Privilege** | An agent acts inside a least-privilege envelope it cannot widen -- not even on untrusted input. |
+| **[V](../../factors/05-research-before-you-build.md)** | **Research Before You Build** | Understand the problem space before generating a single line of code. |
+| **[VI](../../factors/06-isolate-workers.md)** | **Isolate Workers** | Each worker gets its own workspace, its own context, and zero shared mutable state. |
 
-### Knowledge (VII-IX) -- Where compounding kicks in
+### Select (VII-IX) -- Where compounding kicks in
 
 | # | Factor | The Rule |
 |---|--------|----------|
-| **[VII](../../factors/07-extract-learnings.md)** | **Extract Learnings** | Every session produces two outputs -- the work product and the lessons learned. |
-| **[VIII](../../factors/08-compound-knowledge.md)** | **Compound Knowledge** | Learnings must flow back into future sessions automatically. |
-| **[IX](../../factors/09-measure-what-matters.md)** | **Measure What Matters** | Track fitness toward goals, not activity metrics. |
+| **[VII](../../factors/07-validate-externally.md)** | **Validate Externally** | The worker reports evidence; an independent checker writes the binding verdict. No agent grades its own work. |
+| **[VIII](../../factors/08-lock-progress-forward.md)** | **Lock Progress Forward** | Once work passes validation, it ratchets -- it cannot regress. |
+| **[IX](../../factors/09-extract-learnings.md)** | **Extract Learnings** | Every session produces two outputs -- the work product and the lessons learned. |
 
-**Factor VIII is the hero.** It is the knowledge flywheel: extract learnings, gate for quality, inject into future sessions, measure retrieval, let stale knowledge decay. This is the differentiator that no amount of model improvement replaces -- better models with amnesia still repeat your mistakes.
-
-### Scale (X-XII) -- The Factory Altitude
+### Govern (X-XII) -- The Factory Altitude
 
 The same factors at fleet scale. Working solo, you live them in miniature -- a
 git worktree is isolation, your own judgment is supervision, your `learnings.md`
@@ -45,9 +43,11 @@ factors.
 
 | # | Factor | The Rule |
 |---|--------|----------|
-| **[X](../../factors/10-isolate-workers.md)** | **Isolate Workers** | Each worker gets its own workspace, its own context, and zero shared mutable state. |
+| **[X](../../factors/10-compound-knowledge.md)** | **Compound Knowledge** | Learnings must flow back into future sessions automatically; turn dead ends into routing hints that prune the next agent's search. |
 | **[XI](../../factors/11-supervise-hierarchically.md)** | **Supervise Hierarchically** | Escalation flows up, never sideways. |
-| **[XII](../../factors/12-harvest-failures-as-wisdom.md)** | **Harvest Failures as Wisdom** | Turn dead ends into routing hints that prune the next agent's search. |
+| **[XII](../../factors/12-measure-outcomes.md)** | **Measure Outcomes** | Track fitness toward goals, not activity metrics. |
+
+**Factor X is the hero.** It is the knowledge flywheel: extract learnings, gate for quality, inject into future sessions, measure retrieval, let stale knowledge decay. This is the differentiator that no amount of model improvement replaces -- better models with amnesia still repeat your mistakes.
 
 ---
 
@@ -87,32 +87,32 @@ Both human cognition and AI context windows show catastrophic performance degrad
 **Read time:** 15 minutes
 **When to read:** Understanding git as institutional memory
 
-Git is not just version control -- it is the operating system for institutional knowledge. Commits as memory writes, branches as process isolation, merges as knowledge integration, history as audit trail. Directly supports Factor II (Track Everything in Git) and Factor VIII (Compound Knowledge).
+Git is not just version control -- it is the operating system for institutional knowledge. Commits as memory writes, branches as process isolation, merges as knowledge integration, history as audit trail. Directly supports Factor II (Track Everything in Git) and Factor X (Compound Knowledge).
 
 ---
 
 ## The Knowledge Flywheel
 
-The central mechanism of 12-Factor AgentOps. Every factor contributes to it; Factor VIII (Compound Knowledge) is its beating heart.
+The central mechanism of 12-Factor AgentOps. Every factor contributes to it; Factor X (Compound Knowledge) is its beating heart.
 
 ```
-              Extract (Factor VII)
+              Extract (Factor IX)
                     |
                     v
     Session --> Learnings --> Quality Gate
                                   |
                                   v
-    Measure (Factor IX) <-- Knowledge Base --> Inject (Factor I)
+    Measure (Factor XII) <-- Knowledge Base --> Inject (Factor I)
          |                                         |
          v                                         v
     Decay / Prune                          Next Session (smarter)
 ```
 
 **The cycle:**
-1. **Extract** -- Every session produces learnings alongside work product (Factor VII)
-2. **Gate** -- Learnings pass quality checks before entering the knowledge base (Factor V)
+1. **Extract** -- Every session produces learnings alongside work product (Factor IX)
+2. **Gate** -- Learnings pass quality checks before entering the knowledge base (Factor VII)
 3. **Inject** -- Future sessions load relevant knowledge just-in-time (Factor I)
-4. **Measure** -- Track whether injected knowledge improves outcomes (Factor IX)
+4. **Measure** -- Track whether injected knowledge improves outcomes (Factor XII)
 5. **Decay** -- Stale knowledge loses priority; wrong knowledge gets pruned
 
 This is the differentiator that cannot be commoditized. Better models do not replace institutional memory.

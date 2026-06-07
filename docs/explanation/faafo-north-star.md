@@ -78,7 +78,7 @@ FAAFO describes the **ideal state of developer experience** when AI augments wor
         "Proven patterns to achieve FAAFO"
                     ↓
         12-Factor AgentOps (The WHAT - Operational Patterns)
-   I-IV: Foundation → V-VIII: Operations → IX-XII: Improvement
+   I-IV: Prepare → V-VIII: Bound → IX-X: Select → XI-XII: Govern
         "Specific practices implementing pillars"
                     ↓
         AI Workflows (The IMPLEMENTATION)
@@ -100,7 +100,7 @@ FAAFO describes the **ideal state of developer experience** when AI augments wor
 
 **Technical pillar applied:** Context Engineering (40% rule)
 
-**12-Factor implementation:** Factor II (Track Everything in Git), Factor VI (Lock Progress Forward)
+**12-Factor implementation:** Factor II (Track Everything in Git), Factor VIII (Lock Progress Forward)
 
 **Workflow implementation:** JIT loading, thin kernels, bundle compression (12:1 ratio)
 
@@ -110,7 +110,7 @@ FAAFO describes the **ideal state of developer experience** when AI augments wor
 
 ---
 
-### Example 2: Validation Gates (Factor IV)
+### Example 2: Validation Gates (Factor VII)
 
 **FAAFO dimensions:** Fast + Fun
 - Fast = Catch errors early (don't wait for production)
@@ -118,7 +118,7 @@ FAAFO describes the **ideal state of developer experience** when AI augments wor
 
 **Technical pillar applied:** DevOps/SRE (CI/CD, validation gates)
 
-**12-Factor implementation:** Factor IV (Research Before You Build), Factor V (Validate Externally)
+**12-Factor implementation:** Factor V (Research Before You Build), Factor VII (Validate Externally)
 
 **Workflow implementation:** Multi-layer validation (syntax → schema → security → policy)
 
@@ -128,7 +128,7 @@ FAAFO describes the **ideal state of developer experience** when AI augments wor
 
 ---
 
-### Example 3: Pattern Libraries (Factor XII)
+### Example 3: Pattern Libraries (Factor X)
 
 **FAAFO dimensions:** Ambitious + Autonomous
 - Ambitious = Tackle projects previously out of reach
@@ -136,7 +136,7 @@ FAAFO describes the **ideal state of developer experience** when AI augments wor
 
 **Technical pillar applied:** Learning Science (pattern reuse, spaced repetition)
 
-**12-Factor implementation:** Factor IX (Measure What Matters), Factor XII (Harvest Failures as Wisdom)
+**12-Factor implementation:** Factor XII (Measure Outcomes), Factor X (Compound Knowledge)
 
 **Workflow implementation:** Bundle system, golden patterns, 84 specialized agents
 

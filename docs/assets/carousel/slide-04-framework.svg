@@ -106,7 +106,7 @@
       <text x="0" y="15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
             font-size="13" fill="#94A3B8">Compound Knowledge</text>
       <text x="0" y="45" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="13" fill="#94A3B8">Measure What Matters</text>
+            font-size="13" fill="#94A3B8">Measure Outcomes</text>
     </g>
 
     <!-- Scale -->
@@ -123,7 +123,7 @@
       <text x="0" y="15" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
             font-size="13" fill="#94A3B8">Supervise Hierarchy</text>
       <text x="0" y="45" text-anchor="middle" font-family="Inter, -apple-system, sans-serif"
-            font-size="13" fill="#94A3B8">Harvest Failures</text>
+            font-size="13" fill="#94A3B8">Compound Knowledge</text>
     </g>
 
     <!-- Connecting arrows -->
