@@ -15,6 +15,8 @@ In [Vibe Coding](https://www.youtube.com/watch?v=vibe-coding), Gene Kim introduc
 
 Each loop has its own Prevention, Detection, and Correction strategies.
 
+These are **loops within loops**: the Inner loop runs inside the Middle, the Middle inside the Outer, and the same validate-lock-learn ratchet turns inside each one. A failure that leaks out of one surfaces in the loop above it.
+
 **Why this matters:** Different loops require different operational patterns. What works for quick coding (Inner) doesn't work for multi-agent orchestration (Middle) or organizational transformation (Outer).
 
 ---

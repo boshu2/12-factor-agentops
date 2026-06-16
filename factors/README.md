@@ -12,6 +12,12 @@ actors do scoped work, traces coordinate across sessions, selection gates
 decide what survives, promotion loops compound intelligence, and governance
 sets objective and boundaries.
 
+## Loops within loops
+
+The four phases are a loop, not a line. Govern feeds back into Prepare, so a unit of work circles Prepare → Bound → Select → Govern and around again. That loop runs at three nested timescales at once. Gene Kim calls them the [three developer loops](../docs/explanation/three-developer-loops.md): an Inner loop of seconds to minutes (write, test, fix), a Middle loop of hours to days (coordinate agents, build a feature), and an Outer loop of weeks to months (architecture, process, org). Inside a single turn runs a tighter loop still: validate, lock, learn, compound (VII → VIII → IX → X), the ratchet that fires every time work clears a gate.
+
+Loops within loops is the point. A pipeline runs once and ends; a loop compounds. The model you run is rented and roughly the same as everyone else's; what compounds is the loop, and the loops nested inside it, that turn each pass into context the next pass starts from. The twelve factors are the discipline that keeps every one of those loops closing instead of leaking.
+
 ---
 
 ## Operator Model Crosswalk
