@@ -1,9 +1,16 @@
 # The Twelve Factors
 
 Doctrine behind the operational layer for coding agents. Twelve factors grouped
-by a four-phase operational lifecycle — **Prepare → Bound → Select → Govern** —
+by a four-phase operational lifecycle, **Prepare → Bound → Select → Govern**,
 that a unit of work passes through, with Govern feeding back into Prepare. The
 phases are a reading lens, not a strict dependency chain.
+
+These phases line up with the [CDLC](https://bodenfuller.com/writing/cdlc)
+context lifecycle. **Prepare** builds and ships the context (Generate, Compile,
+Distribute, Deliver). **Select** tests it. **Govern** observes and adapts.
+**Bound** is the odd one out on purpose: least privilege, research, and
+isolation are a guardrail axis that wraps every phase, not a stage the work
+passes through.
 
 The twelve factors stay the primary public surface. The
 [operator model](../docs/explanation/operator-model.md) is the compression
@@ -32,9 +39,9 @@ Loops within loops is the point. A pipeline runs once and ends; a loop compounds
 | **Promotion loops** | Raw observations (and failures) become reusable patterns and operating rules | IX, X |
 | **Governance** | Humans and explicit constraints set objective, boundaries, and escalation | IV, VII, XI, XII |
 
-## Prepare (I–III)
+## Prepare · Generate → Deliver (I–III)
 
-Set up the environment before the agent acts.
+Set up the environment before the agent acts. In CDLC terms, this is where context is generated, compiled, distributed, and delivered.
 
 | # | Factor | One-liner |
 |---|--------|-----------|
@@ -42,9 +49,9 @@ Set up the environment before the agent acts.
 | [II](./02-track-everything-in-git.md) | **Track Everything in Git** | If it is not in git, it did not happen. |
 | [III](./03-one-agent-one-job.md) | **One Agent, One Job** | One agent, one task. Compose specialists. |
 
-## Bound (IV–VI)
+## Bound · guardrail axis (IV–VI)
 
-Constrain what an agent may do before it touches anything real.
+Constrain what an agent may do before it touches anything real. This is the safety axis that wraps the whole CDLC rather than occupying one of its phases.
 
 | # | Factor | One-liner |
 |---|--------|-----------|
@@ -52,9 +59,9 @@ Constrain what an agent may do before it touches anything real.
 | [V](./05-research-before-you-build.md) | **Research Before You Build** | Understand the integration surface before writing code. |
 | [VI](./06-isolate-workers.md) | **Isolate Workers** | Concurrent workers share only gated coordination state. |
 
-## Select (VII–IX)
+## Select · Test (VII–IX)
 
-Decide what survives — prove it, lock it, learn from it.
+Decide what survives: prove it, lock it, learn from it. This is the CDLC's Test phase, where context is validated against real behavior.
 
 | # | Factor | One-liner |
 |---|--------|-----------|
@@ -62,9 +69,9 @@ Decide what survives — prove it, lock it, learn from it.
 | [VIII](./08-lock-progress-forward.md) | **Lock Progress Forward** | Validated work ratchets; regression takes an explicit reversal. |
 | [IX](./09-extract-learnings.md) | **Extract Learnings** | Every non-trivial session produces a reusable insight, failures included. |
 
-## Govern (X–XII)
+## Govern · Observe + Adapt (X–XII)
 
-Steer the system and feed back into the next cycle.
+Steer the system and feed back into the next cycle. In CDLC terms, this is Observe and Adapt: watch outcomes, then improve the context the next pass starts from.
 
 | # | Factor | One-liner |
 |---|--------|-----------|
